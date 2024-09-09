@@ -1,0 +1,2 @@
+# pnpm build-storybook && pnpm test && pnpm build
+pnpm build
