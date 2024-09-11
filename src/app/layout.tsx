@@ -7,8 +7,8 @@ import './globals.css';
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: 'Next.js Boilerplate',
-  description: 'Next.js 14+ boilerplate app',
+  title: 'Medical Dashboard',
+  description: 'Medical Dashboard application',
   icons: [
     {
       rel: 'icon',
