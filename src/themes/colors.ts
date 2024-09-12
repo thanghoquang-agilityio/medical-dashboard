@@ -1,32 +1,32 @@
 export const colors = {
   black: '#000000',
   'black-violet': {
-    light: '#1B1C31',
-    dark: '#e4e3ce',
+    light: '#E4E3cE',
+    dark: '#1B1C31',
   },
   blue: '#377DFF',
-  white: '#ffffff',
+  white: '#FFFFFF',
   emerald: '#009D92',
   gray: {
-    light: '#8F8F8F',
-    dark: '#707070',
+    light: '#707070',
+    dark: '#8F8F8F',
   },
   green: '#38CB89',
   neutral: {
     light: '#1C1C1E',
-    dark: '#e3e3e1',
+    dark: '#E3E3E1',
   },
   orange: '#FF5630',
   purple: '#54577A',
   'purple-shiny': {
-    light: '#222338',
-    dark: '#dddcc7',
+    light: '#DDDCC7',
+    dark: '#222338',
   },
   red: '#D80027',
   sky: '#15BFFD',
   stone: {
-    light: '#D9D9D9',
-    dark: '#262626',
+    light: '#262626',
+    dark: '#D9D9D9',
   },
   yellow: '#FFA600',
 };
