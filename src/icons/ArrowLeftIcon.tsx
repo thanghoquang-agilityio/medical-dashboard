@@ -1,18 +1,20 @@
 import { CustomClassType } from '@/types/components';
 
-export const BoltIcon = ({ customClass = 'w-6 h-6' }: CustomClassType) => (
+export const ArrowLeftIcon = ({
+  customClass = 'w-full h-full',
+}: CustomClassType) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
-    fill="none"
     viewBox="0 0 24 24"
-    strokeWidth={1.5}
-    stroke="currentColor"
+    fill="none"
     className={customClass}
   >
     <path
+      d="M15.75 4.5L8.25 12L15.75 19.5"
+      stroke="currentColor"
+      strokeWidth="1.5"
       strokeLinecap="round"
       strokeLinejoin="round"
-      d="m3.75 13.5 10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75Z"
     />
   </svg>
 );
