@@ -42,7 +42,7 @@ const config: Config = {
             },
             foreground: colors.neutral.light,
             primary: {
-              100: colors.white,
+              100: colors.black,
               200: colors.stone.light,
               300: colors.gray.light,
             },
@@ -68,7 +68,7 @@ const config: Config = {
             },
             foreground: colors.neutral.dark,
             primary: {
-              100: colors.black,
+              100: colors.white,
               200: colors.stone.dark,
               300: colors.gray.dark,
             },
