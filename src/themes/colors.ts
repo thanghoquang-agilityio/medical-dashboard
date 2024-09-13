@@ -1,7 +1,7 @@
 export const colors = {
   black: '#000000',
   'black-violet': {
-    light: '#E4E3cE',
+    light: '#FFFAFA',
     dark: '#1B1C31',
   },
   blue: '#377DFF',
@@ -19,7 +19,7 @@ export const colors = {
   orange: '#FF5630',
   purple: '#54577A',
   'purple-shiny': {
-    light: '#DDDCC7',
+    light: '#E8E8E8',
     dark: '#222338',
   },
   red: '#D80027',
