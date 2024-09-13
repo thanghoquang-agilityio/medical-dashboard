@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Image Component Match snapshot 1`] = `
+<div>
+  <img
+    alt="UnavailableImage"
+    src="/images/image-not-available.webp"
+  />
+</div>
+`;
