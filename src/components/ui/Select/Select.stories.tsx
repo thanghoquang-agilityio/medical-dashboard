@@ -4,12 +4,12 @@ import { Select } from '.';
 
 const animals = [
   {
-    key: 'cat',
-    label: 'Cat',
+    key: 'Jan',
+    label: 'January',
   },
   {
-    key: 'dog',
-    label: 'Dog',
+    key: 'Feb',
+    label: 'February',
   },
 ];
 
