@@ -58,6 +58,7 @@ const config: Config = {
               100: colors.red,
               200: colors.orange,
             },
+            default: colors.white,
           },
         },
         dark: {
@@ -85,6 +86,7 @@ const config: Config = {
               100: colors.red,
               200: colors.orange,
             },
+            default: colors.black,
           },
         },
       },
