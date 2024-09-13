@@ -34,7 +34,6 @@ export const colors = {
 export const backgroundImage = {
   'linear-banner':
     'linear-gradient(66.15deg, #B2E6FD -5.25%, #38CB89 35.43%, #15BFFD 98.77%)',
-  'linear-button': 'linear-gradient(265.41deg, #46AA72 0%, #2DA0A4 77.48%)',
-  'linear-sidebar':
-    'linear-gradient(92.44deg, #15BFFD -3.59%, #00FF85 108.46%)',
+  'linear-success': 'linear-gradient(265.41deg, #46AA72 0%, #2DA0A4 77.48%)',
+  'linear-danger': 'linear-gradient(180deg, #D80027 0%, #6F0014 100%)',
 };
