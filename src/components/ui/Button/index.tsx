@@ -7,13 +7,13 @@ export const Button = extendVariants(ButtonNextUI, {
     variant: {
       solid: 'border-transparent font-semibold',
       outline:
-        'border-1 border-secondary-300 hover:bg-secondary-300 hover:text-primary-100',
+        'border-1 border-secondary-300 hover:bg-linear-success hover:text-content1 font-semibold',
     },
 
     color: {
       default: 'bg-transparent text-secondary-300',
-      primary: 'bg-linear-success text-primary-100',
-      secondary: 'bg-linear-danger text-primary-100',
+      primary: 'bg-linear-success text-content1',
+      secondary: 'bg-linear-danger text-content1',
       red: 'text-red',
       stone: 'text-primary-200',
       green: 'text-green',
