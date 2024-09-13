@@ -5,3 +5,4 @@ export * from './Status';
 export * from './Select';
 export * from './Text';
 export * from './Input';
+export * from './Avatar';
