@@ -14,9 +14,7 @@ export const container = {
 };
 
 export const radius = {
-  small: '8px',
   medium: '10px',
-  large: '24px',
 };
 
 export const borderWidth = {

@@ -20,7 +20,7 @@ const STATUS = {
 
 export const Status = memo(({ status }: { status: STATUS_TYPE }) => (
   <div
-    className={`${COLOR_STATUS[status]} bg-opacity-20 w-fit px-2 rounded-[6px] text-center`}
+    className={`${COLOR_STATUS[status]} bg-opacity-20 w-fit max-w-16 px-2 rounded-md text-center`}
   >
     <Text
       variant={status}

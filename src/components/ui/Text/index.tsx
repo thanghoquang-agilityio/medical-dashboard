@@ -1,4 +1,5 @@
 import { memo, type ReactNode } from 'react';
+import { TYPE_CLASSES } from '@/constants';
 
 interface TextProps {
   variant?:
@@ -18,7 +19,7 @@ interface TextProps {
   children: ReactNode;
 }
 
-const variantClasses = {
+const VARIANT_CLASSES = {
   primary: 'text-primary-100 font-medium',
   secondary: 'text-secondary-100',
   tertiary: 'text-foreground-300',
@@ -31,7 +32,7 @@ const variantClasses = {
   default: 'text-foreground',
 };
 
-const sizeClasses = {
+const SIZE_CLASSES = {
   '2xs': 'text-2xs',
   xs: 'text-xs',
   sm: 'text-sm',
@@ -39,11 +40,6 @@ const sizeClasses = {
   lg: 'text-lg',
   xl: 'text-xl',
   '2xl': 'text-2xl',
-};
-
-const typeClasses = {
-  nowrap: 'text-ellipsis whitespace-nowrap overflow-hidden',
-  wrap: 'whitespace-pre-wrap overflow-visible',
 };
 
 export const Text = memo(
@@ -54,7 +50,7 @@ export const Text = memo(
     customClass,
     children,
   }: TextProps) => {
-    const classes = `${variantClasses[variant]} ${size ? sizeClasses[size] : ''} ${typeClasses[type]} ${customClass || ''}`;
+    const classes = `${VARIANT_CLASSES[variant]} ${size ? SIZE_CLASSES[size] : ''} ${TYPE_CLASSES[type]} ${customClass || ''}`;
 
     return <p className={classes}>{children}</p>;
   },
