@@ -18,9 +18,14 @@ export const NAVBAR_LINKS = [
     name: 'Appointment',
     href: ROUTER.APPOINTMENT,
     icon: AppointmentIcon,
-    active: true,
+    isEnable: true,
   },
-  { name: 'Chemists', href: ROUTER.CHEMISTS, icon: ChemistIcon, active: true },
+  {
+    name: 'Chemists',
+    href: ROUTER.CHEMISTS,
+    icon: ChemistIcon,
+    isEnable: true,
+  },
   { name: 'Hospitals', href: '#', icon: HospitalIcon },
   { name: 'Doctors', href: '#', icon: DoctorIcon },
   { name: 'Medicines', href: '#', icon: MedicineIcon },
@@ -32,6 +37,5 @@ export const SUPPORT_LINKS = [
     name: 'Settings',
     href: '#',
     icon: SettingIcon,
-    active: true,
   },
 ];

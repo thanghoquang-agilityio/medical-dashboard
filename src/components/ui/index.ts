@@ -6,4 +6,5 @@ export * from './Select';
 export * from './Text';
 export * from './Input';
 export * from './MenuDropdown';
+export * from './Navbar';
 export * from './Avatar';
