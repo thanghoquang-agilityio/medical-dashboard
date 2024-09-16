@@ -22,12 +22,26 @@ export const SpinnerSmall: Story = {
 };
 
 export const SpinnerMedium: Story = {
+  decorators: [
+    (Story) => (
+      <div className="h-[50px]">
+        <Story />
+      </div>
+    ),
+  ],
   args: {
     size: 'md',
   },
 };
 
 export const SpinnerLarge: Story = {
+  decorators: [
+    (Story) => (
+      <div className="h-[70px]">
+        <Story />
+      </div>
+    ),
+  ],
   args: {
     size: 'lg',
   },

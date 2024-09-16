@@ -1,4 +1,5 @@
 export * from './appointment';
+export * from './common';
 export * from './components';
 export * from './image';
 export * from './notification';
