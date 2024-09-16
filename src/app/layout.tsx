@@ -4,7 +4,7 @@ import { Plus_Jakarta_Sans, Poppins } from 'next/font/google';
 // Components
 import './globals.css';
 
-export const plusJakartaSans = Plus_Jakarta_Sans({
+const plusJakartaSans = Plus_Jakarta_Sans({
   weight: ['400', '700'],
   subsets: ['latin'],
   variable: '--font-plus-jakarta-sans',
