@@ -30,7 +30,7 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(
         trigger: cn(
           'px-4 h-[46px] rounded-lg',
           'bg-background-100 shadow-stack border-1 outline-offset-0',
-          'data-[focus=true]:outline-primary data-[focus=true]:outline-offset-0',
+          'data-[focus=true]:border-primary data-[focus=true]:border-1',
         ),
         selectorIcon: 'text-primary-100',
         popoverContent: 'bg-background-100 w-full rounded-lg',
