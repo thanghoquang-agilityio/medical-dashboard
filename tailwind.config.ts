@@ -24,6 +24,7 @@ const config: Config = {
       fontSize,
       screens,
       fontFamily: {
+        inter: 'var(--font-inter)',
         'plus-jakarta-sans': 'var(--font-plus-jakarta-sans)',
       },
     },
