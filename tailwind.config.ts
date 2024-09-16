@@ -23,6 +23,9 @@ const config: Config = {
       container,
       fontSize,
       screens,
+      fontFamily: {
+        'plus-jakarta-sans': 'var(--font-plus-jakarta-sans)',
+      },
     },
   },
   darkMode: 'class',

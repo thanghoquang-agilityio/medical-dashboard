@@ -7,3 +7,4 @@ export * from './Text';
 export * from './Input';
 export * from './MenuDropdown';
 export * from './Avatar';
+export * from './Profile';
