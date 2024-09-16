@@ -1,6 +1,6 @@
-export type APIResponse<T extends object> = { id: string; attributes: T };
+export type APIResponse<T> = { id: string; attributes: T };
 
-export type APIRelatedResponse<T extends object> = { data: T };
+export type APIRelatedResponse<T> = { data: T };
 
 export type MetaResponse = {
   pagination?: {
@@ -10,7 +10,7 @@ export type MetaResponse = {
   };
 };
 
-export type TDataResponse<T extends object> = {
+export type TDataResponse<T> = {
   data: APIResponse<T>[];
   meta?: MetaResponse;
 };
