@@ -4,13 +4,11 @@ import type { SelectProps as SelectNextUiProps } from '@nextui-org/react';
 import { cn, SelectItem, Select as SelectNextUi } from '@nextui-org/react';
 import { forwardRef } from 'react';
 
-interface SelectOption {
-  key: string;
-  label: string;
-}
+// Types
+import { Option } from '@/types';
 
 interface SelectProps extends Omit<SelectNextUiProps, 'children'> {
-  options: SelectOption[];
+  options: Option[];
 }
 
 export const Select = forwardRef<HTMLSelectElement, SelectProps>(
