@@ -22,5 +22,4 @@ export * from './SearchIcon';
 export * from './SettingIcon';
 export * from './SortIcon';
 export * from './StarIcon';
-export * from './StatisticsIcon';
 export * from './TaskIcon';

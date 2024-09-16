@@ -1,4 +1,5 @@
 import {
+  AppointmentIcon,
   ChemistIcon,
   DashboardIcon,
   DoctorIcon,
@@ -6,7 +7,6 @@ import {
   MedicineIcon,
   MessageIcon,
   SettingIcon,
-  StatisticsIcon,
 } from '@/icons';
 
 // Router
@@ -15,9 +15,9 @@ import { ROUTER } from './router';
 export const NAVBAR_LINKS = [
   { name: 'Dashboard', href: ROUTER.DASHBOARD, icon: DashboardIcon },
   {
-    name: 'Statistics',
-    href: '#',
-    icon: StatisticsIcon,
+    name: 'Appointment',
+    href: ROUTER.APPOINTMENT,
+    icon: AppointmentIcon,
     active: true,
   },
   { name: 'Chemists', href: ROUTER.CHEMISTS, icon: ChemistIcon, active: true },
