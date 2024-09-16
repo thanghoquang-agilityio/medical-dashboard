@@ -3,3 +3,9 @@ export enum STATUS_TYPE {
   WARNING = 'warning',
   ERROR = 'error',
 }
+
+export const STATUS_TYPE_RESPONSE = {
+  0: STATUS_TYPE.SUCCESS,
+  1: STATUS_TYPE.WARNING,
+  2: STATUS_TYPE.ERROR,
+} as const;
