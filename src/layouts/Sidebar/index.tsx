@@ -23,7 +23,8 @@ export const Sidebar = () => {
 
   return (
     <div>
-      <div className="hidden md:hidden lg:flex flex-col min-h-screen pt-[30px] shadow-md font-semibold">
+      <div className="hidden lg:flex flex-col min-h-screen pt-[30px] shadow-md font-semibold">
+        {/* TODO: will add logo later */}
         <Link href={ROUTER.DASHBOARD} className="pl-28 pb-4">
           <LogoIcon />
         </Link>
@@ -56,9 +57,9 @@ export const Sidebar = () => {
         </div>
       </div>
 
-      {/* Table Sidebar */}
+      {/* Tablet Sidebar */}
       <div className="flex">
-        <div className="flex-col items-center min-h-screen hidden sm:flex md:flex lg:hidden shadow-lg">
+        <div className="flex-col min-h-screen hidden md:flex lg:hidden shadow-lg">
           <div className="flex flex-col items-center py-2">
             {/* TODO: will add logo later */}
             <Link
@@ -73,12 +74,13 @@ export const Sidebar = () => {
             <Navbar />
           </div>
 
-          <div className="px-6 py-10">
-            <Button color="stone" isIconOnly>
+          <div className="py-5">
+            <Button color="stone" isIconOnly className="w-6 h-6">
               <LogoutIcon />
             </Button>
           </div>
         </div>
+
         <Button
           className="p-0 min-w-6 bg-linear-success rounded-none rounded-r-lg lg:hidden"
           onClick={onOpen}
@@ -96,13 +98,13 @@ export const Sidebar = () => {
             'animate-slideInLeft': isOpen,
             'animate-slideInRight': !isOpen,
           },
-          'm-0 sm:m-0 rounded-none max-w-[277px] md:hidden',
+          'm-0 sm:m-0 rounded-none max-w-[277px] lg:hidden',
         )}
         classNames={{
           base: 'absolute top-0 left-0',
           closeButton:
             'p-0 min-w-6 bg-linear-success rounded-none rounded-l-lg text-content1 top-0 right-0',
-          backdrop: 'md:hidden',
+          backdrop: 'lg:hidden',
         }}
         closeButton={
           <Button onClick={onClose}>
@@ -124,7 +126,7 @@ export const Sidebar = () => {
             <div className="flex-1">
               <Navbar isExpandSidebar />
             </div>
-            <div className="px-6 py-10">
+            <div className="pl-3 py-10">
               <Button
                 color="stone"
                 startContent={<LogoutIcon />}
