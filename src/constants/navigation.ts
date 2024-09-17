@@ -39,5 +39,3 @@ export const SUPPORT_LINKS = [
     icon: SettingIcon,
   },
 ];
-
-export const NAVBAR_LINKS_MINI = [...NAVBAR_LINKS, ...SUPPORT_LINKS];
