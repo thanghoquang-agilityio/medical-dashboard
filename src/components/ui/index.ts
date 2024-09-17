@@ -6,7 +6,6 @@ export * from './MenuDropdown';
 export * from './Navbar';
 export * from './Popover';
 export * from './Profile';
-export * from './Switch';
 export * from './Select';
 export * from './Spinner';
 export * from './Status';
