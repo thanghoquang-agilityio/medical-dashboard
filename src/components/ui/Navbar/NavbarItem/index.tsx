@@ -7,11 +7,12 @@ interface NavItemProps {
   name: string;
   href: string;
   isEnable?: boolean;
+  isExpandSidebar?: boolean;
   icon: ComponentType;
 }
 
 export const NavItem = memo(
-  ({ name, href, icon: Icon, isEnable }: NavItemProps) => {
+  ({ name, href, icon: Icon, isEnable, isExpandSidebar }: NavItemProps) => {
     const pathname = usePathname() || '/';
     const isActive = pathname.includes(href);
 
@@ -38,7 +39,7 @@ export const NavItem = memo(
           <div className="w-[17px] h-[17px]">
             <Icon />
           </div>
-          <p>{name}</p>
+          {!isExpandSidebar && <p>{name}</p>}
         </Link>
       </div>
     );

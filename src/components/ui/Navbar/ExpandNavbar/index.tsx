@@ -4,10 +4,10 @@
 import { NAVBAR_LINKS, SUPPORT_LINKS } from '@/constants';
 
 // Components
-import { NavItem } from './NavItem';
 import { Text } from '@/components/ui';
+import { NavItem } from '../NavbarItem';
 
-export const Navbar = () => (
+export const ExpandNavbar = () => (
   <>
     <div>
       {NAVBAR_LINKS.map(({ name, href, icon, isEnable }) => (
@@ -22,11 +22,10 @@ export const Navbar = () => (
     </div>
     <div className="mt-8">
       <Text customClass="uppercase px-8 text-primary-100">support</Text>
-      <div>
-        {SUPPORT_LINKS.map(({ name, href, icon }) => (
-          <NavItem key={name} name={name} href={href} icon={icon} />
-        ))}
-      </div>
+
+      {SUPPORT_LINKS.map(({ name, href, icon }) => (
+        <NavItem key={name} name={name} href={href} icon={icon} />
+      ))}
     </div>
   </>
 );
