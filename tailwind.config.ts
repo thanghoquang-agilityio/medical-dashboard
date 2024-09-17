@@ -43,7 +43,6 @@ const config: Config = {
               100: colors['black-violet'].light,
               200: colors['purple-shiny'].light,
               300: colors.purple,
-              400: colors.white,
             },
             foreground: colors.neutral.light,
             primary: {
@@ -72,7 +71,6 @@ const config: Config = {
               100: colors['black-violet'].dark,
               200: colors['purple-shiny'].dark,
               300: colors.purple,
-              400: colors['black-violet'].dark,
             },
             foreground: colors.neutral.dark,
             primary: {

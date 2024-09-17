@@ -1,3 +1,5 @@
+'use client';
+
 import { extendVariants, User } from '@nextui-org/react';
 
 export const Profile = extendVariants(User, {
