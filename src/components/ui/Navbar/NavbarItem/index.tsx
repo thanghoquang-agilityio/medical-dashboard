@@ -39,7 +39,7 @@ export const NavItem = memo(
           <div className="w-[17px] h-[17px]">
             <Icon />
           </div>
-          {!isExpandSidebar && <p>{name}</p>}
+          {isExpandSidebar && <p>{name}</p>}
         </Link>
       </div>
     );
