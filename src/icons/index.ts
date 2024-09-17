@@ -22,6 +22,7 @@ export * from './MessageIcon';
 export * from './MoreIcon';
 export * from './SearchIcon';
 export * from './SettingIcon';
+export * from './SingleDotIcon';
 export * from './SortIcon';
 export * from './StarIcon';
 export * from './TaskIcon';

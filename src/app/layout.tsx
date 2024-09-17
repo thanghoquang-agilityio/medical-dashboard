@@ -2,6 +2,8 @@ import type { Metadata } from 'next';
 import { Inter, Poppins, Plus_Jakarta_Sans } from 'next/font/google';
 import { ThemeProvider } from 'next-themes';
 import { NextUIProvider } from '@nextui-org/react';
+
+// Styles
 import './globals.css';
 
 const plusJakartaSans = Plus_Jakarta_Sans({
@@ -38,19 +40,15 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${poppins.className} ${plusJakartaSans.variable} ${inter.variable}`}
-      >
-        <NextUIProvider>
-          <ThemeProvider attribute="class" defaultTheme="light">
-            <body
-              className={`${poppins.className} ${plusJakartaSans.variable} ${inter.variable}`}
-            >
-              {children}
-            </body>
-          </ThemeProvider>
-        </NextUIProvider>
-      </body>
+      <NextUIProvider>
+        <ThemeProvider attribute="class" defaultTheme="light">
+          <body
+            className={`${poppins.className} ${plusJakartaSans.variable} ${inter.variable}`}
+          >
+            {children}
+          </body>
+        </ThemeProvider>
+      </NextUIProvider>
     </html>
   );
 }

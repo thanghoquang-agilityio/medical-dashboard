@@ -6,10 +6,10 @@ export const Input = extendVariants(NextUIInput, {
   variants: {
     color: {
       default: {
-        inputWrapper: 'bg-background-400 border-text-foreground',
+        inputWrapper: 'bg-transparent border-text-foreground',
         input:
           'text-primary-100 placeholder:text-primary-300 bg-transparent text-sm mx-2',
-        errorMessage: 'text-sm ml-2',
+        errorMessage: 'text-danger text-sm ml-2',
       },
     },
     size: {
