@@ -18,7 +18,7 @@ type Story = StoryObj<typeof Pagination>;
 export const PaginationDefault: Story = {
   decorators: [
     (Story) => (
-      <div className="p-4 bg-purple-shiny">
+      <div className="p-4 bg-background-200">
         <Story />
       </div>
     ),

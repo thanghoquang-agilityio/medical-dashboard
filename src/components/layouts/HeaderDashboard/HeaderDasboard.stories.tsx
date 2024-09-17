@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import { HeaderDashboard } from '@/layouts';
+import HeaderDashboard from '@/components/layouts/HeaderDashboard';
 import { MOCK_NOTIFICATION_LIST } from '@/mocks';
 
 const meta = {
@@ -19,7 +19,7 @@ type Story = StoryObj<typeof HeaderDashboard>;
 export const HeaderDashboardDefault: Story = {
   decorators: [
     (Story) => (
-      <div className="w-[1000px]">
+      <div className="w-[1000px] pr-[44px] bg-background-200">
         <Story />
       </div>
     ),
@@ -35,7 +35,7 @@ export const HeaderDashboardDefault: Story = {
 export const HeaderDashboardWithNotification: Story = {
   decorators: [
     (Story) => (
-      <div className="w-[1000px]">
+      <div className="w-[1000px] pr-[44px] bg-background-200">
         <Story />
       </div>
     ),

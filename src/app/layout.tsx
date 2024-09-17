@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import { Inter, Poppins, Plus_Jakarta_Sans } from 'next/font/google';
-import { NextUIProvider } from '@nextui-org/react';
 import { ThemeProvider } from 'next-themes';
+import { NextUIProvider } from '@nextui-org/react';
 
 // Styles
 import './globals.css';

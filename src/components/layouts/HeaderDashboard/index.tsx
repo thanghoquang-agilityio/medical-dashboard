@@ -4,14 +4,14 @@ import { Badge, Divider } from '@nextui-org/react';
 import { useTheme } from 'next-themes';
 import { useCallback } from 'react';
 
+// Types
+import { NotificationResponse } from '@/types';
+
 // Components
 import { Avatar, Button, Text, Popover } from '@/components/ui';
 
 // Icons
-import { BellIcon, DarkIcon, LightIcon, SingleDotIcon } from '@/icons';
-
-// Types
-import { NotificationResponse } from '@/types';
+import { BellIcon, MoonIcon, BrightnessIcon, SingleDotIcon } from '@/icons';
 
 interface HeaderProps {
   avatarUrl: string;
@@ -21,7 +21,7 @@ interface HeaderProps {
   avatarColor?: number;
 }
 
-export const HeaderDashboard = ({
+const HeaderDashboard = ({
   avatarUrl,
   userName,
   notificationList,
@@ -30,7 +30,7 @@ export const HeaderDashboard = ({
   const { theme, setTheme } = useTheme();
 
   // Handle switch theme when toggle on the button
-  const handleSwitchTheme = useCallback(() => {
+  const onSwitchTheme = useCallback(() => {
     setTheme(theme === 'light' ? 'dark' : 'light');
   }, [setTheme, theme]);
 
@@ -57,7 +57,7 @@ export const HeaderDashboard = ({
                 <Text variant="subTitle">1 hours ago</Text>
               </div>
               {attributes.isRead && (
-                <SingleDotIcon customClass="absolute right-0 w-10 h-10 text-primary" />
+                <SingleDotIcon customClass="absolute right-0 w-10 h-full text-primary" />
               )}
             </div>
           ))
@@ -70,17 +70,21 @@ export const HeaderDashboard = ({
 
   return (
     <header className="flex justify-end items-center gap-0.5 w-full h-14 bg-background-200">
-      <Button size="xs" isIconOnly onClick={handleSwitchTheme}>
+      <Button
+        isIconOnly
+        onClick={onSwitchTheme}
+        className="p-0 min-w-6 h-6 text-primary-300"
+      >
         {theme === 'light' ? (
-          <LightIcon customClass="w-6 h-6 text-black" />
+          <BrightnessIcon customClass="w-auto" />
         ) : (
-          <DarkIcon customClass="w-6 h-6 " />
+          <MoonIcon customClass="w-auto" />
         )}
       </Button>
       <Popover
-        className="relative bg-background-200"
+        className="relative bg-background-200 pr-0"
         popoverTrigger={
-          <Button size="xs" isIconOnly>
+          <Button isIconOnly>
             <Badge
               className="bg-danger-200 text-content1"
               content={notificationList?.length ? notificationList.length : 0}
@@ -93,6 +97,7 @@ export const HeaderDashboard = ({
           </Button>
         }
         popoverContent={renderNotificationContent()}
+        placement="bottom-end"
       />
       <Avatar
         src={avatarUrl}
@@ -100,10 +105,10 @@ export const HeaderDashboard = ({
         hasBorder
         size="md"
         color="warning"
-        className="mr-12"
       />
     </header>
   );
 };
 
 HeaderDashboard.displayName = 'HeaderDashboard';
+export default HeaderDashboard;

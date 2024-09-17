@@ -29,7 +29,7 @@ type Story = StoryObj<typeof MenuDropdown>;
 export const MenuDropdownDefault: Story = {
   decorators: [
     (Story) => (
-      <div className="w-[200px] p-4 bg-purple-shiny">
+      <div className="w-[200px] p-4 bg-background-200">
         <Story />
       </div>
     ),
