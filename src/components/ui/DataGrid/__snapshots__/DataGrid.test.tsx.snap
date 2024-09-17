@@ -6,7 +6,7 @@ exports[`DataGrid Should matches snapshot 1`] = `
     class="flex flex-col relative gap-4 w-full"
   >
     <div
-      class="p-4 z-0 flex flex-col relative justify-between gap-4 overflow-auto rounded-large w-full bg-purple-shiny shadow-none"
+      class="p-4 z-0 flex flex-col relative justify-between gap-4 overflow-auto rounded-large w-full bg-background-200 shadow-none"
     >
       <table
         aria-describedby=""
@@ -313,7 +313,7 @@ exports[`DataGrid Should matches snapshot 1`] = `
     data-controls="true"
     data-dots-jump="5"
     data-slot="base"
-    data-total="13"
+    data-total="3"
     role="navigation"
   >
     <ul
@@ -384,94 +384,6 @@ exports[`DataGrid Should matches snapshot 1`] = `
         tabindex="0"
       >
         3
-      </li>
-      <li
-        aria-label="pagination item 4"
-        class="tap-highlight-transparent select-none touch-none data-[pressed=true]:scale-[0.97] transition-transform-background flex flex-wrap truncate box-border items-center justify-center outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 data-[disabled=true]:text-default-300 data-[disabled=true]:pointer-events-none shadow-sm [&[data-hover=true]:not([data-active=true])]:bg-default-200 active:bg-default-300 min-w-9 w-9 h-9 text-small rounded-medium active:text-black-violet text-primary-100 bg-default [&[data-hover=true]:not([data-active=true])]:opacity-70"
-        data-slot="item"
-        role="button"
-        tabindex="0"
-      >
-        4
-      </li>
-      <li
-        aria-label="pagination item 5"
-        class="tap-highlight-transparent select-none touch-none data-[pressed=true]:scale-[0.97] transition-transform-background flex flex-wrap truncate box-border items-center justify-center outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 data-[disabled=true]:text-default-300 data-[disabled=true]:pointer-events-none shadow-sm [&[data-hover=true]:not([data-active=true])]:bg-default-200 active:bg-default-300 min-w-9 w-9 h-9 text-small rounded-medium active:text-black-violet text-primary-100 bg-default [&[data-hover=true]:not([data-active=true])]:opacity-70"
-        data-slot="item"
-        role="button"
-        tabindex="0"
-      >
-        5
-      </li>
-      <li
-        aria-label="dots element"
-        class="tap-highlight-transparent select-none touch-none data-[pressed=true]:scale-[0.97] transition-transform-background flex flex-wrap truncate box-border items-center justify-center outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 data-[disabled=true]:text-default-300 data-[disabled=true]:pointer-events-none shadow-sm [&[data-hover=true]:not([data-active=true])]:bg-default-200 active:bg-default-300 min-w-9 w-9 h-9 text-small rounded-medium active:text-black-violet text-primary-100 bg-default [&[data-hover=true]:not([data-active=true])]:opacity-70 group"
-        data-slot="item"
-        role="button"
-        tabindex="0"
-      >
-        <svg
-          aria-hidden="true"
-          class="group-hover:hidden group-data-[focus-visible=true]:hidden"
-          fill="none"
-          height="1em"
-          shape-rendering="geometricPrecision"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          stroke-width="1.5"
-          viewBox="0 0 24 24"
-          width="1em"
-        >
-          <circle
-            cx="12"
-            cy="12"
-            fill="currentColor"
-            r="1"
-          />
-          <circle
-            cx="19"
-            cy="12"
-            fill="currentColor"
-            r="1"
-          />
-          <circle
-            cx="5"
-            cy="12"
-            fill="currentColor"
-            r="1"
-          />
-        </svg>
-        <svg
-          aria-hidden="true"
-          class="hidden group-hover:block group-data-[focus-visible=true]:block data-[before=true]:rotate-180"
-          fill="none"
-          focusable="false"
-          height="1em"
-          role="presentation"
-          shape-rendering="geometricPrecision"
-          stroke="currentColor"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          stroke-width="1.5"
-          viewBox="0 0 24 24"
-          width="1em"
-        >
-          <path
-            d="M13 17l5-5-5-5"
-          />
-          <path
-            d="M6 17l5-5-5-5"
-          />
-        </svg>
-      </li>
-      <li
-        aria-label="pagination item 13"
-        class="tap-highlight-transparent select-none touch-none data-[pressed=true]:scale-[0.97] transition-transform-background flex flex-wrap truncate box-border items-center justify-center outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 data-[disabled=true]:text-default-300 data-[disabled=true]:pointer-events-none shadow-sm [&[data-hover=true]:not([data-active=true])]:bg-default-200 active:bg-default-300 min-w-9 w-9 h-9 text-small rounded-medium active:text-black-violet text-primary-100 bg-default [&[data-hover=true]:not([data-active=true])]:opacity-70"
-        data-slot="item"
-        role="button"
-        tabindex="0"
-      >
-        13
       </li>
       <li
         aria-label="next page button"
