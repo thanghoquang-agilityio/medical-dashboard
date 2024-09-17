@@ -11,9 +11,9 @@ import { Text } from '@/components/ui';
 import { NavItem } from './NavbarItem';
 
 interface NavbarProps {
-  isExpandSidebar: boolean;
+  isExpandSidebar?: boolean;
 }
-export const Navbar = memo(({ isExpandSidebar }: NavbarProps) => (
+export const Navbar = memo(({ isExpandSidebar = false }: NavbarProps) => (
   <>
     {NAVBAR_LINKS.map(({ name, href, icon, isEnable }) => (
       <NavItem
