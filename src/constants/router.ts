@@ -3,5 +3,5 @@ export const ROUTER = {
   SIGNUP: '/signup',
   DASHBOARD: '/',
   CHEMISTS: '/chemists',
-  APPOINTMENT: '/Appointment',
+  APPOINTMENT: '/appointment',
 };
