@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 
 // Components
 import { Image } from '.';
-import { SRC_BANNER_HEADPHONE } from '@/constants';
+import { SRC_BANNER_AVATAR } from '@/constants';
 
 const meta = {
   title: 'Components/Image',
@@ -45,7 +45,7 @@ export const SourceError: Story = {
 export const SourceSuccess: Story = {
   args: {
     className: 'rounded-md',
-    src: SRC_BANNER_HEADPHONE,
+    src: SRC_BANNER_AVATAR,
     width: 200,
     height: 150,
     alt: 'Image',
