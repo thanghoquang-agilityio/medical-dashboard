@@ -5,7 +5,7 @@ import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 import { Suspense, memo, useCallback, useMemo, useTransition } from 'react';
 
 // Constants
-import { PAGE_DEFAULT, PAGE_SIZE_DEFAULT, RESULT_NOT_FOUND } from '@/constants';
+import { PAGE_DEFAULT, RESULT_NOT_FOUND } from '@/constants';
 
 // Types
 import { APIResponse, ColumnType, MetaResponse } from '@/types';
@@ -21,7 +21,7 @@ import { getObjectValue } from '@/utils';
 import { Spinner, Text } from '@/components/ui';
 
 // Components
-const Pagination = dynamic(import('../Pagination'));
+const Pagination = dynamic(() => import('@/components/ui/Pagination'));
 
 export interface DataTableProps<T> extends MetaResponse {
   data: APIResponse<T>[];
@@ -42,8 +42,7 @@ const DataGrid = memo(
     classRow,
     classCell,
   }: DataTableProps<T>) => {
-    const { page, total = PAGE_SIZE_DEFAULT * PAGE_DEFAULT } = pagination ?? {};
-
+    const { page = PAGE_DEFAULT, pageCount = PAGE_DEFAULT } = pagination ?? {};
     const searchParams = useSearchParams() ?? '';
     const pathname = usePathname() ?? '';
     const { replace } = useRouter();
@@ -63,7 +62,6 @@ const DataGrid = memo(
       [pathname, replace],
     );
 
-    // Handle page in pagination changed
     const onPageChange = useCallback(
       (page: number) => {
         if (page === 1) {
@@ -76,6 +74,7 @@ const DataGrid = memo(
       },
       [handleReplaceURL, params],
     );
+
     const loadingState = isPending ? 'loading' : 'idle';
     const classDivider =
       'p-4 border-0 border-primary-100 border-b border-opacity-10';
@@ -89,7 +88,7 @@ const DataGrid = memo(
           id="table"
           classNames={{
             emptyWrapper: 'text-primary-100 text-xl font-medium',
-            wrapper: `bg-purple-shiny shadow-none ${classWrapper ?? ''}`,
+            wrapper: `bg-background-200 shadow-none ${classWrapper ?? ''}`,
           }}
         >
           <TableHeader>
@@ -132,11 +131,11 @@ const DataGrid = memo(
               : []}
           </TableBody>
         </Table>
-        {page && (
+        {!!pagination && (
           <Suspense>
             <Pagination
               initialPage={page}
-              total={total}
+              total={pageCount}
               onChange={onPageChange}
             />
           </Suspense>
