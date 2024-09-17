@@ -9,7 +9,7 @@ import { SRC_BRAND_AUTH } from '@/constants';
 // Components
 import { Image } from '@/components/ui/Image';
 import { Button } from '@/components/ui';
-import { DarkIcon, LightIcon } from '@/icons';
+import { BrightnessIcon, MoonIcon } from '@/icons';
 
 export const HeaderAuth = memo(() => {
   const { theme, setTheme } = useTheme();
@@ -28,12 +28,15 @@ export const HeaderAuth = memo(() => {
         height={32}
       />
       <Button
-        size="xs"
         isIconOnly
-        className="p-0 h-8 rounded-full w-fit"
         onClick={onSwitchTheme}
+        className="p-0 min-w-8 h-8 text-primary-300"
       >
-        {theme === 'light' ? <DarkIcon /> : <LightIcon />}
+        {theme === 'light' ? (
+          <BrightnessIcon customClass="w-auto" />
+        ) : (
+          <MoonIcon customClass="w-auto" />
+        )}
       </Button>
     </header>
   );
