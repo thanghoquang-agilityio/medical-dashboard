@@ -3,6 +3,8 @@ export * from './Button';
 export * from './Checkbox';
 export * from './Input';
 export * from './MenuDropdown';
+export * from './Navbar';
+export * from './Avatar';
 export * from './Profile';
 export * from './Select';
 export * from './Spinner';
