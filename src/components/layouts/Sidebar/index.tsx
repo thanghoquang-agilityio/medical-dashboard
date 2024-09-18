@@ -41,10 +41,7 @@ export const Sidebar = () => {
               width={200}
               height={200}
             />
-            <Button
-              color="secondary"
-              className="absolute bottom-[10px] left-[32px]"
-            >
+            <Button color="secondary" className="absolute bottom-[10px] left-8">
               Call Emergency
             </Button>
           </div>
@@ -98,7 +95,7 @@ export const Sidebar = () => {
             'animate-slideInLeft': isOpen,
             'animate-slideInRight': !isOpen,
           },
-          'm-0 sm:m-0 rounded-none max-w-[277px] lg:hidden',
+          'm-0 rounded-none max-w-[277px] lg:hidden',
         )}
         classNames={{
           base: 'absolute top-0 left-0',
