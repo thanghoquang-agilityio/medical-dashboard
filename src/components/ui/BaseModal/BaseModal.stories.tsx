@@ -25,7 +25,9 @@ export const BaseModalDefault: Story = {
 
     return (
       <>
-        <button onClick={onOpen}>Open Modal</button>
+        <button onClick={onOpen} className="text-primary-100">
+          Open Modal
+        </button>
         <BaseModal {...args} isOpen={isOpen} onClose={onClose} />
       </>
     );

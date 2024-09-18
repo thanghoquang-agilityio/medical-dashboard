@@ -12,7 +12,10 @@ interface SelectProps extends Omit<SelectNextUiProps, 'children'> {
 }
 
 export const Select = forwardRef<HTMLSelectElement, SelectProps>(
-  ({ options, value, placeholder = ' ', ...rest }, ref): JSX.Element => (
+  (
+    { options, value, placeholder = ' ', classNames, ...rest },
+    ref,
+  ): JSX.Element => (
     <SelectNextUi
       {...rest}
       ref={ref}
@@ -20,18 +23,29 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(
       value={value}
       placeholder={placeholder}
       classNames={{
-        label:
-          'text-primary-100 text-xs font-medium group-data-[filled=true]:text-primary-100 after:text-primary-100',
-        value: value
-          ? 'text-primary-300 font-medium'
-          : 'text-primary-100 font-medium',
+        mainWrapper: classNames?.mainWrapper,
+        label: cn(
+          'text-primary-100 text-xs font-medium',
+          classNames?.label,
+          'group-data-[filled=true]:text-primary-100 after:text-primary-100',
+        ),
+        value: cn(
+          value
+            ? 'text-primary-300 font-medium'
+            : 'text-primary-100 font-medium',
+          classNames?.value,
+        ),
         trigger: cn(
           'px-4 h-[46px] rounded-lg',
           'bg-background-100 shadow-stack border-1 outline-offset-0',
           'data-[focus=true]:border-primary data-[focus=true]:border-1',
+          classNames?.trigger,
         ),
-        selectorIcon: 'text-primary-100',
-        popoverContent: 'bg-background-100 w-full rounded-lg',
+        selectorIcon: cn('text-primary-100', classNames?.selectorIcon),
+        popoverContent: cn(
+          'bg-background-100 w-full rounded-lg',
+          classNames?.popoverContent,
+        ),
       }}
     >
       {options.map(({ key, label }) => (

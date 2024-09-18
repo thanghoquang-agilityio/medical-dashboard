@@ -16,14 +16,6 @@ export default meta;
 type Story = StoryObj<typeof Pagination>;
 
 export const PaginationDefault: Story = {
-  decorators: [
-    (Story) => (
-      <div className="p-4 bg-background-200">
-        <Story />
-      </div>
-    ),
-  ],
-
   args: {
     total: 10,
     initialPage: 1,

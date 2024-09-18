@@ -22,11 +22,20 @@ export const Avatar = ({
   hasBorder = false,
   ...rest
 }: AvatarProps) => {
-  const classes = {
-    base: `${SIZE_CLASSES[size]} bg-${color} ${hasBorder ? `border-2 border-${color} border-opacity-25` : ''} ${customClass}`,
+  const sizeClass = SIZE_CLASSES[size];
+  const borderClass = hasBorder
+    ? `border-2 border-${color} border-opacity-25`
+    : '';
+  const backgroundClass = `bg-${color}`;
+
+  const className =
+    `${sizeClass} ${backgroundClass} ${borderClass} ${customClass}`.trim();
+
+  const classNames = {
+    base: className,
   };
 
-  return <AvatarNextUI classNames={classes} {...rest} />;
+  return <AvatarNextUI classNames={classNames} {...rest} />;
 };
 
 Avatar.displayName = 'Avatar';

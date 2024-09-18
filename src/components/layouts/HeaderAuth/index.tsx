@@ -33,9 +33,9 @@ export const HeaderAuth = memo(() => {
         className="p-0 min-w-8 h-8 text-primary-300"
       >
         {theme === 'light' ? (
-          <BrightnessIcon customClass="w-auto" />
-        ) : (
           <MoonIcon customClass="w-auto" />
+        ) : (
+          <BrightnessIcon customClass="w-auto" />
         )}
       </Button>
     </header>

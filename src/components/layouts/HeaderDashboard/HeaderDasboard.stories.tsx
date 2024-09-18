@@ -27,12 +27,12 @@ export const HeaderDashboardDefault: Story = {
 
   args: {
     avatarUrl: 'https://i.pravatar.cc/300',
-    userName: 'Jessica Jane',
+    userName: 'Jessica',
     notificationList: MOCK_NOTIFICATION_LIST,
   },
 };
 
-export const HeaderDashboardWithNotification: Story = {
+export const HeaderDashboardEmptyNotification: Story = {
   decorators: [
     (Story) => (
       <div className="w-[1000px] pr-[44px] bg-background-200">
@@ -43,7 +43,39 @@ export const HeaderDashboardWithNotification: Story = {
 
   args: {
     avatarUrl: 'https://i.pravatar.cc/300',
-    userName: 'Jessica Jane',
+    userName: 'Jessica',
     notificationList: [],
+  },
+};
+
+export const HeaderDashboardEmptyAvatar: Story = {
+  decorators: [
+    (Story) => (
+      <div className="w-[1000px] pr-[44px] bg-background-200">
+        <Story />
+      </div>
+    ),
+  ],
+
+  args: {
+    avatarUrl: '',
+    userName: 'Jessica',
+    notificationList: MOCK_NOTIFICATION_LIST,
+  },
+};
+
+export const HeaderDashboardEmptyAvatarAndName: Story = {
+  decorators: [
+    (Story) => (
+      <div className="w-[1000px] pr-[44px] bg-background-200">
+        <Story />
+      </div>
+    ),
+  ],
+
+  args: {
+    avatarUrl: '',
+    userName: '',
+    notificationList: MOCK_NOTIFICATION_LIST,
   },
 };

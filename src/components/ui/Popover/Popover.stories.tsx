@@ -1,7 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import { Popover } from '@/components/ui';
-import { Button } from '@nextui-org/react';
+import { Button, Popover } from '@/components/ui';
 
 const meta = {
   title: 'Components/Popover',
@@ -19,6 +18,6 @@ type Story = StoryObj<typeof Popover>;
 export const PopoverDefault: Story = {
   args: {
     popoverTrigger: <Button>Trigger</Button>,
-    popoverContent: <p>This is content</p>,
+    popoverContent: <p className="text-red">This is content</p>,
   },
 };

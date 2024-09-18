@@ -27,16 +27,9 @@ export default meta;
 type Story = StoryObj<typeof Select>;
 
 export const SelectDefault: Story = {
-  decorators: [
-    (Story) => (
-      <div className="w-[200px] p-4 bg-background-200">
-        <Story />
-      </div>
-    ),
-  ],
-
   args: {
     options: animals,
     placeholder: 'Month',
+    classNames: { mainWrapper: 'w-[200px]' },
   },
 };

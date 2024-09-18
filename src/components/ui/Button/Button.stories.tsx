@@ -3,6 +3,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 // Components
 import { Button } from '.';
 import { BellIcon, CloseIcon } from '@/icons';
+import { Spinner } from '@nextui-org/react';
 
 const meta = {
   title: 'Components/Button',
@@ -32,6 +33,20 @@ const meta = {
 
 export default meta;
 
+export const Disabled: Story = {
+  args: {
+    children: 'Primary',
+    isDisabled: true,
+  },
+};
+
+export const Loading: Story = {
+  args: {
+    spinner: <Spinner size="sm" color="white" />,
+    isLoading: true,
+  },
+};
+
 type Story = StoryObj<typeof Button>;
 export const Primary: Story = {
   args: {
@@ -46,9 +61,9 @@ export const Secondary: Story = {
   },
 };
 
-export const OutLine: Story = {
+export const Outline: Story = {
   args: {
-    children: 'OutLine',
+    children: 'Outline',
     variant: 'outline',
     color: 'default',
   },

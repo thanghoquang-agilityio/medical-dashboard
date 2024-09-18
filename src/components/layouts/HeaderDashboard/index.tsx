@@ -76,9 +76,9 @@ const HeaderDashboard = ({
         className="p-0 min-w-6 h-6 text-primary-300"
       >
         {theme === 'light' ? (
-          <BrightnessIcon customClass="w-auto" />
-        ) : (
           <MoonIcon customClass="w-auto" />
+        ) : (
+          <BrightnessIcon customClass="w-auto" />
         )}
       </Button>
       <Popover
