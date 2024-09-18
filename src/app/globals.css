@@ -16,3 +16,7 @@
     text-wrap: balance;
   }
 }
+
+.height-auth {
+  min-height: calc(100vh - 104px);
+}

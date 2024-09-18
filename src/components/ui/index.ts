@@ -4,7 +4,7 @@ export * from './Checkbox';
 export * from './Input';
 export * from './MenuDropdown';
 export * from './Navbar';
-export * from './Avatar';
+export * from './Popover';
 export * from './Profile';
 export * from './Select';
 export * from './Spinner';

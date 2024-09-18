@@ -10,7 +10,7 @@ export interface NotificationModel {
   senderAvatar: string;
   isRead: boolean;
   info: JSON;
-  senderId: APIRelatedResponse<APIResponse<UserModel>>;
+  senderId?: APIRelatedResponse<APIResponse<UserModel>>;
 }
 
 export type NotificationResponse = APIResponse<NotificationModel>;
