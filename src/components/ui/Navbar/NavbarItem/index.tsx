@@ -29,10 +29,11 @@ export const NavItem = memo(
         <Link
           href={href}
           className={clsx(
-            'text-primary-100 text-sm flex h-[60px] gap-5 mb-2 py-5 px-8 items-center',
+            'text-primary-100 text-sm flex h-[60px] gap-5 mb-2 py-5 px-8',
             {
               'pointer-events-none': pathname !== href && !isEnable,
             },
+            { 'justify-center': !isExpandSidebar },
             activeClass,
           )}
         >

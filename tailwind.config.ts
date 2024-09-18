@@ -27,6 +27,20 @@ const config: Config = {
         inter: 'var(--font-inter)',
         'plus-jakarta-sans': 'var(--font-plus-jakarta-sans)',
       },
+      keyframes: {
+        slideInLeft: {
+          '0%': { transform: 'translateX(-100%)' },
+          '100%': { transform: 'translateX(0)' },
+        },
+        slideInRight: {
+          '0%': { transform: 'translateX(0)' },
+          '100%': { transform: 'translateX(-100%)' },
+        },
+      },
+      animation: {
+        slideInLeft: 'slideInLeft 0.5s ease-out',
+        slideInRight: 'slideInRight 0.5s ease-out',
+      },
     },
   },
   darkMode: 'class',

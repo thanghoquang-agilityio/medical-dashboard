@@ -16,6 +16,8 @@ export * from './GoogleIcon';
 export * from './HospitalIcon';
 export * from './LinkedInIcon';
 export * from './LockIcon';
+export * from './LogoutIcon';
+export * from './LogoIcon';
 export * from './MedicineIcon';
 export * from './MessageIcon';
 export * from './MoonIcon';
