@@ -1,6 +1,8 @@
 import { render, screen } from '@testing-library/react';
-import { NavItem } from '..';
 import { usePathname } from 'next/navigation';
+
+// Components
+import { NavItem } from '..';
 
 // Constants
 import { NAVBAR_LINKS } from '@/constants';
