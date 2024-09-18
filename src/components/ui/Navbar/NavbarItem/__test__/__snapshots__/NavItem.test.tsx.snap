@@ -1,0 +1,59 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`NavItem Component should render the NavItem with correct name and icon 1`] = `
+<div>
+  <div
+    class=""
+  >
+    <a
+      class="text-primary-100 text-sm flex h-[60px] gap-5 mb-2 py-5 px-8 items-center bg-linear-sidebar text-sky font-semibold"
+      href="/"
+    >
+      <div
+        class="w-[17px] h-[17px]"
+      >
+        <svg
+          class="w-full h-full"
+          fill="none"
+          viewBox="0 0 18 18"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M7.44204 2.27356H2.46606V7.24953H7.44204V2.27356Z"
+            fill-opacity="0.1"
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="1.59942"
+          />
+          <path
+            d="M15.2616 2.27356H10.2856V7.24953H15.2616V2.27356Z"
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="1.59942"
+          />
+          <path
+            d="M15.2616 10.0928H10.2856V15.0688H15.2616V10.0928Z"
+            fill-opacity="0.1"
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="1.59942"
+          />
+          <path
+            d="M7.44204 10.0928H2.46606V15.0688H7.44204V10.0928Z"
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="1.59942"
+          />
+        </svg>
+      </div>
+      <p>
+        Dashboard
+      </p>
+    </a>
+  </div>
+</div>
+`;
