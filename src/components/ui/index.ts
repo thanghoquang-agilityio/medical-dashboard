@@ -1,6 +1,7 @@
 export * from './Avatar';
 export * from './Button';
 export * from './Checkbox';
+export * from './Image';
 export * from './Input';
 export * from './MenuDropdown';
 export * from './Navbar';
