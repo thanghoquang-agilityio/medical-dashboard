@@ -9,24 +9,30 @@ import {
   useDisclosure,
 } from '@nextui-org/react';
 import Link from 'next/link';
-import { clsx } from 'clsx';
 
 // Components
 import { Button, Navbar } from '@/components/ui';
-import { LogoutIcon, LogoIcon, ArrowRightIcon } from '@/icons';
+import { LogoutIcon, ArrowRightIcon } from '@/icons';
 
 // Constants
 import { ROUTER } from '@/constants';
+
+// Utils
+import { cn } from '@/utils';
 
 export const Sidebar = () => {
   const { isOpen, onOpen, onOpenChange, onClose } = useDisclosure();
 
   return (
     <div>
-      <div className="hidden lg:flex flex-col min-h-screen pt-[30px] shadow-md font-semibold">
-        {/* TODO: will add logo later */}
-        <Link href={ROUTER.DASHBOARD} className="pl-28 pb-4">
-          <LogoIcon />
+      <div className="hidden lg:flex flex-col min-h-screen shadow-md font-semibold">
+        <Link href={ROUTER.DASHBOARD} className="pb-4 m-auto text-center">
+          <Image
+            src="/images/sidebar/logo.webp"
+            alt="logo"
+            width={100}
+            height={100}
+          />
         </Link>
 
         <div className="flex-1">
@@ -47,7 +53,7 @@ export const Sidebar = () => {
           </div>
           <Divider className="bg-primary-100 h-[2px] mt-8" />
         </div>
-        <div className="flex flex-col items-center py-10">
+        <div className="m-auto py-6">
           <Button color="stone" startContent={<LogoutIcon />} className="gap-3">
             Logout
           </Button>
@@ -57,13 +63,14 @@ export const Sidebar = () => {
       {/* Tablet Sidebar */}
       <div className="flex">
         <div className="flex-col min-h-screen hidden md:flex lg:hidden shadow-lg">
-          <div className="flex flex-col items-center py-2">
-            {/* TODO: will add logo later */}
-            <Link
-              href={ROUTER.DASHBOARD}
-              className="w-[80px] h-[45px] px-6 bg-green"
-            >
-              {''}
+          <div className="m-auto py-2">
+            <Link href={ROUTER.DASHBOARD}>
+              <Image
+                src="/images/sidebar/logo.webp"
+                alt="logo"
+                width={80}
+                height={80}
+              />
             </Link>
           </div>
 
@@ -90,12 +97,12 @@ export const Sidebar = () => {
       <Modal
         isOpen={isOpen}
         onOpenChange={onOpenChange}
-        className={clsx(
+        className={cn(
           {
             'animate-slideInLeft': isOpen,
             'animate-slideInRight': !isOpen,
           },
-          'm-0 rounded-none max-w-[277px] lg:hidden',
+          'm-0 sm:m-0 rounded-none max-w-[277px] lg:hidden',
         )}
         classNames={{
           base: 'absolute top-0 left-0',
@@ -111,14 +118,13 @@ export const Sidebar = () => {
       >
         <ModalContent>
           <ModalBody className="min-h-screen p-0">
-            {/* TODO: will add logo later */}
-            <div className="flex flex-col items-center pt-2">
-              <Link
-                href={ROUTER.DASHBOARD}
-                className="w-[80px] h-[45px] px-6 bg-green"
-              >
-                {''}
-              </Link>
+            <div className="m-auto">
+              <Image
+                src="/images/sidebar/logo.webp"
+                alt="logo"
+                width={80}
+                height={80}
+              />
             </div>
             <div className="flex-1">
               <Navbar isExpandSidebar />
