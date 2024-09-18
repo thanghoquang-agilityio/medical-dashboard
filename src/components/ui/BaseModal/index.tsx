@@ -10,7 +10,15 @@ interface Props extends ModalProps {
 }
 
 export const BaseModal = memo(({ isOpen, children, onClose, size }: Props) => (
-  <Modal isOpen={isOpen} onClose={onClose} size={size}>
+  <Modal
+    isOpen={isOpen}
+    onClose={onClose}
+    size={size}
+    classNames={{
+      closeButton: 'text-primary-100',
+      base: 'bg-background-200 p-4',
+    }}
+  >
     <ModalContent>{children}</ModalContent>
   </Modal>
 ));

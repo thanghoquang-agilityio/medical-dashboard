@@ -27,14 +27,6 @@ export default meta;
 type Story = StoryObj<typeof MenuDropdown>;
 
 export const MenuDropdownDefault: Story = {
-  decorators: [
-    (Story) => (
-      <div className="w-[200px] p-4 bg-background-200">
-        <Story />
-      </div>
-    ),
-  ],
-
   args: {
     label: 'Month',
     options: options,
