@@ -6,7 +6,7 @@ export const MOCK_NOTIFICATION_LIST: NotificationResponse[] = [
     attributes: {
       senderName: 'Alex Stanton',
       senderAvatar: 'https://i.pravatar.cc/300',
-      isRead: false,
+      isRead: '',
       info: JSON.parse('{"foo": "bar"}'),
     },
   },
@@ -15,7 +15,7 @@ export const MOCK_NOTIFICATION_LIST: NotificationResponse[] = [
     attributes: {
       senderName: 'Alex Stanton',
       senderAvatar: 'https://i.pravatar.cc/300',
-      isRead: true,
+      isRead: '1',
       info: JSON.parse('{"foo": "bar"}'),
     },
   },
