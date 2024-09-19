@@ -15,7 +15,7 @@ import { Button, Navbar } from '@/components/ui';
 import { LogoutIcon, ArrowRightIcon } from '@/icons';
 
 // Constants
-import { ROUTER } from '@/constants';
+import { ROUTER, SRC_LOGO } from '@/constants';
 
 // Utils
 import { cn } from '@/utils';
@@ -27,12 +27,7 @@ export const Sidebar = () => {
     <div>
       <div className="hidden lg:flex flex-col min-h-screen shadow-md font-semibold">
         <Link href={ROUTER.DASHBOARD} className="pb-4 m-auto text-center">
-          <Image
-            src="/images/sidebar/logo.webp"
-            alt="logo"
-            width={100}
-            height={100}
-          />
+          <Image src={SRC_LOGO} alt="logo" width={100} height={100} />
         </Link>
 
         <div className="flex-1">
@@ -65,12 +60,7 @@ export const Sidebar = () => {
         <div className="flex-col min-h-screen hidden md:flex lg:hidden shadow-lg">
           <div className="m-auto py-2">
             <Link href={ROUTER.DASHBOARD}>
-              <Image
-                src="/images/sidebar/logo.webp"
-                alt="logo"
-                width={80}
-                height={80}
-              />
+              <Image src={SRC_LOGO} alt="logo" width={80} height={80} />
             </Link>
           </div>
 
@@ -86,7 +76,7 @@ export const Sidebar = () => {
         </div>
 
         <Button
-          className="p-0 min-w-6 bg-linear-success rounded-none rounded-r-lg lg:hidden"
+          className="p-0 min-w-6 mt-6 bg-linear-success rounded-none rounded-r-lg lg:hidden"
           onClick={onOpen}
         >
           <ArrowRightIcon customClass="w-5 h-5" />
@@ -107,7 +97,7 @@ export const Sidebar = () => {
         classNames={{
           base: 'absolute top-0 left-0',
           closeButton:
-            'p-0 min-w-6 bg-linear-success rounded-none rounded-l-lg text-content1 top-0 right-0',
+            'p-0 min-w-6 bg-linear-success rounded-none rounded-l-lg text-content1 top-6 right-0',
           backdrop: 'lg:hidden',
         }}
         closeButton={
@@ -119,12 +109,7 @@ export const Sidebar = () => {
         <ModalContent>
           <ModalBody className="min-h-screen p-0">
             <div className="m-auto">
-              <Image
-                src="/images/sidebar/logo.webp"
-                alt="logo"
-                width={80}
-                height={80}
-              />
+              <Image src={SRC_LOGO} alt="logo" width={80} height={80} />
             </div>
             <div className="flex-1">
               <Navbar isExpandSidebar />
