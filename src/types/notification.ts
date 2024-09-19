@@ -8,7 +8,7 @@ import {
 export interface NotificationModel {
   senderName: string;
   senderAvatar: string;
-  isRead: boolean;
+  isRead: string;
   info: JSON;
   senderId?: APIRelatedResponse<APIResponse<UserModel>>;
 }

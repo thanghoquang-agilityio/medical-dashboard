@@ -26,27 +26,3 @@ export const FooterDefault: Story = {
 
   args: {},
 };
-
-export const FooterTablet: Story = {
-  decorators: [
-    (Story) => (
-      <div className="w-[800px]">
-        <Story />
-      </div>
-    ),
-  ],
-
-  args: {},
-};
-
-export const FooterMobile: Story = {
-  decorators: [
-    (Story) => (
-      <div className="w-[500px]">
-        <Story />
-      </div>
-    ),
-  ],
-
-  args: {},
-};
