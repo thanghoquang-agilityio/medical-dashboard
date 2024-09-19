@@ -8,6 +8,9 @@ import { Image } from '@/components/ui/Image';
 import { Button } from '@/components/ui';
 import { BrightnessIcon, MoonIcon } from '@/icons';
 
+// Constants
+import { SRC_LOGO } from '@/constants';
+
 export const HeaderAuth = memo(() => {
   const { theme, setTheme } = useTheme();
 
@@ -17,7 +20,7 @@ export const HeaderAuth = memo(() => {
 
   return (
     <header className="flex justify-between items-center lg:px-[144px] md:px-[96px] sm:px-[48px] px-[4px] py-[36px]">
-      <Image src="/images/logo.webp" alt="Brand" width={40} height={20} />
+      <Image src={SRC_LOGO} alt="Brand" width={40} height={20} />
       <Button
         isIconOnly
         onClick={onSwitchTheme}
