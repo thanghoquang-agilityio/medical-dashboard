@@ -6,6 +6,7 @@ interface TextProps {
     | 'primary'
     | 'secondary'
     | 'tertiary'
+    | 'quaternary'
     | 'title'
     | 'subTitle'
     | 'description'
@@ -13,7 +14,7 @@ interface TextProps {
     | 'warning'
     | 'error'
     | 'default';
-  size?: '2xs' | 'xs' | 'sm' | 'md' | 'lg' | 'xl' | '2xl';
+  size?: '2xs' | 'xs' | 'sm' | 'md' | 'lg' | 'xl' | '2xl' | '3xl';
   type?: 'nowrap' | 'wrap';
   customClass?: string;
   children: ReactNode;
@@ -23,6 +24,7 @@ const VARIANT_CLASSES = {
   primary: 'text-primary-100 font-medium',
   secondary: 'text-secondary-100',
   tertiary: 'text-secondary-300',
+  quaternary: 'text-secondary-300 font-semibold font-outfit',
   title: ' text-primary-100 font-semibold',
   subTitle: 'text-primary-300 font-normal',
   description: 'text-primary-200 font-medium',
@@ -40,6 +42,7 @@ const SIZE_CLASSES = {
   lg: 'text-lg',
   xl: 'text-xl',
   '2xl': 'text-2xl',
+  '3xl': 'text-3xl',
 };
 
 export const Text = memo(
