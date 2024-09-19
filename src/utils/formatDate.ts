@@ -34,3 +34,29 @@ export const formatTimeAppointment = ({
 
   return `${startTime.format('h:mm A')} to ${endTime.format('h:mm A')}`;
 };
+
+/**
+ * @param createdAt string - Created time string to format
+ * @returns string - Time ago
+ */
+export const formatTimeAgo = (createdAt: string) => {
+  const now = new Date();
+  const createdDate = new Date(createdAt);
+  const differenceInSeconds: number = Math.floor(
+    (now.getTime() - createdDate.getTime()) / 1000,
+  );
+
+  const minutes: number = Math.floor(differenceInSeconds / 60);
+  const hours: number = Math.floor(differenceInSeconds / 3600);
+  const days: number = Math.floor(differenceInSeconds / 86400);
+
+  if (days > 0) {
+    return days === 1 ? '1 day ago' : `${days} days ago`;
+  } else if (hours > 0) {
+    return hours === 1 ? '1 hour ago' : `${hours} hours ago`;
+  } else if (minutes > 0) {
+    return minutes === 1 ? '1 minute ago' : `${minutes} minutes ago`;
+  } else {
+    return 'just now';
+  }
+};
