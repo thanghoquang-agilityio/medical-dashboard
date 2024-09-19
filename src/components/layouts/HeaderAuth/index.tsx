@@ -17,12 +17,7 @@ export const HeaderAuth = memo(() => {
 
   return (
     <header className="flex justify-between items-center lg:px-[144px] md:px-[96px] sm:px-[48px] px-[4px] py-[36px]">
-      <Image
-        src="/images/sidebar/logo.webp"
-        alt="Brand"
-        width={70}
-        height={30}
-      />
+      <Image src="/images/logo.webp" alt="Brand" width={40} height={20} />
       <Button
         isIconOnly
         onClick={onSwitchTheme}
