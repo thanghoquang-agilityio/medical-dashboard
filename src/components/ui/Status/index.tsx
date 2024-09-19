@@ -16,15 +16,17 @@ const STATUS = {
 };
 
 export const Status = memo(
-  ({ status }: { status: 'success' | 'warning' | 'error' }) => (
+  ({
+    status,
+    className,
+  }: {
+    status: 'success' | 'warning' | 'error';
+    className?: string;
+  }) => (
     <div
-      className={`${COLOR_STATUS[status]} bg-opacity-20 w-fit max-w-20 px-2 rounded-md text-center`}
+      className={`${COLOR_STATUS[status]} bg-opacity-20 w-fit max-w-20 px-2 rounded-md text-center ${className}`}
     >
-      <Text
-        variant={status}
-        size="2xs"
-        customClass="font-semibold leading-[23px]"
-      >
+      <Text variant={status} size="2xs" customClass="font-semibold">
         {STATUS[status]}
       </Text>
     </div>
