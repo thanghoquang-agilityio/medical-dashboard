@@ -1,4 +1,4 @@
-import { CustomClassType } from '@/types/components';
+import { CustomClassType } from '@/types';
 
 export const LogoutIcon = ({
   customClass = 'w-full h-full',

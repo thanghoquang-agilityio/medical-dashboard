@@ -1,4 +1,4 @@
-import { CustomClassType } from '@/types/components';
+import { CustomClassType } from '@/types';
 
 export const LinkedInIcon = ({
   customClass = 'w-12 h-12',

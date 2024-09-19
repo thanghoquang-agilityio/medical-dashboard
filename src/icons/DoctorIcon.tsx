@@ -1,4 +1,4 @@
-import { CustomClassType } from '@/types/components';
+import { CustomClassType } from '@/types';
 
 export const DoctorIcon = ({
   customClass = 'w-full h-full',
