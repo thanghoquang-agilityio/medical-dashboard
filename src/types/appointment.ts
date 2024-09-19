@@ -17,7 +17,7 @@ export interface AppointmentModel {
 export type AppointmentResponse = APIResponse<AppointmentModel>;
 
 export type AppointmentsDataResponse = Promise<
-  { Appointments: AppointmentResponse[]; error?: Error } & MetaResponse
+  { appointments: AppointmentResponse[]; error?: Error } & MetaResponse
 >;
 
 export type AppointmentsResponse = {

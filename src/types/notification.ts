@@ -2,21 +2,31 @@ import {
   APIRelatedResponse,
   APIResponse,
   MetaResponse,
+  STATUS_TYPE_RESPONSE,
   UserModel,
 } from '@/types';
+
+export interface InfoModel {
+  id: string;
+  status: keyof typeof STATUS_TYPE_RESPONSE;
+  startTime: string;
+  durationTime: string;
+}
 
 export interface NotificationModel {
   senderName: string;
   senderAvatar: string;
   isRead: string;
-  info: JSON;
+  info: InfoModel;
+  type: keyof typeof STATUS_TYPE_RESPONSE;
   senderId?: APIRelatedResponse<APIResponse<UserModel>>;
+  createdAt?: string;
 }
 
 export type NotificationResponse = APIResponse<NotificationModel>;
 
 export type NotificationsDataResponse = Promise<
-  { Notifications: NotificationResponse[]; error?: Error } & MetaResponse
+  { notifications: NotificationResponse[]; error?: Error } & MetaResponse
 >;
 
 export type NotificationsResponse = {
