@@ -43,14 +43,14 @@ const AppointmentList = () => {
       key: 'receiverId',
       title: '',
       customNode: (_, item) => (
-        <div>
+        <>
           <Text variant="primary" size="sm">
             {item.receiverId.data.attributes.username}
           </Text>
           <Text customClass="text-primary-300 font-light" size="xs">
             9:00 am - 11:30 am
           </Text>
-        </div>
+        </>
       ),
     },
     {
@@ -70,7 +70,7 @@ const AppointmentList = () => {
         <Text customClass="text-lg font-bold text-primary-100">
           Appointments
         </Text>
-        <div className="">
+        <div>
           <Select
             options={APPOINTMENT_STATUS_OPTIONS}
             defaultSelectedKeys={APPOINTMENT_STATUS_OPTIONS[0].key}

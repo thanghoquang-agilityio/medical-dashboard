@@ -1,18 +1,14 @@
 export const APPOINTMENT_STATUS_OPTIONS = [
   {
-    key: 'all',
-    label: 'All Appointments',
-  },
-  {
     key: 'new',
-    label: 'New Appointment',
+    label: 'New',
   },
   {
     key: 'meeting',
-    label: 'Meeting Appointments',
+    label: 'Meeting',
   },
   {
     key: 'canceled',
-    label: 'Appointments canceled',
+    label: 'Canceled',
   },
 ];
