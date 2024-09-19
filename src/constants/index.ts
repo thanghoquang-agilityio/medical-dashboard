@@ -1,4 +1,5 @@
 export * from './apiEndpoint';
+export * from './appointment';
 export * from './common';
 export * from './footer';
 export * from './image';
