@@ -4,4 +4,5 @@ export const ROUTER = {
   DASHBOARD: '/',
   CHEMISTS: '/chemists',
   APPOINTMENT: '/appointment',
+  FORGOT_PASSWORD: '/forgot-password',
 };

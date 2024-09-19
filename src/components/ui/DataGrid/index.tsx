@@ -88,7 +88,7 @@ const DataGrid = memo(
           id="table"
           classNames={{
             emptyWrapper: 'text-primary-100 text-xl font-medium',
-            wrapper: `bg-background-200 shadow-none ${classWrapper ?? ''}`,
+            wrapper: `bg-transparent-200 shadow-none ${classWrapper ?? ''}`,
           }}
         >
           <TableHeader>

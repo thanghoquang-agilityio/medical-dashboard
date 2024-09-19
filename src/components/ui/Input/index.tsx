@@ -21,7 +21,10 @@ export const Input = extendVariants(NextUIInput, {
         inputWrapper: 'h-auto py-3',
       },
       md: {
-        inputWrapper: 'h-auto py-4 ',
+        inputWrapper: 'h-auto py-4',
+      },
+      lg: {
+        inputWrapper: 'h-auto py-5',
       },
     },
     border: {
