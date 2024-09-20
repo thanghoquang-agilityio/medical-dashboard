@@ -19,28 +19,36 @@ export type RoleModel = {
 };
 
 // User
-type AppointmentList =
-  | APIRelatedResponse<APIResponse<AppointmentModel>[]>
-  | AppointmentModel[];
 export interface UserModel {
-  id?: string;
   username: string;
   email: string;
-  avatar?: APIRelatedResponse<ImageResponse> | ImageResponse;
+  avatar?: APIRelatedResponse<ImageResponse>;
   description: string;
   rating: number;
   tasks: number;
   reviews: number;
-  role?: RoleModel;
-  specialtyId?:
-    | APIRelatedResponse<APIResponse<SpecialtyModel>>
-    | SpecialtyModel;
-  notificationsSent?:
-    | APIRelatedResponse<APIResponse<NotificationModel>[]>
-    | NotificationModel[];
-  appointmentSent?: AppointmentList;
-  appointmentReceived?: AppointmentList;
+  specialtyId?: APIRelatedResponse<APIResponse<SpecialtyModel>>;
+  notificationsSent?: APIRelatedResponse<APIResponse<NotificationModel>[]>;
+  appointmentSent?: APIRelatedResponse<APIResponse<AppointmentModel>[]>;
+  appointmentReceived?: APIRelatedResponse<APIResponse<AppointmentModel>[]>;
 }
+
+export type UserLogged = Omit<
+  UserModel,
+  | 'avatar'
+  | 'role'
+  | 'notificationsSent'
+  | 'appointmentSent'
+  | 'appointmentReceived'
+> & {
+  id: string;
+  avatar?: ImageResponse;
+  role: RoleModel;
+  specialtyId?: SpecialtyModel;
+  notificationsSent?: NotificationModel[];
+  appointmentSent?: AppointmentModel[];
+  appointmentReceived?: AppointmentModel[];
+};
 
 export type UserResponse = APIResponse<UserModel>;
 
@@ -58,7 +66,6 @@ export type UserPayload = Omit<
   | 'id'
   | 'avatar'
   | 'role'
-  | 'senderId'
   | 'notificationsSent'
   | 'appointmentSent'
   | 'appointmentReceived'
