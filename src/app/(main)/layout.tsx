@@ -12,22 +12,19 @@ export default function DashboardLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <main>
-      <div className="flex relative md:pl-[81px] lg:pl-[277px]">
-        <Sidebar />
+    <main className="flex relative md:pl-[81px] lg:pl-[277px]">
+      <Sidebar />
 
-        <div className="flex flex-col min-h-[100vh] max-h-fit w-full relative bg-background-200">
-          {/* TODO: Replace header props with user information when login */}
-          <HeaderDashboard
-            avatarUrl={''}
-            notificationList={MOCK_NOTIFICATION_LIST}
-            isInvisibleBadge
-          />
-
-          {children}
-
-          <Footer />
-        </div>
+      <div className="flex flex-col min-h-[100vh] max-h-fit w-full relative bg-background-200">
+        {/* TODO: Replace header props with user information when login */}
+        <HeaderDashboard
+          avatarUrl={''}
+          notificationList={MOCK_NOTIFICATION_LIST}
+          isInvisibleBadge
+        />
+        <div />
+        <div className="container">{children}</div>
+        <Footer />
       </div>
     </main>
   );
