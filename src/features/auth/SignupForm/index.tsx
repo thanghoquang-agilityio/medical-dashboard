@@ -86,7 +86,6 @@ const SignupForm = () => {
                 {...rest}
                 size="lg"
                 placeholder="user name"
-                className="py-2"
                 startContent={<DoctorIcon customClass={iconClass} />}
                 isInvalid={!!error?.message}
                 errorMessage={error?.message}
@@ -111,7 +110,6 @@ const SignupForm = () => {
                 {...rest}
                 size="lg"
                 placeholder="email address"
-                className="py-2"
                 startContent={<EmailIcon customClass={iconClass} />}
                 isInvalid={!!error?.message}
                 errorMessage={error?.message}
