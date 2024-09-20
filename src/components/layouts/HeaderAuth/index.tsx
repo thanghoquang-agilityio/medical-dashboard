@@ -10,12 +10,17 @@ import { SRC_LOGO } from '@/constants';
 import { Image } from '@/components/ui/Image';
 import { Button } from '@/components/ui';
 import { BrightnessIcon, MoonIcon } from '@/icons';
+import { THEME_MODE_TYPE } from '@/types';
 
 export const HeaderAuth = memo(() => {
   const { theme, setTheme } = useTheme();
 
   const onSwitchTheme = useCallback(() => {
-    setTheme(theme === 'light' ? 'dark' : 'light');
+    setTheme(
+      theme === THEME_MODE_TYPE.LIGHT
+        ? THEME_MODE_TYPE.DARK
+        : THEME_MODE_TYPE.LIGHT,
+    );
   }, [setTheme, theme]);
 
   return (
@@ -32,7 +37,7 @@ export const HeaderAuth = memo(() => {
         onClick={onSwitchTheme}
         className="p-0 min-w-8 h-8 text-primary-300"
       >
-        {theme === 'light' ? (
+        {theme === THEME_MODE_TYPE.LIGHT ? (
           <MoonIcon customClass="w-auto" />
         ) : (
           <BrightnessIcon customClass="w-auto" />

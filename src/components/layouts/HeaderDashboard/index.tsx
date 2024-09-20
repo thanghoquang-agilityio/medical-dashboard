@@ -5,7 +5,7 @@ import { useTheme } from 'next-themes';
 import { useCallback } from 'react';
 
 // Types
-import { NotificationResponse } from '@/types';
+import { NotificationResponse, THEME_MODE_TYPE } from '@/types';
 
 // Components
 import { Avatar, Button, Text, Popover } from '@/components/ui';
@@ -31,7 +31,11 @@ const HeaderDashboard = ({
 
   // Handle switch theme when toggle on the button
   const onSwitchTheme = useCallback(() => {
-    setTheme(theme === 'light' ? 'dark' : 'light');
+    setTheme(
+      theme === THEME_MODE_TYPE.LIGHT
+        ? THEME_MODE_TYPE.DARK
+        : THEME_MODE_TYPE.LIGHT,
+    );
   }, [setTheme, theme]);
 
   // Render notification content
@@ -75,7 +79,7 @@ const HeaderDashboard = ({
         onClick={onSwitchTheme}
         className="p-0 min-w-6 h-6 text-primary-300"
       >
-        {theme === 'light' ? (
+        {theme === THEME_MODE_TYPE.LIGHT ? (
           <MoonIcon customClass="w-auto" />
         ) : (
           <BrightnessIcon customClass="w-auto" />
