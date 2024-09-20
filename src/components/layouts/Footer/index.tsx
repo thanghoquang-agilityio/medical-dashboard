@@ -21,7 +21,7 @@ export const Footer = () => {
       : '';
 
   return (
-    <div className="w-full m-h-40 flex justify-center items-center flex-col gap-10 bg-background-200 py-4">
+    <div className="w-full m-h-40 mt-auto flex justify-center items-center flex-col gap-10 bg-background-200 py-4">
       <Image
         src={FOOTER_IMAGES.localName}
         alt="VHA partners"

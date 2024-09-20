@@ -24,8 +24,8 @@ export const Sidebar = () => {
   const { isOpen, onOpen, onOpenChange, onClose } = useDisclosure();
 
   return (
-    <div>
-      <div className="hidden lg:flex flex-col min-h-screen shadow-md font-semibold">
+    <div className="fixed z-10 left-0 max-h-screen overflow-y-scroll">
+      <div className="hidden lg:flex flex-col min-w-[277px] min-h-screen shadow-md font-semibold">
         <Link href={ROUTER.DASHBOARD} className="pb-4 m-auto text-center">
           <Image src={SRC_LOGO} alt="logo" width={100} height={100} />
         </Link>
@@ -34,7 +34,7 @@ export const Sidebar = () => {
           <Navbar isExpandSidebar />
         </div>
 
-        <div className="flex flex-col items-center">
+        <div className="flex px-4 flex-col items-center">
           <div className="relative">
             <Image
               src="/images/sidebar/emergency-sidebar.webp"
@@ -46,8 +46,8 @@ export const Sidebar = () => {
               Call Emergency
             </Button>
           </div>
-          <Divider className="bg-primary-100 h-[2px] mt-8" />
         </div>
+        <Divider className="bg-primary-100 h-[2px] mt-8" />
         <div className="m-auto py-6">
           <Button color="stone" startContent={<LogoutIcon />} className="gap-3">
             Logout
@@ -76,7 +76,7 @@ export const Sidebar = () => {
         </div>
 
         <Button
-          className="p-0 min-w-6 mt-6 bg-linear-success rounded-none rounded-r-lg lg:hidden"
+          className="p-0 min-w-6 mt-2 bg-linear-success rounded-none rounded-r-lg lg:hidden"
           onClick={onOpen}
         >
           <ArrowRightIcon customClass="w-5 h-5" />
@@ -97,7 +97,7 @@ export const Sidebar = () => {
         classNames={{
           base: 'absolute top-0 left-0',
           closeButton:
-            'p-0 min-w-6 bg-linear-success rounded-none rounded-l-lg text-content1 top-6 right-0',
+            'p-0 min-w-6 bg-linear-success rounded-none rounded-l-lg text-content1 top-2 right-0',
           backdrop: 'lg:hidden',
         }}
         closeButton={
@@ -107,7 +107,7 @@ export const Sidebar = () => {
         }
       >
         <ModalContent>
-          <ModalBody className="min-h-screen p-0">
+          <ModalBody className="min-h-screen p-0 bg-background-200">
             <div className="m-auto">
               <Image src={SRC_LOGO} alt="logo" width={80} height={80} />
             </div>
