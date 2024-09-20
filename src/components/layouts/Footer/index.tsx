@@ -10,9 +10,20 @@ import { FOOTER_IMAGES, FOOTER_ITEMS } from '@/constants';
 
 // Utils
 import { cn } from '@/utils';
+import { useEffect, useState } from 'react';
 
-export const Footer = () => {
+const Footer = () => {
+  const [mounted, setMounted] = useState(false);
   const { theme } = useTheme();
+
+  // useEffect only runs on the client, so now we can safely show the UI
+  // reference: https://github.com/pacocoursey/next-themes?tab=readme-ov-file#avoid-hydration-mismatch
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  // TODO: update skeleton for it
+  if (!mounted) return null;
 
   // Filter the image to change the color of the image to display the image in different modes
   const imageFilter =
@@ -57,3 +68,4 @@ export const Footer = () => {
 };
 
 Footer.displayName = 'Footer';
+export default Footer;
