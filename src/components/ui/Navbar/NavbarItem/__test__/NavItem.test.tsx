@@ -17,9 +17,9 @@ describe('NavItem Component', () => {
   const setup = () =>
     render(<NavItem {...mockProps} isEnable isExpandSidebar />);
 
-  // afterEach(() => {
-  //   jest.clearAllMocks();
-  // });
+  afterEach(() => {
+    jest.clearAllMocks();
+  });
 
   it('should render the NavItem with correct name and icon', () => {
     const { container, getByText } = setup();
