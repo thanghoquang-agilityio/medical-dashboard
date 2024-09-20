@@ -26,7 +26,10 @@ const SwitchTheme = () => {
   if (!mounted)
     return (
       <div className="relative w-8 h-8">
-        <Spinner size="sm" />
+        <Spinner
+          size="sm"
+          classNames={{ circle1: 'border-[2px]', circle2: 'border-[2px]' }}
+        />
       </div>
     );
 
