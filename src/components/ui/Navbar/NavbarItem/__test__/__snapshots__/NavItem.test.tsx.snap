@@ -3,11 +3,16 @@
 exports[`NavItem Component should render the NavItem with correct name and icon 1`] = `
 <div>
   <div
-    class=""
+    class="cursor-not-allowed"
   >
     <a
+<<<<<<< HEAD
       class="text-primary-100 text-sm flex h-[60px] gap-5 mb-2 py-5 px-8 lg:px-10 bg-linear-sidebar text-sky font-semibold"
       href="/"
+=======
+      class="text-primary-100 text-sm flex h-[60px] gap-5 mb-2 py-5 px-8 lg:px-10 hover:bg-linear-sidebar"
+      href="/dashboard"
+>>>>>>> dev
     >
       <div
         class="w-[17px] h-[17px]"

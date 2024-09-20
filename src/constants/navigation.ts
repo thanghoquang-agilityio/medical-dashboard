@@ -13,10 +13,15 @@ import {
 import { ROUTER } from './router';
 
 export const NAVBAR_LINKS = [
-  { name: 'Dashboard', href: ROUTER.DASHBOARD, icon: DashboardIcon },
+  {
+    name: 'Dashboard',
+    href: ROUTER.DASHBOARD,
+    icon: DashboardIcon,
+    isEnable: true,
+  },
   {
     name: 'Appointment',
-    href: ROUTER.APPOINTMENT,
+    href: ROUTER.APPOINTMENTS,
     icon: AppointmentIcon,
     isEnable: true,
   },

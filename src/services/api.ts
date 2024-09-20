@@ -80,14 +80,8 @@ export class ApiClient {
   }
 
   fetchWithConfig(url: string, config?: RequestInit) {
-    return fetch(`${this.baseURL}${url}`, {
-      ...this.config,
-      ...config,
-      headers: {
-        ...this.config.headers,
-        ...config?.headers,
-      },
-    });
+    this.config.headers = config?.headers;
+    return fetch(`${this.baseURL}${url}`, this.config);
   }
 }
 

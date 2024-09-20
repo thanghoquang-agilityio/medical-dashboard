@@ -1,8 +1,8 @@
 export const ROUTER = {
   LOGIN: '/login',
   SIGNUP: '/signup',
-  DASHBOARD: '/',
+  DASHBOARD: '/dashboard',
   CHEMISTS: '/chemists',
-  APPOINTMENT: '/appointment',
+  APPOINTMENTS: '/appointments',
   FORGOT_PASSWORD: '/forgot-password',
 };

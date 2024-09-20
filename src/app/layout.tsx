@@ -41,7 +41,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${poppins.className} ${plusJakartaSans.variable} ${inter.variable}`}
+        className={`${poppins.className} ${plusJakartaSans.variable} ${inter.variable} bg-background-400`}
       >
         <NextUIProvider>
           <ThemeProvider attribute="class" defaultTheme="light">

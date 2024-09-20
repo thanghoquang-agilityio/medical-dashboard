@@ -1,43 +1,26 @@
 'use client';
-
-import { memo, useCallback } from 'react';
-import { useTheme } from 'next-themes';
+import { memo } from 'react';
+import dynamic from 'next/dynamic';
 
 // Constants
-import { SRC_BRAND_AUTH } from '@/constants';
+import { SRC_LOGO } from '@/constants';
 
 // Components
-import { Image } from '@/components/ui/Image';
-import { Button } from '@/components/ui';
-import { BrightnessIcon, MoonIcon } from '@/icons';
+import { Image } from '@/components/ui';
+const SwitchTheme = dynamic(() => import('@/components/ui/SwitchTheme'));
 
 export const HeaderAuth = memo(() => {
-  const { theme, setTheme } = useTheme();
-
-  const onSwitchTheme = useCallback(() => {
-    setTheme(theme === 'light' ? 'dark' : 'light');
-  }, [setTheme, theme]);
-
   return (
-    <header className="flex justify-between lg:px-[144px] md:px-[96px] sm:px-[48px] px-[4px] py-[36px]">
+    <header className="flex justify-between items-center lg:px-[144px] md:px-24 sm:px-12 px-5 py-9">
       <Image
-        src={SRC_BRAND_AUTH}
+        src={SRC_LOGO}
         alt="Brand"
-        className="w-[158px] h-8"
-        width={158}
-        height={32}
+        className="lg:w-20 lg:h-20 sm:w-16 sm:h-16 w-12 h-12"
+        width={80}
+        height={80}
       />
-      <Button
-        isIconOnly
-        onClick={onSwitchTheme}
-        className="p-0 min-w-8 h-8 text-primary-300"
-      >
-        {theme === 'light' ? (
-          <MoonIcon customClass="w-auto" />
-        ) : (
-          <BrightnessIcon customClass="w-auto" />
-        )}
-      </Button>
+
+      <SwitchTheme />
     </header>
   );
 });

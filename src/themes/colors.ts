@@ -4,6 +4,7 @@ export const colors = {
     light: '#FFFAFA',
     dark: '#1B1C31',
   },
+  'black-purple': '#141B22',
   blue: '#377DFF',
   white: '#FFFFFF',
   emerald: '#009D92',
@@ -12,6 +13,7 @@ export const colors = {
     dark: '#8F8F8F',
   },
   green: '#38CB89',
+  'aqua-green': '#21E786',
   neutral: {
     light: '#1C1C1E',
     dark: '#E3E3E1',
