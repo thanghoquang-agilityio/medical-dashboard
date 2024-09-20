@@ -6,25 +6,11 @@ import { Badge, Divider } from '@nextui-org/react';
 import { NotificationResponse } from '@/types';
 
 // Components
-import {
-  Avatar,
-  Button,
-  Text,
-  Popover,
-  SwitchThemeSkeleton,
-} from '@/components/ui';
+import { Avatar, Button, Text, Popover } from '@/components/ui';
 
 // Icons
 import { BellIcon, SingleDotIcon } from '@/icons';
-
-const SwitchTheme = dynamic(
-  () =>
-    import('../../ui/SwitchTheme/index').then((module) => module.SwitchTheme),
-  {
-    ssr: false,
-    loading: () => <SwitchThemeSkeleton />,
-  },
-);
+const SwitchTheme = dynamic(() => import('@/components/ui/SwitchTheme'));
 
 interface HeaderProps {
   avatarUrl: string;
