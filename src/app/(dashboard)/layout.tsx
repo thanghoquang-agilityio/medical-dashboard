@@ -4,10 +4,11 @@ import dynamic from 'next/dynamic';
 import { MOCK_NOTIFICATION_LIST } from '@/mocks';
 
 // Components
-import { Footer, Sidebar } from '@/components/layouts';
+import { Sidebar } from '@/components/layouts';
 const HeaderDashboard = dynamic(
   () => import('@/components/layouts/HeaderDashboard'),
 );
+const Footer = dynamic(() => import('@/components/layouts/Footer'));
 
 // Style
 import './dashboard.css';
