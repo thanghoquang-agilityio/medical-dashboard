@@ -90,7 +90,7 @@ const SignUpForm = () => {
                 placeholder="email address"
                 className="py-2"
                 startContent={<EmailIcon customClass={iconClass} />}
-                isInvalid={!!error}
+                isInvalid={!!error?.message}
                 errorMessage={error?.message}
                 onChange={(e) => {
                   onChange(e.target.value);
@@ -116,7 +116,7 @@ const SignUpForm = () => {
                 type="password"
                 placeholder="password"
                 startContent={<LockIcon customClass={iconClass} />}
-                isInvalid={!!error}
+                isInvalid={!!error?.message}
                 errorMessage={error?.message}
                 onChange={(e) => {
                   onChange(e.target.value);
@@ -142,7 +142,7 @@ const SignUpForm = () => {
                 type="password"
                 placeholder="confirm password"
                 startContent={<LockIcon customClass={iconClass} />}
-                isInvalid={!!error}
+                isInvalid={!!error?.message}
                 errorMessage={error?.message}
                 onChange={(e) => {
                   onChange(e.target.value);
