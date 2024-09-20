@@ -39,16 +39,16 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <NextUIProvider>
-        <ThemeProvider attribute="class" defaultTheme="light">
-          <body
-            className={`${poppins.className} ${plusJakartaSans.variable} ${inter.variable}`}
-          >
+    <html lang="en" suppressHydrationWarning>
+      <body
+        className={`${poppins.className} ${plusJakartaSans.variable} ${inter.variable}`}
+      >
+        <NextUIProvider>
+          <ThemeProvider attribute="class" defaultTheme="light">
             {children}
-          </body>
-        </ThemeProvider>
-      </NextUIProvider>
+          </ThemeProvider>
+        </NextUIProvider>
+      </body>
     </html>
   );
 }

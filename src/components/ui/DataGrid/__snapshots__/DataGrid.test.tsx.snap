@@ -143,7 +143,7 @@ exports[`DataGrid Should matches snapshot 1`] = `
               tabindex="-1"
             >
               <div
-                class="bg-danger-100 bg-opacity-20 w-fit max-w-20 px-2 rounded-md text-center undefined"
+                class="bg-danger-100 bg-opacity-20 w-fit max-w-20 px-2 rounded-md text-center "
               >
                 <p
                   class="text-danger-100 text-2xs text-ellipsis whitespace-nowrap overflow-hidden font-semibold"
@@ -218,7 +218,7 @@ exports[`DataGrid Should matches snapshot 1`] = `
               tabindex="-1"
             >
               <div
-                class="bg-success bg-opacity-20 w-fit max-w-20 px-2 rounded-md text-center undefined"
+                class="bg-success bg-opacity-20 w-fit max-w-20 px-2 rounded-md text-center "
               >
                 <p
                   class="text-success text-2xs text-ellipsis whitespace-nowrap overflow-hidden font-semibold"
@@ -292,7 +292,7 @@ exports[`DataGrid Should matches snapshot 1`] = `
               tabindex="-1"
             >
               <div
-                class="bg-warning bg-opacity-20 w-fit max-w-20 px-2 rounded-md text-center undefined"
+                class="bg-warning bg-opacity-20 w-fit max-w-20 px-2 rounded-md text-center "
               >
                 <p
                   class="text-warning text-2xs text-ellipsis whitespace-nowrap overflow-hidden font-semibold"
