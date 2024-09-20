@@ -1,4 +1,4 @@
-import { render } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import { usePathname } from 'next/navigation';
 
 // Components
@@ -14,14 +14,15 @@ const mockProps = {
 };
 
 describe('NavItem Component', () => {
-  const Component = <NavItem {...mockProps} isEnable isExpandSidebar />;
+  const setup = () =>
+    render(<NavItem {...mockProps} isEnable isExpandSidebar />);
 
-  afterEach(() => {
-    jest.clearAllMocks();
-  });
+  // afterEach(() => {
+  //   jest.clearAllMocks();
+  // });
 
   it('should render the NavItem with correct name and icon', () => {
-    const { container, getByText } = render(Component);
+    const { container, getByText } = setup();
     expect(getByText('Dashboard')).toBeInTheDocument();
     expect(container).toMatchSnapshot();
   });
@@ -29,20 +30,18 @@ describe('NavItem Component', () => {
   it('should apply active class when the path matches', () => {
     (usePathname as jest.Mock).mockReturnValue(NAVBAR_LINKS[0].href);
 
-    const { getByRole } = render(Component);
+    setup();
 
-    const link = getByRole('link');
+    const link = screen.getByRole('link');
     expect(link).toHaveClass('bg-linear-sidebar text-sky font-semibold');
   });
 
   it('should disable the link when isEnable is false', () => {
     (usePathname as jest.Mock).mockReturnValue(NAVBAR_LINKS[3].href);
 
-    const { getByRole } = render(
-      <NavItem {...mockProps} isEnable={false} isExpandSidebar />,
-    );
+    render(<NavItem {...mockProps} isExpandSidebar />);
 
-    const link = getByRole('link');
+    const link = screen.getByRole('link');
     expect(link).toHaveClass('pointer-events-none');
   });
 });
