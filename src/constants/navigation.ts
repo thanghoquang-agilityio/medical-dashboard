@@ -16,7 +16,7 @@ export const NAVBAR_LINKS = [
   { name: 'Dashboard', href: ROUTER.DASHBOARD, icon: DashboardIcon },
   {
     name: 'Appointment',
-    href: ROUTER.APPOINTMENT,
+    href: ROUTER.APPOINTMENTS,
     icon: AppointmentIcon,
     isEnable: true,
   },

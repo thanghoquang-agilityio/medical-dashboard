@@ -3,6 +3,6 @@ export const ROUTER = {
   SIGNUP: '/signup',
   DASHBOARD: '/',
   CHEMISTS: '/chemists',
-  APPOINTMENT: '/appointment',
+  APPOINTMENTS: '/appointments',
   FORGOT_PASSWORD: '/forgot-password',
 };
