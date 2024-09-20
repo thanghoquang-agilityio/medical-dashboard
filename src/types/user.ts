@@ -8,18 +8,38 @@ import {
   SpecialtyModel,
 } from '@/types';
 
+// Role
+export const enum ROLE {
+  ADMIN = 'Admin',
+  NORMAL_USER = 'Normal User',
+}
+
+export type RoleModel = {
+  name: ROLE;
+};
+
+// User
+type AppointmentList =
+  | APIRelatedResponse<APIResponse<AppointmentModel>[]>
+  | AppointmentModel[];
 export interface UserModel {
+  id?: string;
   username: string;
   email: string;
-  avatar?: APIRelatedResponse<ImageResponse>;
+  avatar?: APIRelatedResponse<ImageResponse> | ImageResponse;
   description: string;
   rating: number;
   tasks: number;
   reviews: number;
-  specialtyId?: APIRelatedResponse<APIResponse<SpecialtyModel>>;
-  notificationsSent?: APIRelatedResponse<APIResponse<NotificationModel>[]>;
-  appointmentSent?: APIRelatedResponse<APIResponse<AppointmentModel>[]>;
-  appointmentReceived?: APIRelatedResponse<APIResponse<AppointmentModel>[]>;
+  role: RoleModel;
+  specialtyId?:
+    | APIRelatedResponse<APIResponse<SpecialtyModel>>
+    | SpecialtyModel;
+  notificationsSent?:
+    | APIRelatedResponse<APIResponse<NotificationModel>[]>
+    | NotificationModel[];
+  appointmentSent?: AppointmentList;
+  appointmentReceived?: AppointmentList;
 }
 
 export type UserResponse = APIResponse<UserModel>;
@@ -35,7 +55,13 @@ export type UsersResponse = {
 
 export type UserPayload = Omit<
   UserModel,
-  'senderId' | 'notificationsSent' | 'appointmentSent' | 'appointmentReceived'
+  | 'id'
+  | 'avatar'
+  | 'role'
+  | 'senderId'
+  | 'notificationsSent'
+  | 'appointmentSent'
+  | 'appointmentReceived'
 > & {
   specialtyId: number;
   avatar: number;
