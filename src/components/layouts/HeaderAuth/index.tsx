@@ -4,7 +4,7 @@ import { memo, useCallback } from 'react';
 import { useTheme } from 'next-themes';
 
 // Constants
-import { SRC_BRAND_AUTH } from '@/constants';
+import { SRC_LOGO } from '@/constants';
 
 // Components
 import { Image } from '@/components/ui/Image';
@@ -19,13 +19,13 @@ export const HeaderAuth = memo(() => {
   }, [setTheme, theme]);
 
   return (
-    <header className="flex justify-between lg:px-[144px] md:px-[96px] sm:px-[48px] px-[4px] py-[36px]">
+    <header className="flex justify-between items-center lg:px-[144px] md:px-24 sm:px-12 px-5 py-9">
       <Image
-        src={SRC_BRAND_AUTH}
+        src={SRC_LOGO}
         alt="Brand"
-        className="w-[158px] h-8"
-        width={158}
-        height={32}
+        className="lg:w-20 lg:h-20 sm:w-16 sm:h-16 w-12 h-12"
+        width={80}
+        height={80}
       />
       <Button
         isIconOnly
