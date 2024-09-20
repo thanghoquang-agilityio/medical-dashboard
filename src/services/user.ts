@@ -1,10 +1,12 @@
 import { apiClient } from './api';
-import { UserModel } from '@/types';
+import { UserLogged } from '@/types';
 import { API_ENDPOINT } from '@/constants';
 
-export const getUserLogged = async (jwt: string): Promise<UserModel | null> => {
+export const getUserLogged = async (
+  jwt: string,
+): Promise<UserLogged | null> => {
   try {
-    const res = await apiClient.get<UserModel | null>(
+    const res = await apiClient.get<UserLogged | null>(
       `${API_ENDPOINT.USERS}/me?populate=*`,
       {
         headers: {
