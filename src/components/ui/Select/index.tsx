@@ -23,11 +23,11 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(
       value={value}
       placeholder={placeholder}
       classNames={{
-        mainWrapper: classNames?.mainWrapper,
-        base: classNames?.base,
+        mainWrapper: classNames?.mainWrapper || '',
+        base: classNames?.base || '',
         label: cn(
           'text-primary-100 text-xs font-medium',
-          classNames?.label,
+          classNames?.label || '',
           'group-data-[filled=true]:text-primary-100 after:text-primary-100',
         ),
         value: cn(
@@ -35,19 +35,19 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(
           value
             ? 'text-primary-300 font-medium'
             : 'text-primary-100 font-medium',
-          classNames?.value,
+          classNames?.value || '',
         ),
         trigger: cn(
           'px-2.5 py-2 h-[46px] rounded-medium',
           'bg-background-100 shadow-stack border-1 outline-offset-0',
           'data-[focus=true]:border-primary data-[focus=true]:border-1',
-          classNames?.trigger,
+          classNames?.trigger || '',
         ),
         innerWrapper: cn('text-xs leading-[18px]', classNames?.innerWrapper),
         selectorIcon: cn('text-primary-100', classNames?.selectorIcon),
         popoverContent: cn(
           'bg-background-100 w-full rounded-lg',
-          classNames?.popoverContent,
+          classNames?.popoverContent || '',
         ),
       }}
     >
