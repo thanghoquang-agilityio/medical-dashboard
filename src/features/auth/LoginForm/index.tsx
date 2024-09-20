@@ -18,7 +18,7 @@ import {
 import { SignInForm } from '@/types';
 
 const DEFAULT_VALUE: SignInForm = {
-  email: '',
+  identifier: '',
   password: '',
 };
 const LoginForm = () => {
@@ -57,7 +57,7 @@ const LoginForm = () => {
         onSubmit={handleSubmit(onSubmit)}
       >
         <Controller
-          name="email"
+          name="identifier"
           control={control}
           render={({ field, fieldState: { error } }) => (
             <Input

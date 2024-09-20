@@ -1,16 +1,11 @@
 // import { logout as logoutAuth } from '@/config/auth';
 import { apiClient } from './api';
 import { getUserLogged } from './user';
-import {
-  UserModel,
-  AuthResponse,
-  SignInFormData,
-  SignUpFormData,
-} from '@/types';
+import { UserModel, AuthResponse, SignInForm, SignUpForm } from '@/types';
 import { API_ENDPOINT } from '@/constants';
 
 export const login = async (
-  body: SignInFormData,
+  body: SignInForm,
 ): Promise<(UserModel & { token: string }) | null> => {
   try {
     const response = await apiClient.post<AuthResponse>(API_ENDPOINT.AUTH, {
@@ -30,9 +25,8 @@ export const login = async (
     }
 
     const data = {
-      ...user,
-      id: user.id,
       token: jwt,
+      ...user,
       ...profile,
     };
 
@@ -47,7 +41,7 @@ export const login = async (
 };
 
 export const signup = async (
-  body: SignUpFormData,
+  body: SignUpForm,
 ): Promise<Pick<AuthResponse, 'error' | 'user'>> => {
   try {
     const { error, user } = await apiClient.post<AuthResponse>(

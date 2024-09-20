@@ -1,11 +1,11 @@
 import { UserModel } from './user';
 
-export interface SignInFormData {
+export interface SignInForm {
   identifier: string;
   password: string;
 }
 
-export interface SignUpFormData {
+export interface SignUpForm {
   username: string;
   email: string;
   password: string;

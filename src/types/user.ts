@@ -31,7 +31,7 @@ export interface UserModel {
   rating: number;
   tasks: number;
   reviews: number;
-  role: RoleModel;
+  role?: RoleModel;
   specialtyId?:
     | APIRelatedResponse<APIResponse<SpecialtyModel>>
     | SpecialtyModel;
