@@ -8,11 +8,7 @@ import { Button, Checkbox, Input, Text } from '@/components/ui';
 import { EmailIcon, LockIcon } from '@/icons';
 
 // Constants
-import {
-  LOGIN_FORM_VALIDATION,
-  ROUTER,
-  SOCIAL_NETWORK_LIST,
-} from '@/constants';
+import { LOGIN_FORM_VALIDATION, ROUTER } from '@/constants';
 
 // Types
 import { SignInForm } from '@/types';
@@ -38,22 +34,12 @@ const LoginForm = () => {
   };
 
   return (
-    <div className="w-full max-w-[528px] bg-background-100 flex flex-col justify-center items-center rounded-3xl py-10 lg:px-10 mx-2">
+    <div className="w-full max-w-[528px] bg-background-100 flex flex-col justify-center items-center rounded-3xl py-6 lg:px-6 mx-2">
       <Text variant="quaternary" size="3xl">
         Login
       </Text>
-      <div className="flex gap-2 py-8">
-        {SOCIAL_NETWORK_LIST.map(({ name, icon }) => (
-          <Button key={name} size="lg" isIconOnly isDisabled>
-            {icon}
-          </Button>
-        ))}
-      </div>
-      <Text size="sm" customClass="pt-2 pb-1">
-        or
-      </Text>
       <form
-        className="flex flex-col px-1 w-full"
+        className="flex flex-col md:px-10 px-4 pt-4 w-full"
         onSubmit={handleSubmit(onSubmit)}
       >
         <Controller
@@ -68,7 +54,7 @@ const LoginForm = () => {
               startContent={
                 <EmailIcon customClass="w-6 h-6 text-primary-200" />
               }
-              isInvalid={!!error}
+              isInvalid={!!error?.message}
               errorMessage={error?.message}
             />
           )}
@@ -85,7 +71,7 @@ const LoginForm = () => {
               type="password"
               className="py-2"
               startContent={<LockIcon customClass="w-6 h-6 text-primary-200" />}
-              isInvalid={!!error}
+              isInvalid={!!error?.message}
               errorMessage={error?.message}
             />
           )}
