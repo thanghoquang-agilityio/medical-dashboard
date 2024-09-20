@@ -67,8 +67,20 @@ const SignupForm = () => {
     },
   };
 
+  const handleInputChange = (
+    name: keyof SignUpForm,
+    onChange: (value: string) => void,
+  ) => {
+    return (e: React.ChangeEvent<HTMLInputElement>) => {
+      onChange(e.target.value);
+
+      // Clear error message on change
+      clearErrorOnChange(name, errors, clearErrors);
+    };
+  };
+
   return (
-    <div className="max-w-[528px] rounded-3xl shadow-lg flex flex-col items-center">
+    <div className="max-w-[528px] rounded-3xl shadow-lg flex flex-col items-center bg-primary-100 h-fit">
       <Text customClass="font-bold text-secondary-300 text-3xl">Signup</Text>
       <form
         className="w-full px-5 md:px-10 lg:px-[72px]"
@@ -89,12 +101,7 @@ const SignupForm = () => {
                 startContent={<DoctorIcon customClass={iconClass} />}
                 isInvalid={!!error?.message}
                 errorMessage={error?.message}
-                onChange={(e) => {
-                  onChange(e.target.value);
-
-                  // Clear error message on change
-                  clearErrorOnChange(name, errors, clearErrors);
-                }}
+                onChange={handleInputChange(name, onChange)}
               />
             )}
             rules={SIGN_UP_FORM_VALIDATION.USERNAME}
@@ -113,12 +120,7 @@ const SignupForm = () => {
                 startContent={<EmailIcon customClass={iconClass} />}
                 isInvalid={!!error?.message}
                 errorMessage={error?.message}
-                onChange={(e) => {
-                  onChange(e.target.value);
-
-                  // Clear error message on change
-                  clearErrorOnChange(name, errors, clearErrors);
-                }}
+                onChange={handleInputChange(name, onChange)}
               />
             )}
             rules={SIGN_UP_FORM_VALIDATION.EMAIL}
@@ -139,12 +141,7 @@ const SignupForm = () => {
                 startContent={<LockIcon customClass={iconClass} />}
                 isInvalid={!!error?.message}
                 errorMessage={error?.message}
-                onChange={(e) => {
-                  onChange(e.target.value);
-
-                  // Clear error message on change
-                  clearErrorOnChange(name, errors, clearErrors);
-                }}
+                onChange={handleInputChange(name, onChange)}
               />
             )}
             rules={SIGN_UP_FORM_VALIDATION.PASSWORD}
@@ -165,12 +162,7 @@ const SignupForm = () => {
                 startContent={<LockIcon customClass={iconClass} />}
                 isInvalid={!!error?.message}
                 errorMessage={error?.message}
-                onChange={(e) => {
-                  onChange(e.target.value);
-
-                  // Clear error message on change
-                  clearErrorOnChange(name, errors, clearErrors);
-                }}
+                onChange={handleInputChange(name, onChange)}
               />
             )}
             rules={SIGN_UP_FORM_VALIDATION.CONFIRM_PASSWORD}
