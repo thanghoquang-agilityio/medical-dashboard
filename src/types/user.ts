@@ -3,6 +3,7 @@ import {
   APIResponse,
   AppointmentModel,
   ImageResponse,
+  MetaResponse,
   NotificationModel,
   SpecialtyModel,
 } from '@/types';
@@ -20,6 +21,17 @@ export interface UserModel {
   appointmentSent?: APIRelatedResponse<APIResponse<AppointmentModel>[]>;
   appointmentReceived?: APIRelatedResponse<APIResponse<AppointmentModel>[]>;
 }
+
+export type UserResponse = APIResponse<UserModel>;
+
+export type UsersDataResponse = Promise<
+  { users: UserResponse[]; error?: Error } & MetaResponse
+>;
+
+export type UsersResponse = {
+  data: UserResponse[];
+  meta: MetaResponse;
+};
 
 export type UserPayload = Omit<
   UserModel,
