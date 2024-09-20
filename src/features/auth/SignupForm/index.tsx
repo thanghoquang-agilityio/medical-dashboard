@@ -18,6 +18,9 @@ import {
 // Types
 import { SignUpFormValue } from '@/types';
 
+// Utils
+import { clearErrorOnChange } from '@/utils';
+
 const DEFAULT_VALUE: SignUpFormValue = {
   email: '',
   password: '',
@@ -28,7 +31,8 @@ export const SignUpForm = () => {
   const {
     control,
     getValues,
-    formState: { isValid, isDirty, isLoading },
+    formState: { isValid, isDirty, isLoading, errors },
+    clearErrors,
     handleSubmit,
   } = useForm<SignUpFormValue>({
     mode: 'onBlur',
@@ -60,7 +64,7 @@ export const SignUpForm = () => {
       <Text customClass="font-bold text-secondary-300 text-3xl">Signup</Text>
       <div className="flex gap-2 py-8">
         {SOCIAL_NETWORK_LIST.map(({ name, icon }) => (
-          <Button key={name} size="lg" isIconOnly isDisabled>
+          <Button key={name} size="lg" isIconOnly>
             {icon}
           </Button>
         ))}
@@ -69,22 +73,31 @@ export const SignUpForm = () => {
         or
       </Text>
       <form
-        className="w-full md:px-10 lg:px-[72px]"
+        className="w-full px-5 md:px-10 lg:px-[72px]"
         onSubmit={handleSubmit(onSubmit)}
       >
         <div className="mt-8 flex flex-col gap-4 items-center">
           <Controller
             name="email"
             control={control}
-            render={({ field, fieldState: { error } }) => (
+            render={({
+              field: { onChange, name, ...rest },
+              fieldState: { error },
+            }) => (
               <Input
-                {...field}
+                {...rest}
                 size="lg"
                 placeholder="email address"
                 className="py-2"
                 startContent={<EmailIcon customClass={iconClass} />}
                 isInvalid={!!error}
                 errorMessage={error?.message}
+                onChange={(e) => {
+                  onChange(e.target.value);
+
+                  // Clear error message on change
+                  clearErrorOnChange(name, errors, clearErrors);
+                }}
               />
             )}
             rules={SIGN_UP_FORM_VALIDATION.EMAIL}
@@ -94,7 +107,7 @@ export const SignUpForm = () => {
             name="password"
             control={control}
             render={({
-              field: { onChange, ...rest },
+              field: { onChange, name, ...rest },
               fieldState: { error },
             }) => (
               <Input
@@ -107,6 +120,9 @@ export const SignUpForm = () => {
                 errorMessage={error?.message}
                 onChange={(e) => {
                   onChange(e.target.value);
+
+                  // Clear error message on change
+                  clearErrorOnChange(name, errors, clearErrors);
                 }}
               />
             )}
@@ -116,15 +132,24 @@ export const SignUpForm = () => {
           <Controller
             name="confirmPassWord"
             control={control}
-            render={({ field, fieldState: { error } }) => (
+            render={({
+              field: { onChange, name, ...rest },
+              fieldState: { error },
+            }) => (
               <Input
-                {...field}
+                {...rest}
                 size="lg"
                 type="password"
                 placeholder="confirm password"
                 startContent={<LockIcon customClass={iconClass} />}
                 isInvalid={!!error}
                 errorMessage={error?.message}
+                onChange={(e) => {
+                  onChange(e.target.value);
+
+                  // Clear error message on change
+                  clearErrorOnChange(name, errors, clearErrors);
+                }}
               />
             )}
             rules={SIGN_UP_FORM_VALIDATION.CONFIRM_PASSWORD}
