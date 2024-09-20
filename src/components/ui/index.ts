@@ -11,5 +11,3 @@ export * from './Select';
 export * from './Spinner';
 export * from './Status';
 export * from './Text';
-export * from './SwitchTheme';
-export * from './Skeleton';

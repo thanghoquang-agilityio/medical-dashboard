@@ -1,4 +1,5 @@
 'use client';
+
 import { useTheme } from 'next-themes';
 import { useCallback, useEffect, useState } from 'react';
 
@@ -6,9 +7,9 @@ import { useCallback, useEffect, useState } from 'react';
 import { BrightnessIcon, MoonIcon } from '@/icons';
 
 // Components
-import { Button } from '@/components/ui';
+import { Button, Spinner } from '@/components/ui';
 
-export const SwitchTheme = () => {
+const SwitchTheme = () => {
   const [mounted, setMounted] = useState(false);
   const { theme, setTheme } = useTheme();
 
@@ -22,15 +23,18 @@ export const SwitchTheme = () => {
     setMounted(true);
   }, []);
 
-  if (!mounted) {
-    return null;
-  }
+  if (!mounted)
+    return (
+      <div className="relative w-8 h-8">
+        <Spinner size="sm" />
+      </div>
+    );
 
   return (
     <Button
       isIconOnly
       onClick={onSwitchTheme}
-      className="p-0 min-w-8 h-8 text-primary-300"
+      className=" p-0 min-w-8 h-8 text-primary-300"
     >
       {theme === 'light' ? (
         <MoonIcon customClass="w-auto" />
@@ -42,3 +46,4 @@ export const SwitchTheme = () => {
 };
 
 SwitchTheme.displayName = 'SwitchTheme';
+export default SwitchTheme;

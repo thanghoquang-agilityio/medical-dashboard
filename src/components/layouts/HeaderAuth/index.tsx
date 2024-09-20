@@ -6,16 +6,8 @@ import dynamic from 'next/dynamic';
 import { SRC_LOGO } from '@/constants';
 
 // Components
-import { Image, SwitchThemeSkeleton } from '@/components/ui';
-
-const SwitchTheme = dynamic(
-  () =>
-    import('../../ui/SwitchTheme/index').then((module) => module.SwitchTheme),
-  {
-    ssr: false,
-    loading: () => <SwitchThemeSkeleton />,
-  },
-);
+import { Image } from '@/components/ui';
+const SwitchTheme = dynamic(() => import('@/components/ui/SwitchTheme'));
 
 export const HeaderAuth = memo(() => {
   return (
