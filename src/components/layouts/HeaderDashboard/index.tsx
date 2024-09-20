@@ -1,17 +1,30 @@
 'use client';
-
+import dynamic from 'next/dynamic';
 import { Badge, Divider } from '@nextui-org/react';
-import { useTheme } from 'next-themes';
-import { useCallback } from 'react';
 
 // Types
 import { NotificationResponse } from '@/types';
 
 // Components
-import { Avatar, Button, Text, Popover } from '@/components/ui';
+import {
+  Avatar,
+  Button,
+  Text,
+  Popover,
+  SwitchThemeSkeleton,
+} from '@/components/ui';
 
 // Icons
-import { BellIcon, MoonIcon, BrightnessIcon, SingleDotIcon } from '@/icons';
+import { BellIcon, SingleDotIcon } from '@/icons';
+
+const SwitchTheme = dynamic(
+  () =>
+    import('../../ui/SwitchTheme/index').then((module) => module.SwitchTheme),
+  {
+    ssr: false,
+    loading: () => <SwitchThemeSkeleton />,
+  },
+);
 
 interface HeaderProps {
   avatarUrl: string;
@@ -27,13 +40,6 @@ const HeaderDashboard = ({
   notificationList,
   isInvisibleBadge = false,
 }: HeaderProps) => {
-  const { theme, setTheme } = useTheme();
-
-  // Handle switch theme when toggle on the button
-  const onSwitchTheme = useCallback(() => {
-    setTheme(theme === 'light' ? 'dark' : 'light');
-  }, [setTheme, theme]);
-
   // Render notification content
   const renderNotificationContent = () => {
     return (
@@ -70,17 +76,8 @@ const HeaderDashboard = ({
 
   return (
     <header className="flex sticky top-0 justify-end items-center gap-0.5 w-full h-14 bg-background-100 pr-4 md:pr-11">
-      <Button
-        isIconOnly
-        onClick={onSwitchTheme}
-        className="p-0 min-w-6 h-6 text-primary-300"
-      >
-        {theme === 'light' ? (
-          <MoonIcon customClass="w-auto" />
-        ) : (
-          <BrightnessIcon customClass="w-auto" />
-        )}
-      </Button>
+      <SwitchTheme />
+
       <Popover
         className="relative bg-background-200 pr-0"
         popoverTrigger={
