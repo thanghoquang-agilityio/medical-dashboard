@@ -8,6 +8,17 @@ import {
   SpecialtyModel,
 } from '@/types';
 
+// Role
+export const enum ROLE {
+  ADMIN = 'Admin',
+  NORMAL_USER = 'Normal User',
+}
+
+export type RoleModel = {
+  name: ROLE;
+};
+
+// User
 export interface UserModel {
   username: string;
   email: string;
@@ -22,6 +33,23 @@ export interface UserModel {
   appointmentReceived?: APIRelatedResponse<APIResponse<AppointmentModel>[]>;
 }
 
+export type UserLogged = Omit<
+  UserModel,
+  | 'avatar'
+  | 'role'
+  | 'notificationsSent'
+  | 'appointmentSent'
+  | 'appointmentReceived'
+> & {
+  id: string;
+  avatar?: ImageResponse;
+  role: RoleModel;
+  specialtyId?: SpecialtyModel;
+  notificationsSent?: NotificationModel[];
+  appointmentSent?: AppointmentModel[];
+  appointmentReceived?: AppointmentModel[];
+};
+
 export type UserResponse = APIResponse<UserModel>;
 
 export type UsersDataResponse = Promise<
@@ -35,7 +63,12 @@ export type UsersResponse = {
 
 export type UserPayload = Omit<
   UserModel,
-  'senderId' | 'notificationsSent' | 'appointmentSent' | 'appointmentReceived'
+  | 'id'
+  | 'avatar'
+  | 'role'
+  | 'notificationsSent'
+  | 'appointmentSent'
+  | 'appointmentReceived'
 > & {
   specialtyId: number;
   avatar: number;
