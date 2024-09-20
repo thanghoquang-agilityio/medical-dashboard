@@ -9,6 +9,7 @@ export interface SignUpForm {
   username: string;
   email: string;
   password: string;
+  confirmPassWord: string;
 }
 
 export type AuthResponse = {

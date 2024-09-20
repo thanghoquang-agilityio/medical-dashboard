@@ -5,36 +5,37 @@ import { Controller, SubmitHandler, useForm } from 'react-hook-form';
 
 // Components
 import { Button, Input, Text } from '@/components/ui';
-import { EmailIcon, LockIcon } from '@/icons';
+import { DoctorIcon, EmailIcon, LockIcon } from '@/icons';
 
 // Constants
 import {
   FORM_VALIDATION_MESSAGE,
   LOGIN_FORM_VALIDATION,
+  REGEX,
   ROUTER,
-  SOCIAL_NETWORK_LIST,
 } from '@/constants';
 
 // Types
-import { SignUpFormValue } from '@/types';
+import { SignUpForm } from '@/types';
 
 // Utils
 import { clearErrorOnChange } from '@/utils';
 
-const DEFAULT_VALUE: SignUpFormValue = {
+const DEFAULT_VALUE: SignUpForm = {
+  username: '',
   email: '',
   password: '',
   confirmPassWord: '',
 };
 
-const SignUpForm = () => {
+const SignupForm = () => {
   const {
     control,
     getValues,
     formState: { isValid, isDirty, isLoading, errors },
     clearErrors,
     handleSubmit,
-  } = useForm<SignUpFormValue>({
+  } = useForm<SignUpForm>({
     mode: 'onBlur',
     reValidateMode: 'onBlur',
     defaultValues: DEFAULT_VALUE,
@@ -43,12 +44,19 @@ const SignUpForm = () => {
   const iconClass = 'w-6 h-6 ml-4 text-primary-200';
 
   // TODO: will handle submit form later
-  const onSubmit: SubmitHandler<SignUpFormValue> = (formData) => {
+  const onSubmit: SubmitHandler<SignUpForm> = (formData) => {
     formData;
   };
 
   const SIGN_UP_FORM_VALIDATION = {
     ...LOGIN_FORM_VALIDATION,
+    USERNAME: {
+      required: FORM_VALIDATION_MESSAGE.REQUIRED('Name'),
+      pattern: {
+        value: REGEX.NAME,
+        message: FORM_VALIDATION_MESSAGE.FORMAT('Name'),
+      },
+    },
     CONFIRM_PASSWORD: {
       required: FORM_VALIDATION_MESSAGE.REQUIRED('Confirm Password'),
       validate: {
@@ -62,21 +70,36 @@ const SignUpForm = () => {
   return (
     <div className="max-w-[528px] rounded-3xl shadow-lg flex flex-col items-center">
       <Text customClass="font-bold text-secondary-300 text-3xl">Signup</Text>
-      <div className="flex gap-2 py-8">
-        {SOCIAL_NETWORK_LIST.map(({ name, icon }) => (
-          <Button key={name} size="lg" isIconOnly>
-            {icon}
-          </Button>
-        ))}
-      </div>
-      <Text size="sm" customClass="pt-2 pb-1">
-        or
-      </Text>
       <form
         className="w-full px-5 md:px-10 lg:px-[72px]"
         onSubmit={handleSubmit(onSubmit)}
       >
         <div className="mt-8 flex flex-col gap-4 items-center">
+          <Controller
+            name="username"
+            control={control}
+            render={({
+              field: { onChange, name, ...rest },
+              fieldState: { error },
+            }) => (
+              <Input
+                {...rest}
+                size="lg"
+                placeholder="user name"
+                className="py-2"
+                startContent={<DoctorIcon customClass={iconClass} />}
+                isInvalid={!!error?.message}
+                errorMessage={error?.message}
+                onChange={(e) => {
+                  onChange(e.target.value);
+
+                  // Clear error message on change
+                  clearErrorOnChange(name, errors, clearErrors);
+                }}
+              />
+            )}
+            rules={SIGN_UP_FORM_VALIDATION.USERNAME}
+          />
           <Controller
             name="email"
             control={control}
@@ -178,4 +201,4 @@ const SignUpForm = () => {
   );
 };
 
-export default SignUpForm;
+export default SignupForm;
