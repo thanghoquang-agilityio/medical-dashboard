@@ -43,7 +43,7 @@ export const formatTimeAppointment = ({
  *   - dayOfWeek: Wed.
  *   - dayOfMonth: 11.
  */
-export const formatStartTime = (input: string) => {
+export const formatDate = (input: string) => {
   const date = dayjs(input);
   dayjs.extend(advancedFormat);
 
