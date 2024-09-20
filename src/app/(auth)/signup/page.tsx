@@ -1,3 +1,7 @@
-const SignupPage = () => <h1 className="text-lg font-semibold">Form signup</h1>;
+import dynamic from 'next/dynamic';
+
+const SignupForm = dynamic(() => import('@/features/auth/SignupForm'));
+
+const SignupPage = () => <SignupForm />;
 
 export default SignupPage;

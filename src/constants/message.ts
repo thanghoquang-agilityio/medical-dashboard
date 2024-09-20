@@ -6,4 +6,7 @@ export const FORM_VALIDATION_MESSAGE = {
     `${item} must be at least ${min} characters.`,
   MAX_LENGTH: (item: string, max: number) =>
     `${item} must be less than ${max} characters.`,
+  PASSWORD_NOT_MATCH: 'Password does not match',
+  FORMAT: (ariaLabel: string) =>
+    `${ariaLabel} does not follow the correct format.`,
 };
