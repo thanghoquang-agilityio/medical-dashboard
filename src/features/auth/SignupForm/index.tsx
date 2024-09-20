@@ -27,7 +27,7 @@ const DEFAULT_VALUE: SignUpFormValue = {
   confirmPassWord: '',
 };
 
-export const SignUpForm = () => {
+const SignUpForm = () => {
   const {
     control,
     getValues,
@@ -177,3 +177,5 @@ export const SignUpForm = () => {
     </div>
   );
 };
+
+export default SignUpForm;
