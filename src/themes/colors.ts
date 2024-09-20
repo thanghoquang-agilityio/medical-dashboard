@@ -4,6 +4,7 @@ export const colors = {
     light: '#FFFAFA',
     dark: '#1B1C31',
   },
+  'black-purple': '#141B22',
   blue: '#377DFF',
   white: '#FFFFFF',
   emerald: '#009D92',

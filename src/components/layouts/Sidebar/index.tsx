@@ -24,8 +24,8 @@ export const Sidebar = () => {
   const { isOpen, onOpen, onOpenChange, onClose } = useDisclosure();
 
   return (
-    <div className="fixed z-10 left-0 max-h-screen overflow-y-scroll">
-      <div className="hidden lg:flex flex-col min-w-[277px] min-h-screen shadow-md font-semibold">
+    <div className="fixed z-10 max-h-screen overflow-y-scroll">
+      <div className="hidden lg:flex flex-col min-w-[277px] min-h-screen shadow-md font-semibold bg-background-200">
         <Link href={ROUTER.DASHBOARD} className="pb-4 m-auto text-center">
           <Image src={SRC_LOGO} alt="logo" width={100} height={100} />
         </Link>
@@ -57,7 +57,7 @@ export const Sidebar = () => {
 
       {/* Tablet Sidebar */}
       <div className="flex">
-        <div className="flex-col min-h-screen hidden md:flex lg:hidden shadow-lg">
+        <div className="flex-col min-h-screen hidden md:flex lg:hidden shadow-lg bg-background-200">
           <div className="m-auto py-2">
             <Link href={ROUTER.DASHBOARD}>
               <Image src={SRC_LOGO} alt="logo" width={80} height={80} />

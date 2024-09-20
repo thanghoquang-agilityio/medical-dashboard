@@ -69,7 +69,7 @@ const HeaderDashboard = ({
   };
 
   return (
-    <header className="flex sticky top-0 justify-end items-center gap-0.5 w-full h-14 bg-background-200 pr-4 md:pr-11">
+    <header className="flex sticky top-0 justify-end items-center gap-0.5 w-full h-14 bg-background-100 pr-4 md:pr-11">
       <Button
         isIconOnly
         onClick={onSwitchTheme}
