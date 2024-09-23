@@ -1,14 +1,14 @@
-import { toast } from 'react-toastify';
+import { toast, TypeOptions, ToastPosition } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 // Constants
-import { TOAST_AUTO_CLOSE, TOAST_POSITION, TOAST_STATUS } from '@/constants';
+import { TOAST_AUTO_CLOSE } from '@/constants';
 
 export const useToast = () => {
   const showToast = (
     message: string,
-    status: TOAST_STATUS,
-    position = TOAST_POSITION.TOP_RIGHT,
+    status: TypeOptions,
+    position: ToastPosition = 'top-right',
   ) => {
     toast(message, {
       autoClose: TOAST_AUTO_CLOSE,
