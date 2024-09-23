@@ -8,3 +8,4 @@ export * from './navigation';
 export * from './pagination';
 export * from './regex';
 export * from './router';
+export * from './timing';

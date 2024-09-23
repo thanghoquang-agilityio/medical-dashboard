@@ -68,7 +68,6 @@ const LoginForm = () => {
               {...field}
               size="lg"
               placeholder="email address"
-              className="py-2"
               startContent={
                 <EmailIcon customClass="w-6 h-6 text-primary-200" />
               }
@@ -87,7 +86,6 @@ const LoginForm = () => {
               size="lg"
               placeholder="password"
               type="password"
-              className="py-2"
               startContent={<LockIcon customClass="w-6 h-6 text-primary-200" />}
               isInvalid={!!error?.message}
               errorMessage={error?.message}
@@ -119,7 +117,7 @@ const LoginForm = () => {
           Login
         </Button>
         <div className="flex justify-center w-full gap-6 pt-10 pb-3">
-          <Text size="sm">Don&rsquo;t Have An Account?</Text>
+          <Text>Don&rsquo;t Have An Account?</Text>
           <Link
             href={AUTH_ROUTES.SIGNUP}
             className="font-semibold text-secondary-300"
