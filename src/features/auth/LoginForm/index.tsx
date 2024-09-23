@@ -6,7 +6,7 @@ import { login } from '@/actions/auth';
 
 // Components
 import { Button, Checkbox, Input, Text } from '@/components/ui';
-import { EmailIcon, LockIcon } from '@/icons';
+import { EmailIcon, EyeIcon, EyeSlashIcon, LockIcon } from '@/icons';
 
 // Constants
 import { AUTH_ROUTES } from '@/constants';
@@ -34,6 +34,12 @@ const LoginForm = () => {
   });
 
   const [isPending, setIsPending] = useState(false);
+  const [isShowPassword, setIsShowPassword] = useState<boolean>(false);
+
+  const handleToggleVisiblePassword = useCallback(
+    () => setIsShowPassword((prev) => !prev),
+    [],
+  );
 
   const onLogin = useCallback(async (data: LoginFormData) => {
     setIsPending(true);
@@ -85,8 +91,17 @@ const LoginForm = () => {
               {...field}
               size="lg"
               placeholder="password"
-              type="password"
+              type={isShowPassword ? 'text' : 'password'}
               startContent={<LockIcon customClass="w-6 h-6 text-primary-200" />}
+              endContent={
+                <Button
+                  onClick={handleToggleVisiblePassword}
+                  isIconOnly
+                  className="p-0 min-w-5 h-5 text-primary-200"
+                >
+                  {isShowPassword ? <EyeIcon /> : <EyeSlashIcon />}
+                </Button>
+              }
               isInvalid={!!error?.message}
               errorMessage={error?.message}
             />
