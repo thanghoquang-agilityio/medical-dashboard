@@ -99,7 +99,6 @@ const SignupForm = () => {
               {...rest}
               size="lg"
               placeholder="user name"
-              className="py-2"
               startContent={<DoctorIcon customClass={iconClass} />}
               isInvalid={!!error?.message}
               errorMessage={error?.message}
@@ -119,7 +118,6 @@ const SignupForm = () => {
               {...rest}
               size="lg"
               placeholder="email address"
-              className="py-2"
               startContent={<EmailIcon customClass={iconClass} />}
               isInvalid={!!error?.message}
               errorMessage={error?.message}
@@ -141,7 +139,6 @@ const SignupForm = () => {
               size="lg"
               type="password"
               placeholder="password"
-              className="py-2"
               startContent={<LockIcon customClass={iconClass} />}
               isInvalid={!!error?.message}
               errorMessage={error?.message}
@@ -163,7 +160,6 @@ const SignupForm = () => {
               size="lg"
               type="password"
               placeholder="confirm password"
-              className="py-2"
               startContent={<LockIcon customClass={iconClass} />}
               isInvalid={!!error?.message}
               errorMessage={error?.message}
@@ -178,7 +174,7 @@ const SignupForm = () => {
           size="lg"
           isDisabled={!isValid || !isDirty}
           isLoading={isLoading}
-          className="mt-8"
+          className="mt-4"
         >
           Signup
         </Button>

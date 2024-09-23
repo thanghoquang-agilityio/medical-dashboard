@@ -18,12 +18,15 @@ export const Input = extendVariants(NextUIInput, {
     },
     size: {
       sm: {
+        mainWrapper: 'h-16',
         inputWrapper: 'h-auto py-3',
       },
       md: {
+        mainWrapper: 'h-20',
         inputWrapper: 'h-auto py-4',
       },
       lg: {
+        mainWrapper: 'h-24',
         inputWrapper: 'h-auto py-5',
       },
     },
