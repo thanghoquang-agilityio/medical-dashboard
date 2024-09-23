@@ -59,6 +59,7 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(
               'bg-background-100 data-[hover=true]:bg-primary-100 data-[selectable=true]:focus:bg-primary-100 w-full',
               'text-primary-100 data-[hover=true]:text-background-100 data-[selectable=true]:focus:text-background-100',
             ),
+            title: 'text-xs',
           }}
         >
           {label}
