@@ -2,7 +2,7 @@ import { toast, TypeOptions, ToastPosition } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 // Constants
-import { TOAST_AUTO_CLOSE } from '@/constants';
+import { TIME } from '@/constants';
 
 export const useToast = () => {
   const showToast = (
@@ -11,7 +11,7 @@ export const useToast = () => {
     position: ToastPosition = 'top-right',
   ) => {
     toast(message, {
-      autoClose: TOAST_AUTO_CLOSE,
+      autoClose: TIME.AUTO_CLOSE,
       type: status,
       position: position,
       style: { fontSize: '12px' },
