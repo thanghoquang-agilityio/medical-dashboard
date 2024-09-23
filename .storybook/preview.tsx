@@ -4,6 +4,7 @@ import { NextUIProvider } from '@nextui-org/system';
 import type { Preview } from '@storybook/react';
 import '@/app/globals.css';
 
+// Types
 import { THEME_MODE_TYPE } from '../src/types';
 
 interface ColorModeProps {
@@ -64,11 +65,11 @@ const preview: Preview = {
 export const globalTypes = {
   colorMode: {
     name: 'Color Mode',
-    defaultValue: 'light',
+    defaultValue: THEME_MODE_TYPE.LIGHT,
     toolbar: {
       items: [
-        { title: 'Light', value: 'light' },
-        { title: 'Dark', value: 'dark' },
+        { title: 'Light', value: THEME_MODE_TYPE.LIGHT },
+        { title: 'Dark', value: THEME_MODE_TYPE.DARK },
       ],
       dynamicTitle: true,
     },

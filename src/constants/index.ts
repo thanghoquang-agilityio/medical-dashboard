@@ -2,7 +2,6 @@ export * from './apiEndpoint';
 export * from './common';
 export * from './footer';
 export * from './image';
-export * from './list';
 export * from './message';
 export * from './navigation';
 export * from './pagination';

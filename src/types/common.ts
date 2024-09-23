@@ -15,7 +15,7 @@ export enum STATUS_TYPE {
   ERROR = 'error',
 }
 
-// DARK MODE
+// Theme mode
 export enum THEME_MODE_TYPE {
   DARK = 'dark',
   LIGHT = 'light',
