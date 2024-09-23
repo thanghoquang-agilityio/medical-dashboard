@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { Inter, Poppins, Plus_Jakarta_Sans } from 'next/font/google';
 import { ThemeProvider } from 'next-themes';
 import { NextUIProvider } from '@nextui-org/react';
+import { ToastContainer } from 'react-toastify';
 
 // Styles
 import './globals.css';
@@ -45,6 +46,7 @@ export default function RootLayout({
       >
         <NextUIProvider>
           <ThemeProvider attribute="class" defaultTheme="light">
+            <ToastContainer />
             {children}
           </ThemeProvider>
         </NextUIProvider>
