@@ -1,4 +1,5 @@
 export * from './apiEndpoint';
+export * from './appointment';
 export * from './common';
 export * from './footer';
 export * from './image';
@@ -7,4 +8,4 @@ export * from './navigation';
 export * from './pagination';
 export * from './regex';
 export * from './router';
-export * from './validation';
+export * from './timing';

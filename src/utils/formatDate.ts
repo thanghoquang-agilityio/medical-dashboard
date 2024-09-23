@@ -1,4 +1,5 @@
 import dayjs from 'dayjs';
+import advancedFormat from 'dayjs/plugin/advancedFormat';
 
 /**
  * @param value string - Date time string to format
@@ -33,6 +34,26 @@ export const formatTimeAppointment = ({
   const endTime = startTime.add(hours, 'hour').add(minutes, 'minute');
 
   return `${startTime.format('h:mm A')} to ${endTime.format('h:mm A')}`;
+};
+
+/**
+ * Formats the input date string into an abbreviated day of the week and the day of the month.
+ * @param input - The input date string in ISO 8601 format ('2024-09-11T06:30:00.000Z').
+ * @returns An object containing:
+ *   - dayOfWeek: Wed.
+ *   - dayOfMonth: 11.
+ */
+export const formatDate = (input: string) => {
+  const date = dayjs(input);
+  dayjs.extend(advancedFormat);
+
+  // Get the abbreviated day of the week
+  const dayOfWeek = date.format('ddd');
+
+  // Get the day of the month
+  const dayOfMonth = date.format('DD');
+
+  return { dayOfWeek, dayOfMonth };
 };
 
 /**

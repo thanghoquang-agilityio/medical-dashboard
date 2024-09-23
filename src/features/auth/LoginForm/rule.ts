@@ -1,5 +1,4 @@
-import { FORM_VALIDATION_MESSAGE } from './message';
-import { REGEX } from './regex';
+import { FORM_VALIDATION_MESSAGE, REGEX } from '@/constants';
 
 export const LOGIN_FORM_VALIDATION = {
   EMAIL: {
@@ -17,7 +16,7 @@ export const LOGIN_FORM_VALIDATION = {
     },
     maxLength: {
       value: 32,
-      message: FORM_VALIDATION_MESSAGE.MIN_LENGTH('Password', 32),
+      message: FORM_VALIDATION_MESSAGE.MAX_LENGTH('Password', 32),
     },
     pattern: {
       value: REGEX.ALL_WHITE_SPACE,
