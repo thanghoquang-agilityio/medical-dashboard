@@ -12,6 +12,7 @@ import { THEME_MODE_TYPE } from '@/types';
 
 // Utils
 import { cn } from '@/utils';
+import { useEffect, useState } from 'react';
 
 const Footer = () => {
   const [mounted, setMounted] = useState(false);
