@@ -1,12 +1,14 @@
 'use client';
 
 import { useTheme } from 'next-themes';
+import { useEffect, useState } from 'react';
 
 // Components
 import { Image } from '@/components/ui';
 
 // Constants
 import { FOOTER_IMAGES, FOOTER_ITEMS } from '@/constants';
+import { THEME_MODE_TYPE } from '@/types';
 
 // Utils
 import { cn } from '@/utils';
@@ -27,7 +29,7 @@ const Footer = () => {
 
   // Filter the image to change the color of the image to display the image in different modes
   const imageFilter =
-    theme === 'light'
+    theme === THEME_MODE_TYPE.LIGHT
       ? 'invert(100%) sepia(100%) saturate(250%) hue-rotate(90deg) contrast(700%)'
       : '';
 

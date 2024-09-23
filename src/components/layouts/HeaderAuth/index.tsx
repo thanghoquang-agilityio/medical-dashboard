@@ -7,6 +7,7 @@ import { SRC_LOGO } from '@/constants';
 
 // Components
 import { Image } from '@/components/ui';
+
 const SwitchTheme = dynamic(() => import('@/components/ui/SwitchTheme'));
 
 export const HeaderAuth = memo(() => {

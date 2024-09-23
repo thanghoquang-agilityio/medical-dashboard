@@ -4,8 +4,11 @@ import { NextUIProvider } from '@nextui-org/system';
 import type { Preview } from '@storybook/react';
 import '@/app/globals.css';
 
+// Types
+import { THEME_MODE_TYPE } from '../src/types';
+
 interface ColorModeProps {
-  colorMode: 'light' | 'dark';
+  colorMode: THEME_MODE_TYPE;
   children: JSX.Element;
 }
 
@@ -28,17 +31,19 @@ const preview: Preview = {
       },
     },
     backgrounds: {
-      default: 'light',
+      default: THEME_MODE_TYPE.LIGHT,
       values: [
-        { name: 'light', value: '#FFFAFA' },
-        { name: 'dark', value: '#1B1C31' },
+        { name: THEME_MODE_TYPE.LIGHT, value: '#FFFAFA' },
+        { name: THEME_MODE_TYPE.DARK, value: '#1B1C31' },
       ],
     },
   },
   decorators: [
     (Story, context) => {
       const backgroundMode =
-        context.globals.colorMode === 'dark' ? 'dark' : 'light';
+        context.globals.colorMode === THEME_MODE_TYPE.DARK
+          ? THEME_MODE_TYPE.DARK
+          : THEME_MODE_TYPE.LIGHT;
       context.parameters.backgrounds.default = backgroundMode;
 
       return (
@@ -60,11 +65,11 @@ const preview: Preview = {
 export const globalTypes = {
   colorMode: {
     name: 'Color Mode',
-    defaultValue: 'light',
+    defaultValue: THEME_MODE_TYPE.LIGHT,
     toolbar: {
       items: [
-        { title: 'Light', value: 'light' },
-        { title: 'Dark', value: 'dark' },
+        { title: 'Light', value: THEME_MODE_TYPE.LIGHT },
+        { title: 'Dark', value: THEME_MODE_TYPE.DARK },
       ],
       dynamicTitle: true,
     },
