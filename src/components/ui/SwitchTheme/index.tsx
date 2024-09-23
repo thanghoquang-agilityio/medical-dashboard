@@ -44,7 +44,7 @@ const SwitchTheme = () => {
     <Button
       isIconOnly
       onClick={onSwitchTheme}
-      className=" p-0 min-w-8 h-8 text-primary-300"
+      className=" p-0 min-w-6 h-6 text-primary-300"
     >
       {theme === THEME_MODE_TYPE.LIGHT ? (
         <MoonIcon customClass="w-auto" />
