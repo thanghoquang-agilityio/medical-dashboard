@@ -16,13 +16,5 @@ export default meta;
 type Story = StoryObj<typeof Footer>;
 
 export const FooterDefault: Story = {
-  decorators: [
-    (Story) => (
-      <div className="w-[1400px]">
-        <Story />
-      </div>
-    ),
-  ],
-
   args: {},
 };

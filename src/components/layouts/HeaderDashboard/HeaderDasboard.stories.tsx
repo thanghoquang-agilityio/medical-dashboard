@@ -19,7 +19,7 @@ type Story = StoryObj<typeof HeaderDashboard>;
 export const HeaderDashboardDefault: Story = {
   decorators: [
     (Story) => (
-      <div className="w-[1000px] pr-[44px] bg-background-200">
+      <div className="w-[1000px] bg-background-200">
         <Story />
       </div>
     ),
@@ -35,7 +35,7 @@ export const HeaderDashboardDefault: Story = {
 export const HeaderDashboardEmptyNotification: Story = {
   decorators: [
     (Story) => (
-      <div className="w-[1000px] pr-[44px] bg-background-200">
+      <div className="w-[1000px] bg-background-200">
         <Story />
       </div>
     ),
@@ -51,7 +51,7 @@ export const HeaderDashboardEmptyNotification: Story = {
 export const HeaderDashboardEmptyAvatar: Story = {
   decorators: [
     (Story) => (
-      <div className="w-[1000px] pr-[44px] bg-background-200">
+      <div className="w-[1000px] bg-background-200">
         <Story />
       </div>
     ),
@@ -67,7 +67,7 @@ export const HeaderDashboardEmptyAvatar: Story = {
 export const HeaderDashboardEmptyAvatarAndName: Story = {
   decorators: [
     (Story) => (
-      <div className="w-[1000px] pr-[44px] bg-background-200">
+      <div className="w-[1000px] bg-background-200">
         <Story />
       </div>
     ),

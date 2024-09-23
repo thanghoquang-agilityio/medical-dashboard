@@ -18,7 +18,7 @@ type Story = StoryObj<typeof HeaderAuth>;
 export const Default: Story = {
   decorators: [
     (Story) => (
-      <div className="w-[1000px] pr-[44px] bg-background-200">
+      <div className="w-[1000px] bg-background-200">
         <Story />
       </div>
     ),
