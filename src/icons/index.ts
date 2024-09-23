@@ -8,6 +8,8 @@ export * from './CloseIcon';
 export * from './DashboardIcon';
 export * from './DoctorIcon';
 export * from './EmailIcon';
+export * from './EyeIcon';
+export * from './EyeSlashIcon';
 export * from './HospitalIcon';
 export * from './LockIcon';
 export * from './LogoutIcon';

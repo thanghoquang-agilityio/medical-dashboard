@@ -2,10 +2,17 @@
 
 import Link from 'next/link';
 import { Controller, SubmitHandler, useForm } from 'react-hook-form';
+import { useCallback, useState } from 'react';
 
 // Components
 import { Button, Input, Text } from '@/components/ui';
-import { DoctorIcon, EmailIcon, LockIcon } from '@/icons';
+import {
+  DoctorIcon,
+  EmailIcon,
+  EyeIcon,
+  EyeSlashIcon,
+  LockIcon,
+} from '@/icons';
 
 // Constants
 import {
@@ -42,6 +49,20 @@ const SignupForm = () => {
   });
 
   const iconClass = 'w-6 h-6 ml-4 text-primary-200';
+
+  const [isShowPassword, setIsShowPassword] = useState<boolean>(false);
+  const [isShowConfirmPassword, setIsShowConfirmPassword] =
+    useState<boolean>(false);
+
+  const handleToggleVisiblePassword = useCallback(
+    () => setIsShowPassword((prev) => !prev),
+    [],
+  );
+
+  const handleToggleShowConfirmPassword = useCallback(
+    () => setIsShowConfirmPassword((prev) => !prev),
+    [],
+  );
 
   // TODO: will handle submit form later
   const onSubmit: SubmitHandler<SignUpForm> = (formData) => {
@@ -137,9 +158,18 @@ const SignupForm = () => {
             <Input
               {...rest}
               size="lg"
-              type="password"
+              type={isShowPassword ? 'text' : 'password'}
               placeholder="password"
               startContent={<LockIcon customClass={iconClass} />}
+              endContent={
+                <Button
+                  onClick={handleToggleVisiblePassword}
+                  isIconOnly
+                  className="p-0 min-w-5 h-5 text-primary-200"
+                >
+                  {isShowPassword ? <EyeIcon /> : <EyeSlashIcon />}
+                </Button>
+              }
               isInvalid={!!error?.message}
               errorMessage={error?.message}
               onChange={handleInputChange(name, onChange)}
@@ -158,9 +188,18 @@ const SignupForm = () => {
             <Input
               {...rest}
               size="lg"
-              type="password"
+              type={isShowConfirmPassword ? 'text' : 'password'}
               placeholder="confirm password"
               startContent={<LockIcon customClass={iconClass} />}
+              endContent={
+                <Button
+                  onClick={handleToggleShowConfirmPassword}
+                  isIconOnly
+                  className="p-0 min-w-5 h-5 text-primary-200"
+                >
+                  {isShowConfirmPassword ? <EyeIcon /> : <EyeSlashIcon />}
+                </Button>
+              }
               isInvalid={!!error?.message}
               errorMessage={error?.message}
               onChange={handleInputChange(name, onChange)}
