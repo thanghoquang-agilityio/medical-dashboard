@@ -1,23 +1,31 @@
-// import { logout as logoutAuth } from '@/config/auth';
+'use server';
+
+import { signOut } from '@/config/auth';
 import { apiClient } from './api';
 import { getUserLogged } from './user';
-import { UserLogged, AuthResponse, SignInForm, SignUpForm } from '@/types';
+import {
+  UserLogged,
+  AuthResponse,
+  LoginFormData,
+  SignupFormData,
+} from '@/types';
 import { API_ENDPOINT } from '@/constants';
 
 export const login = async (
-  body: SignInForm,
-): Promise<(UserLogged & { token: string }) | null> => {
+  body: LoginFormData,
+): Promise<(UserLogged & { token: string; remember: boolean }) | null> => {
   try {
     const response = await apiClient.post<AuthResponse>(API_ENDPOINT.AUTH, {
-      body,
+      body: {
+        identifier: body.identifier,
+        password: body.password,
+      },
     });
-
     const { error, jwt, user } = response;
 
     if (error || !user) {
       return null;
     }
-
     const profile = await getUserLogged(jwt);
 
     if (!profile) {
@@ -26,6 +34,7 @@ export const login = async (
 
     const data = {
       token: jwt,
+      remember: body.remember,
       ...profile,
     };
 
@@ -40,7 +49,7 @@ export const login = async (
 };
 
 export const signup = async (
-  body: SignUpForm,
+  body: SignupFormData,
 ): Promise<Pick<AuthResponse, 'error' | 'user'>> => {
   try {
     const { error, user } = await apiClient.post<AuthResponse>(
@@ -60,5 +69,4 @@ export const signup = async (
   }
 };
 
-// TODO: update logout config
-// export const logout = async () => await logoutAuth();
+export const logout = async () => await signOut();

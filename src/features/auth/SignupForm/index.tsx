@@ -15,20 +15,16 @@ import {
 } from '@/icons';
 
 // Constants
-import {
-  FORM_VALIDATION_MESSAGE,
-  LOGIN_FORM_VALIDATION,
-  REGEX,
-  ROUTER,
-} from '@/constants';
+import { FORM_VALIDATION_MESSAGE, REGEX, AUTH_ROUTES } from '@/constants';
+import { LOGIN_FORM_VALIDATION } from '../LoginForm/rule';
 
 // Types
-import { SignUpForm } from '@/types';
+import { SignupFormData } from '@/types';
 
 // Utils
 import { clearErrorOnChange } from '@/utils';
 
-const DEFAULT_VALUE: SignUpForm = {
+const DEFAULT_VALUE: SignupFormData = {
   username: '',
   email: '',
   password: '',
@@ -42,8 +38,8 @@ const SignupForm = () => {
     formState: { isValid, isDirty, isLoading, errors },
     clearErrors,
     handleSubmit,
-  } = useForm<SignUpForm>({
-    mode: 'onBlur',
+  } = useForm<SignupFormData>({
+    mode: 'onChange',
     reValidateMode: 'onBlur',
     defaultValues: DEFAULT_VALUE,
   });
@@ -65,7 +61,7 @@ const SignupForm = () => {
   );
 
   // TODO: will handle submit form later
-  const onSubmit: SubmitHandler<SignUpForm> = (formData) => {
+  const onSubmit: SubmitHandler<SignupFormData> = (formData) => {
     formData;
   };
 
@@ -89,7 +85,7 @@ const SignupForm = () => {
   };
 
   const handleInputChange = (
-    name: keyof SignUpForm,
+    name: keyof SignupFormData,
     onChange: (value: string) => void,
   ) => {
     return (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -220,7 +216,7 @@ const SignupForm = () => {
         <div className="flex justify-center w-full gap-6 pt-10 pb-3">
           <Text>Already have account?</Text>
           <Link
-            href={ROUTER.LOGIN}
+            href={AUTH_ROUTES.LOGIN}
             className="font-semibold text-secondary-300"
           >
             Login
