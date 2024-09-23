@@ -1,5 +1,4 @@
-import { FORM_VALIDATION_MESSAGE } from './message';
-import { REGEX } from './regex';
+import { FORM_VALIDATION_MESSAGE, REGEX } from '@/constants';
 
 export const LOGIN_FORM_VALIDATION = {
   EMAIL: {
