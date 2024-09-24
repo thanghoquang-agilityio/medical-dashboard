@@ -84,7 +84,7 @@ const AppointmentsUpcoming = ({ appointments }: AppointmentsUpcomingProps) => {
         <div className="flex justify-end">
           <Button
             color="stone"
-            className="p-0h-[26px] min-w-[26px] bg-background-100 rounded-md"
+            className="p-0 h-[26px] min-w-[26px] bg-background-100 rounded-md"
           >
             <MoreIcon customClass="w-4 h-4" />
           </Button>

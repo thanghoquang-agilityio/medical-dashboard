@@ -42,9 +42,21 @@ const ActivityInfo = ({ item }: { item: NotificationModel }) => {
 
   return (
     <div className="flex gap-2 justify-items-start mb-6">
-      <Avatar src={senderAvatar} size="md" hasBorder color="warning" />
-      <div className={`flex flex-col`}>
-        <Text size="xs" variant="description">
+      <Avatar
+        src={senderAvatar}
+        size="md"
+        hasBorder
+        color="warning"
+        classNames={{
+          base: 'shrink-0',
+        }}
+      />
+      <div className="flex flex-col">
+        <Text
+          size="xs"
+          variant="description"
+          customClass="text-wrap w-[80%] md:w-full"
+        >
           {content}
         </Text>
         <Text variant="subTitle" size="2xs">
@@ -87,7 +99,7 @@ interface ActivityFeedProps extends MetaResponse {
 const ActivityFeed = memo(
   ({ notifications, pagination }: ActivityFeedProps) => {
     return (
-      <Card className="bg-background-200 py-4 pr-3 pl-7 w-full lg:w-[495px]">
+      <Card className="bg-background-200 py-4 pr-3 pl-3 md:pl-7 w-full lg:w-[495px]">
         <div className="flex justify-between z-20 items-center">
           <Text variant="title" size="lg">
             Activity Feed

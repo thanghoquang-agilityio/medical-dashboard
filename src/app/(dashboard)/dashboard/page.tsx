@@ -39,7 +39,7 @@ const DashboardPage = () => (
         className="absolute bottom-0 right-0 w-[120px] h-[150px] md:w-[150px] md:h-[170px] lg:w-[172px] lg:h-[200px] object-cover"
       />
     </div>
-    <div className="flex flex-col lg:flex-row justify-between my-[31px] gap-4 w-full">
+    <div className="flex flex-col-reverse  lg:flex-row justify-between my-[31px] gap-[30px] w-full">
       {/* TODO: will handle call API later */}
       <ActivityFeed notifications={MOCK_NOTIFICATION_LIST} />
       <AppointmentsUpcoming appointments={MOCK_APPOINTMENTS} />
