@@ -13,5 +13,5 @@ export const FORM_VALIDATION_MESSAGE = {
 
 export const ERROR_MESSAGE = {
   LOGIN: 'Login failed. Please try again.',
-  SIGNUP: 'Sign up failed. Please try again.',
+  SIGNUP: 'Signup failed. Please try again.',
 };
