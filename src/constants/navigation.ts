@@ -10,24 +10,24 @@ import {
 } from '@/icons';
 
 // Router
-import { ROUTER } from './router';
+import { PRIVATE_ROUTES } from './router';
 
 export const NAVBAR_LINKS = [
   {
     name: 'Dashboard',
-    href: ROUTER.DASHBOARD,
+    href: PRIVATE_ROUTES.DASHBOARD,
     icon: DashboardIcon,
     isEnable: true,
   },
   {
     name: 'Appointment',
-    href: ROUTER.APPOINTMENTS,
+    href: PRIVATE_ROUTES.APPOINTMENTS,
     icon: AppointmentIcon,
     isEnable: true,
   },
   {
     name: 'Chemists',
-    href: ROUTER.CHEMISTS,
+    href: PRIVATE_ROUTES.CHEMISTS,
     icon: ChemistIcon,
     isEnable: true,
   },

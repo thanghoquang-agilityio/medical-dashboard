@@ -1,4 +1,5 @@
-import { API_URL } from '@/constants';
+import { auth } from '@/config/auth';
+import { API_URL, AUTH_TOKEN } from '@/constants';
 
 interface IApiClient {
   baseURL: string;
@@ -20,12 +21,32 @@ export class ApiClient {
   }
 
   static create(params: IApiClient): ApiClient {
-    const { baseURL, headers = { 'Content-Type': 'application/json' } } =
+    const { baseURL, headers = { Authorization: `Bearer ${AUTH_TOKEN}` } } =
       params;
 
     if (!this.apiClientInstance)
       this.apiClientInstance = new ApiClient(baseURL, { headers });
+
     return this.apiClientInstance;
+  }
+
+  async apiClientSession(config: RequestInit = {}) {
+    const session = await auth();
+
+    if (!session?.user) {
+      throw new Error('Not found user!');
+    }
+
+    const token = session.user;
+
+    return new ApiClient(API_URL, {
+      ...this.config,
+      ...config,
+      headers: {
+        Authorization: `Bearer ${token}`,
+        ...config.headers,
+      },
+    });
   }
 
   async get<T>(url: string, config: RequestInit = {}): Promise<T> {
@@ -42,6 +63,9 @@ export class ApiClient {
       ...config,
       method: 'POST',
       body: JSON.stringify(config.body),
+      headers: {
+        'Content-Type': 'application/json',
+      },
     });
 
     if (!response.ok) {
@@ -56,6 +80,9 @@ export class ApiClient {
       ...config,
       method: 'PUT',
       body: JSON.stringify(config.body),
+      headers: {
+        'Content-Type': 'application/json',
+      },
     });
 
     if (!response.ok) {
@@ -80,11 +107,17 @@ export class ApiClient {
   }
 
   fetchWithConfig(url: string, config?: RequestInit) {
-    this.config.headers = config?.headers;
-    return fetch(`${this.baseURL}${url}`, this.config);
+    return fetch(`${this.baseURL}${url}`, {
+      ...this.config,
+      ...config,
+      headers: {
+        ...this.config.headers,
+        ...config?.headers,
+      },
+    });
   }
 }
 
 export const apiClient = ApiClient.create({
-  baseURL: `${API_URL}`,
+  baseURL: API_URL,
 });

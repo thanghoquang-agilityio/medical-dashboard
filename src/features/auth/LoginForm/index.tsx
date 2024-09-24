@@ -1,37 +1,61 @@
 'use client';
 
 import Link from 'next/link';
-import { Controller, SubmitHandler, useForm } from 'react-hook-form';
+import { Controller, useForm } from 'react-hook-form';
+import { login } from '@/actions/auth';
 
 // Components
 import { Button, Checkbox, Input, Text } from '@/components/ui';
-import { EmailIcon, LockIcon } from '@/icons';
+import { EmailIcon, EyeIcon, EyeSlashIcon, LockIcon } from '@/icons';
 
 // Constants
-import { LOGIN_FORM_VALIDATION, ROUTER } from '@/constants';
+import { AUTH_ROUTES } from '@/constants';
+import { LOGIN_FORM_VALIDATION } from './rule';
 
 // Types
-import { SignInForm } from '@/types';
+import { LoginFormData } from '@/types';
+import { useCallback, useState } from 'react';
 
-const DEFAULT_VALUE: SignInForm = {
+const DEFAULT_VALUE: LoginFormData = {
   identifier: '',
   password: '',
+  remember: false,
 };
+
 const LoginForm = () => {
   const {
     control,
     formState: { isValid, isDirty, isLoading },
     handleSubmit,
-  } = useForm<SignInForm>({
-    mode: 'onBlur',
+  } = useForm<LoginFormData>({
+    mode: 'onChange',
     reValidateMode: 'onBlur',
     defaultValues: DEFAULT_VALUE,
   });
 
-  // TODO: Implement login later
-  const onSubmit: SubmitHandler<SignInForm> = (formData) => {
-    formData;
-  };
+  const [isPending, setIsPending] = useState(false);
+  const [isShowPassword, setIsShowPassword] = useState<boolean>(false);
+
+  const handleToggleVisiblePassword = useCallback(
+    () => setIsShowPassword((prev) => !prev),
+    [],
+  );
+
+  const onLogin = useCallback(async (data: LoginFormData) => {
+    setIsPending(true);
+    await login(data);
+    // TODO: update toast
+    // const { FAILED, SUCCESS } = AUTH.SIGN_IN;
+    // const { DESCRIPTION, TITLE } = user ? SUCCESS : FAILED;
+
+    // toast({
+    //   title: TITLE,
+    //   description: DESCRIPTION,
+    //   variant: user ? 'success' : 'destructive',
+    // });
+
+    setIsPending(false);
+  }, []);
 
   return (
     <div className="w-full max-w-[528px] bg-background-100 flex flex-col justify-center items-center rounded-3xl py-6 lg:px-6 mx-2">
@@ -40,7 +64,7 @@ const LoginForm = () => {
       </Text>
       <form
         className="flex flex-col md:px-10 px-4 pt-4 w-full"
-        onSubmit={handleSubmit(onSubmit)}
+        onSubmit={handleSubmit(onLogin)}
       >
         <Controller
           name="identifier"
@@ -50,7 +74,6 @@ const LoginForm = () => {
               {...field}
               size="lg"
               placeholder="email address"
-              className="py-2"
               startContent={
                 <EmailIcon customClass="w-6 h-6 text-primary-200" />
               }
@@ -68,9 +91,17 @@ const LoginForm = () => {
               {...field}
               size="lg"
               placeholder="password"
-              type="password"
-              className="py-2"
+              type={isShowPassword ? 'text' : 'password'}
               startContent={<LockIcon customClass="w-6 h-6 text-primary-200" />}
+              endContent={
+                <Button
+                  onClick={handleToggleVisiblePassword}
+                  isIconOnly
+                  className="p-0 min-w-5 h-5 text-primary-200"
+                >
+                  {isShowPassword ? <EyeIcon /> : <EyeSlashIcon />}
+                </Button>
+              }
               isInvalid={!!error?.message}
               errorMessage={error?.message}
             />
@@ -78,9 +109,15 @@ const LoginForm = () => {
           rules={LOGIN_FORM_VALIDATION.PASSWORD}
         />
         <div className="flex justify-between w-full px-2 pt-5 pb-8">
-          <Checkbox isDisabled>Remember Me</Checkbox>
+          <Controller
+            name="remember"
+            control={control}
+            render={({ field: { onChange } }) => (
+              <Checkbox onChange={onChange}>Remember Me</Checkbox>
+            )}
+          />
           <Link
-            href={ROUTER.FORGOT_PASSWORD}
+            href={AUTH_ROUTES.FORGOT_PASSWORD}
             className="font-semibold text-secondary-300"
           >
             Forgot Password?
@@ -90,14 +127,14 @@ const LoginForm = () => {
           type="submit"
           size="lg"
           isDisabled={!isValid || !isDirty}
-          isLoading={isLoading}
+          isLoading={isLoading || isPending}
         >
           Login
         </Button>
         <div className="flex justify-center w-full gap-6 pt-10 pb-3">
-          <Text size="sm">Don&rsquo;t Have An Account?</Text>
+          <Text>Don&rsquo;t Have An Account?</Text>
           <Link
-            href={ROUTER.SIGNUP}
+            href={AUTH_ROUTES.SIGNUP}
             className="font-semibold text-secondary-300"
           >
             Signup

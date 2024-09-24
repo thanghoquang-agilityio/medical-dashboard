@@ -2,26 +2,29 @@
 
 import Link from 'next/link';
 import { Controller, SubmitHandler, useForm } from 'react-hook-form';
+import { useCallback, useState } from 'react';
 
 // Components
 import { Button, Input, Text } from '@/components/ui';
-import { DoctorIcon, EmailIcon, LockIcon } from '@/icons';
+import {
+  DoctorIcon,
+  EmailIcon,
+  EyeIcon,
+  EyeSlashIcon,
+  LockIcon,
+} from '@/icons';
 
 // Constants
-import {
-  FORM_VALIDATION_MESSAGE,
-  LOGIN_FORM_VALIDATION,
-  REGEX,
-  ROUTER,
-} from '@/constants';
+import { FORM_VALIDATION_MESSAGE, REGEX, AUTH_ROUTES } from '@/constants';
+import { LOGIN_FORM_VALIDATION } from '../LoginForm/rule';
 
 // Types
-import { SignUpForm } from '@/types';
+import { SignupFormData } from '@/types';
 
 // Utils
 import { clearErrorOnChange } from '@/utils';
 
-const DEFAULT_VALUE: SignUpForm = {
+const DEFAULT_VALUE: SignupFormData = {
   username: '',
   email: '',
   password: '',
@@ -35,16 +38,30 @@ const SignupForm = () => {
     formState: { isValid, isDirty, isLoading, errors },
     clearErrors,
     handleSubmit,
-  } = useForm<SignUpForm>({
-    mode: 'onBlur',
+  } = useForm<SignupFormData>({
+    mode: 'onChange',
     reValidateMode: 'onBlur',
     defaultValues: DEFAULT_VALUE,
   });
 
   const iconClass = 'w-6 h-6 ml-4 text-primary-200';
 
+  const [isShowPassword, setIsShowPassword] = useState<boolean>(false);
+  const [isShowConfirmPassword, setIsShowConfirmPassword] =
+    useState<boolean>(false);
+
+  const handleToggleVisiblePassword = useCallback(
+    () => setIsShowPassword((prev) => !prev),
+    [],
+  );
+
+  const handleToggleShowConfirmPassword = useCallback(
+    () => setIsShowConfirmPassword((prev) => !prev),
+    [],
+  );
+
   // TODO: will handle submit form later
-  const onSubmit: SubmitHandler<SignUpForm> = (formData) => {
+  const onSubmit: SubmitHandler<SignupFormData> = (formData) => {
     formData;
   };
 
@@ -68,7 +85,7 @@ const SignupForm = () => {
   };
 
   const handleInputChange = (
-    name: keyof SignUpForm,
+    name: keyof SignupFormData,
     onChange: (value: string) => void,
   ) => {
     return (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -99,7 +116,6 @@ const SignupForm = () => {
               {...rest}
               size="lg"
               placeholder="user name"
-              className="py-2"
               startContent={<DoctorIcon customClass={iconClass} />}
               isInvalid={!!error?.message}
               errorMessage={error?.message}
@@ -119,7 +135,6 @@ const SignupForm = () => {
               {...rest}
               size="lg"
               placeholder="email address"
-              className="py-2"
               startContent={<EmailIcon customClass={iconClass} />}
               isInvalid={!!error?.message}
               errorMessage={error?.message}
@@ -139,10 +154,18 @@ const SignupForm = () => {
             <Input
               {...rest}
               size="lg"
-              type="password"
+              type={isShowPassword ? 'text' : 'password'}
               placeholder="password"
-              className="py-2"
               startContent={<LockIcon customClass={iconClass} />}
+              endContent={
+                <Button
+                  onClick={handleToggleVisiblePassword}
+                  isIconOnly
+                  className="p-0 min-w-5 h-5 text-primary-200"
+                >
+                  {isShowPassword ? <EyeIcon /> : <EyeSlashIcon />}
+                </Button>
+              }
               isInvalid={!!error?.message}
               errorMessage={error?.message}
               onChange={handleInputChange(name, onChange)}
@@ -161,10 +184,18 @@ const SignupForm = () => {
             <Input
               {...rest}
               size="lg"
-              type="password"
+              type={isShowConfirmPassword ? 'text' : 'password'}
               placeholder="confirm password"
-              className="py-2"
               startContent={<LockIcon customClass={iconClass} />}
+              endContent={
+                <Button
+                  onClick={handleToggleShowConfirmPassword}
+                  isIconOnly
+                  className="p-0 min-w-5 h-5 text-primary-200"
+                >
+                  {isShowConfirmPassword ? <EyeIcon /> : <EyeSlashIcon />}
+                </Button>
+              }
               isInvalid={!!error?.message}
               errorMessage={error?.message}
               onChange={handleInputChange(name, onChange)}
@@ -178,14 +209,14 @@ const SignupForm = () => {
           size="lg"
           isDisabled={!isValid || !isDirty}
           isLoading={isLoading}
-          className="mt-8"
+          className="mt-4"
         >
           Signup
         </Button>
         <div className="flex justify-center w-full gap-6 pt-10 pb-3">
           <Text>Already have account?</Text>
           <Link
-            href={ROUTER.LOGIN}
+            href={AUTH_ROUTES.LOGIN}
             className="font-semibold text-secondary-300"
           >
             Login
