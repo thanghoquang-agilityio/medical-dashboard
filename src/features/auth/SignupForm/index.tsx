@@ -3,6 +3,7 @@
 import { Controller, SubmitHandler, useForm } from 'react-hook-form';
 import { Link as NextUILink } from '@nextui-org/react';
 import { useCallback, useState } from 'react';
+import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 
 // Components
@@ -16,14 +17,26 @@ import {
 } from '@/icons';
 
 // Constants
-import { FORM_VALIDATION_MESSAGE, REGEX, AUTH_ROUTES } from '@/constants';
+import {
+  FORM_VALIDATION_MESSAGE,
+  REGEX,
+  AUTH_ROUTES,
+  ERROR_MESSAGE,
+  SUCCESS_MESSAGE,
+} from '@/constants';
 import { LOGIN_FORM_VALIDATION } from '../LoginForm/rule';
 
 // Types
-import { SignupFormData } from '@/types';
+import { SignupFormData, STATUS_TYPE } from '@/types';
 
 // Utils
 import { clearErrorOnChange } from '@/utils';
+
+// Actions
+import { signUp } from '@/actions/auth';
+
+// Hooks
+import { useToast } from '@/hooks';
 
 const DEFAULT_VALUE: SignupFormData = {
   username: '',
@@ -48,8 +61,13 @@ const SignupForm = () => {
   const iconClass = 'w-6 h-6 ml-4 text-primary-200';
 
   const [isShowPassword, setIsShowPassword] = useState<boolean>(false);
+  const [isPending, setIsPending] = useState(false);
   const [isShowConfirmPassword, setIsShowConfirmPassword] =
     useState<boolean>(false);
+
+  const { showToast } = useToast();
+
+  const router = useRouter();
 
   const handleToggleVisiblePassword = useCallback(
     () => setIsShowPassword((prev) => !prev),
@@ -61,9 +79,23 @@ const SignupForm = () => {
     [],
   );
 
-  // TODO: will handle submit form later
-  const onSubmit: SubmitHandler<SignupFormData> = (formData) => {
-    formData;
+  const onSubmit: SubmitHandler<SignupFormData> = async (formData) => {
+    setIsPending(true);
+    const { confirmPassWord: _, ...signUpData } = formData;
+
+    try {
+      const response = await signUp(signUpData);
+
+      if (response.user) {
+        showToast(SUCCESS_MESSAGE.SIGNUP, STATUS_TYPE.SUCCESS);
+
+        router.replace(`${AUTH_ROUTES.LOGIN}`);
+      }
+    } catch (error) {
+      showToast(ERROR_MESSAGE.SIGNUP, STATUS_TYPE.ERROR);
+    }
+
+    setIsPending(false);
   };
 
   const SIGN_UP_FORM_VALIDATION = {
@@ -119,6 +151,7 @@ const SignupForm = () => {
               placeholder="user name"
               startContent={<DoctorIcon customClass={iconClass} />}
               isInvalid={!!error?.message}
+              isDisabled={isLoading || isPending}
               errorMessage={error?.message}
               onChange={handleInputChange(name, onChange)}
             />
@@ -138,6 +171,7 @@ const SignupForm = () => {
               placeholder="email address"
               startContent={<EmailIcon customClass={iconClass} />}
               isInvalid={!!error?.message}
+              isDisabled={isLoading || isPending}
               errorMessage={error?.message}
               onChange={handleInputChange(name, onChange)}
             />
@@ -168,6 +202,7 @@ const SignupForm = () => {
                 </Button>
               }
               isInvalid={!!error?.message}
+              isDisabled={isLoading || isPending}
               errorMessage={error?.message}
               onChange={handleInputChange(name, onChange)}
             />
@@ -198,6 +233,7 @@ const SignupForm = () => {
                 </Button>
               }
               isInvalid={!!error?.message}
+              isDisabled={isLoading || isPending}
               errorMessage={error?.message}
               onChange={handleInputChange(name, onChange)}
             />
@@ -209,7 +245,7 @@ const SignupForm = () => {
           type="submit"
           size="lg"
           isDisabled={!isValid || !isDirty}
-          isLoading={isLoading}
+          isLoading={isLoading || isPending}
           className="mt-4"
         >
           Signup
@@ -220,7 +256,7 @@ const SignupForm = () => {
             as={Link}
             href={AUTH_ROUTES.LOGIN}
             className="font-semibold text-secondary-300"
-            isDisabled={isLoading}
+            isDisabled={isLoading || isPending}
           >
             Login
           </NextUILink>

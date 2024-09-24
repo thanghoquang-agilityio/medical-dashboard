@@ -6,18 +6,18 @@ import { useCallback, useState } from 'react';
 import Link from 'next/link';
 
 // Actions
-import { login } from '@/actions/auth';
+import { loginNextAuth, loginStrapi } from '@/actions/auth';
 
 // Components
 import { Button, Checkbox, Input, Text } from '@/components/ui';
 import { EmailIcon, EyeIcon, EyeSlashIcon, LockIcon } from '@/icons';
 
 // Constants
-import { AUTH_ROUTES, ERROR_MESSAGE } from '@/constants';
+import { AUTH_ROUTES, ERROR_MESSAGE, SUCCESS_MESSAGE } from '@/constants';
 import { LOGIN_FORM_VALIDATION } from './rule';
 
 // Types
-import { LoginFormData } from '@/types';
+import { LoginFormData, STATUS_TYPE } from '@/types';
 
 // Hooks
 import { useToast } from '@/hooks';
@@ -53,20 +53,16 @@ const LoginForm = () => {
     async (data: LoginFormData) => {
       setIsPending(true);
       try {
-        await login(data);
+        const response = await loginStrapi(data);
+
+        if (response) {
+          showToast(SUCCESS_MESSAGE.LOGIN, STATUS_TYPE.SUCCESS);
+
+          loginNextAuth(response);
+        }
       } catch (error) {
-        showToast(ERROR_MESSAGE.LOGIN, 'error');
+        showToast(ERROR_MESSAGE.LOGIN, STATUS_TYPE.ERROR);
       }
-      // TODO: update toast
-      // const { FAILED, SUCCESS } = AUTH.SIGN_IN;
-      // const { DESCRIPTION, TITLE } = user ? SUCCESS : FAILED;
-
-      // toast({
-      //   title: TITLE,
-      //   description: DESCRIPTION,
-      //   variant: user ? 'success' : 'destructive',
-      // });
-
       setIsPending(false);
     },
     [showToast],
@@ -93,6 +89,7 @@ const LoginForm = () => {
                 <EmailIcon customClass="w-6 h-6 text-primary-200" />
               }
               isInvalid={!!error?.message}
+              isDisabled={isLoading || isPending}
               errorMessage={error?.message}
             />
           )}
@@ -118,6 +115,7 @@ const LoginForm = () => {
                 </Button>
               }
               isInvalid={!!error?.message}
+              isDisabled={isLoading || isPending}
               errorMessage={error?.message}
             />
           )}
@@ -128,7 +126,9 @@ const LoginForm = () => {
             name="remember"
             control={control}
             render={({ field: { onChange } }) => (
-              <Checkbox onChange={onChange}>Remember Me</Checkbox>
+              <Checkbox onChange={onChange} isDisabled={isLoading || isPending}>
+                Remember Me
+              </Checkbox>
             )}
           />
           <NextUILink
