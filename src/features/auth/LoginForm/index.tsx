@@ -73,13 +73,12 @@ const LoginForm = () => {
 
         if (response) {
           showToast(SUCCESS_MESSAGE.LOGIN, STATUS_TYPE.SUCCESS);
-
           loginNextAuth(response);
         }
       } catch (error) {
         showToast(ERROR_MESSAGE.LOGIN, STATUS_TYPE.ERROR);
+        setIsPending(false);
       }
-      setIsPending(false);
     },
     [showToast],
   );
