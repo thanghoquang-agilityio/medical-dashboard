@@ -23,7 +23,7 @@ export const getAppointments = async ({
   try {
     const api = await apiClient.apiClientSession();
     const url = decodeURIComponent(
-      `/${API_ENDPOINT.APPOINTMENTS}?${searchParams.toString()}`,
+      `${API_ENDPOINT.APPOINTMENTS}?${searchParams.toString()}`,
     );
     const { data, meta } = await api.get<AppointmentsResponse>(url, {
       ...options,
@@ -49,7 +49,7 @@ export const addAppointment = async (
   try {
     const { data } = await apiClient.post<
       APIRelatedResponse<AppointmentResponse>
-    >(`/${API_ENDPOINT.APPOINTMENTS}`, {
+    >(`${API_ENDPOINT.APPOINTMENTS}`, {
       body: {
         data: appointment,
       },
@@ -76,7 +76,7 @@ export const updateAppointment = async (
   try {
     const { data } = await apiClient.put<
       APIRelatedResponse<AppointmentResponse>
-    >(`/${API_ENDPOINT.APPOINTMENTS}/${id}`, {
+    >(`${API_ENDPOINT.APPOINTMENTS}/${id}`, {
       body: {
         data: {
           ...appointment,
@@ -102,7 +102,7 @@ export const deleteAppointment = async (id: string) => {
   try {
     const response = await apiClient.delete<
       APIRelatedResponse<AppointmentResponse>
-    >(`/${API_ENDPOINT.APPOINTMENTS}/${id}`);
+    >(`${API_ENDPOINT.APPOINTMENTS}/${id}`);
     if (response) {
       revalidateTag(`${API_ENDPOINT.APPOINTMENTS}/dashboard`);
       revalidateTag(API_ENDPOINT.APPOINTMENTS);
