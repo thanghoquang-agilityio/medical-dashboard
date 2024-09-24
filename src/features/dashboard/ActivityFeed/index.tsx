@@ -47,9 +47,7 @@ const ActivityInfo = ({ item }: { item: NotificationModel }) => {
         size="md"
         hasBorder
         color="warning"
-        classNames={{
-          base: 'shrink-0',
-        }}
+        className="shrink-0"
       />
       <div className="flex flex-col">
         <Text
