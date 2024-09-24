@@ -1,3 +1,8 @@
-.wrapper-auth {
-  min-height: calc(100vh - 104px);
+main {
+  max-width: 1600px;
+  margin: auto;
+}
+
+body {
+  background: #000000 !important;
 }

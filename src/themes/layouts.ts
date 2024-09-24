@@ -1,6 +1,5 @@
 export const screens = {
   xl: '1158px',
-  '2xl': '1600px',
 };
 
 export const container = {
