@@ -2,7 +2,7 @@
 
 import { Controller, SubmitHandler, useForm } from 'react-hook-form';
 import { Link as NextUILink } from '@nextui-org/react';
-import { useCallback, useState } from 'react';
+import { ChangeEvent, useCallback, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 
@@ -53,7 +53,7 @@ const SignupForm = () => {
     clearErrors,
     handleSubmit,
   } = useForm<SignupFormData>({
-    mode: 'onChange',
+    mode: 'onBlur',
     reValidateMode: 'onBlur',
     defaultValues: DEFAULT_VALUE,
   });
@@ -121,7 +121,7 @@ const SignupForm = () => {
     name: keyof SignupFormData,
     onChange: (value: string) => void,
   ) => {
-    return (e: React.ChangeEvent<HTMLInputElement>) => {
+    return (e: ChangeEvent<HTMLInputElement>) => {
       onChange(e.target.value);
 
       // Clear error message on change
@@ -147,6 +147,7 @@ const SignupForm = () => {
           }) => (
             <Input
               {...rest}
+              name={name}
               size="lg"
               placeholder="user name"
               startContent={<DoctorIcon customClass={iconClass} />}
@@ -167,6 +168,7 @@ const SignupForm = () => {
           }) => (
             <Input
               {...rest}
+              name={name}
               size="lg"
               placeholder="email address"
               startContent={<EmailIcon customClass={iconClass} />}
@@ -188,6 +190,7 @@ const SignupForm = () => {
           }) => (
             <Input
               {...rest}
+              name={name}
               size="lg"
               type={isShowPassword ? 'text' : 'password'}
               placeholder="password"
