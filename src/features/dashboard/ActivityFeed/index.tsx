@@ -87,7 +87,7 @@ interface ActivityFeedProps extends MetaResponse {
 const ActivityFeed = memo(
   ({ notifications, pagination }: ActivityFeedProps) => {
     return (
-      <Card className="bg-background-200 py-4 pr-3 pl-7 m-10 w-[600px] h-fit">
+      <Card className="bg-background-200 py-4 pr-3 pl-7 w-full lg:w-[495px]">
         <div className="flex justify-between z-20 items-center">
           <Text variant="title" size="lg">
             Activity Feed

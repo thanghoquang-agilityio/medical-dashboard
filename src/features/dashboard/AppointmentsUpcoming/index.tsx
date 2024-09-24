@@ -1,6 +1,7 @@
 'use client';
 
 import dynamic from 'next/dynamic';
+import { Card } from '@nextui-org/react';
 
 // Components
 import { Button, Select, Text } from '@/components/ui';
@@ -25,9 +26,7 @@ const DataGrid = dynamic(() => import('@/components/ui/DataGrid'));
 interface AppointmentsUpcomingProps extends MetaResponse {
   appointments: AppointmentResponse[];
 }
-const AppointmentsUpcomingProps = ({
-  appointments,
-}: AppointmentsUpcomingProps) => {
+const AppointmentsUpcoming = ({ appointments }: AppointmentsUpcomingProps) => {
   const COLUMNS_APPOINTMENT: ColumnType<AppointmentModel>[] = [
     {
       key: 'startTime',
@@ -80,7 +79,7 @@ const AppointmentsUpcomingProps = ({
   ];
 
   return (
-    <div className="rounded-medium max-w-[420px] py-3 bg-background-200 shadow-lg">
+    <Card className="w-full lg:w-[320px] py-3 bg-background-200">
       <div className="flex justify-between pb-5 items-center px-3">
         <Text customClass="text-lg font-bold text-primary-100">
           Appointments
@@ -102,8 +101,8 @@ const AppointmentsUpcomingProps = ({
         columns={COLUMNS_APPOINTMENT as ColumnType<unknown>[]}
         classWrapper="p-0"
       />
-    </div>
+    </Card>
   );
 };
 
-export default AppointmentsUpcomingProps;
+export default AppointmentsUpcoming;

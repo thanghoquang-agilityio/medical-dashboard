@@ -1,11 +1,16 @@
 import Image from 'next/image';
 
-//
+// Components
 import { Text, Button } from '@/components/ui';
-import { SRC_BANNER_AVATAR } from '@/constants';
 import { CloseIcon } from '@/icons';
 import ActivityFeed from '@/features/dashboard/ActivityFeed';
-import AppointmentList from '@/features/appointments/AppointmentList';
+import AppointmentsUpcoming from '@/features/dashboard/AppointmentsUpcoming';
+
+// Components
+import { SRC_BANNER_AVATAR } from '@/constants';
+
+// Mocks
+import { MOCK_APPOINTMENTS, MOCK_NOTIFICATION_LIST } from '@/mocks';
 
 const DashboardPage = () => (
   <div>
@@ -34,9 +39,10 @@ const DashboardPage = () => (
         className="absolute bottom-0 right-0 w-[150px] h-[170px] lg:w-[172px] lg:h-[200px] object-cover"
       />
     </div>
-    <div className="flex">
-      <ActivityFeed notifications={[]} />
-      <AppointmentList appointments={[]} />
+    <div className="flex flex-col lg:flex-row justify-between my-[31px] gap-4 w-full">
+      {/* TODO: will handle call API later */}
+      <ActivityFeed notifications={MOCK_NOTIFICATION_LIST} />
+      <AppointmentsUpcoming appointments={MOCK_APPOINTMENTS} />
     </div>
   </div>
 );
