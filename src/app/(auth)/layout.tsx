@@ -8,7 +8,7 @@ import { Image } from '@/components/ui/Image';
 import { HeaderAuth } from '@/components/layouts/HeaderAuth';
 
 // Styles
-import '../globals.css';
+import './auth.css';
 
 const outfit = Outfit({
   subsets: ['latin'],
@@ -21,17 +21,17 @@ export default function AuthLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <main className={`${outfit.className} w-screen h-screen`}>
+    <main className={`${outfit.className} relative h-screen min-h-fit`}>
       <Image
         src={SRC_BACKGROUND_AUTH}
         alt="Background Auth"
-        className="absolute z-10 w-screen h-screen object-left"
+        className="absolute z-10 h-screen object-left min-h-[944px]"
         width={1600}
         height={960}
       />
-      <div className="absolute z-20 w-screen h-screen">
+      <div className="absolute z-20 w-full min-h-fit">
         <HeaderAuth />
-        <div className="flex lg:justify-end lg:mr-[144px] justify-center wrapper-auth py-[72px]">
+        <div className="flex 2xl:justify-end 2xl:mr-[144px] justify-center wrapper-auth py-[72px]">
           {children}
         </div>
       </div>
