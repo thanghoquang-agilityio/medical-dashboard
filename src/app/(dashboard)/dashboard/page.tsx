@@ -28,7 +28,7 @@ const DashboardPage = () => (
       >
         <CloseIcon />
       </Button>
-      <Text customClass="text-lg lg:text-xl font-bold pl-[18px]">
+      <Text customClass="text-md text-wrap md:text-lg lg:text-xl font-bold pl-[18px] w-[80%]">
         WELCOME TO YOUR PERSONAL VIRTUAL HEALTH ASSISTANT
       </Text>
       <Image
@@ -36,7 +36,7 @@ const DashboardPage = () => (
         alt="banner"
         width={172}
         height={200}
-        className="absolute bottom-0 right-0 w-[150px] h-[170px] lg:w-[172px] lg:h-[200px] object-cover"
+        className="absolute bottom-0 right-0 w-[120px] h-[150px] md:w-[150px] md:h-[170px] lg:w-[172px] lg:h-[200px] object-cover"
       />
     </div>
     <div className="flex flex-col lg:flex-row justify-between my-[31px] gap-4 w-full">

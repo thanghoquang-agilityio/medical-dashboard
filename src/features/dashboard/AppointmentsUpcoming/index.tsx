@@ -53,13 +53,28 @@ const AppointmentsUpcoming = ({ appointments }: AppointmentsUpcomingProps) => {
           <Text variant="primary" size="sm">
             {item.receiverId.data.attributes.username}
           </Text>
-          <Text customClass="text-primary-300 font-light" size="xs">
+          <Text
+            customClass="text-primary-300 font-light hidden lg:block"
+            size="xs"
+          >
             {formatTimeAppointment({
               start: item.startTime,
               duration: item.durationTime,
             })}
           </Text>
         </>
+      ),
+    },
+    {
+      key: 'durationTime',
+      title: '',
+      customNode: (_, item) => (
+        <Text customClass="text-primary-300 font-light lg:hidden" size="xs">
+          {formatTimeAppointment({
+            start: item.startTime,
+            duration: item.durationTime,
+          })}
+        </Text>
       ),
     },
     {
@@ -79,7 +94,7 @@ const AppointmentsUpcoming = ({ appointments }: AppointmentsUpcomingProps) => {
   ];
 
   return (
-    <Card className="w-full lg:w-[320px] py-3 bg-background-200">
+    <Card className="w-full lg:max-w-[320px] py-3 bg-background-200">
       <div className="flex justify-between pb-5 items-center px-3">
         <Text customClass="text-lg font-bold text-primary-100">
           Appointments
