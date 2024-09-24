@@ -15,6 +15,7 @@ export const useToast = () => {
       type: status,
       position: position,
       style: { fontSize: '12px' },
+      theme: 'colored',
     });
   };
 
