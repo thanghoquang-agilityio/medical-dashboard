@@ -7,11 +7,38 @@ import { useEffect, useState } from 'react';
 import { Image } from '@/components/ui';
 
 // Constants
-import { FOOTER_IMAGES, FOOTER_ITEMS } from '@/constants';
+import { FOOTER_IMAGES } from '@/constants';
 import { THEME_MODE_TYPE } from '@/types';
 
 // Utils
 import { cn } from '@/utils';
+
+export const FOOTER_ITEMS = [
+  {
+    src: FOOTER_IMAGES.near,
+    alt: 'Near',
+  },
+  {
+    src: FOOTER_IMAGES.binanceChain,
+    alt: 'Binance Chain',
+  },
+  {
+    src: FOOTER_IMAGES.coinbase,
+    alt: 'Coinbase',
+  },
+  {
+    src: FOOTER_IMAGES.zerion,
+    alt: 'Zerion',
+  },
+  {
+    src: FOOTER_IMAGES.zapper,
+    alt: 'Zapper',
+  },
+  {
+    src: FOOTER_IMAGES.instaoapp,
+    alt: 'Instaoapp',
+  },
+];
 
 const Footer = () => {
   const [mounted, setMounted] = useState(false);

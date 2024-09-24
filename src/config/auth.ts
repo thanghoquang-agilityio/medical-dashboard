@@ -7,22 +7,7 @@ import Credentials from 'next-auth/providers/credentials';
 
 // Configs
 import { authConfig } from './auth.config';
-
-import { TOKEN, UID_KEY } from '@/constants';
-
-const setCookie = (
-  name: string,
-  value: string,
-  httpOnly: boolean,
-  path: string,
-) => {
-  cookies().set({
-    name,
-    value,
-    httpOnly,
-    path,
-  });
-};
+import { REMEMBER_ME_COOKIES_KEY } from '@/constants';
 
 export const { auth, signIn, signOut } = NextAuth({
   ...authConfig,
@@ -37,20 +22,13 @@ export const { auth, signIn, signOut } = NextAuth({
         const user = await req.json();
 
         cookies().set({
-          name: 'remember-me',
+          name: REMEMBER_ME_COOKIES_KEY,
           value: user.remember,
           httpOnly: true,
           path: '/',
         });
 
-        if (user) {
-          const { id, token } = user;
-
-          setCookie(UID_KEY, id.toString(), true, '/');
-          setCookie(TOKEN, token, true, '/');
-
-          return user;
-        }
+        if (user) return user;
 
         return null;
       },

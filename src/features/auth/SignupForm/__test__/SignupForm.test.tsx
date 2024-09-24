@@ -1,15 +1,17 @@
 import { render, screen, fireEvent, waitFor } from '@testing-library/react';
 
-import LoginForm from '..';
+import SignupForm from '..';
 import { FORM_VALIDATION_MESSAGE } from '@/constants';
 
-describe('LoginForm Component', () => {
+describe('SignupForm Component', () => {
   const setup = () => {
-    render(<LoginForm />);
+    render(<SignupForm />);
 
     return {
+      usernameInput: screen.getByPlaceholderText('user name'),
       emailInput: screen.getByPlaceholderText('email address'),
       passwordInput: screen.getByPlaceholderText('password'),
+      confirmPasswordInput: screen.getByPlaceholderText('confirm password'),
     };
   };
 
@@ -20,33 +22,47 @@ describe('LoginForm Component', () => {
   };
 
   it('should enable the submit button when form is valid', async () => {
-    const { emailInput, passwordInput } = setup();
+    const { usernameInput, emailInput, passwordInput, confirmPasswordInput } =
+      setup();
 
     await waitFor(async () => {
+      await fillInput(usernameInput, 'example user');
       await fillInput(emailInput, 'example@email.com');
       await fillInput(passwordInput, 'password123');
+      await fillInput(confirmPasswordInput, 'password123');
     });
 
-    const submitButton = await screen.findByRole('button', { name: /login/i });
+    const submitButton = await screen.findByRole('button', { name: /signup/i });
 
     expect(submitButton).toBeEnabled();
   });
 
   it('should shows validation errors when inputs are left empty', async () => {
-    const { emailInput, passwordInput } = setup();
+    const { usernameInput, emailInput, passwordInput, confirmPasswordInput } =
+      setup();
 
     // Fill empty inputs
-    fillInput(emailInput, 'example@email.com');
+    fillInput(usernameInput, 'example user');
+    fillInput(usernameInput, '');
+    fillInput(emailInput, 'password123');
     fillInput(emailInput, '');
     fillInput(passwordInput, 'password123');
     fillInput(passwordInput, '');
+    fillInput(confirmPasswordInput, 'password123');
+    fillInput(confirmPasswordInput, '');
 
     await waitFor(() => {
+      expect(
+        screen.getByText(FORM_VALIDATION_MESSAGE.REQUIRED('Name')),
+      ).toBeInTheDocument();
       expect(
         screen.getByText(FORM_VALIDATION_MESSAGE.REQUIRED('Email')),
       ).toBeInTheDocument();
       expect(
         screen.getByText(FORM_VALIDATION_MESSAGE.REQUIRED('Password')),
+      ).toBeInTheDocument();
+      expect(
+        screen.getByText(FORM_VALIDATION_MESSAGE.REQUIRED('Confirm Password')),
       ).toBeInTheDocument();
     });
   });
@@ -87,8 +103,33 @@ describe('LoginForm Component', () => {
     });
   });
 
+  it('should show validation error when password and confirm password does not match', async () => {
+    const { passwordInput, confirmPasswordInput } = setup();
+
+    await fillInput(passwordInput, 'password');
+    await fillInput(confirmPasswordInput, 'confirmPasswordInput');
+
+    await waitFor(() => {
+      expect(
+        screen.getByText(FORM_VALIDATION_MESSAGE.PASSWORD_NOT_MATCH),
+      ).toBeInTheDocument();
+    });
+  });
+
+  it('should show validation error when name is wrong format', async () => {
+    const { usernameInput } = setup();
+
+    await fillInput(usernameInput, '@');
+
+    await waitFor(() => {
+      expect(
+        screen.getByText(FORM_VALIDATION_MESSAGE.FORMAT('Name')),
+      ).toBeInTheDocument();
+    });
+  });
+
   it('should renders correctly form', () => {
-    const { container } = render(<LoginForm />);
+    const { container } = render(<SignupForm />);
 
     expect(container).toMatchSnapshot();
   });

@@ -10,16 +10,13 @@ const HeaderDashboard = dynamic(
 );
 const Footer = dynamic(() => import('@/components/layouts/Footer'));
 
-// Style
-import './dashboard.css';
-
 export default function DashboardLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
   return (
-    <main className="flex">
+    <main className="flex max-w-[1158px] m-auto">
       <Sidebar />
 
       <div className="flex flex-col min-h-[100vh] max-h-fit w-full relative bg-background-100 md:pl-[81px] lg:pl-[277px]">
@@ -30,7 +27,7 @@ export default function DashboardLayout({
           isInvisibleBadge
         />
         <div />
-        <div className="container">{children}</div>
+        <div className="px-[17px] md:px-8">{children}</div>
         <Footer />
       </div>
     </main>

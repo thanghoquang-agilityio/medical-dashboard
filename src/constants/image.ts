@@ -17,3 +17,6 @@ export const FOOTER_IMAGES = {
   instaoapp: '/images/footer/instaoapp.webp',
   localName: '/images/footer/local-name.webp',
 };
+
+export const NOT_FOUND_URL_IMAGE = '/images/not-found.png';
+export const ERROR_IMAGE = '/images/error.png';

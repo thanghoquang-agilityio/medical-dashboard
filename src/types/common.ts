@@ -32,3 +32,9 @@ export interface Option {
   key: string;
   label: string;
 }
+
+// FetchData
+export interface FetchDataProps {
+  searchParams?: URLSearchParams;
+  options?: RequestInit;
+}

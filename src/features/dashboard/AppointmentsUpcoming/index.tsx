@@ -1,6 +1,7 @@
 'use client';
 
 import dynamic from 'next/dynamic';
+import { Card } from '@nextui-org/react';
 
 // Components
 import { Button, Select, Text } from '@/components/ui';
@@ -25,9 +26,7 @@ const DataGrid = dynamic(() => import('@/components/ui/DataGrid'));
 interface AppointmentsUpcomingProps extends MetaResponse {
   appointments: AppointmentResponse[];
 }
-const AppointmentsUpcomingProps = ({
-  appointments,
-}: AppointmentsUpcomingProps) => {
+const AppointmentsUpcoming = ({ appointments }: AppointmentsUpcomingProps) => {
   const COLUMNS_APPOINTMENT: ColumnType<AppointmentModel>[] = [
     {
       key: 'startTime',
@@ -54,7 +53,10 @@ const AppointmentsUpcomingProps = ({
           <Text variant="primary" size="sm">
             {item.receiverId.data.attributes.username}
           </Text>
-          <Text customClass="text-primary-300 font-light" size="xs">
+          <Text
+            customClass="text-primary-300 font-light hidden lg:block"
+            size="xs"
+          >
             {formatTimeAppointment({
               start: item.startTime,
               duration: item.durationTime,
@@ -64,13 +66,25 @@ const AppointmentsUpcomingProps = ({
       ),
     },
     {
+      key: 'durationTime',
+      title: '',
+      customNode: (_, item) => (
+        <Text customClass="text-primary-300 font-light lg:hidden" size="xs">
+          {formatTimeAppointment({
+            start: item.startTime,
+            duration: item.durationTime,
+          })}
+        </Text>
+      ),
+    },
+    {
       key: 'more',
       title: '',
       customNode: () => (
         <div className="flex justify-end">
           <Button
             color="stone"
-            className="p-0h-[26px] min-w-[26px] bg-background-100 rounded-md"
+            className="p-0 h-[26px] min-w-[26px] bg-background-100 rounded-md"
           >
             <MoreIcon customClass="w-4 h-4" />
           </Button>
@@ -80,7 +94,7 @@ const AppointmentsUpcomingProps = ({
   ];
 
   return (
-    <div className="rounded-medium max-w-[420px] py-3 bg-background-200 shadow-lg">
+    <Card className="w-full lg:max-w-[320px] py-3 bg-background-200">
       <div className="flex justify-between pb-5 items-center px-3">
         <Text customClass="text-lg font-bold text-primary-100">
           Appointments
@@ -102,8 +116,8 @@ const AppointmentsUpcomingProps = ({
         columns={COLUMNS_APPOINTMENT as ColumnType<unknown>[]}
         classWrapper="p-0"
       />
-    </div>
+    </Card>
   );
 };
 
-export default AppointmentsUpcomingProps;
+export default AppointmentsUpcoming;
