@@ -1,8 +1,9 @@
 'use client';
 
-import Link from 'next/link';
 import { Controller, SubmitHandler, useForm } from 'react-hook-form';
+import { Link as NextUILink } from '@nextui-org/react';
 import { useCallback, useState } from 'react';
+import Link from 'next/link';
 
 // Components
 import { Button, Input, Text } from '@/components/ui';
@@ -215,12 +216,14 @@ const SignupForm = () => {
         </Button>
         <div className="flex justify-center w-full gap-6 pt-10 pb-3">
           <Text>Already have account?</Text>
-          <Link
+          <NextUILink
+            as={Link}
             href={AUTH_ROUTES.LOGIN}
             className="font-semibold text-secondary-300"
+            isDisabled={isLoading}
           >
             Login
-          </Link>
+          </NextUILink>
         </div>
       </form>
     </div>

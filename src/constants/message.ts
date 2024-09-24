@@ -10,3 +10,8 @@ export const FORM_VALIDATION_MESSAGE = {
   FORMAT: (ariaLabel: string) =>
     `${ariaLabel} does not follow the correct format.`,
 };
+
+export const ERROR_MESSAGE = {
+  LOGIN: 'Login failed. Please try again.',
+  SIGNUP: 'Sign up failed. Please try again.',
+};
