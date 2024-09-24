@@ -2,7 +2,7 @@
 
 import { Controller, useForm } from 'react-hook-form';
 import { Link as NextUILink } from '@nextui-org/react';
-import { useCallback, useState } from 'react';
+import { ChangeEvent, useCallback, useState } from 'react';
 import Link from 'next/link';
 
 // Actions
@@ -22,6 +22,9 @@ import { LoginFormData, STATUS_TYPE } from '@/types';
 // Hooks
 import { useToast } from '@/hooks';
 
+// Utils
+import { clearErrorOnChange } from '@/utils';
+
 const DEFAULT_VALUE: LoginFormData = {
   identifier: '',
   password: '',
@@ -31,10 +34,11 @@ const DEFAULT_VALUE: LoginFormData = {
 const LoginForm = () => {
   const {
     control,
-    formState: { isValid, isDirty, isLoading },
+    formState: { isValid, isDirty, isLoading, errors },
     handleSubmit,
+    clearErrors,
   } = useForm<LoginFormData>({
-    mode: 'onChange',
+    mode: 'onBlur',
     reValidateMode: 'onBlur',
     defaultValues: DEFAULT_VALUE,
   });
@@ -48,6 +52,18 @@ const LoginForm = () => {
     () => setIsShowPassword((prev) => !prev),
     [],
   );
+
+  const handleInputChange = (
+    name: keyof LoginFormData,
+    onChange: (value: string) => void,
+  ) => {
+    return (e: ChangeEvent<HTMLInputElement>) => {
+      onChange(e.target.value);
+
+      // Clear error message on change
+      clearErrorOnChange(name, errors, clearErrors);
+    };
+  };
 
   const onLogin = useCallback(
     async (data: LoginFormData) => {
@@ -80,9 +96,13 @@ const LoginForm = () => {
         <Controller
           name="identifier"
           control={control}
-          render={({ field, fieldState: { error } }) => (
+          render={({
+            field: { name, onChange, ...rest },
+            fieldState: { error },
+          }) => (
             <Input
-              {...field}
+              {...rest}
+              name={name}
               size="lg"
               placeholder="email address"
               startContent={
@@ -91,6 +111,7 @@ const LoginForm = () => {
               isInvalid={!!error?.message}
               isDisabled={isLoading || isPending}
               errorMessage={error?.message}
+              onChange={handleInputChange(name, onChange)}
             />
           )}
           rules={LOGIN_FORM_VALIDATION.EMAIL}
@@ -98,9 +119,13 @@ const LoginForm = () => {
         <Controller
           name="password"
           control={control}
-          render={({ field, fieldState: { error } }) => (
+          render={({
+            field: { name, onChange, ...rest },
+            fieldState: { error },
+          }) => (
             <Input
-              {...field}
+              {...rest}
+              name={name}
               size="lg"
               placeholder="password"
               type={isShowPassword ? 'text' : 'password'}
@@ -117,6 +142,7 @@ const LoginForm = () => {
               isInvalid={!!error?.message}
               isDisabled={isLoading || isPending}
               errorMessage={error?.message}
+              onChange={handleInputChange(name, onChange)}
             />
           )}
           rules={LOGIN_FORM_VALIDATION.PASSWORD}
