@@ -1,6 +1,5 @@
 'use server';
 
-import { signOut } from '@/config/auth';
 import { apiClient } from './api';
 import { getUserLogged } from './user';
 import {
@@ -49,16 +48,15 @@ export const login = async (
 };
 
 export const signup = async (
-  body: SignupFormData,
+  body: Omit<SignupFormData, 'confirmPassWord'>,
 ): Promise<Pick<AuthResponse, 'error' | 'user'>> => {
   try {
     const { error, user } = await apiClient.post<AuthResponse>(
-      `${API_ENDPOINT}/register`,
+      `${API_ENDPOINT.AUTH}/register`,
       {
         body,
       },
     );
-
     return { error, user };
   } catch (error) {
     const errorMessage =
@@ -68,5 +66,3 @@ export const signup = async (
     throw new Error(errorMessage);
   }
 };
-
-export const logout = async () => await signOut();
