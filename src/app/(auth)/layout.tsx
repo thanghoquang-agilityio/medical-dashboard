@@ -19,7 +19,7 @@ export default function AuthLayout({
 }>) {
   return (
     <main
-      className={`${outfit.className} w-screen h-screen min-h-fit bg-black`}
+      className={`${outfit.className} w-screen h-screen min-h-[944px] bg-black`}
     >
       <div className="relative max-w-[1600px] m-auto">
         <Image
