@@ -1,16 +1,14 @@
 'use server';
 
+import { cookies } from 'next/headers';
 import { signIn, signOut } from '@/config/auth';
+import { LoginFormData } from '@/types';
 import {
   AUTH_SESSION_COOKIES_KEY,
   PRIVATE_ROUTES,
   REMEMBER_ME_COOKIES_KEY,
-  TOKEN,
-  UID_KEY,
 } from '@/constants';
 import { login as loginService } from '@/services';
-import { LoginFormData } from '@/types';
-import { cookies } from 'next/headers';
 
 export const login = async (data: LoginFormData) => {
   const user = await loginService(data);
@@ -25,8 +23,6 @@ export const login = async (data: LoginFormData) => {
 
 export const logout = async () => {
   cookies().delete(REMEMBER_ME_COOKIES_KEY);
-  cookies().delete(UID_KEY);
-  cookies().delete(TOKEN);
   cookies().delete(
     (process.env.NODE_ENV === 'production' &&
       process.env.NEXT_PUBLIC_AUTH_SESSION_TOKEN_KEY) ||

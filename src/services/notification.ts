@@ -23,7 +23,7 @@ export const getNotifications = async ({
   try {
     const api = await apiClient.apiClientSession();
     const url = decodeURIComponent(
-      `/${API_ENDPOINT.NOTIFICATIONS}?${searchParams.toString()}`,
+      `${API_ENDPOINT.NOTIFICATIONS}?${searchParams.toString()}`,
     );
     const { data, meta } = await api.get<NotificationsResponse>(url, {
       ...options,
@@ -39,6 +39,7 @@ export const getNotifications = async ({
       error instanceof Error
         ? error.message
         : 'An unexpected error occurred in the request get notifications';
+
     throw new Error(errorMessage);
   }
 };
@@ -49,7 +50,7 @@ export const addNotification = async (
   try {
     const { data } = await apiClient.post<
       APIRelatedResponse<NotificationResponse>
-    >(`/${API_ENDPOINT.NOTIFICATIONS}`, {
+    >(`${API_ENDPOINT.NOTIFICATIONS}`, {
       body: {
         data: notification,
       },
@@ -76,7 +77,7 @@ export const updateNotification = async (
   try {
     const { data } = await apiClient.put<
       APIRelatedResponse<NotificationResponse>
-    >(`/${API_ENDPOINT.NOTIFICATIONS}/${id}`, {
+    >(`${API_ENDPOINT.NOTIFICATIONS}/${id}`, {
       body: {
         data: {
           ...notification,

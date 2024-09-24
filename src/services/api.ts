@@ -32,7 +32,6 @@ export class ApiClient {
 
   async apiClientSession(config: RequestInit = {}) {
     const session = await auth();
-
     if (!session?.user) {
       throw new Error('Not found user!');
     }

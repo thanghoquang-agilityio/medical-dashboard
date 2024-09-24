@@ -12,6 +12,14 @@ export const authConfig: NextAuthConfig = {
   },
   trustHost: true,
   callbacks: {
+    async jwt({ user, token }) {
+      if (token) Object.assign(token, user);
+      return token;
+    },
+    async session({ session, token }) {
+      Object.assign(session.user, token);
+      return session;
+    },
     authorized({ auth, request: { nextUrl } }) {
       const isLoggedIn = !!auth?.user;
       const isOnDashboard = !Object.values(AUTH_ROUTES).includes(
