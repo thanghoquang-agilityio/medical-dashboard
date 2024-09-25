@@ -16,7 +16,7 @@ const SwitchTheme = () => {
   const [mounted, setMounted] = useState(false);
   const { theme, setTheme } = useTheme();
 
-  const onSwitchTheme = useCallback(() => {
+  const handleSwitchTheme = useCallback(() => {
     setTheme(
       theme === THEME_MODE_TYPE.LIGHT
         ? THEME_MODE_TYPE.DARK
@@ -43,7 +43,7 @@ const SwitchTheme = () => {
   return (
     <Button
       isIconOnly
-      onClick={onSwitchTheme}
+      onClick={handleSwitchTheme}
       className=" p-0 min-w-6 h-6 text-primary-300"
     >
       {theme === THEME_MODE_TYPE.LIGHT ? (

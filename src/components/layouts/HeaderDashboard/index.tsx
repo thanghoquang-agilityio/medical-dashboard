@@ -7,6 +7,7 @@ import { NotificationResponse } from '@/types';
 
 // Components
 import { Avatar, Button, Text, Popover } from '@/components/ui';
+import { SidebarMobile } from '../Sidebar/SideBarMobile';
 
 // Icons
 import { BellIcon, SingleDotIcon } from '@/icons';
@@ -61,7 +62,8 @@ const HeaderDashboard = ({
   };
 
   return (
-    <header className="flex sticky z-[9999] top-0 justify-end items-center gap-0.5 w-full h-14 bg-background-100 pr-4 md:pr-11">
+    <header className="flex sticky z-[10] top-0 justify-end items-center gap-0.5 w-full h-14 bg-background-100 pr-4 md:pr-11">
+      <SidebarMobile />
       <SwitchTheme />
 
       <Popover

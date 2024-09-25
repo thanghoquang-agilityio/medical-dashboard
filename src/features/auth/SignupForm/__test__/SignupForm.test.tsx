@@ -2,12 +2,14 @@ import { render, screen, fireEvent, waitFor } from '@testing-library/react';
 
 import SignupForm from '..';
 import { FORM_VALIDATION_MESSAGE } from '@/constants';
+import { MOCK_AUTH } from '@/mocks';
 
 describe('SignupForm Component', () => {
   const setup = () => {
-    render(<SignupForm />);
+    const { container } = render(<SignupForm />);
 
     return {
+      container,
       usernameInput: screen.getByPlaceholderText('user name'),
       emailInput: screen.getByPlaceholderText('email address'),
       passwordInput: screen.getByPlaceholderText('password'),
@@ -27,9 +29,9 @@ describe('SignupForm Component', () => {
 
     await waitFor(async () => {
       await fillInput(usernameInput, 'example user');
-      await fillInput(emailInput, 'example@email.com');
-      await fillInput(passwordInput, 'password123');
-      await fillInput(confirmPasswordInput, 'password123');
+      await fillInput(emailInput, MOCK_AUTH.EMAIL);
+      await fillInput(passwordInput, MOCK_AUTH.PASSWORD);
+      await fillInput(confirmPasswordInput, MOCK_AUTH.PASSWORD);
     });
 
     const submitButton = await screen.findByRole('button', { name: /signup/i });
@@ -42,14 +44,10 @@ describe('SignupForm Component', () => {
       setup();
 
     // Fill empty inputs
-    fillInput(usernameInput, 'example user');
-    fillInput(usernameInput, '');
-    fillInput(emailInput, 'password123');
-    fillInput(emailInput, '');
-    fillInput(passwordInput, 'password123');
-    fillInput(passwordInput, '');
-    fillInput(confirmPasswordInput, 'password123');
-    fillInput(confirmPasswordInput, '');
+    fireEvent.blur(usernameInput);
+    fireEvent.blur(emailInput);
+    fireEvent.blur(passwordInput);
+    fireEvent.blur(confirmPasswordInput);
 
     await waitFor(() => {
       expect(
@@ -106,7 +104,7 @@ describe('SignupForm Component', () => {
   it('should show validation error when password and confirm password does not match', async () => {
     const { passwordInput, confirmPasswordInput } = setup();
 
-    await fillInput(passwordInput, 'password');
+    await fillInput(passwordInput, MOCK_AUTH.PASSWORD);
     await fillInput(confirmPasswordInput, 'confirmPasswordInput');
 
     await waitFor(() => {
@@ -129,7 +127,7 @@ describe('SignupForm Component', () => {
   });
 
   it('should renders correctly form', () => {
-    const { container } = render(<SignupForm />);
+    const { container } = setup();
 
     expect(container).toMatchSnapshot();
   });

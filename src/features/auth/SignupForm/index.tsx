@@ -17,14 +17,8 @@ import {
 } from '@/icons';
 
 // Constants
-import {
-  FORM_VALIDATION_MESSAGE,
-  REGEX,
-  AUTH_ROUTES,
-  ERROR_MESSAGE,
-  SUCCESS_MESSAGE,
-} from '@/constants';
-import { LOGIN_FORM_VALIDATION } from '../LoginForm/rule';
+import { AUTH_ROUTES, ERROR_MESSAGE, SUCCESS_MESSAGE } from '@/constants';
+import { SIGN_UP_FORM_VALIDATION } from './rule';
 
 // Types
 import { SignupFormData, STATUS_TYPE } from '@/types';
@@ -33,7 +27,7 @@ import { SignupFormData, STATUS_TYPE } from '@/types';
 import { clearErrorOnChange } from '@/utils';
 
 // Actions
-import { signUp } from '@/actions/auth';
+import { signup } from '@/actions/auth';
 
 // Hooks
 import { useToast } from '@/hooks';
@@ -58,10 +52,8 @@ const SignupForm = () => {
     defaultValues: DEFAULT_VALUE,
   });
 
-  const iconClass = 'w-6 h-6 ml-4 text-primary-200';
-
-  const [isShowPassword, setIsShowPassword] = useState<boolean>(false);
   const [isPending, setIsPending] = useState(false);
+  const [isShowPassword, setIsShowPassword] = useState<boolean>(false);
   const [isShowConfirmPassword, setIsShowConfirmPassword] =
     useState<boolean>(false);
 
@@ -79,55 +71,42 @@ const SignupForm = () => {
     [],
   );
 
-  const onSubmit: SubmitHandler<SignupFormData> = async (formData) => {
-    setIsPending(true);
-    const { confirmPassWord: _, ...signUpData } = formData;
+  const handleSignup: SubmitHandler<SignupFormData> = useCallback(
+    async (formData) => {
+      setIsPending(true);
+      const { confirmPassWord: _, ...signupData } = formData;
 
-    try {
-      const response = await signUp(signUpData);
+      try {
+        const response = await signup(signupData);
 
-      if (response.user) {
-        showToast(SUCCESS_MESSAGE.SIGNUP, STATUS_TYPE.SUCCESS);
+        if (response.user) {
+          showToast(SUCCESS_MESSAGE.SIGNUP, STATUS_TYPE.SUCCESS);
 
-        router.replace(`${AUTH_ROUTES.LOGIN}`);
+          router.replace(`${AUTH_ROUTES.LOGIN}`);
+        }
+      } catch (error) {
+        showToast(ERROR_MESSAGE.SIGNUP, STATUS_TYPE.ERROR);
       }
-    } catch (error) {
-      showToast(ERROR_MESSAGE.SIGNUP, STATUS_TYPE.ERROR);
-    }
 
-    setIsPending(false);
-  };
-
-  const SIGN_UP_FORM_VALIDATION = {
-    ...LOGIN_FORM_VALIDATION,
-    USERNAME: {
-      required: FORM_VALIDATION_MESSAGE.REQUIRED('Name'),
-      pattern: {
-        value: REGEX.NAME,
-        message: FORM_VALIDATION_MESSAGE.FORMAT('Name'),
-      },
+      setIsPending(false);
     },
-    CONFIRM_PASSWORD: {
-      required: FORM_VALIDATION_MESSAGE.REQUIRED('Confirm Password'),
-      validate: {
-        matchesPassword: (value: string) =>
-          value === getValues('password') ||
-          FORM_VALIDATION_MESSAGE.PASSWORD_NOT_MATCH,
-      },
+    [router, showToast],
+  );
+
+  const handleInputChange = useCallback(
+    (name: keyof SignupFormData, onChange: (value: string) => void) => {
+      return (e: ChangeEvent<HTMLInputElement>) => {
+        onChange(e.target.value);
+
+        // Clear error message on change
+        clearErrorOnChange(name, errors, clearErrors);
+      };
     },
-  };
+    [clearErrors, errors],
+  );
 
-  const handleInputChange = (
-    name: keyof SignupFormData,
-    onChange: (value: string) => void,
-  ) => {
-    return (e: ChangeEvent<HTMLInputElement>) => {
-      onChange(e.target.value);
-
-      // Clear error message on change
-      clearErrorOnChange(name, errors, clearErrors);
-    };
-  };
+  const iconClass = 'w-6 h-6 ml-4 text-primary-200';
+  const isDisabled = isLoading || isPending;
 
   return (
     <div className="w-full max-w-[528px] bg-background-100 flex flex-col justify-center items-center rounded-3xl py-6 lg:px-6 mx-2">
@@ -136,7 +115,7 @@ const SignupForm = () => {
       </Text>
       <form
         className="flex flex-col md:px-10 px-4 pt-4 w-full"
-        onSubmit={handleSubmit(onSubmit)}
+        onSubmit={handleSubmit(handleSignup)}
       >
         <Controller
           name="username"
@@ -152,7 +131,7 @@ const SignupForm = () => {
               placeholder="user name"
               startContent={<DoctorIcon customClass={iconClass} />}
               isInvalid={!!error?.message}
-              isDisabled={isLoading || isPending}
+              isDisabled={isDisabled}
               errorMessage={error?.message}
               onChange={handleInputChange(name, onChange)}
             />
@@ -173,7 +152,7 @@ const SignupForm = () => {
               placeholder="email address"
               startContent={<EmailIcon customClass={iconClass} />}
               isInvalid={!!error?.message}
-              isDisabled={isLoading || isPending}
+              isDisabled={isDisabled}
               errorMessage={error?.message}
               onChange={handleInputChange(name, onChange)}
             />
@@ -205,7 +184,7 @@ const SignupForm = () => {
                 </Button>
               }
               isInvalid={!!error?.message}
-              isDisabled={isLoading || isPending}
+              isDisabled={isDisabled}
               errorMessage={error?.message}
               onChange={handleInputChange(name, onChange)}
             />
@@ -236,19 +215,19 @@ const SignupForm = () => {
                 </Button>
               }
               isInvalid={!!error?.message}
-              isDisabled={isLoading || isPending}
+              isDisabled={isDisabled}
               errorMessage={error?.message}
               onChange={handleInputChange(name, onChange)}
             />
           )}
-          rules={SIGN_UP_FORM_VALIDATION.CONFIRM_PASSWORD}
+          rules={SIGN_UP_FORM_VALIDATION.CONFIRM_PASSWORD(getValues)}
         />
 
         <Button
           type="submit"
           size="lg"
           isDisabled={!isValid || !isDirty}
-          isLoading={isLoading || isPending}
+          isLoading={isDisabled}
           className="mt-4"
         >
           Signup
@@ -259,7 +238,7 @@ const SignupForm = () => {
             as={Link}
             href={AUTH_ROUTES.LOGIN}
             className="font-semibold text-secondary-300"
-            isDisabled={isLoading || isPending}
+            isDisabled={isDisabled}
           >
             Login
           </NextUILink>

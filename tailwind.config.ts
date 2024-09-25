@@ -24,8 +24,9 @@ const config: Config = {
       fontSize,
       screens,
       fontFamily: {
-        inter: 'var(--font-inter)',
-        'plus-jakarta-sans': 'var(--font-plus-jakarta-sans)',
+        inter: ['var(--font-inter)'],
+        'plus-jakarta-sans': ['var(--font-plus-jakarta-sans)'],
+        outfit: ['var(--font-outfit)'],
       },
       keyframes: {
         slideInLeft: {

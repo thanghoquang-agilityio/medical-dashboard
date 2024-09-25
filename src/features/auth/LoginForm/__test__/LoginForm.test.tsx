@@ -2,12 +2,14 @@ import { render, screen, fireEvent, waitFor } from '@testing-library/react';
 
 import LoginForm from '..';
 import { FORM_VALIDATION_MESSAGE } from '@/constants';
+import { MOCK_AUTH } from '@/mocks';
 
 describe('LoginForm Component', () => {
   const setup = () => {
-    render(<LoginForm />);
+    const { container } = render(<LoginForm />);
 
     return {
+      container,
       emailInput: screen.getByPlaceholderText('email address'),
       passwordInput: screen.getByPlaceholderText('password'),
     };
@@ -23,8 +25,8 @@ describe('LoginForm Component', () => {
     const { emailInput, passwordInput } = setup();
 
     await waitFor(async () => {
-      await fillInput(emailInput, 'example@email.com');
-      await fillInput(passwordInput, 'password123');
+      await fillInput(emailInput, MOCK_AUTH.EMAIL);
+      await fillInput(passwordInput, MOCK_AUTH.PASSWORD);
     });
 
     const submitButton = await screen.findByRole('button', { name: /login/i });
@@ -36,10 +38,8 @@ describe('LoginForm Component', () => {
     const { emailInput, passwordInput } = setup();
 
     // Fill empty inputs
-    fillInput(emailInput, 'example@email.com');
-    fillInput(emailInput, '');
-    fillInput(passwordInput, 'password123');
-    fillInput(passwordInput, '');
+    fireEvent.blur(emailInput);
+    fireEvent.blur(passwordInput);
 
     await waitFor(() => {
       expect(
@@ -88,7 +88,7 @@ describe('LoginForm Component', () => {
   });
 
   it('should renders correctly form', () => {
-    const { container } = render(<LoginForm />);
+    const { container } = setup();
 
     expect(container).toMatchSnapshot();
   });

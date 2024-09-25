@@ -1,12 +1,12 @@
 'use client';
 
 import { Controller, useForm } from 'react-hook-form';
-import { Link as NextUILink } from '@nextui-org/react';
+import { Card, Link as NextUILink } from '@nextui-org/react';
 import { ChangeEvent, useCallback, useState } from 'react';
 import Link from 'next/link';
 
 // Actions
-import { loginNextAuth, loginStrapi } from '@/actions/auth';
+import { loginNextAuth, login } from '@/actions/auth';
 
 // Components
 import { Button, Checkbox, Input, Text } from '@/components/ui';
@@ -45,6 +45,7 @@ const LoginForm = () => {
 
   const [isPending, setIsPending] = useState(false);
   const [isShowPassword, setIsShowPassword] = useState<boolean>(false);
+  const [error, setError] = useState('');
 
   const { showToast } = useToast();
 
@@ -53,27 +54,35 @@ const LoginForm = () => {
     [],
   );
 
-  const handleInputChange = (
-    name: keyof LoginFormData,
-    onChange: (value: string) => void,
-  ) => {
-    return (e: ChangeEvent<HTMLInputElement>) => {
-      onChange(e.target.value);
+  const handleInputChange = useCallback(
+    (name: keyof LoginFormData, onChange: (value: string) => void) => {
+      return (e: ChangeEvent<HTMLInputElement>) => {
+        onChange(e.target.value);
 
-      // Clear error message on change
-      clearErrorOnChange(name, errors, clearErrors);
-    };
-  };
+        // Clear error message on change
+        clearErrorOnChange(name, errors, clearErrors);
+      };
+    },
+    [clearErrors, errors],
+  );
 
-  const onLogin = useCallback(
+  const handleLogin = useCallback(
     async (data: LoginFormData) => {
+      setError('');
       setIsPending(true);
       try {
-        const response = await loginStrapi(data);
+        const response = await login(data);
+        const { user, error } = response;
 
-        if (response) {
+        if (user) {
           showToast(SUCCESS_MESSAGE.LOGIN, STATUS_TYPE.SUCCESS);
-          loginNextAuth(response);
+          loginNextAuth(user);
+        }
+
+        if (error) {
+          setError(error.error.message || '');
+          showToast(ERROR_MESSAGE.LOGIN, STATUS_TYPE.ERROR);
+          setIsPending(false);
         }
       } catch (error) {
         showToast(ERROR_MESSAGE.LOGIN, STATUS_TYPE.ERROR);
@@ -83,14 +92,17 @@ const LoginForm = () => {
     [showToast],
   );
 
+  const iconClass = 'w-6 h-6 ml-4 text-primary-200';
+  const isDisabled = isLoading || isPending;
+
   return (
-    <div className="w-full max-w-[528px] bg-background-100 flex flex-col justify-center items-center rounded-3xl py-6 lg:px-6 mx-2">
+    <Card className="w-full max-w-[528px] bg-background-100 flex flex-col justify-center items-center rounded-3xl py-6 lg:px-6 mx-2">
       <Text variant="quaternary" size="3xl">
         Login
       </Text>
       <form
         className="flex flex-col md:px-10 px-4 pt-4 w-full"
-        onSubmit={handleSubmit(onLogin)}
+        onSubmit={handleSubmit(handleLogin)}
       >
         <Controller
           name="identifier"
@@ -104,9 +116,7 @@ const LoginForm = () => {
               name={name}
               size="lg"
               placeholder="email address"
-              startContent={
-                <EmailIcon customClass="w-6 h-6 text-primary-200" />
-              }
+              startContent={<EmailIcon customClass={iconClass} />}
               isInvalid={!!error?.message}
               isDisabled={isLoading || isPending}
               errorMessage={error?.message}
@@ -128,7 +138,7 @@ const LoginForm = () => {
               size="lg"
               placeholder="password"
               type={isShowPassword ? 'text' : 'password'}
-              startContent={<LockIcon customClass="w-6 h-6 text-primary-200" />}
+              startContent={<LockIcon customClass={iconClass} />}
               endContent={
                 <Button
                   onClick={handleToggleVisiblePassword}
@@ -139,19 +149,19 @@ const LoginForm = () => {
                 </Button>
               }
               isInvalid={!!error?.message}
-              isDisabled={isLoading || isPending}
+              isDisabled={isDisabled}
               errorMessage={error?.message}
               onChange={handleInputChange(name, onChange)}
             />
           )}
           rules={LOGIN_FORM_VALIDATION.PASSWORD}
         />
-        <div className="flex justify-between w-full px-2 pt-5 pb-8">
+        <div className="flex justify-between w-full px-2 py-4">
           <Controller
             name="remember"
             control={control}
             render={({ field: { onChange } }) => (
-              <Checkbox onChange={onChange} isDisabled={isLoading || isPending}>
+              <Checkbox onChange={onChange} isDisabled={isDisabled}>
                 Remember Me
               </Checkbox>
             )}
@@ -159,33 +169,40 @@ const LoginForm = () => {
           <NextUILink
             as={Link}
             href={AUTH_ROUTES.FORGOT_PASSWORD}
-            className="font-semibold text-secondary-300"
-            isDisabled={isLoading || isPending}
+            className="font-semibold text-secondary-300 text-lg"
+            isDisabled={isDisabled}
           >
             Forgot Password?
           </NextUILink>
         </div>
-        <Button
-          type="submit"
-          size="lg"
-          isDisabled={!isValid || !isDirty}
-          isLoading={isLoading || isPending}
-        >
-          Login
-        </Button>
+        <div className="h-[78px] flex flex-col justify-end">
+          {error && (
+            <Text variant="error" size="sm" customClass="py-2">
+              {error}
+            </Text>
+          )}
+          <Button
+            type="submit"
+            size="lg"
+            isDisabled={!isValid || !isDirty}
+            isLoading={isDisabled}
+          >
+            Login
+          </Button>
+        </div>
         <div className="flex justify-center w-full gap-6 pt-10 pb-3">
           <Text>Don&rsquo;t Have An Account?</Text>
           <NextUILink
             className="font-semibold text-secondary-300"
             as={Link}
             href={AUTH_ROUTES.SIGNUP}
-            isDisabled={isLoading || isPending}
+            isDisabled={isDisabled}
           >
             Signup
           </NextUILink>
         </div>
       </form>
-    </div>
+    </Card>
   );
 };
 
