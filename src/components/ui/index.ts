@@ -12,4 +12,3 @@ export * from './Spinner';
 export * from './Status';
 export * from './Text';
 export * from './Toast';
-export * from './ErrorFallback';

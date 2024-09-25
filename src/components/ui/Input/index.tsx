@@ -13,7 +13,7 @@ export const Input = extendVariants(NextUIInput, {
         ),
         input:
           'text-primary-100 placeholder:text-primary-300 bg-transparent text-md mx-2',
-        errorMessage: 'text-danger text-sm ml-2',
+        errorMessage: 'text-danger-100 text-sm ml-2',
       },
     },
     size: {

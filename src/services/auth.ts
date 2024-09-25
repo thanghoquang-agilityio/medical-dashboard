@@ -7,12 +7,16 @@ import {
   AuthResponse,
   LoginFormData,
   SignupFormData,
+  ErrorResponse,
 } from '@/types';
 import { API_ENDPOINT } from '@/constants';
 
 export const login = async (
   body: LoginFormData,
-): Promise<UserSession | null> => {
+): Promise<
+  | { user: UserSession; error: ErrorResponse | null }
+  | { user: null; error: ErrorResponse | null }
+> => {
   try {
     const response = await apiClient.post<AuthResponse>(API_ENDPOINT.AUTH, {
       body: {
@@ -21,19 +25,19 @@ export const login = async (
       },
     });
     const { error, jwt, user } = response;
-
     if (error || !user) {
-      return null;
+      return { user: null, error: JSON.parse(error) as ErrorResponse };
     }
     const profile = await getUserLogged(jwt);
+
+    if (typeof profile === 'string') {
+      return { user: null, error: JSON.parse(profile) as ErrorResponse };
+    }
+
     const { id = '', avatar, role, username = '', email = '' } = profile || {};
     const { attributes } = avatar || {};
     const { url = '' } = attributes || {};
     const { name = '' } = role || {};
-
-    if (!profile) {
-      return null;
-    }
 
     const data = {
       id: id,
@@ -45,13 +49,17 @@ export const login = async (
       email: email,
     };
 
-    return data;
+    return { user: data, error: null };
   } catch (error) {
     const errorMessage =
       error instanceof Error
         ? error.message
         : 'An unexpected error occurred in the request login';
-    throw new Error(errorMessage);
+
+    return {
+      user: null,
+      error: { error: { message: errorMessage } },
+    };
   }
 };
 
