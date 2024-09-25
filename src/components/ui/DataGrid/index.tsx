@@ -62,7 +62,7 @@ const DataGrid = memo(
       [pathname, replace],
     );
 
-    const onPageChange = useCallback(
+    const handlePageChange = useCallback(
       (page: number) => {
         if (page === 1) {
           params.delete('page');
@@ -136,7 +136,7 @@ const DataGrid = memo(
             <Pagination
               initialPage={page}
               total={pageCount}
-              onChange={onPageChange}
+              onChange={handlePageChange}
             />
           </Suspense>
         )}

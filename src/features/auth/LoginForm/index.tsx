@@ -48,12 +48,12 @@ const LoginForm = () => {
 
   const { showToast } = useToast();
 
-  const onToggleVisiblePassword = useCallback(
+  const handleToggleVisiblePassword = useCallback(
     () => setIsShowPassword((prev) => !prev),
     [],
   );
 
-  const onInputChange = useCallback(
+  const handleInputChange = useCallback(
     (name: keyof LoginFormData, onChange: (value: string) => void) => {
       return (e: ChangeEvent<HTMLInputElement>) => {
         onChange(e.target.value);
@@ -65,7 +65,7 @@ const LoginForm = () => {
     [clearErrors, errors],
   );
 
-  const onLogin = useCallback(
+  const handleLogin = useCallback(
     async (data: LoginFormData) => {
       setIsPending(true);
       try {
@@ -93,7 +93,7 @@ const LoginForm = () => {
       </Text>
       <form
         className="flex flex-col md:px-10 px-4 pt-4 w-full"
-        onSubmit={handleSubmit(onLogin)}
+        onSubmit={handleSubmit(handleLogin)}
       >
         <Controller
           name="identifier"
@@ -111,7 +111,7 @@ const LoginForm = () => {
               isInvalid={!!error?.message}
               isDisabled={isLoading || isPending}
               errorMessage={error?.message}
-              onChange={onInputChange(name, onChange)}
+              onChange={handleInputChange(name, onChange)}
             />
           )}
           rules={LOGIN_FORM_VALIDATION.EMAIL}
@@ -132,7 +132,7 @@ const LoginForm = () => {
               startContent={<LockIcon customClass={iconClass} />}
               endContent={
                 <Button
-                  onClick={onToggleVisiblePassword}
+                  onClick={handleToggleVisiblePassword}
                   isIconOnly
                   className="p-0 min-w-5 h-5 text-primary-200"
                 >
@@ -142,7 +142,7 @@ const LoginForm = () => {
               isInvalid={!!error?.message}
               isDisabled={isDisabled}
               errorMessage={error?.message}
-              onChange={onInputChange(name, onChange)}
+              onChange={handleInputChange(name, onChange)}
             />
           )}
           rules={LOGIN_FORM_VALIDATION.PASSWORD}
