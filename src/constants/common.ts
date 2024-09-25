@@ -5,5 +5,4 @@ export const TYPE_CLASSES = {
   wrap: 'whitespace-pre-wrap overflow-visible',
 };
 
-export const REMEMBER_ME_COOKIES_KEY = 'remember-me';
 export const AUTH_SESSION_COOKIES_KEY = 'authjs.session-token';

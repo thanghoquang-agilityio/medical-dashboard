@@ -3,7 +3,7 @@
 import { apiClient } from './api';
 import { getUserLogged } from './user';
 import {
-  UserLogged,
+  UserSession,
   AuthResponse,
   LoginFormData,
   SignupFormData,
@@ -12,7 +12,7 @@ import { API_ENDPOINT } from '@/constants';
 
 export const login = async (
   body: LoginFormData,
-): Promise<(UserLogged & { token: string; remember: boolean }) | null> => {
+): Promise<UserSession | null> => {
   try {
     const response = await apiClient.post<AuthResponse>(API_ENDPOINT.AUTH, {
       body: {
@@ -26,15 +26,23 @@ export const login = async (
       return null;
     }
     const profile = await getUserLogged(jwt);
+    const { id = '', avatar, role, username = '', email = '' } = profile || {};
+    const { attributes } = avatar || {};
+    const { url = '' } = attributes || {};
+    const { name = '' } = role || {};
 
     if (!profile) {
       return null;
     }
 
     const data = {
+      id: id,
       token: jwt,
       remember: body.remember,
-      ...profile,
+      role: name,
+      avatar: url,
+      username: username,
+      email: email,
     };
 
     return data;
