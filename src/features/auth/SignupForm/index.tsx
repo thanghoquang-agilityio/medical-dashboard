@@ -33,7 +33,7 @@ import { SignupFormData, STATUS_TYPE } from '@/types';
 import { clearErrorOnChange } from '@/utils';
 
 // Actions
-import { signUp } from '@/actions/auth';
+import { signup } from '@/actions/auth';
 
 // Hooks
 import { useToast } from '@/hooks';
@@ -58,10 +58,8 @@ const SignupForm = () => {
     defaultValues: DEFAULT_VALUE,
   });
 
-  const iconClass = 'w-6 h-6 ml-4 text-primary-200';
-
-  const [isShowPassword, setIsShowPassword] = useState<boolean>(false);
   const [isPending, setIsPending] = useState(false);
+  const [isShowPassword, setIsShowPassword] = useState<boolean>(false);
   const [isShowConfirmPassword, setIsShowConfirmPassword] =
     useState<boolean>(false);
 
@@ -69,34 +67,37 @@ const SignupForm = () => {
 
   const router = useRouter();
 
-  const handleToggleVisiblePassword = useCallback(
+  const onToggleVisiblePassword = useCallback(
     () => setIsShowPassword((prev) => !prev),
     [],
   );
 
-  const handleToggleShowConfirmPassword = useCallback(
+  const onToggleShowConfirmPassword = useCallback(
     () => setIsShowConfirmPassword((prev) => !prev),
     [],
   );
 
-  const onSubmit: SubmitHandler<SignupFormData> = async (formData) => {
-    setIsPending(true);
-    const { confirmPassWord: _, ...signUpData } = formData;
+  const onSubmit: SubmitHandler<SignupFormData> = useCallback(
+    async (formData) => {
+      setIsPending(true);
+      const { confirmPassWord: _, ...signupData } = formData;
 
-    try {
-      const response = await signUp(signUpData);
+      try {
+        const response = await signup(signupData);
 
-      if (response.user) {
-        showToast(SUCCESS_MESSAGE.SIGNUP, STATUS_TYPE.SUCCESS);
+        if (response.user) {
+          showToast(SUCCESS_MESSAGE.SIGNUP, STATUS_TYPE.SUCCESS);
 
-        router.replace(`${AUTH_ROUTES.LOGIN}`);
+          router.replace(`${AUTH_ROUTES.LOGIN}`);
+        }
+      } catch (error) {
+        showToast(ERROR_MESSAGE.SIGNUP, STATUS_TYPE.ERROR);
       }
-    } catch (error) {
-      showToast(ERROR_MESSAGE.SIGNUP, STATUS_TYPE.ERROR);
-    }
 
-    setIsPending(false);
-  };
+      setIsPending(false);
+    },
+    [router, showToast],
+  );
 
   const SIGN_UP_FORM_VALIDATION = {
     ...LOGIN_FORM_VALIDATION,
@@ -117,17 +118,20 @@ const SignupForm = () => {
     },
   };
 
-  const handleInputChange = (
-    name: keyof SignupFormData,
-    onChange: (value: string) => void,
-  ) => {
-    return (e: ChangeEvent<HTMLInputElement>) => {
-      onChange(e.target.value);
+  const onInputChange = useCallback(
+    (name: keyof SignupFormData, onChange: (value: string) => void) => {
+      return (e: ChangeEvent<HTMLInputElement>) => {
+        onChange(e.target.value);
 
-      // Clear error message on change
-      clearErrorOnChange(name, errors, clearErrors);
-    };
-  };
+        // Clear error message on change
+        clearErrorOnChange(name, errors, clearErrors);
+      };
+    },
+    [clearErrors, errors],
+  );
+
+  const iconClass = 'w-6 h-6 ml-4 text-primary-200';
+  const isDisabled = isLoading || isPending;
 
   return (
     <div className="w-full max-w-[528px] bg-background-100 flex flex-col justify-center items-center rounded-3xl py-6 lg:px-6 mx-2">
@@ -152,9 +156,9 @@ const SignupForm = () => {
               placeholder="user name"
               startContent={<DoctorIcon customClass={iconClass} />}
               isInvalid={!!error?.message}
-              isDisabled={isLoading || isPending}
+              isDisabled={isDisabled}
               errorMessage={error?.message}
-              onChange={handleInputChange(name, onChange)}
+              onChange={onInputChange(name, onChange)}
             />
           )}
           rules={SIGN_UP_FORM_VALIDATION.USERNAME}
@@ -173,9 +177,9 @@ const SignupForm = () => {
               placeholder="email address"
               startContent={<EmailIcon customClass={iconClass} />}
               isInvalid={!!error?.message}
-              isDisabled={isLoading || isPending}
+              isDisabled={isDisabled}
               errorMessage={error?.message}
-              onChange={handleInputChange(name, onChange)}
+              onChange={onInputChange(name, onChange)}
             />
           )}
           rules={SIGN_UP_FORM_VALIDATION.EMAIL}
@@ -197,7 +201,7 @@ const SignupForm = () => {
               startContent={<LockIcon customClass={iconClass} />}
               endContent={
                 <Button
-                  onClick={handleToggleVisiblePassword}
+                  onClick={onToggleVisiblePassword}
                   isIconOnly
                   className="p-0 min-w-5 h-5 text-primary-200"
                 >
@@ -205,9 +209,9 @@ const SignupForm = () => {
                 </Button>
               }
               isInvalid={!!error?.message}
-              isDisabled={isLoading || isPending}
+              isDisabled={isDisabled}
               errorMessage={error?.message}
-              onChange={handleInputChange(name, onChange)}
+              onChange={onInputChange(name, onChange)}
             />
           )}
           rules={SIGN_UP_FORM_VALIDATION.PASSWORD}
@@ -228,7 +232,7 @@ const SignupForm = () => {
               startContent={<LockIcon customClass={iconClass} />}
               endContent={
                 <Button
-                  onClick={handleToggleShowConfirmPassword}
+                  onClick={onToggleShowConfirmPassword}
                   isIconOnly
                   className="p-0 min-w-5 h-5 text-primary-200"
                 >
@@ -236,9 +240,9 @@ const SignupForm = () => {
                 </Button>
               }
               isInvalid={!!error?.message}
-              isDisabled={isLoading || isPending}
+              isDisabled={isDisabled}
               errorMessage={error?.message}
-              onChange={handleInputChange(name, onChange)}
+              onChange={onInputChange(name, onChange)}
             />
           )}
           rules={SIGN_UP_FORM_VALIDATION.CONFIRM_PASSWORD}
@@ -248,7 +252,7 @@ const SignupForm = () => {
           type="submit"
           size="lg"
           isDisabled={!isValid || !isDirty}
-          isLoading={isLoading || isPending}
+          isLoading={isDisabled}
           className="mt-4"
         >
           Signup
@@ -259,7 +263,7 @@ const SignupForm = () => {
             as={Link}
             href={AUTH_ROUTES.LOGIN}
             className="font-semibold text-secondary-300"
-            isDisabled={isLoading || isPending}
+            isDisabled={isDisabled}
           >
             Login
           </NextUILink>

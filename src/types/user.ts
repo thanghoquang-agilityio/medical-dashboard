@@ -8,6 +8,13 @@ import {
   SpecialtyModel,
 } from '@/types';
 
+// Define type User for Session
+declare module 'next-auth' {
+  interface Session {
+    user: UserSession;
+  }
+}
+
 // Role
 export const enum ROLE {
   ADMIN = 'Admin',
@@ -37,6 +44,7 @@ export type UserLogged = Omit<
   UserModel,
   | 'avatar'
   | 'role'
+  | 'specialtyId'
   | 'notificationsSent'
   | 'appointmentSent'
   | 'appointmentReceived'
@@ -48,6 +56,16 @@ export type UserLogged = Omit<
   notificationsSent?: NotificationModel[];
   appointmentSent?: AppointmentModel[];
   appointmentReceived?: AppointmentModel[];
+};
+
+export type UserSession = {
+  id: string;
+  username: string;
+  email: string;
+  avatar: string;
+  role: string;
+  token: string;
+  remember: boolean;
 };
 
 export type UserResponse = APIResponse<UserModel>;

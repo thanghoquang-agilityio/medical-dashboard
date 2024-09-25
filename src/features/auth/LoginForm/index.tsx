@@ -6,7 +6,7 @@ import { ChangeEvent, useCallback, useState } from 'react';
 import Link from 'next/link';
 
 // Actions
-import { loginNextAuth, loginStrapi } from '@/actions/auth';
+import { loginNextAuth, login } from '@/actions/auth';
 
 // Components
 import { Button, Checkbox, Input, Text } from '@/components/ui';
@@ -48,28 +48,28 @@ const LoginForm = () => {
 
   const { showToast } = useToast();
 
-  const handleToggleVisiblePassword = useCallback(
+  const onToggleVisiblePassword = useCallback(
     () => setIsShowPassword((prev) => !prev),
     [],
   );
 
-  const handleInputChange = (
-    name: keyof LoginFormData,
-    onChange: (value: string) => void,
-  ) => {
-    return (e: ChangeEvent<HTMLInputElement>) => {
-      onChange(e.target.value);
+  const onInputChange = useCallback(
+    (name: keyof LoginFormData, onChange: (value: string) => void) => {
+      return (e: ChangeEvent<HTMLInputElement>) => {
+        onChange(e.target.value);
 
-      // Clear error message on change
-      clearErrorOnChange(name, errors, clearErrors);
-    };
-  };
+        // Clear error message on change
+        clearErrorOnChange(name, errors, clearErrors);
+      };
+    },
+    [clearErrors, errors],
+  );
 
   const onLogin = useCallback(
     async (data: LoginFormData) => {
       setIsPending(true);
       try {
-        const response = await loginStrapi(data);
+        const response = await login(data);
 
         if (response) {
           showToast(SUCCESS_MESSAGE.LOGIN, STATUS_TYPE.SUCCESS);
@@ -82,6 +82,9 @@ const LoginForm = () => {
     },
     [showToast],
   );
+
+  const iconClass = 'w-6 h-6 ml-4 text-primary-200';
+  const isDisabled = isLoading || isPending;
 
   return (
     <div className="w-full max-w-[528px] bg-background-100 flex flex-col justify-center items-center rounded-3xl py-6 lg:px-6 mx-2">
@@ -104,13 +107,11 @@ const LoginForm = () => {
               name={name}
               size="lg"
               placeholder="email address"
-              startContent={
-                <EmailIcon customClass="w-6 h-6 text-primary-200" />
-              }
+              startContent={<EmailIcon customClass={iconClass} />}
               isInvalid={!!error?.message}
               isDisabled={isLoading || isPending}
               errorMessage={error?.message}
-              onChange={handleInputChange(name, onChange)}
+              onChange={onInputChange(name, onChange)}
             />
           )}
           rules={LOGIN_FORM_VALIDATION.EMAIL}
@@ -128,10 +129,10 @@ const LoginForm = () => {
               size="lg"
               placeholder="password"
               type={isShowPassword ? 'text' : 'password'}
-              startContent={<LockIcon customClass="w-6 h-6 text-primary-200" />}
+              startContent={<LockIcon customClass={iconClass} />}
               endContent={
                 <Button
-                  onClick={handleToggleVisiblePassword}
+                  onClick={onToggleVisiblePassword}
                   isIconOnly
                   className="p-0 min-w-5 h-5 text-primary-200"
                 >
@@ -139,9 +140,9 @@ const LoginForm = () => {
                 </Button>
               }
               isInvalid={!!error?.message}
-              isDisabled={isLoading || isPending}
+              isDisabled={isDisabled}
               errorMessage={error?.message}
-              onChange={handleInputChange(name, onChange)}
+              onChange={onInputChange(name, onChange)}
             />
           )}
           rules={LOGIN_FORM_VALIDATION.PASSWORD}
@@ -151,7 +152,7 @@ const LoginForm = () => {
             name="remember"
             control={control}
             render={({ field: { onChange } }) => (
-              <Checkbox onChange={onChange} isDisabled={isLoading || isPending}>
+              <Checkbox onChange={onChange} isDisabled={isDisabled}>
                 Remember Me
               </Checkbox>
             )}
@@ -160,7 +161,7 @@ const LoginForm = () => {
             as={Link}
             href={AUTH_ROUTES.FORGOT_PASSWORD}
             className="font-semibold text-secondary-300"
-            isDisabled={isLoading || isPending}
+            isDisabled={isDisabled}
           >
             Forgot Password?
           </NextUILink>
@@ -169,7 +170,7 @@ const LoginForm = () => {
           type="submit"
           size="lg"
           isDisabled={!isValid || !isDirty}
-          isLoading={isLoading || isPending}
+          isLoading={isDisabled}
         >
           Login
         </Button>
@@ -179,7 +180,7 @@ const LoginForm = () => {
             className="font-semibold text-secondary-300"
             as={Link}
             href={AUTH_ROUTES.SIGNUP}
-            isDisabled={isLoading || isPending}
+            isDisabled={isDisabled}
           >
             Signup
           </NextUILink>

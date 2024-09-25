@@ -1,12 +1,9 @@
 import NextAuth from 'next-auth';
 import { authConfig } from '@/config/auth.config';
-import { cookies } from 'next/headers';
+import { auth as authSession } from '@/config/auth';
 
 // Types
 import type { GetServerSidePropsContext } from 'next';
-
-// Constants
-import { REMEMBER_ME_COOKIES_KEY } from '@/constants';
 
 export const config = {
   // https://nextjs.org/docs/app/building-your-application/routing/middleware#matcher
@@ -15,11 +12,14 @@ export const config = {
   ],
 };
 
-export default function auth(params: GetServerSidePropsContext) {
+export default async function auth(params: GetServerSidePropsContext) {
   if (authConfig.session) {
+    const session = await authSession();
+    const remember = String(session?.user?.remember || false);
+
     authConfig.session.maxAge =
-      cookies().get(REMEMBER_ME_COOKIES_KEY)?.value === 'true'
-        ? parseInt(process.env.NEXT_PUBLIC_EXPIRED_TIME_REMEMBER || '259200') // 3 days
+      remember === 'true'
+        ? parseInt(process.env.NEXT_PUBLIC_EXPIRED_TIME_REMEMBER || '604800') // 7 days
         : parseInt(process.env.NEXT_PUBLIC_EXPIRED_TIME_NO_REMEMBER || '86400'); // 1 day
   }
 
