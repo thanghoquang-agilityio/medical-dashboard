@@ -27,7 +27,7 @@ export default function DashboardLayout({
           isInvisibleBadge
         />
         <div />
-        <div className="px-[17px] md:px-8">{children}</div>
+        <div className="min-h-fit h-full px-[17px] md:px-8">{children}</div>
         <Footer />
       </div>
     </main>
