@@ -5,7 +5,7 @@ export const Spinner = memo(({ size = 'lg', classNames }: SpinnerProps) => {
   const circleClass = 'border-[5px] border-b-primary-100 border-l-primary-100';
 
   return (
-    <div className="absolute inset-0 z-10 ">
+    <div className="absolute inset-0 z-10">
       <SpinnerNextUI
         size={size}
         classNames={{
