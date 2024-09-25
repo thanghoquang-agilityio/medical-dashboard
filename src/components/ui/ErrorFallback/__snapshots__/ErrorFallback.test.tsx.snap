@@ -22,10 +22,9 @@ exports[`ErrorFallback test cases should render correctly with message 1`] = `
       Oops! There is something wrong
     </h4>
     <p
-      class="text-foreground-100 text-lg text-center whitespace-pre-line"
+      class="text-foreground-100 text-lg text-center"
     >
-      An error occurred. For more help, feel free
-        to reach out to our support team.
+      An error occurred. For more help, feel free to reach out to our support team.
     </p>
     <p
       class="text-foreground-100 text-md text-center whitespace-pre-line"

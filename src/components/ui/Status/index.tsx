@@ -1,4 +1,5 @@
 import { memo } from 'react';
+import { cn } from '@/utils';
 
 // Components
 import { Text } from '..';
@@ -24,7 +25,9 @@ export const Status = memo(
     className?: string;
   }) => (
     <div
-      className={`${COLOR_STATUS[status]} bg-opacity-20 w-fit max-w-20 px-2 rounded-md text-center ${className ?? ''}`}
+      className={cn(
+        `${COLOR_STATUS[status]} bg-opacity-20 w-fit max-w-20 px-2 rounded-md text-center ${className ?? ''}`,
+      )}
     >
       <Text variant={status} size="2xs" customClass="font-semibold">
         {STATUS[status]}

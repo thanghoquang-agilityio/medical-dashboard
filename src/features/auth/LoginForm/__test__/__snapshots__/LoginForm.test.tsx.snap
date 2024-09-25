@@ -6,7 +6,7 @@ exports[`LoginForm Component should renders correctly form 1`] = `
     class="w-full max-w-[528px] bg-background-100 flex flex-col justify-center items-center rounded-3xl py-6 lg:px-6 mx-2"
   >
     <p
-      class="text-secondary-300 font-semibold font-outfit text-3xl text-ellipsis whitespace-nowrap overflow-hidden "
+      class="text-secondary-300 font-semibold font-outfit text-3xl text-ellipsis whitespace-nowrap overflow-hidden"
     >
       Login
     </p>
@@ -33,7 +33,7 @@ exports[`LoginForm Component should renders correctly form 1`] = `
               data-slot="inner-wrapper"
             >
               <svg
-                class="w-6 h-6 text-primary-200"
+                class="w-6 h-6 ml-4 text-primary-200"
                 fill="none"
                 viewBox="0 0 24 24"
                 xmlns="http://www.w3.org/2000/svg"
@@ -84,7 +84,7 @@ exports[`LoginForm Component should renders correctly form 1`] = `
               data-slot="inner-wrapper"
             >
               <svg
-                class="w-6 h-6 text-primary-200"
+                class="w-6 h-6 ml-4 text-primary-200"
                 fill="none"
                 viewBox="0 0 24 24"
                 xmlns="http://www.w3.org/2000/svg"
@@ -207,7 +207,7 @@ exports[`LoginForm Component should renders correctly form 1`] = `
         class="flex justify-center w-full gap-6 pt-10 pb-3"
       >
         <p
-          class="text-foreground  text-ellipsis whitespace-nowrap overflow-hidden "
+          class="text-foreground text-ellipsis whitespace-nowrap overflow-hidden"
         >
           Don’t Have An Account?
         </p>

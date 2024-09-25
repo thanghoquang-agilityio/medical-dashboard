@@ -1,5 +1,6 @@
 import { memo, type ReactNode } from 'react';
 import { TYPE_CLASSES } from '@/constants';
+import { cn } from '@/utils';
 
 interface TextProps {
   variant?:
@@ -52,11 +53,15 @@ export const Text = memo(
     type = 'nowrap',
     customClass,
     children,
-  }: TextProps) => {
-    const classes = `${VARIANT_CLASSES[variant]} ${size ? SIZE_CLASSES[size] : ''} ${TYPE_CLASSES[type]} ${customClass || ''}`;
-
-    return <p className={classes}>{children}</p>;
-  },
+  }: TextProps) => (
+    <p
+      className={cn(
+        `${VARIANT_CLASSES[variant]} ${size ? SIZE_CLASSES[size] : ''} ${TYPE_CLASSES[type]} ${customClass || ''}`,
+      )}
+    >
+      {children}
+    </p>
+  ),
 );
 
 Text.displayName = 'Text';
