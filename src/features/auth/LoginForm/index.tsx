@@ -45,6 +45,7 @@ const LoginForm = () => {
 
   const [isPending, setIsPending] = useState(false);
   const [isShowPassword, setIsShowPassword] = useState<boolean>(false);
+  const [error, setError] = useState('');
 
   const { showToast } = useToast();
 
@@ -67,13 +68,21 @@ const LoginForm = () => {
 
   const handleLogin = useCallback(
     async (data: LoginFormData) => {
+      setError('');
       setIsPending(true);
       try {
         const response = await login(data);
+        const { user, error } = response;
 
-        if (response) {
+        if (user) {
           showToast(SUCCESS_MESSAGE.LOGIN, STATUS_TYPE.SUCCESS);
-          loginNextAuth(response);
+          loginNextAuth(user);
+        }
+
+        if (error) {
+          setError(error.error.message || '');
+          showToast(ERROR_MESSAGE.LOGIN, STATUS_TYPE.ERROR);
+          setIsPending(false);
         }
       } catch (error) {
         showToast(ERROR_MESSAGE.LOGIN, STATUS_TYPE.ERROR);
@@ -147,7 +156,7 @@ const LoginForm = () => {
           )}
           rules={LOGIN_FORM_VALIDATION.PASSWORD}
         />
-        <div className="flex justify-between w-full px-2 pt-5 pb-8">
+        <div className="flex justify-between w-full px-2 py-4">
           <Controller
             name="remember"
             control={control}
@@ -166,14 +175,21 @@ const LoginForm = () => {
             Forgot Password?
           </NextUILink>
         </div>
-        <Button
-          type="submit"
-          size="lg"
-          isDisabled={!isValid || !isDirty}
-          isLoading={isDisabled}
-        >
-          Login
-        </Button>
+        <div className="h-[78px] flex flex-col justify-end">
+          {error && (
+            <Text variant="error" size="sm" customClass="py-2">
+              {error}
+            </Text>
+          )}
+          <Button
+            type="submit"
+            size="lg"
+            isDisabled={!isValid || !isDirty}
+            isLoading={isDisabled}
+          >
+            Login
+          </Button>
+        </div>
         <div className="flex justify-center w-full gap-6 pt-10 pb-3">
           <Text>Don&rsquo;t Have An Account?</Text>
           <NextUILink

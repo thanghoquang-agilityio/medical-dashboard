@@ -4,9 +4,9 @@ import { API_ENDPOINT } from '@/constants';
 
 export const getUserLogged = async (
   jwt: string,
-): Promise<UserLogged | null> => {
+): Promise<UserLogged | string> => {
   try {
-    const res = await apiClient.get<UserLogged | null>(
+    const res = await apiClient.get<UserLogged | string>(
       `${API_ENDPOINT.USERS}/me?populate=*`,
       {
         headers: {
@@ -21,6 +21,6 @@ export const getUserLogged = async (
       error instanceof Error
         ? error.message
         : 'An unexpected error occurred in the request get user logged';
-    throw new Error(errorMessage);
+    return errorMessage;
   }
 };
