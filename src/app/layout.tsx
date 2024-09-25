@@ -3,6 +3,7 @@ import { Inter, Poppins, Plus_Jakarta_Sans } from 'next/font/google';
 import { ThemeProvider } from 'next-themes';
 import { NextUIProvider } from '@nextui-org/react';
 import { ToastContainer } from 'react-toastify';
+import { SRC_LOGO } from '@/constants';
 
 // Styles
 import './globals.css';
@@ -29,7 +30,7 @@ export const metadata: Metadata = {
   icons: [
     {
       rel: 'icon',
-      url: '/favicon.ico',
+      url: SRC_LOGO,
     },
   ],
 };
