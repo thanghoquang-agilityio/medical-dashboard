@@ -3,10 +3,10 @@
 import { cookies } from 'next/headers';
 import { signIn, signOut } from '@/config/auth';
 import { AUTH_SESSION_COOKIES_KEY, PRIVATE_ROUTES } from '@/constants';
-import { login, signup as signUpService } from '@/services';
+import { login as loginService, signup as signupService } from '@/services';
 import { LoginFormData, SignupFormData, UserSession } from '@/types';
 
-export const loginStrapi = async (data: LoginFormData) => await login(data);
+export const login = async (data: LoginFormData) => await loginService(data);
 
 export const loginNextAuth = async (user: UserSession) => {
   await signIn('credentials', {
@@ -27,8 +27,8 @@ export const logout = async () => {
   await signOut({ redirect: false });
 };
 
-export const signUp = async (data: Omit<SignupFormData, 'confirmPassWord'>) => {
-  const user = await signUpService(data);
+export const signup = async (data: Omit<SignupFormData, 'confirmPassWord'>) => {
+  const user = await signupService(data);
 
   return user;
 };
