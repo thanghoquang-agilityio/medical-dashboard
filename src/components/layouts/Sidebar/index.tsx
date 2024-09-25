@@ -15,7 +15,7 @@ import { AUTH_ROUTES, PRIVATE_ROUTES, SRC_LOGO } from '@/constants';
 import { logout } from '@/actions/auth';
 
 export const Sidebar = () => {
-  const onLogout = async () => {
+  const handleLogout = async () => {
     await logout();
     location.replace(AUTH_ROUTES.LOGIN);
   };
@@ -53,7 +53,7 @@ export const Sidebar = () => {
             color="stone"
             startContent={<LogoutIcon />}
             className="gap-3"
-            onClick={onLogout}
+            onClick={handleLogout}
           >
             Logout
           </Button>
@@ -78,7 +78,7 @@ export const Sidebar = () => {
               color="stone"
               isIconOnly
               className="w-6 h-6"
-              onClick={onLogout}
+              onClick={handleLogout}
             >
               <LogoutIcon />
             </Button>

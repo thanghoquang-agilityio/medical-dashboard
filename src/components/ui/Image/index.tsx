@@ -11,7 +11,7 @@ const IMAGE_NOT_AVAILABLE = 'UnavailableImage';
 export const Image = memo(({ className, src, alt, ...rest }: ImageProps) => {
   const [fallbackSrc, setFallbackSrc] = useState(false);
 
-  const onError = () => setFallbackSrc(true);
+  const handleError = () => setFallbackSrc(true);
   const altImage =
     src !== SRC_IMAGE_NOT_AVAILABLE && alt ? alt : IMAGE_NOT_AVAILABLE;
 
@@ -20,7 +20,7 @@ export const Image = memo(({ className, src, alt, ...rest }: ImageProps) => {
       className={className}
       src={fallbackSrc ? SRC_IMAGE_NOT_AVAILABLE : src}
       alt={altImage}
-      onError={onError}
+      onError={handleError}
       style={{ objectFit: 'cover' }}
       {...rest}
       priority

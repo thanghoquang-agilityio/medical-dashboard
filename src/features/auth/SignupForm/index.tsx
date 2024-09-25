@@ -17,14 +17,8 @@ import {
 } from '@/icons';
 
 // Constants
-import {
-  FORM_VALIDATION_MESSAGE,
-  REGEX,
-  AUTH_ROUTES,
-  ERROR_MESSAGE,
-  SUCCESS_MESSAGE,
-} from '@/constants';
-import { LOGIN_FORM_VALIDATION } from '../LoginForm/rule';
+import { AUTH_ROUTES, ERROR_MESSAGE, SUCCESS_MESSAGE } from '@/constants';
+import { SIGN_UP_FORM_VALIDATION } from './rule';
 
 // Types
 import { SignupFormData, STATUS_TYPE } from '@/types';
@@ -67,17 +61,17 @@ const SignupForm = () => {
 
   const router = useRouter();
 
-  const onToggleVisiblePassword = useCallback(
+  const handleToggleVisiblePassword = useCallback(
     () => setIsShowPassword((prev) => !prev),
     [],
   );
 
-  const onToggleShowConfirmPassword = useCallback(
+  const handleToggleShowConfirmPassword = useCallback(
     () => setIsShowConfirmPassword((prev) => !prev),
     [],
   );
 
-  const onSubmit: SubmitHandler<SignupFormData> = useCallback(
+  const handleSignup: SubmitHandler<SignupFormData> = useCallback(
     async (formData) => {
       setIsPending(true);
       const { confirmPassWord: _, ...signupData } = formData;
@@ -99,26 +93,7 @@ const SignupForm = () => {
     [router, showToast],
   );
 
-  const SIGN_UP_FORM_VALIDATION = {
-    ...LOGIN_FORM_VALIDATION,
-    USERNAME: {
-      required: FORM_VALIDATION_MESSAGE.REQUIRED('Name'),
-      pattern: {
-        value: REGEX.NAME,
-        message: FORM_VALIDATION_MESSAGE.FORMAT('Name'),
-      },
-    },
-    CONFIRM_PASSWORD: {
-      required: FORM_VALIDATION_MESSAGE.REQUIRED('Confirm Password'),
-      validate: {
-        matchesPassword: (value: string) =>
-          value === getValues('password') ||
-          FORM_VALIDATION_MESSAGE.PASSWORD_NOT_MATCH,
-      },
-    },
-  };
-
-  const onInputChange = useCallback(
+  const handleInputChange = useCallback(
     (name: keyof SignupFormData, onChange: (value: string) => void) => {
       return (e: ChangeEvent<HTMLInputElement>) => {
         onChange(e.target.value);
@@ -140,7 +115,7 @@ const SignupForm = () => {
       </Text>
       <form
         className="flex flex-col md:px-10 px-4 pt-4 w-full"
-        onSubmit={handleSubmit(onSubmit)}
+        onSubmit={handleSubmit(handleSignup)}
       >
         <Controller
           name="username"
@@ -158,7 +133,7 @@ const SignupForm = () => {
               isInvalid={!!error?.message}
               isDisabled={isDisabled}
               errorMessage={error?.message}
-              onChange={onInputChange(name, onChange)}
+              onChange={handleInputChange(name, onChange)}
             />
           )}
           rules={SIGN_UP_FORM_VALIDATION.USERNAME}
@@ -179,7 +154,7 @@ const SignupForm = () => {
               isInvalid={!!error?.message}
               isDisabled={isDisabled}
               errorMessage={error?.message}
-              onChange={onInputChange(name, onChange)}
+              onChange={handleInputChange(name, onChange)}
             />
           )}
           rules={SIGN_UP_FORM_VALIDATION.EMAIL}
@@ -201,7 +176,7 @@ const SignupForm = () => {
               startContent={<LockIcon customClass={iconClass} />}
               endContent={
                 <Button
-                  onClick={onToggleVisiblePassword}
+                  onClick={handleToggleVisiblePassword}
                   isIconOnly
                   className="p-0 min-w-5 h-5 text-primary-200"
                 >
@@ -211,7 +186,7 @@ const SignupForm = () => {
               isInvalid={!!error?.message}
               isDisabled={isDisabled}
               errorMessage={error?.message}
-              onChange={onInputChange(name, onChange)}
+              onChange={handleInputChange(name, onChange)}
             />
           )}
           rules={SIGN_UP_FORM_VALIDATION.PASSWORD}
@@ -232,7 +207,7 @@ const SignupForm = () => {
               startContent={<LockIcon customClass={iconClass} />}
               endContent={
                 <Button
-                  onClick={onToggleShowConfirmPassword}
+                  onClick={handleToggleShowConfirmPassword}
                   isIconOnly
                   className="p-0 min-w-5 h-5 text-primary-200"
                 >
@@ -242,10 +217,10 @@ const SignupForm = () => {
               isInvalid={!!error?.message}
               isDisabled={isDisabled}
               errorMessage={error?.message}
-              onChange={onInputChange(name, onChange)}
+              onChange={handleInputChange(name, onChange)}
             />
           )}
-          rules={SIGN_UP_FORM_VALIDATION.CONFIRM_PASSWORD}
+          rules={SIGN_UP_FORM_VALIDATION.CONFIRM_PASSWORD(getValues)}
         />
 
         <Button
