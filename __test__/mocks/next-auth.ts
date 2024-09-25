@@ -7,7 +7,14 @@ export class AuthError extends Error {
 }
 
 const NextAuth = () => ({
-  auth: jest.fn(),
+  auth: {
+    session: {
+      jwt: true,
+    },
+    jwt: {
+      secret: process.env.AUTH_SECRET,
+    },
+  },
   signIn: jest.fn(),
   signOut: jest.fn(),
   handlers: {
