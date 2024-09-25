@@ -16,7 +16,7 @@ export const HeaderAuth = memo(() => {
       <Image
         src={SRC_LOGO}
         alt="Brand"
-        className="lg:w-20 lg:h-20 sm:w-16 sm:h-16 w-12 h-12"
+        className="lg:w-14 lg:h-14 sm:w-12 sm:h-12 w-8 h-8"
         width={80}
         height={80}
       />

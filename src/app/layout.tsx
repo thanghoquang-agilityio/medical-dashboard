@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { Inter, Poppins, Plus_Jakarta_Sans } from 'next/font/google';
+import { Inter, Poppins, Plus_Jakarta_Sans, Outfit } from 'next/font/google';
 import { ThemeProvider } from 'next-themes';
 import { NextUIProvider } from '@nextui-org/react';
 import { ToastContainer } from 'react-toastify';
@@ -24,6 +24,11 @@ const inter = Inter({
   variable: '--font-inter',
 });
 
+const outfit = Outfit({
+  subsets: ['latin'],
+  variable: '--font-outfit',
+});
+
 export const metadata: Metadata = {
   title: 'Medical Dashboard',
   description: 'Medical Dashboard application',
@@ -43,7 +48,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${poppins.className} ${plusJakartaSans.variable} ${inter.variable} bg-background-100`}
+        className={`${poppins.className} ${plusJakartaSans.variable} ${inter.variable} ${outfit.className} bg-background-100`}
       >
         <NextUIProvider>
           <ThemeProvider attribute="class" defaultTheme="light">

@@ -1,7 +1,7 @@
 'use client';
 
 import { Controller, useForm } from 'react-hook-form';
-import { Link as NextUILink } from '@nextui-org/react';
+import { Card, Link as NextUILink } from '@nextui-org/react';
 import { ChangeEvent, useCallback, useState } from 'react';
 import Link from 'next/link';
 
@@ -96,7 +96,7 @@ const LoginForm = () => {
   const isDisabled = isLoading || isPending;
 
   return (
-    <div className="w-full max-w-[528px] bg-background-100 flex flex-col justify-center items-center rounded-3xl py-6 lg:px-6 mx-2">
+    <Card className="w-full max-w-[528px] bg-background-100 flex flex-col justify-center items-center rounded-3xl py-6 lg:px-6 mx-2">
       <Text variant="quaternary" size="3xl">
         Login
       </Text>
@@ -169,7 +169,7 @@ const LoginForm = () => {
           <NextUILink
             as={Link}
             href={AUTH_ROUTES.FORGOT_PASSWORD}
-            className="font-semibold text-secondary-300"
+            className="font-semibold text-secondary-300 text-lg"
             isDisabled={isDisabled}
           >
             Forgot Password?
@@ -202,7 +202,7 @@ const LoginForm = () => {
           </NextUILink>
         </div>
       </form>
-    </div>
+    </Card>
   );
 };
 
