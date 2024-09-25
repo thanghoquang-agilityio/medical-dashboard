@@ -34,19 +34,6 @@ export const Sidebar = () => {
           <Navbar isExpandSidebar />
         </div>
 
-        <div className="flex px-4 flex-col items-center">
-          <div className="relative">
-            <Image
-              src="/images/sidebar/emergency-sidebar.webp"
-              alt="emergency"
-              width={200}
-              height={200}
-            />
-            <Button color="secondary" className="absolute bottom-[10px] left-8">
-              Call Emergency
-            </Button>
-          </div>
-        </div>
         <Divider className="bg-primary-100 h-[2px] mt-8" />
         <div className="m-auto py-6">
           <Button
