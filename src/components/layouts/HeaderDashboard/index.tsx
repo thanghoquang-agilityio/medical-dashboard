@@ -7,6 +7,7 @@ import { NotificationResponse } from '@/types';
 
 // Components
 import { Avatar, Button, Text, Popover } from '@/components/ui';
+import { SidebarMobile } from '../Sidebar/SideBarMobile';
 
 // Icons
 import { BellIcon, SingleDotIcon } from '@/icons';
@@ -61,35 +62,38 @@ const HeaderDashboard = ({
   };
 
   return (
-    <header className="flex sticky z-[9999] top-0 justify-end items-center gap-0.5 w-full h-14 bg-background-100 pr-4 md:pr-11">
-      <SwitchTheme />
+    <>
+      <header className="flex sticky z-[10] top-0 justify-end items-center gap-0.5 w-full h-14 bg-background-100 pr-4 md:pr-11">
+        <SidebarMobile />
+        <SwitchTheme />
 
-      <Popover
-        className="relative bg-background-200 pr-0"
-        popoverTrigger={
-          <Button isIconOnly>
-            <Badge
-              className="bg-danger-200 text-content1"
-              content={notificationList?.length ? notificationList.length : 0}
-              size="sm"
-              showOutline={false}
-              isInvisible={isInvisibleBadge}
-            >
-              <BellIcon customClass="w-6 h-6 text-primary-300" />
-            </Badge>
-          </Button>
-        }
-        popoverContent={renderNotificationContent()}
-        placement="bottom-end"
-      />
-      <Avatar
-        src={avatarUrl}
-        name={userName}
-        hasBorder
-        size="md"
-        color="warning"
-      />
-    </header>
+        <Popover
+          className="relative bg-background-200 pr-0"
+          popoverTrigger={
+            <Button isIconOnly>
+              <Badge
+                className="bg-danger-200 text-content1"
+                content={notificationList?.length ? notificationList.length : 0}
+                size="sm"
+                showOutline={false}
+                isInvisible={isInvisibleBadge}
+              >
+                <BellIcon customClass="w-6 h-6 text-primary-300" />
+              </Badge>
+            </Button>
+          }
+          popoverContent={renderNotificationContent()}
+          placement="bottom-end"
+        />
+        <Avatar
+          src={avatarUrl}
+          name={userName}
+          hasBorder
+          size="md"
+          color="warning"
+        />
+      </header>
+    </>
   );
 };
 
