@@ -68,8 +68,13 @@ export class ApiClient {
     });
 
     if (!response.ok) {
-      throw new Error(`Failed to post: ${response.statusText}`);
+      const errorText = await response.text();
+
+      return {
+        error: errorText,
+      } as T;
     }
+
     const data: T = await response.json();
     return data;
   }

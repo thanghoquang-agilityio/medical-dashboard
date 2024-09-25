@@ -15,3 +15,13 @@ export type TDataResponse<T> = {
   data: APIResponse<T>[];
   meta?: MetaResponse;
 };
+
+export interface ErrorResponse {
+  data?: null;
+  error: {
+    status?: number;
+    name?: string;
+    message?: string;
+    details?: Record<string, unknown>;
+  };
+}
