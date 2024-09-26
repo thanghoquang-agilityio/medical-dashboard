@@ -62,16 +62,23 @@ const HeaderDashboard = ({
   };
 
   return (
-    <header className="flex sticky z-[10] top-0 justify-end items-center gap-0.5 w-full h-14 bg-background-100 pr-4 md:pr-11">
+    <header className="flex sticky z-[10] top-0 justify-end items-center gap-6 w-full h-14 bg-background-100 px-[17px] md:px-8">
       <SidebarMobile />
       <SwitchTheme />
 
       <Popover
         className="relative bg-background-200 pr-0"
         popoverTrigger={
-          <Button isIconOnly>
+          <Button
+            isIconOnly
+            className="p-0 min-w-6 h-6 text-primary-300 overflow-visible"
+          >
             <Badge
               className="bg-danger-200 text-content1"
+              classNames={{
+                badge:
+                  'min-w-3 min-h-3 w-3 h-3 text-[6px] top-[15%] right-[15%]',
+              }}
               content={notificationList?.length ? notificationList.length : 0}
               size="sm"
               showOutline={false}

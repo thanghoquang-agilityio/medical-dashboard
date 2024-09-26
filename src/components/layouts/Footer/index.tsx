@@ -4,7 +4,8 @@ import { useTheme } from 'next-themes';
 import { useEffect, useState } from 'react';
 
 // Components
-import { Image } from '@/components/ui';
+import { Image, Text } from '@/components/ui';
+import { FooterSkeleton } from './FooterSkeleton';
 
 // Constants
 import { FOOTER_IMAGES } from '@/constants';
@@ -50,8 +51,7 @@ const Footer = () => {
     setMounted(true);
   }, []);
 
-  // TODO: update skeleton for it
-  if (!mounted) return null;
+  if (!mounted) return <FooterSkeleton />;
 
   // Filter the image to change the color of the image to display the image in different modes
   const imageFilter =
@@ -60,16 +60,10 @@ const Footer = () => {
       : '';
 
   return (
-    <div className="container w-full m-h-40 mt-auto flex justify-center items-center flex-col gap-10 bg-background-100 py-4">
-      <Image
-        src={FOOTER_IMAGES.localName}
-        alt="VHA partners"
-        width={180}
-        height={19}
-        style={{
-          filter: imageFilter,
-        }}
-      />
+    <div className="w-full m-h-40 mt-auto flex justify-center items-center flex-col gap-8 bg-background-100 py-4">
+      <Text variant="success" size="2xl" customClass="font-semibold">
+        VHA <span className="text-primary-100">PARTNER</span>
+      </Text>
       <div className="grid sm:grid-cols-6 grid-cols-3 gap-2">
         {FOOTER_ITEMS.map(({ src, alt }, index) => (
           <div

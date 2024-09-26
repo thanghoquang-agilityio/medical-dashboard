@@ -83,7 +83,7 @@ const DataGrid = memo(
       <>
         <Table
           hideHeader
-          className="w-full"
+          className="w-full px-2"
           tabIndex={0}
           id="table"
           classNames={{
@@ -131,7 +131,7 @@ const DataGrid = memo(
               : []}
           </TableBody>
         </Table>
-        {!!pagination && (
+        {!!pagination && pagination.page > 1 && (
           <Suspense>
             <Pagination
               initialPage={page}

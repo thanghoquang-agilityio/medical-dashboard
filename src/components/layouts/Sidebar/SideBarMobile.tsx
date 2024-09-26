@@ -7,13 +7,12 @@ import {
   ModalContent,
   useDisclosure,
 } from '@nextui-org/react';
-import Image from 'next/image';
 
-// Actions
-import { logout } from '@/actions/auth';
+// Services
+import { logout } from '@/services';
 
 // Components
-import { Button, Navbar } from '@/components/ui';
+import { Button, Image, Navbar } from '@/components/ui';
 import { ArrowRightIcon, LogoutIcon } from '@/icons';
 
 // Constants
@@ -31,10 +30,10 @@ export const SidebarMobile = () => {
     <>
       <div className="flex absolute left-0">
         <Button
-          className="p-0 min-w-6 mt-2 bg-linear-success rounded-none rounded-r-lg lg:hidden"
+          className="p-0 min-w-4 h-7 bg-linear-success rounded-none rounded-r-lg lg:hidden"
           onClick={onOpen}
         >
-          <ArrowRightIcon customClass="w-5 h-5" />
+          <ArrowRightIcon customClass="w-4 h-4" />
         </Button>
       </div>
       <Modal
@@ -50,24 +49,24 @@ export const SidebarMobile = () => {
         classNames={{
           base: 'absolute top-0 left-0',
           closeButton:
-            'p-0 min-w-6 bg-linear-success rounded-none rounded-l-lg text-content1 top-2 right-0',
+            'p-0 min-w-4 h-7 bg-linear-success rounded-none rounded-l-lg text-content1 top-2 right-0',
           backdrop: 'lg:hidden z-[40]',
         }}
         closeButton={
           <Button onClick={onClose}>
-            <ArrowRightIcon customClass="w-5 h-5 rotate-180" />
+            <ArrowRightIcon customClass="w-4 h-4 rotate-180" />
           </Button>
         }
       >
         <ModalContent>
           <ModalBody className="min-h-screen p-0 bg-background-200">
-            <div className="m-auto">
-              <Image src={SRC_LOGO} alt="logo" width={80} height={80} />
+            <div className="m-auto py-5">
+              <Image src={SRC_LOGO} alt="logo" width={40} height={40} />
             </div>
             <div className="flex-1">
               <Navbar isExpandSidebar />
             </div>
-            <div className="pl-3 py-10">
+            <div className="pl-3 py-5">
               <Button
                 color="stone"
                 startContent={<LogoutIcon />}

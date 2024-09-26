@@ -36,7 +36,7 @@ export class ApiClient {
       throw new Error('Not found user!');
     }
 
-    const token = session.user;
+    const { token } = session.user;
 
     return new ApiClient(API_URL, {
       ...this.config,
