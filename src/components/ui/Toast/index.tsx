@@ -1,5 +1,6 @@
 // Types
 import { STATUS_TYPE } from '@/types';
+import { Card } from '@nextui-org/react';
 
 // Utils
 import { cn } from '@/utils';
@@ -11,7 +12,7 @@ import { Button } from '../Button';
 interface ToastProps {
   message: string;
   status: STATUS_TYPE;
-  onClose: () => void;
+  onClose?: () => void;
 }
 
 export const Toast = ({
@@ -22,13 +23,13 @@ export const Toast = ({
   const getStatusColor = () => {
     switch (status) {
       case STATUS_TYPE.SUCCESS:
-        return 'bg-success text-success';
+        return 'text-success';
 
       case STATUS_TYPE.ERROR:
-        return 'bg-danger-100 text-danger-100';
+        return 'text-danger-100';
 
       default:
-        return 'bg-warning text-warning';
+        return 'text-warning';
     }
   };
 
@@ -46,7 +47,7 @@ export const Toast = ({
   };
 
   return (
-    <div className="flex items-center justify-between w-full max-w-xs p-4 mb-4 rounded-lg shadow-lg">
+    <Card className="flex flex-row fixed z-[999] items-center justify-between w-full max-w-xs p-4 mb-4 rounded-lg top-0 right-0 bg-background-100">
       <div className="flex items-center">
         <div
           className={cn(
@@ -63,6 +64,6 @@ export const Toast = ({
       <Button isIconOnly onClick={onClose} color="stone" className="min-w-8">
         <XmarkIcon customClass="w-3 h-3" />
       </Button>
-    </div>
+    </Card>
   );
 };
