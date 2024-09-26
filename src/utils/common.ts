@@ -33,3 +33,17 @@ export const getContentNotification = ({
       return `${name} have been created the appointment at ${time}`;
   }
 };
+
+export const getGreeting = (): string => {
+  const now = new Date();
+  const currentHour = now.getHours();
+
+  switch (true) {
+    case currentHour < 12:
+      return 'Good Morning';
+    case currentHour < 18:
+      return 'Good Afternoon';
+    default:
+      return 'Good Evening';
+  }
+};

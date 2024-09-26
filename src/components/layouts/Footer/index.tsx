@@ -60,7 +60,7 @@ const Footer = () => {
       : '';
 
   return (
-    <div className="w-full m-h-40 mt-auto flex justify-center items-center flex-col gap-10 bg-background-100 py-4">
+    <div className="w-full m-h-40 mt-auto flex justify-center items-center flex-col gap-8 bg-background-100 py-4">
       <Text variant="success" size="2xl" customClass="font-semibold">
         VHA <span className="text-primary-100">PARTNER</span>
       </Text>
