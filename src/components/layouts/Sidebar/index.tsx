@@ -1,5 +1,6 @@
 'use client';
 
+import { useState } from 'react';
 import { Divider } from '@nextui-org/react';
 import Link from 'next/link';
 
@@ -10,9 +11,8 @@ import { LogoutIcon } from '@/icons';
 // Constants
 import { AUTH_ROUTES, PRIVATE_ROUTES, SRC_LOGO } from '@/constants';
 
-// Utils
-import { logout } from '@/actions/auth';
-import { useState } from 'react';
+// Services
+import { logout } from '@/services';
 
 export const Sidebar = () => {
   const [isPending, setIsPending] = useState(false);
