@@ -14,7 +14,7 @@ interface TextProps {
     | 'warning'
     | 'error'
     | 'default';
-  size?: '2xs' | 'xs' | 'sm' | 'md' | 'lg' | 'xl' | '2xl' | '3xl';
+  size?: '2xs' | 'xs' | 'sm' | 'md' | 'lg' | 'xl' | '2xl' | '3xl' | '4xl';
   type?: 'nowrap' | 'wrap';
   customClass?: string;
   children: ReactNode;
@@ -42,6 +42,7 @@ const SIZE_CLASSES = {
   xl: 'text-xl',
   '2xl': 'text-2xl',
   '3xl': 'text-3xl',
+  '4xl': 'text-4xl',
 };
 
 export const Text = memo(

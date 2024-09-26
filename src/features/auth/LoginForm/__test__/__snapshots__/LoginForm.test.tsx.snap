@@ -7,7 +7,7 @@ exports[`LoginForm Component should renders correctly form 1`] = `
     tabindex="-1"
   >
     <p
-      class="text-secondary-300 text-3xl text-ellipsis whitespace-nowrap overflow-hidden font-semibold"
+      class="text-secondary-300 text-4xl text-ellipsis whitespace-nowrap overflow-hidden font-semibold"
     >
       Login
     </p>
