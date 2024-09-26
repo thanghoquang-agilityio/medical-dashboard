@@ -3,8 +3,15 @@ import { NextAuthConfig } from 'next-auth';
 
 // Constants
 import { PRIVATE_ROUTES, AUTH_ROUTES } from '@/constants';
+import { UserSession } from '@/types';
 
 const maxAge = 24 * 60 * 60;
+
+declare module 'next-auth' {
+  interface Session {
+    user: UserSession;
+  }
+}
 
 export const authConfig: NextAuthConfig = {
   pages: {

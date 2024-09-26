@@ -8,13 +8,6 @@ import {
   SpecialtyModel,
 } from '@/types';
 
-// Define type User for Session
-declare module 'next-auth' {
-  interface Session {
-    user: UserSession;
-  }
-}
-
 // Role
 export const enum ROLE {
   ADMIN = 'Admin',
