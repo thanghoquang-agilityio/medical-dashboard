@@ -83,7 +83,7 @@ const DataGrid = memo(
       <>
         <Table
           hideHeader
-          className="w-full"
+          className="w-full px-2"
           tabIndex={0}
           id="table"
           classNames={{
