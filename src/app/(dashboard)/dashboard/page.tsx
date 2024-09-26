@@ -1,23 +1,19 @@
 import Image from 'next/image';
+import { Suspense } from 'react';
 
 // Components
-import { Text, Button } from '@/components/ui';
+import { Text, Button, Spinner } from '@/components/ui';
 import { CloseIcon } from '@/icons';
-import ActivityFeed from '@/features/dashboard/ActivityFeed';
 import AppointmentsUpcoming from '@/features/dashboard/AppointmentsUpcoming';
 
-// Components
+// Constants
 import { SRC_BANNER_AVATAR } from '@/constants';
 
 // Mocks
 import { MOCK_APPOINTMENTS } from '@/mocks';
 
-// Services
-import { getNotifications } from '@/services';
-
-const DashboardPage = async () => {
-  const { notifications, ...meta } = await getNotifications({});
-
+import ActivityFeed from '@/features/dashboard/ActivityFeed';
+const DashboardPage = () => {
   return (
     <div>
       <Text customClass="text-xl lg:text-2xl mb-6">
@@ -47,10 +43,9 @@ const DashboardPage = async () => {
       </div>
       <div className="flex flex-col-reverse  lg:flex-row justify-between my-[31px] gap-[30px] w-full">
         {/* TODO: will handle call API later */}
-        <ActivityFeed
-          notifications={notifications || []}
-          pagination={meta?.pagination}
-        />
+        <Suspense fallback={<Spinner />}>
+          <ActivityFeed />
+        </Suspense>
         <AppointmentsUpcoming appointments={MOCK_APPOINTMENTS} />
       </div>
     </div>
