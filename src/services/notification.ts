@@ -49,13 +49,15 @@ export const addNotification = async (
   notification: NotificationPayload,
 ): Promise<NotificationResponse | string> => {
   try {
-    const { data } = await apiClient.post<
-      APIRelatedResponse<NotificationResponse>
-    >(`${API_ENDPOINT.NOTIFICATIONS}`, {
-      body: {
-        data: notification,
+    const api = await apiClient.apiClientSession();
+    const { data } = await api.post<APIRelatedResponse<NotificationResponse>>(
+      `${API_ENDPOINT.NOTIFICATIONS}`,
+      {
+        body: {
+          data: notification,
+        },
       },
-    });
+    );
 
     revalidateTag(`${API_ENDPOINT.NOTIFICATIONS}/dashboard`);
     revalidateTag(API_ENDPOINT.NOTIFICATIONS);
@@ -76,15 +78,17 @@ export const updateNotification = async (
   notification: NotificationPayload,
 ): Promise<NotificationResponse | string> => {
   try {
-    const { data } = await apiClient.put<
-      APIRelatedResponse<NotificationResponse>
-    >(`${API_ENDPOINT.NOTIFICATIONS}/${id}`, {
-      body: {
-        data: {
-          ...notification,
+    const api = await apiClient.apiClientSession();
+    const { data } = await api.put<APIRelatedResponse<NotificationResponse>>(
+      `${API_ENDPOINT.NOTIFICATIONS}/${id}`,
+      {
+        body: {
+          data: {
+            ...notification,
+          },
         },
       },
-    });
+    );
 
     revalidateTag(`${API_ENDPOINT.NOTIFICATIONS}/dashboard`);
     revalidateTag(API_ENDPOINT.NOTIFICATIONS);
@@ -102,9 +106,10 @@ export const updateNotification = async (
 
 export const deleteNotification = async (id: string) => {
   try {
-    const response = await apiClient.delete<
-      APIRelatedResponse<NotificationResponse>
-    >(`/${API_ENDPOINT.NOTIFICATIONS}/${id}`);
+    const api = await apiClient.apiClientSession();
+    const response = await api.delete<APIRelatedResponse<NotificationResponse>>(
+      `/${API_ENDPOINT.NOTIFICATIONS}/${id}`,
+    );
     if (response) {
       revalidateTag(`${API_ENDPOINT.NOTIFICATIONS}/dashboard`);
       revalidateTag(API_ENDPOINT.NOTIFICATIONS);
