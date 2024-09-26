@@ -1,11 +1,14 @@
+import dynamic from 'next/dynamic';
 import Image from 'next/image';
 import { Suspense } from 'react';
 
 // Components
 import { Text, Button, Spinner } from '@/components/ui';
 import { CloseIcon } from '@/icons';
-import AppointmentsUpcoming from '@/features/dashboard/AppointmentsUpcoming';
-// import ActivityFeed from '@/features/dashboard/ActivityFeed';
+const AppointmentsUpcoming = dynamic(
+  () => import('@/features/dashboard/AppointmentsUpcoming'),
+);
+const ActivityFeed = dynamic(() => import('@/features/dashboard/ActivityFeed'));
 
 // Constants
 import { SRC_BANNER_AVATAR } from '@/constants';
@@ -13,9 +16,7 @@ import { SRC_BANNER_AVATAR } from '@/constants';
 // Mocks
 import { MOCK_APPOINTMENTS } from '@/mocks';
 
-// export const dynamic = 'force-dynamic';
-
-const DashboardPage = () => {
+const DashboardPage = async () => {
   return (
     <div>
       <Text customClass="text-xl lg:text-2xl mb-6">
@@ -44,8 +45,9 @@ const DashboardPage = () => {
         />
       </div>
       <div className="flex flex-col-reverse  lg:flex-row justify-between my-[31px] gap-[30px] w-full">
-        {/* TODO: will handle call API later */}
-        <Suspense fallback={<Spinner />}>{/* <ActivityFeed /> */}</Suspense>
+        <Suspense fallback={<Spinner />}>
+          <ActivityFeed />
+        </Suspense>
         <AppointmentsUpcoming appointments={MOCK_APPOINTMENTS} />
       </div>
     </div>
