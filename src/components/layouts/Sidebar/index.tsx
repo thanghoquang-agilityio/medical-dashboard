@@ -1,11 +1,10 @@
 'use client';
 
-import Image from 'next/image';
 import { Divider } from '@nextui-org/react';
 import Link from 'next/link';
 
 // Components
-import { Button, Navbar, Spinner } from '@/components/ui';
+import { Button, Image, Navbar, Spinner } from '@/components/ui';
 import { LogoutIcon } from '@/icons';
 
 // Constants
@@ -36,21 +35,21 @@ export const Sidebar = () => {
         <div className="hidden lg:flex flex-col min-w-[277px] min-h-screen shadow-md font-semibold bg-background-200">
           <Link
             href={PRIVATE_ROUTES.DASHBOARD}
-            className="pb-4 m-auto text-center"
+            className="py-8 m-auto text-center"
           >
-            <Image src={SRC_LOGO} alt="logo" width={100} height={100} />
+            <Image src={SRC_LOGO} alt="logo" width={50} height={50} />
           </Link>
 
           <div className="flex-1">
             <Navbar isExpandSidebar />
           </div>
 
-          <Divider className="bg-primary-100 h-[2px] mt-8" />
-          <div className="m-auto py-6">
+          <Divider className="bg-primary-100 h-[2px] mt-8 opacity-80" />
+          <div className="ml-10 py-[76px]">
             <Button
-              color="stone"
-              startContent={<LogoutIcon />}
-              className="gap-3"
+              color="default"
+              startContent={<LogoutIcon customClass="w-[44px] h-[44px]" />}
+              className="gap-6 font-bold text-xl"
               onClick={handleLogout}
             >
               Logout
@@ -61,9 +60,9 @@ export const Sidebar = () => {
         {/* Tablet Sidebar */}
         <div className="flex">
           <div className="flex-col min-h-screen hidden md:flex lg:hidden shadow-lg bg-background-200">
-            <div className="m-auto py-2">
+            <div className="m-auto py-6">
               <Link href={PRIVATE_ROUTES.DASHBOARD}>
-                <Image src={SRC_LOGO} alt="logo" width={80} height={80} />
+                <Image src={SRC_LOGO} alt="logo" width={35} height={35} />
               </Link>
             </div>
 

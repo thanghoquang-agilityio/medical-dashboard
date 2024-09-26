@@ -24,7 +24,7 @@ export default function DashboardLayout({
         <HeaderDashboard
           avatarUrl={''}
           notificationList={MOCK_NOTIFICATION_LIST}
-          isInvisibleBadge
+          isInvisibleBadge={true}
         />
         <div />
         <div className="min-h-fit h-full px-[17px] md:px-8">{children}</div>

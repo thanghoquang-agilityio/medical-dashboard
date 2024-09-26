@@ -1,7 +1,5 @@
-import Image from 'next/image';
-
 // Components
-import { Text, Button } from '@/components/ui';
+import { Text, Button, Image } from '@/components/ui';
 import { CloseIcon } from '@/icons';
 import ActivityFeed from '@/features/dashboard/ActivityFeed';
 import AppointmentsUpcoming from '@/features/dashboard/AppointmentsUpcoming';

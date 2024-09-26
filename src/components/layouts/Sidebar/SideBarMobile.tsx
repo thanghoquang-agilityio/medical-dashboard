@@ -7,13 +7,12 @@ import {
   ModalContent,
   useDisclosure,
 } from '@nextui-org/react';
-import Image from 'next/image';
 
 // Actions
 import { logout } from '@/actions/auth';
 
 // Components
-import { Button, Navbar } from '@/components/ui';
+import { Button, Image, Navbar } from '@/components/ui';
 import { ArrowRightIcon, LogoutIcon } from '@/icons';
 
 // Constants
@@ -61,13 +60,13 @@ export const SidebarMobile = () => {
       >
         <ModalContent>
           <ModalBody className="min-h-screen p-0 bg-background-200">
-            <div className="m-auto">
-              <Image src={SRC_LOGO} alt="logo" width={80} height={80} />
+            <div className="m-auto py-5">
+              <Image src={SRC_LOGO} alt="logo" width={40} height={40} />
             </div>
             <div className="flex-1">
               <Navbar isExpandSidebar />
             </div>
-            <div className="pl-3 py-10">
+            <div className="pl-3 py-5">
               <Button
                 color="stone"
                 startContent={<LogoutIcon />}
