@@ -8,8 +8,8 @@ import {
   useDisclosure,
 } from '@nextui-org/react';
 
-// Actions
-import { logout } from '@/actions/auth';
+// Services
+import { logout } from '@/services';
 
 // Components
 import { Button, Image, Navbar } from '@/components/ui';
