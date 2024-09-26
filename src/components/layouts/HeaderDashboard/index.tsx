@@ -69,9 +69,16 @@ const HeaderDashboard = ({
       <Popover
         className="relative bg-background-200 pr-0"
         popoverTrigger={
-          <Button isIconOnly className="p-0 min-w-6 h-6 text-primary-300">
+          <Button
+            isIconOnly
+            className="p-0 min-w-6 h-6 text-primary-300 overflow-visible"
+          >
             <Badge
               className="bg-danger-200 text-content1"
+              classNames={{
+                badge:
+                  'min-w-3 min-h-3 w-3 h-3 text-[6px] top-[15%] right-[15%]',
+              }}
               content={notificationList?.length ? notificationList.length : 0}
               size="sm"
               showOutline={false}
