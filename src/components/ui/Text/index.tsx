@@ -7,7 +7,6 @@ interface TextProps {
     | 'primary'
     | 'secondary'
     | 'tertiary'
-    | 'quaternary'
     | 'title'
     | 'subTitle'
     | 'description'
@@ -25,7 +24,6 @@ const VARIANT_CLASSES = {
   primary: 'text-primary-100 font-medium',
   secondary: 'text-secondary-100',
   tertiary: 'text-secondary-300',
-  quaternary: 'text-secondary-300 font-semibold font-outfit',
   title: ' text-primary-100 font-semibold',
   subTitle: 'text-primary-300 font-normal',
   description: 'text-primary-200 font-medium',

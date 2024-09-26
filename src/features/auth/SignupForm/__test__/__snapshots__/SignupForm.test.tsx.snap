@@ -6,7 +6,7 @@ exports[`SignupForm Component should renders correctly form 1`] = `
     class="w-full max-w-[528px] bg-background-100 flex flex-col justify-center items-center rounded-3xl py-6 lg:px-6 mx-2"
   >
     <p
-      class="text-secondary-300 font-semibold font-outfit text-3xl text-ellipsis whitespace-nowrap overflow-hidden"
+      class="text-secondary-300 text-3xl text-ellipsis whitespace-nowrap overflow-hidden font-semibold"
     >
       Signup
     </p>
