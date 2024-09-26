@@ -20,11 +20,11 @@ export const getAppointments = async ({
   searchParams = new URLSearchParams(),
   options = { next: { tags: [API_ENDPOINT.APPOINTMENTS] } },
 }: FetchDataProps): AppointmentsDataResponse => {
+  const api = await apiClient.apiClientSession();
+  const url = decodeURIComponent(
+    `${API_ENDPOINT.APPOINTMENTS}?${searchParams.toString()}`,
+  );
   try {
-    const api = await apiClient.apiClientSession();
-    const url = decodeURIComponent(
-      `${API_ENDPOINT.APPOINTMENTS}?${searchParams.toString()}`,
-    );
     const { data, meta } = await api.get<AppointmentsResponse>(url, {
       ...options,
       next: { revalidate: 3600 },
@@ -39,6 +39,7 @@ export const getAppointments = async ({
       error instanceof Error
         ? error.message
         : 'An unexpected error occurred in the request get appointments';
+
     throw new Error(errorMessage);
   }
 };

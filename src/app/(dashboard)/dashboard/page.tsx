@@ -4,14 +4,12 @@ import { Suspense } from 'react';
 // Components
 import { Text, Button, Spinner } from '@/components/ui';
 import { CloseIcon } from '@/icons';
+
+import ActivityFeed from '@/features/dashboard/ActivityFeed';
 import AppointmentsUpcoming from '@/features/dashboard/AppointmentsUpcoming';
-// import ActivityFeed from '@/features/dashboard/ActivityFeed';
 
 // Constants
 import { SRC_BANNER_AVATAR } from '@/constants';
-
-// Mocks
-import { MOCK_APPOINTMENTS } from '@/mocks';
 
 // export const dynamic = 'force-dynamic';
 
@@ -44,9 +42,13 @@ const DashboardPage = () => {
         />
       </div>
       <div className="flex flex-col-reverse  lg:flex-row justify-between my-[31px] gap-[30px] w-full">
-        {/* TODO: will handle call API later */}
-        <Suspense fallback={<Spinner />}>{/* <ActivityFeed /> */}</Suspense>
-        <AppointmentsUpcoming appointments={MOCK_APPOINTMENTS} />
+        <Suspense fallback={<Spinner />}>
+          <ActivityFeed />
+        </Suspense>
+
+        <Suspense fallback={<Spinner />}>
+          <AppointmentsUpcoming />
+        </Suspense>
       </div>
     </div>
   );
