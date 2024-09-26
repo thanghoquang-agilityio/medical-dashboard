@@ -15,7 +15,6 @@ export const FOOTER_IMAGES = {
   zerion: '/images/footer/zerion.webp',
   zapper: '/images/footer/zapper.webp',
   instaoapp: '/images/footer/instaoapp.webp',
-  localName: '/images/footer/local-name.webp',
 };
 
 export const NOT_FOUND_URL_IMAGE = '/images/not-found.png';

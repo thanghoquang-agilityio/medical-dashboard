@@ -82,3 +82,36 @@ export const formatTimeAgo = (createdAt: string) => {
       return 'just now';
   }
 };
+/**
+ * Format a date string from ISO string to Day Month Year.
+ * @param {string} isoString - ISO string
+ * @returns {string} Formatted date string
+ */
+export const formatDayMonthYear = (isoString: string) => {
+  const date = new Date(isoString);
+
+  // Extract day and year
+  const day = date.getUTCDate();
+  const year = date.getUTCFullYear();
+
+  // Month names array
+  const monthNames = [
+    'Jan',
+    'Feb',
+    'Mar',
+    'Apr',
+    'May',
+    'Jun',
+    'Jul',
+    'Aug',
+    'Sep',
+    'Oct',
+    'Nov',
+    'Dec',
+  ];
+
+  const month = monthNames[date.getUTCMonth()];
+
+  // Return the formatted date
+  return `${day} ${month} ${year}`;
+};

@@ -97,7 +97,7 @@ const LoginForm = () => {
 
   return (
     <Card className="w-full max-w-[528px] bg-background-100 flex flex-col justify-center items-center rounded-3xl py-6 lg:px-6 mx-2">
-      <Text variant="quaternary" size="3xl">
+      <Text variant="tertiary" size="4xl" customClass="font-semibold">
         Login
       </Text>
       <form

@@ -11,7 +11,7 @@ export const Button = extendVariants(ButtonNextUI, {
     },
 
     color: {
-      default: 'bg-transparent text-secondary-300',
+      default: 'bg-transparent text-primary-100',
       primary: 'bg-linear-success text-content1',
       secondary: 'bg-linear-danger text-content1',
       red: 'text-red',
