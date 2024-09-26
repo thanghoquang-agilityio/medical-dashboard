@@ -27,7 +27,6 @@ export const getNotifications = async ({
     );
     const { data, meta } = await api.get<NotificationsResponse>(url, {
       ...options,
-      cache: 'no-cache',
       next: { revalidate: 3600 },
     });
 

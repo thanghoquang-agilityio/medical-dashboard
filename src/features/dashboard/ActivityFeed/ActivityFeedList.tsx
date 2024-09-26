@@ -21,6 +21,7 @@ import {
 // Components
 import { Avatar, Select, Status, Text } from '@/components/ui';
 import { formatDateTime, formatTimeAgo, getContentNotification } from '@/utils';
+import { API_IMAGE_URL } from '@/constants';
 const DataGrid = dynamic(() => import('@/components/ui/DataGrid'));
 
 const ActivityInfo = ({ item }: { item: NotificationModel }) => {
@@ -44,7 +45,7 @@ const ActivityInfo = ({ item }: { item: NotificationModel }) => {
   return (
     <div className="flex gap-2 justify-items-start mb-6">
       <Avatar
-        src={senderAvatar}
+        src={`${API_IMAGE_URL}${senderAvatar}`}
         size="md"
         hasBorder
         color="warning"
@@ -95,26 +96,26 @@ interface ActivityFeedProps extends MetaResponse {
   notifications: NotificationResponse[];
 }
 
-const ActivityFeedClient = memo(
-  ({ notifications, pagination }: ActivityFeedProps) => {
-    return (
-      <Card className="bg-background-200 py-4 pr-3 pl-3 md:pl-7 w-full lg:w-[495px]">
-        <div className="flex justify-between z-20 items-center">
-          <Text variant="title" size="lg">
-            Activity Feed
-          </Text>
-          <Select
-            options={OPTION_ACTIVITY_FEED}
-            defaultSelectedKeys={[OPTION_ACTIVITY_FEED[0].key]}
-            isDisabled={true}
-            classNames={{
-              base: 'max-w-[102px] max-h-[36px]',
-              mainWrapper: 'max-w-[102px] max-h-[36px]',
-              innerWrapper: 'w-[80px]',
-              trigger: 'min-h-[36px]',
-            }}
-          />
-        </div>
+const ActivityFeedList = memo(
+  ({ notifications, pagination }: ActivityFeedProps) => (
+    <Card className="bg-background-200 py-4 pr-3 pl-3 md:pl-7 w-full lg:w-[495px]">
+      <div className="flex justify-between z-20 items-center">
+        <Text variant="title" size="lg">
+          Activity Feed
+        </Text>
+        <Select
+          options={OPTION_ACTIVITY_FEED}
+          defaultSelectedKeys={[OPTION_ACTIVITY_FEED[0].key]}
+          isDisabled={true}
+          classNames={{
+            base: 'max-w-[102px] max-h-[36px]',
+            mainWrapper: 'max-w-[102px] max-h-[36px]',
+            innerWrapper: 'w-[80px]',
+            trigger: 'min-h-[36px]',
+          }}
+        />
+      </div>
+      <div className="flex flex-col items-center">
         <DataGrid
           data={notifications}
           pagination={pagination}
@@ -123,10 +124,10 @@ const ActivityFeedClient = memo(
           classCell="p-0"
           classRow="h-[60px]"
         />
-      </Card>
-    );
-  },
+      </div>
+    </Card>
+  ),
 );
 
-ActivityFeedClient.displayName = 'ActivityFeedClient';
-export default ActivityFeedClient;
+ActivityFeedList.displayName = 'ActivityFeedList';
+export default ActivityFeedList;

@@ -131,7 +131,7 @@ const DataGrid = memo(
               : []}
           </TableBody>
         </Table>
-        {!!pagination && (
+        {!!pagination && pagination.page > 1 && (
           <Suspense>
             <Pagination
               initialPage={page}
