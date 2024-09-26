@@ -110,7 +110,7 @@ const SignupForm = () => {
 
   return (
     <div className="w-full max-w-[528px] bg-background-100 flex flex-col justify-center items-center rounded-3xl py-6 lg:px-6 mx-2">
-      <Text variant="quaternary" size="3xl">
+      <Text variant="tertiary" size="3xl" customClass="font-semibold">
         Signup
       </Text>
       <form
