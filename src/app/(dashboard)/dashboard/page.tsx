@@ -1,5 +1,5 @@
 // Components
-import { Text, Button, Image } from '@/components/ui';
+import { Text, Button, Image, Toast } from '@/components/ui';
 import { CloseIcon } from '@/icons';
 import ActivityFeed from '@/features/dashboard/ActivityFeed';
 import AppointmentsUpcoming from '@/features/dashboard/AppointmentsUpcoming';
@@ -12,6 +12,7 @@ import { MOCK_APPOINTMENTS, MOCK_NOTIFICATION_LIST } from '@/mocks';
 
 // Utils
 import { getGreeting } from '@/utils';
+import { STATUS_TYPE } from '@/types';
 
 const DashboardPage = () => (
   <div className="mt-7">
@@ -45,6 +46,7 @@ const DashboardPage = () => (
       <ActivityFeed notifications={MOCK_NOTIFICATION_LIST} />
       <AppointmentsUpcoming appointments={MOCK_APPOINTMENTS} />
     </div>
+    <Toast message="test" status={STATUS_TYPE.SUCCESS} />
   </div>
 );
 
