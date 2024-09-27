@@ -19,8 +19,6 @@ import { SearchParams } from '@/types';
 // Utils
 import { getGreeting } from '@/utils';
 
-import { MOCK_APPOINTMENTS } from '@/mocks';
-
 const DashboardPage = async ({
   searchParams,
 }: {
@@ -67,7 +65,10 @@ const DashboardPage = async ({
         <Suspense fallback={<Spinner />}>
           <ActivityFeed page={page} id={id} role={role} />
         </Suspense>
-        <AppointmentsUpcoming appointments={MOCK_APPOINTMENTS} />
+
+        <Suspense fallback={<Spinner />}>
+          <AppointmentsUpcoming id={id} role={role} />
+        </Suspense>
       </div>
     </div>
   );
