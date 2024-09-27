@@ -96,7 +96,7 @@ const AppointmentsUpcomingList = ({
   ];
 
   return (
-    <Card className="w-full lg:max-w-[320px] py-3 bg-background-200">
+    <Card className="w-full lg:max-w-[320px] max-h-[248px] py-3 bg-background-200">
       <div className="flex justify-between pb-5 items-center px-3">
         <Text customClass="text-lg font-bold text-primary-100">
           Appointments

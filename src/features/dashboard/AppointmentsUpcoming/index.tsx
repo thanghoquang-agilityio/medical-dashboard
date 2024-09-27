@@ -1,5 +1,10 @@
 // Constants
-import { API_ENDPOINT, PRIVATE_ROUTES, ROLE } from '@/constants';
+import {
+  API_ENDPOINT,
+  PAGE_SIZE_APPOINTMENTS_UPCOMING_DEFAULT,
+  PRIVATE_ROUTES,
+  ROLE,
+} from '@/constants';
 
 // Components
 import AppointmentsUpcomingList from './AppointmentsUpcomingList';
@@ -19,6 +24,10 @@ const AppointmentsUpcoming = async ({
   const searchParamsAPI = new URLSearchParams();
   searchParamsAPI.set('populate[0]', 'receiverId');
   searchParamsAPI.set('populate[1]', 'senderId');
+  searchParamsAPI.set(
+    'pagination[pageSize]',
+    `${PAGE_SIZE_APPOINTMENTS_UPCOMING_DEFAULT}`,
+  );
 
   if (role === ROLE.USER || !role) {
     searchParamsAPI.set('filters[senderId][id][$eq]', `${id}`);

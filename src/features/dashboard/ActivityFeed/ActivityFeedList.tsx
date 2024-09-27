@@ -28,7 +28,7 @@ interface ActivityInfoProps {
   userId?: string;
 }
 
-const ActivityInfo = async ({ item, userId = '' }: ActivityInfoProps) => {
+const ActivityInfo = ({ item, userId = '' }: ActivityInfoProps) => {
   const {
     senderAvatar = '',
     createdAt = '',
