@@ -18,23 +18,20 @@ interface ActivityFeedProps {
 
 const ActivityFeed = async ({ page, id, role }: ActivityFeedProps) => {
   const searchParamsAPI = new URLSearchParams();
+  searchParamsAPI.set('populate[0]', 'senderId');
+  searchParamsAPI.set('pagination[page]', `${page}`);
+  searchParamsAPI.set('pagination[pageSize]', `${PAGE_SIZE_DEFAULT}`);
+  searchParamsAPI.set(`sort[0]`, 'createdAt:desc');
 
   if (role === ROLE.USER || !role) {
-    searchParamsAPI.set('populate[0]', 'senderId');
     searchParamsAPI.set('filters[senderId][id][$eq]', `${id}`);
-    searchParamsAPI.set('pagination[page]', `${page}`);
-    searchParamsAPI.set('pagination[pageSize]', `${PAGE_SIZE_DEFAULT}`);
-    searchParamsAPI.set(`sort[0]`, 'createdAt:desc');
   }
 
   const { notifications, ...meta } = await getNotifications({
     searchParams: searchParamsAPI,
     options: {
       next: {
-        tags: [
-          API_ENDPOINT.NOTIFICATIONS,
-          `${PRIVATE_ROUTES.DASHBOARD}/${role}`,
-        ],
+        tags: [API_ENDPOINT.NOTIFICATIONS, `${PRIVATE_ROUTES.DASHBOARD}/${id}`],
       },
     },
   });
