@@ -9,6 +9,11 @@ import { PAGE_DEFAULT, RESULT_NOT_FOUND } from '@/constants';
 
 // Types
 import { APIResponse, ColumnType, MetaResponse } from '@/types';
+
+// Utils
+import { cn, getObjectValue } from '@/utils';
+
+// Components
 import {
   Table,
   TableBody,
@@ -17,10 +22,8 @@ import {
   TableHeader,
   TableRow,
 } from '@nextui-org/react';
-import { getObjectValue } from '@/utils';
 import { Spinner, Text } from '@/components/ui';
 
-// Components
 const Pagination = dynamic(() => import('@/components/ui/Pagination'));
 
 export interface DataTableProps<T> extends MetaResponse {
@@ -77,18 +80,20 @@ const DataGrid = memo(
 
     const loadingState = isPending ? 'loading' : 'idle';
     const classDivider =
-      'p-4 border-0 border-primary-100 border-b border-opacity-10';
+      'border-0 border-primary-100 border-b border-opacity-10';
 
     return (
       <>
         <Table
           hideHeader
-          className="w-full px-2"
+          className="w-full"
           tabIndex={0}
           id="table"
           classNames={{
             emptyWrapper: 'text-primary-100 text-xl font-medium',
-            wrapper: `bg-transparent-200 shadow-none ${classWrapper ?? ''}`,
+            wrapper: cn(
+              `bg-transparent-200 shadow-none p-0 ${classWrapper ?? ''}`,
+            ),
           }}
         >
           <TableHeader>
@@ -104,27 +109,29 @@ const DataGrid = memo(
             {data.length
               ? data.map((item, index) => {
                   const id = getObjectValue(item, 'id');
+                  const isLastItem = data.length === index + 1;
                   return (
                     <TableRow
                       key={`table-body-${id}`}
-                      className={classRow ?? ''}
+                      className={!isLastItem ? classRow ?? '' : ''}
                     >
-                      {columns.map((column) => {
-                        return (
-                          <TableCell
-                            key={`table-row-cell-${column.key}`}
-                            className={`${hasDivider ? index !== data.length - 1 && classDivider : ''} ${classCell ?? ''}`}
-                          >
-                            {column.customNode ? (
-                              column.customNode(column, item.attributes)
-                            ) : (
-                              <Text variant="error" size="xs">
-                                {getObjectValue(item.attributes, column.key)}
-                              </Text>
-                            )}
-                          </TableCell>
-                        );
-                      })}
+                      {columns.map((column) => (
+                        <TableCell
+                          key={`table-row-cell-${column.key}`}
+                          className={cn(
+                            `p-0 ${!isLastItem ? classCell ?? '' : ''}`,
+                            `${hasDivider ? (!isLastItem ? `py-3 ${classDivider}` : 'pt-3') : ''}`,
+                          )}
+                        >
+                          {column.customNode ? (
+                            column.customNode(column, item.attributes)
+                          ) : (
+                            <Text variant="error" size="xs">
+                              {getObjectValue(item.attributes, column.key)}
+                            </Text>
+                          )}
+                        </TableCell>
+                      ))}
                     </TableRow>
                   );
                 })
@@ -134,6 +141,7 @@ const DataGrid = memo(
         {!!pagination && pagination.pageCount > 1 && (
           <Suspense>
             <Pagination
+              className="mt-4"
               initialPage={page}
               total={pageCount}
               onChange={handlePageChange}

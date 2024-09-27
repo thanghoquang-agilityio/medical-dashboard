@@ -64,11 +64,11 @@ const DashboardPage = async ({
 
       <div className="flex flex-col-reverse lg:flex-row justify-between my-[31px] gap-[30px] w-full">
         <Suspense fallback={<Spinner />}>
-          <ActivityFeed page={page} id={id} role={role} />
+          <ActivityFeed page={page} userId={id} role={role} />
         </Suspense>
 
         <Suspense fallback={<Spinner />}>
-          <AppointmentsUpcoming id={id} role={role} />
+          <AppointmentsUpcoming userId={id} role={role} />
         </Suspense>
       </div>
     </div>

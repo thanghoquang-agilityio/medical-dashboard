@@ -44,7 +44,7 @@ const ActivityInfo = ({ item, userId = '' }: ActivityInfoProps) => {
   const timeAgo = formatTimeAgo(createdAt);
 
   return (
-    <div className="flex gap-2 justify-items-start mb-6">
+    <div className="flex gap-2 justify-items-start">
       <Avatar
         src={`${API_IMAGE_URL}${senderAvatar}`}
         size="md"
@@ -52,12 +52,8 @@ const ActivityInfo = ({ item, userId = '' }: ActivityInfoProps) => {
         color="warning"
         className="shrink-0"
       />
-      <div className="flex flex-col">
-        <Text
-          size="xs"
-          variant="description"
-          customClass="text-wrap w-[80%] md:w-[90%]"
-        >
+      <div className="flex flex-col mr-6">
+        <Text size="xs" variant="description" customClass="text-wrap">
           {content}
         </Text>
         <Text variant="subTitle" size="2xs">
@@ -83,7 +79,7 @@ const COLUMNS_ACTIVITY_FEED: ColumnType<NotificationModel>[] = [
       return (
         <Status
           status={STATUS_TYPE_RESPONSE[status]}
-          className="leading-[27px] mb-6"
+          className="leading-[27px]"
         />
       );
     },
@@ -97,12 +93,10 @@ interface ActivityFeedProps extends MetaResponse {
 
 const ActivityFeedList = memo(
   ({ userId, notifications, pagination }: ActivityFeedProps) => (
-    <Card className="bg-background-200 py-4 pr-3 pl-3 md:pl-7 w-full lg:w-[495px]">
-      <div className="flex justify-between z-20 items-center">
-        <Text variant="title" size="lg">
-          Activity Feed
-        </Text>
-      </div>
+    <Card className="bg-background-200 p-4 md:pl-7 w-full lg:w-[495px]">
+      <Text variant="title" size="lg" customClass="leading-9">
+        Activity Feed
+      </Text>
       <div className="flex flex-col items-center">
         <DataGrid
           data={notifications}
@@ -118,9 +112,8 @@ const ActivityFeedList = memo(
                 ) : null,
             })) as ColumnType<unknown>[]
           }
-          classWrapper="p-0 pt-4"
-          classCell="p-0"
-          classRow="h-[60px]"
+          classWrapper="pt-4"
+          classCell="pb-6"
         />
       </div>
     </Card>

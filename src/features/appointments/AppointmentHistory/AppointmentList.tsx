@@ -4,9 +4,6 @@ import dynamic from 'next/dynamic';
 import { memo } from 'react';
 import { Card } from '@nextui-org/react';
 
-// Components
-import { Avatar, Select, Status, Text } from '@/components/ui';
-
 // Types
 import {
   AppointmentModel,
@@ -20,13 +17,9 @@ import {
 import { formatDayMonthYear, formatTimeAppointment } from '@/utils';
 import { APPOINTMENT_STATUS_OPTIONS, ROLE } from '@/constants';
 
-// Lazy load DataGrid
+// Components
+import { Avatar, Select, Status, Text } from '@/components/ui';
 const DataGrid = dynamic(() => import('@/components/ui/DataGrid'));
-
-interface AppointmentListProps extends MetaResponse {
-  appointments: AppointmentResponse[];
-  role: string;
-}
 
 // Create config columns for appointments
 const createColumns = (role: string): ColumnType<AppointmentModel>[] => {
@@ -103,6 +96,11 @@ const createColumns = (role: string): ColumnType<AppointmentModel>[] => {
   return role === ROLE.USER ? baseColumns.slice(1) : baseColumns;
 };
 
+interface AppointmentListProps extends MetaResponse {
+  appointments: AppointmentResponse[];
+  role: string;
+}
+
 const AppointmentList = ({
   appointments,
   pagination,
@@ -111,17 +109,20 @@ const AppointmentList = ({
   const columns = createColumns(role);
 
   return (
-    <Card className="w-full py-3 bg-background-200">
-      <div className="flex justify-between pb-5 items-center px-3">
-        <Text customClass="text-lg font-bold text-primary-100">History</Text>
+    <Card className="w-full px-4 py-6 bg-background-200">
+      <div className="flex justify-between items-center">
+        <Text customClass="text-xl font-bold text-primary-100">History</Text>
         <div>
           <Select
             aria-label="Status"
             options={APPOINTMENT_STATUS_OPTIONS}
-            defaultSelectedKeys={APPOINTMENT_STATUS_OPTIONS[0].key}
             placeholder="Status"
-            classNames={{ mainWrapper: 'w-[107px] max-h-[36px] text-xs' }}
-            isDisabled={!appointments.length}
+            classNames={{
+              base: 'max-w-[102px] max-h-[36px]',
+              mainWrapper: 'max-w-[102px] max-h-[36px]',
+              innerWrapper: 'w-[80px]',
+              trigger: 'min-h-[36px]',
+            }}
           />
         </div>
       </div>
@@ -130,9 +131,7 @@ const AppointmentList = ({
           data={appointments}
           columns={columns as ColumnType<unknown>[]}
           pagination={pagination}
-          classWrapper="p-0 pt-4 overflow-x-auto"
-          classCell="p-0"
-          classRow="h-[60px]"
+          hasDivider
         />
       </div>
     </Card>
