@@ -25,7 +25,6 @@ export const getNotifications = async ({
     const url = decodeURIComponent(
       `${API_ENDPOINT.NOTIFICATIONS}?${searchParams.toString()}`,
     );
-
     const { data, meta } = await api.get<NotificationsResponse>(url, {
       ...options,
       next: { revalidate: 3600 },
