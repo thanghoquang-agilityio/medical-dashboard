@@ -27,7 +27,10 @@ export const getAppointments = async ({
     );
     const { data, meta } = await api.get<AppointmentsResponse>(url, {
       ...options,
-      next: { revalidate: 3600 },
+      next: {
+        ...options.next,
+        revalidate: 3600,
+      },
     });
 
     return {

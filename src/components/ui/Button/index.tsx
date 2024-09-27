@@ -21,6 +21,7 @@ export const Button = extendVariants(ButtonNextUI, {
 
     isIconOnly: {
       true: 'bg-none',
+      ariaLabel: 'Button Icon',
     },
 
     size: {

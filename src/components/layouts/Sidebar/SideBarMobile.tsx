@@ -61,7 +61,13 @@ export const SidebarMobile = () => {
         <ModalContent>
           <ModalBody className="min-h-screen p-0 bg-background-200">
             <div className="m-auto py-5">
-              <Image src={SRC_LOGO} alt="logo" width={40} height={40} />
+              <Image
+                src={SRC_LOGO}
+                alt="logo"
+                width={40}
+                height={40}
+                className="w-full h-auto"
+              />
             </div>
             <div className="flex-1">
               <Navbar isExpandSidebar />

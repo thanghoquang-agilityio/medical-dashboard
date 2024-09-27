@@ -29,8 +29,8 @@ import { clearErrorOnChange } from '@/utils';
 // Actions
 import { signup } from '@/actions/auth';
 
-// Hooks
-import { useToast } from '@/hooks';
+// Contexts
+import { useToast } from '@/context/toast';
 
 const DEFAULT_VALUE: SignupFormData = {
   username: '',
@@ -57,7 +57,7 @@ const SignupForm = () => {
   const [isShowConfirmPassword, setIsShowConfirmPassword] =
     useState<boolean>(false);
 
-  const { showToast } = useToast();
+  const openToast = useToast();
 
   const router = useRouter();
 
@@ -80,17 +80,20 @@ const SignupForm = () => {
         const response = await signup(signupData);
 
         if (response.user) {
-          showToast(SUCCESS_MESSAGE.SIGNUP, STATUS_TYPE.SUCCESS);
+          openToast({
+            message: SUCCESS_MESSAGE.SIGNUP,
+            type: STATUS_TYPE.SUCCESS,
+          });
 
           router.replace(`${AUTH_ROUTES.LOGIN}`);
         }
       } catch (error) {
-        showToast(ERROR_MESSAGE.SIGNUP, STATUS_TYPE.ERROR);
+        openToast({ message: ERROR_MESSAGE.SIGNUP, type: STATUS_TYPE.ERROR });
       }
 
       setIsPending(false);
     },
-    [router, showToast],
+    [openToast, router],
   );
 
   const handleInputChange = useCallback(
@@ -176,6 +179,7 @@ const SignupForm = () => {
               startContent={<LockIcon customClass={iconClass} />}
               endContent={
                 <Button
+                  aria-label="visible password"
                   onClick={handleToggleVisiblePassword}
                   isIconOnly
                   className="p-0 min-w-5 h-5 text-primary-200"
@@ -207,11 +211,12 @@ const SignupForm = () => {
               startContent={<LockIcon customClass={iconClass} />}
               endContent={
                 <Button
+                  aria-label="visible confirm password"
                   onClick={handleToggleShowConfirmPassword}
                   isIconOnly
                   className="p-0 min-w-5 h-5 text-primary-200"
                 >
-                  {isShowConfirmPassword ? <EyeIcon /> : <EyeSlashIcon />}
+                  {isShowConfirmPassword ? <EyeIcon /> : <EyeSlashIcon />}z
                 </Button>
               }
               isInvalid={!!error?.message}

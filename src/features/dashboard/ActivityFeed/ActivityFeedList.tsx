@@ -13,21 +13,22 @@ import {
   MetaResponse,
   NotificationModel,
   NotificationResponse,
-  Option,
   STATUS_TYPE_RESPONSE,
   UserModel,
 } from '@/types';
 
 // Components
-import { Avatar, Select, Status, Text } from '@/components/ui';
+import { Avatar, Status, Text } from '@/components/ui';
 import { formatDateTime, formatTimeAgo, getContentNotification } from '@/utils';
 import { API_IMAGE_URL } from '@/constants';
 const DataGrid = dynamic(() => import('@/components/ui/DataGrid'));
 
-const ActivityInfo = ({ item }: { item: NotificationModel }) => {
-  // TODO: Update user id in zustand
-  const userId = '1';
+interface ActivityInfoProps {
+  item: NotificationModel;
+  userId?: string;
+}
 
+const ActivityInfo = ({ item, userId = '' }: ActivityInfoProps) => {
   const {
     senderAvatar = '',
     createdAt = '',
@@ -43,7 +44,7 @@ const ActivityInfo = ({ item }: { item: NotificationModel }) => {
   const timeAgo = formatTimeAgo(createdAt);
 
   return (
-    <div className="flex gap-2 justify-items-start mb-6">
+    <div className="flex gap-2 justify-items-start">
       <Avatar
         src={`${API_IMAGE_URL}${senderAvatar}`}
         size="md"
@@ -51,12 +52,8 @@ const ActivityInfo = ({ item }: { item: NotificationModel }) => {
         color="warning"
         className="shrink-0"
       />
-      <div className="flex flex-col">
-        <Text
-          size="xs"
-          variant="description"
-          customClass="text-wrap w-[80%] md:w-full"
-        >
+      <div className="flex flex-col mr-6">
+        <Text size="xs" variant="description" customClass="text-wrap">
           {content}
         </Text>
         <Text variant="subTitle" size="2xs">
@@ -71,7 +68,6 @@ const COLUMNS_ACTIVITY_FEED: ColumnType<NotificationModel>[] = [
   {
     key: 'sender',
     title: 'Sender',
-    customNode: (_, item) => <ActivityInfo item={item} />,
   },
   {
     key: 'status',
@@ -83,46 +79,41 @@ const COLUMNS_ACTIVITY_FEED: ColumnType<NotificationModel>[] = [
       return (
         <Status
           status={STATUS_TYPE_RESPONSE[status]}
-          className="leading-[27px] mb-6"
+          className="leading-[27px]"
         />
       );
     },
   },
 ];
 
-const OPTION_ACTIVITY_FEED: Option[] = [{ key: 'all', label: 'All Activity' }];
-
 interface ActivityFeedProps extends MetaResponse {
   notifications: NotificationResponse[];
+  userId: string;
 }
 
 const ActivityFeedList = memo(
-  ({ notifications, pagination }: ActivityFeedProps) => (
-    <Card className="bg-background-200 py-4 pr-3 pl-3 md:pl-7 w-full lg:w-[495px]">
-      <div className="flex justify-between z-20 items-center">
-        <Text variant="title" size="lg">
-          Activity Feed
-        </Text>
-        <Select
-          options={OPTION_ACTIVITY_FEED}
-          defaultSelectedKeys={[OPTION_ACTIVITY_FEED[0].key]}
-          isDisabled={true}
-          classNames={{
-            base: 'max-w-[102px] max-h-[36px]',
-            mainWrapper: 'max-w-[102px] max-h-[36px]',
-            innerWrapper: 'w-[80px]',
-            trigger: 'min-h-[36px]',
-          }}
-        />
-      </div>
+  ({ userId, notifications, pagination }: ActivityFeedProps) => (
+    <Card className="bg-background-200 p-4 md:pl-7 w-full lg:w-[495px]">
+      <Text variant="title" size="lg" customClass="leading-9">
+        Activity Feed
+      </Text>
       <div className="flex flex-col items-center">
         <DataGrid
           data={notifications}
           pagination={pagination}
-          columns={COLUMNS_ACTIVITY_FEED as ColumnType<unknown>[]}
-          classWrapper="p-0 pt-4"
-          classCell="p-0"
-          classRow="h-[60px]"
+          columns={
+            COLUMNS_ACTIVITY_FEED.map((column) => ({
+              ...column,
+              customNode: (_, item: NotificationModel) =>
+                column.key === 'sender' ? (
+                  <ActivityInfo item={item} userId={userId} />
+                ) : column.customNode ? (
+                  column.customNode(column, item)
+                ) : null,
+            })) as ColumnType<unknown>[]
+          }
+          classWrapper="pt-4"
+          classCell="pb-6"
         />
       </div>
     </Card>

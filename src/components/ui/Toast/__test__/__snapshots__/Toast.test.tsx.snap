@@ -3,35 +3,29 @@
 exports[`Toast component renders the success toast correctly 1`] = `
 <div>
   <div
-    class="flex items-center justify-between w-full max-w-xs p-4 mb-4 rounded-lg shadow-lg"
+    class="overflow-hidden h-auto text-foreground box-border outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 shadow-medium transition-transform-background motion-reduce:transition-none flex flex-row fixed z-[999] items-center justify-between w-full max-w-xs p-4 rounded-lg top-5 right-5 bg-background-100"
+    data-testid="toast"
+    role="alert"
+    tabindex="-1"
   >
-    <div
-      class="flex items-center"
+    <svg
+      aria-hidden="true"
+      class="inline-flex items-center justify-center bg-opacity-20 flex-shrink-0 w-5 h-5 rounded-lg text-success"
+      fill="currentColor"
+      viewBox="0 0 20 20"
+      xmlns="http://www.w3.org/2000/svg"
     >
-      <div
-        class="inline-flex items-center justify-center bg-opacity-20 flex-shrink-0 w-8 h-8 rounded-lg bg-success text-success"
-        data-testid="toast-icon"
-      >
-        <svg
-          aria-hidden="true"
-          class="w-5 h-5"
-          fill="currentColor"
-          viewBox="0 0 20 20"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z"
-          />
-        </svg>
-      </div>
-      <p
-        class="ms-3 text-sm text-primary-200"
-      >
-        Item moved successfully.
-      </p>
-    </div>
+      <path
+        d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z"
+      />
+    </svg>
+    <p
+      class="text-sm text-primary-200 max-w-[220px] ml-2 mr-3"
+    >
+      Item moved successfully.
+    </p>
     <button
-      class="z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap subpixel-antialiased overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 !gap-0 transition-transform-colors-opacity motion-reduce:transition-none data-[hover=true]:opacity-hover border-transparent font-semibold text-primary-200 bg-none px-3 h-10 gap-1 text-sm rounded-lg min-w-8"
+      class="z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap subpixel-antialiased overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 !gap-0 transition-transform-colors-opacity motion-reduce:transition-none data-[hover=true]:opacity-hover border-transparent font-semibold text-primary-200 bg-none h-10 gap-1 text-sm rounded-lg min-w-5 p-0"
       type="button"
     >
       <svg

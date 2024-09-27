@@ -19,14 +19,17 @@ import { SearchParams } from '@/types';
 // Utils
 import { getGreeting } from '@/utils';
 
-import { MOCK_APPOINTMENTS } from '@/mocks';
+interface DashboardPageSearchParamsProps extends SearchParams {
+  status?: string;
+}
 
 const DashboardPage = async ({
   searchParams,
 }: {
-  searchParams?: SearchParams;
+  searchParams?: DashboardPageSearchParamsProps;
 }) => {
-  const { page = PAGE_DEFAULT } = searchParams as SearchParams;
+  const { page = PAGE_DEFAULT, status = '' } =
+    searchParams as DashboardPageSearchParamsProps;
 
   const {
     id = '',
@@ -44,6 +47,7 @@ const DashboardPage = async ({
       </Text>
       <div className="bg-linear-banner rounded-medium relative h-fit py-3 sm:py-0 sm:h-[132px] flex flex-col-reverse sm:flex-row gap-3 items-center mr-2">
         <Button
+          aria-label="close"
           isIconOnly
           size="tiny"
           color="red"
@@ -65,9 +69,12 @@ const DashboardPage = async ({
 
       <div className="flex flex-col-reverse lg:flex-row justify-between my-[31px] gap-[30px] w-full">
         <Suspense fallback={<Spinner />}>
-          <ActivityFeed page={page} id={id} role={role} />
+          <ActivityFeed page={page} userId={id} role={role} />
         </Suspense>
-        <AppointmentsUpcoming appointments={MOCK_APPOINTMENTS} />
+
+        <Suspense fallback={<Spinner />}>
+          <AppointmentsUpcoming userId={id} role={role} status={status} />
+        </Suspense>
       </div>
     </div>
   );
