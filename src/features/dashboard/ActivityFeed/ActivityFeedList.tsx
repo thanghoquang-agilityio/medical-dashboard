@@ -24,10 +24,12 @@ import { formatDateTime, formatTimeAgo, getContentNotification } from '@/utils';
 import { API_IMAGE_URL } from '@/constants';
 const DataGrid = dynamic(() => import('@/components/ui/DataGrid'));
 
-const ActivityInfo = ({ item }: { item: NotificationModel }) => {
-  // TODO: Update user id in zustand
-  const userId = '1';
+interface ActivityInfoProps {
+  item: NotificationModel;
+  userId?: string;
+}
 
+const ActivityInfo = async ({ item, userId = '' }: ActivityInfoProps) => {
   const {
     senderAvatar = '',
     createdAt = '',
@@ -71,7 +73,6 @@ const COLUMNS_ACTIVITY_FEED: ColumnType<NotificationModel>[] = [
   {
     key: 'sender',
     title: 'Sender',
-    customNode: (_, item) => <ActivityInfo item={item} />,
   },
   {
     key: 'status',
@@ -94,10 +95,11 @@ const OPTION_ACTIVITY_FEED: Option[] = [{ key: 'all', label: 'All Activity' }];
 
 interface ActivityFeedProps extends MetaResponse {
   notifications: NotificationResponse[];
+  userId: string;
 }
 
 const ActivityFeedList = memo(
-  ({ notifications, pagination }: ActivityFeedProps) => (
+  ({ userId, notifications, pagination }: ActivityFeedProps) => (
     <Card className="bg-background-200 py-4 pr-3 pl-3 md:pl-7 w-full lg:w-[495px]">
       <div className="flex justify-between z-20 items-center">
         <Text variant="title" size="lg">
@@ -119,7 +121,17 @@ const ActivityFeedList = memo(
         <DataGrid
           data={notifications}
           pagination={pagination}
-          columns={COLUMNS_ACTIVITY_FEED as ColumnType<unknown>[]}
+          columns={
+            COLUMNS_ACTIVITY_FEED.map((column) => ({
+              ...column,
+              customNode: (_, item: NotificationModel) =>
+                column.key === 'sender' ? (
+                  <ActivityInfo item={item} userId={userId} />
+                ) : column.customNode ? (
+                  column.customNode(column, item)
+                ) : null,
+            })) as ColumnType<unknown>[]
+          }
           classWrapper="p-0 pt-4"
           classCell="p-0"
           classRow="h-[60px]"

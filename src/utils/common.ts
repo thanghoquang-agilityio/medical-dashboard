@@ -23,7 +23,7 @@ export const getContentNotification = ({
   const { id = '', attributes } = senderId.data || {};
   const { username = '' } = attributes || {};
 
-  const name = userId === id ? 'You' : username;
+  const name = String(userId) === String(id) ? 'You' : username;
   switch (type) {
     case 1:
       return `${name} have been updated the appointment at ${time}`;
