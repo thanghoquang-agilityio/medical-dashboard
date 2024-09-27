@@ -19,12 +19,17 @@ import { SearchParams } from '@/types';
 // Utils
 import { getGreeting } from '@/utils';
 
+interface DashboardPageSearchParamsProps extends SearchParams {
+  status?: string;
+}
+
 const DashboardPage = async ({
   searchParams,
 }: {
-  searchParams?: SearchParams;
+  searchParams?: DashboardPageSearchParamsProps;
 }) => {
-  const { page = PAGE_DEFAULT } = searchParams as SearchParams;
+  const { page = PAGE_DEFAULT, status = '' } =
+    searchParams as DashboardPageSearchParamsProps;
 
   const {
     id = '',
@@ -68,7 +73,7 @@ const DashboardPage = async ({
         </Suspense>
 
         <Suspense fallback={<Spinner />}>
-          <AppointmentsUpcoming userId={id} role={role} />
+          <AppointmentsUpcoming userId={id} role={role} status={status} />
         </Suspense>
       </div>
     </div>

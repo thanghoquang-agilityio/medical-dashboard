@@ -6,6 +6,7 @@ const AppointmentsUpcomingList = dynamic(
 // Constants
 import {
   API_ENDPOINT,
+  APPOINTMENT_STATUS_OPTIONS,
   PAGE_LIMIT_APPOINTMENTS_UPCOMING,
   PRIVATE_ROUTES,
   ROLE,
@@ -17,11 +18,13 @@ import { getAppointments } from '@/services';
 interface AppointmentsUpcomingProps {
   userId: string;
   role: string;
+  status: string;
 }
 
 const AppointmentsUpcoming = async ({
   userId,
   role,
+  status,
 }: AppointmentsUpcomingProps) => {
   const searchParamsAPI = new URLSearchParams();
   searchParamsAPI.set('populate[0]', 'receiverId');
@@ -34,6 +37,13 @@ const AppointmentsUpcoming = async ({
   if (role === ROLE.USER || !role) {
     searchParamsAPI.set('filters[senderId][id][$eq]', `${userId}`);
   }
+  const valueStatus = APPOINTMENT_STATUS_OPTIONS.find(
+    (option) => option.key === status,
+  )?.value;
+
+  if (status) {
+    searchParamsAPI.set('filters[status][$eq]', `${valueStatus}`);
+  }
 
   const { appointments } = await getAppointments({
     searchParams: searchParamsAPI,
@@ -41,13 +51,18 @@ const AppointmentsUpcoming = async ({
       next: {
         tags: [
           API_ENDPOINT.NOTIFICATIONS,
-          `${PRIVATE_ROUTES.DASHBOARD}/${userId}`,
+          `${PRIVATE_ROUTES.DASHBOARD}/${userId}/${status}`,
         ],
       },
     },
   });
 
-  return <AppointmentsUpcomingList appointments={appointments || []} />;
+  return (
+    <AppointmentsUpcomingList
+      appointments={appointments || []}
+      defaultStatus={status}
+    />
+  );
 };
 
 export default AppointmentsUpcoming;
