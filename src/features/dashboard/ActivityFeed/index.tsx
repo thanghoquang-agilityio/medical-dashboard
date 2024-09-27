@@ -1,4 +1,5 @@
-import ActivityFeedList from './ActivityFeedList';
+import dynamic from 'next/dynamic';
+const ActivityFeedList = dynamic(() => import('./ActivityFeedList'));
 
 // Constants
 import {
@@ -12,11 +13,11 @@ import {
 import { getNotifications } from '@/services';
 interface ActivityFeedProps {
   page: number;
-  id: string;
+  userId: string;
   role: string;
 }
 
-const ActivityFeed = async ({ page, id, role }: ActivityFeedProps) => {
+const ActivityFeed = async ({ page, userId, role }: ActivityFeedProps) => {
   const searchParamsAPI = new URLSearchParams();
   searchParamsAPI.set('populate[0]', 'senderId');
   searchParamsAPI.set('pagination[page]', `${page}`);
@@ -24,21 +25,24 @@ const ActivityFeed = async ({ page, id, role }: ActivityFeedProps) => {
   searchParamsAPI.set(`sort[0]`, 'createdAt:desc');
 
   if (role === ROLE.USER || !role) {
-    searchParamsAPI.set('filters[senderId][id][$eq]', `${id}`);
+    searchParamsAPI.set('filters[senderId][id][$eq]', `${userId}`);
   }
 
   const { notifications, ...meta } = await getNotifications({
     searchParams: searchParamsAPI,
     options: {
       next: {
-        tags: [API_ENDPOINT.NOTIFICATIONS, `${PRIVATE_ROUTES.DASHBOARD}/${id}`],
+        tags: [
+          API_ENDPOINT.NOTIFICATIONS,
+          `${PRIVATE_ROUTES.DASHBOARD}/${userId}`,
+        ],
       },
     },
   });
 
   return (
     <ActivityFeedList
-      userId={id}
+      userId={userId}
       notifications={notifications || []}
       pagination={meta?.pagination}
     />

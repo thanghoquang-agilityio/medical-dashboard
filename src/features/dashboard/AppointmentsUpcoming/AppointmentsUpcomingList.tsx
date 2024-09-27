@@ -83,7 +83,7 @@ const AppointmentsUpcomingList = ({
       key: 'more',
       title: '',
       customNode: () => (
-        <div className="flex justify-end">
+        <div className="flex justify-end mr-1">
           <Button
             color="stone"
             className="p-0 min-w-4 h-4 md:h-[26px] md:min-w-[26px] bg-background-100 rounded-md"
@@ -96,8 +96,8 @@ const AppointmentsUpcomingList = ({
   ];
 
   return (
-    <Card className="w-full lg:max-w-[320px] max-h-[248px] py-3 bg-background-200">
-      <div className="flex justify-between pb-5 items-center px-3">
+    <Card className="w-full lg:max-w-[320px] max-h-[236px] p-4 pl-5 bg-background-200">
+      <div className="flex justify-between items-center">
         <Text customClass="text-lg font-bold text-primary-100">
           Appointments
         </Text>
@@ -107,7 +107,10 @@ const AppointmentsUpcomingList = ({
             defaultSelectedKeys={APPOINTMENT_STATUS_OPTIONS[0].key}
             placeholder="Status"
             classNames={{
-              mainWrapper: 'w-[107px] max-h-[36px] text-xs',
+              base: 'max-w-[102px] max-h-[36px]',
+              mainWrapper: 'max-w-[102px] max-h-[36px]',
+              innerWrapper: 'w-[80px]',
+              trigger: 'min-h-[36px]',
             }}
           />
         </div>
@@ -116,7 +119,8 @@ const AppointmentsUpcomingList = ({
       <DataGrid
         data={appointments}
         columns={COLUMNS_APPOINTMENT as ColumnType<unknown>[]}
-        classWrapper="p-0"
+        classWrapper="pt-4"
+        classCell="pb-4"
       />
     </Card>
   );

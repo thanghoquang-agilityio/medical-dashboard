@@ -1,43 +1,48 @@
+import dynamic from 'next/dynamic';
+const AppointmentsUpcomingList = dynamic(
+  () => import('./AppointmentsUpcomingList'),
+);
+
 // Constants
 import {
   API_ENDPOINT,
-  PAGE_SIZE_APPOINTMENTS_UPCOMING_DEFAULT,
+  PAGE_LIMIT_APPOINTMENTS_UPCOMING,
   PRIVATE_ROUTES,
   ROLE,
 } from '@/constants';
-
-// Components
-import AppointmentsUpcomingList from './AppointmentsUpcomingList';
 
 // Services
 import { getAppointments } from '@/services';
 
 interface AppointmentsUpcomingProps {
-  id: string;
+  userId: string;
   role: string;
 }
 
 const AppointmentsUpcoming = async ({
-  id,
+  userId,
   role,
 }: AppointmentsUpcomingProps) => {
   const searchParamsAPI = new URLSearchParams();
   searchParamsAPI.set('populate[0]', 'receiverId');
   searchParamsAPI.set('populate[1]', 'senderId');
   searchParamsAPI.set(
-    'pagination[pageSize]',
-    `${PAGE_SIZE_APPOINTMENTS_UPCOMING_DEFAULT}`,
+    'pagination[limit]',
+    `${PAGE_LIMIT_APPOINTMENTS_UPCOMING}`,
   );
 
   if (role === ROLE.USER || !role) {
-    searchParamsAPI.set('filters[senderId][id][$eq]', `${id}`);
+    searchParamsAPI.set('filters[senderId][id][$eq]', `${userId}`);
   }
 
   const { appointments } = await getAppointments({
     searchParams: searchParamsAPI,
     options: {
       next: {
-        tags: [API_ENDPOINT.NOTIFICATIONS, `${PRIVATE_ROUTES.DASHBOARD}/${id}`],
+        tags: [
+          API_ENDPOINT.NOTIFICATIONS,
+          `${PRIVATE_ROUTES.DASHBOARD}/${userId}`,
+        ],
       },
     },
   });

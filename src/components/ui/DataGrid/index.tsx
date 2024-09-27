@@ -9,6 +9,11 @@ import { PAGE_DEFAULT, RESULT_NOT_FOUND } from '@/constants';
 
 // Types
 import { APIResponse, ColumnType, MetaResponse } from '@/types';
+
+// Utils
+import { cn, getObjectValue } from '@/utils';
+
+// Components
 import {
   Table,
   TableBody,
@@ -17,10 +22,8 @@ import {
   TableHeader,
   TableRow,
 } from '@nextui-org/react';
-import { getObjectValue } from '@/utils';
 import { Spinner, Text } from '@/components/ui';
 
-// Components
 const Pagination = dynamic(() => import('@/components/ui/Pagination'));
 
 export interface DataTableProps<T> extends MetaResponse {
@@ -83,12 +86,14 @@ const DataGrid = memo(
       <>
         <Table
           hideHeader
-          className="w-full px-2"
+          className="w-full"
           tabIndex={0}
           id="table"
           classNames={{
             emptyWrapper: 'text-primary-100 text-xl font-medium',
-            wrapper: `bg-transparent-200 shadow-none ${classWrapper ?? ''}`,
+            wrapper: cn(
+              `bg-transparent-200 shadow-none p-0 ${classWrapper ?? ''}`,
+            ),
           }}
         >
           <TableHeader>
@@ -107,13 +112,18 @@ const DataGrid = memo(
                   return (
                     <TableRow
                       key={`table-body-${id}`}
-                      className={classRow ?? ''}
+                      className={
+                        data.length !== index + 1 ? classRow ?? '' : ''
+                      }
                     >
                       {columns.map((column) => {
                         return (
                           <TableCell
                             key={`table-row-cell-${column.key}`}
-                            className={`${hasDivider ? index !== data.length - 1 && classDivider : ''} ${classCell ?? ''}`}
+                            className={cn(
+                              `p-0 ${hasDivider ? index !== data.length - 1 && classDivider : ''}`,
+                              `${data.length !== index + 1 ? classCell ?? '' : ''}`,
+                            )}
                           >
                             {column.customNode ? (
                               column.customNode(column, item.attributes)
