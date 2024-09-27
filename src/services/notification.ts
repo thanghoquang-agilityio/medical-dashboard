@@ -27,7 +27,7 @@ export const getNotifications = async ({
     );
     const { data, meta } = await api.get<NotificationsResponse>(url, {
       ...options,
-      next: { revalidate: 3600 },
+      next: { ...options.next, revalidate: 3600 },
     });
 
     return {
