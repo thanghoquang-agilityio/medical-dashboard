@@ -58,36 +58,24 @@ const COLUMNS_APPOINTMENT: ColumnType<AppointmentModel>[] = [
             duration: item.durationTime,
           })}
         </Text>
-      </>
-    ),
-  },
-  {
-    key: 'durationTime',
-    title: '',
-    customNode: (_, item) => (
-      <Text customClass="text-primary-300 font-light lg:hidden" size="xs">
-        {formatTimeAppointment({
-          start: item.startTime,
-          duration: item.durationTime,
-        })}
-      </Text>
-    ),
-  },
-  {
-    key: 'more',
-    title: '',
-    customNode: () => (
-      <div className="flex justify-end mr-1">
-        <Button
-          color="stone"
-          className="p-0 min-w-4 h-4 md:h-[26px] md:min-w-[26px] bg-background-100 rounded-md"
-        >
-          <MoreIcon customClass=" w-[11px] h-[11px] md:w-4 md:h-4" />
-        </Button>
-      </div>
-    ),
-  },
-];
+      ),
+    },
+    {
+      key: 'more',
+      title: '',
+      customNode: () => (
+        <div className="flex justify-end">
+          <Button
+            aria-label="more actions"
+            color="stone"
+            className="p-0 min-w-4 h-4 md:h-[26px] md:min-w-[26px] bg-background-100 rounded-md"
+          >
+            <MoreIcon customClass=" w-[11px] h-[11px] md:w-4 md:h-4" />
+          </Button>
+        </div>
+      ),
+    },
+  ];
 
 interface AppointmentsUpcomingProps extends MetaResponse {
   appointments: AppointmentResponse[];
@@ -102,6 +90,7 @@ const AppointmentsUpcomingList = memo(
         </Text>
         <div>
           <Select
+            aria-label="appointment status"
             options={APPOINTMENT_STATUS_OPTIONS}
             defaultSelectedKeys={APPOINTMENT_STATUS_OPTIONS[0].key}
             placeholder="Status"

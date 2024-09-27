@@ -114,6 +114,7 @@ const AppointmentList = ({
         <Text customClass="text-xl font-bold text-primary-100">History</Text>
         <div>
           <Select
+            aria-label="Status"
             options={APPOINTMENT_STATUS_OPTIONS}
             placeholder="Status"
             classNames={{
