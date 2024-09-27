@@ -48,13 +48,15 @@ export const addAppointment = async (
   appointment: AppointmentPayload,
 ): Promise<AppointmentResponse | string> => {
   try {
-    const { data } = await apiClient.post<
-      APIRelatedResponse<AppointmentResponse>
-    >(`${API_ENDPOINT.APPOINTMENTS}`, {
-      body: {
-        data: appointment,
+    const api = await apiClient.apiClientSession();
+    const { data } = await api.post<APIRelatedResponse<AppointmentResponse>>(
+      `${API_ENDPOINT.APPOINTMENTS}`,
+      {
+        body: {
+          data: appointment,
+        },
       },
-    });
+    );
 
     revalidateTag(`${API_ENDPOINT.APPOINTMENTS}/dashboard`);
     revalidateTag(API_ENDPOINT.APPOINTMENTS);
@@ -75,15 +77,17 @@ export const updateAppointment = async (
   appointment: AppointmentPayload,
 ): Promise<AppointmentResponse | string> => {
   try {
-    const { data } = await apiClient.put<
-      APIRelatedResponse<AppointmentResponse>
-    >(`${API_ENDPOINT.APPOINTMENTS}/${id}`, {
-      body: {
-        data: {
-          ...appointment,
+    const api = await apiClient.apiClientSession();
+    const { data } = await api.put<APIRelatedResponse<AppointmentResponse>>(
+      `${API_ENDPOINT.APPOINTMENTS}/${id}`,
+      {
+        body: {
+          data: {
+            ...appointment,
+          },
         },
       },
-    });
+    );
 
     revalidateTag(`${API_ENDPOINT.APPOINTMENTS}/dashboard`);
     revalidateTag(API_ENDPOINT.APPOINTMENTS);
@@ -101,9 +105,10 @@ export const updateAppointment = async (
 
 export const deleteAppointment = async (id: string) => {
   try {
-    const response = await apiClient.delete<
-      APIRelatedResponse<AppointmentResponse>
-    >(`${API_ENDPOINT.APPOINTMENTS}/${id}`);
+    const api = await apiClient.apiClientSession();
+    const response = await api.delete<APIRelatedResponse<AppointmentResponse>>(
+      `${API_ENDPOINT.APPOINTMENTS}/${id}`,
+    );
     if (response) {
       revalidateTag(`${API_ENDPOINT.APPOINTMENTS}/dashboard`);
       revalidateTag(API_ENDPOINT.APPOINTMENTS);

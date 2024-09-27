@@ -10,6 +10,7 @@ import {
   ErrorResponse,
 } from '@/types';
 import { API_ENDPOINT } from '@/constants';
+import { signOut } from '@/config/auth';
 
 export const login = async (
   body: LoginFormData,
@@ -82,3 +83,5 @@ export const signup = async (
     throw new Error(errorMessage);
   }
 };
+
+export const logout = async () => await signOut();

@@ -5,4 +5,7 @@ export const TYPE_CLASSES = {
   wrap: 'whitespace-pre-wrap overflow-visible',
 };
 
-export const AUTH_SESSION_COOKIES_KEY = 'authjs.session-token';
+export const ROLE = {
+  ADMIN: 'Admin',
+  USER: 'Normal User',
+};

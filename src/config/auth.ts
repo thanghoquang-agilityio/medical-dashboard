@@ -7,7 +7,7 @@ import Credentials from 'next-auth/providers/credentials';
 // Configs
 import { authConfig } from './auth.config';
 
-export const { auth, signIn, signOut } = NextAuth({
+export const { handlers, auth, signIn, signOut } = NextAuth({
   ...authConfig,
   providers: [
     Credentials({
@@ -18,9 +18,9 @@ export const { auth, signIn, signOut } = NextAuth({
       },
       async authorize(_, req) {
         const user = await req.json();
-        if (user) return user;
+        if (!user) throw new Error('User not found.');
 
-        return null;
+        return user;
       },
     }),
   ],

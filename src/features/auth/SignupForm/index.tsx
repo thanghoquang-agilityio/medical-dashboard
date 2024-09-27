@@ -1,7 +1,7 @@
 'use client';
 
 import { Controller, SubmitHandler, useForm } from 'react-hook-form';
-import { Link as NextUILink } from '@nextui-org/react';
+import { Card, Link as NextUILink } from '@nextui-org/react';
 import { ChangeEvent, useCallback, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
@@ -109,8 +109,8 @@ const SignupForm = () => {
   const isDisabled = isLoading || isPending;
 
   return (
-    <div className="w-full max-w-[528px] bg-background-100 flex flex-col justify-center items-center rounded-3xl py-6 lg:px-6 mx-2">
-      <Text variant="quaternary" size="3xl">
+    <Card className="w-full max-w-[528px] bg-background-100 flex flex-col justify-center items-center rounded-3xl py-6 lg:px-6 mx-2">
+      <Text variant="tertiary" size="4xl" customClass="font-semibold">
         Signup
       </Text>
       <form
@@ -244,7 +244,7 @@ const SignupForm = () => {
           </NextUILink>
         </div>
       </form>
-    </div>
+    </Card>
   );
 };
 
