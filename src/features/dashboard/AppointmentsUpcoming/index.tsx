@@ -26,11 +26,11 @@ const AppointmentsUpcoming = async ({
   searchParamsAPI.set('populate[1]', 'senderId');
   searchParamsAPI.set(
     'pagination[pageSize]',
-    `${PAGE_SIZE_APPOINTMENTS_UPCOMING_DEFAULT}`,
+    PAGE_SIZE_APPOINTMENTS_UPCOMING_DEFAULT.toString(),
   );
 
   if (role === ROLE.USER || !role) {
-    searchParamsAPI.set('filters[senderId][id][$eq]', `${id}`);
+    searchParamsAPI.set('filters[senderId][id][$eq]', id);
   }
 
   const { appointments } = await getAppointments({
