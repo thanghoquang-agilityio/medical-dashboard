@@ -80,7 +80,7 @@ const DataGrid = memo(
 
     const loadingState = isPending ? 'loading' : 'idle';
     const classDivider =
-      'p-4 border-0 border-primary-100 border-b border-opacity-10';
+      'border-0 border-primary-100 border-b border-opacity-10';
 
     return (
       <>
@@ -109,32 +109,29 @@ const DataGrid = memo(
             {data.length
               ? data.map((item, index) => {
                   const id = getObjectValue(item, 'id');
+                  const isLastItem = data.length === index + 1;
                   return (
                     <TableRow
                       key={`table-body-${id}`}
-                      className={
-                        data.length !== index + 1 ? classRow ?? '' : ''
-                      }
+                      className={!isLastItem ? classRow ?? '' : ''}
                     >
-                      {columns.map((column) => {
-                        return (
-                          <TableCell
-                            key={`table-row-cell-${column.key}`}
-                            className={cn(
-                              `p-0 ${hasDivider ? index !== data.length - 1 && classDivider : ''}`,
-                              `${data.length !== index + 1 ? classCell ?? '' : ''}`,
-                            )}
-                          >
-                            {column.customNode ? (
-                              column.customNode(column, item.attributes)
-                            ) : (
-                              <Text variant="error" size="xs">
-                                {getObjectValue(item.attributes, column.key)}
-                              </Text>
-                            )}
-                          </TableCell>
-                        );
-                      })}
+                      {columns.map((column) => (
+                        <TableCell
+                          key={`table-row-cell-${column.key}`}
+                          className={cn(
+                            `p-0 ${!isLastItem ? classCell ?? '' : ''}`,
+                            `${hasDivider ? (!isLastItem ? `py-3 ${classDivider}` : 'pt-3') : ''}`,
+                          )}
+                        >
+                          {column.customNode ? (
+                            column.customNode(column, item.attributes)
+                          ) : (
+                            <Text variant="error" size="xs">
+                              {getObjectValue(item.attributes, column.key)}
+                            </Text>
+                          )}
+                        </TableCell>
+                      ))}
                     </TableRow>
                   );
                 })
@@ -144,6 +141,7 @@ const DataGrid = memo(
         {!!pagination && pagination.pageCount > 1 && (
           <Suspense>
             <Pagination
+              className="mt-4"
               initialPage={page}
               total={pageCount}
               onChange={handlePageChange}
