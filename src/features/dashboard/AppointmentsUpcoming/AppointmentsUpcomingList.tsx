@@ -26,7 +26,7 @@ const DataGrid = dynamic(() => import('@/components/ui/DataGrid'));
 interface AppointmentsUpcomingProps extends MetaResponse {
   appointments: AppointmentResponse[];
 }
-const AppointmentsUpcomingClient = ({
+const AppointmentsUpcomingList = ({
   appointments,
 }: AppointmentsUpcomingProps) => {
   const COLUMNS_APPOINTMENT: ColumnType<AppointmentModel>[] = [
@@ -36,7 +36,7 @@ const AppointmentsUpcomingClient = ({
       customNode: (_, item) => {
         const date = formatDate(item.startTime);
         return (
-          <div className="rounded-md w-[37px] h-10 bg-background-100 text-center pt-1">
+          <div className="rounded-md w-[30px] md:w-[37px] h-10 bg-background-100 text-center pt-1">
             <Text customClass="text-xs text-yellow font-bold">
               {date.dayOfWeek}
             </Text>
@@ -86,9 +86,9 @@ const AppointmentsUpcomingClient = ({
         <div className="flex justify-end">
           <Button
             color="stone"
-            className="p-0 min-w-5 h-5 md:h-[26px] md:min-w-[26px] bg-background-100 rounded-md"
+            className="p-0 min-w-4 h-4 md:h-[26px] md:min-w-[26px] bg-background-100 rounded-md"
           >
-            <MoreIcon customClass=" w-3 h-3 md:w-4 md:h-4" />
+            <MoreIcon customClass=" w-[11px] h-[11px] md:w-4 md:h-4" />
           </Button>
         </div>
       ),
@@ -122,4 +122,4 @@ const AppointmentsUpcomingClient = ({
   );
 };
 
-export default AppointmentsUpcomingClient;
+export default AppointmentsUpcomingList;

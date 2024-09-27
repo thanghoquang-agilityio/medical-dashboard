@@ -13,13 +13,12 @@ import {
   MetaResponse,
   NotificationModel,
   NotificationResponse,
-  Option,
   STATUS_TYPE_RESPONSE,
   UserModel,
 } from '@/types';
 
 // Components
-import { Avatar, Select, Status, Text } from '@/components/ui';
+import { Avatar, Status, Text } from '@/components/ui';
 import { formatDateTime, formatTimeAgo, getContentNotification } from '@/utils';
 import { API_IMAGE_URL } from '@/constants';
 const DataGrid = dynamic(() => import('@/components/ui/DataGrid'));
@@ -55,7 +54,7 @@ const ActivityInfo = ({ item }: { item: NotificationModel }) => {
         <Text
           size="xs"
           variant="description"
-          customClass="text-wrap w-[80%] md:w-full"
+          customClass="text-wrap w-[80%] md:w-[90%]"
         >
           {content}
         </Text>
@@ -90,8 +89,6 @@ const COLUMNS_ACTIVITY_FEED: ColumnType<NotificationModel>[] = [
   },
 ];
 
-const OPTION_ACTIVITY_FEED: Option[] = [{ key: 'all', label: 'All Activity' }];
-
 interface ActivityFeedProps extends MetaResponse {
   notifications: NotificationResponse[];
 }
@@ -103,17 +100,6 @@ const ActivityFeedList = memo(
         <Text variant="title" size="lg">
           Activity Feed
         </Text>
-        <Select
-          options={OPTION_ACTIVITY_FEED}
-          defaultSelectedKeys={[OPTION_ACTIVITY_FEED[0].key]}
-          isDisabled={true}
-          classNames={{
-            base: 'max-w-[102px] max-h-[36px]',
-            mainWrapper: 'max-w-[102px] max-h-[36px]',
-            innerWrapper: 'w-[80px]',
-            trigger: 'min-h-[36px]',
-          }}
-        />
       </div>
       <div className="flex flex-col items-center">
         <DataGrid
