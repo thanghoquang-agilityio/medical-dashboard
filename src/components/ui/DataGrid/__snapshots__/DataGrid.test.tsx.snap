@@ -3,7 +3,7 @@
 exports[`DataGrid Should matches snapshot 1`] = `
 <div>
   <div
-    class="flex flex-col relative gap-4 w-full"
+    class="flex flex-col relative gap-4 w-full px-2"
   >
     <div
       class="p-4 z-0 flex flex-col relative justify-between gap-4 overflow-auto rounded-large w-full bg-transparent-200 shadow-none"

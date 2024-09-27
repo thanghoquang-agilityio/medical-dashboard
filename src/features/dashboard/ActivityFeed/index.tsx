@@ -38,6 +38,7 @@ const ActivityFeed = async ({ page, id, role }: ActivityFeedProps) => {
 
   return (
     <ActivityFeedList
+      userId={id}
       notifications={notifications || []}
       pagination={meta?.pagination}
     />

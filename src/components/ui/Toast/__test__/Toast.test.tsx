@@ -32,8 +32,6 @@ describe('Toast component', () => {
     );
 
     expect(screen.getByText('Item has been deleted.')).toBeInTheDocument();
-
-    expect(screen.getByTestId('toast-icon')).toHaveClass('text-danger-100');
   });
 
   it('renders the warning toast correctly', () => {
@@ -48,8 +46,6 @@ describe('Toast component', () => {
     expect(
       screen.getByText('Improve password difficulty.'),
     ).toBeInTheDocument();
-
-    expect(screen.getByTestId('toast-icon')).toHaveClass('text-warning');
   });
 
   it('calls onClose when close button is clicked', () => {

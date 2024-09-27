@@ -19,11 +19,11 @@ import { LOGIN_FORM_VALIDATION } from './rule';
 // Types
 import { LoginFormData, STATUS_TYPE } from '@/types';
 
-// Hooks
-import { useToast } from '@/hooks';
-
 // Utils
 import { clearErrorOnChange } from '@/utils';
+
+// Contexts
+import { useToast } from '@/context/toast';
 
 const DEFAULT_VALUE: LoginFormData = {
   identifier: '',
@@ -47,7 +47,7 @@ const LoginForm = () => {
   const [isShowPassword, setIsShowPassword] = useState<boolean>(false);
   const [error, setError] = useState('');
 
-  const { showToast } = useToast();
+  const openToast = useToast();
 
   const handleToggleVisiblePassword = useCallback(
     () => setIsShowPassword((prev) => !prev),
@@ -75,21 +75,24 @@ const LoginForm = () => {
         const { user, error } = response;
 
         if (user) {
-          showToast(SUCCESS_MESSAGE.LOGIN, STATUS_TYPE.SUCCESS);
+          openToast({
+            message: SUCCESS_MESSAGE.LOGIN,
+            type: STATUS_TYPE.SUCCESS,
+          });
           loginNextAuth(user);
         }
 
         if (error) {
           setError(error.error.message || '');
-          showToast(ERROR_MESSAGE.LOGIN, STATUS_TYPE.ERROR);
+          openToast({ message: ERROR_MESSAGE.LOGIN, type: STATUS_TYPE.ERROR });
           setIsPending(false);
         }
       } catch (error) {
-        showToast(ERROR_MESSAGE.LOGIN, STATUS_TYPE.ERROR);
+        openToast({ message: ERROR_MESSAGE.LOGIN, type: STATUS_TYPE.ERROR });
         setIsPending(false);
       }
     },
-    [showToast],
+    [openToast],
   );
 
   const iconClass = 'w-6 h-6 ml-4 text-primary-200';
