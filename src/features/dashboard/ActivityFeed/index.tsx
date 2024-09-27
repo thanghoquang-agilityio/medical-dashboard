@@ -19,9 +19,9 @@ interface ActivityFeedProps {
 const ActivityFeed = async ({ page, id, role }: ActivityFeedProps) => {
   const searchParamsAPI = new URLSearchParams();
   searchParamsAPI.set('populate[0]', 'senderId');
-  searchParamsAPI.set('pagination[page]', `${page}`);
+  searchParamsAPI.set('pagination[page]', page.toString());
   searchParamsAPI.set('pagination[pageSize]', PAGE_SIZE_DEFAULT.toString());
-  searchParamsAPI.set(`sort[0]`, 'createdAt:desc');
+  searchParamsAPI.set('sort[0]', 'createdAt:desc');
 
   if (role === ROLE.USER || !role) {
     searchParamsAPI.set('filters[senderId][id][$eq]', id);
