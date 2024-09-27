@@ -2,8 +2,10 @@ import type { Metadata } from 'next';
 import { Inter, Poppins, Plus_Jakarta_Sans, Outfit } from 'next/font/google';
 import { ThemeProvider } from 'next-themes';
 import { NextUIProvider } from '@nextui-org/react';
-import { ToastContainer } from 'react-toastify';
 import { SRC_LOGO } from '@/constants';
+
+// Contexts
+import ToastProvider from '@/context/toast';
 
 // Styles
 import './globals.css';
@@ -52,8 +54,7 @@ export default function RootLayout({
       >
         <NextUIProvider>
           <ThemeProvider attribute="class" defaultTheme="light">
-            <ToastContainer />
-            {children}
+            <ToastProvider>{children}</ToastProvider>
           </ThemeProvider>
         </NextUIProvider>
       </body>
