@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ToastProvider and useToast should render and open toast correctly and display the content message 1`] = `
+<div>
+  <div>
+    Test Toast Context
+    <button>
+      Open Toast
+    </button>
+  </div>
+</div>
+`;
