@@ -144,6 +144,7 @@ const LoginForm = () => {
               startContent={<LockIcon customClass={iconClass} />}
               endContent={
                 <Button
+                  aria-label="visible password"
                   onClick={handleToggleVisiblePassword}
                   isIconOnly
                   className="p-0 min-w-5 h-5 text-primary-200"

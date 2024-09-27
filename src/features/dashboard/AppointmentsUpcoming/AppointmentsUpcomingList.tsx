@@ -85,6 +85,7 @@ const AppointmentsUpcomingList = ({
       customNode: () => (
         <div className="flex justify-end">
           <Button
+            aria-label="more actions"
             color="stone"
             className="p-0 min-w-4 h-4 md:h-[26px] md:min-w-[26px] bg-background-100 rounded-md"
           >
@@ -103,6 +104,7 @@ const AppointmentsUpcomingList = ({
         </Text>
         <div>
           <Select
+            aria-label="appointment status"
             options={APPOINTMENT_STATUS_OPTIONS}
             defaultSelectedKeys={APPOINTMENT_STATUS_OPTIONS[0].key}
             placeholder="Status"

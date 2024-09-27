@@ -37,7 +37,13 @@ export const Sidebar = () => {
             href={PRIVATE_ROUTES.DASHBOARD}
             className="py-8 m-auto text-center"
           >
-            <Image src={SRC_LOGO} alt="logo" width={50} height={50} />
+            <Image
+              src={SRC_LOGO}
+              alt="logo"
+              width={50}
+              height={50}
+              className="w-full h-auto"
+            />
           </Link>
 
           <div className="flex-1">

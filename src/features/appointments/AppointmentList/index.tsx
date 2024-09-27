@@ -116,6 +116,7 @@ const AppointmentList = ({
         <Text customClass="text-lg font-bold text-primary-100">History</Text>
         <div>
           <Select
+            aria-label="Status"
             options={APPOINTMENT_STATUS_OPTIONS}
             defaultSelectedKeys={APPOINTMENT_STATUS_OPTIONS[0].key}
             placeholder="Status"

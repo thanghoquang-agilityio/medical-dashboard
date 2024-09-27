@@ -42,6 +42,7 @@ const DashboardPage = async ({
       </Text>
       <div className="bg-linear-banner rounded-medium relative h-fit py-3 sm:py-0 sm:h-[132px] flex flex-col-reverse sm:flex-row gap-3 items-center mr-2">
         <Button
+          aria-label="close"
           isIconOnly
           size="tiny"
           color="red"
