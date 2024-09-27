@@ -13,24 +13,23 @@ import {
   AppointmentResponse,
   ColumnType,
   MetaResponse,
-  ROLE,
   STATUS_TYPE_RESPONSE,
 } from '@/types';
 
 // Utils
 import { formatDayMonthYear, formatTimeAppointment } from '@/utils';
-import { APPOINTMENT_STATUS_OPTIONS } from '@/constants';
+import { APPOINTMENT_STATUS_OPTIONS, ROLE } from '@/constants';
 
 // Lazy load DataGrid
 const DataGrid = dynamic(() => import('@/components/ui/DataGrid'));
 
 interface AppointmentListProps extends MetaResponse {
   appointments: AppointmentResponse[];
-  currentUserRole?: ROLE;
+  role: string;
 }
 
 // Create config columns for appointments
-const createColumns = (role: ROLE): ColumnType<AppointmentModel>[] => {
+const createColumns = (role: string): ColumnType<AppointmentModel>[] => {
   const baseColumns: ColumnType<AppointmentModel>[] = [
     {
       key: 'senderId',
@@ -101,14 +100,15 @@ const createColumns = (role: ROLE): ColumnType<AppointmentModel>[] => {
     },
   ];
 
-  return role === ROLE.NORMAL_USER ? baseColumns.slice(1) : baseColumns;
+  return role === ROLE.USER ? baseColumns.slice(1) : baseColumns;
 };
 
 const AppointmentList = ({
   appointments,
-  currentUserRole = ROLE.NORMAL_USER,
+  pagination,
+  role,
 }: AppointmentListProps) => {
-  const columns = createColumns(currentUserRole);
+  const columns = createColumns(role);
 
   return (
     <Card className="w-full py-3 bg-background-200">
@@ -124,11 +124,16 @@ const AppointmentList = ({
           />
         </div>
       </div>
-      <DataGrid
-        data={appointments}
-        columns={columns as ColumnType<unknown>[]}
-        classWrapper="p-0 overflow-x-auto"
-      />
+      <div className="flex flex-col items-center">
+        <DataGrid
+          data={appointments}
+          columns={columns as ColumnType<unknown>[]}
+          pagination={pagination}
+          classWrapper="p-0 pt-4 overflow-x-auto"
+          classCell="p-0"
+          classRow="h-[60px]"
+        />
+      </div>
     </Card>
   );
 };
