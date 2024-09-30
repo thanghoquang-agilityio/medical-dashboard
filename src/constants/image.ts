@@ -17,5 +17,5 @@ export const FOOTER_IMAGES = {
   instaoapp: '/images/footer/instaoapp.webp',
 };
 
-export const NOT_FOUND_URL_IMAGE = '/images/not-found.png';
-export const ERROR_IMAGE = '/images/error.png';
+export const NOT_FOUND_URL_IMAGE = '/images/not-found.webp';
+export const ERROR_IMAGE = '/images/error.webp';
