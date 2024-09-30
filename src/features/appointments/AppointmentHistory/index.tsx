@@ -1,6 +1,6 @@
 // Components
 import AppointmentList from './AppointmentList';
-import SearchInput from './SearchInput';
+import { InputSearch } from '@/components/ui';
 
 // Services
 import { getAppointments } from '@/services';
@@ -48,14 +48,14 @@ const AppointmentHistory = async ({
     if (role === ROLE.USER || !role) {
       APPOINTMENT_SEARCH_PARAMS.forEach((param, index) =>
         searchParamsAPI.set(
-          `filters[$or][${index}][$and][${index}][${param}][username][$containsi]`,
+          `filters[$or][${index}][$and][${index}][${param}][username][$contains]`,
           search,
         ),
       );
     } else {
       APPOINTMENT_SEARCH_PARAMS.forEach((param, index) =>
         searchParamsAPI.set(
-          `filters[$or][${index}][${param}][username][$containsi]`,
+          `filters[$or][${index}][${param}][username][$contains]`,
           search,
         ),
       );
@@ -83,7 +83,7 @@ const AppointmentHistory = async ({
 
   return (
     <>
-      <SearchInput
+      <InputSearch
         placeholder="Search Appointments"
         className="max-w-[400px] py-5"
       />
