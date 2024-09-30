@@ -1,14 +1,31 @@
+import dynamic from 'next/dynamic';
 import { Suspense } from 'react';
 import { Metadata } from 'next';
 
-// Components
-import AppointmentHistory from '@/features/appointments/AppointmentHistory';
-
 // Constants
-import { PAGE_DEFAULT } from '@/constants';
-import { ROLE, SearchParams } from '@/types';
+import {
+  API_ENDPOINT,
+  APPOINTMENT_STATUS_OPTIONS,
+  PAGE_DEFAULT,
+  PAGE_SIZE_DEFAULT,
+  PRIVATE_ROUTES,
+} from '@/constants';
+
+// Types
+import { DIRECTION, ROLE, SearchParams } from '@/types';
+
+// Config
 import { auth } from '@/config/auth';
-import { Spinner } from '@/components/ui';
+
+// Services
+import { getAppointments } from '@/services';
+
+// Components
+import { InputSearch } from '@/components/ui';
+import { AppointmentsHistorySkeleton } from '@/features/appointments/AppointmentsHistory/AppointmentsHistorySkeleton';
+const AppointmentsHistory = dynamic(
+  () => import('@/features/appointments/AppointmentsHistory'),
+);
 
 export const metadata: Metadata = {
   title: 'Appointments',
@@ -31,17 +48,76 @@ const AppointmentPage = async ({
   } = searchParams as AppointmentPageSearchParamsProps;
 
   const { id = '', role = ROLE.NORMAL_USER } = (await auth())?.user || {};
+  const searchParamsAPI = new URLSearchParams();
+  const APPOINTMENT_SEARCH_PARAMS = ['receiverId', 'senderId'];
+
+  // Set params
+  APPOINTMENT_SEARCH_PARAMS.forEach((param, index) => {
+    searchParamsAPI.set(`populate[${index}]`, param),
+      searchParamsAPI.set(`populate[${param}][populate][avatar]`, '*');
+  });
+  searchParamsAPI.set('pagination[page]', page.toString());
+  searchParamsAPI.set('pagination[pageSize]', PAGE_SIZE_DEFAULT.toString());
+  searchParamsAPI.set('sort[0]', `createdAt:${DIRECTION.DESC}`);
+
+  // Search params by role
+  if (search) {
+    if (role === ROLE.NORMAL_USER || !role) {
+      APPOINTMENT_SEARCH_PARAMS.forEach((param, index) =>
+        searchParamsAPI.set(
+          `filters[$or][${index}][$and][${index}][${param}][username][$contains]`,
+          search,
+        ),
+      );
+    } else {
+      APPOINTMENT_SEARCH_PARAMS.forEach((param, index) =>
+        searchParamsAPI.set(
+          `filters[$or][${index}][${param}][username][$contains]`,
+          search,
+        ),
+      );
+    }
+  }
+
+  if (role === ROLE.NORMAL_USER || !role) {
+    APPOINTMENT_SEARCH_PARAMS.forEach((param, index) =>
+      searchParamsAPI.set(`filters[$or][${index}][${param}][id][$eq]`, id),
+    );
+    searchParamsAPI.set('populate[senderId][populate][avatar]', '*');
+  }
+
+  const valueStatus = APPOINTMENT_STATUS_OPTIONS.find(
+    (option) => option.key === status,
+  )?.value;
+
+  if (status) {
+    searchParamsAPI.set('filters[status][$eq]', `${valueStatus}`);
+  }
+
+  const { appointments, ...meta } = await getAppointments({
+    searchParams: searchParamsAPI,
+    options: {
+      next: {
+        tags: [API_ENDPOINT.APPOINTMENTS, `${PRIVATE_ROUTES.DASHBOARD}/${id}`],
+      },
+    },
+  });
 
   return (
-    <Suspense fallback={<Spinner />}>
-      <AppointmentHistory
-        page={page}
-        role={role}
-        userId={id}
-        search={search}
-        status={status}
+    <>
+      <InputSearch
+        placeholder="Search Appointments"
+        classNames={{ mainWrapper: 'pb-10' }}
       />
-    </Suspense>
+      <Suspense fallback={<AppointmentsHistorySkeleton />}>
+        <AppointmentsHistory
+          appointments={appointments || []}
+          pagination={meta?.pagination}
+          role={role}
+          defaultStatus={status}
+        />
+      </Suspense>
+    </>
   );
 };
 

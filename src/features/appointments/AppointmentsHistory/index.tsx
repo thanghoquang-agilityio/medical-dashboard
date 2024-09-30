@@ -28,7 +28,8 @@ import { formatDayMonthYear, formatTimeAppointment } from '@/utils';
 import { API_IMAGE_URL, APPOINTMENT_STATUS_OPTIONS, ROLE } from '@/constants';
 
 // Components
-import { Avatar, Select, Spinner, Status, Text } from '@/components/ui';
+import { Avatar, Select, Status, Text } from '@/components/ui';
+import { AppointmentsHistoryListSkeleton } from './AppointmentsHistorySkeleton';
 const DataGrid = dynamic(() => import('@/components/ui/DataGrid'));
 
 // Create config columns for appointments
@@ -114,18 +115,18 @@ const createColumns = (role: string): ColumnType<AppointmentModel>[] => {
   return role === ROLE.USER ? baseColumns.slice(1) : baseColumns;
 };
 
-interface AppointmentListProps extends MetaResponse {
+export interface AppointmentsHistoryProps extends MetaResponse {
   appointments: AppointmentResponse[];
   role: string;
-  defaultStatus: string;
+  defaultStatus?: string;
 }
 
-const AppointmentList = ({
+const AppointmentsHistory = ({
   appointments,
   pagination,
   role,
-  defaultStatus,
-}: AppointmentListProps) => {
+  defaultStatus = '',
+}: AppointmentsHistoryProps) => {
   const columns = createColumns(role);
 
   const [isPending, startTransition] = useTransition();
@@ -151,10 +152,14 @@ const AppointmentList = ({
 
   const updateSearchParams = useCallback(
     (value: string) => {
-      if (!searchParams.get('status')) {
+      const status = searchParams.get('status');
+
+      if (!status) {
         params.append('status', value);
-      } else {
+      } else if (value) {
         params.set('status', value);
+      } else {
+        params.delete('status');
       }
 
       handleReplaceURL?.(params);
@@ -193,13 +198,15 @@ const AppointmentList = ({
       </div>
       <div className="flex flex-col items-center">
         {isPending ? (
-          <Spinner size="sm" />
+          <AppointmentsHistoryListSkeleton />
         ) : (
           <DataGrid
             data={appointments}
+            startTransition={startTransition}
             columns={columns as ColumnType<unknown>[]}
             pagination={pagination}
             hasDivider
+            classWrapper="p-1"
           />
         )}
       </div>
@@ -207,4 +214,4 @@ const AppointmentList = ({
   );
 };
 
-export default memo(AppointmentList);
+export default memo(AppointmentsHistory);

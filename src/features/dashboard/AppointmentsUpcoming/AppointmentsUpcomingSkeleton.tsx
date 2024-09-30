@@ -7,7 +7,7 @@ import { Card, Skeleton } from '@nextui-org/react';
 import { Select, Text } from '@/components/ui';
 
 export const AppointmentsUpcomingListSkeleton = memo(() => (
-  <div className="flex flex-col items-center pt-4">
+  <div className="flex flex-col w-full items-center pt-4">
     {Array(PAGE_LIMIT_APPOINTMENTS_UPCOMING)
       .fill(0)
       .map((_, index) => (

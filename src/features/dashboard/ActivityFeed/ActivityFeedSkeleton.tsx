@@ -4,7 +4,7 @@ import { Card, Skeleton } from '@nextui-org/react';
 import { Text } from '@/components/ui';
 
 export const ActivityFeedListSkeleton = memo(() => (
-  <div className="flex flex-col items-center pt-4">
+  <div className="flex flex-col w-full items-center pt-4">
     {Array(PAGE_SIZE_DEFAULT)
       .fill(0)
       .map((_, index) => (
@@ -21,7 +21,7 @@ export const ActivityFeedListSkeleton = memo(() => (
           <Skeleton className="w-16 h-7 rounded-small mt-3" />
         </div>
       ))}
-    <Skeleton className="w-[160px] h-8 rounded-medium" />
+    <Skeleton className="w-[160px] h-8 rounded-medium mt-4" />
   </div>
 ));
 
