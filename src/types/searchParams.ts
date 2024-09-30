@@ -23,4 +23,5 @@ export type SearchParams = {
   sortBy?: string;
   orderBy?: string;
   category?: string[];
+  search?: string;
 };
