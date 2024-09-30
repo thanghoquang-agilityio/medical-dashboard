@@ -10,6 +10,7 @@ import {
 } from 'react';
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 import dynamic from 'next/dynamic';
+import { Card } from '@nextui-org/react';
 
 // Constants
 import { APPOINTMENT_STATUS_OPTIONS } from '@/constants';
@@ -26,7 +27,6 @@ import {
 import { formatDate, formatTimeAppointment } from '@/utils';
 
 // Components
-import { Card } from '@nextui-org/react';
 import { Button, Select, Text } from '@/components/ui';
 import { MoreIcon } from '@/icons';
 import { AppointmentsUpcomingListSkeleton } from './AppointmentsUpcomingSkeleton';
@@ -134,7 +134,7 @@ const AppointmentsUpcomingList = memo(
         if (!status) {
           params.append('status', value);
         } else {
-          params.set('status', value);
+          params.delete('status');
         }
 
         handleReplaceURL?.(params);

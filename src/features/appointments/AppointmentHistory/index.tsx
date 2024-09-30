@@ -11,6 +11,7 @@ import { DIRECTION } from '@/types';
 // Constants
 import {
   API_ENDPOINT,
+  APPOINTMENT_STATUS_OPTIONS,
   PAGE_SIZE_DEFAULT,
   PRIVATE_ROUTES,
   ROLE,
@@ -21,6 +22,7 @@ interface AppointmentHistoryProps {
   userId: string;
   role: string;
   search?: string;
+  status: string;
 }
 
 // Create appointments params
@@ -31,6 +33,7 @@ const AppointmentHistory = async ({
   role,
   userId,
   search,
+  status,
 }: AppointmentHistoryProps) => {
   const searchParamsAPI = new URLSearchParams();
 
@@ -69,6 +72,14 @@ const AppointmentHistory = async ({
     searchParamsAPI.set('populate[senderId][populate][avatar]', '*');
   }
 
+  const valueStatus = APPOINTMENT_STATUS_OPTIONS.find(
+    (option) => option.key === status,
+  )?.value;
+
+  if (status) {
+    searchParamsAPI.set('filters[status][$eq]', `${valueStatus}`);
+  }
+
   const { appointments, ...meta } = await getAppointments({
     searchParams: searchParamsAPI,
     options: {
@@ -91,6 +102,7 @@ const AppointmentHistory = async ({
         appointments={appointments || []}
         pagination={meta?.pagination}
         role={role}
+        defaultStatus={status}
       />
     </>
   );
