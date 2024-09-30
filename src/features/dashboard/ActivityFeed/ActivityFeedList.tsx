@@ -44,16 +44,10 @@ const ActivityInfo = ({ item, userId = '' }: ActivityInfoProps) => {
   const timeAgo = formatTimeAgo(createdAt);
 
   return (
-    <div className="flex gap-2 justify-items-start">
-      <Avatar
-        src={`${API_IMAGE_URL}${senderAvatar}`}
-        size="md"
-        hasBorder
-        color="warning"
-        className="shrink-0"
-      />
-      <div className="flex flex-col mr-6">
-        <Text size="xs" variant="description" customClass="text-wrap">
+    <div className="flex gap-2 justify-items-start ml-1">
+      <Avatar isBordered src={`${API_IMAGE_URL}${senderAvatar}`} />
+      <div className="flex flex-col max-w-[200px] md:max-w-[297px]">
+        <Text variant="description" customClass="text-2xs md:text-xs text-wrap">
           {content}
         </Text>
         <Text variant="subTitle" size="2xs">
