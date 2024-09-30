@@ -3,19 +3,19 @@
 import { memo, useCallback, useEffect, useState } from 'react';
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 
-// Components
-import { Input } from '@/components/ui';
-import { SearchIcon } from '@/icons';
+// Utils
+import { cn } from '@/utils';
+
+// Hooks
 import { useDebounce } from '@/hooks';
 
-interface InputSearchProps {
-  size?: 'sm' | 'md' | 'lg';
-  placeholder?: string;
-  className?: string;
-}
+// Components
+import { InputProps } from '@nextui-org/react';
+import { Input } from '@/components/ui';
+import { SearchIcon } from '@/icons';
 
 export const InputSearch = memo(
-  ({ size = 'sm', placeholder = '', className = '' }: InputSearchProps) => {
+  ({ placeholder = '', classNames, ...props }: InputProps) => {
     const { replace } = useRouter();
     const pathname = usePathname();
     const searchParams = useSearchParams();
@@ -57,8 +57,14 @@ export const InputSearch = memo(
 
     return (
       <Input
-        size={size}
-        className={`text-xs ${className}`}
+        classNames={{
+          ...classNames,
+          mainWrapper: cn(
+            'h-fit py-3 max-w-[400px] text-xs',
+            classNames?.mainWrapper ?? '',
+          ),
+          inputWrapper: 'h-[52px]',
+        }}
         border="default"
         placeholder={placeholder}
         startContent={
@@ -66,6 +72,7 @@ export const InputSearch = memo(
         }
         onChange={handleChange}
         defaultValue={searchParams.get('search')?.toString()}
+        {...props}
       />
     );
   },
