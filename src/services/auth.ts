@@ -36,8 +36,7 @@ export const login = async (
     }
 
     const { id = '', avatar, role, username = '', email = '' } = profile || {};
-    const { attributes } = avatar || {};
-    const { url = '' } = attributes || {};
+    const { url = '' } = avatar || {};
     const { name = '' } = role || {};
 
     const data = {

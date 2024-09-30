@@ -1,5 +1,8 @@
 import dayjs from 'dayjs';
 import advancedFormat from 'dayjs/plugin/advancedFormat';
+import relativeTime from 'dayjs/plugin/relativeTime';
+
+dayjs.extend(relativeTime);
 
 /**
  * @param value string - Date time string to format
@@ -57,32 +60,6 @@ export const formatDate = (input: string) => {
 };
 
 /**
- * @param createdAt string - Created time string to format
- * @returns string - Time ago
- */
-export const formatTimeAgo = (createdAt: string) => {
-  const now = new Date();
-  const createdDate = new Date(createdAt);
-  const differenceInSeconds: number = Math.floor(
-    (now.getTime() - createdDate.getTime()) / 1000,
-  );
-
-  const minutes: number = Math.floor(differenceInSeconds / 60);
-  const hours: number = Math.floor(differenceInSeconds / 3600);
-  const days: number = Math.floor(differenceInSeconds / 86400);
-
-  switch (true) {
-    case days > 0:
-      return days === 1 ? '1 day ago' : `${days} days ago`;
-    case hours > 0:
-      return hours === 1 ? '1 hour ago' : `${hours} hours ago`;
-    case minutes > 0:
-      return minutes === 1 ? '1 minute ago' : `${minutes} minutes ago`;
-    default:
-      return 'just now';
-  }
-};
-/**
  * Format a date string from ISO string to Day Month Year.
  * @param {string} isoString - ISO string
  * @returns {string} Formatted date string
@@ -115,3 +92,15 @@ export const formatDayMonthYear = (isoString: string) => {
   // Return the formatted date
   return `${day} ${month} ${year}`;
 };
+
+/**
+ * Converts an ISO date string to a relative time string.
+ *
+ * @param {string} isoString - The ISO date string.
+ * @returns {string} - The relative time from the given date to now.
+ *
+ * @example
+ * fromDateToNow('2024-09-20T14:00:00Z'); // "1 day ago"
+ */
+export const fromDateToNow = (isoString: string): string =>
+  dayjs(isoString).fromNow();

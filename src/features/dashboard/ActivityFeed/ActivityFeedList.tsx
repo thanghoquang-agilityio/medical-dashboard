@@ -19,7 +19,7 @@ import {
 
 // Components
 import { Avatar, Status, Text } from '@/components/ui';
-import { formatDateTime, formatTimeAgo, getContentNotification } from '@/utils';
+import { formatDateTime, fromDateToNow, getContentNotification } from '@/utils';
 import { API_IMAGE_URL } from '@/constants';
 const DataGrid = dynamic(() => import('@/components/ui/DataGrid'));
 
@@ -41,7 +41,7 @@ const ActivityInfo = ({ item, userId = '' }: ActivityInfoProps) => {
   const time = formatDateTime(startTime);
   const content = getContentNotification({ userId, senderId, time, type });
 
-  const timeAgo = formatTimeAgo(createdAt);
+  const timeAgo = fromDateToNow(createdAt);
 
   return (
     <div className="flex gap-2 justify-items-start ml-1">

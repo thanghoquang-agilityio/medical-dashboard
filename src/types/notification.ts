@@ -11,6 +11,7 @@ export interface InfoModel {
   status: keyof typeof STATUS_TYPE_RESPONSE;
   startTime: string;
   durationTime: string;
+  content: string;
 }
 
 export interface NotificationModel {
