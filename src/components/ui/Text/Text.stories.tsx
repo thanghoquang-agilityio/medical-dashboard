@@ -15,15 +15,6 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof Text>;
 
-export const TextDefault: Story = {
-  args: {
-    children: 'Default',
-    variant: 'default',
-    size: 'md',
-    type: 'nowrap',
-  },
-};
-
 export const TextPrimary: Story = {
   args: {
     children: 'Text normal',
@@ -37,39 +28,6 @@ export const TextSecondary: Story = {
     children: 'Text color blue',
     variant: 'secondary',
     size: 'lg',
-    type: 'nowrap',
-  },
-};
-
-export const TextTertiary: Story = {
-  args: {
-    children: 'Text color emerald',
-    variant: 'tertiary',
-    size: 'md',
-    type: 'nowrap',
-  },
-};
-
-export const TextTitle: Story = {
-  args: {
-    children: 'Title',
-    variant: 'title',
-    type: 'nowrap',
-  },
-};
-
-export const TextSubTitle: Story = {
-  args: {
-    children: 'Sub Title',
-    variant: 'subTitle',
-    type: 'nowrap',
-  },
-};
-
-export const TextDescription: Story = {
-  args: {
-    children: 'Description',
-    variant: 'description',
     type: 'nowrap',
   },
 };
