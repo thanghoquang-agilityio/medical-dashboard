@@ -1,0 +1,1096 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AppointmentsHistory Component should render correctly when appointments value is empty 1`] = `
+<div>
+  <div
+    class="flex flex-col relative overflow-hidden h-auto text-foreground box-border outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 shadow-medium rounded-large transition-transform-background motion-reduce:transition-none w-full px-4 py-6 bg-background-200"
+    tabindex="-1"
+  >
+    <div
+      class="flex justify-between items-center"
+    >
+      <p
+        class="text-ellipsis whitespace-nowrap overflow-hidden text-xl font-bold text-primary-100"
+      >
+        History
+      </p>
+      <div>
+        <div
+          class="group flex flex-col w-full transition-background motion-reduce:transition-none !duration-150 group relative justify-end data-[has-label=true]:mt-[calc(theme(fontSize.small)_+_10px)] max-w-[102px] max-h-[36px]"
+          data-filled="true"
+          data-slot="base"
+        >
+          <div
+            aria-hidden="true"
+            data-a11y-ignore="aria-hidden-focus"
+            data-testid="hidden-select-container"
+            style="border: 0px; clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap;"
+          >
+            <input
+              style="font-size: 16px;"
+              tabindex="-1"
+              type="text"
+              value=""
+            />
+            <label>
+              <select
+                size="3"
+                tabindex="-1"
+                title=""
+              >
+                <option />
+                <option
+                  value="new"
+                >
+                  New
+                </option>
+                <option
+                  value="meeting"
+                >
+                  Meeting
+                </option>
+                <option
+                  value="canceled"
+                >
+                  Canceled
+                </option>
+              </select>
+            </label>
+          </div>
+          <div
+            class="w-full flex flex-col max-w-[102px] max-h-[36px]"
+            data-slot="mainWrapper"
+          >
+            <button
+              aria-expanded="false"
+              aria-haspopup="listbox"
+              aria-label="Status"
+              aria-labelledby="react-aria-:r1f: react-aria-:r1a:"
+              class="relative gap-3 w-full inline-flex flex-row items-center shadow-sm tap-highlight-transparent group-data-[focus=true]:bg-default-100 data-[hover=true]:bg-default-50 outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 px-2.5 py-2 h-[46px] rounded-medium bg-background-100 shadow-stack border-1 outline-offset-0 data-[focus=true]:border-primary data-[focus=true]:border-1 min-h-[36px]"
+              data-slot="trigger"
+              id="react-aria-:r1a:"
+              type="button"
+            >
+              <div
+                class="inline-flex h-full min-h-4 items-center gap-1.5 box-border text-xs leading-[18px] w-[80px]"
+                data-slot="innerWrapper"
+              >
+                <span
+                  class="w-full text-left rtl:text-right truncate group-data-[has-value=true]:text-default-foreground text-xs text-primary-100 font-medium"
+                  data-slot="value"
+                  id="react-aria-:r1f:"
+                >
+                  Status
+                </span>
+              </div>
+              <svg
+                aria-hidden="true"
+                class="absolute end-3 w-4 h-4 transition-transform duration-150 ease motion-reduce:transition-none data-[open=true]:rotate-180 text-primary-100"
+                data-slot="selectorIcon"
+                fill="none"
+                focusable="false"
+                height="1em"
+                role="presentation"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.5"
+                viewBox="0 0 24 24"
+                width="1em"
+              >
+                <path
+                  d="m6 9 6 6 6-6"
+                />
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="flex flex-col items-center"
+    >
+      <div
+        class="flex flex-col relative gap-4 w-full"
+      >
+        <div
+          class="z-0 flex flex-col relative justify-between gap-4 overflow-auto rounded-large w-full bg-transparent-200 shadow-none p-1"
+        >
+          <table
+            aria-describedby=""
+            aria-label="Table"
+            class="min-w-full h-auto table-auto w-full"
+            id="table"
+            role="grid"
+            tabindex="0"
+          >
+            <thead
+              class="[&>tr]:first:rounded-lg hidden"
+              role="rowgroup"
+            >
+              <tr
+                class="group outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2"
+                role="row"
+              >
+                <th
+                  class="group px-3 h-10 align-middle bg-default-100 whitespace-nowrap text-foreground-500 text-tiny font-semibold first:rounded-s-lg last:rounded-e-lg data-[sortable=true]:cursor-pointer data-[hover=true]:text-foreground-400 outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-start"
+                  data-key="receiverId"
+                  id="table-receiverId"
+                  role="columnheader"
+                  tabindex="-1"
+                />
+                <th
+                  class="group px-3 h-10 align-middle bg-default-100 whitespace-nowrap text-foreground-500 text-tiny font-semibold first:rounded-s-lg last:rounded-e-lg data-[sortable=true]:cursor-pointer data-[hover=true]:text-foreground-400 outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-start"
+                  data-key="durationTime"
+                  id="table-durationTime"
+                  role="columnheader"
+                  tabindex="-1"
+                />
+                <th
+                  class="group px-3 h-10 align-middle bg-default-100 whitespace-nowrap text-foreground-500 text-tiny font-semibold first:rounded-s-lg last:rounded-e-lg data-[sortable=true]:cursor-pointer data-[hover=true]:text-foreground-400 outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-start"
+                  data-key="startTime"
+                  id="table-startTime"
+                  role="columnheader"
+                  tabindex="-1"
+                />
+                <th
+                  class="group px-3 h-10 align-middle bg-default-100 whitespace-nowrap text-foreground-500 text-tiny font-semibold first:rounded-s-lg last:rounded-e-lg data-[sortable=true]:cursor-pointer data-[hover=true]:text-foreground-400 outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-start"
+                  data-key="status"
+                  id="table-status"
+                  role="columnheader"
+                  tabindex="-1"
+                />
+              </tr>
+              <tr
+                aria-hidden="true"
+                class="w-px h-px block"
+                style="margin-left: 0.25rem; margin-top: 0.25rem;"
+                tabindex="-1"
+              />
+            </thead>
+            <tbody
+              data-empty="true"
+              role="rowgroup"
+            >
+              <tr
+                role="row"
+              >
+                <td
+                  class="align-middle text-center h-40 text-primary-100 text-xl font-medium"
+                  colspan="4"
+                  role="gridcell"
+                >
+                  Result Not Found
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`AppointmentsHistory Component should render correctly with admin role when have appointments value 1`] = `
+<div>
+  <div
+    class="flex flex-col relative overflow-hidden h-auto text-foreground box-border outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 shadow-medium rounded-large transition-transform-background motion-reduce:transition-none w-full px-4 py-6 bg-background-200"
+    tabindex="-1"
+  >
+    <div
+      class="flex justify-between items-center"
+    >
+      <p
+        class="text-ellipsis whitespace-nowrap overflow-hidden text-xl font-bold text-primary-100"
+      >
+        History
+      </p>
+      <div>
+        <div
+          class="group flex flex-col w-full transition-background motion-reduce:transition-none !duration-150 group relative justify-end data-[has-label=true]:mt-[calc(theme(fontSize.small)_+_10px)] max-w-[102px] max-h-[36px]"
+          data-filled="true"
+          data-slot="base"
+        >
+          <div
+            aria-hidden="true"
+            data-a11y-ignore="aria-hidden-focus"
+            data-testid="hidden-select-container"
+            style="border: 0px; clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap;"
+          >
+            <input
+              style="font-size: 16px;"
+              tabindex="-1"
+              type="text"
+              value=""
+            />
+            <label>
+              <select
+                size="3"
+                tabindex="-1"
+                title=""
+              >
+                <option />
+                <option
+                  value="new"
+                >
+                  New
+                </option>
+                <option
+                  value="meeting"
+                >
+                  Meeting
+                </option>
+                <option
+                  value="canceled"
+                >
+                  Canceled
+                </option>
+              </select>
+            </label>
+          </div>
+          <div
+            class="w-full flex flex-col max-w-[102px] max-h-[36px]"
+            data-slot="mainWrapper"
+          >
+            <button
+              aria-expanded="false"
+              aria-haspopup="listbox"
+              aria-label="Status"
+              aria-labelledby="react-aria-:r15: react-aria-:r10:"
+              class="relative gap-3 w-full inline-flex flex-row items-center shadow-sm tap-highlight-transparent group-data-[focus=true]:bg-default-100 data-[hover=true]:bg-default-50 outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 px-2.5 py-2 h-[46px] rounded-medium bg-background-100 shadow-stack border-1 outline-offset-0 data-[focus=true]:border-primary data-[focus=true]:border-1 min-h-[36px]"
+              data-slot="trigger"
+              id="react-aria-:r10:"
+              type="button"
+            >
+              <div
+                class="inline-flex h-full min-h-4 items-center gap-1.5 box-border text-xs leading-[18px] w-[80px]"
+                data-slot="innerWrapper"
+              >
+                <span
+                  class="w-full text-left rtl:text-right truncate group-data-[has-value=true]:text-default-foreground text-xs text-primary-100 font-medium"
+                  data-slot="value"
+                  id="react-aria-:r15:"
+                >
+                  Status
+                </span>
+              </div>
+              <svg
+                aria-hidden="true"
+                class="absolute end-3 w-4 h-4 transition-transform duration-150 ease motion-reduce:transition-none data-[open=true]:rotate-180 text-primary-100"
+                data-slot="selectorIcon"
+                fill="none"
+                focusable="false"
+                height="1em"
+                role="presentation"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.5"
+                viewBox="0 0 24 24"
+                width="1em"
+              >
+                <path
+                  d="m6 9 6 6 6-6"
+                />
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="flex flex-col items-center"
+    >
+      <div
+        class="flex flex-col relative gap-4 w-full"
+      >
+        <div
+          class="z-0 flex flex-col relative justify-between gap-4 overflow-auto rounded-large w-full bg-transparent-200 shadow-none p-1"
+        >
+          <table
+            aria-describedby=""
+            aria-label="Table"
+            class="min-w-full h-auto table-auto w-full"
+            id="table"
+            role="grid"
+            tabindex="0"
+          >
+            <thead
+              class="[&>tr]:first:rounded-lg hidden"
+              role="rowgroup"
+            >
+              <tr
+                class="group outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2"
+                role="row"
+              >
+                <th
+                  class="group px-3 h-10 align-middle bg-default-100 whitespace-nowrap text-foreground-500 text-tiny font-semibold first:rounded-s-lg last:rounded-e-lg data-[sortable=true]:cursor-pointer data-[hover=true]:text-foreground-400 outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-start"
+                  data-key="senderId"
+                  id="table-senderId"
+                  role="columnheader"
+                  tabindex="-1"
+                />
+                <th
+                  class="group px-3 h-10 align-middle bg-default-100 whitespace-nowrap text-foreground-500 text-tiny font-semibold first:rounded-s-lg last:rounded-e-lg data-[sortable=true]:cursor-pointer data-[hover=true]:text-foreground-400 outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-start"
+                  data-key="receiverId"
+                  id="table-receiverId"
+                  role="columnheader"
+                  tabindex="-1"
+                />
+                <th
+                  class="group px-3 h-10 align-middle bg-default-100 whitespace-nowrap text-foreground-500 text-tiny font-semibold first:rounded-s-lg last:rounded-e-lg data-[sortable=true]:cursor-pointer data-[hover=true]:text-foreground-400 outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-start"
+                  data-key="durationTime"
+                  id="table-durationTime"
+                  role="columnheader"
+                  tabindex="-1"
+                />
+                <th
+                  class="group px-3 h-10 align-middle bg-default-100 whitespace-nowrap text-foreground-500 text-tiny font-semibold first:rounded-s-lg last:rounded-e-lg data-[sortable=true]:cursor-pointer data-[hover=true]:text-foreground-400 outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-start"
+                  data-key="startTime"
+                  id="table-startTime"
+                  role="columnheader"
+                  tabindex="-1"
+                />
+                <th
+                  class="group px-3 h-10 align-middle bg-default-100 whitespace-nowrap text-foreground-500 text-tiny font-semibold first:rounded-s-lg last:rounded-e-lg data-[sortable=true]:cursor-pointer data-[hover=true]:text-foreground-400 outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-start"
+                  data-key="status"
+                  id="table-status"
+                  role="columnheader"
+                  tabindex="-1"
+                />
+              </tr>
+              <tr
+                aria-hidden="true"
+                class="w-px h-px block"
+                style="margin-left: 0.25rem; margin-top: 0.25rem;"
+                tabindex="-1"
+              />
+            </thead>
+            <tbody
+              role="rowgroup"
+            >
+              <tr
+                aria-labelledby="table-table-body-1-senderId"
+                class="group outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2"
+                data-first="true"
+                data-key="table-body-1"
+                role="row"
+                tabindex="-1"
+              >
+                <td
+                  class="relative align-middle whitespace-normal text-small font-normal [&>*]:z-1 [&>*]:relative outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 before:content-[''] before:absolute before:z-0 before:inset-0 before:opacity-0 data-[selected=true]:before:opacity-100 group-data-[disabled=true]:text-foreground-300 group-data-[disabled=true]:cursor-not-allowed before:bg-default/60 data-[selected=true]:text-default-foreground first:before:rounded-s-lg last:before:rounded-e-lg text-start p-0 py-3 border-0 border-primary-100 border-b border-opacity-10"
+                  data-key="table-row-cell-senderId"
+                  id="table-table-body-1-senderId"
+                  role="rowheader"
+                  tabindex="-1"
+                >
+                  <div
+                    class="flex gap-2 items-center"
+                  >
+                    <span
+                      class="flex relative justify-center items-center box-border overflow-hidden align-middle z-0 outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-tiny text-default-foreground rounded-full ring-2 ring-offset-background dark:ring-offset-background-dark min-w-8 w-8 h-8 bg-undefined ring-offset-2 ring-green shrink-0"
+                      tabindex="-1"
+                    >
+                      <img
+                        alt="avatar"
+                        class="flex object-cover w-full h-full transition-opacity !duration-500 opacity-0 data-[loaded=true]:opacity-100"
+                        src="http://localhost:1337"
+                      />
+                    </span>
+                    <p
+                      class="text-primary-100 font-medium text-sm text-ellipsis whitespace-nowrap overflow-hidden"
+                    >
+                      Alex Stanton
+                    </p>
+                  </div>
+                </td>
+                <td
+                  class="relative align-middle whitespace-normal text-small font-normal [&>*]:z-1 [&>*]:relative outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 before:content-[''] before:absolute before:z-0 before:inset-0 before:opacity-0 data-[selected=true]:before:opacity-100 group-data-[disabled=true]:text-foreground-300 group-data-[disabled=true]:cursor-not-allowed before:bg-default/60 data-[selected=true]:text-default-foreground first:before:rounded-s-lg last:before:rounded-e-lg text-start p-0 py-3 border-0 border-primary-100 border-b border-opacity-10"
+                  data-key="table-row-cell-receiverId"
+                  role="gridcell"
+                  tabindex="-1"
+                >
+                  <div
+                    class="flex gap-2 items-center"
+                  >
+                    <span
+                      class="flex relative justify-center items-center box-border overflow-hidden align-middle z-0 outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-tiny text-default-foreground rounded-full ring-2 ring-offset-background dark:ring-offset-background-dark min-w-8 w-8 h-8 bg-undefined ring-offset-2 ring-green shrink-0"
+                      tabindex="-1"
+                    >
+                      <img
+                        alt="avatar"
+                        class="flex object-cover w-full h-full transition-opacity !duration-500 opacity-0 data-[loaded=true]:opacity-100"
+                        src="http://localhost:1337"
+                      />
+                    </span>
+                    <p
+                      class="text-primary-100 font-medium text-sm text-ellipsis whitespace-nowrap overflow-hidden"
+                    >
+                      Jessica Jane
+                    </p>
+                  </div>
+                </td>
+                <td
+                  class="relative align-middle whitespace-normal text-small font-normal [&>*]:z-1 [&>*]:relative outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 before:content-[''] before:absolute before:z-0 before:inset-0 before:opacity-0 data-[selected=true]:before:opacity-100 group-data-[disabled=true]:text-foreground-300 group-data-[disabled=true]:cursor-not-allowed before:bg-default/60 data-[selected=true]:text-default-foreground first:before:rounded-s-lg last:before:rounded-e-lg text-start p-0 py-3 border-0 border-primary-100 border-b border-opacity-10"
+                  data-key="table-row-cell-durationTime"
+                  role="gridcell"
+                  tabindex="-1"
+                >
+                  <p
+                    class="text-primary-100 font-medium text-xs text-ellipsis whitespace-nowrap overflow-hidden"
+                  >
+                    1:30 PM to 3:00 PM
+                  </p>
+                </td>
+                <td
+                  class="relative align-middle whitespace-normal text-small font-normal [&>*]:z-1 [&>*]:relative outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 before:content-[''] before:absolute before:z-0 before:inset-0 before:opacity-0 data-[selected=true]:before:opacity-100 group-data-[disabled=true]:text-foreground-300 group-data-[disabled=true]:cursor-not-allowed before:bg-default/60 data-[selected=true]:text-default-foreground first:before:rounded-s-lg last:before:rounded-e-lg text-start p-0 py-3 border-0 border-primary-100 border-b border-opacity-10"
+                  data-key="table-row-cell-startTime"
+                  role="gridcell"
+                  tabindex="-1"
+                >
+                  <p
+                    class="text-primary-100 font-medium text-xs text-ellipsis whitespace-nowrap overflow-hidden"
+                  >
+                    11 Sep 2024
+                  </p>
+                </td>
+                <td
+                  class="relative align-middle whitespace-normal text-small font-normal [&>*]:z-1 [&>*]:relative outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 before:content-[''] before:absolute before:z-0 before:inset-0 before:opacity-0 data-[selected=true]:before:opacity-100 group-data-[disabled=true]:text-foreground-300 group-data-[disabled=true]:cursor-not-allowed before:bg-default/60 data-[selected=true]:text-default-foreground first:before:rounded-s-lg last:before:rounded-e-lg text-start p-0 py-3 border-0 border-primary-100 border-b border-opacity-10"
+                  data-key="table-row-cell-status"
+                  role="gridcell"
+                  tabindex="-1"
+                >
+                  <div
+                    class="bg-danger-100 bg-opacity-20 w-fit max-w-20 px-2 rounded-md text-center"
+                  >
+                    <p
+                      class="text-danger-100 text-2xs text-ellipsis whitespace-nowrap overflow-hidden font-semibold"
+                    >
+                      Cancelled
+                    </p>
+                  </div>
+                </td>
+              </tr>
+              <tr
+                aria-labelledby="table-table-body-2-senderId"
+                class="group outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2"
+                data-key="table-body-2"
+                data-middle="true"
+                data-odd="true"
+                role="row"
+                tabindex="-1"
+              >
+                <td
+                  class="relative align-middle whitespace-normal text-small font-normal [&>*]:z-1 [&>*]:relative outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 before:content-[''] before:absolute before:z-0 before:inset-0 before:opacity-0 data-[selected=true]:before:opacity-100 group-data-[disabled=true]:text-foreground-300 group-data-[disabled=true]:cursor-not-allowed before:bg-default/60 data-[selected=true]:text-default-foreground first:before:rounded-s-lg last:before:rounded-e-lg text-start p-0 py-3 border-0 border-primary-100 border-b border-opacity-10"
+                  data-key="table-row-cell-senderId"
+                  id="table-table-body-2-senderId"
+                  role="rowheader"
+                  tabindex="-1"
+                >
+                  <div
+                    class="flex gap-2 items-center"
+                  >
+                    <span
+                      class="flex relative justify-center items-center box-border overflow-hidden align-middle z-0 outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-tiny text-default-foreground rounded-full ring-2 ring-offset-background dark:ring-offset-background-dark min-w-8 w-8 h-8 bg-undefined ring-offset-2 ring-green shrink-0"
+                      tabindex="-1"
+                    >
+                      <img
+                        alt="avatar"
+                        class="flex object-cover w-full h-full transition-opacity !duration-500 opacity-0 data-[loaded=true]:opacity-100"
+                        src="http://localhost:1337"
+                      />
+                    </span>
+                    <p
+                      class="text-primary-100 font-medium text-sm text-ellipsis whitespace-nowrap overflow-hidden"
+                    >
+                      Alex Stanton
+                    </p>
+                  </div>
+                </td>
+                <td
+                  class="relative align-middle whitespace-normal text-small font-normal [&>*]:z-1 [&>*]:relative outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 before:content-[''] before:absolute before:z-0 before:inset-0 before:opacity-0 data-[selected=true]:before:opacity-100 group-data-[disabled=true]:text-foreground-300 group-data-[disabled=true]:cursor-not-allowed before:bg-default/60 data-[selected=true]:text-default-foreground first:before:rounded-s-lg last:before:rounded-e-lg text-start p-0 py-3 border-0 border-primary-100 border-b border-opacity-10"
+                  data-key="table-row-cell-receiverId"
+                  role="gridcell"
+                  tabindex="-1"
+                >
+                  <div
+                    class="flex gap-2 items-center"
+                  >
+                    <span
+                      class="flex relative justify-center items-center box-border overflow-hidden align-middle z-0 outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-tiny text-default-foreground rounded-full ring-2 ring-offset-background dark:ring-offset-background-dark min-w-8 w-8 h-8 bg-undefined ring-offset-2 ring-green shrink-0"
+                      tabindex="-1"
+                    >
+                      <img
+                        alt="avatar"
+                        class="flex object-cover w-full h-full transition-opacity !duration-500 opacity-0 data-[loaded=true]:opacity-100"
+                        src="http://localhost:1337"
+                      />
+                    </span>
+                    <p
+                      class="text-primary-100 font-medium text-sm text-ellipsis whitespace-nowrap overflow-hidden"
+                    >
+                      ThangHq
+                    </p>
+                  </div>
+                </td>
+                <td
+                  class="relative align-middle whitespace-normal text-small font-normal [&>*]:z-1 [&>*]:relative outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 before:content-[''] before:absolute before:z-0 before:inset-0 before:opacity-0 data-[selected=true]:before:opacity-100 group-data-[disabled=true]:text-foreground-300 group-data-[disabled=true]:cursor-not-allowed before:bg-default/60 data-[selected=true]:text-default-foreground first:before:rounded-s-lg last:before:rounded-e-lg text-start p-0 py-3 border-0 border-primary-100 border-b border-opacity-10"
+                  data-key="table-row-cell-durationTime"
+                  role="gridcell"
+                  tabindex="-1"
+                >
+                  <p
+                    class="text-primary-100 font-medium text-xs text-ellipsis whitespace-nowrap overflow-hidden"
+                  >
+                    9:00 AM to 10:00 AM
+                  </p>
+                </td>
+                <td
+                  class="relative align-middle whitespace-normal text-small font-normal [&>*]:z-1 [&>*]:relative outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 before:content-[''] before:absolute before:z-0 before:inset-0 before:opacity-0 data-[selected=true]:before:opacity-100 group-data-[disabled=true]:text-foreground-300 group-data-[disabled=true]:cursor-not-allowed before:bg-default/60 data-[selected=true]:text-default-foreground first:before:rounded-s-lg last:before:rounded-e-lg text-start p-0 py-3 border-0 border-primary-100 border-b border-opacity-10"
+                  data-key="table-row-cell-startTime"
+                  role="gridcell"
+                  tabindex="-1"
+                >
+                  <p
+                    class="text-primary-100 font-medium text-xs text-ellipsis whitespace-nowrap overflow-hidden"
+                  >
+                    12 Sep 2024
+                  </p>
+                </td>
+                <td
+                  class="relative align-middle whitespace-normal text-small font-normal [&>*]:z-1 [&>*]:relative outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 before:content-[''] before:absolute before:z-0 before:inset-0 before:opacity-0 data-[selected=true]:before:opacity-100 group-data-[disabled=true]:text-foreground-300 group-data-[disabled=true]:cursor-not-allowed before:bg-default/60 data-[selected=true]:text-default-foreground first:before:rounded-s-lg last:before:rounded-e-lg text-start p-0 py-3 border-0 border-primary-100 border-b border-opacity-10"
+                  data-key="table-row-cell-status"
+                  role="gridcell"
+                  tabindex="-1"
+                >
+                  <div
+                    class="bg-success bg-opacity-20 w-fit max-w-20 px-2 rounded-md text-center"
+                  >
+                    <p
+                      class="text-success text-2xs text-ellipsis whitespace-nowrap overflow-hidden font-semibold"
+                    >
+                      New
+                    </p>
+                  </div>
+                </td>
+              </tr>
+              <tr
+                aria-labelledby="table-table-body-3-senderId"
+                class="group outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2"
+                data-key="table-body-3"
+                data-last="true"
+                role="row"
+                tabindex="-1"
+              >
+                <td
+                  class="relative align-middle whitespace-normal text-small font-normal [&>*]:z-1 [&>*]:relative outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 before:content-[''] before:absolute before:z-0 before:inset-0 before:opacity-0 data-[selected=true]:before:opacity-100 group-data-[disabled=true]:text-foreground-300 group-data-[disabled=true]:cursor-not-allowed before:bg-default/60 data-[selected=true]:text-default-foreground first:before:rounded-s-lg last:before:rounded-e-lg text-start p-0 pt-3"
+                  data-key="table-row-cell-senderId"
+                  id="table-table-body-3-senderId"
+                  role="rowheader"
+                  tabindex="-1"
+                >
+                  <div
+                    class="flex gap-2 items-center"
+                  >
+                    <span
+                      class="flex relative justify-center items-center box-border overflow-hidden align-middle z-0 outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-tiny text-default-foreground rounded-full ring-2 ring-offset-background dark:ring-offset-background-dark min-w-8 w-8 h-8 bg-undefined ring-offset-2 ring-green shrink-0"
+                      tabindex="-1"
+                    >
+                      <img
+                        alt="avatar"
+                        class="flex object-cover w-full h-full transition-opacity !duration-500 opacity-0 data-[loaded=true]:opacity-100"
+                        src="http://localhost:1337"
+                      />
+                    </span>
+                    <p
+                      class="text-primary-100 font-medium text-sm text-ellipsis whitespace-nowrap overflow-hidden"
+                    >
+                      ThangHq
+                    </p>
+                  </div>
+                </td>
+                <td
+                  class="relative align-middle whitespace-normal text-small font-normal [&>*]:z-1 [&>*]:relative outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 before:content-[''] before:absolute before:z-0 before:inset-0 before:opacity-0 data-[selected=true]:before:opacity-100 group-data-[disabled=true]:text-foreground-300 group-data-[disabled=true]:cursor-not-allowed before:bg-default/60 data-[selected=true]:text-default-foreground first:before:rounded-s-lg last:before:rounded-e-lg text-start p-0 pt-3"
+                  data-key="table-row-cell-receiverId"
+                  role="gridcell"
+                  tabindex="-1"
+                >
+                  <div
+                    class="flex gap-2 items-center"
+                  >
+                    <span
+                      class="flex relative justify-center items-center box-border overflow-hidden align-middle z-0 outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-tiny text-default-foreground rounded-full ring-2 ring-offset-background dark:ring-offset-background-dark min-w-8 w-8 h-8 bg-undefined ring-offset-2 ring-green shrink-0"
+                      tabindex="-1"
+                    >
+                      <img
+                        alt="avatar"
+                        class="flex object-cover w-full h-full transition-opacity !duration-500 opacity-0 data-[loaded=true]:opacity-100"
+                        src="http://localhost:1337"
+                      />
+                    </span>
+                    <p
+                      class="text-primary-100 font-medium text-sm text-ellipsis whitespace-nowrap overflow-hidden"
+                    >
+                      Alex Stanton
+                    </p>
+                  </div>
+                </td>
+                <td
+                  class="relative align-middle whitespace-normal text-small font-normal [&>*]:z-1 [&>*]:relative outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 before:content-[''] before:absolute before:z-0 before:inset-0 before:opacity-0 data-[selected=true]:before:opacity-100 group-data-[disabled=true]:text-foreground-300 group-data-[disabled=true]:cursor-not-allowed before:bg-default/60 data-[selected=true]:text-default-foreground first:before:rounded-s-lg last:before:rounded-e-lg text-start p-0 pt-3"
+                  data-key="table-row-cell-durationTime"
+                  role="gridcell"
+                  tabindex="-1"
+                >
+                  <p
+                    class="text-primary-100 font-medium text-xs text-ellipsis whitespace-nowrap overflow-hidden"
+                  >
+                    10:00 AM to 11:00 AM
+                  </p>
+                </td>
+                <td
+                  class="relative align-middle whitespace-normal text-small font-normal [&>*]:z-1 [&>*]:relative outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 before:content-[''] before:absolute before:z-0 before:inset-0 before:opacity-0 data-[selected=true]:before:opacity-100 group-data-[disabled=true]:text-foreground-300 group-data-[disabled=true]:cursor-not-allowed before:bg-default/60 data-[selected=true]:text-default-foreground first:before:rounded-s-lg last:before:rounded-e-lg text-start p-0 pt-3"
+                  data-key="table-row-cell-startTime"
+                  role="gridcell"
+                  tabindex="-1"
+                >
+                  <p
+                    class="text-primary-100 font-medium text-xs text-ellipsis whitespace-nowrap overflow-hidden"
+                  >
+                    13 Sep 2024
+                  </p>
+                </td>
+                <td
+                  class="relative align-middle whitespace-normal text-small font-normal [&>*]:z-1 [&>*]:relative outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 before:content-[''] before:absolute before:z-0 before:inset-0 before:opacity-0 data-[selected=true]:before:opacity-100 group-data-[disabled=true]:text-foreground-300 group-data-[disabled=true]:cursor-not-allowed before:bg-default/60 data-[selected=true]:text-default-foreground first:before:rounded-s-lg last:before:rounded-e-lg text-start p-0 pt-3"
+                  data-key="table-row-cell-status"
+                  role="gridcell"
+                  tabindex="-1"
+                >
+                  <div
+                    class="bg-warning bg-opacity-20 w-fit max-w-20 px-2 rounded-md text-center"
+                  >
+                    <p
+                      class="text-warning text-2xs text-ellipsis whitespace-nowrap overflow-hidden font-semibold"
+                    >
+                      Meeting
+                    </p>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`AppointmentsHistory Component should render correctly with user role when have appointments value 1`] = `
+<div>
+  <div
+    class="flex flex-col relative overflow-hidden h-auto text-foreground box-border outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 shadow-medium rounded-large transition-transform-background motion-reduce:transition-none w-full px-4 py-6 bg-background-200"
+    tabindex="-1"
+  >
+    <div
+      class="flex justify-between items-center"
+    >
+      <p
+        class="text-ellipsis whitespace-nowrap overflow-hidden text-xl font-bold text-primary-100"
+      >
+        History
+      </p>
+      <div>
+        <div
+          class="group flex flex-col w-full transition-background motion-reduce:transition-none !duration-150 group relative justify-end data-[has-label=true]:mt-[calc(theme(fontSize.small)_+_10px)] max-w-[102px] max-h-[36px]"
+          data-filled="true"
+          data-slot="base"
+        >
+          <div
+            aria-hidden="true"
+            data-a11y-ignore="aria-hidden-focus"
+            data-testid="hidden-select-container"
+            style="border: 0px; clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap;"
+          >
+            <input
+              style="font-size: 16px;"
+              tabindex="-1"
+              type="text"
+              value=""
+            />
+            <label>
+              <select
+                size="3"
+                tabindex="-1"
+                title=""
+              >
+                <option />
+                <option
+                  value="new"
+                >
+                  New
+                </option>
+                <option
+                  value="meeting"
+                >
+                  Meeting
+                </option>
+                <option
+                  value="canceled"
+                >
+                  Canceled
+                </option>
+              </select>
+            </label>
+          </div>
+          <div
+            class="w-full flex flex-col max-w-[102px] max-h-[36px]"
+            data-slot="mainWrapper"
+          >
+            <button
+              aria-expanded="false"
+              aria-haspopup="listbox"
+              aria-label="Status"
+              aria-labelledby="react-aria-:rr: react-aria-:rm:"
+              class="relative gap-3 w-full inline-flex flex-row items-center shadow-sm tap-highlight-transparent group-data-[focus=true]:bg-default-100 data-[hover=true]:bg-default-50 outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 px-2.5 py-2 h-[46px] rounded-medium bg-background-100 shadow-stack border-1 outline-offset-0 data-[focus=true]:border-primary data-[focus=true]:border-1 min-h-[36px]"
+              data-slot="trigger"
+              id="react-aria-:rm:"
+              type="button"
+            >
+              <div
+                class="inline-flex h-full min-h-4 items-center gap-1.5 box-border text-xs leading-[18px] w-[80px]"
+                data-slot="innerWrapper"
+              >
+                <span
+                  class="w-full text-left rtl:text-right truncate group-data-[has-value=true]:text-default-foreground text-xs text-primary-100 font-medium"
+                  data-slot="value"
+                  id="react-aria-:rr:"
+                >
+                  Status
+                </span>
+              </div>
+              <svg
+                aria-hidden="true"
+                class="absolute end-3 w-4 h-4 transition-transform duration-150 ease motion-reduce:transition-none data-[open=true]:rotate-180 text-primary-100"
+                data-slot="selectorIcon"
+                fill="none"
+                focusable="false"
+                height="1em"
+                role="presentation"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.5"
+                viewBox="0 0 24 24"
+                width="1em"
+              >
+                <path
+                  d="m6 9 6 6 6-6"
+                />
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="flex flex-col items-center"
+    >
+      <div
+        class="flex flex-col relative gap-4 w-full"
+      >
+        <div
+          class="z-0 flex flex-col relative justify-between gap-4 overflow-auto rounded-large w-full bg-transparent-200 shadow-none p-1"
+        >
+          <table
+            aria-describedby=""
+            aria-label="Table"
+            class="min-w-full h-auto table-auto w-full"
+            id="table"
+            role="grid"
+            tabindex="0"
+          >
+            <thead
+              class="[&>tr]:first:rounded-lg hidden"
+              role="rowgroup"
+            >
+              <tr
+                class="group outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2"
+                role="row"
+              >
+                <th
+                  class="group px-3 h-10 align-middle bg-default-100 whitespace-nowrap text-foreground-500 text-tiny font-semibold first:rounded-s-lg last:rounded-e-lg data-[sortable=true]:cursor-pointer data-[hover=true]:text-foreground-400 outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-start"
+                  data-key="receiverId"
+                  id="table-receiverId"
+                  role="columnheader"
+                  tabindex="-1"
+                />
+                <th
+                  class="group px-3 h-10 align-middle bg-default-100 whitespace-nowrap text-foreground-500 text-tiny font-semibold first:rounded-s-lg last:rounded-e-lg data-[sortable=true]:cursor-pointer data-[hover=true]:text-foreground-400 outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-start"
+                  data-key="durationTime"
+                  id="table-durationTime"
+                  role="columnheader"
+                  tabindex="-1"
+                />
+                <th
+                  class="group px-3 h-10 align-middle bg-default-100 whitespace-nowrap text-foreground-500 text-tiny font-semibold first:rounded-s-lg last:rounded-e-lg data-[sortable=true]:cursor-pointer data-[hover=true]:text-foreground-400 outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-start"
+                  data-key="startTime"
+                  id="table-startTime"
+                  role="columnheader"
+                  tabindex="-1"
+                />
+                <th
+                  class="group px-3 h-10 align-middle bg-default-100 whitespace-nowrap text-foreground-500 text-tiny font-semibold first:rounded-s-lg last:rounded-e-lg data-[sortable=true]:cursor-pointer data-[hover=true]:text-foreground-400 outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-start"
+                  data-key="status"
+                  id="table-status"
+                  role="columnheader"
+                  tabindex="-1"
+                />
+              </tr>
+              <tr
+                aria-hidden="true"
+                class="w-px h-px block"
+                style="margin-left: 0.25rem; margin-top: 0.25rem;"
+                tabindex="-1"
+              />
+            </thead>
+            <tbody
+              role="rowgroup"
+            >
+              <tr
+                aria-labelledby="table-table-body-1-receiverId"
+                class="group outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2"
+                data-first="true"
+                data-key="table-body-1"
+                role="row"
+                tabindex="-1"
+              >
+                <td
+                  class="relative align-middle whitespace-normal text-small font-normal [&>*]:z-1 [&>*]:relative outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 before:content-[''] before:absolute before:z-0 before:inset-0 before:opacity-0 data-[selected=true]:before:opacity-100 group-data-[disabled=true]:text-foreground-300 group-data-[disabled=true]:cursor-not-allowed before:bg-default/60 data-[selected=true]:text-default-foreground first:before:rounded-s-lg last:before:rounded-e-lg text-start p-0 py-3 border-0 border-primary-100 border-b border-opacity-10"
+                  data-key="table-row-cell-receiverId"
+                  id="table-table-body-1-receiverId"
+                  role="rowheader"
+                  tabindex="-1"
+                >
+                  <div
+                    class="flex gap-2 items-center"
+                  >
+                    <span
+                      class="flex relative justify-center items-center box-border overflow-hidden align-middle z-0 outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-tiny text-default-foreground rounded-full ring-2 ring-offset-background dark:ring-offset-background-dark min-w-8 w-8 h-8 bg-undefined ring-offset-2 ring-green shrink-0"
+                      tabindex="-1"
+                    >
+                      <img
+                        alt="avatar"
+                        class="flex object-cover w-full h-full transition-opacity !duration-500 opacity-0 data-[loaded=true]:opacity-100"
+                        src="http://localhost:1337"
+                      />
+                    </span>
+                    <p
+                      class="text-primary-100 font-medium text-sm text-ellipsis whitespace-nowrap overflow-hidden"
+                    >
+                      Jessica Jane
+                    </p>
+                  </div>
+                </td>
+                <td
+                  class="relative align-middle whitespace-normal text-small font-normal [&>*]:z-1 [&>*]:relative outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 before:content-[''] before:absolute before:z-0 before:inset-0 before:opacity-0 data-[selected=true]:before:opacity-100 group-data-[disabled=true]:text-foreground-300 group-data-[disabled=true]:cursor-not-allowed before:bg-default/60 data-[selected=true]:text-default-foreground first:before:rounded-s-lg last:before:rounded-e-lg text-start p-0 py-3 border-0 border-primary-100 border-b border-opacity-10"
+                  data-key="table-row-cell-durationTime"
+                  role="gridcell"
+                  tabindex="-1"
+                >
+                  <p
+                    class="text-primary-100 font-medium text-xs text-ellipsis whitespace-nowrap overflow-hidden"
+                  >
+                    1:30 PM to 3:00 PM
+                  </p>
+                </td>
+                <td
+                  class="relative align-middle whitespace-normal text-small font-normal [&>*]:z-1 [&>*]:relative outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 before:content-[''] before:absolute before:z-0 before:inset-0 before:opacity-0 data-[selected=true]:before:opacity-100 group-data-[disabled=true]:text-foreground-300 group-data-[disabled=true]:cursor-not-allowed before:bg-default/60 data-[selected=true]:text-default-foreground first:before:rounded-s-lg last:before:rounded-e-lg text-start p-0 py-3 border-0 border-primary-100 border-b border-opacity-10"
+                  data-key="table-row-cell-startTime"
+                  role="gridcell"
+                  tabindex="-1"
+                >
+                  <p
+                    class="text-primary-100 font-medium text-xs text-ellipsis whitespace-nowrap overflow-hidden"
+                  >
+                    11 Sep 2024
+                  </p>
+                </td>
+                <td
+                  class="relative align-middle whitespace-normal text-small font-normal [&>*]:z-1 [&>*]:relative outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 before:content-[''] before:absolute before:z-0 before:inset-0 before:opacity-0 data-[selected=true]:before:opacity-100 group-data-[disabled=true]:text-foreground-300 group-data-[disabled=true]:cursor-not-allowed before:bg-default/60 data-[selected=true]:text-default-foreground first:before:rounded-s-lg last:before:rounded-e-lg text-start p-0 py-3 border-0 border-primary-100 border-b border-opacity-10"
+                  data-key="table-row-cell-status"
+                  role="gridcell"
+                  tabindex="-1"
+                >
+                  <div
+                    class="bg-danger-100 bg-opacity-20 w-fit max-w-20 px-2 rounded-md text-center"
+                  >
+                    <p
+                      class="text-danger-100 text-2xs text-ellipsis whitespace-nowrap overflow-hidden font-semibold"
+                    >
+                      Cancelled
+                    </p>
+                  </div>
+                </td>
+              </tr>
+              <tr
+                aria-labelledby="table-table-body-2-receiverId"
+                class="group outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2"
+                data-key="table-body-2"
+                data-middle="true"
+                data-odd="true"
+                role="row"
+                tabindex="-1"
+              >
+                <td
+                  class="relative align-middle whitespace-normal text-small font-normal [&>*]:z-1 [&>*]:relative outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 before:content-[''] before:absolute before:z-0 before:inset-0 before:opacity-0 data-[selected=true]:before:opacity-100 group-data-[disabled=true]:text-foreground-300 group-data-[disabled=true]:cursor-not-allowed before:bg-default/60 data-[selected=true]:text-default-foreground first:before:rounded-s-lg last:before:rounded-e-lg text-start p-0 py-3 border-0 border-primary-100 border-b border-opacity-10"
+                  data-key="table-row-cell-receiverId"
+                  id="table-table-body-2-receiverId"
+                  role="rowheader"
+                  tabindex="-1"
+                >
+                  <div
+                    class="flex gap-2 items-center"
+                  >
+                    <span
+                      class="flex relative justify-center items-center box-border overflow-hidden align-middle z-0 outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-tiny text-default-foreground rounded-full ring-2 ring-offset-background dark:ring-offset-background-dark min-w-8 w-8 h-8 bg-undefined ring-offset-2 ring-green shrink-0"
+                      tabindex="-1"
+                    >
+                      <img
+                        alt="avatar"
+                        class="flex object-cover w-full h-full transition-opacity !duration-500 opacity-0 data-[loaded=true]:opacity-100"
+                        src="http://localhost:1337"
+                      />
+                    </span>
+                    <p
+                      class="text-primary-100 font-medium text-sm text-ellipsis whitespace-nowrap overflow-hidden"
+                    >
+                      ThangHq
+                    </p>
+                  </div>
+                </td>
+                <td
+                  class="relative align-middle whitespace-normal text-small font-normal [&>*]:z-1 [&>*]:relative outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 before:content-[''] before:absolute before:z-0 before:inset-0 before:opacity-0 data-[selected=true]:before:opacity-100 group-data-[disabled=true]:text-foreground-300 group-data-[disabled=true]:cursor-not-allowed before:bg-default/60 data-[selected=true]:text-default-foreground first:before:rounded-s-lg last:before:rounded-e-lg text-start p-0 py-3 border-0 border-primary-100 border-b border-opacity-10"
+                  data-key="table-row-cell-durationTime"
+                  role="gridcell"
+                  tabindex="-1"
+                >
+                  <p
+                    class="text-primary-100 font-medium text-xs text-ellipsis whitespace-nowrap overflow-hidden"
+                  >
+                    9:00 AM to 10:00 AM
+                  </p>
+                </td>
+                <td
+                  class="relative align-middle whitespace-normal text-small font-normal [&>*]:z-1 [&>*]:relative outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 before:content-[''] before:absolute before:z-0 before:inset-0 before:opacity-0 data-[selected=true]:before:opacity-100 group-data-[disabled=true]:text-foreground-300 group-data-[disabled=true]:cursor-not-allowed before:bg-default/60 data-[selected=true]:text-default-foreground first:before:rounded-s-lg last:before:rounded-e-lg text-start p-0 py-3 border-0 border-primary-100 border-b border-opacity-10"
+                  data-key="table-row-cell-startTime"
+                  role="gridcell"
+                  tabindex="-1"
+                >
+                  <p
+                    class="text-primary-100 font-medium text-xs text-ellipsis whitespace-nowrap overflow-hidden"
+                  >
+                    12 Sep 2024
+                  </p>
+                </td>
+                <td
+                  class="relative align-middle whitespace-normal text-small font-normal [&>*]:z-1 [&>*]:relative outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 before:content-[''] before:absolute before:z-0 before:inset-0 before:opacity-0 data-[selected=true]:before:opacity-100 group-data-[disabled=true]:text-foreground-300 group-data-[disabled=true]:cursor-not-allowed before:bg-default/60 data-[selected=true]:text-default-foreground first:before:rounded-s-lg last:before:rounded-e-lg text-start p-0 py-3 border-0 border-primary-100 border-b border-opacity-10"
+                  data-key="table-row-cell-status"
+                  role="gridcell"
+                  tabindex="-1"
+                >
+                  <div
+                    class="bg-success bg-opacity-20 w-fit max-w-20 px-2 rounded-md text-center"
+                  >
+                    <p
+                      class="text-success text-2xs text-ellipsis whitespace-nowrap overflow-hidden font-semibold"
+                    >
+                      New
+                    </p>
+                  </div>
+                </td>
+              </tr>
+              <tr
+                aria-labelledby="table-table-body-3-receiverId"
+                class="group outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2"
+                data-key="table-body-3"
+                data-last="true"
+                role="row"
+                tabindex="-1"
+              >
+                <td
+                  class="relative align-middle whitespace-normal text-small font-normal [&>*]:z-1 [&>*]:relative outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 before:content-[''] before:absolute before:z-0 before:inset-0 before:opacity-0 data-[selected=true]:before:opacity-100 group-data-[disabled=true]:text-foreground-300 group-data-[disabled=true]:cursor-not-allowed before:bg-default/60 data-[selected=true]:text-default-foreground first:before:rounded-s-lg last:before:rounded-e-lg text-start p-0 pt-3"
+                  data-key="table-row-cell-receiverId"
+                  id="table-table-body-3-receiverId"
+                  role="rowheader"
+                  tabindex="-1"
+                >
+                  <div
+                    class="flex gap-2 items-center"
+                  >
+                    <span
+                      class="flex relative justify-center items-center box-border overflow-hidden align-middle z-0 outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-tiny text-default-foreground rounded-full ring-2 ring-offset-background dark:ring-offset-background-dark min-w-8 w-8 h-8 bg-undefined ring-offset-2 ring-green shrink-0"
+                      tabindex="-1"
+                    >
+                      <img
+                        alt="avatar"
+                        class="flex object-cover w-full h-full transition-opacity !duration-500 opacity-0 data-[loaded=true]:opacity-100"
+                        src="http://localhost:1337"
+                      />
+                    </span>
+                    <p
+                      class="text-primary-100 font-medium text-sm text-ellipsis whitespace-nowrap overflow-hidden"
+                    >
+                      Alex Stanton
+                    </p>
+                  </div>
+                </td>
+                <td
+                  class="relative align-middle whitespace-normal text-small font-normal [&>*]:z-1 [&>*]:relative outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 before:content-[''] before:absolute before:z-0 before:inset-0 before:opacity-0 data-[selected=true]:before:opacity-100 group-data-[disabled=true]:text-foreground-300 group-data-[disabled=true]:cursor-not-allowed before:bg-default/60 data-[selected=true]:text-default-foreground first:before:rounded-s-lg last:before:rounded-e-lg text-start p-0 pt-3"
+                  data-key="table-row-cell-durationTime"
+                  role="gridcell"
+                  tabindex="-1"
+                >
+                  <p
+                    class="text-primary-100 font-medium text-xs text-ellipsis whitespace-nowrap overflow-hidden"
+                  >
+                    10:00 AM to 11:00 AM
+                  </p>
+                </td>
+                <td
+                  class="relative align-middle whitespace-normal text-small font-normal [&>*]:z-1 [&>*]:relative outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 before:content-[''] before:absolute before:z-0 before:inset-0 before:opacity-0 data-[selected=true]:before:opacity-100 group-data-[disabled=true]:text-foreground-300 group-data-[disabled=true]:cursor-not-allowed before:bg-default/60 data-[selected=true]:text-default-foreground first:before:rounded-s-lg last:before:rounded-e-lg text-start p-0 pt-3"
+                  data-key="table-row-cell-startTime"
+                  role="gridcell"
+                  tabindex="-1"
+                >
+                  <p
+                    class="text-primary-100 font-medium text-xs text-ellipsis whitespace-nowrap overflow-hidden"
+                  >
+                    13 Sep 2024
+                  </p>
+                </td>
+                <td
+                  class="relative align-middle whitespace-normal text-small font-normal [&>*]:z-1 [&>*]:relative outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 before:content-[''] before:absolute before:z-0 before:inset-0 before:opacity-0 data-[selected=true]:before:opacity-100 group-data-[disabled=true]:text-foreground-300 group-data-[disabled=true]:cursor-not-allowed before:bg-default/60 data-[selected=true]:text-default-foreground first:before:rounded-s-lg last:before:rounded-e-lg text-start p-0 pt-3"
+                  data-key="table-row-cell-status"
+                  role="gridcell"
+                  tabindex="-1"
+                >
+                  <div
+                    class="bg-warning bg-opacity-20 w-fit max-w-20 px-2 rounded-md text-center"
+                  >
+                    <p
+                      class="text-warning text-2xs text-ellipsis whitespace-nowrap overflow-hidden font-semibold"
+                    >
+                      Meeting
+                    </p>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

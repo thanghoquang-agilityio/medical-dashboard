@@ -115,18 +115,18 @@ const createColumns = (role: string): ColumnType<AppointmentModel>[] => {
   return role === ROLE.USER ? baseColumns.slice(1) : baseColumns;
 };
 
-interface AppointmentHistoryProps extends MetaResponse {
+export interface AppointmentsHistoryProps extends MetaResponse {
   appointments: AppointmentResponse[];
   role: string;
-  defaultStatus: string;
+  defaultStatus?: string;
 }
 
 const AppointmentsHistory = ({
   appointments,
   pagination,
   role,
-  defaultStatus,
-}: AppointmentHistoryProps) => {
+  defaultStatus = '',
+}: AppointmentsHistoryProps) => {
   const columns = createColumns(role);
 
   const [isPending, startTransition] = useTransition();
