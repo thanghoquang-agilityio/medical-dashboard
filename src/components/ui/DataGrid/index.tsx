@@ -2,7 +2,13 @@
 
 import dynamic from 'next/dynamic';
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
-import { Suspense, memo, useCallback, useMemo, useTransition } from 'react';
+import {
+  Suspense,
+  TransitionStartFunction,
+  memo,
+  useCallback,
+  useMemo,
+} from 'react';
 
 // Constants
 import { PAGE_DEFAULT, RESULT_NOT_FOUND } from '@/constants';
@@ -30,6 +36,7 @@ export interface DataTableProps<T> extends MetaResponse {
   data: APIResponse<T>[];
   columns: ColumnType<T>[];
   hasDivider?: boolean;
+  startTransition?: TransitionStartFunction;
   classWrapper?: string;
   classRow?: string;
   classCell?: string;
@@ -41,6 +48,7 @@ const DataGrid = memo(
     columns,
     pagination,
     hasDivider = false,
+    startTransition,
     classWrapper,
     classRow,
     classCell,
@@ -54,15 +62,13 @@ const DataGrid = memo(
       [searchParams],
     );
 
-    const [isPending, startTransition] = useTransition();
-
     const handleReplaceURL = useCallback(
       (params: URLSearchParams) => {
-        startTransition(() => {
+        startTransition?.(() => {
           replace(`${pathname}?${params.toString()}`);
         });
       },
-      [pathname, replace],
+      [pathname, replace, startTransition],
     );
 
     const handlePageChange = useCallback(
@@ -78,7 +84,6 @@ const DataGrid = memo(
       [handleReplaceURL, params],
     );
 
-    const loadingState = isPending ? 'loading' : 'idle';
     const classDivider =
       'border-0 border-primary-100 border-b border-opacity-10';
 
@@ -95,6 +100,7 @@ const DataGrid = memo(
               `bg-transparent-200 shadow-none p-0 ${classWrapper ?? ''}`,
             ),
           }}
+          aria-label="Table"
         >
           <TableHeader>
             {columns.map((column) => {
@@ -103,7 +109,6 @@ const DataGrid = memo(
           </TableHeader>
           <TableBody
             emptyContent={RESULT_NOT_FOUND}
-            loadingState={loadingState}
             loadingContent={<Spinner size="lg" />}
           >
             {data.length
@@ -141,7 +146,7 @@ const DataGrid = memo(
         {!!pagination && pagination.pageCount > 1 && (
           <Suspense>
             <Pagination
-              className="mt-4"
+              classNames={{ base: 'mt-4' }}
               initialPage={page}
               total={pageCount}
               onChange={handlePageChange}

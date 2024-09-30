@@ -203,6 +203,7 @@ exports[`SignupForm Component should renders correctly form 1`] = `
                 value=""
               />
               <button
+                aria-label="visible password"
                 class="z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap subpixel-antialiased overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 !gap-0 transition-transform-colors-opacity motion-reduce:transition-none data-[hover=true]:opacity-hover border-transparent font-semibold bg-linear-success bg-none gap-1 text-sm rounded-lg p-0 min-w-5 h-5 text-primary-200"
                 type="button"
               >
@@ -279,6 +280,7 @@ exports[`SignupForm Component should renders correctly form 1`] = `
                 value=""
               />
               <button
+                aria-label="visible confirm password"
                 class="z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap subpixel-antialiased overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 !gap-0 transition-transform-colors-opacity motion-reduce:transition-none data-[hover=true]:opacity-hover border-transparent font-semibold bg-linear-success bg-none gap-1 text-sm rounded-lg p-0 min-w-5 h-5 text-primary-200"
                 type="button"
               >

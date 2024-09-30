@@ -10,12 +10,11 @@ describe('Avatar Component', () => {
   });
 
   it('renders with border when hasBorder is true', () => {
-    const color = 'warning';
     const { getByTestId } = render(
-      <Avatar hasBorder color={color} data-testid="avatar-border" />,
+      <Avatar hasBorder data-testid="avatar-border" />,
     );
 
     const avatar = getByTestId('avatar-border');
-    expect(avatar).toHaveClass(`border-2 border-${color} border-opacity-25`);
+    expect(avatar).toHaveClass('ring-opacity-25');
   });
 });
