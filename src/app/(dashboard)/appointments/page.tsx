@@ -20,12 +20,12 @@ const AppointmentPage = async ({
 }: {
   searchParams?: SearchParams;
 }) => {
-  const { page = PAGE_DEFAULT } = searchParams as SearchParams;
+  const { page = PAGE_DEFAULT, search } = searchParams as SearchParams;
   const { id = '', role = ROLE.NORMAL_USER } = (await auth())?.user || {};
 
   return (
     <Suspense fallback={<Spinner />}>
-      <AppointmentHistory page={page} role={role} userId={id} />
+      <AppointmentHistory page={page} role={role} userId={id} search={search} />
     </Suspense>
   );
 };

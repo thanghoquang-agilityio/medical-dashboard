@@ -15,7 +15,7 @@ import {
 
 // Utils
 import { formatDayMonthYear, formatTimeAppointment } from '@/utils';
-import { APPOINTMENT_STATUS_OPTIONS, ROLE } from '@/constants';
+import { API_IMAGE_URL, APPOINTMENT_STATUS_OPTIONS, ROLE } from '@/constants';
 
 // Components
 import { Avatar, Select, Status, Text } from '@/components/ui';
@@ -27,38 +27,46 @@ const createColumns = (role: string): ColumnType<AppointmentModel>[] => {
     {
       key: 'senderId',
       title: '',
-      customNode: (_, item) => (
-        <div className="flex gap-2 items-center">
-          <Avatar
-            src={String(item.senderId.data.attributes.avatar)}
-            size="md"
-            hasBorder
-            color="warning"
-            className="shrink-0"
-          />
-          <Text variant="primary" size="sm" customClass="text-wrap">
-            {item.senderId.data.attributes.username}
-          </Text>
-        </div>
-      ),
+      customNode: (_, item) => {
+        const { url = '' } =
+          item.senderId.data.attributes.avatar?.data?.attributes || {};
+
+        return (
+          <div className="flex gap-2 items-center">
+            <Avatar
+              src={`${API_IMAGE_URL}${url}`}
+              size="md"
+              isBordered
+              className="shrink-0"
+            />
+            <Text variant="primary" size="sm">
+              {item.senderId.data.attributes.username}
+            </Text>
+          </div>
+        );
+      },
     },
     {
       key: 'receiverId',
       title: '',
-      customNode: (_, item) => (
-        <div className="flex gap-2 items-center">
-          <Avatar
-            src={String(item.receiverId.data.attributes.avatar)}
-            size="md"
-            hasBorder
-            color="warning"
-            className="shrink-0"
-          />
-          <Text variant="primary" size="sm" customClass="text-wrap">
-            {item.receiverId.data.attributes.username}
-          </Text>
-        </div>
-      ),
+      customNode: (_, item) => {
+        const { url = '' } =
+          item.receiverId.data.attributes.avatar?.data?.attributes || {};
+
+        return (
+          <div className="flex gap-2 items-center">
+            <Avatar
+              src={`${API_IMAGE_URL}${url}`}
+              size="md"
+              isBordered
+              className="shrink-0"
+            />
+            <Text variant="primary" size="sm">
+              {item.receiverId.data.attributes.username}
+            </Text>
+          </div>
+        );
+      },
     },
     {
       key: 'durationTime',
@@ -126,14 +134,13 @@ const AppointmentList = ({
           />
         </div>
       </div>
-      <div className="flex flex-col items-center">
-        <DataGrid
-          data={appointments}
-          columns={columns as ColumnType<unknown>[]}
-          pagination={pagination}
-          hasDivider
-        />
-      </div>
+      <DataGrid
+        data={appointments}
+        columns={columns as ColumnType<unknown>[]}
+        pagination={pagination}
+        hasDivider
+        classWrapper="p-2"
+      />
     </Card>
   );
 };

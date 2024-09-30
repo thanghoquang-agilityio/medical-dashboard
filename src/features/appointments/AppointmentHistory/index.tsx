@@ -1,5 +1,6 @@
 // Components
 import AppointmentList from './AppointmentList';
+import SearchInput from './SearchInput';
 
 // Services
 import { getAppointments } from '@/services';
@@ -19,6 +20,7 @@ interface AppointmentHistoryProps {
   page: number;
   userId: string;
   role: string;
+  search?: string;
 }
 
 // Create appointments params
@@ -28,24 +30,43 @@ const AppointmentHistory = async ({
   page,
   role,
   userId,
+  search,
 }: AppointmentHistoryProps) => {
   const searchParamsAPI = new URLSearchParams();
 
   // Set params
-  APPOINTMENT_SEARCH_PARAMS.forEach((param, index) =>
+  APPOINTMENT_SEARCH_PARAMS.forEach((param, index) => {
     searchParamsAPI.set(`populate[${index}]`, param),
-  );
-  searchParamsAPI.set('pagination[page]', `${page}`);
-  searchParamsAPI.set('pagination[pageSize]', `${PAGE_SIZE_DEFAULT}`);
+      searchParamsAPI.set(`populate[${param}][populate][avatar]`, '*');
+  });
+  searchParamsAPI.set('pagination[page]', page.toString());
+  searchParamsAPI.set('pagination[pageSize]', PAGE_SIZE_DEFAULT.toString());
   searchParamsAPI.set('sort[0]', `createdAt:${DIRECTION.DESC}`);
+
+  // Search params by role
+  if (search) {
+    if (role === ROLE.USER || !role) {
+      APPOINTMENT_SEARCH_PARAMS.forEach((param, index) =>
+        searchParamsAPI.set(
+          `filters[$or][${index}][$and][${index}][${param}][username][$containsi]`,
+          search,
+        ),
+      );
+    } else {
+      APPOINTMENT_SEARCH_PARAMS.forEach((param, index) =>
+        searchParamsAPI.set(
+          `filters[$or][${index}][${param}][username][$containsi]`,
+          search,
+        ),
+      );
+    }
+  }
 
   if (role === ROLE.USER || !role) {
     APPOINTMENT_SEARCH_PARAMS.forEach((param, index) =>
-      searchParamsAPI.set(
-        `filters[$or][${index}][${param}][id][$eq]`,
-        `${userId}`,
-      ),
+      searchParamsAPI.set(`filters[$or][${index}][${param}][id][$eq]`, userId),
     );
+    searchParamsAPI.set('populate[senderId][populate][avatar]', '*');
   }
 
   const { appointments, ...meta } = await getAppointments({
@@ -61,11 +82,17 @@ const AppointmentHistory = async ({
   });
 
   return (
-    <AppointmentList
-      appointments={appointments || []}
-      pagination={meta?.pagination}
-      role={role}
-    />
+    <>
+      <SearchInput
+        placeholder="Search Appointments"
+        className="max-w-[400px] py-5"
+      />
+      <AppointmentList
+        appointments={appointments || []}
+        pagination={meta?.pagination}
+        role={role}
+      />
+    </>
   );
 };
 
