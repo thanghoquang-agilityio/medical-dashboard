@@ -23,11 +23,9 @@ export default async function DashboardLayout({
   children: React.ReactNode;
 }>) {
   const { avatar, id } = (await auth())?.user || {};
-
   const searchParamsAPI = new URLSearchParams();
 
   searchParamsAPI.set('populate[0]', 'senderId');
-
   searchParamsAPI.set('filters[senderId][id][$eq]', `${id}`);
 
   const { notifications } = await getNotifications({
@@ -42,7 +40,6 @@ export default async function DashboardLayout({
   return (
     <main className="flex max-w-[1158px] m-auto">
       <Sidebar />
-
       <div className="flex flex-col min-h-[100vh] max-h-fit w-full relative bg-background-100 md:pl-[81px] lg:pl-[277px]">
         <HeaderDashboard
           avatarUrl={avatar ?? ''}

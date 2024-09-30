@@ -3,6 +3,7 @@ export * from './Button';
 export * from './Checkbox';
 export * from './Image';
 export * from './Input';
+export * from './InputSearch';
 export * from './MenuDropdown';
 export * from './Navbar';
 export * from './Popover';

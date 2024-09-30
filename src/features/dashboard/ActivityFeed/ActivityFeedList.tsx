@@ -1,6 +1,6 @@
 'use client';
 
-import { memo } from 'react';
+import { memo, useTransition } from 'react';
 import dynamic from 'next/dynamic';
 import { Card } from '@nextui-org/react';
 
@@ -21,6 +21,7 @@ import {
 import { Avatar, Status, Text } from '@/components/ui';
 import { formatDateTime, fromDateToNow, getContentNotification } from '@/utils';
 import { API_IMAGE_URL } from '@/constants';
+import { ActivityFeedListSkeleton } from './ActivityFeedSkeleton';
 const DataGrid = dynamic(() => import('@/components/ui/DataGrid'));
 
 interface ActivityInfoProps {
@@ -44,9 +45,9 @@ const ActivityInfo = ({ item, userId = '' }: ActivityInfoProps) => {
   const timeAgo = fromDateToNow(createdAt);
 
   return (
-    <div className="flex gap-2 justify-items-start ml-1">
+    <div className="flex gap-3 justify-items-start ml-1">
       <Avatar isBordered src={`${API_IMAGE_URL}${senderAvatar}`} />
-      <div className="flex flex-col max-w-[200px] md:max-w-[297px]">
+      <div className="flex flex-col mr-8">
         <Text variant="description" customClass="text-2xs md:text-xs text-wrap">
           {content}
         </Text>
@@ -58,7 +59,7 @@ const ActivityInfo = ({ item, userId = '' }: ActivityInfoProps) => {
   );
 };
 
-const COLUMNS_ACTIVITY_FEED: ColumnType<NotificationModel>[] = [
+export const COLUMNS_ACTIVITY_FEED: ColumnType<NotificationModel>[] = [
   {
     key: 'sender',
     title: 'Sender',
@@ -86,32 +87,41 @@ interface ActivityFeedProps extends MetaResponse {
 }
 
 const ActivityFeedList = memo(
-  ({ userId, notifications, pagination }: ActivityFeedProps) => (
-    <Card className="bg-background-200 p-4 md:pl-7 w-full lg:w-[495px]">
-      <Text variant="title" size="lg" customClass="leading-9">
-        Activity Feed
-      </Text>
-      <div className="flex flex-col items-center">
-        <DataGrid
-          data={notifications}
-          pagination={pagination}
-          columns={
-            COLUMNS_ACTIVITY_FEED.map((column) => ({
-              ...column,
-              customNode: (_, item: NotificationModel) =>
-                column.key === 'sender' ? (
-                  <ActivityInfo item={item} userId={userId} />
-                ) : column.customNode ? (
-                  column.customNode(column, item)
-                ) : null,
-            })) as ColumnType<unknown>[]
-          }
-          classWrapper="pt-4"
-          classCell="pb-6"
-        />
-      </div>
-    </Card>
-  ),
+  ({ userId, notifications, pagination }: ActivityFeedProps) => {
+    const [isPending, startTransition] = useTransition();
+
+    return (
+      <Card className="bg-background-200 h-fit p-4 md:pl-7 w-full lg:w-[495px]">
+        <Text variant="title" size="lg" customClass="leading-9">
+          Activity Feed
+        </Text>
+        {isPending ? (
+          <ActivityFeedListSkeleton />
+        ) : (
+          <div className="flex flex-col items-center">
+            <DataGrid
+              data={notifications}
+              pagination={pagination}
+              startTransition={startTransition}
+              columns={
+                COLUMNS_ACTIVITY_FEED.map((column) => ({
+                  ...column,
+                  customNode: (_, item: NotificationModel) =>
+                    column.key === 'sender' ? (
+                      <ActivityInfo item={item} userId={userId} />
+                    ) : column.customNode ? (
+                      column.customNode(column, item)
+                    ) : null,
+                })) as ColumnType<unknown>[]
+              }
+              classWrapper="pt-4"
+              classCell="pb-6"
+            />
+          </div>
+        )}
+      </Card>
+    );
+  },
 );
 
 ActivityFeedList.displayName = 'ActivityFeedList';

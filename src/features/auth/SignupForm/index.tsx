@@ -216,7 +216,7 @@ const SignupForm = () => {
                   isIconOnly
                   className="p-0 min-w-5 h-5 text-primary-200"
                 >
-                  {isShowConfirmPassword ? <EyeIcon /> : <EyeSlashIcon />}z
+                  {isShowConfirmPassword ? <EyeIcon /> : <EyeSlashIcon />}
                 </Button>
               }
               isInvalid={!!error?.message}

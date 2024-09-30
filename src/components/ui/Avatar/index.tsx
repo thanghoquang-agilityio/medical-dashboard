@@ -10,9 +10,9 @@ interface AvatarProps extends AvatarNextUIProps {
 }
 
 const SIZE_CLASSES = {
-  sm: 'w-6 h-6',
-  md: 'w-8 h-8',
-  lg: 'w-12 h-12',
+  sm: 'min-w-6 w-6 h-6',
+  md: 'min-w-8 w-8 h-8',
+  lg: 'min-w-12 w-12 h-12',
 };
 
 export const Avatar = ({
