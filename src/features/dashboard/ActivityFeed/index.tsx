@@ -12,6 +12,7 @@ import {
 
 // Services
 import { getNotifications } from '@/services';
+
 interface ActivityFeedProps {
   page: number;
   userId: string;

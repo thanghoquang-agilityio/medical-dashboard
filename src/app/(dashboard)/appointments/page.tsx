@@ -21,7 +21,6 @@ const AppointmentPage = async ({
   searchParams?: SearchParams;
 }) => {
   const { page = PAGE_DEFAULT } = searchParams as SearchParams;
-
   const { id = '', role = ROLE.NORMAL_USER } = (await auth())?.user || {};
 
   return (

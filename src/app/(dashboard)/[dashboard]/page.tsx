@@ -3,7 +3,7 @@ import dynamic from 'next/dynamic';
 import { auth } from '@/config/auth';
 
 // Components
-import { Text, Button, Spinner, Image } from '@/components/ui';
+import { Text, Button, Image } from '@/components/ui';
 import { CloseIcon } from '@/icons';
 const AppointmentsUpcoming = dynamic(
   () => import('@/features/dashboard/AppointmentsUpcoming'),
@@ -11,13 +11,20 @@ const AppointmentsUpcoming = dynamic(
 const ActivityFeed = dynamic(() => import('@/features/dashboard/ActivityFeed'));
 
 // Constants
-import { PAGE_DEFAULT, ROLE, SRC_BANNER_AVATAR } from '@/constants';
+import {
+  APPOINTMENT_STATUS_OPTIONS,
+  PAGE_DEFAULT,
+  ROLE,
+  SRC_BANNER_AVATAR,
+} from '@/constants';
 
 // Types
 import { SearchParams } from '@/types';
 
 // Utils
 import { getGreeting } from '@/utils';
+import { ActivityFeedSkeleton } from '@/features/dashboard/ActivityFeed/ActivityFeedSkeleton';
+import { AppointmentsUpcomingSkeleton } from '@/features/dashboard/AppointmentsUpcoming/AppointmentsUpcomingSkeleton';
 
 interface DashboardPageSearchParamsProps extends SearchParams {
   status?: string;
@@ -28,7 +35,7 @@ const DashboardPage = async ({
 }: {
   searchParams?: DashboardPageSearchParamsProps;
 }) => {
-  const { page = PAGE_DEFAULT, status = '' } =
+  const { page = PAGE_DEFAULT, status = APPOINTMENT_STATUS_OPTIONS[0].key } =
     searchParams as DashboardPageSearchParamsProps;
 
   const {
@@ -68,11 +75,10 @@ const DashboardPage = async ({
       </div>
 
       <div className="flex flex-col-reverse lg:flex-row justify-between my-[31px] gap-[30px] w-full">
-        <Suspense fallback={<Spinner />}>
+        <Suspense fallback={<ActivityFeedSkeleton />}>
           <ActivityFeed page={page} userId={id} role={role} />
         </Suspense>
-
-        <Suspense fallback={<Spinner />}>
+        <Suspense fallback={<AppointmentsUpcomingSkeleton />}>
           <AppointmentsUpcoming userId={id} role={role} status={status} />
         </Suspense>
       </div>
