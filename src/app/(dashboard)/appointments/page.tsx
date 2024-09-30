@@ -15,18 +15,32 @@ export const metadata: Metadata = {
   description: 'Appointments page for Medical Dashboard',
 };
 
+interface AppointmentPageSearchParamsProps extends SearchParams {
+  status?: string;
+}
+
 const AppointmentPage = async ({
   searchParams,
 }: {
-  searchParams?: SearchParams;
+  searchParams?: AppointmentPageSearchParamsProps;
 }) => {
-  const { page = PAGE_DEFAULT } = searchParams as SearchParams;
+  const {
+    page = PAGE_DEFAULT,
+    search,
+    status = '',
+  } = searchParams as AppointmentPageSearchParamsProps;
 
   const { id = '', role = ROLE.NORMAL_USER } = (await auth())?.user || {};
 
   return (
     <Suspense fallback={<Spinner />}>
-      <AppointmentHistory page={page} role={role} userId={id} />
+      <AppointmentHistory
+        page={page}
+        role={role}
+        userId={id}
+        search={search}
+        status={status}
+      />
     </Suspense>
   );
 };

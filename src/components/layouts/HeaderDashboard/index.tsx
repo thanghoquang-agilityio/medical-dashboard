@@ -1,98 +1,42 @@
 'use client';
 import dynamic from 'next/dynamic';
-import { Badge, Divider } from '@nextui-org/react';
 
 // Types
 import { NotificationResponse } from '@/types';
 
-// Components
-import { Avatar, Button, Text, Popover } from '@/components/ui';
-import { SidebarMobile } from '../Sidebar/SideBarMobile';
+// Constants
+import { API_IMAGE_URL } from '@/constants';
 
-// Icons
-import { BellIcon, SingleDotIcon } from '@/icons';
+// Components
+import { Avatar } from '@/components/ui';
+import { SidebarMobile } from '../Sidebar/SideBarMobile';
 const SwitchTheme = dynamic(() => import('@/components/ui/SwitchTheme'));
+const Notifications = dynamic(() => import('./Notifications'));
 
 interface HeaderProps {
   avatarUrl: string;
-  notificationList?: NotificationResponse[];
+  notifications?: NotificationResponse[];
   userName?: string;
   isInvisibleBadge?: boolean;
-  avatarColor?: number;
 }
 
 const HeaderDashboard = ({
   avatarUrl,
   userName,
-  notificationList,
+  notifications,
   isInvisibleBadge = false,
 }: HeaderProps) => {
-  // Render notification content
-  const renderNotificationContent = () => {
-    return (
-      <>
-        <Text variant="title" size="xl">
-          Notifications
-        </Text>
-        <Divider />
-        {notificationList?.length ? (
-          notificationList.map(({ attributes, id }) => (
-            <div
-              key={id}
-              className="relative flex gap-2 justify-center justify-items-start my-2"
-            >
-              <Avatar src={attributes.senderAvatar} size="lg" hasBorder />
-              <div className={`flex flex-col gap-2 pl-2 pr-10`}>
-                {/* TODO: Update this notification content */}
-                <Text size="md" variant="description">
-                  You have been given medication of heart burn
-                </Text>
-                <Text variant="subTitle">1 hours ago</Text>
-              </div>
-              {attributes.isRead && (
-                <SingleDotIcon customClass="absolute right-0 w-10 h-full text-primary" />
-              )}
-            </div>
-          ))
-        ) : (
-          <Text variant="title">No notification</Text>
-        )}
-      </>
-    );
-  };
-
   return (
     <header className="flex sticky z-[10] top-0 justify-end items-center gap-6 w-full h-14 bg-background-100 px-[17px] md:px-8">
       <SidebarMobile />
       <SwitchTheme />
 
-      <Popover
-        className="relative bg-background-200 pr-0"
-        popoverTrigger={
-          <Button
-            isIconOnly
-            className="p-0 min-w-6 h-6 text-primary-300 overflow-visible"
-          >
-            <Badge
-              className="bg-danger-200 text-content1"
-              classNames={{
-                badge:
-                  'min-w-3 min-h-3 w-3 h-3 text-[6px] top-[15%] right-[15%]',
-              }}
-              content={notificationList?.length ? notificationList.length : 0}
-              size="sm"
-              showOutline={false}
-              isInvisible={isInvisibleBadge}
-            >
-              <BellIcon customClass="w-6 h-6 text-primary-300" />
-            </Badge>
-          </Button>
-        }
-        popoverContent={renderNotificationContent()}
-        placement="bottom-end"
+      <Notifications
+        notifications={notifications || []}
+        isInvisibleBadge={isInvisibleBadge}
       />
       <Avatar
-        src={avatarUrl}
+        src={`${API_IMAGE_URL}${avatarUrl}`}
         name={userName}
         hasBorder
         size="md"

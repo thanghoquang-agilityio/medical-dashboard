@@ -22,8 +22,8 @@ export const Image = memo(({ className, src, alt, ...rest }: ImageProps) => {
       alt={altImage}
       onError={handleError}
       style={{ objectFit: 'cover' }}
-      {...rest}
       priority
+      {...rest}
     />
   );
 });

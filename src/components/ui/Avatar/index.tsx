@@ -10,9 +10,9 @@ interface AvatarProps extends AvatarNextUIProps {
 }
 
 const SIZE_CLASSES = {
-  sm: 'w-6 h-6',
-  md: 'w-8 h-8',
-  lg: 'w-12 h-12',
+  sm: 'min-w-6 w-6 h-6',
+  md: 'min-w-8 w-8 h-8',
+  lg: 'min-w-12 w-12 h-12',
 };
 
 export const Avatar = ({
@@ -24,8 +24,8 @@ export const Avatar = ({
 }: AvatarProps) => {
   const sizeClass = SIZE_CLASSES[size];
   const borderClass = hasBorder
-    ? `border-2 border-${color} border-opacity-25`
-    : '';
+    ? `ring-offset-0 ring-yellow ring-opacity-25 ring-4`
+    : 'ring-offset-2 ring-green';
   const backgroundClass = `bg-${color}`;
 
   const className =
@@ -35,7 +35,7 @@ export const Avatar = ({
     base: className,
   };
 
-  return <AvatarNextUI classNames={classNames} {...rest} />;
+  return <AvatarNextUI {...rest} classNames={classNames} />;
 };
 
 Avatar.displayName = 'Avatar';

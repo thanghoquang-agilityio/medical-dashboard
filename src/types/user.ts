@@ -2,6 +2,7 @@ import {
   APIRelatedResponse,
   APIResponse,
   AppointmentModel,
+  ImageModel,
   ImageResponse,
   MetaResponse,
   NotificationModel,
@@ -43,7 +44,7 @@ export type UserLogged = Omit<
   | 'appointmentReceived'
 > & {
   id: string;
-  avatar?: ImageResponse;
+  avatar?: ImageModel;
   role: RoleModel;
   specialtyId?: SpecialtyModel;
   notificationsSent?: NotificationModel[];

@@ -10,6 +10,7 @@ import {
 } from 'react';
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 import dynamic from 'next/dynamic';
+import { Card } from '@nextui-org/react';
 
 // Constants
 import { APPOINTMENT_STATUS_OPTIONS } from '@/constants';
@@ -26,9 +27,9 @@ import {
 import { formatDate, formatTimeAppointment } from '@/utils';
 
 // Components
-import { Button, Select, Spinner, Text } from '@/components/ui';
+import { Button, Select, Text } from '@/components/ui';
 import { MoreIcon } from '@/icons';
-import { Card } from '@nextui-org/react';
+import { AppointmentsUpcomingListSkeleton } from './AppointmentsUpcomingSkeleton';
 const DataGrid = dynamic(() => import('@/components/ui/DataGrid'));
 
 const COLUMNS_APPOINTMENT: ColumnType<AppointmentModel>[] = [
@@ -128,10 +129,12 @@ const AppointmentsUpcomingList = memo(
 
     const updateSearchParams = useCallback(
       (value: string) => {
-        if (!searchParams.get('status')) {
+        const status = searchParams.get('status');
+
+        if (!status) {
           params.append('status', value);
         } else {
-          params.set('status', value);
+          params.delete('status');
         }
 
         handleReplaceURL?.(params);
@@ -157,7 +160,8 @@ const AppointmentsUpcomingList = memo(
             <Select
               aria-label="appointment status"
               options={APPOINTMENT_STATUS_OPTIONS}
-              defaultSelectedKeys={APPOINTMENT_STATUS_OPTIONS[0].key}
+              defaultSelectedKeys={status}
+              disabledKeys={status}
               selectedKeys={status}
               placeholder="Status"
               classNames={{
@@ -171,7 +175,7 @@ const AppointmentsUpcomingList = memo(
           </div>
         </div>
         {isPending ? (
-          <Spinner size="sm" />
+          <AppointmentsUpcomingListSkeleton />
         ) : (
           <DataGrid
             data={appointments}

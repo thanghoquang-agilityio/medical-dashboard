@@ -1,33 +1,54 @@
 import dynamic from 'next/dynamic';
 
-// Mocks
-import { MOCK_NOTIFICATION_LIST } from '@/mocks';
+// Config
+import { auth } from '@/config/auth';
+
+// Services
+import { getNotifications } from '@/services';
+
+// Constants
+import { API_ENDPOINT, PRIVATE_ROUTES } from '@/constants';
 
 // Components
 import { Sidebar } from '@/components/layouts';
+
 const HeaderDashboard = dynamic(
   () => import('@/components/layouts/HeaderDashboard'),
 );
 const Footer = dynamic(() => import('@/components/layouts/Footer'));
 
-export default function DashboardLayout({
+export default async function DashboardLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const { avatar, id } = (await auth())?.user || {};
+  const searchParamsAPI = new URLSearchParams();
+
+  searchParamsAPI.set('populate[0]', 'senderId');
+  searchParamsAPI.set('filters[senderId][id][$eq]', `${id}`);
+
+  const { notifications } = await getNotifications({
+    searchParams: searchParamsAPI,
+    options: {
+      next: {
+        tags: [API_ENDPOINT.NOTIFICATIONS, `${PRIVATE_ROUTES.DASHBOARD}/${id}`],
+      },
+    },
+  });
+
   return (
     <main className="flex max-w-[1158px] m-auto">
       <Sidebar />
-
       <div className="flex flex-col min-h-[100vh] max-h-fit w-full relative bg-background-100 md:pl-[81px] lg:pl-[277px]">
-        {/* TODO: Replace header props with user information when login */}
         <HeaderDashboard
-          avatarUrl={''}
-          notificationList={MOCK_NOTIFICATION_LIST}
-          isInvisibleBadge={true}
+          avatarUrl={avatar ?? ''}
+          notifications={notifications}
+          isInvisibleBadge={!notifications.length}
         />
-        <div />
-        <div className="min-h-fit h-full px-[17px] md:px-8">{children}</div>
+        <div className="relative min-h-fit h-full px-[17px] md:px-8">
+          {children}
+        </div>
         <Footer />
       </div>
     </main>
