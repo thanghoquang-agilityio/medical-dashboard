@@ -10,6 +10,7 @@ import {
 // Components
 import DataGrid, { DataTableProps } from '.';
 import { RESULT_NOT_FOUND } from '@/constants';
+import { act } from 'react';
 
 const mockReplace = jest.fn();
 
@@ -33,8 +34,8 @@ describe('DataGrid', () => {
   let renderResult: RenderResult;
   const dataGridComponent = <DataGrid {...mockProps} />;
 
-  beforeEach(() => {
-    renderResult = render(dataGridComponent);
+  beforeEach(async () => {
+    renderResult = await act(() => render(dataGridComponent));
   });
 
   afterEach(() => {
@@ -52,7 +53,9 @@ describe('DataGrid', () => {
   it('Should show empty result', async () => {
     jest.spyOn(URLSearchParams.prototype, 'get').mockReturnValue('1');
 
-    const { getByText } = render(<DataGrid {...mockProps} data={[]} />);
+    const { getByText } = await act(() =>
+      render(<DataGrid {...mockProps} data={[]} />),
+    );
 
     expect(getByText(RESULT_NOT_FOUND)).toBeInTheDocument();
   });
