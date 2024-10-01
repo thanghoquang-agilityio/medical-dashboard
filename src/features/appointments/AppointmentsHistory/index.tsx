@@ -9,7 +9,7 @@ import {
   useState,
   useTransition,
 } from 'react';
-import { Card } from '@nextui-org/react';
+import { Card, useDisclosure } from '@nextui-org/react';
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 
 // Types
@@ -28,8 +28,16 @@ import { formatDayMonthYear, formatTimeAppointment } from '@/utils';
 import { API_IMAGE_URL, APPOINTMENT_STATUS_OPTIONS, ROLE } from '@/constants';
 
 // Components
-import { Avatar, Select, Status, Text } from '@/components/ui';
+import {
+  Avatar,
+  Button,
+  InputSearch,
+  Select,
+  Status,
+  Text,
+} from '@/components/ui';
 import { AppointmentsHistoryListSkeleton } from './AppointmentsHistorySkeleton';
+import AppointmentModal from '../AppointmentModal';
 const DataGrid = dynamic(() => import('@/components/ui/DataGrid'));
 
 // Create config columns for appointments
@@ -116,12 +124,14 @@ const createColumns = (role: string): ColumnType<AppointmentModel>[] => {
 };
 
 export interface AppointmentsHistoryProps extends MetaResponse {
+  userId: string;
   appointments: AppointmentResponse[];
   role: string;
   defaultStatus?: string;
 }
 
 const AppointmentsHistory = ({
+  userId,
   appointments,
   pagination,
   role,
@@ -175,42 +185,61 @@ const AppointmentsHistory = ({
     [updateSearchParams],
   );
 
+  const { isOpen, onClose, onOpen } = useDisclosure();
+
   return (
-    <Card className="w-full px-4 py-6 bg-background-200">
-      <div className="flex justify-between items-center">
-        <Text customClass="text-xl font-bold text-primary-100">History</Text>
-        <div>
-          <Select
-            aria-label="Status"
-            options={APPOINTMENT_STATUS_OPTIONS}
-            selectedKeys={status}
-            defaultSelectedKeys={APPOINTMENT_STATUS_OPTIONS[0].key}
-            placeholder="Status"
-            classNames={{
-              base: 'max-w-[102px] max-h-[36px]',
-              mainWrapper: 'max-w-[102px] max-h-[36px]',
-              innerWrapper: 'w-[80px]',
-              trigger: 'min-h-[36px]',
-            }}
-            onChange={handleSelectStatus}
-          />
+    <>
+      <div className="flex justify-between gap-10">
+        <InputSearch
+          placeholder="Search Appointments"
+          classNames={{ mainWrapper: 'pb-10' }}
+        />
+        <Button onClick={onOpen} className="mt-3 h-[50px]">
+          Create
+        </Button>
+      </div>
+      <Card className="w-full px-4 py-6 bg-background-200">
+        <div className="flex justify-between items-center">
+          <Text customClass="text-xl font-bold text-primary-100">History</Text>
+          <div>
+            <Select
+              aria-label="Status"
+              options={APPOINTMENT_STATUS_OPTIONS}
+              selectedKeys={status}
+              defaultSelectedKeys={APPOINTMENT_STATUS_OPTIONS[0].key}
+              placeholder="Status"
+              classNames={{
+                base: 'max-w-[102px] max-h-[36px]',
+                mainWrapper: 'max-w-[102px] max-h-[36px]',
+                innerWrapper: 'w-[80px]',
+                trigger: 'min-h-[36px]',
+              }}
+              onChange={handleSelectStatus}
+            />
+          </div>
         </div>
-      </div>
-      <div className="flex flex-col items-center">
-        {isPending ? (
-          <AppointmentsHistoryListSkeleton />
-        ) : (
-          <DataGrid
-            data={appointments}
-            startTransition={startTransition}
-            columns={columns as ColumnType<unknown>[]}
-            pagination={pagination}
-            hasDivider
-            classWrapper="p-1"
-          />
-        )}
-      </div>
-    </Card>
+        <div className="flex flex-col items-center">
+          {isPending ? (
+            <AppointmentsHistoryListSkeleton />
+          ) : (
+            <DataGrid
+              data={appointments}
+              startTransition={startTransition}
+              columns={columns as ColumnType<unknown>[]}
+              pagination={pagination}
+              hasDivider
+              classWrapper="p-1"
+            />
+          )}
+        </div>
+      </Card>
+      <AppointmentModal
+        userId={userId}
+        role={role}
+        onClose={onClose}
+        isOpen={isOpen}
+      />
+    </>
   );
 };
 

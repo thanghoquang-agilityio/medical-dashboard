@@ -32,3 +32,8 @@ export type AppointmentPayload = Omit<
   senderId: number;
   receiverId: number;
 };
+
+export type AppointMentFormData = Omit<AppointmentPayload, 'status'> & {
+  startDate: string;
+  status: string;
+};

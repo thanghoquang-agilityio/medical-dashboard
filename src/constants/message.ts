@@ -9,6 +9,8 @@ export const FORM_VALIDATION_MESSAGE = {
   PASSWORD_NOT_MATCH: 'Password does not match',
   FORMAT: (ariaLabel: string) =>
     `${ariaLabel} does not follow the correct format.`,
+  MIN_TIME: (item: string) => `${item} must be in present or future.`,
+  DURATION: (item: string) => `${item} must be between 00:00 and 23:59.`,
 };
 
 export const ERROR_MESSAGE = {
