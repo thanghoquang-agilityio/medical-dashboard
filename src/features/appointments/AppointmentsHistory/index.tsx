@@ -214,7 +214,7 @@ const AppointmentsHistory = ({
           placeholder="Search Appointments"
           classNames={{ mainWrapper: 'pb-10' }}
         />
-        <Button onClick={handleCreate} className="mt-3 h-[50px]">
+        <Button onClick={handleCreate} className="mt-3 font-medium">
           Create
         </Button>
       </div>

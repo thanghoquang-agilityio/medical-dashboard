@@ -1,4 +1,5 @@
 import dayjs from 'dayjs';
+import { TimeInputValue } from '@nextui-org/react';
 
 /**
  * Formats a numeric string into a `hh:mm` time format.
@@ -130,4 +131,29 @@ export const convertToTimeObject = (isoString: string) => {
     minute: Number(startTime.format('mm')),
     second: Number(startTime.format('ss')),
   };
+};
+
+/**
+ * Generates an ISO date string from a TimeInputValue object.
+ *
+ * @param inputTime - The TimeInputValue object containing the time values.
+ * @param dateTime - The date string in the format "YYYY-MM-DD".
+ * */
+export const generateISODate = (
+  inputTime: TimeInputValue,
+  dateTime: string,
+) => {
+  const { hour, minute, second, millisecond } = inputTime;
+
+  // Parse the provided date string
+  const date = new Date(dateTime);
+
+  // Set the time using the input object
+  date.setUTCHours(hour);
+  date.setUTCMinutes(minute);
+  date.setUTCSeconds(second);
+  date.setUTCMilliseconds(millisecond);
+
+  // Return the ISO string
+  return date.toISOString();
 };

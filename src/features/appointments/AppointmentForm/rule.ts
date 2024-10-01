@@ -1,7 +1,8 @@
+import { UseFormGetValues } from 'react-hook-form';
+
 import { FORM_VALIDATION_MESSAGE } from '@/constants';
 import { AppointMentFormData } from '@/types';
 import { getCurrentTime } from '@/utils';
-import { UseFormGetValues } from 'react-hook-form';
 
 export const APPOINTMENT_FORM_VALIDATION = {
   SENDER_ID: {
@@ -11,8 +12,14 @@ export const APPOINTMENT_FORM_VALIDATION = {
   },
   RECEIVER_ID: {
     required: FORM_VALIDATION_MESSAGE.REQUIRED('The receiver'),
-    validate: (value: string) =>
-      value !== '' || FORM_VALIDATION_MESSAGE.REQUIRED('The receiver'),
+    // validate: {
+    //   notSameAsSender: (
+    //     value: number,
+    //     getValues: UseFormGetValues<AppointMentFormData>,
+    //   ) =>
+    //     value !== getValues('senderId') ||
+    //     FORM_VALIDATION_MESSAGE.NOT_SAME_AS_SENDER,
+    // },
   },
   START_DATE: {
     required: FORM_VALIDATION_MESSAGE.REQUIRED('The start date'),
