@@ -18,10 +18,14 @@ export const ERROR_MESSAGE = {
   LOGIN: 'Login failed. Please try again.',
   SIGNUP: 'Signup failed. Please try again.',
   DELETE: (item: string) => `Delete ${item} failed. Please try again.`,
+  CREATE: (item: string) => `Create ${item} failed. Please try again.`,
+  UPDATE: (item: string) => `Update ${item} failed. Please try again.`,
 };
 
 export const SUCCESS_MESSAGE = {
   LOGIN: 'Login successful.',
   SIGNUP: 'Signup successful.',
-  DELETE: (item: string) => `Delete ${item} successful.`,
+  DELETE: (item: string) => `Delete ${item} successfully.`,
+  CREATE: (item: string) => `Create ${item} successfully.`,
+  UPDATE: (item: string) => `Update ${item} successfully.`,
 };
