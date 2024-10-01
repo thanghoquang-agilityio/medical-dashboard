@@ -1,4 +1,4 @@
-import { RenderResult, render } from '@testing-library/react';
+import { RenderResult, act, render } from '@testing-library/react';
 
 // Mocks
 import {
@@ -10,7 +10,6 @@ import {
 // Components
 import DataGrid, { DataTableProps } from '.';
 import { RESULT_NOT_FOUND } from '@/constants';
-import { act } from 'react';
 
 const mockReplace = jest.fn();
 

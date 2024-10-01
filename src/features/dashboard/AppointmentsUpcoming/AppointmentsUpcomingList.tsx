@@ -99,13 +99,13 @@ const COLUMNS_APPOINTMENT: ColumnType<AppointmentModel>[] = [
   },
 ];
 
-interface AppointmentsUpcomingProps extends MetaResponse {
+export interface AppointmentsUpcomingListProps extends MetaResponse {
   appointments: AppointmentResponse[];
   defaultStatus: string;
 }
 
 const AppointmentsUpcomingList = memo(
-  ({ appointments, defaultStatus }: AppointmentsUpcomingProps) => {
+  ({ appointments, defaultStatus }: AppointmentsUpcomingListProps) => {
     const [isPending, startTransition] = useTransition();
     const [status, setStatus] = useState(new Set<string>([defaultStatus]));
 
