@@ -20,19 +20,23 @@ export const Input = extendVariants(NextUIInput, {
       sm: {
         mainWrapper: 'h-16',
         inputWrapper: 'h-auto py-3',
+        label: 'top-[20px]',
       },
       md: {
         mainWrapper: 'h-20',
         inputWrapper: 'h-auto py-4',
+        label: 'top-[20px]',
       },
       lg: {
         mainWrapper: 'h-24',
         inputWrapper: 'h-auto py-5',
+        label: 'top-[20px]',
       },
     },
     border: {
       default: {
         inputWrapper: 'border',
+        label: 'top-[20px]',
       },
     },
   },

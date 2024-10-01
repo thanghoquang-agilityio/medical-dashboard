@@ -17,24 +17,16 @@ export const TimeInput = extendVariants(TimeInputNextUI, {
           '!bg-transparent hover:!bg-transparent focus:!bg-transparent focus:border-secondary-300 group-data-[invalid=true]:border-red',
         ),
         input:
-          'text-primary-100 placeholder:text-primary-300 bg-transparent text-md mx-2 data-[focus=true]:!bg-transparent',
-        errorMessage: 'text-danger-100 text-sm ml-2',
-        label: 'top-[20px]',
+          'text-primary-100 placeholder:text-primary-300 bg-transparent text-sm mx-2 data-[focus=true]:!bg-transparent',
+        errorMessage: 'text-danger-100 text-xs ml-2',
+        label: 'top-[13px] text-sm',
         segment: 'focus:bg-primary-100 focus:bg-opacity-20',
       },
     },
     size: {
       sm: {
-        mainWrapper: 'h-16',
-        inputWrapper: 'h-auto py-3',
-      },
-      md: {
-        mainWrapper: 'h-20',
-        inputWrapper: 'h-auto py-4',
-      },
-      lg: {
-        mainWrapper: 'h-24',
-        inputWrapper: 'h-auto py-5',
+        base: 'h-[86px] gap-[3px]',
+        inputWrapper: 'h-auto py-3 max-h-10',
       },
     },
     border: {
@@ -45,7 +37,7 @@ export const TimeInput = extendVariants(TimeInputNextUI, {
   },
   defaultVariants: {
     color: 'default',
-    size: 'md',
+    size: 'sm',
     border: 'default',
   },
 });

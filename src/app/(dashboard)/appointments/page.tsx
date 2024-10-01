@@ -21,7 +21,6 @@ import { auth } from '@/config/auth';
 import { getAppointments } from '@/services';
 
 // Components
-import { InputSearch } from '@/components/ui';
 import { AppointmentsHistorySkeleton } from '@/features/appointments/AppointmentsHistory/AppointmentsHistorySkeleton';
 const AppointmentsHistory = dynamic(
   () => import('@/features/appointments/AppointmentsHistory'),
@@ -104,20 +103,15 @@ const AppointmentPage = async ({
   });
 
   return (
-    <>
-      <InputSearch
-        placeholder="Search Appointments"
-        classNames={{ mainWrapper: 'pb-10' }}
+    <Suspense fallback={<AppointmentsHistorySkeleton />}>
+      <AppointmentsHistory
+        appointments={appointments || []}
+        pagination={meta?.pagination}
+        userId={id}
+        role={role}
+        defaultStatus={status}
       />
-      <Suspense fallback={<AppointmentsHistorySkeleton />}>
-        <AppointmentsHistory
-          appointments={appointments || []}
-          pagination={meta?.pagination}
-          role={role}
-          defaultStatus={status}
-        />
-      </Suspense>
-    </>
+    </Suspense>
   );
 };
 
