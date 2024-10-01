@@ -99,13 +99,13 @@ const COLUMNS_APPOINTMENT: ColumnType<AppointmentModel>[] = [
   },
 ];
 
-interface AppointmentsUpcomingProps extends MetaResponse {
+export interface AppointmentsUpcomingListProps extends MetaResponse {
   appointments: AppointmentResponse[];
   defaultStatus: string;
 }
 
 const AppointmentsUpcomingList = memo(
-  ({ appointments, defaultStatus }: AppointmentsUpcomingProps) => {
+  ({ appointments, defaultStatus }: AppointmentsUpcomingListProps) => {
     const [isPending, startTransition] = useTransition();
     const [status, setStatus] = useState(new Set<string>([defaultStatus]));
 
@@ -151,7 +151,7 @@ const AppointmentsUpcomingList = memo(
     );
 
     return (
-      <Card className="w-full lg:max-w-[320px] h-fit p-4 pl-5 bg-background-200">
+      <Card className="w-full lg:max-w-[320px] 2xl:max-w-[550px] h-fit p-4 pl-5 bg-background-200">
         <div className="flex justify-between items-center">
           <Text customClass="text-lg font-bold text-primary-100">
             Appointments

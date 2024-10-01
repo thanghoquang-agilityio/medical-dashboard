@@ -1,4 +1,4 @@
-import { RenderResult, render } from '@testing-library/react';
+import { RenderResult, act, render } from '@testing-library/react';
 
 // Mocks
 import {
@@ -33,8 +33,8 @@ describe('DataGrid', () => {
   let renderResult: RenderResult;
   const dataGridComponent = <DataGrid {...mockProps} />;
 
-  beforeEach(() => {
-    renderResult = render(dataGridComponent);
+  beforeEach(async () => {
+    renderResult = await act(() => render(dataGridComponent));
   });
 
   afterEach(() => {
@@ -52,7 +52,9 @@ describe('DataGrid', () => {
   it('Should show empty result', async () => {
     jest.spyOn(URLSearchParams.prototype, 'get').mockReturnValue('1');
 
-    const { getByText } = render(<DataGrid {...mockProps} data={[]} />);
+    const { getByText } = await act(() =>
+      render(<DataGrid {...mockProps} data={[]} />),
+    );
 
     expect(getByText(RESULT_NOT_FOUND)).toBeInTheDocument();
   });

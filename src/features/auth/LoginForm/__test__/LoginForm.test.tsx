@@ -3,6 +3,7 @@ import { render, screen, fireEvent, waitFor } from '@testing-library/react';
 import LoginForm from '..';
 import { FORM_VALIDATION_MESSAGE } from '@/constants';
 import { MOCK_AUTH } from '@/mocks';
+import { act } from 'react';
 
 describe('LoginForm Component', () => {
   const setup = () => {
@@ -24,10 +25,8 @@ describe('LoginForm Component', () => {
   it('should enable the submit button when form is valid', async () => {
     const { emailInput, passwordInput } = setup();
 
-    await waitFor(async () => {
-      await fillInput(emailInput, MOCK_AUTH.EMAIL);
-      await fillInput(passwordInput, MOCK_AUTH.PASSWORD);
-    });
+    await act(() => fillInput(emailInput, MOCK_AUTH.EMAIL));
+    await act(() => fillInput(passwordInput, MOCK_AUTH.PASSWORD));
 
     const submitButton = await screen.findByRole('button', { name: /login/i });
 
@@ -54,7 +53,7 @@ describe('LoginForm Component', () => {
   it('should show validation error when email is invalid', async () => {
     const { emailInput } = setup();
 
-    await fillInput(emailInput, 'invalidEmail');
+    await act(() => fillInput(emailInput, 'invalidEmail'));
 
     await waitFor(() => {
       expect(
@@ -66,7 +65,7 @@ describe('LoginForm Component', () => {
   it('should show validation error when password is less than min characters', async () => {
     const { passwordInput } = setup();
 
-    await fillInput(passwordInput, 'min');
+    await act(() => fillInput(passwordInput, 'min'));
 
     await waitFor(() => {
       expect(
@@ -78,7 +77,9 @@ describe('LoginForm Component', () => {
   it('should show validation error when password is more than max length', async () => {
     const { passwordInput } = setup();
 
-    await fillInput(passwordInput, 'password1212121112112121212121212111221');
+    await act(() =>
+      fillInput(passwordInput, 'password1212121112112121212121212111221'),
+    );
 
     await waitFor(() => {
       expect(

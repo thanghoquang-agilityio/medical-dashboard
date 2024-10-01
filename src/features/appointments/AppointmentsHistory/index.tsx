@@ -121,7 +121,7 @@ const createColumns = (role: string): ColumnType<AppointmentModel>[] => {
     },
   ];
 
-  return role === ROLE.USER ? baseColumns.slice(1) : baseColumns;
+  return role === ROLE.ADMIN ? baseColumns : baseColumns.slice(1);
 };
 
 export interface AppointmentsHistoryProps extends MetaResponse {
@@ -145,6 +145,7 @@ const AppointmentsHistory = ({
   const [appointment, setAppointment] = useState<
     AppointmentModel | undefined
   >();
+  const [appointmentId, setAppointmentId] = useState<string | undefined>();
 
   const searchParams = useSearchParams() ?? '';
   const pathname = usePathname() ?? '';
@@ -197,6 +198,7 @@ const AppointmentsHistory = ({
         (appointment) => key == appointment.id,
       );
       setAppointment(appointment?.attributes);
+      setAppointmentId(appointment?.id);
       onOpen();
     },
     [appointments, onOpen],
@@ -256,6 +258,7 @@ const AppointmentsHistory = ({
       </Card>
       <AppointmentModal
         data={appointment}
+        appointmentId={appointmentId}
         userId={userId}
         role={role}
         onClose={onClose}

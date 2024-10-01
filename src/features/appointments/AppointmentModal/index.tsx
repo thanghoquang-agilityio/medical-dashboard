@@ -11,13 +11,21 @@ const AppointmentForm = lazy(() => import('../AppointmentForm'));
 
 export type AppointmentModalProps = {
   data?: AppointmentModel;
+  appointmentId?: string;
   userId: string;
   role: string;
   isOpen: boolean;
   onClose: () => void;
 };
 const AppointmentModal = memo(
-  ({ userId, role, data, isOpen, onClose }: AppointmentModalProps) => {
+  ({
+    userId,
+    role,
+    data,
+    appointmentId,
+    isOpen,
+    onClose,
+  }: AppointmentModalProps) => {
     return (
       <BaseModal
         isOpen={isOpen}
@@ -30,6 +38,7 @@ const AppointmentModal = memo(
             userId={userId}
             role={role}
             data={data}
+            appointmentId={String(appointmentId)}
             onClose={onClose}
           />
         </Suspense>

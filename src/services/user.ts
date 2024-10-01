@@ -12,6 +12,7 @@ export const getUserLogged = async (
         headers: {
           Authorization: `Bearer ${jwt}`,
         },
+        next: { revalidate: 3600, tags: [API_ENDPOINT.USERS, 'logged'] },
       },
     );
 
