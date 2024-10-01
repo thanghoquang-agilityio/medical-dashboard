@@ -11,16 +11,21 @@ export const FORM_VALIDATION_MESSAGE = {
     `${ariaLabel} does not follow the correct format.`,
   MIN_TIME: (item: string) => `${item} must be in present or future.`,
   DURATION: (item: string) => `${item} must be between 00:00 and 23:59.`,
+  NOT_SAME_AS_SENDER: 'Sender and receiver cannot be the same.',
 };
 
 export const ERROR_MESSAGE = {
   LOGIN: 'Login failed. Please try again.',
   SIGNUP: 'Signup failed. Please try again.',
   DELETE: (item: string) => `Delete ${item} failed. Please try again.`,
+  CREATE: (item: string) => `Create ${item} failed. Please try again.`,
+  UPDATE: (item: string) => `Update ${item} failed. Please try again.`,
 };
 
 export const SUCCESS_MESSAGE = {
   LOGIN: 'Login successful.',
   SIGNUP: 'Signup successful.',
-  DELETE: (item: string) => `Delete ${item} successful.`,
+  DELETE: (item: string) => `Delete ${item} successfully.`,
+  CREATE: (item: string) => `Create ${item} successfully.`,
+  UPDATE: (item: string) => `Update ${item} successfully.`,
 };
