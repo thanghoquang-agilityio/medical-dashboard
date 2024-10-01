@@ -1,6 +1,6 @@
 export type StringFilter = {
   field: string;
-  operator: '[$eq]' | '[$contains]' | '[$in]' | string; // TODO: add value operator when needing it
+  operator: '[$eq]' | '[$containsi]' | '[$in]' | string; // TODO: add value operator when needing it
   value: string;
 };
 

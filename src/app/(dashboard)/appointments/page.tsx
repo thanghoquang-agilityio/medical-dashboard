@@ -65,14 +65,14 @@ const AppointmentPage = async ({
     if (role === ROLE.NORMAL_USER || !role) {
       APPOINTMENT_SEARCH_PARAMS.forEach((param, index) =>
         searchParamsAPI.set(
-          `filters[$or][${index}][$and][${index}][${param}][username][$contains]`,
+          `filters[$or][${index}][$and][${index}][${param}][username][$containsi]`,
           search,
         ),
       );
     } else {
       APPOINTMENT_SEARCH_PARAMS.forEach((param, index) =>
         searchParamsAPI.set(
-          `filters[$or][${index}][${param}][username][$contains]`,
+          `filters[$or][${index}][${param}][username][$containsi]`,
           search,
         ),
       );
