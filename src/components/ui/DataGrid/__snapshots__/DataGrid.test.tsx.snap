@@ -81,17 +81,17 @@ exports[`DataGrid Should matches snapshot 1`] = `
           role="rowgroup"
         >
           <tr
-            aria-labelledby="table-table-body-1-senderId"
+            aria-labelledby="table-1-senderId"
             class="group outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2"
             data-first="true"
-            data-key="table-body-1"
+            data-key="1"
             role="row"
             tabindex="-1"
           >
             <td
               class="relative align-middle whitespace-normal text-small font-normal [&>*]:z-1 [&>*]:relative outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 before:content-[''] before:absolute before:z-0 before:inset-0 before:opacity-0 data-[selected=true]:before:opacity-100 group-data-[disabled=true]:text-foreground-300 group-data-[disabled=true]:cursor-not-allowed before:bg-default/60 data-[selected=true]:text-default-foreground first:before:rounded-s-lg last:before:rounded-e-lg text-start p-0"
               data-key="table-row-cell-senderId"
-              id="table-table-body-1-senderId"
+              id="table-1-senderId"
               role="rowheader"
               tabindex="-1"
             >
@@ -155,9 +155,9 @@ exports[`DataGrid Should matches snapshot 1`] = `
             </td>
           </tr>
           <tr
-            aria-labelledby="table-table-body-2-senderId"
+            aria-labelledby="table-2-senderId"
             class="group outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2"
-            data-key="table-body-2"
+            data-key="2"
             data-middle="true"
             data-odd="true"
             role="row"
@@ -166,7 +166,7 @@ exports[`DataGrid Should matches snapshot 1`] = `
             <td
               class="relative align-middle whitespace-normal text-small font-normal [&>*]:z-1 [&>*]:relative outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 before:content-[''] before:absolute before:z-0 before:inset-0 before:opacity-0 data-[selected=true]:before:opacity-100 group-data-[disabled=true]:text-foreground-300 group-data-[disabled=true]:cursor-not-allowed before:bg-default/60 data-[selected=true]:text-default-foreground first:before:rounded-s-lg last:before:rounded-e-lg text-start p-0"
               data-key="table-row-cell-senderId"
-              id="table-table-body-2-senderId"
+              id="table-2-senderId"
               role="rowheader"
               tabindex="-1"
             >
@@ -230,9 +230,9 @@ exports[`DataGrid Should matches snapshot 1`] = `
             </td>
           </tr>
           <tr
-            aria-labelledby="table-table-body-3-senderId"
+            aria-labelledby="table-3-senderId"
             class="group outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2"
-            data-key="table-body-3"
+            data-key="3"
             data-last="true"
             role="row"
             tabindex="-1"
@@ -240,7 +240,7 @@ exports[`DataGrid Should matches snapshot 1`] = `
             <td
               class="relative align-middle whitespace-normal text-small font-normal [&>*]:z-1 [&>*]:relative outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 before:content-[''] before:absolute before:z-0 before:inset-0 before:opacity-0 data-[selected=true]:before:opacity-100 group-data-[disabled=true]:text-foreground-300 group-data-[disabled=true]:cursor-not-allowed before:bg-default/60 data-[selected=true]:text-default-foreground first:before:rounded-s-lg last:before:rounded-e-lg text-start p-0"
               data-key="table-row-cell-senderId"
-              id="table-table-body-3-senderId"
+              id="table-3-senderId"
               role="rowheader"
               tabindex="-1"
             >
