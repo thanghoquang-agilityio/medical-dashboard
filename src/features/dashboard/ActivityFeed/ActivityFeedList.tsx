@@ -80,18 +80,17 @@ export const COLUMNS_ACTIVITY_FEED: ColumnType<NotificationModel>[] = [
     },
   },
 ];
-
-interface ActivityFeedProps extends MetaResponse {
+export interface ActivityFeedListProps extends MetaResponse {
   notifications: NotificationResponse[];
   userId: string;
 }
 
 const ActivityFeedList = memo(
-  ({ userId, notifications, pagination }: ActivityFeedProps) => {
+  ({ userId, notifications, pagination }: ActivityFeedListProps) => {
     const [isPending, startTransition] = useTransition();
 
     return (
-      <Card className="bg-background-200 h-fit p-4 md:pl-7 w-full lg:w-[495px]">
+      <Card className="bg-background-200 h-fit w-full p-4 md:pl-7">
         <Text variant="title" size="lg" customClass="leading-9">
           Activity Feed
         </Text>

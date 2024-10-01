@@ -1,6 +1,3 @@
 {
-  "cSpell.ignoreWords": [
-    "nextjs",
-    "tailwindcss",
-  ]
+  "cSpell.ignoreWords": ["nextjs", "tailwindcss"]
 }

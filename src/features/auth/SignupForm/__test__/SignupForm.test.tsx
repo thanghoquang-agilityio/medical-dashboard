@@ -1,3 +1,4 @@
+import { act } from 'react';
 import { render, screen, fireEvent, waitFor } from '@testing-library/react';
 
 import SignupForm from '..';
@@ -68,7 +69,7 @@ describe('SignupForm Component', () => {
   it('should show validation error when email is invalid', async () => {
     const { emailInput } = setup();
 
-    await fillInput(emailInput, 'invalidEmail');
+    await act(() => fillInput(emailInput, 'invalidEmail'));
 
     await waitFor(() => {
       expect(
@@ -80,7 +81,7 @@ describe('SignupForm Component', () => {
   it('should show validation error when password is less than min characters', async () => {
     const { passwordInput } = setup();
 
-    await fillInput(passwordInput, 'min');
+    await act(() => fillInput(passwordInput, 'min'));
 
     await waitFor(() => {
       expect(
@@ -92,7 +93,9 @@ describe('SignupForm Component', () => {
   it('should show validation error when password is more than max length', async () => {
     const { passwordInput } = setup();
 
-    await fillInput(passwordInput, 'password1212121112112121212121212111221');
+    await act(() =>
+      fillInput(passwordInput, 'password1212121112112121212121212111221'),
+    );
 
     await waitFor(() => {
       expect(
@@ -104,8 +107,8 @@ describe('SignupForm Component', () => {
   it('should show validation error when password and confirm password does not match', async () => {
     const { passwordInput, confirmPasswordInput } = setup();
 
-    await fillInput(passwordInput, MOCK_AUTH.PASSWORD);
-    await fillInput(confirmPasswordInput, 'confirmPasswordInput');
+    await act(() => fillInput(passwordInput, MOCK_AUTH.PASSWORD));
+    await act(() => fillInput(confirmPasswordInput, 'confirmPasswordInput'));
 
     await waitFor(() => {
       expect(
@@ -117,7 +120,7 @@ describe('SignupForm Component', () => {
   it('should show validation error when name is wrong format', async () => {
     const { usernameInput } = setup();
 
-    await fillInput(usernameInput, '@');
+    await act(() => fillInput(usernameInput, '@'));
 
     await waitFor(() => {
       expect(
@@ -126,7 +129,7 @@ describe('SignupForm Component', () => {
     });
   });
 
-  it('should renders correctly form', () => {
+  it('should renders correctly form', async () => {
     const { container } = setup();
 
     expect(container).toMatchSnapshot();

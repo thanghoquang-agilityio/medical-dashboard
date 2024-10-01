@@ -1,3 +1,5 @@
+'use server';
+
 import { revalidateTag } from 'next/cache';
 
 // Constants
@@ -11,6 +13,7 @@ import {
   AppointmentPayload,
   AppointmentResponse,
   APIRelatedResponse,
+  ErrorResponse,
 } from '@/types';
 
 // Services
@@ -51,14 +54,19 @@ export const addAppointment = async (
 ): Promise<AppointmentResponse | string> => {
   try {
     const api = await apiClient.apiClientSession();
-    const { data } = await api.post<APIRelatedResponse<AppointmentResponse>>(
-      `${API_ENDPOINT.APPOINTMENTS}`,
-      {
-        body: {
-          data: appointment,
-        },
+    const { data, error } = await api.post<{
+      data: AppointmentResponse;
+      error?: string;
+    }>(`${API_ENDPOINT.APPOINTMENTS}`, {
+      body: {
+        data: appointment,
       },
-    );
+    });
+
+    if (error) {
+      const errorResponse = JSON.parse(error) as ErrorResponse;
+      return errorResponse.error.message;
+    }
 
     revalidateTag(`${API_ENDPOINT.APPOINTMENTS}/dashboard`);
     revalidateTag(API_ENDPOINT.APPOINTMENTS);
@@ -80,16 +88,21 @@ export const updateAppointment = async (
 ): Promise<AppointmentResponse | string> => {
   try {
     const api = await apiClient.apiClientSession();
-    const { data } = await api.put<APIRelatedResponse<AppointmentResponse>>(
-      `${API_ENDPOINT.APPOINTMENTS}/${id}`,
-      {
-        body: {
-          data: {
-            ...appointment,
-          },
+    const { data, error } = await api.put<{
+      data: AppointmentResponse;
+      error?: string;
+    }>(`${API_ENDPOINT.APPOINTMENTS}/${id}`, {
+      body: {
+        data: {
+          ...appointment,
         },
       },
-    );
+    });
+
+    if (error) {
+      const errorResponse = JSON.parse(error) as ErrorResponse;
+      return errorResponse.error.message;
+    }
 
     revalidateTag(`${API_ENDPOINT.APPOINTMENTS}/dashboard`);
     revalidateTag(API_ENDPOINT.APPOINTMENTS);
@@ -111,7 +124,7 @@ export const deleteAppointment = async (id: string) => {
     const response = await api.delete<APIRelatedResponse<AppointmentResponse>>(
       `${API_ENDPOINT.APPOINTMENTS}/${id}`,
     );
-    if (response) {
+    if (response.data) {
       revalidateTag(`${API_ENDPOINT.APPOINTMENTS}/dashboard`);
       revalidateTag(API_ENDPOINT.APPOINTMENTS);
 

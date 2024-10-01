@@ -1,4 +1,3 @@
-import { memo } from 'react';
 import dynamic from 'next/dynamic';
 const ActivityFeedList = dynamic(() => import('./ActivityFeedList'));
 
@@ -13,13 +12,13 @@ import {
 // Services
 import { getNotifications } from '@/services';
 
-interface ActivityFeedProps {
+export interface ActivityFeedProps {
   page: number;
   userId: string;
   role: string;
 }
 
-const ActivityFeed = memo(async ({ page, userId, role }: ActivityFeedProps) => {
+const ActivityFeed = async ({ page, userId, role }: ActivityFeedProps) => {
   const searchParamsAPI = new URLSearchParams();
   searchParamsAPI.set('populate[0]', 'senderId');
   searchParamsAPI.set('pagination[page]', page.toString());
@@ -49,7 +48,8 @@ const ActivityFeed = memo(async ({ page, userId, role }: ActivityFeedProps) => {
       pagination={meta?.pagination}
     />
   );
-});
+};
 
 ActivityFeed.displayName = 'ActivityFeed';
+
 export default ActivityFeed;

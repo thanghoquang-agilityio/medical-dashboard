@@ -1,5 +1,4 @@
-import dynamic from 'next/dynamic';
-import { Suspense } from 'react';
+import { Suspense, lazy } from 'react';
 import { Metadata } from 'next';
 
 // Constants
@@ -21,9 +20,8 @@ import { auth } from '@/config/auth';
 import { getAppointments } from '@/services';
 
 // Components
-import { InputSearch } from '@/components/ui';
 import { AppointmentsHistorySkeleton } from '@/features/appointments/AppointmentsHistory/AppointmentsHistorySkeleton';
-const AppointmentsHistory = dynamic(
+const AppointmentsHistory = lazy(
   () => import('@/features/appointments/AppointmentsHistory'),
 );
 
@@ -65,14 +63,14 @@ const AppointmentPage = async ({
     if (role === ROLE.NORMAL_USER || !role) {
       APPOINTMENT_SEARCH_PARAMS.forEach((param, index) =>
         searchParamsAPI.set(
-          `filters[$or][${index}][$and][${index}][${param}][username][$contains]`,
+          `filters[$or][0][$and][${index}][${param}][username][$containsi]`,
           search,
         ),
       );
     } else {
       APPOINTMENT_SEARCH_PARAMS.forEach((param, index) =>
         searchParamsAPI.set(
-          `filters[$or][${index}][${param}][username][$contains]`,
+          `filters[$or][${index}][${param}][username][$containsi]`,
           search,
         ),
       );
@@ -104,20 +102,15 @@ const AppointmentPage = async ({
   });
 
   return (
-    <>
-      <InputSearch
-        placeholder="Search Appointments"
-        classNames={{ mainWrapper: 'pb-10' }}
+    <Suspense fallback={<AppointmentsHistorySkeleton />}>
+      <AppointmentsHistory
+        appointments={appointments || []}
+        pagination={meta?.pagination}
+        userId={id}
+        role={role}
+        defaultStatus={status}
       />
-      <Suspense fallback={<AppointmentsHistorySkeleton />}>
-        <AppointmentsHistory
-          appointments={appointments || []}
-          pagination={meta?.pagination}
-          role={role}
-          defaultStatus={status}
-        />
-      </Suspense>
-    </>
+    </Suspense>
   );
 };
 

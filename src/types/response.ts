@@ -21,7 +21,7 @@ export interface ErrorResponse {
   error: {
     status?: number;
     name?: string;
-    message?: string;
+    message: string;
     details?: Record<string, unknown>;
   };
 }

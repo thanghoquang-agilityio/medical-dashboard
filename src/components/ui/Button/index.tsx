@@ -17,6 +17,7 @@ export const Button = extendVariants(ButtonNextUI, {
       red: 'text-red',
       stone: 'text-primary-200',
       green: 'text-green',
+      outline: 'text-secondary-300',
     },
 
     isIconOnly: {

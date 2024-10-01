@@ -45,7 +45,7 @@ export const MOCK_APPOINTMENTS: APIResponse<AppointmentModel>[] = [
       status: 0,
       receiverId: {
         data: {
-          id: '1',
+          id: '6',
           attributes: {
             username: 'ThangHq',
             email: 'thang.hoquang@asnet.com.vn',
@@ -95,7 +95,7 @@ export const MOCK_APPOINTMENTS: APIResponse<AppointmentModel>[] = [
       },
       senderId: {
         data: {
-          id: '1',
+          id: '6',
           attributes: {
             username: 'ThangHq',
             email: 'thang.hoquang@asnet.com.vn',

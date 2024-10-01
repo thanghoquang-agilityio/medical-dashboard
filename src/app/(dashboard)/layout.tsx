@@ -38,9 +38,9 @@ export default async function DashboardLayout({
   });
 
   return (
-    <main className="flex max-w-[1158px] m-auto">
+    <main>
       <Sidebar />
-      <div className="flex flex-col min-h-[100vh] max-h-fit w-full relative bg-background-100 md:pl-[81px] lg:pl-[277px]">
+      <div className="flex flex-col min-h-[100vh] max-h-fit w-full relative bg-background-100 md:pl-[81px] lg:pl-[277px] max-w-[2560px] m-auto">
         <HeaderDashboard
           avatarUrl={avatar ?? ''}
           notifications={notifications}
