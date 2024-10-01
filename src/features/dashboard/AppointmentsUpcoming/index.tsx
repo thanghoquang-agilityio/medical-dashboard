@@ -15,7 +15,7 @@ import {
 // Services
 import { getAppointments } from '@/services';
 
-interface AppointmentsUpcomingProps {
+export interface AppointmentsUpcomingProps {
   userId: string;
   role: string;
   status: string;
