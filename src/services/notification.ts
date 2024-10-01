@@ -27,7 +27,10 @@ export const getNotifications = async ({
     );
     const { data, meta } = await api.get<NotificationsResponse>(url, {
       ...options,
-      next: { ...options.next, revalidate: 3600 },
+      next: {
+        ...options.next,
+        revalidate: 3600,
+      },
     });
 
     return {
@@ -109,7 +112,7 @@ export const deleteNotification = async (id: string) => {
     const response = await api.delete<APIRelatedResponse<NotificationResponse>>(
       `/${API_ENDPOINT.NOTIFICATIONS}/${id}`,
     );
-    if (response) {
+    if (response.data) {
       revalidateTag(`${API_ENDPOINT.NOTIFICATIONS}/dashboard`);
       revalidateTag(API_ENDPOINT.NOTIFICATIONS);
 

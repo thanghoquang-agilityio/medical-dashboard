@@ -111,7 +111,7 @@ export const deleteAppointment = async (id: string) => {
     const response = await api.delete<APIRelatedResponse<AppointmentResponse>>(
       `${API_ENDPOINT.APPOINTMENTS}/${id}`,
     );
-    if (response) {
+    if (response.data) {
       revalidateTag(`${API_ENDPOINT.APPOINTMENTS}/dashboard`);
       revalidateTag(API_ENDPOINT.APPOINTMENTS);
 

@@ -28,7 +28,7 @@ export const ActivityFeedListSkeleton = memo(() => (
 ActivityFeedListSkeleton.displayName = 'ActivityFeedListSkeleton';
 
 export const ActivityFeedSkeleton = memo(() => (
-  <Card className="bg-background-200 p-4 md:pl-7 w-full lg:w-[495px]">
+  <Card className="bg-background-200 p-4 md:pl-7 w-full">
     <Text variant="title" size="lg" customClass="leading-9">
       Activity Feed
     </Text>
