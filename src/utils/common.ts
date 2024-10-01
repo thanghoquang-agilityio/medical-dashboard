@@ -1,7 +1,9 @@
 import {
   APIRelatedResponse,
   APIResponse,
+  Option,
   STATUS_TYPE_RESPONSE,
+  UserLogged,
   UserModel,
 } from '@/types';
 
@@ -23,7 +25,7 @@ export const getContentNotification = ({
   const { id = '', attributes } = senderId.data || {};
   const { username = '' } = attributes || {};
 
-  const name = String(userId) === String(id) ? 'You' : username;
+  const name = userId == id ? 'You' : username;
   switch (type) {
     case 1:
       return `${name} have been updated the appointment at ${time}`;
@@ -47,3 +49,9 @@ export const getGreeting = (): string => {
       return 'Good Evening';
   }
 };
+
+export const transformUsers = (users: UserLogged[]): Option[] =>
+  users.map(({ id, email }) => ({
+    key: id,
+    label: email,
+  }));

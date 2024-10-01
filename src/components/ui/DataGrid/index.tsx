@@ -1,10 +1,10 @@
 'use client';
 
-import dynamic from 'next/dynamic';
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 import {
   Suspense,
   TransitionStartFunction,
+  lazy,
   memo,
   useCallback,
   useMemo,
@@ -26,13 +26,14 @@ import {
   TableCell,
   TableColumn,
   TableHeader,
+  TableProps,
   TableRow,
 } from '@nextui-org/react';
 import { Spinner, Text } from '@/components/ui';
 
-const Pagination = dynamic(() => import('@/components/ui/Pagination'));
+const Pagination = lazy(() => import('@/components/ui/Pagination'));
 
-export interface DataTableProps<T> extends MetaResponse {
+export interface DataTableProps<T> extends MetaResponse, TableProps {
   data: APIResponse<T>[];
   columns: ColumnType<T>[];
   hasDivider?: boolean;
@@ -52,6 +53,7 @@ const DataGrid = memo(
     classWrapper,
     classRow,
     classCell,
+    ...props
   }: DataTableProps<T>) => {
     const { page = PAGE_DEFAULT, pageCount = PAGE_DEFAULT } = pagination ?? {};
     const searchParams = useSearchParams() ?? '';
@@ -101,6 +103,7 @@ const DataGrid = memo(
             ),
           }}
           aria-label="Table"
+          {...props}
         >
           <TableHeader>
             {columns.map((column) => {
@@ -117,7 +120,7 @@ const DataGrid = memo(
                   const isLastItem = data.length === index + 1;
                   return (
                     <TableRow
-                      key={`table-body-${id}`}
+                      key={id}
                       className={!isLastItem ? classRow ?? '' : ''}
                     >
                       {columns.map((column) => (
@@ -144,7 +147,7 @@ const DataGrid = memo(
           </TableBody>
         </Table>
         {!!pagination && pagination.pageCount > 1 && (
-          <Suspense>
+          <Suspense fallback={null}>
             <Pagination
               classNames={{ base: 'mt-4' }}
               initialPage={page}

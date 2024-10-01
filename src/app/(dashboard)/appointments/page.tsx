@@ -1,5 +1,4 @@
-import dynamic from 'next/dynamic';
-import { Suspense } from 'react';
+import { Suspense, lazy } from 'react';
 import { Metadata } from 'next';
 
 // Constants
@@ -22,7 +21,7 @@ import { getAppointments } from '@/services';
 
 // Components
 import { AppointmentsHistorySkeleton } from '@/features/appointments/AppointmentsHistory/AppointmentsHistorySkeleton';
-const AppointmentsHistory = dynamic(
+const AppointmentsHistory = lazy(
   () => import('@/features/appointments/AppointmentsHistory'),
 );
 
