@@ -120,7 +120,7 @@ const createColumns = (role: string): ColumnType<AppointmentModel>[] => {
     },
   ];
 
-  return role === ROLE.USER ? baseColumns.slice(1) : baseColumns;
+  return role === ROLE.ADMIN ? baseColumns : baseColumns.slice(1);
 };
 
 export interface AppointmentsHistoryProps extends MetaResponse {

@@ -55,6 +55,11 @@ export const InputSearch = memo(
       setSearchTerm(event.target.value);
     };
 
+    // Handle clear input
+    const handleClear = () => {
+      setSearchTerm('');
+    };
+
     return (
       <Input
         classNames={{
@@ -70,6 +75,9 @@ export const InputSearch = memo(
         startContent={
           <SearchIcon customClass="w-5 h-5 ml-4 text-primary-200" />
         }
+        isClearable
+        autoFocus={!!searchTerm}
+        onClear={handleClear}
         onChange={handleChange}
         defaultValue={searchParams.get('search')?.toString()}
         {...props}
