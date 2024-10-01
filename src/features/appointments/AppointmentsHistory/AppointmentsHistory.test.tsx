@@ -8,10 +8,7 @@ const mockReplace = jest.fn();
 
 // Mock next
 jest.mock('next/navigation', () => ({
-  useSearchParams: jest.fn(() => {
-    const searchParams = new URLSearchParams();
-    return { searchParams };
-  }),
+  useSearchParams: jest.fn().mockReturnValue(new URLSearchParams()),
   useRouter: () => ({ replace: mockReplace }),
   usePathname: jest.fn(),
 }));
@@ -21,7 +18,7 @@ describe('AppointmentsHistory Component', () => {
     render(<AppointmentsHistory {...props} />);
 
   it('should render empty result', async () => {
-    setup({ appointments: [], role: ROLE.USER });
+    setup({ appointments: [], role: ROLE.USER, userId: '1' });
 
     await waitFor(() => {
       expect(screen.getByText(/Result Not Found/i)).toBeInTheDocument();
@@ -29,7 +26,7 @@ describe('AppointmentsHistory Component', () => {
   });
 
   it('should render loading indicator when during fetching', () => {
-    setup({ appointments: [], role: ROLE.USER });
+    setup({ appointments: [], role: ROLE.USER, userId: '1' });
 
     waitFor(() => {
       expect(screen.getByLabelText('Loading')).toBeInTheDocument();
@@ -40,6 +37,7 @@ describe('AppointmentsHistory Component', () => {
     const { container } = setup({
       appointments: MOCK_APPOINTMENTS,
       role: ROLE.USER,
+      userId: '1',
     });
 
     expect(container).toMatchSnapshot();
@@ -49,13 +47,18 @@ describe('AppointmentsHistory Component', () => {
     const { container } = setup({
       appointments: MOCK_APPOINTMENTS,
       role: ROLE.ADMIN,
+      userId: '1',
     });
 
     expect(container).toMatchSnapshot();
   });
 
   it('should render correctly when appointments value is empty', () => {
-    const { container } = setup({ appointments: [], role: ROLE.USER });
+    const { container } = setup({
+      appointments: [],
+      role: ROLE.USER,
+      userId: '1',
+    });
 
     expect(container).toMatchSnapshot();
   });

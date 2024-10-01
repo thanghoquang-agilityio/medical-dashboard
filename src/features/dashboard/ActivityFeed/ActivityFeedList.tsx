@@ -80,14 +80,13 @@ export const COLUMNS_ACTIVITY_FEED: ColumnType<NotificationModel>[] = [
     },
   },
 ];
-
-interface ActivityFeedProps extends MetaResponse {
+export interface ActivityFeedListProps extends MetaResponse {
   notifications: NotificationResponse[];
   userId: string;
 }
 
 const ActivityFeedList = memo(
-  ({ userId, notifications, pagination }: ActivityFeedProps) => {
+  ({ userId, notifications, pagination }: ActivityFeedListProps) => {
     const [isPending, startTransition] = useTransition();
 
     return (
