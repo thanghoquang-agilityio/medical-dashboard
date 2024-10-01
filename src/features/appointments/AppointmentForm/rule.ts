@@ -4,10 +4,15 @@ import { getCurrentTime } from '@/utils';
 import { UseFormGetValues } from 'react-hook-form';
 
 export const APPOINTMENT_FORM_VALIDATION = {
+  SENDER_ID: {
+    required: FORM_VALIDATION_MESSAGE.REQUIRED('The sender'),
+    validate: (value: string) =>
+      value !== '' || FORM_VALIDATION_MESSAGE.REQUIRED('The sender'),
+  },
   RECEIVER_ID: {
     required: FORM_VALIDATION_MESSAGE.REQUIRED('The receiver'),
-    validate: (value: number) =>
-      value !== 0 || FORM_VALIDATION_MESSAGE.REQUIRED('The receiver'),
+    validate: (value: string) =>
+      value !== '' || FORM_VALIDATION_MESSAGE.REQUIRED('The receiver'),
   },
   START_DATE: {
     required: FORM_VALIDATION_MESSAGE.REQUIRED('The start date'),

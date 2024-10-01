@@ -3,6 +3,7 @@
 import dynamic from 'next/dynamic';
 import {
   ChangeEvent,
+  Key,
   memo,
   useCallback,
   useMemo,
@@ -141,6 +142,9 @@ const AppointmentsHistory = ({
 
   const [isPending, startTransition] = useTransition();
   const [status, setStatus] = useState(new Set<string>([defaultStatus]));
+  const [appointment, setAppointment] = useState<
+    AppointmentModel | undefined
+  >();
 
   const searchParams = useSearchParams() ?? '';
   const pathname = usePathname() ?? '';
@@ -187,6 +191,22 @@ const AppointmentsHistory = ({
 
   const { isOpen, onClose, onOpen } = useDisclosure();
 
+  const handleEdit = useCallback(
+    (key: Key) => {
+      const appointment = appointments.find(
+        (appointment) => key == appointment.id,
+      );
+      setAppointment(appointment?.attributes);
+      onOpen();
+    },
+    [appointments, onOpen],
+  );
+
+  const handleCreate = useCallback(() => {
+    setAppointment(undefined);
+    onOpen();
+  }, [onOpen]);
+
   return (
     <>
       <div className="flex justify-between gap-10">
@@ -194,7 +214,7 @@ const AppointmentsHistory = ({
           placeholder="Search Appointments"
           classNames={{ mainWrapper: 'pb-10' }}
         />
-        <Button onClick={onOpen} className="mt-3 h-[50px]">
+        <Button onClick={handleCreate} className="mt-3 h-[50px]">
           Create
         </Button>
       </div>
@@ -229,11 +249,13 @@ const AppointmentsHistory = ({
               pagination={pagination}
               hasDivider
               classWrapper="p-1"
+              onRowAction={handleEdit}
             />
           )}
         </div>
       </Card>
       <AppointmentModal
+        data={appointment}
         userId={userId}
         role={role}
         onClose={onClose}

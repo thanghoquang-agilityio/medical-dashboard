@@ -1,3 +1,5 @@
+import dayjs from 'dayjs';
+
 /**
  * Formats a numeric string into a `hh:mm` time format.
  *
@@ -119,3 +121,13 @@ export const getCurrentTime = (timeStamp?: string) =>
 
 export const getCurrentDate = (timestamp?: string) =>
   new Date(timestamp ?? new Date()).toISOString().split('T')[0];
+
+export const convertToTimeObject = (isoString: string) => {
+  const startTime = dayjs(isoString);
+
+  return {
+    hour: Number(startTime.format('hh')),
+    minute: Number(startTime.format('mm')),
+    second: Number(startTime.format('ss')),
+  };
+};

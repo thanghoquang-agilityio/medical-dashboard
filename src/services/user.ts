@@ -24,3 +24,22 @@ export const getUserLogged = async (
     return errorMessage;
   }
 };
+
+export const getUsers = async (): Promise<UserLogged[] | string> => {
+  try {
+    const api = await apiClient.apiClientSession();
+
+    const url = decodeURIComponent(`${API_ENDPOINT.USERS}`);
+    const res = await api.get<UserLogged[]>(url, {
+      next: { revalidate: 3600, tags: [API_ENDPOINT.USERS, 'all'] },
+    });
+
+    return res;
+  } catch (error) {
+    const errorMessage =
+      error instanceof Error
+        ? error.message
+        : 'An unexpected error occurred in the request get users';
+    return errorMessage;
+  }
+};

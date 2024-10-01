@@ -1,14 +1,13 @@
-import { Suspense } from 'react';
-import dynamic from 'next/dynamic';
+import { Suspense, lazy } from 'react';
 import { auth } from '@/config/auth';
 
 // Components
 import { Text, Button, Image } from '@/components/ui';
 import { CloseIcon } from '@/icons';
-const AppointmentsUpcoming = dynamic(
+const AppointmentsUpcoming = lazy(
   () => import('@/features/dashboard/AppointmentsUpcoming'),
 );
-const ActivityFeed = dynamic(() => import('@/features/dashboard/ActivityFeed'));
+const ActivityFeed = lazy(() => import('@/features/dashboard/ActivityFeed'));
 
 // Constants
 import {
