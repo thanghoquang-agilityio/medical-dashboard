@@ -12,16 +12,14 @@ jobs:
       - name: Log deployment status
         run: |
           echo "Deployment status: ${{ github.event.deployment_status.state }}"
-      - name: Log deployment status
-        run: |
-          echo "Deployment status: ${{ github.event.deployment_status.state }}"
 
       - name: Checkout the repository
         uses: actions/checkout@v3
 
       - name: Call Vercel-deployed Node.js API
         run: |
-          branch_name=$(git rev-parse --abbrev-ref HEAD)
+          echo "GITHUB_REF: $GITHUB_REF"
+          branch_name=${GITHUB_REF#refs/heads/}
           echo "Branch name: $branch_name"
           curl -X POST ${{ secrets.SLACK_WEBHOOK_API_URL }}/vercel-deploy-hook \
           -H "Content-Type: application/json" \
@@ -29,7 +27,7 @@ jobs:
                 "name": "${{ secrets.PROJECT_NAME }}",
                 "target": "production",
                 "gitSource": {
-                  "ref": "$branch_name",
+                  "ref": "${{ github.ref_name }}",
                   "message": "${{ github.event.head_commit.message }}"
                 },
                 "createdAt": "${{ github.event.head_commit.timestamp }}"
