@@ -18,3 +18,13 @@ export type AuthResponse = {
   user: UserSession | null;
   error: string | null;
 };
+
+export interface RolePermission {
+  id: number;
+  name: string;
+}
+
+export type RolesResponse = {
+  roles: RolePermission[];
+  error: string | null;
+};
