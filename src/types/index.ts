@@ -1,5 +1,6 @@
 export * from './appointment';
 export * from './auth';
+export * from './chemists';
 export * from './common';
 export * from './image';
 export * from './notification';

@@ -27,7 +27,7 @@ import { SignupFormData, STATUS_TYPE } from '@/types';
 import { clearErrorOnChange } from '@/utils';
 
 // Actions
-import { signup } from '@/actions/auth';
+import { addUserToChemists, signup } from '@/actions/auth';
 
 // Contexts
 import { useToast } from '@/context/toast';
@@ -83,14 +83,37 @@ const SignupForm = () => {
     [clearErrors, errors],
   );
 
+  const handleError = useCallback(
+    (error: string) => {
+      setError(error);
+      openToast({
+        message: ERROR_MESSAGE.SIGNUP,
+        type: STATUS_TYPE.ERROR,
+      });
+      setIsPending(false);
+      return;
+    },
+    [openToast],
+  );
+
   const handleSignup: SubmitHandler<SignupFormData> = useCallback(
     async (formData) => {
       setError('');
       setIsPending(true);
+
       const { confirmPassWord: _, ...signupData } = formData;
       const { user, error } = await signup(signupData);
 
+      if (error) handleError(error);
+
       if (user) {
+        const { id } = user;
+        const { error } = await addUserToChemists({
+          users_permissions_user: id,
+        });
+
+        if (error) handleError(error);
+
         openToast({
           message: SUCCESS_MESSAGE.SIGNUP,
           type: STATUS_TYPE.SUCCESS,
@@ -98,17 +121,8 @@ const SignupForm = () => {
 
         router.replace(`${AUTH_ROUTES.LOGIN}`);
       }
-
-      if (error) {
-        setError(error || '');
-        openToast({
-          message: ERROR_MESSAGE.SIGNUP,
-          type: STATUS_TYPE.ERROR,
-        });
-        setIsPending(false);
-      }
     },
-    [openToast, router],
+    [handleError, openToast, router],
   );
 
   const iconClass = 'w-6 h-6 ml-4 text-primary-200';
