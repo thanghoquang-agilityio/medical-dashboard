@@ -94,7 +94,7 @@ const AppointmentForm = memo(
       handleSubmit,
       getValues,
       watch,
-      formState: { isValid, isDirty },
+      formState: { isValid, isDirty, isLoading },
     } = useForm<AppointMentForm>({
       mode: 'onBlur',
       reValidateMode: 'onBlur',
@@ -382,6 +382,7 @@ const AppointmentForm = memo(
               </Button>
               <Button
                 isDisabled={!isValid || !isDirty || isPending}
+                isLoading={isLoading || isPending}
                 type="submit"
               >
                 Submit
