@@ -32,9 +32,9 @@ export const InputSearch = memo(
     const updateSearchParams = useCallback(
       (search: string) => {
         const params = new URLSearchParams(searchParams);
-        params.delete('page');
 
         if (search) {
+          params.delete('page');
           params.set('search', search);
         } else {
           params.delete('search');

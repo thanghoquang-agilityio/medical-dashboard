@@ -10,22 +10,15 @@ import { AppointmentFormSkeleton } from '../AppointmentForm/AppointmentFormSkele
 const AppointmentForm = lazy(() => import('../AppointmentForm'));
 
 export type AppointmentModalProps = {
-  data?: AppointmentModel;
-  appointmentId?: string;
   userId: string;
   role: string;
   isOpen: boolean;
   onClose: () => void;
+  data?: AppointmentModel;
+  id?: string;
 };
 const AppointmentModal = memo(
-  ({
-    userId,
-    role,
-    data,
-    appointmentId,
-    isOpen,
-    onClose,
-  }: AppointmentModalProps) => {
+  ({ userId, role, data, id, isOpen, onClose }: AppointmentModalProps) => {
     return (
       <BaseModal
         isOpen={isOpen}
@@ -38,7 +31,7 @@ const AppointmentModal = memo(
             userId={userId}
             role={role}
             data={data}
-            appointmentId={String(appointmentId)}
+            id={id}
             onClose={onClose}
           />
         </Suspense>
