@@ -111,6 +111,7 @@ const AppointmentForm = memo(
     const [users, setUsers] = useState<UserLogged[]>([]);
     const [error, setError] = useState('');
     const [isPending, setIsPending] = useState(false);
+    const [isPendingDelete, setIsPendingDelete] = useState(false);
 
     useEffect(() => {
       const fetchUsers = async () => {
@@ -126,6 +127,7 @@ const AppointmentForm = memo(
     const isEdit = !!data;
 
     const handleDeleteAppointment = useCallback(async () => {
+      setIsPendingDelete(true);
       const { error } = await deleteAppointment(id);
       if (error) {
         openToast({
@@ -133,6 +135,7 @@ const AppointmentForm = memo(
           type: STATUS_TYPE.ERROR,
         });
 
+        setIsPendingDelete(false);
         return;
       }
 
@@ -394,6 +397,7 @@ const AppointmentForm = memo(
           title="Confirm"
           subTitle="Do you want to delete this appointment?"
           isOpen={isOpen}
+          isLoading={isPendingDelete}
           onClose={onCloseDeleteModal}
           onDelete={handleDeleteAppointment}
         />
