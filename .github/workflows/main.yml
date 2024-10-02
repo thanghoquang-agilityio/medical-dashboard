@@ -1,0 +1,29 @@
+name: Notify Vercel Server
+
+on:
+  deployment_status:
+    types: [success, failure] # Listen for successful deployments
+  workflow_dispatch: # Allows you to trigger manually from the GitHub Actions interface
+
+jobs:
+  notify_vercel:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout the repository
+        uses: actions/checkout@v3
+
+      - name: Call Vercel-deployed Node.js API
+        run: |
+          curl -X POST ${{ secrets.SLACK_WEBHOOK_API_URL }}/vercel-deploy-hook \
+          -H "Content-Type: application/json" \
+          -d '{
+                "name": "${{ secrets.PROJECT_NAME }}",
+                "target": "production",
+                "gitSource": {
+                  "ref": "${{ github.ref_name }}",
+                  "message": "${{ github.event.head_commit.message }}"
+                },
+                "createdAt": "${{ github.event.head_commit.timestamp }}"
+              }
+            '
