@@ -12,8 +12,8 @@ import {
   FetchDataProps,
   AppointmentPayload,
   AppointmentResponse,
-  APIRelatedResponse,
   ErrorResponse,
+  AppointmentDataResponse,
 } from '@/types';
 
 // Services
@@ -28,7 +28,9 @@ export const getAppointments = async ({
     const url = decodeURIComponent(
       `${API_ENDPOINT.APPOINTMENTS}?${searchParams.toString()}`,
     );
-    const { data, meta } = await api.get<AppointmentsResponse>(url, {
+    const { data, meta, error } = await api.get<
+      AppointmentsResponse & { error?: string }
+    >(url, {
       ...options,
       next: {
         ...options.next,
@@ -36,22 +38,29 @@ export const getAppointments = async ({
       },
     });
 
+    if (error) {
+      const errorResponse = JSON.parse(error) as ErrorResponse;
+      return { appointments: [], error: errorResponse.error.message };
+    }
+
     return {
       appointments: data,
       ...meta,
+      error: null,
     };
   } catch (error) {
     const errorMessage =
       error instanceof Error
         ? error.message
         : 'An unexpected error occurred in the request get appointments';
-    throw new Error(errorMessage);
+
+    return { appointments: [], error: errorMessage };
   }
 };
 
 export const addAppointment = async (
   appointment: AppointmentPayload,
-): Promise<AppointmentResponse | string> => {
+): Promise<AppointmentDataResponse> => {
   try {
     const api = await apiClient.apiClientSession();
     const { data, error } = await api.post<{
@@ -65,27 +74,26 @@ export const addAppointment = async (
 
     if (error) {
       const errorResponse = JSON.parse(error) as ErrorResponse;
-      return errorResponse.error.message;
+      return { appointment: null, error: errorResponse.error.message };
     }
 
-    revalidateTag(`${API_ENDPOINT.APPOINTMENTS}/dashboard`);
     revalidateTag(API_ENDPOINT.APPOINTMENTS);
 
-    return data;
+    return { appointment: data, error: null };
   } catch (error) {
     const errorMessage =
       error instanceof Error
         ? error.message
         : 'An unexpected error occurred in add appointment';
 
-    return errorMessage;
+    return { appointment: null, error: errorMessage };
   }
 };
 
 export const updateAppointment = async (
   id: string,
   appointment: AppointmentPayload,
-): Promise<AppointmentResponse | string> => {
+): Promise<AppointmentDataResponse> => {
   try {
     const api = await apiClient.apiClientSession();
     const { data, error } = await api.put<{
@@ -101,43 +109,46 @@ export const updateAppointment = async (
 
     if (error) {
       const errorResponse = JSON.parse(error) as ErrorResponse;
-      return errorResponse.error.message;
+      return { appointment: null, error: errorResponse.error.message };
     }
 
-    revalidateTag(`${API_ENDPOINT.APPOINTMENTS}/dashboard`);
     revalidateTag(API_ENDPOINT.APPOINTMENTS);
 
-    return data;
+    return { appointment: data, error: null };
   } catch (error) {
     const errorMessage =
       error instanceof Error
         ? error.message
         : 'An unexpected error occurred in update appointment';
 
-    return errorMessage;
+    return { appointment: null, error: errorMessage };
   }
 };
 
-export const deleteAppointment = async (id: string) => {
+export const deleteAppointment = async (
+  id: string,
+): Promise<AppointmentDataResponse> => {
   try {
     const api = await apiClient.apiClientSession();
-    const response = await api.delete<APIRelatedResponse<AppointmentResponse>>(
-      `${API_ENDPOINT.APPOINTMENTS}/${id}`,
-    );
-    if (response.data) {
-      revalidateTag(`${API_ENDPOINT.APPOINTMENTS}/dashboard`);
-      revalidateTag(API_ENDPOINT.APPOINTMENTS);
+    const { data, error } = await api.delete<{
+      data: AppointmentResponse;
+      error?: string;
+    }>(`${API_ENDPOINT.APPOINTMENTS}/${id}`);
 
-      return true;
+    if (error) {
+      const errorResponse = JSON.parse(error) as ErrorResponse;
+      return { appointment: null, error: errorResponse.error.message };
     }
 
-    return false;
+    revalidateTag(API_ENDPOINT.APPOINTMENTS);
+
+    return { appointment: data, error: null };
   } catch (error) {
     const errorMessage =
       error instanceof Error
         ? error.message
         : 'An unexpected error occurred in delete appointment';
 
-    return errorMessage;
+    return { appointment: null, error: errorMessage };
   }
 };

@@ -26,10 +26,10 @@ export const Button = extendVariants(ButtonNextUI, {
     },
 
     size: {
-      tiny: 'w-6 h-6',
-      xs: 'px-3 text-sm h-10 gap-1 text-sm rounded-lg',
-      md: 'px-4 min-w-20 h-10 text-small gap-2 rounded-small',
-      lg: 'w-full text-small gap-2 rounded-small',
+      tiny: 'w-6 max-h-6 h-6',
+      xs: 'px-3 text-sm max-h-10 h-10 gap-1 text-sm rounded-lg',
+      md: 'px-4 min-w-20 max-h-10 h-10 text-small gap-2 rounded-small',
+      lg: 'w-full max-h-12 h-12 text-small gap-2 rounded-small',
     },
   },
   defaultVariants: {

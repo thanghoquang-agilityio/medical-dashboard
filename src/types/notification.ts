@@ -26,8 +26,13 @@ export interface NotificationModel {
 
 export type NotificationResponse = APIResponse<NotificationModel>;
 
+export type NotificationDataResponse = {
+  notification: NotificationResponse | null;
+  error: string | null;
+};
+
 export type NotificationsDataResponse = Promise<
-  { notifications: NotificationResponse[]; error?: Error } & MetaResponse
+  { notifications: NotificationResponse[]; error: string | null } & MetaResponse
 >;
 
 export type NotificationsResponse = {
