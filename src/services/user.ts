@@ -1,5 +1,5 @@
 import { apiClient } from './api';
-import { UserLogged } from '@/types';
+import { RolesResponse, UserLogged } from '@/types';
 import { API_ENDPOINT } from '@/constants';
 
 export const getUserLogged = async (
@@ -54,5 +54,27 @@ export const getUsers = async (): Promise<{
         : 'An unexpected error occurred in the request get users';
 
     return { users: [], error: errorMessage };
+  }
+};
+
+export const getUserRoles = async (): Promise<RolesResponse> => {
+  try {
+    const { roles, error = null } = await apiClient.get<RolesResponse>(
+      `${API_ENDPOINT.PERMISSIONS}/roles`,
+      {
+        next: { revalidate: 3600, tags: [API_ENDPOINT.PERMISSIONS] },
+      },
+    );
+
+    if (error) return { roles: [], error };
+
+    return { roles: roles, error };
+  } catch (error) {
+    const errorMessage =
+      error instanceof Error
+        ? error.message
+        : 'An unexpected error occurred in the request get user roles';
+
+    return { roles: [], error: errorMessage };
   }
 };
