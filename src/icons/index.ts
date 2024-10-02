@@ -20,6 +20,7 @@ export * from './MedicineIcon';
 export * from './MessageIcon';
 export * from './MoonIcon';
 export * from './MoreIcon';
+export * from './NoteIcon';
 export * from './SearchIcon';
 export * from './SettingIcon';
 export * from './SingleDotIcon';

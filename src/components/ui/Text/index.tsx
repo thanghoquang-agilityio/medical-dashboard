@@ -13,6 +13,7 @@ interface TextProps {
     | 'success'
     | 'warning'
     | 'error'
+    | 'action'
     | 'default';
   size?: '2xs' | 'xs' | 'sm' | 'md' | 'lg' | 'xl' | '2xl' | '3xl' | '4xl';
   type?: 'nowrap' | 'wrap';
@@ -31,6 +32,7 @@ const VARIANT_CLASSES = {
   warning: 'text-warning',
   error: 'text-danger-100',
   default: 'text-foreground',
+  action: 'text-minty-green font-medium',
 };
 
 const SIZE_CLASSES = {
