@@ -16,20 +16,54 @@ jobs:
       - name: Checkout the repository
         uses: actions/checkout@v3
 
-      - name: Call Vercel-deployed Node.js API
+      - name: Get Deployment Info
+        id: deployment_info
         run: |
-          echo "GITHUB_REF: $GITHUB_REF"
-          branch_name=${GITHUB_REF#refs/heads/}
-          echo "Branch name: $branch_name"
-          curl -X POST ${{ secrets.SLACK_WEBHOOK_API_URL }}/vercel-deploy-hook \
-          -H "Content-Type: application/json" \
-          -d '{
-                "name": "${{ secrets.PROJECT_NAME }}",
-                "target": "production",
-                "gitSource": {
-                  "ref": "${{ github.ref_name }}",
-                  "message": "${{ github.event.head_commit.message }}"
-                },
-                "createdAt": "${{ github.event.head_commit.timestamp }}"
-              }
-            '
+          # Get the deployment_id from the event
+          echo "Deployment ID: ${{ github.event.deployment.id }}"
+          deployment_id=${{ github.event.deployment.id }}
+
+          # Fetch the deployment details
+          deployment_response=$(curl -s -H "Authorization: token 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" \
+            "https://api.github.com/repos/ningo-agilityio/astro-cosmic-poc/deployments/bn3f71t65")
+
+          # Extract the commit SHA
+          commit_sha=$(echo "$deployment_response" | jq -r '.sha')
+
+          echo "Commit SHA: $commit_sha"
+
+          # Fetch commit information
+          commit_response=$(curl -s -H "Authorization: token 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" \
+            "https://api.github.com/repos/ningo-agilityio/astro-cosmic-poc/deployments/bn3f71t65")
+
+          # Extract branch name and commit message
+          branch_name=$(echo "$commit_response" | jq -r '.commit.tree.url' | awk -F '/' '{print $NF}')
+          commit_message=$(echo "$commit_response" | jq -r '.commit.message')
+
+          echo "Branch Name: $branch_name"
+          echo "Commit Message: $commit_message"
+
+          # Set outputs for further use
+          echo "::set-output name=branch_name::$branch_name"
+          echo "::set-output name=commit_message::$commit_message"
+
+      - name: Display Branch and Commit Info
+        run: |
+          echo "Branch Name: ${{ steps.deployment_info.outputs.branch_name }}"
+          echo "Commit Message: ${{ steps.deployment_info.outputs.commit_message }}"
+
+      # - name: Call Vercel-deployed Node.js API
+      #   run: |
+      #     curl -X POST ${{ secrets.SLACK_WEBHOOK_API_URL }}/vercel-deploy-hook \
+      #     -H "Content-Type: application/json" \
+      #     -d '{
+      #           "name": "${{ secrets.PROJECT_NAME }}",
+      #           "target": "production",
+      #           "status": ${{ github.event.deployment_status.state }},
+      #           "gitSource": {
+      #             "ref": "${{ github.ref_name }}",
+      #             "message": "${{ github.event.head_commit.message }}"
+      #           },
+      #           "createdAt": "${{ github.event.head_commit.timestamp }}"
+      #         }
+      #       '
