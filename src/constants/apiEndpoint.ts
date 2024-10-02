@@ -5,6 +5,7 @@ export const API_ENDPOINT = {
   SPECIALTIES: '/Specialties',
   USERS: '/users',
   CHEMISTS: '/chemists',
+  PERMISSIONS: '/users-permissions',
 };
 
 export const API_URL = `${process.env.NEXT_PUBLIC_API_URL}/api`;
