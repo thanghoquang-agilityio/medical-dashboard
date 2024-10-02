@@ -29,7 +29,7 @@ const ActivityFeed = async ({ page, userId, role }: ActivityFeedProps) => {
     searchParamsAPI.set('filters[senderId][id][$eq]', `${userId}`);
   }
 
-  const { notifications, ...meta } = await getNotifications({
+  const { notifications, error, ...meta } = await getNotifications({
     searchParams: searchParamsAPI,
     options: {
       next: {
@@ -40,6 +40,8 @@ const ActivityFeed = async ({ page, userId, role }: ActivityFeedProps) => {
       },
     },
   });
+
+  if (error) throw error;
 
   return (
     <ActivityFeedList

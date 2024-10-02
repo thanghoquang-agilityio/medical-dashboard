@@ -1,16 +1,14 @@
 'use client';
 
 import dynamic from 'next/dynamic';
-import dayjs from 'dayjs';
 import { memo, useCallback, useEffect, useState } from 'react';
 import { Controller, useForm } from 'react-hook-form';
 import { TimeInputValue, useDisclosure } from '@nextui-org/react';
 
 // Types
 import {
-  AppointMentFormData,
   AppointmentModel,
-  AppointmentResponse,
+  AppointmentPayload,
   STATUS_TYPE,
   UserLogged,
 } from '@/types';
@@ -25,6 +23,7 @@ import {
   cn,
   convertTimeToMinutes,
 } from '@/utils';
+
 // Components
 import { Button, Input, Select, Text, TimeInput } from '@/components/ui';
 
@@ -33,24 +32,27 @@ import {
   APPOINTMENT_STATUS,
   DURATION_TIME_OPTIONS,
   ERROR_MESSAGE,
-  FORM_VALIDATION_MESSAGE,
   ROLE,
   SUCCESS_MESSAGE,
 } from '@/constants';
 
-// Rule
+// Hocs
+import { useToast } from '@/context/toast';
 
-import { getUsers } from '@/actions/user';
+// Actions
 import { deleteAppointment } from '@/services';
+import { getUsers } from '@/actions/user';
+import { createAppointment, editAppointment } from '@/actions/appointment';
+
+// Rules
+import { APPOINTMENT_FORM_VALIDATION } from './rule';
 
 const ConfirmModal = dynamic(() => import('@/components/ui/ConfirmModal'));
-import { createAppointment, editAppointment } from '@/actions/appointment';
-import { useToast } from '@/context/toast';
 
 export type AppointmentModalProps = {
   userId: string;
-  appointmentId: string;
   role: string;
+  id?: string;
   data?: AppointmentModel;
   onClose: () => void;
 };
@@ -63,12 +65,13 @@ const selectCustomStyle = {
   value: 'text-sm text-primary-100',
 };
 
-interface AppointMentForm extends Omit<AppointMentFormData, 'startTime'> {
+export interface AppointMentForm extends Omit<AppointmentPayload, 'startTime'> {
   startTime: TimeInputValue;
+  startDate: string;
 }
 
 const AppointmentForm = memo(
-  ({ userId, role, data, appointmentId, onClose }: AppointmentModalProps) => {
+  ({ userId, role, data, onClose, id = '' }: AppointmentModalProps) => {
     const {
       startTime = '',
       durationTime = '',
@@ -84,13 +87,14 @@ const AppointmentForm = memo(
 
     const { isOpen, onOpen, onClose: onCloseDeleteModal } = useDisclosure();
     const openToast = useToast();
+    const isAdmin = role === ROLE.ADMIN;
 
     const {
       control,
       handleSubmit,
       getValues,
       watch,
-      formState: { isValid, isDirty },
+      formState: { isValid, isDirty, isLoading },
     } = useForm<AppointMentForm>({
       mode: 'onBlur',
       reValidateMode: 'onBlur',
@@ -99,49 +103,10 @@ const AppointmentForm = memo(
         startTime: convertToTimeObject(startTime),
         durationTime: convertTimeToMinutes(durationTime).toString(),
         status: status,
-        senderId: senderId.toString(),
+        senderId: isAdmin ? senderId.toString() : userId,
         receiverId: receiverId.toString(),
       },
     });
-
-    // Validation object for appointment form
-    const APPOINTMENT_FORM_VALIDATION = {
-      SENDER_ID: {
-        required: FORM_VALIDATION_MESSAGE.REQUIRED('The sender'),
-      },
-      RECEIVER_ID: {
-        required: FORM_VALIDATION_MESSAGE.REQUIRED('The receiver'),
-        validate: {
-          notSameAsSender: (value: string) =>
-            value !== getValues('senderId') ||
-            FORM_VALIDATION_MESSAGE.NOT_SAME_AS_SENDER,
-        },
-      },
-      START_DATE: {
-        required: FORM_VALIDATION_MESSAGE.REQUIRED('The start date'),
-        validate: (value: string) =>
-          value >= new Date(Date.now()).toISOString().split('T')[0] ||
-          FORM_VALIDATION_MESSAGE.MIN_TIME('The start date'),
-      },
-      START_TIME: {
-        required: FORM_VALIDATION_MESSAGE.REQUIRED('The start time'),
-        validate: (value: TimeInputValue) => {
-          const startDate = getValues('startDate');
-          const now = dayjs();
-          // Validates the start time based on today's date and current time
-          return (
-            !dayjs(generateISODate(value, startDate)).isBefore(now) ||
-            FORM_VALIDATION_MESSAGE.MIN_TIME('The start time')
-          );
-        },
-      },
-      DURATION_TIME: {
-        required: FORM_VALIDATION_MESSAGE.REQUIRED('The duration time'),
-      },
-      STATUS: {
-        required: FORM_VALIDATION_MESSAGE.REQUIRED('The status'),
-      },
-    };
 
     const [users, setUsers] = useState<UserLogged[]>([]);
     const [error, setError] = useState('');
@@ -149,34 +114,35 @@ const AppointmentForm = memo(
 
     useEffect(() => {
       const fetchUsers = async () => {
-        const users = await getUsers();
-        if (typeof users === 'string') throw users;
+        const { users, error } = await getUsers();
+        if (error) throw error;
         setUsers(users);
       };
 
       fetchUsers();
     }, []);
+
     const OPTION_USERS = transformUsers(users);
-    const isAdmin = role === ROLE.ADMIN;
     const isEdit = !!data;
 
     const handleDeleteAppointment = useCallback(async () => {
-      try {
-        const response = await deleteAppointment(appointmentId);
-        if (!response) return;
-        openToast({
-          message: SUCCESS_MESSAGE.DELETE('appointment'),
-          type: STATUS_TYPE.SUCCESS,
-        });
-        onCloseDeleteModal();
-        onClose();
-      } catch (error) {
+      const { error } = await deleteAppointment(id);
+      if (error) {
         openToast({
           message: ERROR_MESSAGE.DELETE('appointment'),
           type: STATUS_TYPE.ERROR,
         });
+
+        return;
       }
-    }, [appointmentId, onClose, onCloseDeleteModal, openToast]);
+
+      openToast({
+        message: SUCCESS_MESSAGE.DELETE('appointment'),
+        type: STATUS_TYPE.SUCCESS,
+      });
+      onCloseDeleteModal();
+      onClose();
+    }, [id, onClose, onCloseDeleteModal, openToast]);
 
     const onSubmit = async ({
       startDate,
@@ -192,31 +158,13 @@ const AppointmentForm = memo(
 
       setError('');
       setIsPending(true);
-      try {
-        let data: string | AppointmentResponse;
+      let error: string | null;
 
-        if (isEdit) data = await editAppointment(appointmentId, formatData);
-        else data = await createAppointment(formatData);
+      if (isEdit) error = (await editAppointment(id, formatData)).error;
+      else error = (await createAppointment(formatData)).error;
 
-        if (typeof data === 'string') {
-          setError(data);
-          openToast({
-            message: isEdit
-              ? ERROR_MESSAGE.UPDATE('appointment')
-              : ERROR_MESSAGE.CREATE('appointment'),
-            type: STATUS_TYPE.ERROR,
-          });
-          setIsPending(false);
-
-          return;
-        }
-        openToast({
-          message: isEdit
-            ? SUCCESS_MESSAGE.UPDATE('appointment')
-            : SUCCESS_MESSAGE.CREATE('appointment'),
-          type: STATUS_TYPE.SUCCESS,
-        });
-      } catch (error) {
+      if (error) {
+        setError(error);
         openToast({
           message: isEdit
             ? ERROR_MESSAGE.UPDATE('appointment')
@@ -224,7 +172,16 @@ const AppointmentForm = memo(
           type: STATUS_TYPE.ERROR,
         });
         setIsPending(false);
+
+        return;
       }
+
+      openToast({
+        message: isEdit
+          ? SUCCESS_MESSAGE.UPDATE('appointment')
+          : SUCCESS_MESSAGE.CREATE('appointment'),
+        type: STATUS_TYPE.SUCCESS,
+      });
     };
 
     return (
@@ -238,9 +195,9 @@ const AppointmentForm = memo(
             <Controller
               control={control}
               name="senderId"
-              rules={APPOINTMENT_FORM_VALIDATION.SENDER_ID}
+              rules={APPOINTMENT_FORM_VALIDATION.SENDER_ID(getValues)}
               render={({
-                field: { name, value, ...rest },
+                field: { name, value, onChange, ...rest },
                 fieldState: { error },
               }) => (
                 <Select
@@ -252,11 +209,12 @@ const AppointmentForm = memo(
                   labelPlacement="outside"
                   variant="bordered"
                   classNames={selectCustomStyle}
-                  defaultSelectedKeys={!isAdmin ? [userId] : [value]}
+                  defaultSelectedKeys={!isAdmin ? userId : value}
                   isDisabled={!isAdmin || isPending}
                   options={OPTION_USERS}
                   isInvalid={!!error?.message}
                   errorMessage={error?.message}
+                  onChange={onChange}
                 />
               )}
             />
@@ -264,9 +222,9 @@ const AppointmentForm = memo(
             <Controller
               control={control}
               name="receiverId"
-              rules={APPOINTMENT_FORM_VALIDATION.RECEIVER_ID}
+              rules={APPOINTMENT_FORM_VALIDATION.RECEIVER_ID(getValues)}
               render={({
-                field: { name, value, ...rest },
+                field: { name, value, onChange, ...rest },
                 fieldState: { error },
               }) => (
                 <Select
@@ -284,6 +242,7 @@ const AppointmentForm = memo(
                   isInvalid={!!error?.message}
                   isDisabled={isPending}
                   errorMessage={error?.message}
+                  onChange={onChange}
                 />
               )}
             />
@@ -326,7 +285,7 @@ const AppointmentForm = memo(
             <Controller
               control={control}
               name="startTime"
-              rules={APPOINTMENT_FORM_VALIDATION.START_TIME}
+              rules={APPOINTMENT_FORM_VALIDATION.START_TIME(getValues)}
               render={({
                 field: { name, value, onChange, onBlur },
                 fieldState: { error },
@@ -417,12 +376,13 @@ const AppointmentForm = memo(
                 variant="outline"
                 color="outline"
                 className={cn(`font-medium ${isEdit ? 'block' : 'hidden'}`)}
-                isDisabled={role !== ROLE.ADMIN}
+                isDisabled={!isAdmin}
               >
                 Delete
               </Button>
               <Button
                 isDisabled={!isValid || !isDirty || isPending}
+                isLoading={isLoading || isPending}
                 type="submit"
               >
                 Submit

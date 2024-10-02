@@ -4,14 +4,13 @@
 import { addAppointment, updateAppointment } from '@/services';
 
 // Types
-import { AppointmentPayload, AppointmentResponse } from '@/types';
+import { AppointmentDataResponse, AppointmentPayload } from '@/types';
 
 export const createAppointment = async (
   appointment: AppointmentPayload,
-): Promise<AppointmentResponse | string> => await addAppointment(appointment);
+): Promise<AppointmentDataResponse> => await addAppointment(appointment);
 
 export const editAppointment = async (
   id: string,
   appointment: AppointmentPayload,
-): Promise<AppointmentResponse | string> =>
-  await updateAppointment(id, appointment);
+): Promise<AppointmentDataResponse> => await updateAppointment(id, appointment);

@@ -258,7 +258,7 @@ const AppointmentsHistory = ({
       </Card>
       <AppointmentModal
         data={appointment}
-        appointmentId={appointmentId}
+        id={appointmentId}
         userId={userId}
         role={role}
         onClose={onClose}

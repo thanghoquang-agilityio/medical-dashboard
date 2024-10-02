@@ -45,7 +45,7 @@ const AppointmentsUpcoming = async ({
     searchParamsAPI.set('filters[status][$eq]', `${valueStatus}`);
   }
 
-  const { appointments } = await getAppointments({
+  const { appointments, error } = await getAppointments({
     searchParams: searchParamsAPI,
     options: {
       next: {
@@ -56,6 +56,8 @@ const AppointmentsUpcoming = async ({
       },
     },
   });
+
+  if (error) throw error;
 
   return (
     <AppointmentsUpcomingList
