@@ -7,7 +7,7 @@ import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 import { PRIVATE_ROUTES, ROLE } from '@/constants';
 import { act } from 'react';
 
-jest.mock('../../../services/notification.ts', () => ({
+jest.mock('@/services/notification.ts', () => ({
   getNotifications: jest.fn(),
 }));
 
