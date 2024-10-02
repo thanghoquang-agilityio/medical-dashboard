@@ -1,6 +1,6 @@
 'use client';
 
-import { memo, useCallback, useEffect, useState } from 'react';
+import { memo, useCallback, useEffect, useMemo, useState } from 'react';
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 
 // Utils
@@ -28,13 +28,15 @@ export const InputSearch = memo(
     // Debounced search term (500ms delay)
     const debouncedSearchTerm = useDebounce(searchTerm, 500);
 
+    const params = useMemo(
+      () => new URLSearchParams(searchParams),
+      [searchParams],
+    );
+
     // Update the URL with the debounced search term
     const updateSearchParams = useCallback(
       (search: string) => {
-        const params = new URLSearchParams(searchParams);
-
         if (search) {
-          params.delete('page');
           params.set('search', search);
         } else {
           params.delete('search');
@@ -42,7 +44,7 @@ export const InputSearch = memo(
 
         replace(`${pathname}?${params.toString()}`);
       },
-      [searchParams, pathname, replace],
+      [params, pathname, replace],
     );
 
     // Call updateSearchParams whenever the debounced value changes
@@ -52,6 +54,7 @@ export const InputSearch = memo(
 
     // Handle input changes
     const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+      params.delete('page');
       setSearchTerm(event.target.value);
     };
 
