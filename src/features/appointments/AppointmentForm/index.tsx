@@ -49,8 +49,8 @@ import { useToast } from '@/context/toast';
 
 export type AppointmentModalProps = {
   userId: string;
-  appointmentId: string;
   role: string;
+  id?: string;
   data?: AppointmentModel;
   onClose: () => void;
 };
@@ -68,7 +68,7 @@ interface AppointMentForm extends Omit<AppointMentFormData, 'startTime'> {
 }
 
 const AppointmentForm = memo(
-  ({ userId, role, data, appointmentId, onClose }: AppointmentModalProps) => {
+  ({ userId, role, data, onClose, id = '' }: AppointmentModalProps) => {
     const {
       startTime = '',
       durationTime = '',
@@ -162,7 +162,7 @@ const AppointmentForm = memo(
 
     const handleDeleteAppointment = useCallback(async () => {
       try {
-        const response = await deleteAppointment(appointmentId);
+        const response = await deleteAppointment(id);
         if (!response) return;
         openToast({
           message: SUCCESS_MESSAGE.DELETE('appointment'),
@@ -176,7 +176,7 @@ const AppointmentForm = memo(
           type: STATUS_TYPE.ERROR,
         });
       }
-    }, [appointmentId, onClose, onCloseDeleteModal, openToast]);
+    }, [id, onClose, onCloseDeleteModal, openToast]);
 
     const onSubmit = async ({
       startDate,
@@ -195,7 +195,7 @@ const AppointmentForm = memo(
       try {
         let data: string | AppointmentResponse;
 
-        if (isEdit) data = await editAppointment(appointmentId, formatData);
+        if (isEdit) data = await editAppointment(id, formatData);
         else data = await createAppointment(formatData);
 
         if (typeof data === 'string') {
@@ -417,7 +417,7 @@ const AppointmentForm = memo(
                 variant="outline"
                 color="outline"
                 className={cn(`font-medium ${isEdit ? 'block' : 'hidden'}`)}
-                isDisabled={role !== ROLE.ADMIN}
+                isDisabled={!isAdmin}
               >
                 Delete
               </Button>
