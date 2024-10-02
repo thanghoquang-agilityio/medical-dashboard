@@ -4,9 +4,9 @@ import { API_ENDPOINT } from '@/constants';
 
 export const getUserLogged = async (
   jwt: string,
-): Promise<UserLogged | string> => {
+): Promise<{ user: UserLogged | null; error: string | null }> => {
   try {
-    const res = await apiClient.get<UserLogged | string>(
+    const response = await apiClient.get<UserLogged & { error: string | null }>(
       `${API_ENDPOINT.USERS}/me?populate=*`,
       {
         headers: {
@@ -15,32 +15,44 @@ export const getUserLogged = async (
         next: { revalidate: 3600, tags: [API_ENDPOINT.USERS, 'logged'] },
       },
     );
-
-    return res;
+    const { error = null, ...user } = response;
+    return { user: user, error };
   } catch (error) {
     const errorMessage =
       error instanceof Error
         ? error.message
         : 'An unexpected error occurred in the request get user logged';
-    return errorMessage;
+    return { user: null, error: errorMessage };
   }
 };
 
-export const getUsers = async (): Promise<UserLogged[] | string> => {
+export const getUsers = async (): Promise<{
+  users: UserLogged[];
+  error: string | null;
+}> => {
   try {
     const api = await apiClient.apiClientSession();
 
     const url = decodeURIComponent(`${API_ENDPOINT.USERS}`);
-    const res = await api.get<UserLogged[]>(url, {
-      next: { revalidate: 3600, tags: [API_ENDPOINT.USERS, 'all'] },
-    });
+    const response = await api.get<UserLogged[] & { error: string | null }>(
+      url,
+      {
+        next: { revalidate: 3600, tags: [API_ENDPOINT.USERS, 'all'] },
+      },
+    );
 
-    return res;
+    const { error = null, ...user } = response;
+    const usersArray = Object.values(user) as UserLogged[];
+
+    if (error) return { users: [], error };
+
+    return { users: usersArray, error };
   } catch (error) {
     const errorMessage =
       error instanceof Error
         ? error.message
         : 'An unexpected error occurred in the request get users';
-    return errorMessage;
+
+    return { users: [], error: errorMessage };
   }
 };

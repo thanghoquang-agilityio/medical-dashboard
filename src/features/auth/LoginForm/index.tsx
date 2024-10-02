@@ -70,24 +70,19 @@ const LoginForm = () => {
     async (data: LoginFormData) => {
       setError('');
       setIsPending(true);
-      try {
-        const response = await login(data);
-        const { user, error } = response;
+      const response = await login(data);
+      const { user, error } = response;
 
-        if (user) {
-          openToast({
-            message: SUCCESS_MESSAGE.LOGIN,
-            type: STATUS_TYPE.SUCCESS,
-          });
-          loginNextAuth(user);
-        }
+      if (user) {
+        openToast({
+          message: SUCCESS_MESSAGE.LOGIN,
+          type: STATUS_TYPE.SUCCESS,
+        });
+        loginNextAuth(user);
+      }
 
-        if (error) {
-          setError(error.error.message || '');
-          openToast({ message: ERROR_MESSAGE.LOGIN, type: STATUS_TYPE.ERROR });
-          setIsPending(false);
-        }
-      } catch (error) {
+      if (error) {
+        setError(error || '');
         openToast({ message: ERROR_MESSAGE.LOGIN, type: STATUS_TYPE.ERROR });
         setIsPending(false);
       }
@@ -181,7 +176,7 @@ const LoginForm = () => {
         </div>
         <div className="h-[78px] flex flex-col justify-end">
           {error && (
-            <Text variant="error" size="sm" customClass="py-2">
+            <Text variant="error" size="sm" customClass="pb-2">
               {error}
             </Text>
           )}

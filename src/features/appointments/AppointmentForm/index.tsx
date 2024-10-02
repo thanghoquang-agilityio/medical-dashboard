@@ -10,7 +10,6 @@ import { TimeInputValue, useDisclosure } from '@nextui-org/react';
 import {
   AppointMentFormData,
   AppointmentModel,
-  AppointmentResponse,
   STATUS_TYPE,
   UserLogged,
 } from '@/types';
@@ -149,8 +148,8 @@ const AppointmentForm = memo(
 
     useEffect(() => {
       const fetchUsers = async () => {
-        const users = await getUsers();
-        if (typeof users === 'string') throw users;
+        const { users, error } = await getUsers();
+        if (error) throw error;
         setUsers(users);
       };
 
@@ -161,21 +160,22 @@ const AppointmentForm = memo(
     const isEdit = !!data;
 
     const handleDeleteAppointment = useCallback(async () => {
-      try {
-        const response = await deleteAppointment(id);
-        if (!response) return;
-        openToast({
-          message: SUCCESS_MESSAGE.DELETE('appointment'),
-          type: STATUS_TYPE.SUCCESS,
-        });
-        onCloseDeleteModal();
-        onClose();
-      } catch (error) {
+      const { error } = await deleteAppointment(id);
+      if (error) {
         openToast({
           message: ERROR_MESSAGE.DELETE('appointment'),
           type: STATUS_TYPE.ERROR,
         });
+
+        return;
       }
+
+      openToast({
+        message: SUCCESS_MESSAGE.DELETE('appointment'),
+        type: STATUS_TYPE.SUCCESS,
+      });
+      onCloseDeleteModal();
+      onClose();
     }, [id, onClose, onCloseDeleteModal, openToast]);
 
     const onSubmit = async ({
@@ -192,31 +192,13 @@ const AppointmentForm = memo(
 
       setError('');
       setIsPending(true);
-      try {
-        let data: string | AppointmentResponse;
+      let error: string | null;
 
-        if (isEdit) data = await editAppointment(id, formatData);
-        else data = await createAppointment(formatData);
+      if (isEdit) error = (await editAppointment(id, formatData)).error;
+      else error = (await createAppointment(formatData)).error;
 
-        if (typeof data === 'string') {
-          setError(data);
-          openToast({
-            message: isEdit
-              ? ERROR_MESSAGE.UPDATE('appointment')
-              : ERROR_MESSAGE.CREATE('appointment'),
-            type: STATUS_TYPE.ERROR,
-          });
-          setIsPending(false);
-
-          return;
-        }
-        openToast({
-          message: isEdit
-            ? SUCCESS_MESSAGE.UPDATE('appointment')
-            : SUCCESS_MESSAGE.CREATE('appointment'),
-          type: STATUS_TYPE.SUCCESS,
-        });
-      } catch (error) {
+      if (error) {
+        setError(error);
         openToast({
           message: isEdit
             ? ERROR_MESSAGE.UPDATE('appointment')
@@ -224,7 +206,16 @@ const AppointmentForm = memo(
           type: STATUS_TYPE.ERROR,
         });
         setIsPending(false);
+
+        return;
       }
+
+      openToast({
+        message: isEdit
+          ? SUCCESS_MESSAGE.UPDATE('appointment')
+          : SUCCESS_MESSAGE.CREATE('appointment'),
+        type: STATUS_TYPE.SUCCESS,
+      });
     };
 
     return (

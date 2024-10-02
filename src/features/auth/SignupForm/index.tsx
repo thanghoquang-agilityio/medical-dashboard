@@ -56,9 +56,9 @@ const SignupForm = () => {
   const [isShowPassword, setIsShowPassword] = useState<boolean>(false);
   const [isShowConfirmPassword, setIsShowConfirmPassword] =
     useState<boolean>(false);
+  const [error, setError] = useState('');
 
   const openToast = useToast();
-
   const router = useRouter();
 
   const handleToggleVisiblePassword = useCallback(
@@ -71,31 +71,6 @@ const SignupForm = () => {
     [],
   );
 
-  const handleSignup: SubmitHandler<SignupFormData> = useCallback(
-    async (formData) => {
-      setIsPending(true);
-      const { confirmPassWord: _, ...signupData } = formData;
-
-      try {
-        const response = await signup(signupData);
-
-        if (response.user) {
-          openToast({
-            message: SUCCESS_MESSAGE.SIGNUP,
-            type: STATUS_TYPE.SUCCESS,
-          });
-
-          router.replace(`${AUTH_ROUTES.LOGIN}`);
-        }
-      } catch (error) {
-        openToast({ message: ERROR_MESSAGE.SIGNUP, type: STATUS_TYPE.ERROR });
-      }
-
-      setIsPending(false);
-    },
-    [openToast, router],
-  );
-
   const handleInputChange = useCallback(
     (name: keyof SignupFormData, onChange: (value: string) => void) => {
       return (e: ChangeEvent<HTMLInputElement>) => {
@@ -106,6 +81,34 @@ const SignupForm = () => {
       };
     },
     [clearErrors, errors],
+  );
+
+  const handleSignup: SubmitHandler<SignupFormData> = useCallback(
+    async (formData) => {
+      setError('');
+      setIsPending(true);
+      const { confirmPassWord: _, ...signupData } = formData;
+      const { user, error } = await signup(signupData);
+
+      if (user) {
+        openToast({
+          message: SUCCESS_MESSAGE.SIGNUP,
+          type: STATUS_TYPE.SUCCESS,
+        });
+
+        router.replace(`${AUTH_ROUTES.LOGIN}`);
+      }
+
+      if (error) {
+        setError(error || '');
+        openToast({
+          message: ERROR_MESSAGE.SIGNUP,
+          type: STATUS_TYPE.ERROR,
+        });
+        setIsPending(false);
+      }
+    },
+    [openToast, router],
   );
 
   const iconClass = 'w-6 h-6 ml-4 text-primary-200';
@@ -227,16 +230,21 @@ const SignupForm = () => {
           )}
           rules={SIGN_UP_FORM_VALIDATION.CONFIRM_PASSWORD(getValues)}
         />
-
-        <Button
-          type="submit"
-          size="lg"
-          isDisabled={!isValid || !isDirty}
-          isLoading={isDisabled}
-          className="mt-4"
-        >
-          Signup
-        </Button>
+        <div className="h-[78px] flex flex-col justify-end">
+          {error && (
+            <Text variant="error" size="sm" customClass="pb-2">
+              {error}
+            </Text>
+          )}
+          <Button
+            type="submit"
+            size="lg"
+            isDisabled={!isValid || !isDirty}
+            isLoading={isDisabled}
+          >
+            Signup
+          </Button>
+        </div>
         <div className="flex justify-center w-full gap-6 pt-10 pb-3">
           <Text>Already have account?</Text>
           <NextUILink
