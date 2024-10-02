@@ -16,8 +16,13 @@ export interface AppointmentModel {
 
 export type AppointmentResponse = APIResponse<AppointmentModel>;
 
+export type AppointmentDataResponse = {
+  appointment: AppointmentResponse | null;
+  error: string | null;
+};
+
 export type AppointmentsDataResponse = Promise<
-  { appointments: AppointmentResponse[]; error?: Error } & MetaResponse
+  { appointments: AppointmentResponse[]; error: string | null } & MetaResponse
 >;
 
 export type AppointmentsResponse = {

@@ -51,7 +51,11 @@ export class ApiClient {
   async get<T>(url: string, config: RequestInit = {}): Promise<T> {
     const response = await this.fetchWithConfig(url, config);
     if (!response.ok) {
-      throw new Error(`Failed to fetch: ${response.statusText}`);
+      const errorText = await response.text();
+
+      return {
+        error: errorText,
+      } as T;
     }
     const data: T = await response.json();
     return data;
@@ -90,8 +94,13 @@ export class ApiClient {
     });
 
     if (!response.ok) {
-      throw new Error(`Failed to put: ${response.statusText}`);
+      const errorText = await response.text();
+
+      return {
+        error: errorText,
+      } as T;
     }
+
     const data: T = await response.json();
     return data;
   }
@@ -103,7 +112,11 @@ export class ApiClient {
     });
 
     if (!response.ok) {
-      throw new Error(`Failed to delete: ${response.statusText}`);
+      const errorText = await response.text();
+
+      return {
+        error: errorText,
+      } as T;
     }
 
     const data: T = await response.json();

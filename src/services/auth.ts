@@ -14,10 +14,7 @@ import { signOut } from '@/config/auth';
 
 export const login = async (
   body: LoginFormData,
-): Promise<
-  | { user: UserSession; error: ErrorResponse | null }
-  | { user: null; error: ErrorResponse | null }
-> => {
+): Promise<{ user: UserSession | null; error: string | null }> => {
   try {
     const response = await apiClient.post<AuthResponse>(API_ENDPOINT.AUTH, {
       body: {
@@ -26,16 +23,29 @@ export const login = async (
       },
     });
     const { error, jwt, user } = response;
-    if (error || !user) {
-      return { user: null, error: JSON.parse(error) as ErrorResponse };
+    if (error && !user) {
+      return {
+        user: null,
+        error: (JSON.parse(error) as ErrorResponse).error.message,
+      };
     }
-    const profile = await getUserLogged(jwt);
+    const { user: userLogged, error: errorGetUserLogged } =
+      await getUserLogged(jwt);
 
-    if (typeof profile === 'string') {
-      return { user: null, error: JSON.parse(profile) as ErrorResponse };
+    if (errorGetUserLogged) {
+      return {
+        user: null,
+        error: errorGetUserLogged,
+      };
     }
 
-    const { id = '', avatar, role, username = '', email = '' } = profile || {};
+    const {
+      id = '',
+      avatar,
+      role,
+      username = '',
+      email = '',
+    } = userLogged || {};
     const { url = '' } = avatar || {};
     const { name = '' } = role || {};
 
@@ -58,7 +68,7 @@ export const login = async (
 
     return {
       user: null,
-      error: { error: { message: errorMessage } },
+      error: errorMessage,
     };
   }
 };
@@ -73,13 +83,25 @@ export const signup = async (
         body,
       },
     );
-    return { error, user };
+
+    if (error && !user) {
+      return {
+        user: null,
+        error: (JSON.parse(error) as ErrorResponse).error.message,
+      };
+    }
+
+    return { user, error: null };
   } catch (error) {
     const errorMessage =
       error instanceof Error
         ? error.message
         : 'An unexpected error occurred in the request register';
-    throw new Error(errorMessage);
+
+    return {
+      user: null,
+      error: errorMessage,
+    };
   }
 };
 

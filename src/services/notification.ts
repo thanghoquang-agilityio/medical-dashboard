@@ -10,7 +10,8 @@ import {
   FetchDataProps,
   NotificationPayload,
   NotificationResponse,
-  APIRelatedResponse,
+  ErrorResponse,
+  NotificationDataResponse,
 } from '@/types';
 
 // Services
@@ -25,7 +26,9 @@ export const getNotifications = async ({
     const url = decodeURIComponent(
       `${API_ENDPOINT.NOTIFICATIONS}?${searchParams.toString()}`,
     );
-    const { data, meta } = await api.get<NotificationsResponse>(url, {
+    const { data, meta, error } = await api.get<
+      NotificationsResponse & { error?: string }
+    >(url, {
       ...options,
       next: {
         ...options.next,
@@ -33,9 +36,15 @@ export const getNotifications = async ({
       },
     });
 
+    if (error) {
+      const errorResponse = JSON.parse(error) as ErrorResponse;
+      return { notifications: [], error: errorResponse.error.message };
+    }
+
     return {
       notifications: data,
       ...meta,
+      error: null,
     };
   } catch (error) {
     const errorMessage =
@@ -43,89 +52,101 @@ export const getNotifications = async ({
         ? error.message
         : 'An unexpected error occurred in the request get notifications';
 
-    throw new Error(errorMessage);
+    return { notifications: [], error: errorMessage };
   }
 };
 
 export const addNotification = async (
   notification: NotificationPayload,
-): Promise<NotificationResponse | string> => {
+): Promise<NotificationDataResponse> => {
   try {
     const api = await apiClient.apiClientSession();
-    const { data } = await api.post<APIRelatedResponse<NotificationResponse>>(
-      `${API_ENDPOINT.NOTIFICATIONS}`,
-      {
-        body: {
-          data: notification,
-        },
+    const { data, error } = await api.post<{
+      data: NotificationResponse;
+      error?: string;
+    }>(`${API_ENDPOINT.NOTIFICATIONS}`, {
+      body: {
+        data: notification,
       },
-    );
+    });
 
-    revalidateTag(`${API_ENDPOINT.NOTIFICATIONS}/dashboard`);
+    if (error) {
+      const errorResponse = JSON.parse(error) as ErrorResponse;
+      return { notification: null, error: errorResponse.error.message };
+    }
+
     revalidateTag(API_ENDPOINT.NOTIFICATIONS);
 
-    return data;
+    return { notification: data, error: null };
   } catch (error) {
     const errorMessage =
       error instanceof Error
         ? error.message
         : 'An unexpected error occurred in add notification';
 
-    return errorMessage;
+    return { notification: null, error: errorMessage };
   }
 };
 
 export const updateNotification = async (
   id: string,
   notification: NotificationPayload,
-): Promise<NotificationResponse | string> => {
+): Promise<NotificationDataResponse> => {
   try {
     const api = await apiClient.apiClientSession();
-    const { data } = await api.put<APIRelatedResponse<NotificationResponse>>(
-      `${API_ENDPOINT.NOTIFICATIONS}/${id}`,
-      {
-        body: {
-          data: {
-            ...notification,
-          },
+    const { data, error } = await api.put<{
+      data: NotificationResponse;
+      error?: string;
+    }>(`${API_ENDPOINT.NOTIFICATIONS}/${id}`, {
+      body: {
+        data: {
+          ...notification,
         },
       },
-    );
+    });
 
-    revalidateTag(`${API_ENDPOINT.NOTIFICATIONS}/dashboard`);
+    if (error) {
+      const errorResponse = JSON.parse(error) as ErrorResponse;
+      return { notification: null, error: errorResponse.error.message };
+    }
+
     revalidateTag(API_ENDPOINT.NOTIFICATIONS);
 
-    return data;
+    return { notification: data, error: null };
   } catch (error) {
     const errorMessage =
       error instanceof Error
         ? error.message
-        : 'An unexpected error occurred in update notification';
+        : 'An unexpected error occurred in add notification';
 
-    return errorMessage;
+    return { notification: null, error: errorMessage };
   }
 };
 
-export const deleteNotification = async (id: string) => {
+export const deleteNotification = async (
+  id: string,
+): Promise<NotificationDataResponse> => {
   try {
     const api = await apiClient.apiClientSession();
-    const response = await api.delete<APIRelatedResponse<NotificationResponse>>(
-      `/${API_ENDPOINT.NOTIFICATIONS}/${id}`,
-    );
-    if (response.data) {
-      revalidateTag(`${API_ENDPOINT.NOTIFICATIONS}/dashboard`);
-      revalidateTag(API_ENDPOINT.NOTIFICATIONS);
+    const { data, error } = await api.delete<{
+      data: NotificationResponse;
+      error?: string;
+    }>(`/${API_ENDPOINT.NOTIFICATIONS}/${id}`);
 
-      return true;
+    if (error) {
+      const errorResponse = JSON.parse(error) as ErrorResponse;
+      return { notification: null, error: errorResponse.error.message };
     }
 
-    return false;
+    revalidateTag(API_ENDPOINT.APPOINTMENTS);
+
+    return { notification: data, error: null };
   } catch (error) {
     const errorMessage =
       error instanceof Error
         ? error.message
         : 'An unexpected error occurred in delete notification';
 
-    return errorMessage;
+    return { notification: null, error: errorMessage };
   }
 };
