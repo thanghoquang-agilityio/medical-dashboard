@@ -2,8 +2,8 @@ name: Notify Vercel Server
 
 on:
   deployment_status:
-    types: [success, failure] # Listen for successful deployments
-  workflow_dispatch: # Allows you to trigger manually from the GitHub Actions interface
+    types: [success]  # Listen for successful deployments
+  workflow_dispatch:  # Allows you to trigger manually from the GitHub Actions interface
 
 jobs:
   notify_vercel:
