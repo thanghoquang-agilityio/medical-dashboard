@@ -6,7 +6,7 @@ import { Sidebar } from '.';
 // Services
 import { logout } from '@/services';
 
-jest.mock('../../../services/auth.ts', () => ({
+jest.mock('@/services/auth.ts', () => ({
   logout: jest.fn(),
 }));
 describe('Sidebar test cases', () => {

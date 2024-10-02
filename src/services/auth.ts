@@ -75,23 +75,25 @@ export const login = async (
 
 export const signup = async (
   body: Omit<SignupFormData, 'confirmPassWord'>,
-): Promise<Pick<AuthResponse, 'error' | 'user'>> => {
+): Promise<AuthResponse> => {
   try {
-    const { error, user } = await apiClient.post<AuthResponse>(
-      `${API_ENDPOINT.AUTH}/register`,
-      {
-        body,
-      },
-    );
+    const {
+      error,
+      user,
+      jwt = '',
+    } = await apiClient.post<AuthResponse>(`${API_ENDPOINT.AUTH}/register`, {
+      body,
+    });
 
     if (error && !user) {
       return {
         user: null,
         error: (JSON.parse(error) as ErrorResponse).error.message,
+        jwt,
       };
     }
 
-    return { user, error: null };
+    return { user, error: null, jwt };
   } catch (error) {
     const errorMessage =
       error instanceof Error
@@ -101,6 +103,7 @@ export const signup = async (
     return {
       user: null,
       error: errorMessage,
+      jwt: '',
     };
   }
 };

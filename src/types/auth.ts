@@ -1,4 +1,4 @@
-import { UserModel } from './user';
+import { UserSession } from './user';
 
 export interface LoginFormData {
   identifier: string;
@@ -15,6 +15,6 @@ export interface SignupFormData {
 
 export type AuthResponse = {
   jwt: string;
-  user: UserModel | null;
+  user: UserSession | null;
   error: string | null;
 };

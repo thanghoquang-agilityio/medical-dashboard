@@ -4,6 +4,7 @@ export const API_ENDPOINT = {
   NOTIFICATIONS: '/notifications',
   SPECIALTIES: '/Specialties',
   USERS: '/users',
+  CHEMISTS: '/chemists',
 };
 
 export const API_URL = `${process.env.NEXT_PUBLIC_API_URL}/api`;
