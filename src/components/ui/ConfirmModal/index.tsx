@@ -8,6 +8,7 @@ interface ConfirmModalProps {
   title: string;
   subTitle: string;
   isOpen: boolean;
+  isLoading?: boolean;
   onClose: () => void;
   onDelete: () => void;
 }
@@ -16,6 +17,7 @@ const ConfirmModal = ({
   title,
   subTitle,
   isOpen,
+  isLoading,
   onClose,
   onDelete,
 }: ConfirmModalProps) => (
@@ -24,6 +26,7 @@ const ConfirmModal = ({
       <Text variant="title" size="2xl">
         {title}
       </Text>
+
       <Text customClass="my-6">{subTitle}</Text>
     </div>
     <Divider />
@@ -37,9 +40,9 @@ const ConfirmModal = ({
         No
       </Button>
       <Button
-        color="secondary"
         onClick={onDelete}
         className="font-medium w-full"
+        isLoading={isLoading}
       >
         Yes
       </Button>
