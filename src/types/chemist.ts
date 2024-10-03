@@ -9,6 +9,13 @@ export type ChemistModel = {
   users_permissions_user: APIRelatedResponse<APIResponse<UserModel>>;
 };
 
+export type ChemistResponse = APIResponse<ChemistModel>;
+
+export type ChemistDataResponse = {
+  chemist: ChemistResponse | null;
+  error: string | null;
+};
+
 export type ChemistsDataResponse = Promise<
   { chemists: ChemistResponse[]; error: string | null } & MetaResponse
 >;
@@ -20,8 +27,4 @@ export type ChemistsResponse = {
 
 export type ChemistPayload = {
   users_permissions_user: string;
-};
-
-export type ChemistResponse = {
-  error: string | null;
 };
