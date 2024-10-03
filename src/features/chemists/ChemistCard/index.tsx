@@ -19,7 +19,7 @@ const ChemistCard = (props: UserModel) => {
     specialtyId,
   } = props;
   return (
-    <Card className="bg-background-200 max-w-[300px] sm:max-w-[354px] h-[228px] p-5 sm:p-6 gap-6">
+    <Card className="bg-background-200 w-[300px] w-full h-[228px] p-5 sm:p-6 gap-6">
       <CardHeader className="flex justify-between p-0">
         <div className="flex items-center gap-2">
           <Avatar
