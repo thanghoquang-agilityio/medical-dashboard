@@ -293,7 +293,7 @@ exports[`AppointmentsHistory Component should render correctly when appointments
                 role="row"
               >
                 <td
-                  class="align-middle text-center h-40 text-primary-100 text-xl font-medium"
+                  class="align-middle text-center text-primary-100 text-xl font-medium h-[152px] pb-4"
                   colspan="5"
                   role="gridcell"
                 >

@@ -1,29 +1,23 @@
 import { Suspense, lazy } from 'react';
 import { auth } from '@/config/auth';
 
-// Components
-import { Text, Button, Image } from '@/components/ui';
-import { CloseIcon } from '@/icons';
-const AppointmentsUpcoming = lazy(
-  () => import('@/features/dashboard/AppointmentsUpcoming'),
-);
-const ActivityFeed = lazy(() => import('@/features/dashboard/ActivityFeed'));
-
 // Constants
-import {
-  APPOINTMENT_STATUS_OPTIONS,
-  PAGE_DEFAULT,
-  ROLE,
-  SRC_BANNER_AVATAR,
-} from '@/constants';
+import { PAGE_DEFAULT, ROLE, SRC_BANNER_AVATAR } from '@/constants';
 
 // Types
 import { SearchParams } from '@/types';
 
 // Utils
 import { getGreeting } from '@/utils';
+// Components
+import { Text, Button, Image } from '@/components/ui';
+import { CloseIcon } from '@/icons';
 import { ActivityFeedSkeleton } from '@/features/dashboard/ActivityFeed/ActivityFeedSkeleton';
 import { AppointmentsUpcomingSkeleton } from '@/features/dashboard/AppointmentsUpcoming/AppointmentsUpcomingSkeleton';
+const AppointmentsUpcoming = lazy(
+  () => import('@/features/dashboard/AppointmentsUpcoming'),
+);
+const ActivityFeed = lazy(() => import('@/features/dashboard/ActivityFeed'));
 
 interface DashboardPageSearchParamsProps extends SearchParams {
   status?: string;
@@ -34,7 +28,7 @@ const DashboardPage = async ({
 }: {
   searchParams?: DashboardPageSearchParamsProps;
 }) => {
-  const { page = PAGE_DEFAULT, status = APPOINTMENT_STATUS_OPTIONS[0].key } =
+  const { page = PAGE_DEFAULT, status } =
     searchParams as DashboardPageSearchParamsProps;
 
   const {

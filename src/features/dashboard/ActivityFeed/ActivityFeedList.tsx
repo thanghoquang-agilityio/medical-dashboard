@@ -1,7 +1,6 @@
 'use client';
 
-import { memo, useTransition } from 'react';
-import dynamic from 'next/dynamic';
+import { lazy, memo, useTransition } from 'react';
 import { Card } from '@nextui-org/react';
 
 // Types
@@ -22,7 +21,7 @@ import { Avatar, Status, Text } from '@/components/ui';
 import { formatDateTime, fromDateToNow, getContentNotification } from '@/utils';
 import { API_IMAGE_URL } from '@/constants';
 import { ActivityFeedListSkeleton } from './ActivityFeedSkeleton';
-const DataGrid = dynamic(() => import('@/components/ui/DataGrid'));
+const DataGrid = lazy(() => import('@/components/ui/DataGrid'));
 
 interface ActivityInfoProps {
   item: NotificationModel;
@@ -90,7 +89,7 @@ const ActivityFeedList = memo(
     const [isPending, startTransition] = useTransition();
 
     return (
-      <Card className="bg-background-200 h-fit w-full p-4 md:pl-7">
+      <Card className="bg-background-200 h-fit w-full p-4 md:pl-7 mb-10">
         <Text variant="title" size="lg" customClass="leading-9">
           Activity Feed
         </Text>
