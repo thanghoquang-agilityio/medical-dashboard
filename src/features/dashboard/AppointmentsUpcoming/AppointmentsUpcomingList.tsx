@@ -28,16 +28,18 @@ import { formatDate, formatTimeAppointment } from '@/utils';
 
 // Components
 import { Button, Select, Text } from '@/components/ui';
-import { MoreIcon } from '@/icons';
+// import { MoreIcon } from '@/icons';
 import { AppointmentsUpcomingListSkeleton } from './AppointmentsUpcomingSkeleton';
 const DataGrid = dynamic(() => import('@/components/ui/DataGrid'));
 
 const COLUMNS_APPOINTMENT: ColumnType<AppointmentModel>[] = [
   {
     key: 'startTime',
-    title: '',
-    customNode: (_, item) => {
-      const date = formatDate(item.startTime);
+    title: 'Start time',
+    customNode: ({ item }) => {
+      const { startTime = '' } = item || {};
+      const date = formatDate(startTime);
+
       return (
         <div className="rounded-md w-[30px] md:w-[37px] h-10 bg-background-100 text-center pt-1">
           <Text customClass="text-xs text-yellow font-bold">
@@ -52,47 +54,58 @@ const COLUMNS_APPOINTMENT: ColumnType<AppointmentModel>[] = [
   },
   {
     key: 'receiverId',
-    title: '',
-    customNode: (_, item) => (
-      <>
-        <Text variant="primary" customClass="text-xs md:text-sm">
-          {item.receiverId.data.attributes.username}
-        </Text>
-        <Text
-          customClass="text-primary-300 font-light hidden lg:block"
-          size="xs"
-        >
-          {formatTimeAppointment({
-            start: item.startTime,
-            duration: item.durationTime,
-          })}
-        </Text>
-      </>
-    ),
+    title: 'Receiver',
+    customNode: ({ item }) => {
+      const { receiverId, startTime = '', durationTime = '' } = item || {};
+      const { attributes } = receiverId?.data || {};
+      const { username = '' } = attributes || {};
+
+      return (
+        <>
+          <Text variant="primary" customClass="text-xs md:text-sm">
+            {username}
+          </Text>
+          <Text
+            customClass="text-primary-300 font-light hidden lg:block"
+            size="xs"
+          >
+            {formatTimeAppointment({
+              start: startTime,
+              duration: durationTime,
+            })}
+          </Text>
+        </>
+      );
+    },
   },
   {
     key: 'durationTime',
-    title: '',
-    customNode: (_, item) => (
-      <Text customClass="text-primary-300 font-light lg:hidden" size="xs">
-        {formatTimeAppointment({
-          start: item.startTime,
-          duration: item.durationTime,
-        })}
-      </Text>
-    ),
+    title: 'Duration time',
+    customNode: ({ item }) => {
+      const { startTime = '', durationTime = '' } = item || {};
+
+      return (
+        <Text customClass="text-primary-300 font-light lg:hidden" size="xs">
+          {formatTimeAppointment({
+            start: startTime,
+            duration: durationTime,
+          })}
+        </Text>
+      );
+    },
   },
   {
-    key: 'more',
-    title: '',
-    customNode: () => (
+    key: 'actions',
+    title: 'Actions',
+    customNode: ({ id }) => (
       <div className="flex justify-end">
         <Button
-          aria-label="more actions"
+          aria-label="actions"
           color="stone"
           className="p-0 min-w-4 h-4 md:h-[26px] md:min-w-[26px] bg-background-100 rounded-md"
         >
-          <MoreIcon customClass=" w-[11px] h-[11px] md:w-4 md:h-4" />
+          {/* <MoreIcon customClass=" w-[11px] h-[11px] md:w-4 md:h-4" /> */}
+          {id}
         </Button>
       </div>
     ),
