@@ -67,9 +67,9 @@ export const COLUMNS_ACTIVITY_FEED: ColumnType<NotificationModel>[] = [
   {
     key: 'status',
     title: 'Status',
-    customNode: (_, item) => {
+    customNode: ({ item }) => {
       const { info } = item || {};
-      const { status } = info || {};
+      const { status = 0 } = info || {};
 
       return (
         <Status
@@ -105,11 +105,17 @@ const ActivityFeedList = memo(
               columns={
                 COLUMNS_ACTIVITY_FEED.map((column) => ({
                   ...column,
-                  customNode: (_, item: NotificationModel) =>
+                  customNode: ({ item }) =>
                     column.key === 'sender' ? (
-                      <ActivityInfo item={item} userId={userId} />
+                      <ActivityInfo
+                        item={item as NotificationModel}
+                        userId={userId}
+                      />
                     ) : column.customNode ? (
-                      column.customNode(column, item)
+                      column.customNode({
+                        column,
+                        item: item as NotificationModel,
+                      })
                     ) : null,
                 })) as ColumnType<unknown>[]
               }
