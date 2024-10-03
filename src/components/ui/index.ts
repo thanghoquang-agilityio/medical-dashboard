@@ -5,6 +5,7 @@ export * from './Image';
 export * from './Input';
 export * from './InputSearch';
 export * from './MenuDropdown';
+export * from './MoreAction';
 export * from './Navbar';
 export * from './Popover';
 export * from './Profile';
