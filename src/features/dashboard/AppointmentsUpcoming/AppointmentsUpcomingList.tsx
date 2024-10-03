@@ -2,6 +2,7 @@
 
 import {
   ChangeEvent,
+  lazy,
   memo,
   useCallback,
   useMemo,
@@ -9,7 +10,6 @@ import {
   useTransition,
 } from 'react';
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
-import dynamic from 'next/dynamic';
 import { Card } from '@nextui-org/react';
 
 // Constants
@@ -30,7 +30,7 @@ import { formatDate, formatTimeAppointment } from '@/utils';
 import { Button, Select, Text } from '@/components/ui';
 // import { MoreIcon } from '@/icons';
 import { AppointmentsUpcomingListSkeleton } from './AppointmentsUpcomingSkeleton';
-const DataGrid = dynamic(() => import('@/components/ui/DataGrid'));
+const DataGrid = lazy(() => import('@/components/ui/DataGrid'));
 
 const COLUMNS_APPOINTMENT: ColumnType<AppointmentModel>[] = [
   {
@@ -115,6 +115,7 @@ const COLUMNS_APPOINTMENT: ColumnType<AppointmentModel>[] = [
 export interface AppointmentsUpcomingListProps extends MetaResponse {
   appointments: AppointmentResponse[];
   defaultStatus: string;
+  role: string;
 }
 
 const AppointmentsUpcomingList = memo(
@@ -147,7 +148,7 @@ const AppointmentsUpcomingList = memo(
         if (!status) {
           params.append('status', value);
         } else {
-          params.delete('status');
+          params.set('status', value);
         }
 
         handleReplaceURL?.(params);
@@ -164,7 +165,7 @@ const AppointmentsUpcomingList = memo(
     );
 
     return (
-      <Card className="w-full lg:max-w-[320px] 2xl:max-w-[550px] h-fit p-4 pl-5 bg-background-200">
+      <Card className="w-full lg:max-w-[320px] 2xl:max-w-[550px] h-fit p-4 pl-5 bg-background-200 mb-10">
         <div className="flex justify-between items-center">
           <Text customClass="text-lg font-bold text-primary-100">
             Appointments

@@ -3,7 +3,7 @@
 exports[`AppointmentsUpComingList test cases should render correctly 1`] = `
 <DocumentFragment>
   <div
-    class="flex flex-col relative overflow-hidden text-foreground box-border outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 shadow-medium rounded-large transition-transform-background motion-reduce:transition-none w-full lg:max-w-[320px] 2xl:max-w-[550px] h-fit p-4 pl-5 bg-background-200"
+    class="flex flex-col relative overflow-hidden text-foreground box-border outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 shadow-medium rounded-large transition-transform-background motion-reduce:transition-none w-full lg:max-w-[320px] 2xl:max-w-[550px] h-fit p-4 pl-5 bg-background-200 mb-10"
     tabindex="-1"
   >
     <div
@@ -66,10 +66,10 @@ exports[`AppointmentsUpComingList test cases should render correctly 1`] = `
               aria-expanded="false"
               aria-haspopup="listbox"
               aria-label="appointment status"
-              aria-labelledby="react-aria-:r7: react-aria-:r2:"
+              aria-labelledby="react-aria-:rf: react-aria-:ra:"
               class="relative gap-3 w-full inline-flex flex-row items-center shadow-sm tap-highlight-transparent group-data-[focus=true]:bg-default-100 outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 px-2.5 py-2 h-[46px] rounded-medium bg-background-100 shadow-stack border-1 outline-offset-0 data-[focus=true]:border-green data-[focus=true]:border-1 data-[focus=true]:bg-background-100 data-[hover=true]:bg-background-100 group-data-[invalid=true]:border-red min-h-[36px]"
               data-slot="trigger"
-              id="react-aria-:r2:"
+              id="react-aria-:ra:"
               type="button"
             >
               <div
@@ -79,7 +79,7 @@ exports[`AppointmentsUpComingList test cases should render correctly 1`] = `
                 <span
                   class="w-full text-left rtl:text-right truncate group-data-[has-value=true]:text-default-foreground text-xs text-primary-100 font-medium"
                   data-slot="value"
-                  id="react-aria-:r7:"
+                  id="react-aria-:rf:"
                 >
                   New
                 </span>
