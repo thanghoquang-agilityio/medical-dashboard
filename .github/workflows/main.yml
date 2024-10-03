@@ -16,20 +16,62 @@ jobs:
       - name: Checkout the repository
         uses: actions/checkout@v3
 
+      - name: Get Deployment Info
+        id: deployment_info
+        run: |
+          # Get the deployment_id from the event
+          echo "Deployment ID: ${{ github.event.deployment.id }}"
+          deployment_id=${{ github.event.deployment.id }}
+
+          # Fetch the deployment details
+          deployment_response=$(curl -s -H "Authorization: token ${{ secrets.PERSONAL_GITHUB_TOKEN }}" \
+            "https://api.github.com/repos/${{ github.repository }}/deployments/${deployment_id}")
+
+          # Extract the commit SHA
+          commit_sha=$(echo "$deployment_response" | jq -r '.sha')
+
+          echo "Commit SHA: $commit_sha"
+
+          # Fetch commit information
+          commit_response=$(curl -s -H "Authorization: token ${{ secrets.PERSONAL_GITHUB_TOKEN }}" \
+            "https://api.github.com/repos/${{ github.repository }}/commits/${commit_sha}")
+
+          # Extract branch name and commit message
+          GITHUB_REF="refs/heads/main"
+          branch_2=${GITHUB_REF#refs/heads/}
+          commit_message=$(echo "$commit_response" | jq -r '.commit.message')
+          commit_date=$(echo "$commit_response" | jq -r '.commit.author.date')
+          branch="${{ github.head_ref }}"
+
+          echo "Branch Name 0: $branch_2"
+          echo "Branch Name 1: $branch"
+          echo "Branch Name 2: $branch_2"
+          echo "Commit Message: $commit_message"
+          echo "Commit Date: $commit_date"
+
+          # Set outputs for further use
+          echo "::set-output name=branch_name::$branch_2"
+          echo "::set-output name=commit_message::$commit_message"
+          echo "::set-output name=commit_date::$commit_date"
+
+      - name: Display Branch and Commit Info
+        run: |
+          echo "Branch Name: ${{ steps.deployment_info.outputs.branch_name }}"
+          echo "Commit Message: ${{ steps.deployment_info.outputs.commit_message }}"
+          echo "Commit Date: ${{ steps.deployment_info.outputs.commit_date }}"
+
       - name: Call Vercel-deployed Node.js API
         run: |
-          echo "GITHUB_REF: $GITHUB_REF"
-          branch_name=${GITHUB_REF#refs/heads/}
-          echo "Branch name: $branch_name"
           curl -X POST ${{ secrets.SLACK_WEBHOOK_API_URL }}/vercel-deploy-hook \
           -H "Content-Type: application/json" \
           -d '{
                 "name": "${{ secrets.PROJECT_NAME }}",
-                "target": "production",
+                "target": "${{ steps.deployment_info.outputs.branch_name }}",
+                "status": "${{ github.event.deployment_status.state }}",
                 "gitSource": {
-                  "ref": "${{ github.ref_name }}",
-                  "message": "${{ github.event.head_commit.message }}"
+                  "ref": "${{ steps.deployment_info.outputs.branch_name }}",
+                  "message": "${{ steps.deployment_info.outputs.commit_message }}"
                 },
-                "createdAt": "${{ github.event.head_commit.timestamp }}"
+                "createdAt": "${{ steps.deployment_info.outputs.commit_date }}"
               }
             '
