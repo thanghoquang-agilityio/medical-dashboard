@@ -2,6 +2,7 @@ export * from './Avatar';
 export * from './Button';
 export * from './Checkbox';
 export * from './Image';
+export * from './ImageUpload';
 export * from './Input';
 export * from './InputSearch';
 export * from './MenuDropdown';
