@@ -6,29 +6,29 @@ export const MOCK_COLUMNS_APPOINTMENTS: ColumnType<AppointmentModel>[] = [
   {
     key: 'senderId',
     title: 'Sender',
-    customNode: (_, item) => (
+    customNode: ({ item }) => (
       <Text variant="primary" size="xs">
-        {item.senderId.data.attributes.username}
+        {item?.senderId.data.attributes.username}
       </Text>
     ),
   },
   {
     key: 'receiverId',
     title: 'Receiver',
-    customNode: (_, item) => (
+    customNode: ({ item }) => (
       <Text variant="primary" size="xs">
-        {item.receiverId.data.attributes.username}
+        {item?.receiverId.data.attributes.username}
       </Text>
     ),
   },
   {
     key: 'durationTime',
     title: 'Duration',
-    customNode: (_, item) => (
+    customNode: ({ item }) => (
       <Text variant="primary" size="xs">
         {formatTimeAppointment({
-          start: item.startTime,
-          duration: item.durationTime,
+          start: item?.startTime || '',
+          duration: item?.durationTime || '',
         })}
       </Text>
     ),
@@ -36,17 +36,17 @@ export const MOCK_COLUMNS_APPOINTMENTS: ColumnType<AppointmentModel>[] = [
   {
     key: 'startTime',
     title: 'Date',
-    customNode: (_, item) => (
+    customNode: ({ item }) => (
       <Text variant="primary" size="xs">
-        {formatNewDate(item.startTime)}
+        {formatNewDate(item?.startTime || '')}
       </Text>
     ),
   },
   {
     key: 'status',
     title: 'Status',
-    customNode: (_, item) => (
-      <Status status={STATUS_TYPE_RESPONSE[item.status]} />
+    customNode: ({ item }) => (
+      <Status status={STATUS_TYPE_RESPONSE[item?.status || 0]} />
     ),
   },
 ];

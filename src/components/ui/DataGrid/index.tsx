@@ -132,7 +132,14 @@ const DataGrid = memo(
                           )}
                         >
                           {column.customNode ? (
-                            column.customNode(column, item.attributes)
+                            column.key === 'actions' ? (
+                              column.customNode({ id })
+                            ) : (
+                              column.customNode({
+                                column,
+                                item: item.attributes,
+                              })
+                            )
                           ) : (
                             <Text variant="error" size="xs">
                               {getObjectValue(item.attributes, column.key)}

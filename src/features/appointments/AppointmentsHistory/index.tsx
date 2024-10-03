@@ -46,10 +46,15 @@ const createColumns = (role: string): ColumnType<AppointmentModel>[] => {
   const baseColumns: ColumnType<AppointmentModel>[] = [
     {
       key: 'senderId',
-      title: '',
-      customNode: (_, item) => {
-        const { url = '' } =
-          item.senderId.data.attributes.avatar?.data?.attributes || {};
+      title: 'Sender',
+      customNode: ({ item }) => {
+        const { senderId = '' } = item || {};
+        const { data } = senderId || {};
+        const { attributes } = data || {};
+        const { avatar, username = '' } = attributes || {};
+        const { data: dataAvatar } = avatar || {};
+        const { attributes: attributesAvatar } = dataAvatar || {};
+        const { url = '' } = attributesAvatar || {};
 
         return (
           <div className="flex gap-2 items-center">
@@ -60,7 +65,7 @@ const createColumns = (role: string): ColumnType<AppointmentModel>[] => {
               className="shrink-0"
             />
             <Text variant="primary" size="sm">
-              {item.senderId.data.attributes.username}
+              {username}
             </Text>
           </div>
         );
@@ -68,10 +73,15 @@ const createColumns = (role: string): ColumnType<AppointmentModel>[] => {
     },
     {
       key: 'receiverId',
-      title: '',
-      customNode: (_, item) => {
-        const { url = '' } =
-          item.receiverId.data.attributes.avatar?.data?.attributes || {};
+      title: 'Receiver',
+      customNode: ({ item }) => {
+        const { receiverId = '' } = item || {};
+        const { data } = receiverId || {};
+        const { attributes } = data || {};
+        const { avatar, username = '' } = attributes || {};
+        const { data: dataAvatar } = avatar || {};
+        const { attributes: attributesAvatar } = dataAvatar || {};
+        const { url = '' } = attributesAvatar || {};
 
         return (
           <div className="flex gap-2 items-center">
@@ -82,7 +92,7 @@ const createColumns = (role: string): ColumnType<AppointmentModel>[] => {
               className="shrink-0"
             />
             <Text variant="primary" size="sm">
-              {item.receiverId.data.attributes.username}
+              {username}
             </Text>
           </div>
         );
@@ -90,21 +100,26 @@ const createColumns = (role: string): ColumnType<AppointmentModel>[] => {
     },
     {
       key: 'durationTime',
-      title: '',
-      customNode: (_, item) => (
-        <Text variant="primary" size="xs">
-          {formatTimeAppointment({
-            start: item.startTime,
-            duration: item.durationTime,
-          })}
-        </Text>
-      ),
+      title: 'Duration time',
+      customNode: ({ item }) => {
+        const { startTime = '', durationTime = '' } = item || {};
+        return (
+          <Text variant="primary" size="xs">
+            {formatTimeAppointment({
+              start: startTime,
+              duration: durationTime,
+            })}
+          </Text>
+        );
+      },
     },
     {
       key: 'startTime',
-      title: '',
-      customNode: (_, item) => {
-        const date = formatDayMonthYear(item.startTime);
+      title: 'Start time',
+      customNode: ({ item }) => {
+        const { startTime = '' } = item || {};
+        const date = formatDayMonthYear(startTime);
+
         return (
           <Text variant="primary" size="xs">
             {date}
@@ -114,9 +129,26 @@ const createColumns = (role: string): ColumnType<AppointmentModel>[] => {
     },
     {
       key: 'status',
-      title: '',
-      customNode: (_, item) => (
-        <Status status={STATUS_TYPE_RESPONSE[item.status]} />
+      title: 'Status',
+      customNode: ({ item }) => {
+        const { status = 0 } = item || {};
+        return <Status status={STATUS_TYPE_RESPONSE[status]} />;
+      },
+    },
+    {
+      key: 'actions',
+      title: 'Actions',
+      customNode: ({ id }) => (
+        <div className="flex justify-end">
+          <Button
+            aria-label="actions"
+            color="stone"
+            className="p-0 min-w-4 h-4 md:h-[26px] md:min-w-[26px] bg-background-100 rounded-md"
+          >
+            {/* <MoreIcon customClass=" w-[11px] h-[11px] md:w-4 md:h-4" /> */}
+            {id}
+          </Button>
+        </div>
       ),
     },
   ];
