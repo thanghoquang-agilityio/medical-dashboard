@@ -24,7 +24,11 @@ import {
 } from '@/types';
 
 // Utils
-import { formatDayMonthYear, formatTimeAppointment } from '@/utils';
+import {
+  formatDayMonthYear,
+  formatTimeAppointment,
+  isLaterThanCurrentTime,
+} from '@/utils';
 
 // Constants
 import {
@@ -167,11 +171,12 @@ const AppointmentsHistory = ({
       {
         key: 'actions',
         title: 'Actions',
-        customNode: ({ id }) => (
+        customNode: ({ item, id }) => (
           <div className="flex justify-end">
             <MenuAction
               onShowEditModal={() => handleEdit(id)}
               onShowDeleteModal={() => handleShowDeleteModal(id)}
+              isDisabledEdit={isLaterThanCurrentTime(item?.startTime || '')}
             />
           </div>
         ),
