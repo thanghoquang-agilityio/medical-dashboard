@@ -45,7 +45,7 @@ const SwitchTheme = () => {
       aria-label="switch theme"
       isIconOnly
       onClick={handleSwitchTheme}
-      className="p-0 min-w-6 h-6 text-primary-300 mb-0.5"
+      className="p-0 min-w-6 w-6 h-6 text-primary-300 mb-0.5"
     >
       {theme === THEME_MODE_TYPE.LIGHT ? (
         <MoonIcon customClass="w-auto" />
