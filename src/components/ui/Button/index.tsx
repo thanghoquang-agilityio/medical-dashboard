@@ -35,6 +35,5 @@ export const Button = extendVariants(ButtonNextUI, {
   defaultVariants: {
     variant: 'solid',
     color: 'primary',
-    size: 'xs',
   },
 });
