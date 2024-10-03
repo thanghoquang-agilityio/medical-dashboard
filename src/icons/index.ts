@@ -27,4 +27,5 @@ export * from './SingleDotIcon';
 export * from './SortIcon';
 export * from './StarIcon';
 export * from './TaskIcon';
+export * from './UploadImageIcon';
 export * from './XmarkIcon';
