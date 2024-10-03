@@ -13,12 +13,12 @@ export const ActivityFeedListSkeleton = memo(() => (
       .map((_, index) => (
         <div
           key={`activity-feed-skeleton-${index}`}
-          className="flex w-full h-[76px] justify-between"
+          className="flex w-full h-[60px] justify-between"
         >
           <Skeleton className="min-w-10 w-10 h-10 rounded-full" />
           <div className="flex flex-col w-full ml-2 mr-8 gap-1">
             <Skeleton className="w-full h-5 rounded-large" />
-            <Skeleton className="w-14 h-5 rounded-large" />
+            <Skeleton className="w-20 h-5 rounded-large" />
           </div>
 
           <Skeleton className="w-16 h-7 rounded-small mt-3" />
