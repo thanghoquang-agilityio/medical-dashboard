@@ -24,7 +24,7 @@ jobs:
           deployment_id=${{ github.event.deployment.id }}
 
           # Fetch the deployment details
-          deployment_response=$(curl -s -H "Authorization: token ${{ secrets.PERSONAL_GITHUB_TOKEN }}" \
+          deployment_response=$(curl -s -H "Authorization: token ${{ secrets.PERSONAL_GITHUB }}" \
             "https://api.github.com/repos/${{ github.repository }}/deployments/${deployment_id}")
 
           # Extract the commit SHA
@@ -33,7 +33,7 @@ jobs:
           echo "Commit SHA: $commit_sha"
 
           # Fetch commit information
-          commit_response=$(curl -s -H "Authorization: token ${{ secrets.PERSONAL_GITHUB_TOKEN }}" \
+          commit_response=$(curl -s -H "Authorization: token ${{ secrets.PERSONAL_GITHUB }}" \
             "https://api.github.com/repos/${{ github.repository }}/commits/${commit_sha}")
 
           # Extract branch name and commit message
