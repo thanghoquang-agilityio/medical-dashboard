@@ -1,10 +1,6 @@
-import { APIRelatedResponse, APIResponse, UserModel } from '@/types';
+import { APIResponse, ChemistModel } from '@/types';
 
-export const MOCK_CHEMISTS_LIST: Array<
-  APIResponse<{
-    users_permissions_user: APIRelatedResponse<APIResponse<UserModel>>;
-  }>
-> = [
+export const MOCK_CHEMISTS_LIST: Array<APIResponse<ChemistModel>> = [
   {
     id: '6',
     attributes: {
