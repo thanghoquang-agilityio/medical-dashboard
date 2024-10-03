@@ -29,7 +29,7 @@ interface ActivityInfoProps {
   userId?: string;
 }
 
-const ActivityInfo = ({ item, userId = '' }: ActivityInfoProps) => {
+const ActivityInfo = memo(({ item, userId = '' }: ActivityInfoProps) => {
   const {
     senderAvatar = '',
     createdAt = '',
@@ -57,7 +57,7 @@ const ActivityInfo = ({ item, userId = '' }: ActivityInfoProps) => {
       </div>
     </div>
   );
-};
+});
 
 export const COLUMNS_ACTIVITY_FEED: ColumnType<NotificationModel>[] = [
   {
@@ -130,4 +130,5 @@ const ActivityFeedList = memo(
 );
 
 ActivityFeedList.displayName = 'ActivityFeedList';
+ActivityInfo.displayName = 'ActivityInfo';
 export default ActivityFeedList;
