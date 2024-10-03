@@ -168,4 +168,4 @@ Check and update config image hosting on `next.config.mjs` file follow [Next.js 
 
 Thang is typically available during weekdays and aims to respond to issues and pull requests within 48 hours. For urgent matters, please email directly.
 
-#### Test commit
+#### Hello world
