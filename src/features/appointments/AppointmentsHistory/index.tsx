@@ -19,6 +19,7 @@ import {
   AppointmentResponse,
   ColumnType,
   MetaResponse,
+  STATUS_TYPE,
   STATUS_TYPE_RESPONSE,
 } from '@/types';
 
@@ -26,7 +27,16 @@ import {
 import { formatDayMonthYear, formatTimeAppointment } from '@/utils';
 
 // Constants
-import { API_IMAGE_URL, APPOINTMENT_STATUS_OPTIONS, ROLE } from '@/constants';
+import {
+  API_IMAGE_URL,
+  APPOINTMENT_STATUS_OPTIONS,
+  ERROR_MESSAGE,
+  ROLE,
+  SUCCESS_MESSAGE,
+} from '@/constants';
+
+// Hocs
+import { useToast } from '@/context/toast';
 
 // Components
 import {
@@ -36,125 +46,16 @@ import {
   Select,
   Status,
   Text,
+  MenuAction,
 } from '@/components/ui';
 import { AppointmentsHistoryListSkeleton } from './AppointmentsHistorySkeleton';
 import AppointmentModal from '../AppointmentModal';
+
+// Service
+import { deleteAppointment } from '@/services';
+
 const DataGrid = dynamic(() => import('@/components/ui/DataGrid'));
-
-// Create config columns for appointments
-const createColumns = (role: string): ColumnType<AppointmentModel>[] => {
-  const baseColumns: ColumnType<AppointmentModel>[] = [
-    {
-      key: 'senderId',
-      title: 'Sender',
-      customNode: ({ item }) => {
-        const { senderId = '' } = item || {};
-        const { data } = senderId || {};
-        const { attributes } = data || {};
-        const { avatar, username = '' } = attributes || {};
-        const { data: dataAvatar } = avatar || {};
-        const { attributes: attributesAvatar } = dataAvatar || {};
-        const { url = '' } = attributesAvatar || {};
-
-        return (
-          <div className="flex gap-2 items-center">
-            <Avatar
-              src={`${API_IMAGE_URL}${url}`}
-              size="md"
-              isBordered
-              className="shrink-0"
-            />
-            <Text variant="primary" size="sm">
-              {username}
-            </Text>
-          </div>
-        );
-      },
-    },
-    {
-      key: 'receiverId',
-      title: 'Receiver',
-      customNode: ({ item }) => {
-        const { receiverId = '' } = item || {};
-        const { data } = receiverId || {};
-        const { attributes } = data || {};
-        const { avatar, username = '' } = attributes || {};
-        const { data: dataAvatar } = avatar || {};
-        const { attributes: attributesAvatar } = dataAvatar || {};
-        const { url = '' } = attributesAvatar || {};
-
-        return (
-          <div className="flex gap-2 items-center">
-            <Avatar
-              src={`${API_IMAGE_URL}${url}`}
-              size="md"
-              isBordered
-              className="shrink-0"
-            />
-            <Text variant="primary" size="sm">
-              {username}
-            </Text>
-          </div>
-        );
-      },
-    },
-    {
-      key: 'durationTime',
-      title: 'Duration time',
-      customNode: ({ item }) => {
-        const { startTime = '', durationTime = '' } = item || {};
-        return (
-          <Text variant="primary" size="xs">
-            {formatTimeAppointment({
-              start: startTime,
-              duration: durationTime,
-            })}
-          </Text>
-        );
-      },
-    },
-    {
-      key: 'startTime',
-      title: 'Start time',
-      customNode: ({ item }) => {
-        const { startTime = '' } = item || {};
-        const date = formatDayMonthYear(startTime);
-
-        return (
-          <Text variant="primary" size="xs">
-            {date}
-          </Text>
-        );
-      },
-    },
-    {
-      key: 'status',
-      title: 'Status',
-      customNode: ({ item }) => {
-        const { status = 0 } = item || {};
-        return <Status status={STATUS_TYPE_RESPONSE[status]} />;
-      },
-    },
-    {
-      key: 'actions',
-      title: 'Actions',
-      customNode: ({ id }) => (
-        <div className="flex justify-end">
-          <Button
-            aria-label="actions"
-            color="stone"
-            className="p-0 min-w-4 h-4 md:h-[26px] md:min-w-[26px] bg-background-100 rounded-md"
-          >
-            {/* <MoreIcon customClass=" w-[11px] h-[11px] md:w-4 md:h-4" /> */}
-            {id}
-          </Button>
-        </div>
-      ),
-    },
-  ];
-
-  return role === ROLE.ADMIN ? baseColumns : baseColumns.slice(1);
-};
+const ConfirmModal = dynamic(() => import('@/components/ui/ConfirmModal'));
 
 export interface AppointmentsHistoryProps extends MetaResponse {
   userId: string;
@@ -170,6 +71,116 @@ const AppointmentsHistory = ({
   role,
   defaultStatus = '',
 }: AppointmentsHistoryProps) => {
+  const createColumns = (role: string): ColumnType<AppointmentModel>[] => {
+    const baseColumns: ColumnType<AppointmentModel>[] = [
+      {
+        key: 'senderId',
+        title: 'Sender',
+        customNode: ({ item }) => {
+          const { senderId = '' } = item || {};
+          const { data } = senderId || {};
+          const { attributes } = data || {};
+          const { avatar, username = '' } = attributes || {};
+          const { data: dataAvatar } = avatar || {};
+          const { attributes: attributesAvatar } = dataAvatar || {};
+          const { url = '' } = attributesAvatar || {};
+
+          return (
+            <div className="flex gap-2 items-center">
+              <Avatar
+                src={`${API_IMAGE_URL}${url}`}
+                size="md"
+                isBordered
+                className="shrink-0"
+              />
+              <Text variant="primary" size="sm">
+                {username}
+              </Text>
+            </div>
+          );
+        },
+      },
+      {
+        key: 'receiverId',
+        title: 'Receiver',
+        customNode: ({ item }) => {
+          const { receiverId = '' } = item || {};
+          const { data } = receiverId || {};
+          const { attributes } = data || {};
+          const { avatar, username = '' } = attributes || {};
+          const { data: dataAvatar } = avatar || {};
+          const { attributes: attributesAvatar } = dataAvatar || {};
+          const { url = '' } = attributesAvatar || {};
+
+          return (
+            <div className="flex gap-2 items-center">
+              <Avatar
+                src={`${API_IMAGE_URL}${url}`}
+                size="md"
+                isBordered
+                className="shrink-0"
+              />
+              <Text variant="primary" size="sm">
+                {username}
+              </Text>
+            </div>
+          );
+        },
+      },
+      {
+        key: 'durationTime',
+        title: 'Duration time',
+        customNode: ({ item }) => {
+          const { startTime = '', durationTime = '' } = item || {};
+          return (
+            <Text variant="primary" size="xs">
+              {formatTimeAppointment({
+                start: startTime,
+                duration: durationTime,
+              })}
+            </Text>
+          );
+        },
+      },
+      {
+        key: 'startTime',
+        title: 'Start time',
+        customNode: ({ item }) => {
+          const { startTime = '' } = item || {};
+          const date = formatDayMonthYear(startTime);
+
+          return (
+            <Text variant="primary" size="xs">
+              {date}
+            </Text>
+          );
+        },
+      },
+      {
+        key: 'status',
+        title: 'Status',
+        customNode: ({ item }) => {
+          const { status = 0 } = item || {};
+          return <Status status={STATUS_TYPE_RESPONSE[status]} />;
+        },
+      },
+      {
+        key: 'actions',
+        title: 'Actions',
+        customNode: ({ id }) => (
+          <div className="flex justify-end">
+            <MenuAction
+              onShowEditModal={() => handleEdit(id)}
+              onShowDeleteModal={() => handleShowDeleteModal(id)}
+            />
+          </div>
+        ),
+      },
+    ];
+
+    return role === ROLE.ADMIN ? baseColumns : baseColumns.slice(1);
+  };
+
   const columns = createColumns(role);
 
   const [isPending, startTransition] = useTransition();
@@ -223,9 +234,16 @@ const AppointmentsHistory = ({
   );
 
   const { isOpen, onClose, onOpen } = useDisclosure();
+  const {
+    isOpen: isOpenDeleteModal,
+    onClose: onCloseDeleteModal,
+    onOpen: onOpenDeleteModal,
+  } = useDisclosure();
+  const [isPendingDelete, setIsPendingDelete] = useState(false);
+  const openToast = useToast();
 
   const handleEdit = useCallback(
-    (key: Key) => {
+    (key?: Key) => {
       const appointment = appointments.find(
         (appointment) => key == appointment.id,
       );
@@ -240,6 +258,37 @@ const AppointmentsHistory = ({
     setAppointment(undefined);
     onOpen();
   }, [onOpen]);
+
+  const handleShowDeleteModal = useCallback(
+    (key?: Key) => {
+      const appointment = appointments.find(
+        (appointment) => key == appointment.id,
+      );
+      onOpenDeleteModal();
+      setAppointmentId(appointment?.id);
+    },
+    [appointments, onOpenDeleteModal],
+  );
+
+  const handleDeleteAppointment = useCallback(async () => {
+    setIsPendingDelete(true);
+    const { error } = await deleteAppointment(appointmentId as string);
+    if (error) {
+      openToast({
+        message: ERROR_MESSAGE.DELETE('appointment'),
+        type: STATUS_TYPE.ERROR,
+      });
+
+      setIsPendingDelete(false);
+      return;
+    }
+
+    openToast({
+      message: SUCCESS_MESSAGE.DELETE('appointment'),
+      type: STATUS_TYPE.SUCCESS,
+    });
+    onCloseDeleteModal();
+  }, [appointmentId, onCloseDeleteModal, openToast]);
 
   return (
     <>
@@ -283,7 +332,6 @@ const AppointmentsHistory = ({
               pagination={pagination}
               hasDivider
               classWrapper="p-1"
-              onRowAction={handleEdit}
             />
           )}
         </div>
@@ -295,6 +343,15 @@ const AppointmentsHistory = ({
         role={role}
         onClose={onClose}
         isOpen={isOpen}
+      />
+
+      <ConfirmModal
+        title="Confirm"
+        subTitle="Do you want to delete this appointment?"
+        isOpen={isOpenDeleteModal}
+        isLoading={isPendingDelete}
+        onClose={onCloseDeleteModal}
+        onDelete={handleDeleteAppointment}
       />
     </>
   );

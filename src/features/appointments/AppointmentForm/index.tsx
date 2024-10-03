@@ -1,9 +1,8 @@
 'use client';
 
-import dynamic from 'next/dynamic';
-import { memo, useCallback, useEffect, useState } from 'react';
+import { memo, useEffect, useState } from 'react';
 import { Controller, useForm } from 'react-hook-form';
-import { TimeInputValue, useDisclosure } from '@nextui-org/react';
+import { TimeInputValue } from '@nextui-org/react';
 
 // Types
 import {
@@ -20,7 +19,6 @@ import {
   transformUsers,
   generateISODate,
   convertMinutesToTime,
-  cn,
   convertTimeToMinutes,
 } from '@/utils';
 
@@ -40,14 +38,11 @@ import {
 import { useToast } from '@/context/toast';
 
 // Actions
-import { deleteAppointment } from '@/services';
 import { getUsers } from '@/actions/user';
 import { createAppointment, editAppointment } from '@/actions/appointment';
 
 // Rules
 import { APPOINTMENT_FORM_VALIDATION } from './rule';
-
-const ConfirmModal = dynamic(() => import('@/components/ui/ConfirmModal'));
 
 export type AppointmentModalProps = {
   userId: string;
@@ -85,7 +80,6 @@ const AppointmentForm = memo(
     const { id: senderId = '' } = sender || {};
     const { id: receiverId = '' } = receiver || {};
 
-    const { isOpen, onOpen, onClose: onCloseDeleteModal } = useDisclosure();
     const openToast = useToast();
     const isAdmin = role === ROLE.ADMIN;
 
@@ -111,7 +105,6 @@ const AppointmentForm = memo(
     const [users, setUsers] = useState<UserLogged[]>([]);
     const [error, setError] = useState('');
     const [isPending, setIsPending] = useState(false);
-    const [isPendingDelete, setIsPendingDelete] = useState(false);
 
     useEffect(() => {
       const fetchUsers = async () => {
@@ -125,27 +118,6 @@ const AppointmentForm = memo(
 
     const OPTION_USERS = transformUsers(users);
     const isEdit = !!data;
-
-    const handleDeleteAppointment = useCallback(async () => {
-      setIsPendingDelete(true);
-      const { error } = await deleteAppointment(id);
-      if (error) {
-        openToast({
-          message: ERROR_MESSAGE.DELETE('appointment'),
-          type: STATUS_TYPE.ERROR,
-        });
-
-        setIsPendingDelete(false);
-        return;
-      }
-
-      openToast({
-        message: SUCCESS_MESSAGE.DELETE('appointment'),
-        type: STATUS_TYPE.SUCCESS,
-      });
-      onCloseDeleteModal();
-      onClose();
-    }, [id, onClose, onCloseDeleteModal, openToast]);
 
     const onSubmit = async ({
       startDate,
@@ -375,13 +347,12 @@ const AppointmentForm = memo(
             )}
             <div className="w-full gap-2 flex justify-end">
               <Button
-                onClick={onOpen}
                 variant="outline"
                 color="outline"
-                className={cn(`font-medium ${isEdit ? 'block' : 'hidden'}`)}
-                isDisabled={!isAdmin}
+                className="font-medium"
+                onClick={onClose}
               >
-                Delete
+                Cancel
               </Button>
               <Button
                 isDisabled={!isValid || !isDirty || isPending}
@@ -393,14 +364,6 @@ const AppointmentForm = memo(
             </div>
           </div>
         </form>
-        <ConfirmModal
-          title="Confirm"
-          subTitle="Do you want to delete this appointment?"
-          isOpen={isOpen}
-          isLoading={isPendingDelete}
-          onClose={onCloseDeleteModal}
-          onDelete={handleDeleteAppointment}
-        />
       </>
     );
   },
