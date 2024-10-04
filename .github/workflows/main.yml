@@ -6,6 +6,7 @@ on:
 
 jobs:
   notify_vercel:
+    if: github.event_name == 'deployment_status' && (github.event.deployment_status.state == 'success' || github.event.deployment_status.state == 'failure')
     runs-on: ubuntu-latest
 
     steps:
