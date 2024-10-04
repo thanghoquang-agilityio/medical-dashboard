@@ -6,7 +6,7 @@ on:
 
 jobs:
   notify_vercel:
-    if: github.event_name == 'deployment_status' && (github.event.deployment_status.state == 'success' || github.event.deployment_status.state == 'failure')
+    if: github.event_name == 'deployment_status' && github.event.deployment_status.state == 'success'
     runs-on: ubuntu-latest
 
     steps:
@@ -76,3 +76,10 @@ jobs:
                 "createdAt": "${{ steps.deployment_info.outputs.commit_date }}"
               }
             '
+
+  deploy-failure:
+    if: github.event_name == 'deployment_status' && github.event.deployment_status.state == 'failure'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Failure step
+        run: echo "Deployment failed. Please check the log build"
