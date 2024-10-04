@@ -1,3 +1,4 @@
+import { STATUS } from '@/components/ui';
 import {
   APIRelatedResponse,
   APIResponse,
@@ -40,6 +41,11 @@ export const getGreeting = (): string => {
     default:
       return 'Good Evening';
   }
+};
+
+export const getStatusKey = (value: string) => {
+  const entry = Object.entries(STATUS).find(([_, val]) => val === value);
+  return entry ? parseInt(entry[0]) : undefined;
 };
 
 export const transformUsers = (users: UserLogged[]): Option[] =>
