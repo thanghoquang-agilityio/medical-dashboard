@@ -5,12 +5,7 @@ import { Controller, useForm } from 'react-hook-form';
 import { TimeInputValue } from '@nextui-org/react';
 
 // Types
-import {
-  AppointmentModel,
-  AppointmentPayload,
-  STATUS_TYPE,
-  UserLogged,
-} from '@/types';
+import { AppointmentModel, STATUS_TYPE, UserLogged } from '@/types';
 
 // Utils
 import {
@@ -39,7 +34,7 @@ import { useToast } from '@/context/toast';
 
 // Actions
 import { getUsers } from '@/actions/user';
-import { createAppointment, editAppointment } from '@/actions/appointment';
+import { addAppointment, updateAppointment } from '@/actions/appointment';
 
 // Rules
 import { APPOINTMENT_FORM_VALIDATION } from './rule';
@@ -60,7 +55,10 @@ const selectCustomStyle = {
   value: 'text-sm text-primary-100',
 };
 
-export interface AppointMentForm extends Omit<AppointmentPayload, 'startTime'> {
+export interface AppointMentForm
+  extends Omit<AppointmentModel, 'senderId' | 'receiverId' | 'startTime'> {
+  senderId: string;
+  receiverId: string;
   startTime: TimeInputValue;
   startDate: string;
 }
@@ -128,15 +126,15 @@ const AppointmentForm = memo(
       const formatData = {
         ...rest,
         startTime: generateISODate(startTime, startDate),
-        durationTime: convertMinutesToTime(durationTime),
+        durationTime: convertMinutesToTime(durationTime || ''),
       };
 
       setError('');
       setIsPending(true);
       let error: string | null;
 
-      if (isEdit) error = (await editAppointment(id, formatData)).error;
-      else error = (await createAppointment(formatData)).error;
+      if (isEdit) error = (await updateAppointment(id, formatData)).error;
+      else error = (await addAppointment(formatData)).error;
 
       if (error) {
         setError(error);

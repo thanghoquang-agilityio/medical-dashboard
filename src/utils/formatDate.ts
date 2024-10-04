@@ -106,13 +106,11 @@ export const formatDayMonthYear = (isoString: string) => {
 export const fromDateToNow = (isoString: string): string =>
   dayjs(isoString).fromNow();
 
-export const isLaterThanCurrentTime = (date: string) => {
-  if (!date) return false;
+export const isLaterThanCurrentTime = (isoString: string) => {
+  const inputDate = dayjs(isoString);
+  const currentDate = dayjs();
 
-  const inputDate = new Date(date);
-  const currentDate = new Date();
-
-  return inputDate < currentDate;
+  return inputDate.isBefore(currentDate);
 };
 
 export const generateTimeOptions = (): Option[] => {

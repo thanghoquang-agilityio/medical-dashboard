@@ -133,7 +133,7 @@ const DataGrid = memo(
                         >
                           {column.customNode ? (
                             column.key === 'actions' ? (
-                              column.customNode({ id })
+                              column.customNode({ item: item.attributes, id })
                             ) : (
                               column.customNode({
                                 column,
