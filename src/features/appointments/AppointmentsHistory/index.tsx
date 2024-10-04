@@ -20,19 +20,10 @@ import {
   ColumnType,
   MetaResponse,
   STATUS_TYPE,
-  STATUS_TYPE_RESPONSE,
 } from '@/types';
-
-// Utils
-import {
-  formatDayMonthYear,
-  formatTimeAppointment,
-  isLaterThanCurrentTime,
-} from '@/utils';
 
 // Constants
 import {
-  API_IMAGE_URL,
   APPOINTMENT_STATUS_OPTIONS,
   ERROR_MESSAGE,
   ROLE,
@@ -43,20 +34,13 @@ import {
 import { useToast } from '@/context/toast';
 
 // Components
-import {
-  Avatar,
-  Button,
-  InputSearch,
-  Select,
-  Status,
-  Text,
-  MenuAction,
-} from '@/components/ui';
+import { Button, InputSearch, Select, Text } from '@/components/ui';
 import { AppointmentsHistoryListSkeleton } from './AppointmentsHistorySkeleton';
 import AppointmentModal from '../AppointmentModal';
+import { createColumns } from './columns';
 
 // Service
-import { deleteAppointment } from '@/services';
+import { deleteAppointment, updateAppointment } from '@/actions/appointment';
 
 const DataGrid = dynamic(() => import('@/components/ui/DataGrid'));
 const ConfirmModal = dynamic(() => import('@/components/ui/ConfirmModal'));
@@ -75,125 +59,13 @@ const AppointmentsHistory = ({
   role,
   defaultStatus = '',
 }: AppointmentsHistoryProps) => {
-  const createColumns = (role: string): ColumnType<AppointmentModel>[] => {
-    const baseColumns: ColumnType<AppointmentModel>[] = [
-      {
-        key: 'senderId',
-        title: 'Sender',
-        customNode: ({ item }) => {
-          const { senderId = '' } = item || {};
-          const { data } = senderId || {};
-          const { attributes } = data || {};
-          const { avatar, username = '' } = attributes || {};
-          const { data: dataAvatar } = avatar || {};
-          const { attributes: attributesAvatar } = dataAvatar || {};
-          const { url = '' } = attributesAvatar || {};
-
-          return (
-            <div className="flex gap-2 items-center">
-              <Avatar
-                src={`${API_IMAGE_URL}${url}`}
-                size="md"
-                isBordered
-                className="shrink-0"
-              />
-              <Text variant="primary" size="sm">
-                {username}
-              </Text>
-            </div>
-          );
-        },
-      },
-      {
-        key: 'receiverId',
-        title: 'Receiver',
-        customNode: ({ item }) => {
-          const { receiverId = '' } = item || {};
-          const { data } = receiverId || {};
-          const { attributes } = data || {};
-          const { avatar, username = '' } = attributes || {};
-          const { data: dataAvatar } = avatar || {};
-          const { attributes: attributesAvatar } = dataAvatar || {};
-          const { url = '' } = attributesAvatar || {};
-
-          return (
-            <div className="flex gap-2 items-center">
-              <Avatar
-                src={`${API_IMAGE_URL}${url}`}
-                size="md"
-                isBordered
-                className="shrink-0"
-              />
-              <Text variant="primary" size="sm">
-                {username}
-              </Text>
-            </div>
-          );
-        },
-      },
-      {
-        key: 'durationTime',
-        title: 'Duration time',
-        customNode: ({ item }) => {
-          const { startTime = '', durationTime = '' } = item || {};
-          return (
-            <Text variant="primary" size="xs">
-              {formatTimeAppointment({
-                start: startTime,
-                duration: durationTime,
-              })}
-            </Text>
-          );
-        },
-      },
-      {
-        key: 'startTime',
-        title: 'Start time',
-        customNode: ({ item }) => {
-          const { startTime = '' } = item || {};
-          const date = formatDayMonthYear(startTime);
-
-          return (
-            <Text variant="primary" size="xs">
-              {date}
-            </Text>
-          );
-        },
-      },
-      {
-        key: 'status',
-        title: 'Status',
-        customNode: ({ item }) => {
-          const { status = 0 } = item || {};
-          return <Status status={STATUS_TYPE_RESPONSE[status]} />;
-        },
-      },
-      {
-        key: 'actions',
-        title: 'Actions',
-        customNode: ({ item, id }) => (
-          <div className="flex justify-end">
-            <MenuAction
-              onShowEditModal={() => handleEdit(id)}
-              onShowDeleteModal={() => handleShowDeleteModal(id)}
-              isDisabledEdit={isLaterThanCurrentTime(item?.startTime || '')}
-            />
-          </div>
-        ),
-      },
-    ];
-
-    return role === ROLE.ADMIN ? baseColumns : baseColumns.slice(1);
-  };
-
-  const columns = createColumns(role);
+  const openToast = useToast();
+  const isAdmin = role === ROLE.ADMIN;
 
   const [isPending, startTransition] = useTransition();
   const [status, setStatus] = useState(new Set<string>([defaultStatus]));
-  const [appointment, setAppointment] = useState<
-    AppointmentModel | undefined
-  >();
-  const [appointmentId, setAppointmentId] = useState<string | undefined>();
+  const [appointment, setAppointment] = useState<AppointmentModel>();
+  const [appointmentId, setAppointmentId] = useState<string>('');
 
   const searchParams = useSearchParams() ?? '';
   const pathname = usePathname() ?? '';
@@ -239,52 +111,62 @@ const AppointmentsHistory = ({
   );
 
   const { isOpen, onClose, onOpen } = useDisclosure();
-  const {
-    isOpen: isOpenDeleteModal,
-    onClose: onCloseDeleteModal,
-    onOpen: onOpenDeleteModal,
-  } = useDisclosure();
-  const [isPendingDelete, setIsPendingDelete] = useState(false);
-  const openToast = useToast();
 
-  const handleEdit = useCallback(
+  const handleOpenCreateModal = useCallback(() => {
+    setAppointment(undefined);
+    onOpen();
+  }, [onOpen]);
+
+  const handleOpenEditModal = useCallback(
     (key?: Key) => {
       const appointment = appointments.find(
         (appointment) => key == appointment.id,
       );
-      setAppointment(appointment?.attributes);
-      setAppointmentId(appointment?.id);
+      const { attributes, id = '' } = appointment || {};
+
+      setAppointment(attributes);
+      setAppointmentId(id);
       onOpen();
     },
     [appointments, onOpen],
   );
 
-  const handleCreate = useCallback(() => {
-    setAppointment(undefined);
-    onOpen();
-  }, [onOpen]);
+  const {
+    isOpen: isOpenConfirm,
+    onClose: onClosConfirm,
+    onOpen: onOpenConfirm,
+  } = useDisclosure();
+  const [isLoading, setIsLoading] = useState(false);
 
-  const handleShowDeleteModal = useCallback(
+  const handleOpenConfirmModal = useCallback(
     (key?: Key) => {
       const appointment = appointments.find(
         (appointment) => key == appointment.id,
       );
-      onOpenDeleteModal();
-      setAppointmentId(appointment?.id);
+      const { id = '' } = appointment || {};
+
+      setAppointmentId(id);
+      onOpenConfirm();
     },
-    [appointments, onOpenDeleteModal],
+    [appointments, onOpenConfirm],
   );
 
+  const columns = createColumns({
+    isAdmin,
+    onEdit: handleOpenEditModal,
+    onRemoveOrCancel: handleOpenConfirmModal,
+  });
+
   const handleDeleteAppointment = useCallback(async () => {
-    setIsPendingDelete(true);
-    const { error } = await deleteAppointment(appointmentId as string);
+    setIsLoading(true);
+    const { error } = await deleteAppointment(appointmentId);
     if (error) {
       openToast({
         message: ERROR_MESSAGE.DELETE('appointment'),
         type: STATUS_TYPE.ERROR,
       });
 
-      setIsPendingDelete(false);
+      setIsLoading(false);
       return;
     }
 
@@ -292,8 +174,38 @@ const AppointmentsHistory = ({
       message: SUCCESS_MESSAGE.DELETE('appointment'),
       type: STATUS_TYPE.SUCCESS,
     });
-    onCloseDeleteModal();
-  }, [appointmentId, onCloseDeleteModal, openToast]);
+    onClosConfirm();
+  }, [appointmentId, onClosConfirm, openToast]);
+
+  const handleCancelAppointment = useCallback(async () => {
+    setIsLoading(true);
+    const canceledStatus = APPOINTMENT_STATUS_OPTIONS.find(
+      (option) => option.key === 'canceled',
+    );
+
+    if (!canceledStatus) return;
+    const status = canceledStatus.value;
+    const error = (
+      await updateAppointment(appointmentId, {
+        status,
+      })
+    ).error;
+
+    if (error) {
+      openToast({
+        message: ERROR_MESSAGE.CANCEL('appointment'),
+        type: STATUS_TYPE.ERROR,
+      });
+      setIsLoading(false);
+
+      return;
+    }
+
+    openToast({
+      message: SUCCESS_MESSAGE.CANCEL('appointment'),
+      type: STATUS_TYPE.SUCCESS,
+    });
+  }, [appointmentId, openToast]);
 
   return (
     <>
@@ -302,7 +214,7 @@ const AppointmentsHistory = ({
           placeholder="Search Appointments"
           classNames={{ mainWrapper: 'pb-10' }}
         />
-        <Button onClick={handleCreate} className="mt-3 font-medium">
+        <Button onClick={handleOpenCreateModal} className="mt-3 font-medium">
           Create
         </Button>
       </div>
@@ -341,6 +253,7 @@ const AppointmentsHistory = ({
           )}
         </div>
       </Card>
+
       <AppointmentModal
         data={appointment}
         id={appointmentId}
@@ -351,12 +264,12 @@ const AppointmentsHistory = ({
       />
 
       <ConfirmModal
-        title="Confirm"
-        subTitle="Do you want to delete this appointment?"
-        isOpen={isOpenDeleteModal}
-        isLoading={isPendingDelete}
-        onClose={onCloseDeleteModal}
-        onDelete={handleDeleteAppointment}
+        title="Confirmation"
+        subTitle={`Do you want to ${isAdmin ? 'delete' : 'cancel'} this appointment?`}
+        isOpen={isOpenConfirm}
+        isLoading={isLoading}
+        onClose={onClosConfirm}
+        onAction={isAdmin ? handleDeleteAppointment : handleCancelAppointment}
       />
     </>
   );

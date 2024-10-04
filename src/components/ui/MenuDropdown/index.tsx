@@ -20,7 +20,7 @@ import { cn } from '@/utils';
 // Types
 import { Option } from '@/types';
 
-interface MenuOptions extends Option {
+export interface MenuOption extends Option {
   startContent?: JSX.Element;
   isDisabled?: boolean;
 }
@@ -28,7 +28,7 @@ interface MenuOptions extends Option {
 interface MenuDropdownProps
   extends Omit<DropdownProps & DropdownMenuProps, 'children'> {
   label?: string;
-  options: MenuOptions[];
+  options: MenuOption[];
   icon: JSX.Element;
 }
 
@@ -41,7 +41,6 @@ export const MenuDropdown = memo(
     onAction,
     ...rest
   }: MenuDropdownProps) => {
-    // TODO: update later
     const disabledKeys = options
       .filter(({ isDisabled }) => isDisabled)
       .map(({ key }) => key);
