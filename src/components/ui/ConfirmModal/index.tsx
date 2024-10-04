@@ -36,6 +36,7 @@ const ConfirmModal = ({
         variant="outline"
         color="outline"
         className="font-medium w-full"
+        isDisabled={isLoading}
       >
         No
       </Button>

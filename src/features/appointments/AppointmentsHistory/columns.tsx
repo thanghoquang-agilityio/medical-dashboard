@@ -7,6 +7,7 @@ import { AppointmentModel, ColumnType } from '@/types';
 import {
   formatDayMonthYear,
   formatTimeAppointment,
+  getStatusKey,
   isLaterThanCurrentTime,
 } from '@/utils';
 
@@ -130,8 +131,11 @@ export const createColumns = ({
       key: 'actions',
       title: 'Actions',
       customNode: ({ item, id = '' }) => {
-        const { startTime = '' } = item || {};
-        const isDisabled = isLaterThanCurrentTime(startTime);
+        const { startTime = '', status = 0 } = item || {};
+        const isDisabled =
+          isLaterThanCurrentTime(startTime) ||
+          (!isAdmin && status !== getStatusKey('new')) ||
+          (isAdmin && status === getStatusKey('cancelled'));
 
         const iconClasses = 'mr-2 flex-shrink-0 w-4 h-4';
 
@@ -153,6 +157,7 @@ export const createColumns = ({
             ) : (
               <XmarkIcon customClass={`text-red ${iconClasses}`} />
             ),
+            isDisabled: !isAdmin && status !== getStatusKey('new'),
             onAction: () => onRemoveOrCancel(id),
           },
         ];
