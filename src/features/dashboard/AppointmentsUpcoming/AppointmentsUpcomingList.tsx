@@ -24,6 +24,7 @@ import {
 // Types
 import {
   AppointmentResponse,
+  AppointmentStatus,
   ColumnType,
   MetaResponse,
   STATUS_TYPE,
@@ -34,9 +35,10 @@ import { deleteAppointment, updateAppointment } from '@/actions/appointment';
 
 // Components
 import { useToast } from '@/context/toast';
-import { STATUS, Select, Text } from '@/components/ui';
+import { Select, Text } from '@/components/ui';
 import { AppointmentsUpcomingListSkeleton } from './AppointmentsUpcomingSkeleton';
 import { createColumns } from './columns';
+import { getStatusKey } from '@/utils';
 const DataGrid = lazy(() => import('@/components/ui/DataGrid'));
 const ConfirmModal = lazy(() => import('@/components/ui/ConfirmModal'));
 
@@ -146,15 +148,10 @@ const AppointmentsUpcomingList = memo(
 
     const handleCancelAppointment = useCallback(async () => {
       setIsLoading(true);
-      const canceledStatus = APPOINTMENT_STATUS_OPTIONS.find(
-        (option) => option.key === STATUS[2], // Cancelled
-      );
-
-      if (!canceledStatus) return;
-      const status = canceledStatus.value;
+      const statusPayload = getStatusKey('cancelled') || 0;
       const error = (
         await updateAppointment(appointmentId, {
-          status,
+          status: statusPayload as AppointmentStatus,
         })
       ).error;
 
@@ -164,7 +161,6 @@ const AppointmentsUpcomingList = memo(
           type: STATUS_TYPE.ERROR,
         });
         setIsLoading(false);
-
         return;
       }
 
@@ -172,7 +168,8 @@ const AppointmentsUpcomingList = memo(
         message: SUCCESS_MESSAGE.CANCEL('appointment'),
         type: STATUS_TYPE.SUCCESS,
       });
-    }, [appointmentId, openToast]);
+      onClosConfirm();
+    }, [appointmentId, onClosConfirm, openToast]);
 
     return (
       <>
