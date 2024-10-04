@@ -82,4 +82,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Failure step
-        run: echo "Deployment failed. Please check the log build"
+        run: |
+          curl -X POST ${{ secrets.SLACK_WEBHOOK_API_URL }}/vercel-deploy-hook \
+          -H "Content-Type: application/json" \
+          -d '{
+                "name": "${{ secrets.PROJECT_NAME }}",
+                "status": "${{ github.event.deployment_status.state }}"
+              }
+            '
