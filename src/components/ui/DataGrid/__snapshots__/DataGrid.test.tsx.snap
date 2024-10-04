@@ -144,10 +144,10 @@ exports[`DataGrid Should matches snapshot 1`] = `
               tabindex="-1"
             >
               <div
-                class="bg-danger-100 bg-opacity-20 w-fit max-w-20 px-2 rounded-md text-center"
+                class="bg-danger-100 text-danger-100 bg-opacity-20 w-fit max-w-20 px-2 rounded-md text-center"
               >
                 <p
-                  class="text-danger-100 text-2xs text-ellipsis whitespace-nowrap overflow-hidden font-semibold"
+                  class="text-2xs font-semibold"
                 >
                   Cancelled
                 </p>
@@ -219,10 +219,10 @@ exports[`DataGrid Should matches snapshot 1`] = `
               tabindex="-1"
             >
               <div
-                class="bg-success bg-opacity-20 w-fit max-w-20 px-2 rounded-md text-center"
+                class="bg-success text-success bg-opacity-20 w-fit max-w-20 px-2 rounded-md text-center"
               >
                 <p
-                  class="text-success text-2xs text-ellipsis whitespace-nowrap overflow-hidden font-semibold"
+                  class="text-2xs font-semibold"
                 >
                   New
                 </p>
@@ -293,10 +293,10 @@ exports[`DataGrid Should matches snapshot 1`] = `
               tabindex="-1"
             >
               <div
-                class="bg-warning bg-opacity-20 w-fit max-w-20 px-2 rounded-md text-center"
+                class="bg-warning text-warning bg-opacity-20 w-fit max-w-20 px-2 rounded-md text-center"
               >
                 <p
-                  class="text-warning text-2xs text-ellipsis whitespace-nowrap overflow-hidden font-semibold"
+                  class="text-2xs font-semibold"
                 >
                   Meeting
                 </p>

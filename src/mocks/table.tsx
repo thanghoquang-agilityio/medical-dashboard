@@ -1,4 +1,4 @@
-import { AppointmentModel, ColumnType, STATUS_TYPE_RESPONSE } from '@/types';
+import { AppointmentModel, ColumnType } from '@/types';
 import { formatNewDate, formatTimeAppointment } from '@/utils';
 import { Status, Text } from '@/components/ui';
 
@@ -45,8 +45,6 @@ export const MOCK_COLUMNS_APPOINTMENTS: ColumnType<AppointmentModel>[] = [
   {
     key: 'status',
     title: 'Status',
-    customNode: ({ item }) => (
-      <Status status={STATUS_TYPE_RESPONSE[item?.status || 0]} />
-    ),
+    customNode: ({ item }) => <Status status={item?.status || 0} />,
   },
 ];
