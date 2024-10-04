@@ -1,9 +1,9 @@
 'use client';
 
-import dynamic from 'next/dynamic';
 import {
   ChangeEvent,
   Key,
+  lazy,
   memo,
   useCallback,
   useMemo,
@@ -42,8 +42,8 @@ import { createColumns } from './columns';
 // Service
 import { deleteAppointment, updateAppointment } from '@/actions/appointment';
 
-const DataGrid = dynamic(() => import('@/components/ui/DataGrid'));
-const ConfirmModal = dynamic(() => import('@/components/ui/ConfirmModal'));
+const DataGrid = lazy(() => import('@/components/ui/DataGrid'));
+const ConfirmModal = lazy(() => import('@/components/ui/ConfirmModal'));
 
 export interface AppointmentsHistoryProps extends MetaResponse {
   userId: string;
