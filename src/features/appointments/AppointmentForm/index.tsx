@@ -286,7 +286,7 @@ const AppointmentForm = memo(
             name="durationTime"
             rules={APPOINTMENT_FORM_VALIDATION.DURATION_TIME}
             render={({
-              field: { name, value, ...rest },
+              field: { name, value, onChange, ...rest },
               fieldState: { error },
             }) => (
               <Select
@@ -302,6 +302,8 @@ const AppointmentForm = memo(
                 isInvalid={!!error?.message}
                 errorMessage={error?.message}
                 isDisabled={isPending}
+                onChange={onChange}
+                selectedKeys={[value]}
               />
             )}
           />
