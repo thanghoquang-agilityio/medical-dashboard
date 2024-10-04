@@ -15,6 +15,7 @@ import {
   generateISODate,
   convertMinutesToTime,
   convertTimeToMinutes,
+  generateTimeOptions,
 } from '@/utils';
 
 // Components
@@ -23,7 +24,6 @@ import { Button, Input, Select, Text, TimeInput } from '@/components/ui';
 // Constants
 import {
   APPOINTMENT_STATUS,
-  DURATION_TIME_OPTIONS,
   ERROR_MESSAGE,
   ROLE,
   SUCCESS_MESSAGE,
@@ -156,6 +156,8 @@ const AppointmentForm = memo(
         type: STATUS_TYPE.SUCCESS,
       });
     };
+
+    const durationTimeOptions = generateTimeOptions();
 
     return (
       <>
@@ -294,10 +296,7 @@ const AppointmentForm = memo(
                 labelPlacement="outside"
                 aria-label="Duration Time"
                 classNames={selectCustomStyle}
-                options={DURATION_TIME_OPTIONS}
-                defaultSelectedKeys={
-                  value ? [value] : DURATION_TIME_OPTIONS[0].key
-                }
+                options={durationTimeOptions}
                 name={name}
                 value={value}
                 isInvalid={!!error?.message}
