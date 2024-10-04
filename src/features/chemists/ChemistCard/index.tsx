@@ -1,7 +1,7 @@
 import { Card, CardBody, CardFooter, CardHeader } from '@nextui-org/react';
 
 // Components
-import { Avatar, Text } from '@/components/ui';
+import { Avatar, Button, Text } from '@/components/ui';
 import { NoteIcon, StarIcon } from '@/icons';
 
 // Types
@@ -19,7 +19,7 @@ const ChemistCard = (props: UserModel) => {
     specialtyId,
   } = props;
   return (
-    <Card className="bg-background-200 w-[300px] w-full h-[228px] p-5 sm:p-6 gap-6">
+    <Card className="bg-background-200 min-w-[300px] w-full h-[228px] p-5 sm:p-6 gap-6">
       <CardHeader className="flex justify-between p-0">
         <div className="flex items-center gap-2">
           <Avatar
@@ -35,9 +35,9 @@ const ChemistCard = (props: UserModel) => {
             </Text>
           </div>
         </div>
-        <Text size="lg" variant="action" customClass="hover:cursor-pointer">
+        <Button color="default" className="text-minty-green">
           Book
-        </Text>
+        </Button>
       </CardHeader>
       <CardBody className="p-0">
         <Text
@@ -49,7 +49,7 @@ const ChemistCard = (props: UserModel) => {
           {description || 'No description'}
         </Text>
       </CardBody>
-      <CardFooter className="p-0 flex justify-between self-end">
+      <CardFooter className="p-0 flex justify-between">
         <div className="flex items-center gap-1 sm:gap-2">
           <NoteIcon customClass="w-6 h-6" />
           <Text size="sm" variant="title" customClass="font-medium">

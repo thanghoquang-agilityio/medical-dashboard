@@ -1,12 +1,32 @@
-import { ChemistList } from '@/features/chemists/ChemistList';
+import { lazy, Suspense } from 'react';
 
-import { MOCK_CHEMISTS_LIST } from '@/mocks/chemists';
+// Services
+import { getChemists } from '@/services';
 
-const ChemistPage = () => {
+// Component
+import ChemistListSkeleton from '@/features/chemists/ChemistList/ChemistListSkeleton';
+const ChemistList = lazy(() => import('@/features/chemists/ChemistList'));
+
+const ChemistPage = async () => {
+  const searchParamsAPI = new URLSearchParams();
+
+  const CHEMISTS_SEARCH_PARAMS = ['avatar', 'specialtyId'];
+
+  CHEMISTS_SEARCH_PARAMS.forEach((param, index) => {
+    searchParamsAPI.set(
+      `populate[users_permissions_user][populate][${index}]`,
+      param,
+    );
+  });
+
+  const { chemists } = await getChemists({
+    searchParams: searchParamsAPI,
+  });
+
   return (
-    <>
-      <ChemistList chemists={MOCK_CHEMISTS_LIST} />
-    </>
+    <Suspense fallback={<ChemistListSkeleton />}>
+      <ChemistList chemists={chemists} />
+    </Suspense>
   );
 };
 
