@@ -1,4 +1,4 @@
-import { APIResponse, ChemistModel } from '@/types';
+import { APIResponse, ChemistModel, SpecialtyResponse } from '@/types';
 
 export const MOCK_CHEMISTS_LIST: Array<APIResponse<ChemistModel>> = [
   {
@@ -184,6 +184,44 @@ export const MOCK_CHEMISTS_LIST: Array<APIResponse<ChemistModel>> = [
           },
         },
       },
+    },
+  },
+];
+
+export const MOCK_SPECIALTIES: SpecialtyResponse[] = [
+  {
+    id: '1',
+    attributes: {
+      name: 'Instrumentation',
+      type: 1,
+    },
+  },
+  {
+    id: '2',
+    attributes: {
+      name: 'Laboratory Chemist',
+      type: 2,
+    },
+  },
+  {
+    id: '3',
+    attributes: {
+      name: 'Organic Chemist',
+      type: 3,
+    },
+  },
+  {
+    id: '4',
+    attributes: {
+      name: 'Power Plant Chemist',
+      type: 4,
+    },
+  },
+  {
+    id: '5',
+    attributes: {
+      name: 'QC Chemist',
+      type: 5,
     },
   },
 ];
