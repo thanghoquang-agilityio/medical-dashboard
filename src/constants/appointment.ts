@@ -12,8 +12,8 @@ export const APPOINTMENT_STATUS_OPTIONS: AppointmentStatusOption[] = [
     value: 1,
   },
   {
-    key: 'canceled',
-    label: 'Canceled',
+    key: 'cancelled',
+    label: 'Cancelled',
     value: 2,
   },
 ];

@@ -1,7 +1,6 @@
 import { memo } from 'react';
 import { cn } from '@/utils';
 
-// Components
 import { AppointmentStatus } from '@/types';
 
 const COLOR_STATUS = {
@@ -10,12 +9,11 @@ const COLOR_STATUS = {
   2: 'bg-danger-100 text-danger-100',
   3: 'bg-secondary-200 text-secondary-200',
 };
-
-const STATUS = {
-  0: 'New',
-  1: 'Meeting',
-  2: 'Cancelled',
-  3: 'Done',
+export const STATUS = {
+  0: 'new',
+  1: 'meeting',
+  2: 'cancelled',
+  3: 'done',
 };
 
 export const Status = memo(
@@ -31,7 +29,7 @@ export const Status = memo(
         `${COLOR_STATUS[status]} bg-opacity-20 w-fit max-w-20 px-2 rounded-md text-center ${className ?? ''}`,
       )}
     >
-      <p className="text-2xs font-semibold">{STATUS[status]}</p>
+      <p className="text-2xs font-semibold capitalize">{STATUS[status]}</p>
     </div>
   ),
 );
