@@ -28,3 +28,14 @@ export type ChemistsResponse = {
 export type ChemistPayload = {
   users_permissions_user: string;
 };
+
+export interface ChemistFormData {
+  username: string;
+  email: string;
+  avatar?: string;
+  description?: string;
+  rating?: number;
+  tasks?: number;
+  reviews?: number;
+  specialtyId: string;
+}
