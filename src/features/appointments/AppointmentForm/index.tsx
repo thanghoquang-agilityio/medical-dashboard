@@ -15,6 +15,7 @@ import {
   generateISODate,
   convertMinutesToTime,
   convertTimeToMinutes,
+  generateTimeOptions,
 } from '@/utils';
 
 // Components
@@ -23,7 +24,6 @@ import { Button, Input, Select, Text, TimeInput } from '@/components/ui';
 // Constants
 import {
   APPOINTMENT_STATUS,
-  DURATION_TIME_OPTIONS,
   ERROR_MESSAGE,
   ROLE,
   SUCCESS_MESSAGE,
@@ -157,6 +157,8 @@ const AppointmentForm = memo(
       });
     };
 
+    const durationTimeOptions = generateTimeOptions();
+
     return (
       <>
         <form onSubmit={handleSubmit(onSubmit)} className="p-4">
@@ -167,27 +169,25 @@ const AppointmentForm = memo(
           <div className="flex flex-col md:flex-row md:gap-3 mt-6">
             <Controller
               control={control}
-              name="senderId"
-              rules={APPOINTMENT_FORM_VALIDATION.SENDER_ID(getValues)}
+              name="durationTime"
+              rules={APPOINTMENT_FORM_VALIDATION.DURATION_TIME}
               render={({
-                field: { name, value, onChange, ...rest },
+                field: { name, value, ...rest },
                 fieldState: { error },
               }) => (
                 <Select
                   {...rest}
+                  label="Duration Time"
+                  placeholder="Duration Time"
+                  labelPlacement="outside"
+                  aria-label="Duration Time"
+                  classNames={selectCustomStyle}
+                  options={durationTimeOptions}
                   name={name}
                   value={value}
-                  label="Sender"
-                  placeholder="Select sender"
-                  labelPlacement="outside"
-                  variant="bordered"
-                  classNames={selectCustomStyle}
-                  defaultSelectedKeys={!isAdmin ? userId : value}
-                  isDisabled={!isAdmin || isPending}
-                  options={OPTION_USERS}
                   isInvalid={!!error?.message}
                   errorMessage={error?.message}
-                  onChange={onChange}
+                  isDisabled={isPending}
                 />
               )}
             />
@@ -294,10 +294,7 @@ const AppointmentForm = memo(
                 labelPlacement="outside"
                 aria-label="Duration Time"
                 classNames={selectCustomStyle}
-                options={DURATION_TIME_OPTIONS}
-                defaultSelectedKeys={
-                  value ? [value] : DURATION_TIME_OPTIONS[0].key
-                }
+                options={durationTimeOptions}
                 name={name}
                 value={value}
                 isInvalid={!!error?.message}
