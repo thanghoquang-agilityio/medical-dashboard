@@ -118,13 +118,16 @@ export const generateTimeOptions = (): Option[] => {
 
   for (let hour = 0; hour < 24; hour++) {
     for (let minutes = 0; minutes < 60; minutes += 15) {
-      // Format the hours and minutes to be two digits
+      // Calculate the total minutes (key)
+      const totalMinutes = hour * 60 + minutes;
+
+      // Format the hours and minutes with leading zeros
       const hourStr = hour.toString().padStart(2, '0');
       const minuteStr = minutes.toString().padStart(2, '0');
 
       // Push the new object into the time array
       times.push({
-        key: `${hourStr}:${minuteStr}`,
+        key: `${totalMinutes}`,
         label: `${hourStr}:${minuteStr}`,
       });
     }
