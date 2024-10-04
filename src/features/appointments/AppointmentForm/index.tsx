@@ -169,25 +169,27 @@ const AppointmentForm = memo(
           <div className="flex flex-col md:flex-row md:gap-3 mt-6">
             <Controller
               control={control}
-              name="durationTime"
-              rules={APPOINTMENT_FORM_VALIDATION.DURATION_TIME}
+              name="senderId"
+              rules={APPOINTMENT_FORM_VALIDATION.SENDER_ID(getValues)}
               render={({
-                field: { name, value, ...rest },
+                field: { name, value, onChange, ...rest },
                 fieldState: { error },
               }) => (
                 <Select
                   {...rest}
-                  label="Duration Time"
-                  placeholder="Duration Time"
-                  labelPlacement="outside"
-                  aria-label="Duration Time"
-                  classNames={selectCustomStyle}
-                  options={durationTimeOptions}
                   name={name}
                   value={value}
+                  label="Sender"
+                  placeholder="Select sender"
+                  labelPlacement="outside"
+                  variant="bordered"
+                  classNames={selectCustomStyle}
+                  defaultSelectedKeys={!isAdmin ? userId : value}
+                  isDisabled={!isAdmin || isPending}
+                  options={OPTION_USERS}
                   isInvalid={!!error?.message}
                   errorMessage={error?.message}
-                  isDisabled={isPending}
+                  onChange={onChange}
                 />
               )}
             />
