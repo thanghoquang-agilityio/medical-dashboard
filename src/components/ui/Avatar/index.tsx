@@ -7,6 +7,7 @@ interface AvatarProps extends AvatarNextUIProps {
   size?: 'sm' | 'md' | 'lg';
   customClass?: string;
   hasBorder?: boolean;
+  isShowFallback?: boolean;
 }
 
 const SIZE_CLASSES = {
@@ -20,6 +21,7 @@ export const Avatar = ({
   customClass = '',
   size = 'md',
   hasBorder = false,
+  isShowFallback = true,
   ...rest
 }: AvatarProps) => {
   const sizeClass = SIZE_CLASSES[size];
@@ -35,7 +37,13 @@ export const Avatar = ({
     base: className,
   };
 
-  return <AvatarNextUI {...rest} classNames={classNames} />;
+  return (
+    <AvatarNextUI
+      {...rest}
+      classNames={classNames}
+      showFallback={isShowFallback}
+    />
+  );
 };
 
 Avatar.displayName = 'Avatar';

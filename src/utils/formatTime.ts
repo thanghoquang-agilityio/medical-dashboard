@@ -54,9 +54,13 @@ export const convertMinutesToTime = (totalMinutes: string) => {
 };
 
 export const convertTimeToMinutes = (time: string) => {
-  // Split the time string by ':' to get hours, minutes, and seconds
-  const [hours, minutes, seconds] = time.split(':');
+  // Split the time by colon to extract hours and minutes
+  const [hours, minutes] = time.split(':');
 
-  // Convert hours to minutes and return the total minutes
-  return parseInt(hours) * 60 + parseInt(minutes) + parseInt(seconds);
+  // Convert hours and minutes to integers
+  const totalHours = parseInt(hours, 10);
+  const totalMinutes = parseInt(minutes, 10);
+
+  // Calculate the total minutes
+  return totalHours * 60 + totalMinutes;
 };

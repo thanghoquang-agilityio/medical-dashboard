@@ -1,12 +1,48 @@
-import { ChemistList } from '@/features/chemists/ChemistList';
+import { lazy, Suspense } from 'react';
 
-import { MOCK_CHEMISTS_LIST } from '@/mocks/chemists';
+// Services
+import { getChemists } from '@/services';
 
-const ChemistPage = () => {
+// Types
+import { DIRECTION, SearchParams } from '@/types';
+
+// Component
+import ChemistListSkeleton from '@/features/chemists/ChemistList/ChemistListSkeleton';
+import { PAGE_DEFAULT, PAGE_SIZE_DEFAULT } from '@/constants';
+const ChemistList = lazy(() => import('@/features/chemists/ChemistList'));
+
+export interface ChemistPageSearchParamsProps extends SearchParams {}
+
+const ChemistPage = async ({
+  searchParams,
+}: {
+  searchParams?: ChemistPageSearchParamsProps;
+}) => {
+  const { page = PAGE_DEFAULT } = searchParams as ChemistPageSearchParamsProps;
+
+  const searchParamsAPI = new URLSearchParams();
+
+  const CHEMISTS_SEARCH_PARAMS = ['avatar', 'specialtyId'];
+
+  CHEMISTS_SEARCH_PARAMS.forEach((param, index) => {
+    searchParamsAPI.set(
+      `populate[users_permissions_user][populate][${index}]`,
+      param,
+    );
+  });
+
+  searchParamsAPI.set('pagination[page]', page.toString());
+  searchParamsAPI.set('pagination[pageSize]', PAGE_SIZE_DEFAULT.toString());
+  searchParamsAPI.set('sort[0]', `createdAt:${DIRECTION.DESC}`);
+
+  const { chemists, pagination } = await getChemists({
+    searchParams: searchParamsAPI,
+  });
+
   return (
-    <>
-      <ChemistList chemists={MOCK_CHEMISTS_LIST} />
-    </>
+    <Suspense fallback={<ChemistListSkeleton />}>
+      <ChemistList chemists={chemists} pagination={pagination} />
+    </Suspense>
   );
 };
 

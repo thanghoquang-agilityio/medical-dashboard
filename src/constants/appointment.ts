@@ -1,4 +1,6 @@
-export const APPOINTMENT_STATUS_OPTIONS = [
+import { AppointmentStatusOption } from '@/types';
+
+export const APPOINTMENT_STATUS_OPTIONS: AppointmentStatusOption[] = [
   {
     key: 'new',
     label: 'New',
@@ -10,8 +12,8 @@ export const APPOINTMENT_STATUS_OPTIONS = [
     value: 1,
   },
   {
-    key: 'canceled',
-    label: 'Canceled',
+    key: 'cancelled',
+    label: 'Cancelled',
     value: 2,
   },
 ];

@@ -1,3 +1,4 @@
+import { Option } from '@/types';
 import dayjs from 'dayjs';
 import advancedFormat from 'dayjs/plugin/advancedFormat';
 import relativeTime from 'dayjs/plugin/relativeTime';
@@ -104,3 +105,33 @@ export const formatDayMonthYear = (isoString: string) => {
  */
 export const fromDateToNow = (isoString: string): string =>
   dayjs(isoString).fromNow();
+
+export const isLaterThanCurrentTime = (isoString: string) => {
+  const inputDate = dayjs(isoString);
+  const currentDate = dayjs();
+
+  return inputDate.isBefore(currentDate);
+};
+
+export const generateTimeOptions = (): Option[] => {
+  const times: Option[] = [];
+
+  for (let hour = 0; hour < 24; hour++) {
+    for (let minutes = 0; minutes < 60; minutes += 15) {
+      // Calculate the total minutes (key)
+      const totalMinutes = hour * 60 + minutes;
+
+      // Format the hours and minutes with leading zeros
+      const hourStr = hour.toString().padStart(2, '0');
+      const minuteStr = minutes.toString().padStart(2, '0');
+
+      // Push the new object into the time array
+      times.push({
+        key: `${totalMinutes}`,
+        label: `${hourStr}:${minuteStr}`,
+      });
+    }
+  }
+
+  return times;
+};

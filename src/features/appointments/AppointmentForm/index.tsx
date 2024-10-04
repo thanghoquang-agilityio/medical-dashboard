@@ -1,17 +1,11 @@
 'use client';
 
-import dynamic from 'next/dynamic';
-import { memo, useCallback, useEffect, useState } from 'react';
+import { memo, useEffect, useState } from 'react';
 import { Controller, useForm } from 'react-hook-form';
-import { TimeInputValue, useDisclosure } from '@nextui-org/react';
+import { TimeInputValue } from '@nextui-org/react';
 
 // Types
-import {
-  AppointmentModel,
-  AppointmentPayload,
-  STATUS_TYPE,
-  UserLogged,
-} from '@/types';
+import { AppointmentModel, STATUS_TYPE, UserLogged } from '@/types';
 
 // Utils
 import {
@@ -20,8 +14,8 @@ import {
   transformUsers,
   generateISODate,
   convertMinutesToTime,
-  cn,
   convertTimeToMinutes,
+  generateTimeOptions,
 } from '@/utils';
 
 // Components
@@ -30,7 +24,6 @@ import { Button, Input, Select, Text, TimeInput } from '@/components/ui';
 // Constants
 import {
   APPOINTMENT_STATUS,
-  DURATION_TIME_OPTIONS,
   ERROR_MESSAGE,
   ROLE,
   SUCCESS_MESSAGE,
@@ -40,14 +33,11 @@ import {
 import { useToast } from '@/context/toast';
 
 // Actions
-import { deleteAppointment } from '@/services';
 import { getUsers } from '@/actions/user';
-import { createAppointment, editAppointment } from '@/actions/appointment';
+import { addAppointment, updateAppointment } from '@/actions/appointment';
 
 // Rules
 import { APPOINTMENT_FORM_VALIDATION } from './rule';
-
-const ConfirmModal = dynamic(() => import('@/components/ui/ConfirmModal'));
 
 export type AppointmentModalProps = {
   userId: string;
@@ -65,7 +55,10 @@ const selectCustomStyle = {
   value: 'text-sm text-primary-100',
 };
 
-export interface AppointMentForm extends Omit<AppointmentPayload, 'startTime'> {
+export interface AppointMentForm
+  extends Omit<AppointmentModel, 'senderId' | 'receiverId' | 'startTime'> {
+  senderId: string;
+  receiverId: string;
   startTime: TimeInputValue;
   startDate: string;
 }
@@ -85,7 +78,6 @@ const AppointmentForm = memo(
     const { id: senderId = '' } = sender || {};
     const { id: receiverId = '' } = receiver || {};
 
-    const { isOpen, onOpen, onClose: onCloseDeleteModal } = useDisclosure();
     const openToast = useToast();
     const isAdmin = role === ROLE.ADMIN;
 
@@ -95,6 +87,7 @@ const AppointmentForm = memo(
       getValues,
       watch,
       formState: { isValid, isDirty, isLoading },
+      trigger,
     } = useForm<AppointMentForm>({
       mode: 'onBlur',
       reValidateMode: 'onBlur',
@@ -111,7 +104,6 @@ const AppointmentForm = memo(
     const [users, setUsers] = useState<UserLogged[]>([]);
     const [error, setError] = useState('');
     const [isPending, setIsPending] = useState(false);
-    const [isPendingDelete, setIsPendingDelete] = useState(false);
 
     useEffect(() => {
       const fetchUsers = async () => {
@@ -126,27 +118,6 @@ const AppointmentForm = memo(
     const OPTION_USERS = transformUsers(users);
     const isEdit = !!data;
 
-    const handleDeleteAppointment = useCallback(async () => {
-      setIsPendingDelete(true);
-      const { error } = await deleteAppointment(id);
-      if (error) {
-        openToast({
-          message: ERROR_MESSAGE.DELETE('appointment'),
-          type: STATUS_TYPE.ERROR,
-        });
-
-        setIsPendingDelete(false);
-        return;
-      }
-
-      openToast({
-        message: SUCCESS_MESSAGE.DELETE('appointment'),
-        type: STATUS_TYPE.SUCCESS,
-      });
-      onCloseDeleteModal();
-      onClose();
-    }, [id, onClose, onCloseDeleteModal, openToast]);
-
     const onSubmit = async ({
       startDate,
       startTime,
@@ -156,15 +127,15 @@ const AppointmentForm = memo(
       const formatData = {
         ...rest,
         startTime: generateISODate(startTime, startDate),
-        durationTime: convertMinutesToTime(durationTime),
+        durationTime: convertMinutesToTime(durationTime || ''),
       };
 
       setError('');
       setIsPending(true);
       let error: string | null;
 
-      if (isEdit) error = (await editAppointment(id, formatData)).error;
-      else error = (await createAppointment(formatData)).error;
+      if (isEdit) error = (await updateAppointment(id, formatData)).error;
+      else error = (await addAppointment(formatData)).error;
 
       if (error) {
         setError(error);
@@ -187,6 +158,12 @@ const AppointmentForm = memo(
       });
     };
 
+    const durationTimeOptions = generateTimeOptions();
+
+    const handleCloseSelect = (field: keyof AppointMentForm) => () => {
+      trigger(field);
+    };
+
     return (
       <>
         <form onSubmit={handleSubmit(onSubmit)} className="p-4">
@@ -200,7 +177,7 @@ const AppointmentForm = memo(
               name="senderId"
               rules={APPOINTMENT_FORM_VALIDATION.SENDER_ID(getValues)}
               render={({
-                field: { name, value, onChange, ...rest },
+                field: { name, value, onChange, onBlur: _onBlur, ...rest },
                 fieldState: { error },
               }) => (
                 <Select
@@ -212,12 +189,13 @@ const AppointmentForm = memo(
                   labelPlacement="outside"
                   variant="bordered"
                   classNames={selectCustomStyle}
-                  defaultSelectedKeys={!isAdmin ? userId : value}
-                  isDisabled={!isAdmin || isPending}
+                  defaultSelectedKeys={!isAdmin ? [userId] : [value]}
+                  isDisabled={isEdit || !isAdmin}
                   options={OPTION_USERS}
                   isInvalid={!!error?.message}
                   errorMessage={error?.message}
                   onChange={onChange}
+                  onClose={handleCloseSelect(name)}
                 />
               )}
             />
@@ -227,7 +205,7 @@ const AppointmentForm = memo(
               name="receiverId"
               rules={APPOINTMENT_FORM_VALIDATION.RECEIVER_ID(getValues)}
               render={({
-                field: { name, value, onChange, ...rest },
+                field: { name, value, onChange, onBlur: _onBlur, ...rest },
                 fieldState: { error },
               }) => (
                 <Select
@@ -243,9 +221,10 @@ const AppointmentForm = memo(
                   defaultSelectedKeys={[value]}
                   options={OPTION_USERS}
                   isInvalid={!!error?.message}
-                  isDisabled={isPending}
+                  isDisabled={isEdit}
                   errorMessage={error?.message}
                   onChange={onChange}
+                  onClose={handleCloseSelect(name)}
                 />
               )}
             />
@@ -314,7 +293,7 @@ const AppointmentForm = memo(
             name="durationTime"
             rules={APPOINTMENT_FORM_VALIDATION.DURATION_TIME}
             render={({
-              field: { name, value, ...rest },
+              field: { name, value, onChange, onBlur: _onBlur, ...rest },
               fieldState: { error },
             }) => (
               <Select
@@ -324,15 +303,15 @@ const AppointmentForm = memo(
                 labelPlacement="outside"
                 aria-label="Duration Time"
                 classNames={selectCustomStyle}
-                options={DURATION_TIME_OPTIONS}
-                defaultSelectedKeys={
-                  value ? [value] : DURATION_TIME_OPTIONS[0].key
-                }
+                options={durationTimeOptions}
                 name={name}
                 value={value}
                 isInvalid={!!error?.message}
                 errorMessage={error?.message}
                 isDisabled={isPending}
+                onChange={onChange}
+                selectedKeys={[value]}
+                onClose={handleCloseSelect(name)}
               />
             )}
           />
@@ -343,10 +322,11 @@ const AppointmentForm = memo(
             name="status"
             rules={APPOINTMENT_FORM_VALIDATION.STATUS}
             render={({
-              field: { name, value, onChange },
+              field: { name, value, onChange, onBlur: _onBlur, ...rest },
               fieldState: { error },
             }) => (
               <Select
+                {...rest}
                 label="Status"
                 placeholder="Status"
                 labelPlacement="outside"
@@ -363,6 +343,7 @@ const AppointmentForm = memo(
                 onChange={onChange}
                 isInvalid={!!error?.message}
                 errorMessage={error?.message}
+                onClose={handleCloseSelect(name)}
               />
             )}
           />
@@ -375,13 +356,12 @@ const AppointmentForm = memo(
             )}
             <div className="w-full gap-2 flex justify-end">
               <Button
-                onClick={onOpen}
                 variant="outline"
                 color="outline"
-                className={cn(`font-medium ${isEdit ? 'block' : 'hidden'}`)}
-                isDisabled={!isAdmin}
+                className="font-medium"
+                onClick={onClose}
               >
-                Delete
+                Cancel
               </Button>
               <Button
                 isDisabled={!isValid || !isDirty || isPending}
@@ -393,14 +373,6 @@ const AppointmentForm = memo(
             </div>
           </div>
         </form>
-        <ConfirmModal
-          title="Confirm"
-          subTitle="Do you want to delete this appointment?"
-          isOpen={isOpen}
-          isLoading={isPendingDelete}
-          onClose={onCloseDeleteModal}
-          onDelete={handleDeleteAppointment}
-        />
       </>
     );
   },

@@ -1,14 +1,14 @@
 import {
   APIRelatedResponse,
   APIResponse,
+  AppointmentStatus,
   MetaResponse,
-  STATUS_TYPE_RESPONSE,
   UserModel,
 } from '@/types';
 
 export interface InfoModel {
   id: string;
-  status: keyof typeof STATUS_TYPE_RESPONSE;
+  status: AppointmentStatus;
   startTime: string;
   durationTime: string;
   content: string;
@@ -19,7 +19,6 @@ export interface NotificationModel {
   senderAvatar: string;
   isRead: string;
   info: InfoModel;
-  type: keyof typeof STATUS_TYPE_RESPONSE;
   senderId?: APIRelatedResponse<APIResponse<UserModel>>;
   createdAt?: string;
 }

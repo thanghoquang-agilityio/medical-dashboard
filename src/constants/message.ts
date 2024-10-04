@@ -20,6 +20,7 @@ export const ERROR_MESSAGE = {
   DELETE: (item: string) => `Delete ${item} failed. Please try again.`,
   CREATE: (item: string) => `Create ${item} failed. Please try again.`,
   UPDATE: (item: string) => `Update ${item} failed. Please try again.`,
+  CANCEL: (item: string) => `Cancel ${item} failed. Please try again.`,
 };
 
 export const SUCCESS_MESSAGE = {
@@ -28,4 +29,5 @@ export const SUCCESS_MESSAGE = {
   DELETE: (item: string) => `Delete ${item} successfully.`,
   CREATE: (item: string) => `Create ${item} successfully.`,
   UPDATE: (item: string) => `Update ${item} successfully.`,
+  CANCEL: (item: string) => `Cancel ${item} successfully.`,
 };
