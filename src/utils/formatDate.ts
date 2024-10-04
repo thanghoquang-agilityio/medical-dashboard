@@ -120,13 +120,15 @@ export const generateTimeOptions = (): Option[] => {
     const hour = Math.floor(i / 4);
     const minutes = (i % 4) * 15;
 
+    const totalMinutes = hour * 60 + minutes;
+
     // Format the hours and minutes to be two digits
     const hourStr = hour.toString().padStart(2, '0');
     const minuteStr = minutes.toString().padStart(2, '0');
 
     // Push the new object into the time array
     times.push({
-      key: `${hourStr}:${minuteStr}`,
+      key: totalMinutes.toString(),
       label: `${hourStr}:${minuteStr}`,
     });
   }

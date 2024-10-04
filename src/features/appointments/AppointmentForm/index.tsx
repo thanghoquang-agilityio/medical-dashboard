@@ -184,8 +184,8 @@ const AppointmentForm = memo(
                   labelPlacement="outside"
                   variant="bordered"
                   classNames={selectCustomStyle}
-                  defaultSelectedKeys={!isAdmin ? userId : value}
-                  isDisabled={!isAdmin || isPending}
+                  defaultSelectedKeys={!isAdmin ? [userId] : [value]}
+                  isDisabled={isEdit || !isAdmin}
                   options={OPTION_USERS}
                   isInvalid={!!error?.message}
                   errorMessage={error?.message}
@@ -215,7 +215,7 @@ const AppointmentForm = memo(
                   defaultSelectedKeys={[value]}
                   options={OPTION_USERS}
                   isInvalid={!!error?.message}
-                  isDisabled={isPending}
+                  isDisabled={isEdit}
                   errorMessage={error?.message}
                   onChange={onChange}
                 />
@@ -286,7 +286,7 @@ const AppointmentForm = memo(
             name="durationTime"
             rules={APPOINTMENT_FORM_VALIDATION.DURATION_TIME}
             render={({
-              field: { name, value, ...rest },
+              field: { name, value, onChange, ...rest },
               fieldState: { error },
             }) => (
               <Select
@@ -302,6 +302,8 @@ const AppointmentForm = memo(
                 isInvalid={!!error?.message}
                 errorMessage={error?.message}
                 isDisabled={isPending}
+                onChange={onChange}
+                selectedKeys={[value]}
               />
             )}
           />
