@@ -1,4 +1,7 @@
 'use client';
+
+import { useDisclosure } from '@nextui-org/react';
+import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 import {
   lazy,
   memo,
@@ -7,16 +10,17 @@ import {
   useMemo,
   useTransition,
 } from 'react';
+
 // Types
 import { APIResponse, ChemistModel, MetaResponse } from '@/types';
 
 // Components
 import ChemistCard from '../ChemistCard';
-import { Text } from '@/components/ui';
+import ChemistModal from '../ChemistModal';
+import { Button, Text } from '@/components/ui';
 
 // Constants
 import { PAGE_DEFAULT, RESULT_NOT_FOUND } from '@/constants';
-import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 import ChemistListSkeleton from './ChemistListSkeleton';
 
 const Pagination = lazy(() => import('@/components/ui/Pagination'));
@@ -29,6 +33,7 @@ const ChemistList = memo(({ chemists, pagination }: ChemistListProps) => {
   const { page = PAGE_DEFAULT, pageCount = PAGE_DEFAULT } = pagination ?? {};
 
   const [isPending, startTransition] = useTransition();
+  const { isOpen, onOpen, onClose } = useDisclosure();
 
   const searchParams = useSearchParams() ?? '';
   const pathname = usePathname() ?? '';
@@ -60,8 +65,12 @@ const ChemistList = memo(({ chemists, pagination }: ChemistListProps) => {
     },
     [handleReplaceURL, params],
   );
+
   return (
     <div className="flex flex-col items-center">
+      <Button className="my-4" onClick={onOpen}>
+        Open Modal
+      </Button>
       {isPending ? (
         <ChemistListSkeleton />
       ) : (
@@ -71,7 +80,8 @@ const ChemistList = memo(({ chemists, pagination }: ChemistListProps) => {
               chemists.map((chemist) => (
                 <ChemistCard
                   key={chemist.id}
-                  {...chemist.attributes.users_permissions_user.data.attributes}
+                  {...chemist.attributes.users_permissions_user?.data
+                    ?.attributes}
                 />
               ))
             ) : (
@@ -92,6 +102,7 @@ const ChemistList = memo(({ chemists, pagination }: ChemistListProps) => {
           )}
         </>
       )}
+      <ChemistModal isOpen={isOpen} onClose={onClose} />
     </div>
   );
 });
