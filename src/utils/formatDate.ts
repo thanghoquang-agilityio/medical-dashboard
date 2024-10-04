@@ -1,3 +1,4 @@
+import { Option } from '@/types';
 import dayjs from 'dayjs';
 import advancedFormat from 'dayjs/plugin/advancedFormat';
 import relativeTime from 'dayjs/plugin/relativeTime';
@@ -110,4 +111,25 @@ export const isLaterThanCurrentTime = (isoString: string) => {
   const currentDate = dayjs();
 
   return inputDate.isBefore(currentDate);
+};
+
+export const generateTimeOptions = (): Option[] => {
+  const times: Option[] = [];
+  const hour = 8;
+  for (let i = 1; i <= hour * 4; i++) {
+    const hour = Math.floor(i / 4);
+    const minutes = (i % 4) * 15;
+
+    // Format the hours and minutes to be two digits
+    const hourStr = hour.toString().padStart(2, '0');
+    const minuteStr = minutes.toString().padStart(2, '0');
+
+    // Push the new object into the time array
+    times.push({
+      key: `${hourStr}:${minuteStr}`,
+      label: `${hourStr}:${minuteStr}`,
+    });
+  }
+
+  return times;
 };
