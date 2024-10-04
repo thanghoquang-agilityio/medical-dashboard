@@ -185,7 +185,7 @@ const AppointmentForm = memo(
                   variant="bordered"
                   classNames={selectCustomStyle}
                   defaultSelectedKeys={!isAdmin ? [userId] : [value]}
-                  isDisabled={true}
+                  isDisabled={isEdit || !isAdmin}
                   options={OPTION_USERS}
                   isInvalid={!!error?.message}
                   errorMessage={error?.message}
@@ -215,7 +215,7 @@ const AppointmentForm = memo(
                   defaultSelectedKeys={[value]}
                   options={OPTION_USERS}
                   isInvalid={!!error?.message}
-                  isDisabled={true}
+                  isDisabled={isEdit}
                   errorMessage={error?.message}
                   onChange={onChange}
                 />
