@@ -10,7 +10,7 @@ interface ConfirmModalProps {
   isOpen: boolean;
   isLoading?: boolean;
   onClose: () => void;
-  onDelete: () => void;
+  onAction: () => void;
 }
 
 const ConfirmModal = ({
@@ -19,7 +19,7 @@ const ConfirmModal = ({
   isOpen,
   isLoading,
   onClose,
-  onDelete,
+  onAction,
 }: ConfirmModalProps) => (
   <BaseModal isOpen={isOpen} onClose={onClose} placement="center">
     <div className="flex flex-col items-center">
@@ -40,7 +40,7 @@ const ConfirmModal = ({
         No
       </Button>
       <Button
-        onClick={onDelete}
+        onClick={onAction}
         className="font-medium w-full"
         isLoading={isLoading}
       >

@@ -1,16 +1,25 @@
 'use server';
 
 // Services
-import { addAppointment, updateAppointment } from '@/services';
+import {
+  addAppointment as addAppointmentService,
+  updateAppointment as updateAppointmentService,
+  deleteAppointment as deleteAppointmentService,
+} from '@/services';
 
 // Types
 import { AppointmentDataResponse, AppointmentPayload } from '@/types';
 
-export const createAppointment = async (
+export const addAppointment = async (
   appointment: AppointmentPayload,
-): Promise<AppointmentDataResponse> => await addAppointment(appointment);
+): Promise<AppointmentDataResponse> => await addAppointmentService(appointment);
 
-export const editAppointment = async (
+export const updateAppointment = async (
   id: string,
   appointment: AppointmentPayload,
-): Promise<AppointmentDataResponse> => await updateAppointment(id, appointment);
+): Promise<AppointmentDataResponse> =>
+  await updateAppointmentService(id, appointment);
+
+export const deleteAppointment = async (
+  id: string,
+): Promise<AppointmentDataResponse> => await deleteAppointmentService(id);
