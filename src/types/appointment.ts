@@ -2,14 +2,21 @@ import {
   APIRelatedResponse,
   APIResponse,
   MetaResponse,
-  STATUS_TYPE_RESPONSE,
   UserModel,
 } from '@/types';
+
+export type AppointmentStatus = 0 | 1 | 2 | 3;
+
+export interface AppointmentStatusOption {
+  key: string;
+  label: string;
+  value: AppointmentStatus;
+}
 
 export interface AppointmentModel {
   startTime: string;
   durationTime: string;
-  status: keyof typeof STATUS_TYPE_RESPONSE;
+  status: AppointmentStatus;
   senderId: APIRelatedResponse<APIResponse<UserModel>>;
   receiverId: APIRelatedResponse<APIResponse<UserModel>>;
 }
@@ -30,10 +37,9 @@ export type AppointmentsResponse = {
   meta: MetaResponse;
 };
 
-export type AppointmentPayload = Omit<
-  AppointmentModel,
-  'senderId' | 'receiverId'
+export type AppointmentPayload = Partial<
+  Omit<AppointmentModel, 'senderId' | 'receiverId'>
 > & {
-  senderId: string;
-  receiverId: string;
+  senderId?: string;
+  receiverId?: string;
 };
