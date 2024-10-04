@@ -7,18 +7,21 @@ import { Card } from '@nextui-org/react';
 import {
   APIRelatedResponse,
   APIResponse,
-  AppointmentModel,
   ColumnType,
+  InfoModel,
   MetaResponse,
   NotificationModel,
   NotificationResponse,
-  STATUS_TYPE_RESPONSE,
   UserModel,
 } from '@/types';
 
 // Components
 import { Avatar, Status, Text } from '@/components/ui';
-import { formatDateTime, fromDateToNow, getContentNotification } from '@/utils';
+import {
+  formatDateTime,
+  fromDateToNow,
+  getDescriptionNotification,
+} from '@/utils';
 import { API_IMAGE_URL } from '@/constants';
 import { ActivityFeedListSkeleton } from './ActivityFeedSkeleton';
 const DataGrid = lazy(() => import('@/components/ui/DataGrid'));
@@ -32,14 +35,18 @@ const ActivityInfo = memo(({ item, userId = '' }: ActivityInfoProps) => {
   const {
     senderAvatar = '',
     createdAt = '',
-    info = {} as AppointmentModel,
+    info = {} as InfoModel,
     senderId = {} as APIRelatedResponse<APIResponse<UserModel>>,
-    type = 0,
   } = item || {};
-  const { startTime = '' } = info as AppointmentModel;
+  const { startTime = '', content } = info;
 
   const time = formatDateTime(startTime);
-  const content = getContentNotification({ userId, senderId, time, type });
+  const description = getDescriptionNotification({
+    userId,
+    senderId,
+    time,
+    content,
+  });
 
   const timeAgo = fromDateToNow(createdAt);
 
@@ -48,7 +55,7 @@ const ActivityInfo = memo(({ item, userId = '' }: ActivityInfoProps) => {
       <Avatar isBordered src={`${API_IMAGE_URL}${senderAvatar}`} />
       <div className="flex flex-col mr-8">
         <Text variant="description" customClass="text-2xs md:text-xs text-wrap">
-          {content}
+          {description}
         </Text>
         <Text variant="subTitle" size="2xs">
           {timeAgo}
@@ -70,12 +77,7 @@ export const COLUMNS_ACTIVITY_FEED: ColumnType<NotificationModel>[] = [
       const { info } = item || {};
       const { status = 0 } = info || {};
 
-      return (
-        <Status
-          status={STATUS_TYPE_RESPONSE[status]}
-          className="leading-[27px]"
-        />
-      );
+      return <Status status={status} className="leading-[27px]" />;
     },
   },
 ];
