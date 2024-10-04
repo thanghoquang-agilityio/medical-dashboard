@@ -2,6 +2,7 @@
 
 import {
   ChangeEvent,
+  Key,
   lazy,
   memo,
   useCallback,
@@ -10,107 +11,36 @@ import {
   useTransition,
 } from 'react';
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
-import { Card } from '@nextui-org/react';
+import { Card, useDisclosure } from '@nextui-org/react';
 
 // Constants
-import { APPOINTMENT_STATUS_OPTIONS } from '@/constants';
+import {
+  APPOINTMENT_STATUS_OPTIONS,
+  ERROR_MESSAGE,
+  ROLE,
+  SUCCESS_MESSAGE,
+} from '@/constants';
 
 // Types
 import {
-  AppointmentModel,
   AppointmentResponse,
+  AppointmentStatus,
   ColumnType,
   MetaResponse,
+  STATUS_TYPE,
 } from '@/types';
 
-// Utils
-import { formatDate, formatTimeAppointment } from '@/utils';
+// Actions
+import { deleteAppointment, updateAppointment } from '@/actions/appointment';
 
 // Components
-import { Button, Select, Text } from '@/components/ui';
-// import { MoreIcon } from '@/icons';
+import { useToast } from '@/context/toast';
+import { Select, Text } from '@/components/ui';
 import { AppointmentsUpcomingListSkeleton } from './AppointmentsUpcomingSkeleton';
+import { createColumns } from './columns';
+import { getStatusKey } from '@/utils';
 const DataGrid = lazy(() => import('@/components/ui/DataGrid'));
-
-const COLUMNS_APPOINTMENT: ColumnType<AppointmentModel>[] = [
-  {
-    key: 'startTime',
-    title: 'Start time',
-    customNode: ({ item }) => {
-      const { startTime = '' } = item || {};
-      const date = formatDate(startTime);
-
-      return (
-        <div className="rounded-md w-[30px] md:w-[37px] h-10 bg-background-100 text-center pt-1">
-          <Text customClass="text-xs text-yellow font-bold">
-            {date.dayOfWeek}
-          </Text>
-          <Text variant="primary" customClass="text-xs">
-            {date.dayOfMonth}
-          </Text>
-        </div>
-      );
-    },
-  },
-  {
-    key: 'receiverId',
-    title: 'Receiver',
-    customNode: ({ item }) => {
-      const { receiverId, startTime = '', durationTime = '' } = item || {};
-      const { attributes } = receiverId?.data || {};
-      const { username = '' } = attributes || {};
-
-      return (
-        <>
-          <Text variant="primary" customClass="text-xs md:text-sm">
-            {username}
-          </Text>
-          <Text
-            customClass="text-primary-300 font-light hidden lg:block"
-            size="xs"
-          >
-            {formatTimeAppointment({
-              start: startTime,
-              duration: durationTime,
-            })}
-          </Text>
-        </>
-      );
-    },
-  },
-  {
-    key: 'durationTime',
-    title: 'Duration time',
-    customNode: ({ item }) => {
-      const { startTime = '', durationTime = '' } = item || {};
-
-      return (
-        <Text customClass="text-primary-300 font-light lg:hidden" size="xs">
-          {formatTimeAppointment({
-            start: startTime,
-            duration: durationTime,
-          })}
-        </Text>
-      );
-    },
-  },
-  {
-    key: 'actions',
-    title: 'Actions',
-    customNode: ({ id }) => (
-      <div className="flex justify-end">
-        <Button
-          aria-label="actions"
-          color="stone"
-          className="p-0 min-w-4 h-4 md:h-[26px] md:min-w-[26px] bg-background-100 rounded-md"
-        >
-          {/* <MoreIcon customClass=" w-[11px] h-[11px] md:w-4 md:h-4" /> */}
-          {id}
-        </Button>
-      </div>
-    ),
-  },
-];
+const ConfirmModal = lazy(() => import('@/components/ui/ConfirmModal'));
 
 export interface AppointmentsUpcomingListProps extends MetaResponse {
   appointments: AppointmentResponse[];
@@ -119,9 +49,13 @@ export interface AppointmentsUpcomingListProps extends MetaResponse {
 }
 
 const AppointmentsUpcomingList = memo(
-  ({ appointments, defaultStatus }: AppointmentsUpcomingListProps) => {
+  ({ appointments, defaultStatus, role }: AppointmentsUpcomingListProps) => {
+    const openToast = useToast();
+    const isAdmin = role === ROLE.ADMIN;
+
     const [isPending, startTransition] = useTransition();
     const [status, setStatus] = useState(new Set<string>([defaultStatus]));
+    const [appointmentId, setAppointmentId] = useState<string>('');
 
     const searchParams = useSearchParams() ?? '';
     const pathname = usePathname() ?? '';
@@ -164,41 +98,127 @@ const AppointmentsUpcomingList = memo(
       [updateSearchParams],
     );
 
+    const {
+      isOpen: isOpenConfirm,
+      onClose: onClosConfirm,
+      onOpen: onOpenConfirm,
+    } = useDisclosure();
+    const [isLoading, setIsLoading] = useState(false);
+
+    const handleOpenConfirmModal = useCallback(
+      (key?: Key) => {
+        const appointment = appointments.find(
+          (appointment) => key == appointment.id,
+        );
+        const { id = '' } = appointment || {};
+
+        setAppointmentId(id);
+        onOpenConfirm();
+      },
+      [appointments, onOpenConfirm],
+    );
+
+    const statusArray = Array.from(status);
+
+    const columns = createColumns({
+      isAdmin,
+      status: statusArray[0],
+      onRemoveOrCancel: handleOpenConfirmModal,
+    });
+
+    const handleDeleteAppointment = useCallback(async () => {
+      setIsLoading(true);
+      const { error } = await deleteAppointment(appointmentId);
+      if (error) {
+        openToast({
+          message: ERROR_MESSAGE.DELETE('appointment'),
+          type: STATUS_TYPE.ERROR,
+        });
+
+        setIsLoading(false);
+        return;
+      }
+
+      openToast({
+        message: SUCCESS_MESSAGE.DELETE('appointment'),
+        type: STATUS_TYPE.SUCCESS,
+      });
+      onClosConfirm();
+    }, [appointmentId, onClosConfirm, openToast]);
+
+    const handleCancelAppointment = useCallback(async () => {
+      setIsLoading(true);
+      const statusPayload = getStatusKey('cancelled') || 0;
+      const error = (
+        await updateAppointment(appointmentId, {
+          status: statusPayload as AppointmentStatus,
+        })
+      ).error;
+
+      if (error) {
+        openToast({
+          message: ERROR_MESSAGE.CANCEL('appointment'),
+          type: STATUS_TYPE.ERROR,
+        });
+        setIsLoading(false);
+        return;
+      }
+
+      openToast({
+        message: SUCCESS_MESSAGE.CANCEL('appointment'),
+        type: STATUS_TYPE.SUCCESS,
+      });
+      onClosConfirm();
+    }, [appointmentId, onClosConfirm, openToast]);
+
     return (
-      <Card className="w-full lg:max-w-[320px] 2xl:max-w-[550px] h-fit p-4 pl-5 bg-background-200 mb-10">
-        <div className="flex justify-between items-center">
-          <Text customClass="text-lg font-bold text-primary-100">
-            Appointments
-          </Text>
-          <div>
-            <Select
-              aria-label="appointment status"
-              options={APPOINTMENT_STATUS_OPTIONS}
-              defaultSelectedKeys={status}
-              disabledKeys={status}
-              selectedKeys={status}
-              placeholder="Status"
-              classNames={{
-                base: 'max-w-[102px] max-h-[36px]',
-                mainWrapper: 'max-w-[102px] max-h-[36px]',
-                innerWrapper: 'w-[80px]',
-                trigger: 'min-h-[36px]',
-              }}
-              onChange={handleSelectStatus}
-            />
+      <>
+        <Card className="w-full lg:max-w-[320px] 2xl:max-w-[550px] h-fit p-4 pl-5 bg-background-200 mb-10">
+          <div className="flex justify-between items-center">
+            <Text customClass="text-lg font-bold text-primary-100">
+              Appointments
+            </Text>
+            <div>
+              <Select
+                aria-label="appointment status"
+                options={APPOINTMENT_STATUS_OPTIONS}
+                defaultSelectedKeys={status}
+                disabledKeys={status}
+                selectedKeys={status}
+                placeholder="Status"
+                classNames={{
+                  base: 'max-w-[102px] max-h-[36px]',
+                  mainWrapper: 'max-w-[102px] max-h-[36px]',
+                  innerWrapper: 'w-[80px]',
+                  trigger: 'min-h-[36px]',
+                }}
+                onChange={handleSelectStatus}
+              />
+            </div>
           </div>
-        </div>
-        {isPending ? (
-          <AppointmentsUpcomingListSkeleton />
-        ) : (
-          <DataGrid
-            data={appointments}
-            columns={COLUMNS_APPOINTMENT as ColumnType<unknown>[]}
-            classWrapper="pt-4"
-            classCell="pb-4"
+          {isPending ? (
+            <AppointmentsUpcomingListSkeleton />
+          ) : (
+            <DataGrid
+              data={appointments}
+              columns={columns as ColumnType<unknown>[]}
+              classWrapper="pt-4"
+              classCell="pb-4"
+            />
+          )}
+
+          <ConfirmModal
+            title="Confirmation"
+            subTitle={`Do you want to ${isAdmin ? 'delete' : 'cancel'} this appointment?`}
+            isOpen={isOpenConfirm}
+            isLoading={isLoading}
+            onClose={onClosConfirm}
+            onAction={
+              isAdmin ? handleDeleteAppointment : handleCancelAppointment
+            }
           />
-        )}
-      </Card>
+        </Card>
+      </>
     );
   },
 );

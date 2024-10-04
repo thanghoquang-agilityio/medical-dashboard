@@ -59,7 +59,7 @@ const AppointmentsUpcoming = ({
         options: {
           next: {
             tags: [
-              API_ENDPOINT.NOTIFICATIONS,
+              API_ENDPOINT.APPOINTMENTS,
               `${PRIVATE_ROUTES.DASHBOARD}/${userId}/${status}`,
             ],
           },

@@ -1,9 +1,9 @@
 'use client';
 
-import dynamic from 'next/dynamic';
 import {
   ChangeEvent,
   Key,
+  lazy,
   memo,
   useCallback,
   useMemo,
@@ -17,6 +17,7 @@ import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 import {
   AppointmentModel,
   AppointmentResponse,
+  AppointmentStatus,
   ColumnType,
   MetaResponse,
   STATUS_TYPE,
@@ -41,9 +42,10 @@ import { createColumns } from './columns';
 
 // Service
 import { deleteAppointment, updateAppointment } from '@/actions/appointment';
+import { getStatusKey } from '@/utils';
 
-const DataGrid = dynamic(() => import('@/components/ui/DataGrid'));
-const ConfirmModal = dynamic(() => import('@/components/ui/ConfirmModal'));
+const DataGrid = lazy(() => import('@/components/ui/DataGrid'));
+const ConfirmModal = lazy(() => import('@/components/ui/ConfirmModal'));
 
 export interface AppointmentsHistoryProps extends MetaResponse {
   userId: string;
@@ -179,15 +181,10 @@ const AppointmentsHistory = ({
 
   const handleCancelAppointment = useCallback(async () => {
     setIsLoading(true);
-    const canceledStatus = APPOINTMENT_STATUS_OPTIONS.find(
-      (option) => option.key === 'canceled',
-    );
-
-    if (!canceledStatus) return;
-    const status = canceledStatus.value;
+    const statusPayload = getStatusKey('cancelled') || 0;
     const error = (
       await updateAppointment(appointmentId, {
-        status,
+        status: statusPayload as AppointmentStatus,
       })
     ).error;
 
@@ -197,7 +194,6 @@ const AppointmentsHistory = ({
         type: STATUS_TYPE.ERROR,
       });
       setIsLoading(false);
-
       return;
     }
 
@@ -205,7 +201,8 @@ const AppointmentsHistory = ({
       message: SUCCESS_MESSAGE.CANCEL('appointment'),
       type: STATUS_TYPE.SUCCESS,
     });
-  }, [appointmentId, openToast]);
+    onClosConfirm();
+  }, [appointmentId, onClosConfirm, openToast]);
 
   return (
     <>
