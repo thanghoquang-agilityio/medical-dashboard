@@ -423,6 +423,14 @@ export const USER_OPTIONS: UserModel[] = [
     rating: 5,
     tasks: 22,
     reviews: 321,
+    specialtyId: {
+      data: {
+        id: '1',
+        attributes: {
+          name: 'Instrumentation',
+        },
+      },
+    },
   },
   {
     username: 'Anna White',
@@ -431,6 +439,14 @@ export const USER_OPTIONS: UserModel[] = [
     rating: 5,
     tasks: 40,
     reviews: 600,
+    specialtyId: {
+      data: {
+        id: '2',
+        attributes: {
+          name: 'Laboratory Chemist',
+        },
+      },
+    },
   },
 
   {
@@ -441,5 +457,13 @@ export const USER_OPTIONS: UserModel[] = [
     rating: 4,
     tasks: 23,
     reviews: 123,
+    specialtyId: {
+      data: {
+        id: '2',
+        attributes: {
+          name: 'Laboratory Chemist',
+        },
+      },
+    },
   },
 ];
