@@ -87,6 +87,7 @@ const AppointmentForm = memo(
       getValues,
       watch,
       formState: { isValid, isDirty, isLoading },
+      trigger,
     } = useForm<AppointMentForm>({
       mode: 'onBlur',
       reValidateMode: 'onBlur',
@@ -159,6 +160,10 @@ const AppointmentForm = memo(
 
     const durationTimeOptions = generateTimeOptions();
 
+    const handleCloseSelect = (field: keyof AppointMentForm) => () => {
+      trigger(field);
+    };
+
     return (
       <>
         <form onSubmit={handleSubmit(onSubmit)} className="p-4">
@@ -172,7 +177,7 @@ const AppointmentForm = memo(
               name="senderId"
               rules={APPOINTMENT_FORM_VALIDATION.SENDER_ID(getValues)}
               render={({
-                field: { name, value, onChange, ...rest },
+                field: { name, value, onChange, onBlur: _onBlur, ...rest },
                 fieldState: { error },
               }) => (
                 <Select
@@ -190,6 +195,7 @@ const AppointmentForm = memo(
                   isInvalid={!!error?.message}
                   errorMessage={error?.message}
                   onChange={onChange}
+                  onClose={handleCloseSelect(name)}
                 />
               )}
             />
@@ -199,7 +205,7 @@ const AppointmentForm = memo(
               name="receiverId"
               rules={APPOINTMENT_FORM_VALIDATION.RECEIVER_ID(getValues)}
               render={({
-                field: { name, value, onChange, ...rest },
+                field: { name, value, onChange, onBlur: _onBlur, ...rest },
                 fieldState: { error },
               }) => (
                 <Select
@@ -218,6 +224,7 @@ const AppointmentForm = memo(
                   isDisabled={isEdit}
                   errorMessage={error?.message}
                   onChange={onChange}
+                  onClose={handleCloseSelect(name)}
                 />
               )}
             />
@@ -286,7 +293,7 @@ const AppointmentForm = memo(
             name="durationTime"
             rules={APPOINTMENT_FORM_VALIDATION.DURATION_TIME}
             render={({
-              field: { name, value, onChange, ...rest },
+              field: { name, value, onChange, onBlur: _onBlur, ...rest },
               fieldState: { error },
             }) => (
               <Select
@@ -304,6 +311,7 @@ const AppointmentForm = memo(
                 isDisabled={isPending}
                 onChange={onChange}
                 selectedKeys={[value]}
+                onClose={handleCloseSelect(name)}
               />
             )}
           />
@@ -314,10 +322,11 @@ const AppointmentForm = memo(
             name="status"
             rules={APPOINTMENT_FORM_VALIDATION.STATUS}
             render={({
-              field: { name, value, onChange },
+              field: { name, value, onChange, onBlur: _onBlur, ...rest },
               fieldState: { error },
             }) => (
               <Select
+                {...rest}
                 label="Status"
                 placeholder="Status"
                 labelPlacement="outside"
@@ -334,6 +343,7 @@ const AppointmentForm = memo(
                 onChange={onChange}
                 isInvalid={!!error?.message}
                 errorMessage={error?.message}
+                onClose={handleCloseSelect(name)}
               />
             )}
           />
