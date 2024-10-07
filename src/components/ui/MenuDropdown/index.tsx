@@ -55,10 +55,11 @@ export const MenuDropdown = memo(
             classNames?.trigger,
           ),
           content: cn('rounded-lg bg-background-100', classNames?.content),
+          base: classNames?.base,
         }}
       >
         <DropdownTrigger>
-          <Button className="flex gap-4 items-center">
+          <Button className="flex gap-3 items-center">
             <div className="text-primary-100 max-h-6 max-w-6">{icon}</div>
             {label && (
               <Text variant="title" size="xs">

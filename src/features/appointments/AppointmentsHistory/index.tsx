@@ -211,7 +211,10 @@ const AppointmentsHistory = ({
           placeholder="Search Appointments"
           classNames={{ mainWrapper: 'pb-10' }}
         />
-        <Button onClick={handleOpenCreateModal} className="mt-3 font-medium">
+        <Button
+          onClick={handleOpenCreateModal}
+          className="h-[52px] font-medium"
+        >
           Create
         </Button>
       </div>

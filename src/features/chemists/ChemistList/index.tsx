@@ -17,17 +17,23 @@ import { APIResponse, ChemistModel, MetaResponse } from '@/types';
 // Components
 import ChemistCard from '../ChemistCard';
 import ChemistModal from '../ChemistModal';
-import { Button, Text } from '@/components/ui';
+import { Button, InputSearch, MenuDropdown, Text } from '@/components/ui';
 
 // Constants
 import { PAGE_DEFAULT, RESULT_NOT_FOUND } from '@/constants';
 import ChemistListSkeleton from './ChemistListSkeleton';
+import { CategoryIcon, SortIcon } from '@/icons';
 
 const Pagination = lazy(() => import('@/components/ui/Pagination'));
 
 export type ChemistListProps = {
   chemists: Array<APIResponse<ChemistModel>>;
 } & MetaResponse;
+
+const sortOptions = [
+  { key: 'ASC', label: 'Ascending' },
+  { key: 'DESC', label: 'Descending' },
+];
 
 const ChemistList = memo(({ chemists, pagination }: ChemistListProps) => {
   const { page = PAGE_DEFAULT, pageCount = PAGE_DEFAULT } = pagination ?? {};
@@ -67,10 +73,32 @@ const ChemistList = memo(({ chemists, pagination }: ChemistListProps) => {
   );
 
   return (
-    <div className="flex flex-col items-center">
-      <Button className="my-4" onClick={onOpen}>
-        Open Modal
-      </Button>
+    <>
+      <div className="flex flex-col mt-3 md:flex-row gap-4 md:mb-10">
+        <InputSearch placeholder="Search Appointments" />
+        <div className="flex justify-between md:gap-4 mb-10 md:mb-0 ">
+          <MenuDropdown
+            icon={<CategoryIcon customClass="w-4 h-4 md:w-6 md:h-6" />}
+            label="Specialty"
+            // TODO: add options later
+            options={[{ label: 'Create', key: 'create' }]}
+            classNames={{
+              trigger: 'w-[120px] md:w-[170px] h-[52px]',
+            }}
+          />
+          <MenuDropdown
+            icon={<SortIcon customClass="w-4 h-4  md:w-6 md:h-6" />}
+            label="Sort by: name"
+            options={sortOptions}
+            classNames={{
+              trigger: 'w-[130px] md:w-[195px] h-[52px]',
+            }}
+          />
+          <Button className="font-medium h-[52px]" onClick={onOpen}>
+            Create
+          </Button>
+        </div>
+      </div>
       {isPending ? (
         <ChemistListSkeleton />
       ) : (
@@ -103,7 +131,7 @@ const ChemistList = memo(({ chemists, pagination }: ChemistListProps) => {
         </>
       )}
       <ChemistModal isOpen={isOpen} onClose={onClose} />
-    </div>
+    </>
   );
 });
 
