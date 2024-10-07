@@ -23,7 +23,7 @@ const ChemistModal = memo(({ isOpen, onClose, id }: ChemistModalProps) => {
   return (
     <BaseModal isOpen={isOpen} onClose={onClose} placement="center" size="2xl">
       {/* TODO: Update later */}
-      <ChemistForm data={USER_OPTIONS[0]} id={id} />
+      <ChemistForm data={USER_OPTIONS[0]} id={id} onClose={onClose} />
     </BaseModal>
   );
 });
