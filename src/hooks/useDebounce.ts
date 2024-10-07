@@ -1,23 +1,27 @@
-import { useEffect, useState } from 'react';
+import { useRef } from 'react';
 
 /**
  * useDebounce
- * @param {Function} value - The value to be debounced
- * @param {number} delay - Delay in milliseconds
+ * @param {Function} callback - The function to be debounced
+ * @param {number} delay - Delay in milliseconds (default: 500)
  */
-export const useDebounce = <T>(value: T, delay: number): T => {
-  const [debouncedValue, setDebouncedValue] = useState(value);
+export const useDebounce = (
+  callback: (params: string) => void,
+  delay = 500,
+) => {
+  const timerRef = useRef<NodeJS.Timeout | null>(null);
 
-  useEffect(() => {
-    const handler = setTimeout(() => {
-      setDebouncedValue(value);
+  const debounceFunction = (params: string) => {
+    // Clear the previous timer
+    if (timerRef.current) {
+      clearTimeout(timerRef.current);
+    }
+
+    // Set a new timer
+    timerRef.current = setTimeout(() => {
+      callback(params);
     }, delay);
+  };
 
-    // Clean up the timeout if the value or delay changes, or the component unmounts
-    return () => {
-      clearTimeout(handler);
-    };
-  }, [value, delay]);
-
-  return debouncedValue;
+  return debounceFunction;
 };
