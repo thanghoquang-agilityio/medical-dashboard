@@ -45,6 +45,7 @@ const SignupForm = () => {
     getValues,
     formState: { isValid, isDirty, isLoading, errors },
     clearErrors,
+    setError: setFormError,
     handleSubmit,
   } = useForm<SignupFormData>({
     mode: 'onBlur',
@@ -210,7 +211,11 @@ const SignupForm = () => {
               onChange={handleInputChange(name, onChange)}
             />
           )}
-          rules={SIGN_UP_FORM_VALIDATION.PASSWORD}
+          rules={SIGN_UP_FORM_VALIDATION.PASSWORD(
+            getValues,
+            setFormError,
+            clearErrors,
+          )}
         />
 
         <Controller
