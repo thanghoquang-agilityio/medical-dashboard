@@ -206,12 +206,12 @@ const AppointmentsHistory = ({
 
   return (
     <>
-      <div className="flex justify-between gap-10">
-        <InputSearch
-          placeholder="Search Appointments"
-          classNames={{ mainWrapper: 'pb-10' }}
-        />
-        <Button onClick={handleOpenCreateModal} className="mt-3 font-medium">
+      <div className="flex mt-3 justify-between gap-10 mb-10">
+        <InputSearch placeholder="Search Appointments" />
+        <Button
+          onClick={handleOpenCreateModal}
+          className="h-[52px] font-medium"
+        >
           Create
         </Button>
       </div>

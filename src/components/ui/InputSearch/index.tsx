@@ -65,7 +65,7 @@ export const InputSearch = memo(
         classNames={{
           ...classNames,
           mainWrapper: cn(
-            'h-fit py-3 max-w-[400px] text-xs',
+            'h-fit lg:max-w-[400px] text-xs',
             classNames?.mainWrapper ?? '',
           ),
           inputWrapper: 'h-[52px]',
