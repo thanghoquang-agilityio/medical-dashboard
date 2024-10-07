@@ -152,13 +152,11 @@ const AppointmentForm = memo(
         const { id = '', attributes = {} as AppointmentModel } =
           appointmentCreated || {};
 
-        const firebase = await createNotifications({
+        await createNotifications({
           appointment: attributes,
           idAppointment: id,
           message: 'have been created appointment',
         });
-
-        console.log(firebase);
       }
 
       if (error) {
