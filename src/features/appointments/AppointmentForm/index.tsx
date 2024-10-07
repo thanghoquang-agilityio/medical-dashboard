@@ -1,6 +1,6 @@
 'use client';
 
-import { memo, useEffect, useState } from 'react';
+import { ChangeEvent, memo, useCallback, useEffect, useState } from 'react';
 import { Controller, useForm } from 'react-hook-form';
 import { TimeInputValue } from '@nextui-org/react';
 
@@ -16,6 +16,7 @@ import {
   convertMinutesToTime,
   convertTimeToMinutes,
   generateTimeOptions,
+  clearErrorOnChange,
 } from '@/utils';
 
 // Components
@@ -86,8 +87,9 @@ const AppointmentForm = memo(
       handleSubmit,
       getValues,
       watch,
-      formState: { isValid, isDirty, isLoading },
+      formState: { isValid, isDirty, isLoading, errors },
       trigger,
+      clearErrors,
     } = useForm<AppointMentForm>({
       mode: 'onBlur',
       reValidateMode: 'onBlur',
@@ -163,6 +165,18 @@ const AppointmentForm = memo(
     const handleCloseSelect = (field: keyof AppointMentForm) => () => {
       trigger(field);
     };
+
+    const handleInputChange = useCallback(
+      (name: keyof AppointMentForm, onChange: (value: string) => void) => {
+        return (e: ChangeEvent<HTMLInputElement>) => {
+          onChange(e.target.value);
+
+          // Clear error message on change
+          clearErrorOnChange(name, errors, clearErrors);
+        };
+      },
+      [clearErrors, errors],
+    );
 
     return (
       <>
@@ -249,7 +263,7 @@ const AppointmentForm = memo(
                   size="sm"
                   name={name}
                   defaultValue={value}
-                  onChange={onChange}
+                  onChange={handleInputChange(name, onChange)}
                   isInvalid={!!error?.message}
                   errorMessage={error?.message}
                   isDisabled={isPending}
@@ -282,6 +296,10 @@ const AppointmentForm = memo(
                   errorMessage={error?.message}
                   isInvalid={!!error?.message}
                   isDisabled={!watch('startDate') || isPending}
+                  onFocusChange={() => {
+                    // Clear error message on change
+                    clearErrorOnChange(name, errors, clearErrors);
+                  }}
                 />
               )}
             />
