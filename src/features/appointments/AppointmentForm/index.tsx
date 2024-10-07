@@ -297,7 +297,6 @@ const AppointmentForm = memo(
                   isInvalid={!!error?.message}
                   isDisabled={!watch('startDate') || isPending}
                   onFocusChange={() => {
-                    // Clear error message on change
                     clearErrorOnChange(name, errors, clearErrors);
                   }}
                 />
