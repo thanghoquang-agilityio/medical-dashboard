@@ -17,7 +17,7 @@ export interface InfoModel {
 export interface NotificationModel {
   senderName: string;
   senderAvatar: string;
-  isRead: string;
+  isRead: boolean;
   info: InfoModel;
   senderId?: APIRelatedResponse<APIResponse<UserModel>>;
   createdAt?: string;
