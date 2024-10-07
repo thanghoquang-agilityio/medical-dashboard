@@ -1,66 +1,46 @@
 'use client';
 
-import { memo, useRef, useState } from 'react';
+import { forwardRef } from 'react';
 
 // Components
 import { Button, Input, Avatar } from '@/components/ui';
 import { CloseIcon, UploadImageIcon } from '@/icons';
 
-interface ImageUploadProps {
+interface ImageUploadProps extends React.HTMLAttributes<HTMLDivElement> {
   src?: string;
+  srcUpload?: string;
   onRemoveImage?: () => void;
-  onUploadImage?: (image: File | null) => void;
+  onClick?: () => void;
+  onUploadImage?: (event: React.ChangeEvent<HTMLInputElement>) => void;
   altText?: string;
   width?: number;
   height?: number;
 }
 
-export const ImageUpload = memo(
-  ({
-    src = '',
-    altText = 'Image for avatar',
-    width = 100,
-    height = 100,
-    onRemoveImage,
-    onUploadImage,
-  }: ImageUploadProps) => {
-    const [imageUpload, setImageUpload] = useState<string | null>(null);
-    const hiddenFileInput = useRef<HTMLInputElement>(null);
-
-    // Handle input changes
-    const handleUpload = (event: React.ChangeEvent<HTMLInputElement>) => {
-      const files = event.target.files;
-      if (files && files[0]) {
-        const image = files[0];
-        setImageUpload(URL.createObjectURL(image));
-        onUploadImage?.(image);
-      }
-    };
-
-    // Handle remove upload image
-    const handleRemoveImage = () => {
-      setImageUpload(null);
-      if (hiddenFileInput.current) {
-        hiddenFileInput.current.value = '';
-      }
-      onRemoveImage?.();
-      onUploadImage?.(null);
-    };
-
-    const handleClick = () => {
-      hiddenFileInput.current?.click();
-    };
-
-    const hasImage = imageUpload || src;
+export const ImageUpload = forwardRef<HTMLInputElement, ImageUploadProps>(
+  (
+    {
+      src = '',
+      srcUpload = '',
+      altText = 'Image for avatar',
+      width = 100,
+      height = 100,
+      onRemoveImage,
+      onUploadImage,
+      onClick,
+    },
+    ref,
+  ) => {
+    const hasImage = srcUpload || src;
 
     return (
       <div className="flex flex-col justify-center items-center gap-2">
         <div className="relative" style={{ width, height }}>
-          {imageUpload ? (
+          {srcUpload ? (
             // eslint-disable-next-line @next/next/no-img-element
             <img
               className="object-cover w-full h-full rounded-full"
-              src={imageUpload}
+              src={srcUpload}
               alt={altText}
             />
           ) : (
@@ -71,25 +51,23 @@ export const ImageUpload = memo(
               size="tiny"
               className="flex items-center justify-end text-primary-300 absolute top-[-6px] right-[-2px] z-10 p-0 min-w-6 h-6"
               isIconOnly
-              onClick={handleRemoveImage}
+              onClick={onRemoveImage}
             >
               <CloseIcon customClass="text-primary-300 w-auto" />
             </Button>
           )}
         </div>
         <Button
-          variant="outline"
-          color="default"
-          className="w-8 h-8 text-primary-300"
-          isIconOnly
-          onClick={handleClick}
+          color="primary"
+          className="w-20 h-8 text-primary-100"
+          onClick={onClick}
         >
           <UploadImageIcon />
           <Input
             type="file"
             className="hidden"
-            ref={hiddenFileInput}
-            onChange={handleUpload}
+            ref={ref}
+            onChange={onUploadImage}
             accept="image/*"
           />
         </Button>
