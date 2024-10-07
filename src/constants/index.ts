@@ -1,6 +1,7 @@
 export * from './apiEndpoint';
 export * from './appointment';
 export * from './common';
+export * from './firebase';
 export * from './image';
 export * from './message';
 export * from './navigation';
