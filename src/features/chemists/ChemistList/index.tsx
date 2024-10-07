@@ -12,7 +12,12 @@ import {
 } from 'react';
 
 // Types
-import { APIResponse, ChemistModel, MetaResponse } from '@/types';
+import {
+  APIResponse,
+  ChemistModel,
+  MetaResponse,
+  SpecialtyResponse,
+} from '@/types';
 
 // Components
 import ChemistCard from '../ChemistCard';
@@ -23,6 +28,7 @@ import { CategoryIcon } from '@/icons';
 // Constants
 import { PAGE_DEFAULT, RESULT_NOT_FOUND } from '@/constants';
 import ChemistListSkeleton from './ChemistListSkeleton';
+import { transformSpecialties } from '@/utils';
 
 const Pagination = lazy(() => import('@/components/ui/Pagination'));
 
@@ -67,6 +73,15 @@ const ChemistList = memo(({ chemists, pagination }: ChemistListProps) => {
     [handleReplaceURL, params],
   );
 
+  const specialties = chemists.map(
+    (chemists) =>
+      chemists.attributes.users_permissions_user.data.attributes.specialtyId
+        ?.data,
+  );
+  const specialtyOptions = transformSpecialties(
+    specialties as SpecialtyResponse[],
+  );
+
   return (
     <>
       <div className="flex flex-col mt-3 md:flex-row gap-4 md:mb-10">
@@ -76,7 +91,7 @@ const ChemistList = memo(({ chemists, pagination }: ChemistListProps) => {
             icon={<CategoryIcon customClass="w-4 h-4 md:w-6 md:h-6" />}
             label="Specialty"
             // TODO: add options later
-            options={[{ label: 'Create', key: 'create' }]}
+            options={specialtyOptions}
             classNames={{
               trigger: 'w-[120px] md:w-[170px] h-[52px]',
             }}

@@ -6,9 +6,11 @@ import { getChemists } from '@/services';
 // Types
 import { DIRECTION, SearchParams } from '@/types';
 
+// Constants
+import { PAGE_DEFAULT, PAGE_SIZE_CHEMISTS_DEFAULT } from '@/constants';
+
 // Component
 import ChemistListSkeleton from '@/features/chemists/ChemistList/ChemistListSkeleton';
-import { PAGE_DEFAULT, PAGE_SIZE_DEFAULT } from '@/constants';
 const ChemistList = lazy(() => import('@/features/chemists/ChemistList'));
 
 export interface ChemistPageSearchParamsProps extends SearchParams {}
@@ -18,7 +20,8 @@ const ChemistPage = async ({
 }: {
   searchParams?: ChemistPageSearchParamsProps;
 }) => {
-  const { page = PAGE_DEFAULT } = searchParams as ChemistPageSearchParamsProps;
+  const { page = PAGE_DEFAULT, search } =
+    searchParams as ChemistPageSearchParamsProps;
 
   const searchParamsAPI = new URLSearchParams();
 
@@ -32,9 +35,18 @@ const ChemistPage = async ({
   });
 
   searchParamsAPI.set('pagination[page]', page.toString());
-  searchParamsAPI.set('pagination[pageSize]', PAGE_SIZE_DEFAULT.toString());
+  searchParamsAPI.set(
+    'pagination[pageSize]',
+    PAGE_SIZE_CHEMISTS_DEFAULT.toString(),
+  );
   searchParamsAPI.set('sort[0]', `createdAt:${DIRECTION.DESC}`);
 
+  if (search) {
+    searchParamsAPI.set(
+      `filters[$or][0][users_permissions_user][username][$containsi]`,
+      search,
+    );
+  }
   const { chemists, pagination } = await getChemists({
     searchParams: searchParamsAPI,
   });
