@@ -18,22 +18,17 @@ import { APIResponse, ChemistModel, MetaResponse } from '@/types';
 import ChemistCard from '../ChemistCard';
 import ChemistModal from '../ChemistModal';
 import { Button, InputSearch, MenuDropdown, Text } from '@/components/ui';
+import { CategoryIcon } from '@/icons';
 
 // Constants
 import { PAGE_DEFAULT, RESULT_NOT_FOUND } from '@/constants';
 import ChemistListSkeleton from './ChemistListSkeleton';
-import { CategoryIcon, SortIcon } from '@/icons';
 
 const Pagination = lazy(() => import('@/components/ui/Pagination'));
 
 export type ChemistListProps = {
   chemists: Array<APIResponse<ChemistModel>>;
 } & MetaResponse;
-
-const sortOptions = [
-  { key: 'ASC', label: 'Ascending' },
-  { key: 'DESC', label: 'Descending' },
-];
 
 const ChemistList = memo(({ chemists, pagination }: ChemistListProps) => {
   const { page = PAGE_DEFAULT, pageCount = PAGE_DEFAULT } = pagination ?? {};
@@ -86,14 +81,7 @@ const ChemistList = memo(({ chemists, pagination }: ChemistListProps) => {
               trigger: 'w-[120px] md:w-[170px] h-[52px]',
             }}
           />
-          <MenuDropdown
-            icon={<SortIcon customClass="w-4 h-4  md:w-6 md:h-6" />}
-            label="Sort by: name"
-            options={sortOptions}
-            classNames={{
-              trigger: 'w-[130px] md:w-[195px] h-[52px]',
-            }}
-          />
+
           <Button className="font-medium h-[52px]" onClick={onOpen}>
             Create
           </Button>
