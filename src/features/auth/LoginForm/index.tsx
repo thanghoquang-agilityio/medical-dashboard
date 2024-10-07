@@ -82,7 +82,7 @@ const LoginForm = () => {
       }
 
       if (error) {
-        setError(error || '');
+        setError(error.replace('identifier', 'username') || '');
         openToast({ message: ERROR_MESSAGE.LOGIN, type: STATUS_TYPE.ERROR });
         setIsPending(false);
       }
