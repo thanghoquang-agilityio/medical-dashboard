@@ -4,6 +4,7 @@ export const API_ENDPOINT = {
   NOTIFICATIONS: '/notifications',
   SPECIALTIES: '/Specialties',
   USERS: '/users',
+  UPLOAD: '/upload',
   CHEMISTS: '/chemists',
   PERMISSIONS: '/users-permissions',
 };
