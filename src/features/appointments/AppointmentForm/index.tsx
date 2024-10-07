@@ -5,7 +5,7 @@ import { Controller, useForm } from 'react-hook-form';
 import { TimeInputValue } from '@nextui-org/react';
 
 // Types
-import { AppointmentModel, STATUS_TYPE, UserLogged } from '@/types';
+import { AppointmentModel, ROLE, STATUS_TYPE, UserLogged } from '@/types';
 
 // Utils
 import {
@@ -25,7 +25,6 @@ import { Button, Input, Select, Text, TimeInput } from '@/components/ui';
 import {
   APPOINTMENT_STATUS,
   ERROR_MESSAGE,
-  ROLE,
   SUCCESS_MESSAGE,
 } from '@/constants';
 

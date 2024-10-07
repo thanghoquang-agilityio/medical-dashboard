@@ -25,7 +25,7 @@ export const AppointmentsUpcomingListSkeleton = memo(() => (
             <Skeleton className="w-32 h-4 rounded-large" />
           </div>
 
-          <Skeleton className="w-10 h-7 rounded-small" />
+          <Skeleton className="w-7 h-7 rounded-small" />
         </div>
       ))}
   </div>
@@ -34,27 +34,33 @@ export const AppointmentsUpcomingListSkeleton = memo(() => (
 AppointmentsUpcomingListSkeleton.displayName =
   'AppointmentsUpcomingListSkeleton';
 
-export const AppointmentsUpcomingSkeleton = memo(() => (
-  <Card className="w-full lg:max-w-[320px] 2xl:max-w-[550px] h-fit p-4 pl-5 bg-background-200 mb-10">
-    <div className="flex justify-between items-center">
-      <Text customClass="text-lg font-bold text-primary-100">Appointments</Text>
-      <div>
-        <Select
-          aria-label="appointment status"
-          options={APPOINTMENT_STATUS_OPTIONS}
-          placeholder="Status"
-          classNames={{
-            base: 'max-w-[102px] max-h-[36px]',
-            mainWrapper: 'max-w-[102px] max-h-[36px]',
-            innerWrapper: 'w-[80px]',
-            trigger: 'min-h-[36px]',
-          }}
-          isDisabled={true}
-        />
+export const AppointmentsUpcomingSkeleton = memo(
+  ({ defaultStatus }: { defaultStatus: string }) => (
+    <Card className="w-full lg:max-w-[320px] 2xl:max-w-[550px] h-fit p-4 pl-5 bg-background-200 mb-10">
+      <div className="flex justify-between items-center">
+        <Text customClass="text-lg font-bold text-primary-100">
+          Appointments
+        </Text>
+        <div>
+          <Select
+            aria-label="appointment status"
+            options={APPOINTMENT_STATUS_OPTIONS}
+            defaultSelectedKeys={[defaultStatus]}
+            selectedKeys={[defaultStatus]}
+            placeholder="Status"
+            classNames={{
+              base: 'max-w-[102px] max-h-[36px]',
+              mainWrapper: 'max-w-[102px] max-h-[36px]',
+              innerWrapper: 'w-[80px]',
+              trigger: 'min-h-[36px]',
+            }}
+            isDisabled={true}
+          />
+        </div>
       </div>
-    </div>
-    <AppointmentsUpcomingListSkeleton />
-  </Card>
-));
+      <AppointmentsUpcomingListSkeleton />
+    </Card>
+  ),
+);
 
 AppointmentsUpcomingSkeleton.displayName = 'AppointmentsUpcomingSkeleton';
