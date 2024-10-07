@@ -17,7 +17,6 @@ import { Card, useDisclosure } from '@nextui-org/react';
 import {
   APPOINTMENT_STATUS_OPTIONS,
   ERROR_MESSAGE,
-  ROLE,
   SUCCESS_MESSAGE,
 } from '@/constants';
 
@@ -27,6 +26,7 @@ import {
   AppointmentStatus,
   ColumnType,
   MetaResponse,
+  ROLE,
   STATUS_TYPE,
 } from '@/types';
 
@@ -45,16 +45,24 @@ const ConfirmModal = lazy(() => import('@/components/ui/ConfirmModal'));
 export interface AppointmentsUpcomingListProps extends MetaResponse {
   appointments: AppointmentResponse[];
   defaultStatus: string;
+  userId: string;
   role: string;
 }
 
 const AppointmentsUpcomingList = memo(
-  ({ appointments, defaultStatus, role }: AppointmentsUpcomingListProps) => {
+  ({
+    appointments,
+    defaultStatus,
+    userId,
+    role,
+  }: AppointmentsUpcomingListProps) => {
     const openToast = useToast();
     const isAdmin = role === ROLE.ADMIN;
 
     const [isPending, startTransition] = useTransition();
     const [status, setStatus] = useState(new Set<string>([defaultStatus]));
+    const [appointmentsList, setAppointmentsList] =
+      useState<AppointmentResponse[]>(appointments);
     const [appointmentId, setAppointmentId] = useState<string>('');
 
     const searchParams = useSearchParams() ?? '';
@@ -79,11 +87,8 @@ const AppointmentsUpcomingList = memo(
       (value: string) => {
         const status = searchParams.get('status');
 
-        if (!status) {
-          params.append('status', value);
-        } else {
-          params.set('status', value);
-        }
+        if (!status) params.append('status', value);
+        else params.set('status', value);
 
         handleReplaceURL?.(params);
       },
@@ -121,6 +126,7 @@ const AppointmentsUpcomingList = memo(
     const statusArray = Array.from(status);
 
     const columns = createColumns({
+      userId,
       isAdmin,
       status: statusArray[0],
       onRemoveOrCancel: handleOpenConfirmModal,
@@ -139,12 +145,18 @@ const AppointmentsUpcomingList = memo(
         return;
       }
 
+      const newAppointment = appointmentsList.filter(
+        (item) => item.id !== appointmentId,
+      );
+      setAppointmentsList(newAppointment);
+
       openToast({
         message: SUCCESS_MESSAGE.DELETE('appointment'),
         type: STATUS_TYPE.SUCCESS,
       });
+      setIsLoading(false);
       onClosConfirm();
-    }, [appointmentId, onClosConfirm, openToast]);
+    }, [appointmentId, appointmentsList, onClosConfirm, openToast]);
 
     const handleCancelAppointment = useCallback(async () => {
       setIsLoading(true);
@@ -164,12 +176,15 @@ const AppointmentsUpcomingList = memo(
         return;
       }
 
+      updateSearchParams(APPOINTMENT_STATUS_OPTIONS[2].key);
+
       openToast({
         message: SUCCESS_MESSAGE.CANCEL('appointment'),
         type: STATUS_TYPE.SUCCESS,
       });
+      setIsLoading(false);
       onClosConfirm();
-    }, [appointmentId, onClosConfirm, openToast]);
+    }, [appointmentId, onClosConfirm, openToast, updateSearchParams]);
 
     return (
       <>
@@ -200,7 +215,7 @@ const AppointmentsUpcomingList = memo(
             <AppointmentsUpcomingListSkeleton />
           ) : (
             <DataGrid
-              data={appointments}
+              data={appointmentsList}
               columns={columns as ColumnType<unknown>[]}
               classWrapper="pt-4"
               classCell="pb-4"

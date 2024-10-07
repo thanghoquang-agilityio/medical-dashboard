@@ -5,10 +5,12 @@ import { MenuAction, OptionMoreAction, STATUS, Text } from '@/components/ui';
 import { DeleteIcon, XmarkIcon } from '@/icons';
 
 export const createColumns = ({
+  userId,
   isAdmin,
   status,
   onRemoveOrCancel,
 }: {
+  userId: string;
   isAdmin: boolean;
   status: string;
   onRemoveOrCancel: (key?: Key) => void;
@@ -34,20 +36,28 @@ export const createColumns = ({
       },
     },
     {
-      key: 'receiverId',
-      title: 'Receiver',
+      key: 'senderId',
+      title: 'Sender',
       customNode: ({ item }) => {
-        const { receiverId, startTime = '', durationTime = '' } = item || {};
-        const { attributes } = receiverId?.data || {};
-        const { username = '' } = attributes || {};
+        const {
+          receiverId,
+          senderId,
+          startTime = '',
+          durationTime = '',
+        } = item || {};
+        const { attributes: attributesSender, id: idSender } =
+          senderId?.data || {};
+        const { attributes: attributesReceiver } = receiverId?.data || {};
+        const { username: usernameSender = '' } = attributesSender || {};
+        const { username: usernameReceiver = '' } = attributesReceiver || {};
 
         return (
           <>
             <Text variant="primary" customClass="text-xs md:text-sm">
-              {username}
+              {idSender == userId ? usernameReceiver : usernameSender}
             </Text>
             <Text
-              customClass="text-primary-300 font-light hidden lg:block"
+              customClass="text-primary-300 font-light lg:block hidden"
               size="xs"
             >
               {formatTimeAppointment({

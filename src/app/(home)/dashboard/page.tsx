@@ -2,10 +2,14 @@ import { Suspense, lazy } from 'react';
 import { auth } from '@/config/auth';
 
 // Constants
-import { PAGE_DEFAULT, ROLE, SRC_BANNER_AVATAR } from '@/constants';
+import {
+  APPOINTMENT_STATUS_OPTIONS,
+  PAGE_DEFAULT,
+  SRC_BANNER_AVATAR,
+} from '@/constants';
 
 // Types
-import { SearchParams } from '@/types';
+import { ROLE, SearchParams } from '@/types';
 
 // Utils
 import { getGreeting } from '@/utils';
@@ -28,12 +32,12 @@ const DashboardPage = async ({
 }: {
   searchParams?: DashboardPageSearchParamsProps;
 }) => {
-  const { page = PAGE_DEFAULT, status } =
+  const { page = PAGE_DEFAULT, status = APPOINTMENT_STATUS_OPTIONS[0].key } =
     searchParams as DashboardPageSearchParamsProps;
 
   const {
     id = '',
-    role = ROLE.USER,
+    role = ROLE.NORMAL_USER,
     username = '',
   } = (await auth())?.user || {};
 
@@ -71,7 +75,9 @@ const DashboardPage = async ({
         <Suspense fallback={<ActivityFeedSkeleton />}>
           <ActivityFeed page={page} userId={id} role={role} />
         </Suspense>
-        <Suspense fallback={<AppointmentsUpcomingSkeleton />}>
+        <Suspense
+          fallback={<AppointmentsUpcomingSkeleton defaultStatus={status} />}
+        >
           <AppointmentsUpcoming userId={id} role={role} status={status} />
         </Suspense>
       </div>

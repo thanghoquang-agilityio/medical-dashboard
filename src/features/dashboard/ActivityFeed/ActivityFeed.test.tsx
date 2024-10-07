@@ -1,11 +1,12 @@
+import { act } from 'react';
 import { render } from '@testing-library/react';
+import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 import ActivityFeed, { ActivityFeedProps } from '.';
 import { getNotifications } from '@/services';
-import { MOCK_NOTIFICATION_LIST } from '@/mocks';
 import { resolvedComponent } from '@/utils';
-import { usePathname, useRouter, useSearchParams } from 'next/navigation';
-import { PRIVATE_ROUTES, ROLE } from '@/constants';
-import { act } from 'react';
+import { ROLE } from '@/types';
+import { MOCK_NOTIFICATION_LIST } from '@/mocks';
+import { PRIVATE_ROUTES } from '@/constants';
 
 jest.mock('@/services/notification.ts', () => ({
   getNotifications: jest.fn(),
@@ -20,7 +21,7 @@ jest.mock('next/navigation', () => ({
 describe('ActivityFeed test cases', () => {
   const mockProps: ActivityFeedProps = {
     page: 1,
-    role: ROLE.USER,
+    role: ROLE.NORMAL_USER,
     userId: '6',
   };
   const mockReplace = jest.fn();

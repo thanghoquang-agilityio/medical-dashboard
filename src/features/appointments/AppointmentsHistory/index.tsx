@@ -20,6 +20,7 @@ import {
   AppointmentStatus,
   ColumnType,
   MetaResponse,
+  ROLE,
   STATUS_TYPE,
 } from '@/types';
 
@@ -27,7 +28,6 @@ import {
 import {
   APPOINTMENT_STATUS_OPTIONS,
   ERROR_MESSAGE,
-  ROLE,
   SUCCESS_MESSAGE,
 } from '@/constants';
 
@@ -237,7 +237,7 @@ const AppointmentsHistory = ({
         </div>
         <div className="flex flex-col items-center">
           {isPending ? (
-            <AppointmentsHistoryListSkeleton />
+            <AppointmentsHistoryListSkeleton isAdmin={isAdmin} />
           ) : (
             <DataGrid
               data={appointments}

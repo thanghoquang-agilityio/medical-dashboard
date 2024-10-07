@@ -2,13 +2,27 @@
 
 // Services
 import {
+  getAppointments as getAppointmentsService,
   addAppointment as addAppointmentService,
   updateAppointment as updateAppointmentService,
   deleteAppointment as deleteAppointmentService,
 } from '@/services';
 
 // Types
-import { AppointmentDataResponse, AppointmentPayload } from '@/types';
+import {
+  AppointmentDataResponse,
+  AppointmentPayload,
+  AppointmentsDataResponse,
+  FetchDataProps,
+} from '@/types';
+
+export const getAppointments = async ({
+  searchParams = new URLSearchParams(),
+  options,
+}: FetchDataProps): AppointmentsDataResponse => {
+  const data = await getAppointmentsService({ searchParams, options });
+  return data;
+};
 
 export const addAppointment = async (
   appointment: AppointmentPayload,

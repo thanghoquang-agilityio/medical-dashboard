@@ -6,11 +6,10 @@ import {
   API_ENDPOINT,
   APPOINTMENT_STATUS_OPTIONS,
   PAGE_LIMIT_APPOINTMENTS_UPCOMING,
-  PRIVATE_ROUTES,
 } from '@/constants';
 
-// Services
-import { getAppointments } from '@/services';
+// Actions
+import { getAppointments } from '@/actions/appointment';
 
 // Components
 import { AppointmentsUpcomingSkeleton } from './AppointmentsUpcomingSkeleton';
@@ -39,13 +38,13 @@ const AppointmentsUpcoming = ({
     params.set('populate[0]', 'receiverId');
     params.set('populate[1]', 'senderId');
     params.set('pagination[limit]', `${PAGE_LIMIT_APPOINTMENTS_UPCOMING}`);
-    params.set('filters[senderId][id][$eq]', `${userId}`);
+    params.set('filters[$or][0][senderId][id][$eq]', `${userId}`);
+    params.set('filters[$or][1][receiverId][id][$eq]', `${userId}`);
 
     const valueStatus = APPOINTMENT_STATUS_OPTIONS.find(
       (option) => option.key === status,
     )?.value;
     params.set('filters[status][$eq]', `${valueStatus}`);
-
     return params;
   }, [userId, status]);
 
@@ -58,10 +57,7 @@ const AppointmentsUpcoming = ({
         searchParams: searchParamsAPI,
         options: {
           next: {
-            tags: [
-              API_ENDPOINT.APPOINTMENTS,
-              `${PRIVATE_ROUTES.DASHBOARD}/${userId}/${status}`,
-            ],
+            tags: [`${API_ENDPOINT.APPOINTMENTS}/dashboard`],
           },
         },
       });
@@ -81,12 +77,15 @@ const AppointmentsUpcoming = ({
   return (
     <>
       {isLoading ? (
-        <AppointmentsUpcomingSkeleton />
+        <AppointmentsUpcomingSkeleton defaultStatus={status} />
       ) : (
-        <Suspense fallback={<AppointmentsUpcomingSkeleton />}>
+        <Suspense
+          fallback={<AppointmentsUpcomingSkeleton defaultStatus={status} />}
+        >
           <AppointmentsUpcomingList
             appointments={appointments || []}
             defaultStatus={status}
+            userId={userId}
             role={role}
           />
         </Suspense>
