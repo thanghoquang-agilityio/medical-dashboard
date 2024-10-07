@@ -5,7 +5,13 @@ import { Controller, useForm } from 'react-hook-form';
 import { TimeInputValue } from '@nextui-org/react';
 
 // Types
-import { AppointmentModel, ROLE, STATUS_TYPE, UserLogged } from '@/types';
+import {
+  AppointmentModel,
+  AppointmentResponse,
+  ROLE,
+  STATUS_TYPE,
+  UserLogged,
+} from '@/types';
 
 // Utils
 import {
@@ -35,6 +41,7 @@ import { useToast } from '@/context/toast';
 // Actions
 import { getUsers } from '@/actions/user';
 import { addAppointment, updateAppointment } from '@/actions/appointment';
+import { createNotifications } from '@/services/notificationFirebase';
 
 // Rules
 import { APPOINTMENT_FORM_VALIDATION } from './rule';
@@ -134,9 +141,25 @@ const AppointmentForm = memo(
       setError('');
       setIsPending(true);
       let error: string | null;
+      let appointmentCreated: AppointmentResponse | null;
 
       if (isEdit) error = (await updateAppointment(id, formatData)).error;
-      else error = (await addAppointment(formatData)).error;
+      else {
+        const { error: errorCreated, appointment } =
+          await addAppointment(formatData);
+        error = errorCreated;
+        appointmentCreated = appointment;
+        const { id = '', attributes = {} as AppointmentModel } =
+          appointmentCreated || {};
+
+        const firebase = await createNotifications({
+          appointment: attributes,
+          idAppointment: id,
+          message: 'have been created appointment',
+        });
+
+        console.log(firebase);
+      }
 
       if (error) {
         setError(error);
