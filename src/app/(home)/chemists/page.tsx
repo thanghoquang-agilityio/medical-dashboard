@@ -2,13 +2,15 @@ import { lazy, Suspense } from 'react';
 
 // Services
 import { getChemists } from '@/services';
+import { auth } from '@/config/auth';
 
 // Types
-import { DIRECTION, SearchParams } from '@/types';
+import { DIRECTION, ROLE, SearchParams } from '@/types';
 
 // Component
 import { ChemistSkeleton } from '@/features/chemists/ChemistList/ChemistSkeleton';
 import { PAGE_DEFAULT, PAGE_SIZE_CHEMISTS_DEFAULT } from '@/constants';
+
 const ChemistList = lazy(() => import('@/features/chemists/ChemistList'));
 
 export interface ChemistPageSearchParamsProps extends SearchParams {}
@@ -18,6 +20,8 @@ const ChemistPage = async ({
 }: {
   searchParams?: ChemistPageSearchParamsProps;
 }) => {
+  const { role = ROLE.NORMAL_USER } = (await auth())?.user || {};
+
   const { page = PAGE_DEFAULT } = searchParams as ChemistPageSearchParamsProps;
 
   const searchParamsAPI = new URLSearchParams();
@@ -45,7 +49,7 @@ const ChemistPage = async ({
 
   return (
     <Suspense fallback={<ChemistSkeleton />}>
-      <ChemistList chemists={chemists} pagination={pagination} />
+      <ChemistList chemists={chemists} pagination={pagination} role={role} />
     </Suspense>
   );
 };

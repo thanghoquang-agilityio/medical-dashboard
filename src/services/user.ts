@@ -1,3 +1,5 @@
+'use server';
+
 import { apiClient } from './api';
 import { RolesResponse, UserLogged, UserModel, UserPayload } from '@/types';
 import { API_ENDPOINT } from '@/constants';

@@ -12,7 +12,7 @@ import {
 } from 'react';
 
 // Types
-import { APIResponse, ChemistModel, MetaResponse } from '@/types';
+import { APIResponse, ChemistModel, MetaResponse, ROLE } from '@/types';
 
 // Constants
 import { PAGE_DEFAULT, RESULT_NOT_FOUND } from '@/constants';
@@ -27,9 +27,10 @@ const Pagination = lazy(() => import('@/components/ui/Pagination'));
 
 export type ChemistListProps = {
   chemists: Array<APIResponse<ChemistModel>>;
+  role: string;
 } & MetaResponse;
 
-const ChemistList = memo(({ chemists, pagination }: ChemistListProps) => {
+const ChemistList = memo(({ role, chemists, pagination }: ChemistListProps) => {
   const { page = PAGE_DEFAULT, pageCount = PAGE_DEFAULT } = pagination ?? {};
 
   const [isPending, startTransition] = useTransition();
@@ -66,6 +67,12 @@ const ChemistList = memo(({ chemists, pagination }: ChemistListProps) => {
     [handleReplaceURL, params],
   );
 
+  const handleOpenCreateModal = useCallback(() => {
+    onOpen();
+  }, [onOpen]);
+
+  const isAdmin = role === ROLE.ADMIN;
+
   return (
     <>
       <div className="flex flex-col mt-3 md:flex-row gap-4 md:mb-8">
@@ -80,10 +87,14 @@ const ChemistList = memo(({ chemists, pagination }: ChemistListProps) => {
               trigger: 'w-[120px] md:w-[170px] h-[52px]',
             }}
           />
-
-          <Button className="font-medium h-[52px]" onClick={onOpen}>
-            Create
-          </Button>
+          {isAdmin && (
+            <Button
+              className="font-medium h-[52px]"
+              onClick={handleOpenCreateModal}
+            >
+              Create
+            </Button>
+          )}
         </div>
       </div>
       {isPending ? (
@@ -117,7 +128,7 @@ const ChemistList = memo(({ chemists, pagination }: ChemistListProps) => {
           )}
         </div>
       )}
-      <ChemistModal isOpen={isOpen} onClose={onClose} />
+      {isAdmin && <ChemistModal isOpen={isOpen} onClose={onClose} />}
     </>
   );
 });

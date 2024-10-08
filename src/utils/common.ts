@@ -3,6 +3,7 @@ import {
   APIRelatedResponse,
   APIResponse,
   Option,
+  RolePermission,
   SpecialtyResponse,
   UserLogged,
   UserModel,
@@ -62,3 +63,6 @@ export const transformSpecialties = (
     key: specialty.id,
     label: specialty.attributes.name,
   }));
+
+export const getRoleIdByName = (roles: RolePermission[], roleName: string) =>
+  roles.find((role) => role.name === roleName)?.id;

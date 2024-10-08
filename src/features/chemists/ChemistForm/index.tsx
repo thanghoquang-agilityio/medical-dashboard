@@ -1,24 +1,44 @@
 'use client';
 
 import { Textarea, useDisclosure } from '@nextui-org/react';
-import { memo, useRef, useState } from 'react';
-import { Controller, useForm } from 'react-hook-form';
+import {
+  ChangeEvent,
+  memo,
+  useCallback,
+  useEffect,
+  useRef,
+  useState,
+} from 'react';
+import { Controller, SubmitHandler, useForm } from 'react-hook-form';
 
 // Components
 import { Button, ImageUpload, Input, Select, Text } from '@/components/ui';
-import { NoteIcon, StarIcon } from '@/icons';
+import { EyeIcon, EyeSlashIcon, NoteIcon, StarIcon } from '@/icons';
 
 // Types
-import { UserModel, ChemistFormData } from '@/types';
+import {
+  UserModel,
+  ChemistFormData,
+  UserPayload,
+  RolePermission,
+  ROLE,
+  STATUS_TYPE,
+} from '@/types';
 
 // Utils
-import { transformSpecialties } from '@/utils';
+import {
+  clearErrorOnChange,
+  getRoleIdByName,
+  transformSpecialties,
+} from '@/utils';
 
 // Rules
-import { MOCK_SPECIALTIES } from '@/mocks/chemists';
 import { CHEMIST_FORM_VALIDATION } from './rule';
-import { uploadImage } from '@/services';
-// import { addUser } from '@/actions/user';
+import { addUser, getUserRoles, uploadImage } from '@/services';
+import { addUserToChemists } from '@/actions/auth';
+import { useToast } from '@/context/toast';
+import { ERROR_MESSAGE, SUCCESS_MESSAGE } from '@/constants';
+import { MOCK_SPECIALTIES } from '@/mocks/chemists';
 
 export type ChemistFormProps = {
   id?: string;
@@ -26,10 +46,11 @@ export type ChemistFormProps = {
   onClose?: () => void;
 };
 
-const ChemistForm = memo(({ data }: ChemistFormProps) => {
+const ChemistForm = memo(({ data, onClose }: ChemistFormProps) => {
   const {
     username = '',
     email = '',
+    password = '',
     avatar = '',
     description = '',
     rating = 0,
@@ -44,27 +65,72 @@ const ChemistForm = memo(({ data }: ChemistFormProps) => {
   const [imageRemote, setImageRemote] = useState<string | undefined>(
     avatar.toString(),
   );
+  const [isShowPassword, setIsShowPassword] = useState<boolean>(false);
+  const [error, setError] = useState('');
+  const [isPending, setIsPending] = useState(false);
+  const [isShowConfirmPassword, setIsShowConfirmPassword] =
+    useState<boolean>(false);
+  const [roles, getRoles] = useState<RolePermission[]>([]);
   const hiddenFileInput = useRef<HTMLInputElement>(null);
+
+  const openToast = useToast();
 
   const {
     control,
     handleSubmit,
     setValue,
-    formState: { isValid, isLoading },
+    getValues,
+    clearErrors,
+    setError: setFormError,
+    formState: { errors, isValid, isLoading },
   } = useForm<ChemistFormData>({
     mode: 'onBlur',
     reValidateMode: 'onBlur',
     defaultValues: {
       avatar: avatar.toString(),
       username,
+      password,
+      confirmPassWord: password,
       email,
       description,
       specialtyId: specialtyId?.data.id,
     },
   });
 
+  useEffect(() => {
+    const fetchUserRoles = async () => {
+      const { roles, error } = await getUserRoles();
+      if (error) throw error;
+      getRoles(roles);
+    };
+
+    fetchUserRoles();
+  }, []);
+
   const isEdit = !!data;
 
+  const handleError = useCallback(
+    (error: string) => {
+      setError(error);
+      openToast({
+        message: ERROR_MESSAGE.CREATE('chemist'),
+        type: STATUS_TYPE.ERROR,
+      });
+      setIsPending(false);
+      return;
+    },
+    [openToast],
+  );
+
+  const handleToggleVisiblePassword = useCallback(
+    () => setIsShowPassword((prev) => !prev),
+    [],
+  );
+
+  const handleToggleShowConfirmPassword = useCallback(
+    () => setIsShowConfirmPassword((prev) => !prev),
+    [],
+  );
   // Handle input changes
   const handleUpload = (event: React.ChangeEvent<HTMLInputElement>) => {
     const files = event.target.files;
@@ -91,38 +157,74 @@ const ChemistForm = memo(({ data }: ChemistFormProps) => {
     }
   };
 
+  const handleInputChange = useCallback(
+    (name: keyof ChemistFormData, onChange: (value: string) => void) => {
+      return (e: ChangeEvent<HTMLInputElement>) => {
+        onChange(e.target.value);
+
+        // Clear error message on change
+        clearErrorOnChange(name, errors, clearErrors);
+      };
+    },
+    [clearErrors, errors],
+  );
+
   const handleClick = () => {
     hiddenFileInput.current?.click();
   };
 
-  // TODO: Update handle submit later from API
-  const onSubmit = async (data: ChemistFormData) => {
-    if (formImage) {
-      const response = await uploadImage(formImage);
-      console.log(data, response);
+  // Handle submit form data to create chemist
+  const handleSubmitForm: SubmitHandler<ChemistFormData> = useCallback(
+    async (formData) => {
+      setError('');
+      setIsPending(true);
 
-      // TODO: update payload value
-      // const payload: UserPayload = {
-      //   ...data,
-      //   password: 'abcABC@123',
-      //   avatar: 6,
-      //   description: data.description || '',
-      //   rating: data.rating || 0,
-      //   tasks: data.tasks || 0,
-      //   reviews: data.reviews || 0,
-      //   specialtyId: 6,
-      //   role: 6,
-      // };
+      const { username, email, password, specialtyId, description } = formData;
 
-      // const user = await addUser(payload);
-    }
-  };
+      const avatar = formImage ? await uploadImage(formImage) : undefined;
+
+      const payload: UserPayload = {
+        username,
+        email,
+        password,
+        description,
+        avatar: Number(avatar?.image?.[0]?.id),
+        specialtyId: Number(specialtyId),
+        role: Number(getRoleIdByName(roles, ROLE.NORMAL_USER)),
+      };
+
+      const { user, error } = await addUser(payload);
+
+      if (error) handleError(error);
+
+      if (user) {
+        const { id } = user;
+        const { error } = await addUserToChemists({
+          users_permissions_user: String(id),
+        });
+
+        if (error) handleError(error);
+
+        openToast({
+          message: SUCCESS_MESSAGE.CREATE('chemist'),
+          type: STATUS_TYPE.SUCCESS,
+        });
+      }
+
+      setIsPending(false);
+      onClose?.();
+    },
+    [formImage, roles, handleError, onClose, openToast],
+  );
 
   // TODO: Update options later from API
   const OPTION_SPECIALTIES = transformSpecialties(MOCK_SPECIALTIES);
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className="p-4 flex flex-col">
+    <form
+      onSubmit={handleSubmit(handleSubmitForm)}
+      className="p-4 flex flex-col"
+    >
       <Text variant="title" size="xl">
         {isEdit ? 'Update chemist' : 'Create chemist'}
       </Text>
@@ -162,6 +264,7 @@ const ChemistForm = memo(({ data }: ChemistFormProps) => {
           </div>
         </div>
       )}
+
       {/* Username */}
       <Controller
         name="username"
@@ -176,6 +279,7 @@ const ChemistForm = memo(({ data }: ChemistFormProps) => {
             placeholder="Please enter username"
             type="text"
             size="sm"
+            isDisabled={isLoading}
             isInvalid={!!error?.message}
             errorMessage={error?.message}
           />
@@ -197,11 +301,85 @@ const ChemistForm = memo(({ data }: ChemistFormProps) => {
             placeholder="Please enter email"
             type="text"
             size="sm"
+            isDisabled={isLoading}
             isInvalid={!!error?.message}
             errorMessage={error?.message}
           />
         )}
         rules={CHEMIST_FORM_VALIDATION.EMAIL}
+      />
+
+      {/* Password */}
+      <Controller
+        name="password"
+        control={control}
+        render={({
+          field: { onChange, name, ...rest },
+          fieldState: { error },
+        }) => (
+          <Input
+            {...rest}
+            name={name}
+            label="Password"
+            labelPlacement="outside"
+            size="sm"
+            type={isShowPassword ? 'text' : 'password'}
+            placeholder="Please enter password"
+            endContent={
+              <Button
+                aria-label="visible password"
+                onClick={handleToggleVisiblePassword}
+                isIconOnly
+                className="p-0 min-w-5 h-5 text-primary-200"
+              >
+                {isShowPassword ? <EyeIcon /> : <EyeSlashIcon />}
+              </Button>
+            }
+            isDisabled={isLoading}
+            isInvalid={!!error?.message}
+            errorMessage={error?.message}
+            onChange={handleInputChange(name, onChange)}
+          />
+        )}
+        rules={CHEMIST_FORM_VALIDATION.PASSWORD(
+          getValues,
+          setFormError,
+          clearErrors,
+        )}
+      />
+
+      {/* Confirm Password */}
+      <Controller
+        name="confirmPassWord"
+        control={control}
+        render={({
+          field: { onChange, name, ...rest },
+          fieldState: { error },
+        }) => (
+          <Input
+            {...rest}
+            size="sm"
+            label="Confirm Password"
+            labelPlacement="outside"
+            type={isShowConfirmPassword ? 'text' : 'password'}
+            placeholder="Please enter confirm password"
+            endContent={
+              <Button
+                aria-label="visible confirm password"
+                onClick={handleToggleShowConfirmPassword}
+                isIconOnly
+                className="p-0 min-w-5 h-5 text-primary-200"
+              >
+                {isShowConfirmPassword ? <EyeIcon /> : <EyeSlashIcon />}
+              </Button>
+            }
+            isDisabled={isLoading}
+            isInvalid={!!error?.message}
+            errorMessage={error?.message}
+            onChange={handleInputChange(name, onChange)}
+          />
+        )}
+        rules={CHEMIST_FORM_VALIDATION.CONFIRM_PASSWORD(getValues)}
       />
 
       {/* Specialty */}
@@ -224,9 +402,10 @@ const ChemistForm = memo(({ data }: ChemistFormProps) => {
               mainWrapper: 'h-16',
               trigger: 'h-[auto] py-3 max-h-10',
               errorMessage: 'text-danger text-xs ml-2',
-              label: 'top-5 text-sm',
+              label: 'top-5 text-sm text-foreground',
               value: 'text-sm text-primary-100',
             }}
+            isDisabled={isLoading}
             defaultSelectedKeys={value}
             options={OPTION_SPECIALTIES}
             isInvalid={!!error?.message}
@@ -255,7 +434,9 @@ const ChemistForm = memo(({ data }: ChemistFormProps) => {
             classNames={{
               inputWrapper: 'border-primary-100 border-[1px]',
               errorMessage: 'text-danger text-xs ml-2',
+              label: 'text-sm',
             }}
+            isDisabled={isLoading}
             placeholder="Please enter description"
             isInvalid={!!error?.message}
             errorMessage={error?.message}
@@ -265,12 +446,11 @@ const ChemistForm = memo(({ data }: ChemistFormProps) => {
       />
 
       <div className="h-[78px] flex flex-col justify-end">
-        {/* TODO: Add error when interacting with API
         {error && (
-              <Text variant="error" size="sm" customClass="py-2">
-                {error}
-              </Text>
-            )} */}
+          <Text variant="error" size="sm" customClass="py-2">
+            {error}
+          </Text>
+        )}
         <div className="w-full gap-2 flex justify-end">
           <Button
             onClick={onOpen}
@@ -280,7 +460,11 @@ const ChemistForm = memo(({ data }: ChemistFormProps) => {
           >
             Cancel
           </Button>
-          <Button isDisabled={!isValid} isLoading={isLoading} type="submit">
+          <Button
+            isDisabled={!isValid}
+            isLoading={isLoading || isPending}
+            type="submit"
+          >
             Submit
           </Button>
         </div>
