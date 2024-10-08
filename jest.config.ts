@@ -23,6 +23,7 @@ const config: Config = {
       '<rootDir>/__test__/mocks/next-auth-providers-credentials.ts',
     'next-auth': '<rootDir>/__test__/mocks/next-auth.ts',
     '@/services': '<rootDir>/src/services',
+    '@/utils': '<rootDir>/src/utils',
   },
 };
 
