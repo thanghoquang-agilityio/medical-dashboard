@@ -3,6 +3,7 @@ import {
   APIRelatedResponse,
   APIResponse,
   Option,
+  RolePermission,
   SpecialtyModel,
   UserLogged,
   UserModel,
@@ -67,3 +68,6 @@ export const transformSpecialties = (
 
 export const formatString = (input: string) =>
   input.toLowerCase().replace(/\s+/g, '_');
+
+export const getRoleIdByName = (roles: RolePermission[], roleName: string) =>
+  roles.find((role) => role.name === roleName)?.id;

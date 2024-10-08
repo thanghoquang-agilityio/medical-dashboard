@@ -1,22 +1,19 @@
 'use server';
 
 import { apiClient } from './api';
-import { ImageResponse } from '@/types';
+import { ImageModel } from '@/types';
 import { API_ENDPOINT } from '@/constants';
 
 export const uploadImage = async (payload: FormData) => {
   try {
-    const response = await apiClient.postFile<
-      ImageResponse & { error: string | null }
-    >(API_ENDPOINT.UPLOAD, {
-      body: payload,
-    });
+    const response = await apiClient.postFile<ImageModel[]>(
+      API_ENDPOINT.UPLOAD,
+      {
+        body: payload,
+      },
+    );
 
-    const { error = null, ...image } = response;
-
-    if (error) return { image: null, error };
-
-    return { image, error };
+    return { image: response, error: null };
   } catch (error) {
     const errorMessage =
       error instanceof Error

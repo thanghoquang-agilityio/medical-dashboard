@@ -18,6 +18,7 @@ import {
   APIResponse,
   ChemistModel,
   MetaResponse,
+  ROLE,
   SpecialtyModel,
 } from '@/types';
 
@@ -39,12 +40,14 @@ const Pagination = lazy(() => import('@/components/ui/Pagination'));
 export type ChemistListProps = {
   chemists: Array<APIResponse<ChemistModel>>;
   specialties: Array<APIResponse<SpecialtyModel>>;
+  role: string;
   defaultSpecialty?: string;
 } & MetaResponse;
 
 const ChemistList = memo(
   ({
     chemists,
+    role,
     pagination,
     defaultSpecialty,
     specialties,
@@ -59,6 +62,7 @@ const ChemistList = memo(
     const { replace } = useRouter();
 
     const specialtyOptions = transformSpecialties(specialties);
+    const specialtyOptionsForm = specialtyOptions.slice(1);
     const [_, setSpecialty] = useState(new Set([defaultSpecialty]));
 
     const params = useMemo(
@@ -126,6 +130,8 @@ const ChemistList = memo(
       [handleReplaceURL, params, specialtyOptions, updateSearchParams],
     );
 
+    const isAdmin = role === ROLE.ADMIN;
+
     return (
       <>
         <div className="flex flex-col mt-3 md:flex-row gap-4 md:mb-8">
@@ -141,10 +147,11 @@ const ChemistList = memo(
               selectionMode="multiple"
               onAction={handleSelectSpecialty}
             />
-
-            <Button className="font-medium h-[52px]" onClick={onOpen}>
-              Create
-            </Button>
+            {isAdmin && (
+              <Button className="font-medium h-[52px]" onClick={onOpen}>
+                Create
+              </Button>
+            )}
           </div>
         </div>
         {isPending ? (
@@ -178,7 +185,13 @@ const ChemistList = memo(
             )}
           </div>
         )}
-        <ChemistModal isOpen={isOpen} onClose={onClose} />
+        {isAdmin && (
+          <ChemistModal
+            isOpen={isOpen}
+            onClose={onClose}
+            specialtyOptions={specialtyOptionsForm}
+          />
+        )}
       </>
     );
   },

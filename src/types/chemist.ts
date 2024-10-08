@@ -32,6 +32,8 @@ export type ChemistPayload = {
 export interface ChemistFormData {
   username: string;
   email: string;
+  password: string;
+  confirmPassWord: string;
   avatar?: string;
   description?: string;
   rating?: number;
