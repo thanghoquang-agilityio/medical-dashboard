@@ -59,8 +59,6 @@ const ChemistPage = async ({
     );
   }
 
-  // const delay = (ms: number) => new Promise((res) => setTimeout(res, ms));
-  // await delay(100000);
   const { chemists, pagination } = await getChemists({
     searchParams: searchParamsAPI,
   });
