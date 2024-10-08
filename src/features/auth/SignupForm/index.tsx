@@ -31,6 +31,7 @@ import { addUserToChemists, signup } from '@/actions/auth';
 
 // Contexts
 import { useToast } from '@/context/toast';
+import { updatePublishUser } from '@/services';
 
 const DEFAULT_VALUE: SignupFormData = {
   username: '',
@@ -105,15 +106,27 @@ const SignupForm = () => {
       const { confirmPassWord: _, ...signupData } = formData;
       const { user, error } = await signup(signupData);
 
-      if (error) handleError(error);
+      if (error) {
+        handleError(error);
+        return;
+      }
 
       if (user) {
         const { id } = user;
-        const { error } = await addUserToChemists({
+
+        const updateUserError = await updatePublishUser(id);
+        if (updateUserError.error) {
+          handleError(updateUserError.error);
+          return;
+        }
+
+        const addUserError = await addUserToChemists({
           users_permissions_user: id,
         });
-
-        if (error) handleError(error);
+        if (addUserError.error) {
+          handleError(addUserError.error);
+          return;
+        }
 
         openToast({
           message: SUCCESS_MESSAGE.SIGNUP,
