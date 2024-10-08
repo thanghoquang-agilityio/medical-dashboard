@@ -1,7 +1,7 @@
 import { lazy, Suspense } from 'react';
 
 // Services
-import { getChemists } from '@/services';
+import { getChemists, getSpecialties } from '@/services';
 
 // Types
 import { DIRECTION, SearchParams } from '@/types';
@@ -20,8 +20,11 @@ const ChemistPage = async ({
 }: {
   searchParams?: ChemistPageSearchParamsProps;
 }) => {
-  const { page = PAGE_DEFAULT, search } =
-    searchParams as ChemistPageSearchParamsProps;
+  const {
+    page = PAGE_DEFAULT,
+    search,
+    specialty,
+  } = searchParams as ChemistPageSearchParamsProps;
 
   const searchParamsAPI = new URLSearchParams();
 
@@ -47,13 +50,28 @@ const ChemistPage = async ({
       search,
     );
   }
+
+  if (specialty) {
+    searchParamsAPI.set(
+      `filters[$or][0][users_permissions_user][specialtyId][name][$containsi]`,
+      specialty,
+    );
+  }
+
   const { chemists, pagination } = await getChemists({
     searchParams: searchParamsAPI,
   });
 
+  const { specialties } = await getSpecialties({});
+
   return (
     <Suspense fallback={<ChemistListSkeleton />}>
-      <ChemistList chemists={chemists} pagination={pagination} />
+      <ChemistList
+        chemists={chemists}
+        pagination={pagination}
+        defaultSpecialty={specialty}
+        specialties={specialties}
+      />
     </Suspense>
   );
 };

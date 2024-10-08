@@ -22,6 +22,6 @@ export type SearchParams = {
   page?: number;
   sortBy?: string;
   orderBy?: string;
-  category?: string[];
+  specialty?: string;
   search?: string;
 };
