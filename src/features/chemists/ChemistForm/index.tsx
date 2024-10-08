@@ -18,6 +18,7 @@ import { transformSpecialties } from '@/utils';
 import { MOCK_SPECIALTIES } from '@/mocks/chemists';
 import { CHEMIST_FORM_VALIDATION } from './rule';
 import { uploadImage } from '@/services';
+// import { addUser } from '@/actions/user';
 
 export type ChemistFormProps = {
   id?: string;
@@ -99,6 +100,21 @@ const ChemistForm = memo(({ data }: ChemistFormProps) => {
     if (formImage) {
       const response = await uploadImage(formImage);
       console.log(data, response);
+
+      // TODO: update payload value
+      // const payload: UserPayload = {
+      //   ...data,
+      //   password: 'abcABC@123',
+      //   avatar: 6,
+      //   description: data.description || '',
+      //   rating: data.rating || 0,
+      //   tasks: data.tasks || 0,
+      //   reviews: data.reviews || 0,
+      //   specialtyId: 6,
+      //   role: 6,
+      // };
+
+      // const user = await addUser(payload);
     }
   };
 
