@@ -10,8 +10,8 @@ import { memo } from 'react';
 
 export const ChemistListSkeleton = memo(() => {
   return (
-    <div className="flex flex-col items-center">
-      <div className="w-full grid gap-8 grid-cols-1 md:grid-cols-2 2xl:grid-cols-3 min-[2048px]:grid-cols-4 justify-evenly justify-items-center">
+    <>
+      <div className="grid gap-8 grid-cols-1 md:grid-cols-2 2xl:grid-cols-3 min-[2048px]:grid-cols-4 justify-evenly justify-items-center">
         {Array(PAGE_SIZE_CHEMISTS_DEFAULT)
           .fill(0)
           .map((_, index) => (
@@ -52,8 +52,10 @@ export const ChemistListSkeleton = memo(() => {
             </div>
           ))}
       </div>
-      <Skeleton className="w-[160px] h-8 rounded-medium mt-6" />
-    </div>
+      <div className="flex justify-center">
+        <Skeleton className="w-[160px] h-8 rounded-medium mt-6" />
+      </div>
+    </>
   );
 });
 ChemistListSkeleton.displayName = 'ChemistListSkeleton';
