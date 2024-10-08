@@ -1,7 +1,13 @@
 'use server';
 
 import { apiClient } from './api';
-import { RolesResponse, UserLogged, UserModel, UserPayload } from '@/types';
+import {
+  ErrorResponse,
+  RolesResponse,
+  UserLogged,
+  UserModel,
+  UserPayload,
+} from '@/types';
 import { API_ENDPOINT } from '@/constants';
 
 export const getUserLogged = async (
@@ -88,6 +94,13 @@ export const addUser = async (
     >(`${API_ENDPOINT.USERS}`, {
       body: data,
     });
+
+    if (error) {
+      return {
+        user: null,
+        error: (JSON.parse(error) as ErrorResponse).error.message,
+      };
+    }
 
     return { user: user, error };
   } catch (error) {

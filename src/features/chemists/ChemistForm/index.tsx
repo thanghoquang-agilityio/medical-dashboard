@@ -189,14 +189,17 @@ const ChemistForm = memo(
           email,
           password,
           description,
-          avatar: Number(avatar?.image?.[0]?.id),
           specialtyId: Number(specialtyId),
           role: Number(getRoleIdByName(roles, ROLE.NORMAL_USER)),
+          ...(avatar && { avatar: Number(avatar?.image?.[0]?.id) }),
         };
 
         const { user, error } = await addUser(payload);
 
-        if (error) handleError(error);
+        if (error) {
+          handleError(error);
+          return;
+        }
 
         if (user) {
           const { id } = user;
@@ -204,16 +207,19 @@ const ChemistForm = memo(
             users_permissions_user: String(id),
           });
 
-          if (error) handleError(error);
+          if (error) {
+            handleError(error);
+            return;
+          }
 
           openToast({
             message: SUCCESS_MESSAGE.CREATE('chemist'),
             type: STATUS_TYPE.SUCCESS,
           });
+          onClose?.();
         }
 
         setIsPending(false);
-        onClose?.();
       },
       [formImage, roles, handleError, onClose, openToast],
     );
