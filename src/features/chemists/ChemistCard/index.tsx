@@ -18,20 +18,25 @@ const ChemistCard = (props: UserModel) => {
     avatar,
     specialtyId,
   } = props;
+  const { data: dataAvatar } = avatar || {};
+  const { attributes: attributesAvatar } = dataAvatar || {};
+  const { url = '' } = attributesAvatar || {};
+
+  const { data: dataSpecialty } = specialtyId || {};
+  const { attributes: attributesSpecialty } = dataSpecialty || {};
+  const { name = '' } = attributesSpecialty || {};
+
   return (
     <Card className="bg-background-200 min-w-[300px] w-full h-[228px] p-5 sm:p-6 gap-6">
       <CardHeader className="flex justify-between p-0">
         <div className="flex items-center gap-2">
-          <Avatar
-            src={`${API_IMAGE_URL}${avatar?.data.attributes.url}`}
-            size="lg"
-          />
+          <Avatar src={`${API_IMAGE_URL}${url}`} size="lg" />
           <div className="flex flex-col gap-1">
             <Text size="md" variant="title">
               {username}
             </Text>
             <Text size="xs" variant="description" customClass="font-normal">
-              {specialtyId?.data.attributes.name || 'Unknown'}
+              {name || 'Unknown'}
             </Text>
           </div>
         </div>
