@@ -15,7 +15,7 @@ import { Input } from '@/components/ui';
 import { SearchIcon } from '@/icons';
 
 export const InputSearch = memo(
-  ({ placeholder = '', classNames, ...props }: InputProps) => {
+  ({ placeholder = '', classNames, value, ...props }: InputProps) => {
     const { replace } = useRouter();
     const pathname = usePathname();
     const searchParams = useSearchParams();
@@ -76,7 +76,7 @@ export const InputSearch = memo(
           <SearchIcon customClass="w-5 h-5 ml-4 text-primary-200" />
         }
         isClearable
-        autoFocus
+        autoFocus={!!value}
         onClear={handleClear}
         onChange={handleChange}
         defaultValue={searchParams.get('search')?.toString()}

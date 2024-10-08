@@ -77,6 +77,7 @@ const AppointmentsHistory = ({
     () => new URLSearchParams(searchParams),
     [searchParams],
   );
+  const search = searchParams.get('search') ?? '';
 
   const handleReplaceURL = useCallback(
     (params: URLSearchParams) => {
@@ -207,7 +208,7 @@ const AppointmentsHistory = ({
   return (
     <>
       <div className="flex mt-3 justify-between gap-10 mb-8">
-        <InputSearch placeholder="Search Appointments" />
+        <InputSearch placeholder="Search Appointments" value={search} />
         <Button
           onClick={handleOpenCreateModal}
           className="h-[52px] font-medium"
