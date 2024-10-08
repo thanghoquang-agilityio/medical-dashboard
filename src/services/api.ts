@@ -83,6 +83,25 @@ export class ApiClient {
     return data;
   }
 
+  async postFile<T>(url: string, config: RequestInit = {}): Promise<T> {
+    const response = await this.fetchWithConfig(url, {
+      ...config,
+      method: 'POST',
+      body: config.body,
+    });
+
+    if (!response.ok) {
+      const errorText = await response.text();
+
+      return {
+        error: errorText,
+      } as T;
+    }
+
+    const data: T = await response.json();
+    return data;
+  }
+
   async put<T>(url: string, config: RequestInitExtended = {}): Promise<T> {
     const response = await this.fetchWithConfig(url, {
       ...config,

@@ -40,5 +40,5 @@ export type NotificationsResponse = {
 };
 
 export type NotificationPayload = Omit<NotificationModel, 'senderId'> & {
-  senderId: number;
+  senderId: string;
 };

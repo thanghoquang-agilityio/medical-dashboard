@@ -26,7 +26,7 @@ import { Button, InputSearch, MenuDropdown, Text } from '@/components/ui';
 import { CategoryIcon } from '@/icons';
 import ChemistCard from '../ChemistCard';
 import ChemistModal from '../ChemistModal';
-import ChemistListSkeleton from './ChemistListSkeleton';
+import { ChemistListSkeleton } from './ChemistSkeleton';
 
 // Utils
 import { formatString, transformSpecialties } from '@/utils';
@@ -126,7 +126,7 @@ const ChemistList = memo(
 
     return (
       <>
-        <div className="flex flex-col mt-3 md:flex-row gap-4 md:mb-10">
+        <div className="flex flex-col mt-3 md:flex-row gap-4 md:mb-8">
           <InputSearch placeholder="Search Appointments" />
           <div className="flex justify-between md:gap-4 mb-10 md:mb-0 ">
             <MenuDropdown
@@ -148,7 +148,7 @@ const ChemistList = memo(
         {isPending ? (
           <ChemistListSkeleton />
         ) : (
-          <>
+          <div className="flex flex-col items-center">
             <div className="grid gap-8 grid-cols-1 md:grid-cols-2 2xl:grid-cols-3 min-[2048px]:grid-cols-4 justify-evenly justify-items-center">
               {chemists.length > 0 ? (
                 chemists.map((chemist) => (
@@ -174,7 +174,7 @@ const ChemistList = memo(
                 />
               </Suspense>
             )}
-          </>
+          </div>
         )}
         <ChemistModal isOpen={isOpen} onClose={onClose} />
       </>

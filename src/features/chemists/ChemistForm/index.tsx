@@ -17,6 +17,8 @@ import { transformSpecialties } from '@/utils';
 // Rules
 import { MOCK_SPECIALTIES } from '@/mocks/chemists';
 import { CHEMIST_FORM_VALIDATION } from './rule';
+import { uploadImage } from '@/services';
+// import { addUser } from '@/actions/user';
 
 export type ChemistFormProps = {
   id?: string;
@@ -38,6 +40,7 @@ const ChemistForm = memo(({ data }: ChemistFormProps) => {
 
   const { onOpen } = useDisclosure();
   const [imageUpload, setImageUpload] = useState<string | undefined>(undefined);
+  const [formImage, setFormImage] = useState<FormData | undefined>(undefined);
   const [imageRemote, setImageRemote] = useState<string | undefined>(
     avatar.toString(),
   );
@@ -67,6 +70,10 @@ const ChemistForm = memo(({ data }: ChemistFormProps) => {
     const files = event.target.files;
     if (files && files[0]) {
       const image = files[0];
+      const formData = new FormData();
+      formData.append('files', image);
+
+      setFormImage(formData);
       setImageUpload(URL.createObjectURL(image));
       setValue('avatar', URL.createObjectURL(image));
     }
@@ -75,6 +82,7 @@ const ChemistForm = memo(({ data }: ChemistFormProps) => {
   // Handle remove upload image
   const handleRemoveImage = () => {
     setImageUpload('');
+    setFormImage(undefined);
     setValue('avatar', '');
     setImageRemote('');
 
@@ -87,9 +95,27 @@ const ChemistForm = memo(({ data }: ChemistFormProps) => {
     hiddenFileInput.current?.click();
   };
 
-  // TODO: Update handle submit later
+  // TODO: Update handle submit later from API
   const onSubmit = async (data: ChemistFormData) => {
-    console.log(data);
+    if (formImage) {
+      const response = await uploadImage(formImage);
+      console.log(data, response);
+
+      // TODO: update payload value
+      // const payload: UserPayload = {
+      //   ...data,
+      //   password: 'abcABC@123',
+      //   avatar: 6,
+      //   description: data.description || '',
+      //   rating: data.rating || 0,
+      //   tasks: data.tasks || 0,
+      //   reviews: data.reviews || 0,
+      //   specialtyId: 6,
+      //   role: 6,
+      // };
+
+      // const user = await addUser(payload);
+    }
   };
 
   // TODO: Update options later from API

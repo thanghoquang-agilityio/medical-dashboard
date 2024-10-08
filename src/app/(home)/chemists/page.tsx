@@ -10,7 +10,8 @@ import { DIRECTION, SearchParams } from '@/types';
 import { PAGE_DEFAULT, PAGE_SIZE_CHEMISTS_DEFAULT } from '@/constants';
 
 // Component
-import ChemistListSkeleton from '@/features/chemists/ChemistList/ChemistListSkeleton';
+import { ChemistSkeleton } from '@/features/chemists/ChemistList/ChemistSkeleton';
+
 const ChemistList = lazy(() => import('@/features/chemists/ChemistList'));
 
 export interface ChemistPageSearchParamsProps extends SearchParams {}
@@ -58,6 +59,8 @@ const ChemistPage = async ({
     );
   }
 
+  // const delay = (ms: number) => new Promise((res) => setTimeout(res, ms));
+  // await delay(100000);
   const { chemists, pagination } = await getChemists({
     searchParams: searchParamsAPI,
   });
@@ -65,7 +68,7 @@ const ChemistPage = async ({
   const { specialties } = await getSpecialties({});
 
   return (
-    <Suspense fallback={<ChemistListSkeleton />}>
+    <Suspense fallback={<ChemistSkeleton />}>
       <ChemistList
         chemists={chemists}
         pagination={pagination}

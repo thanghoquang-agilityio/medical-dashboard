@@ -81,7 +81,10 @@ export type UserPayload = Omit<
   | 'notificationsSent'
   | 'appointmentSent'
   | 'appointmentReceived'
+  | 'specialtyId'
 > & {
+  role: number;
+  password: string;
   specialtyId: number;
   avatar: number;
 };
