@@ -1,7 +1,7 @@
 import { memo } from 'react';
 import { APPOINTMENT_STATUS_OPTIONS, PAGE_SIZE_DEFAULT } from '@/constants';
 import { Card, Skeleton } from '@nextui-org/react';
-import { InputSearch, Select, Text } from '@/components/ui';
+import { Button, InputSearch, Select, Text } from '@/components/ui';
 import { ROLE } from '@/types';
 import { auth } from '@/config/auth';
 
@@ -31,7 +31,7 @@ export const AppointmentsHistoryListSkeleton = memo(
             <Skeleton className="w-7 h-7 rounded-small" />
           </div>
         ))}
-      <Skeleton className="w-[160px] h-8 rounded-medium mt-4" />
+      <Skeleton className="w-[160px] h-8 rounded-medium mt-6" />
     </div>
   ),
 );
@@ -44,12 +44,13 @@ export const AppointmentsHistorySkeleton = memo(async () => {
 
   return (
     <>
-      <InputSearch
-        placeholder="Search Appointments"
-        classNames={{ mainWrapper: 'pb-10' }}
-        isDisabled={true}
-      />
-      <Card className="w-full px-4 py-6 bg-background-200 mb-10">
+      <div className="flex mt-3 justify-between gap-10 mb-8">
+        <InputSearch placeholder="Search Appointments" isDisabled={true} />
+        <Button className="h-[52px] font-medium" isDisabled={true}>
+          Create
+        </Button>
+      </div>
+      <Card className="w-full px-4 py-6 bg-background-200">
         <div className="flex justify-between items-center">
           <Text customClass="text-xl font-bold text-primary-100">History</Text>
           <div>

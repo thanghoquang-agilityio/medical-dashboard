@@ -24,7 +24,7 @@ export const ActivityFeedListSkeleton = memo(() => (
           <Skeleton className="w-16 h-7 rounded-small mt-3" />
         </div>
       ))}
-    <Skeleton className="w-[160px] h-8 rounded-medium mt-4" />
+    <Skeleton className="w-[160px] h-8 rounded-medium mt-6" />
   </div>
 ));
 

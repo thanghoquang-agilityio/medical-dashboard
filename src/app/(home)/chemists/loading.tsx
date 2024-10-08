@@ -1,7 +1,7 @@
-import ChemistListSkeleton from '@/features/chemists/ChemistList/ChemistListSkeleton';
+import { ChemistSkeleton } from '@/features/chemists/ChemistList/ChemistSkeleton';
 
 const Loading = () => {
-  return <ChemistListSkeleton />;
+  return <ChemistSkeleton />;
 };
 
 export default Loading;

@@ -91,7 +91,7 @@ const ActivityFeedList = memo(
     const [isPending, startTransition] = useTransition();
 
     return (
-      <Card className="bg-background-200 h-fit w-full p-4 md:pl-7 mb-10">
+      <Card className="bg-background-200 h-fit w-full p-4 md:pl-7">
         <Text variant="title" size="lg" customClass="leading-9">
           Activity Feed
         </Text>

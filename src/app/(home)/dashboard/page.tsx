@@ -71,7 +71,7 @@ const DashboardPage = async ({
         />
       </div>
 
-      <div className="flex flex-col-reverse lg:flex-row justify-between my-[31px] gap-[30px] w-full">
+      <div className="flex flex-col-reverse lg:flex-row justify-between mt-8 gap-[30px] w-full">
         <Suspense fallback={<ActivityFeedSkeleton />}>
           <ActivityFeed page={page} userId={id} role={role} />
         </Suspense>
