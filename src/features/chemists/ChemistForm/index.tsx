@@ -31,7 +31,7 @@ import { clearErrorOnChange, getRoleIdByName } from '@/utils';
 
 // Rules
 import { CHEMIST_FORM_VALIDATION } from './rule';
-import { addUser, getUserRoles, uploadImage } from '@/services';
+import { addUser, getUserRoles, updateUser, uploadImage } from '@/services';
 import { addUserToChemists } from '@/actions/auth';
 import { useToast } from '@/context/toast';
 import { ERROR_MESSAGE, SUCCESS_MESSAGE } from '@/constants';
@@ -41,10 +41,11 @@ export type ChemistFormProps = {
   id?: string;
   data?: UserModel;
   onClose?: () => void;
+  specialtyId?: string;
 };
 
 const ChemistForm = memo(
-  ({ data, specialtyOptions, onClose }: ChemistFormProps) => {
+  ({ id, data, specialtyOptions, specialtyId, onClose }: ChemistFormProps) => {
     const {
       username = '',
       email = '',
@@ -54,7 +55,6 @@ const ChemistForm = memo(
       rating = 0,
       tasks = 0,
       reviews = 0,
-      specialtyId,
     } = data || {};
 
     const { onOpen } = useDisclosure();
@@ -93,7 +93,7 @@ const ChemistForm = memo(
         confirmPassWord: password,
         email,
         description,
-        specialtyId: specialtyId?.data.id,
+        specialtyId,
       },
     });
 
@@ -108,19 +108,6 @@ const ChemistForm = memo(
     }, []);
 
     const isEdit = !!data;
-
-    const handleError = useCallback(
-      (error: string) => {
-        setError(error);
-        openToast({
-          message: ERROR_MESSAGE.CREATE('chemist'),
-          type: STATUS_TYPE.ERROR,
-        });
-        setIsPending(false);
-        return;
-      },
-      [openToast],
-    );
 
     const handleToggleVisiblePassword = useCallback(
       () => setIsShowPassword((prev) => !prev),
@@ -194,28 +181,60 @@ const ChemistForm = memo(
           role: Number(getRoleIdByName(roles, ROLE.NORMAL_USER)),
         };
 
-        const { user, error } = await addUser(payload);
+        if (isEdit) {
+          const { error } = await updateUser(String(id), payload);
 
-        if (error) handleError(error);
+          if (error) {
+            setError(error);
+            openToast({
+              message: ERROR_MESSAGE.UPDATE('chemist'),
+              type: STATUS_TYPE.ERROR,
+            });
+            setIsPending(false);
+            return;
+          }
+        } else {
+          const { user, error } = await addUser(payload);
 
-        if (user) {
-          const { id } = user;
-          const { error } = await addUserToChemists({
-            users_permissions_user: String(id),
-          });
+          if (error) {
+            setError(error);
+            openToast({
+              message: ERROR_MESSAGE.CREATE('chemist'),
+              type: STATUS_TYPE.ERROR,
+            });
+            setIsPending(false);
+            return;
+          }
 
-          if (error) handleError(error);
+          if (user) {
+            const { id } = user;
+            const { error } = await addUserToChemists({
+              users_permissions_user: String(id),
+            });
 
-          openToast({
-            message: SUCCESS_MESSAGE.CREATE('chemist'),
-            type: STATUS_TYPE.SUCCESS,
-          });
+            if (error) {
+              setError(error);
+              openToast({
+                message: ERROR_MESSAGE.CREATE('chemist'),
+                type: STATUS_TYPE.ERROR,
+              });
+              setIsPending(false);
+              return;
+            }
+
+            openToast({
+              message: isEdit
+                ? SUCCESS_MESSAGE.UPDATE('chemist')
+                : SUCCESS_MESSAGE.CREATE('chemist'),
+              type: STATUS_TYPE.SUCCESS,
+            });
+          }
         }
 
         setIsPending(false);
         onClose?.();
       },
-      [formImage, roles, handleError, onClose, openToast],
+      [id, isEdit, formImage, roles, onClose, openToast],
     );
 
     return (
@@ -333,7 +352,7 @@ const ChemistForm = memo(
                   {isShowPassword ? <EyeIcon /> : <EyeSlashIcon />}
                 </Button>
               }
-              isDisabled={isLoading}
+              isDisabled={isLoading || isEdit}
               isInvalid={!!error?.message}
               errorMessage={error?.message}
               onChange={handleInputChange(name, onChange)}
@@ -343,6 +362,7 @@ const ChemistForm = memo(
             getValues,
             setFormError,
             clearErrors,
+            isEdit,
           )}
         />
 
@@ -371,13 +391,13 @@ const ChemistForm = memo(
                   {isShowConfirmPassword ? <EyeIcon /> : <EyeSlashIcon />}
                 </Button>
               }
-              isDisabled={isLoading}
+              isDisabled={isLoading || isEdit}
               isInvalid={!!error?.message}
               errorMessage={error?.message}
               onChange={handleInputChange(name, onChange)}
             />
           )}
-          rules={CHEMIST_FORM_VALIDATION.CONFIRM_PASSWORD(getValues)}
+          rules={CHEMIST_FORM_VALIDATION.CONFIRM_PASSWORD(getValues, isEdit)}
         />
 
         {/* Specialty */}

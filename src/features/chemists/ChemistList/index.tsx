@@ -163,8 +163,13 @@ const ChemistList = memo(
                 chemists.map((chemist) => (
                   <ChemistCard
                     key={chemist.id}
-                    {...chemist.attributes.users_permissions_user?.data
-                      ?.attributes}
+                    id={chemist.id}
+                    specialtyOptions={specialtyOptionsForm}
+                    isAdmin={isAdmin}
+                    data={
+                      chemist.attributes.users_permissions_user?.data
+                        ?.attributes
+                    }
                   />
                 ))
               ) : (
