@@ -31,7 +31,12 @@ import { clearErrorOnChange, getRoleIdByName } from '@/utils';
 
 // Rules
 import { CHEMIST_FORM_VALIDATION } from './rule';
-import { addUser, getUserRoles, uploadImage } from '@/services';
+import {
+  addUser,
+  getUserRoles,
+  updatePublishUser,
+  uploadImage,
+} from '@/services';
 import { addUserToChemists } from '@/actions/auth';
 import { useToast } from '@/context/toast';
 import { ERROR_MESSAGE, SUCCESS_MESSAGE } from '@/constants';
@@ -202,13 +207,19 @@ const ChemistForm = memo(
         }
 
         if (user) {
-          const { id } = user;
-          const { error } = await addUserToChemists({
+          const { id = '' } = user;
+
+          const updateUserResult = await updatePublishUser(id);
+          if (updateUserResult.error) {
+            handleError(updateUserResult.error);
+            return;
+          }
+
+          const addUserResult = await addUserToChemists({
             users_permissions_user: String(id),
           });
-
-          if (error) {
-            handleError(error);
+          if (addUserResult.error) {
+            handleError(addUserResult.error);
             return;
           }
 
@@ -216,6 +227,7 @@ const ChemistForm = memo(
             message: SUCCESS_MESSAGE.CREATE('chemist'),
             type: STATUS_TYPE.SUCCESS,
           });
+
           onClose?.();
         }
 

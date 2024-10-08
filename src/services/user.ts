@@ -125,6 +125,44 @@ export const updateUser = async (
       body: data,
     });
 
+    if (error) {
+      return {
+        user: null,
+        error: (JSON.parse(error) as ErrorResponse).error.message,
+      };
+    }
+
+    return { user: user, error };
+  } catch (error) {
+    const errorMessage =
+      error instanceof Error
+        ? error.message
+        : 'An unexpected error occurred in the request update user';
+    return { user: null, error: errorMessage };
+  }
+};
+
+export const updatePublishUser = async (
+  id: string,
+): Promise<{ user: UserModel | null; error: string | null }> => {
+  try {
+    const now = new Date();
+    const formattedDate = now.toISOString();
+    const { error = null, ...user } = await apiClient.put<
+      UserModel & { error: string | null }
+    >(`${API_ENDPOINT.USERS}/${id}`, {
+      body: {
+        publishedAt: formattedDate,
+      },
+    });
+
+    if (error) {
+      return {
+        user: null,
+        error: (JSON.parse(error) as ErrorResponse).error.message,
+      };
+    }
+
     return { user: user, error };
   } catch (error) {
     const errorMessage =
