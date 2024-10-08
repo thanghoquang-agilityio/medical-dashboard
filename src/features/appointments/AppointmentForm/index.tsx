@@ -93,7 +93,7 @@ const AppointmentForm = memo(
       handleSubmit,
       getValues,
       watch,
-      formState: { isValid, isDirty, isLoading, errors },
+      formState: { isValid, isDirty, isLoading, errors, dirtyFields },
       trigger,
       clearErrors,
     } = useForm<AppointMentForm>({
@@ -197,6 +197,12 @@ const AppointmentForm = memo(
       },
       [clearErrors, errors],
     );
+
+    useEffect(() => {
+      if (watch('startDate') && dirtyFields.startTime) {
+        trigger('startTime');
+      }
+    }, [watch('startDate')]);
 
     return (
       <>
