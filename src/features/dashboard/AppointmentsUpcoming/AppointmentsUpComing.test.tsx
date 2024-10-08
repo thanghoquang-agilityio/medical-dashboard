@@ -2,7 +2,7 @@ import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 import { act, render, screen } from '@testing-library/react';
 
 // Constants
-import { PRIVATE_ROUTES, ROLE } from '@/constants';
+import { PRIVATE_ROUTES } from '@/constants';
 
 // Utils
 import { resolvedComponent } from '@/utils';
@@ -12,6 +12,9 @@ import { getAppointments } from '@/services';
 
 // Mocks
 import { MOCK_APPOINTMENTS } from '@/mocks';
+
+// Types
+import { ROLE } from '@/types';
 
 // Components
 import AppointmentsUpcoming, { AppointmentsUpcomingProps } from '.';
@@ -27,7 +30,7 @@ jest.mock('next/navigation', () => ({
 }));
 describe('AppointmentsUpComing test cases', () => {
   const mockProps: AppointmentsUpcomingProps = {
-    role: ROLE.USER,
+    role: ROLE.NORMAL_USER,
     status: 'new',
     userId: '1',
   };

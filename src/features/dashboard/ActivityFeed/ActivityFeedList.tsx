@@ -1,46 +1,52 @@
 'use client';
 
-import { memo, useTransition } from 'react';
-import dynamic from 'next/dynamic';
+import { lazy, memo, useTransition } from 'react';
 import { Card } from '@nextui-org/react';
 
 // Types
 import {
   APIRelatedResponse,
   APIResponse,
-  AppointmentModel,
   ColumnType,
+  InfoModel,
   MetaResponse,
   NotificationModel,
   NotificationResponse,
-  STATUS_TYPE_RESPONSE,
   UserModel,
 } from '@/types';
 
 // Components
 import { Avatar, Status, Text } from '@/components/ui';
-import { formatDateTime, fromDateToNow, getContentNotification } from '@/utils';
+import {
+  formatDateTime,
+  fromDateToNow,
+  getDescriptionNotification,
+} from '@/utils';
 import { API_IMAGE_URL } from '@/constants';
 import { ActivityFeedListSkeleton } from './ActivityFeedSkeleton';
-const DataGrid = dynamic(() => import('@/components/ui/DataGrid'));
+const DataGrid = lazy(() => import('@/components/ui/DataGrid'));
 
 interface ActivityInfoProps {
   item: NotificationModel;
   userId?: string;
 }
 
-const ActivityInfo = ({ item, userId = '' }: ActivityInfoProps) => {
+const ActivityInfo = memo(({ item, userId = '' }: ActivityInfoProps) => {
   const {
     senderAvatar = '',
     createdAt = '',
-    info = {} as AppointmentModel,
+    info = {} as InfoModel,
     senderId = {} as APIRelatedResponse<APIResponse<UserModel>>,
-    type = 0,
   } = item || {};
-  const { startTime = '' } = info as AppointmentModel;
+  const { startTime = '', content } = info;
 
   const time = formatDateTime(startTime);
-  const content = getContentNotification({ userId, senderId, time, type });
+  const description = getDescriptionNotification({
+    userId,
+    senderId,
+    time,
+    content,
+  });
 
   const timeAgo = fromDateToNow(createdAt);
 
@@ -49,7 +55,7 @@ const ActivityInfo = ({ item, userId = '' }: ActivityInfoProps) => {
       <Avatar isBordered src={`${API_IMAGE_URL}${senderAvatar}`} />
       <div className="flex flex-col mr-8">
         <Text variant="description" customClass="text-2xs md:text-xs text-wrap">
-          {content}
+          {description}
         </Text>
         <Text variant="subTitle" size="2xs">
           {timeAgo}
@@ -57,7 +63,7 @@ const ActivityInfo = ({ item, userId = '' }: ActivityInfoProps) => {
       </div>
     </div>
   );
-};
+});
 
 export const COLUMNS_ACTIVITY_FEED: ColumnType<NotificationModel>[] = [
   {
@@ -67,16 +73,11 @@ export const COLUMNS_ACTIVITY_FEED: ColumnType<NotificationModel>[] = [
   {
     key: 'status',
     title: 'Status',
-    customNode: (_, item) => {
+    customNode: ({ item }) => {
       const { info } = item || {};
-      const { status } = info || {};
+      const { status = 0 } = info || {};
 
-      return (
-        <Status
-          status={STATUS_TYPE_RESPONSE[status]}
-          className="leading-[27px]"
-        />
-      );
+      return <Status status={status} className="leading-[27px]" />;
     },
   },
 ];
@@ -105,11 +106,17 @@ const ActivityFeedList = memo(
               columns={
                 COLUMNS_ACTIVITY_FEED.map((column) => ({
                   ...column,
-                  customNode: (_, item: NotificationModel) =>
+                  customNode: ({ item }) =>
                     column.key === 'sender' ? (
-                      <ActivityInfo item={item} userId={userId} />
+                      <ActivityInfo
+                        item={item as NotificationModel}
+                        userId={userId}
+                      />
                     ) : column.customNode ? (
-                      column.customNode(column, item)
+                      column.customNode({
+                        column,
+                        item: item as NotificationModel,
+                      })
                     ) : null,
                 })) as ColumnType<unknown>[]
               }
@@ -124,4 +131,5 @@ const ActivityFeedList = memo(
 );
 
 ActivityFeedList.displayName = 'ActivityFeedList';
+ActivityInfo.displayName = 'ActivityInfo';
 export default ActivityFeedList;

@@ -1,6 +1,6 @@
 'use client';
 
-import { memo, useCallback, useEffect, useState } from 'react';
+import { memo, useCallback, useMemo } from 'react';
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 
 // Utils
@@ -15,26 +15,20 @@ import { Input } from '@/components/ui';
 import { SearchIcon } from '@/icons';
 
 export const InputSearch = memo(
-  ({ placeholder = '', classNames, ...props }: InputProps) => {
+  ({ placeholder = '', classNames, value, ...props }: InputProps) => {
     const { replace } = useRouter();
     const pathname = usePathname();
     const searchParams = useSearchParams();
 
-    // Local state to hold the input value
-    const [searchTerm, setSearchTerm] = useState(
-      searchParams.get('search') || '',
+    const params = useMemo(
+      () => new URLSearchParams(searchParams),
+      [searchParams],
     );
-
-    // Debounced search term (500ms delay)
-    const debouncedSearchTerm = useDebounce(searchTerm, 500);
 
     // Update the URL with the debounced search term
     const updateSearchParams = useCallback(
       (search: string) => {
-        const params = new URLSearchParams(searchParams);
-
         if (search) {
-          params.delete('page');
           params.set('search', search);
         } else {
           params.delete('search');
@@ -42,22 +36,28 @@ export const InputSearch = memo(
 
         replace(`${pathname}?${params.toString()}`);
       },
-      [searchParams, pathname, replace],
+      [params, pathname, replace],
     );
 
     // Call updateSearchParams whenever the debounced value changes
-    useEffect(() => {
-      updateSearchParams(debouncedSearchTerm);
-    }, [debouncedSearchTerm, updateSearchParams]);
+    const debouncedSearchTerm = useDebounce((value: string) => {
+      updateSearchParams(value);
+    });
 
     // Handle input changes
-    const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-      setSearchTerm(event.target.value);
-    };
+    const handleChange = useCallback(
+      (event: React.ChangeEvent<HTMLInputElement>) => {
+        const { value } = event.target;
+        params.delete('page');
+        debouncedSearchTerm(value);
+      },
+
+      [params, debouncedSearchTerm],
+    );
 
     // Handle clear input
     const handleClear = () => {
-      setSearchTerm('');
+      debouncedSearchTerm('');
     };
 
     return (
@@ -65,7 +65,7 @@ export const InputSearch = memo(
         classNames={{
           ...classNames,
           mainWrapper: cn(
-            'h-fit py-3 max-w-[400px] text-xs',
+            'h-fit lg:max-w-[400px] text-xs',
             classNames?.mainWrapper ?? '',
           ),
           inputWrapper: 'h-[52px]',
@@ -76,7 +76,7 @@ export const InputSearch = memo(
           <SearchIcon customClass="w-5 h-5 ml-4 text-primary-200" />
         }
         isClearable
-        autoFocus={!!searchTerm}
+        autoFocus={!!value}
         onClear={handleClear}
         onChange={handleChange}
         defaultValue={searchParams.get('search')?.toString()}

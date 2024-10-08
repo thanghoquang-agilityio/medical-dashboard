@@ -1,8 +1,10 @@
+import { STATUS } from '@/components/ui';
 import {
   APIRelatedResponse,
   APIResponse,
   Option,
-  STATUS_TYPE_RESPONSE,
+  RolePermission,
+  SpecialtyModel,
   UserLogged,
   UserModel,
 } from '@/types';
@@ -11,29 +13,22 @@ export const getObjectValue = <T, Key extends keyof T>(obj: T, key: string) => {
   return obj[key as Key] as string;
 };
 
-export const getContentNotification = ({
+export const getDescriptionNotification = ({
   userId,
   senderId,
-  type,
+  content,
   time,
 }: {
   userId: string;
   senderId: APIRelatedResponse<APIResponse<UserModel>>;
-  type: keyof typeof STATUS_TYPE_RESPONSE;
+  content: string;
   time: string;
 }) => {
   const { id = '', attributes } = senderId.data || {};
   const { username = '' } = attributes || {};
 
   const name = userId == id ? 'You' : username;
-  switch (type) {
-    case 1:
-      return `${name} have been updated the appointment at ${time}`;
-    case 2:
-      return `${name} have been deleted the appointment at ${time}`;
-    default:
-      return `${name} have been created the appointment at ${time}`;
-  }
+  return `${name} ${content} at ${time}`;
 };
 
 export const getGreeting = (): string => {
@@ -50,8 +45,29 @@ export const getGreeting = (): string => {
   }
 };
 
+export const getStatusKey = (value: string) => {
+  const entry = Object.entries(STATUS).find(([_, val]) => val === value);
+  return entry ? parseInt(entry[0]) : undefined;
+};
+
 export const transformUsers = (users: UserLogged[]): Option[] =>
   users.map(({ id, email }) => ({
     key: id,
     label: email,
   }));
+
+export const transformSpecialties = (
+  specialties: APIResponse<SpecialtyModel>[],
+): Option[] => [
+  { key: 'all', label: 'All' },
+  ...specialties.map((specialty) => ({
+    key: specialty.id.toString(),
+    label: specialty.attributes.name,
+  })),
+];
+
+export const formatString = (input: string) =>
+  input.toLowerCase().replace(/\s+/g, '_');
+
+export const getRoleIdByName = (roles: RolePermission[], roleName: string) =>
+  roles.find((role) => role.name === roleName)?.id;

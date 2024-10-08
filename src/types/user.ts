@@ -21,13 +21,15 @@ export type RoleModel = {
 
 // User
 export interface UserModel {
+  id?: string;
   username: string;
   email: string;
+  password?: string;
   avatar?: APIRelatedResponse<ImageResponse>;
-  description: string;
-  rating: number;
-  tasks: number;
-  reviews: number;
+  description?: string;
+  rating?: number;
+  tasks?: number;
+  reviews?: number;
   specialtyId?: APIRelatedResponse<APIResponse<SpecialtyModel>>;
   notificationsSent?: APIRelatedResponse<APIResponse<NotificationModel>[]>;
   appointmentSent?: APIRelatedResponse<APIResponse<AppointmentModel>[]>;
@@ -81,7 +83,10 @@ export type UserPayload = Omit<
   | 'notificationsSent'
   | 'appointmentSent'
   | 'appointmentReceived'
+  | 'specialtyId'
 > & {
+  role: number;
+  password?: string;
   specialtyId: number;
-  avatar: number;
+  avatar?: number;
 };

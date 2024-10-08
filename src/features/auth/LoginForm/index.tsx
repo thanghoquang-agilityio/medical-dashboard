@@ -2,7 +2,7 @@
 
 import { Controller, useForm } from 'react-hook-form';
 import { Card, Link as NextUILink } from '@nextui-org/react';
-import { ChangeEvent, useCallback, useState } from 'react';
+import { ChangeEvent, useCallback, useMemo, useState } from 'react';
 import Link from 'next/link';
 
 // Actions
@@ -20,7 +20,7 @@ import { LOGIN_FORM_VALIDATION } from './rule';
 import { LoginFormData, STATUS_TYPE } from '@/types';
 
 // Utils
-import { clearErrorOnChange } from '@/utils';
+import { clearErrorOnChange, isEnableSubmit } from '@/utils';
 
 // Contexts
 import { useToast } from '@/context/toast';
@@ -34,7 +34,7 @@ const DEFAULT_VALUE: LoginFormData = {
 const LoginForm = () => {
   const {
     control,
-    formState: { isValid, isDirty, isLoading, errors },
+    formState: { isLoading, errors, dirtyFields },
     handleSubmit,
     clearErrors,
   } = useForm<LoginFormData>({
@@ -60,6 +60,7 @@ const LoginForm = () => {
         onChange(e.target.value);
 
         // Clear error message on change
+        setError('');
         clearErrorOnChange(name, errors, clearErrors);
       };
     },
@@ -82,7 +83,7 @@ const LoginForm = () => {
       }
 
       if (error) {
-        setError(error || '');
+        setError(error.replace('identifier', 'username') || '');
         openToast({ message: ERROR_MESSAGE.LOGIN, type: STATUS_TYPE.ERROR });
         setIsPending(false);
       }
@@ -91,10 +92,24 @@ const LoginForm = () => {
   );
 
   const iconClass = 'w-6 h-6 ml-4 text-primary-200';
-  const isDisabled = isLoading || isPending;
+
+  const isFetching = useMemo(
+    () => isLoading || isPending,
+    [isLoading, isPending],
+  );
+
+  const dirtyFieldList = Object.keys(dirtyFields);
+
+  const isDisabled = useMemo(() => {
+    const REQUIRED_FIELDS: Array<keyof LoginFormData> = [
+      'identifier',
+      'password',
+    ];
+    return !isEnableSubmit(REQUIRED_FIELDS, dirtyFieldList, errors);
+  }, [dirtyFieldList, errors]);
 
   return (
-    <Card className="w-full max-w-[528px] bg-background-100 flex flex-col justify-center items-center rounded-3xl py-6 lg:px-6 mx-2">
+    <Card className="w-full max-w-[528px] max-h-[530px] bg-background-100 flex flex-col justify-center items-center rounded-3xl py-6 lg:px-6 mx-2">
       <Text variant="tertiary" size="4xl" customClass="font-semibold">
         Login
       </Text>
@@ -116,7 +131,7 @@ const LoginForm = () => {
               placeholder="email address"
               startContent={<EmailIcon customClass={iconClass} />}
               isInvalid={!!error?.message}
-              isDisabled={isLoading || isPending}
+              isDisabled={isFetching}
               errorMessage={error?.message}
               onChange={handleInputChange(name, onChange)}
             />
@@ -148,7 +163,7 @@ const LoginForm = () => {
                 </Button>
               }
               isInvalid={!!error?.message}
-              isDisabled={isDisabled}
+              isDisabled={isFetching}
               errorMessage={error?.message}
               onChange={handleInputChange(name, onChange)}
             />
@@ -160,7 +175,7 @@ const LoginForm = () => {
             name="remember"
             control={control}
             render={({ field: { onChange } }) => (
-              <Checkbox onChange={onChange} isDisabled={isDisabled}>
+              <Checkbox onChange={onChange} isDisabled={isFetching}>
                 Remember Me
               </Checkbox>
             )}
@@ -169,7 +184,7 @@ const LoginForm = () => {
             as={Link}
             href={AUTH_ROUTES.FORGOT_PASSWORD}
             className="font-semibold text-secondary-300 text-lg"
-            isDisabled={isDisabled}
+            isDisabled={isFetching}
           >
             Forgot Password?
           </NextUILink>
@@ -183,8 +198,8 @@ const LoginForm = () => {
           <Button
             type="submit"
             size="lg"
-            isDisabled={!isValid || !isDirty}
-            isLoading={isDisabled}
+            isDisabled={isDisabled || isFetching || !!error}
+            isLoading={isFetching}
           >
             Login
           </Button>
@@ -195,7 +210,7 @@ const LoginForm = () => {
             className="font-semibold text-secondary-300"
             as={Link}
             href={AUTH_ROUTES.SIGNUP}
-            isDisabled={isDisabled}
+            isDisabled={isFetching}
           >
             Signup
           </NextUILink>

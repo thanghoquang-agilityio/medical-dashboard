@@ -1,7 +1,7 @@
 import { memo } from 'react';
 
 // Utils
-import { fromDateToNow } from '@/utils';
+import { formatDateTime, fromDateToNow } from '@/utils';
 
 // Types
 import { NotificationResponse } from '@/types';
@@ -63,7 +63,8 @@ const Notifications = memo(
                   />
                   <div className={`flex flex-col pl-2 pr-10`}>
                     <Text size="xs" variant="description">
-                      You {attributes.info.content} {attributes.isRead}
+                      You {attributes.info.content}{' '}
+                      {formatDateTime(attributes.info.startTime)}
                     </Text>
                     <Text variant="subTitle" size="2xs">
                       {fromDateToNow(attributes.createdAt ?? '')}

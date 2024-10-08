@@ -3,11 +3,9 @@ import { Metadata } from 'next';
 
 // Constants
 import {
-  API_ENDPOINT,
   APPOINTMENT_STATUS_OPTIONS,
   PAGE_DEFAULT,
   PAGE_SIZE_DEFAULT,
-  PRIVATE_ROUTES,
 } from '@/constants';
 
 // Types
@@ -94,11 +92,6 @@ const AppointmentPage = async ({
 
   const { appointments, ...meta } = await getAppointments({
     searchParams: searchParamsAPI,
-    options: {
-      next: {
-        tags: [API_ENDPOINT.APPOINTMENTS, `${PRIVATE_ROUTES.DASHBOARD}/${id}`],
-      },
-    },
   });
 
   return (
