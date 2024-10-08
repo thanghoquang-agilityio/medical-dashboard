@@ -25,7 +25,7 @@ export const AppointmentsUpcomingListSkeleton = memo(() => (
             <Skeleton className="w-32 h-4 rounded-large" />
           </div>
 
-          <Skeleton className="w-7 h-7 rounded-small" />
+          <Skeleton className="w-10 h-7 rounded-small" />
         </div>
       ))}
   </div>
