@@ -1,14 +1,17 @@
 import { lazy, Suspense } from 'react';
 
 // Services
-import { getChemists } from '@/services';
+import { getChemists, getSpecialties } from '@/services';
 
 // Types
 import { DIRECTION, SearchParams } from '@/types';
 
+// Constants
+import { PAGE_DEFAULT, PAGE_SIZE_CHEMISTS_DEFAULT } from '@/constants';
+
 // Component
 import { ChemistSkeleton } from '@/features/chemists/ChemistList/ChemistSkeleton';
-import { PAGE_DEFAULT, PAGE_SIZE_CHEMISTS_DEFAULT } from '@/constants';
+
 const ChemistList = lazy(() => import('@/features/chemists/ChemistList'));
 
 export interface ChemistPageSearchParamsProps extends SearchParams {}
@@ -18,7 +21,11 @@ const ChemistPage = async ({
 }: {
   searchParams?: ChemistPageSearchParamsProps;
 }) => {
-  const { page = PAGE_DEFAULT } = searchParams as ChemistPageSearchParamsProps;
+  const {
+    page = PAGE_DEFAULT,
+    search,
+    specialty,
+  } = searchParams as ChemistPageSearchParamsProps;
 
   const searchParamsAPI = new URLSearchParams();
 
@@ -37,15 +44,35 @@ const ChemistPage = async ({
     PAGE_SIZE_CHEMISTS_DEFAULT.toString(),
   );
   searchParamsAPI.set('sort[0]', `createdAt:${DIRECTION.DESC}`);
-  // const delay = (ms: number) => new Promise((res) => setTimeout(res, ms));
-  // await delay(100000);
+
+  if (search) {
+    searchParamsAPI.set(
+      `filters[$or][0][users_permissions_user][username][$containsi]`,
+      search,
+    );
+  }
+
+  if (specialty) {
+    searchParamsAPI.set(
+      `filters[$or][0][users_permissions_user][specialtyId][name][$containsi]`,
+      specialty,
+    );
+  }
+
   const { chemists, pagination } = await getChemists({
     searchParams: searchParamsAPI,
   });
 
+  const { specialties } = await getSpecialties({});
+
   return (
     <Suspense fallback={<ChemistSkeleton />}>
-      <ChemistList chemists={chemists} pagination={pagination} />
+      <ChemistList
+        chemists={chemists}
+        pagination={pagination}
+        defaultSpecialty={specialty}
+        specialties={specialties}
+      />
     </Suspense>
   );
 };

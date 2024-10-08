@@ -3,7 +3,7 @@ import {
   APIRelatedResponse,
   APIResponse,
   Option,
-  SpecialtyResponse,
+  SpecialtyModel,
   UserLogged,
   UserModel,
 } from '@/types';
@@ -56,9 +56,14 @@ export const transformUsers = (users: UserLogged[]): Option[] =>
   }));
 
 export const transformSpecialties = (
-  specialties: SpecialtyResponse[],
-): Option[] =>
-  specialties.map((specialty) => ({
-    key: specialty.id,
+  specialties: APIResponse<SpecialtyModel>[],
+): Option[] => [
+  { key: 'all', label: 'All' },
+  ...specialties.map((specialty) => ({
+    key: specialty.id.toString(),
     label: specialty.attributes.name,
-  }));
+  })),
+];
+
+export const formatString = (input: string) =>
+  input.toLowerCase().replace(/\s+/g, '_');
