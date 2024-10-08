@@ -111,6 +111,7 @@ export const updateAppointment = async (
       return { appointment: null, error: errorResponse.error.message };
     }
 
+    revalidateTag(`${API_ENDPOINT.APPOINTMENTS}/dashboard`);
     revalidateTag(API_ENDPOINT.APPOINTMENTS);
 
     return { appointment: data, error: null };
@@ -139,6 +140,7 @@ export const deleteAppointment = async (
       return { appointment: null, error: errorResponse.error.message };
     }
 
+    revalidateTag(`${API_ENDPOINT.APPOINTMENTS}/dashboard`);
     revalidateTag(API_ENDPOINT.APPOINTMENTS);
 
     return { appointment: data, error: null };
