@@ -16,7 +16,7 @@ import {
   APIResponse,
   ChemistModel,
   MetaResponse,
-  SpecialtyResponse,
+  SpecialtyModel,
 } from '@/types';
 
 // Components
@@ -34,109 +34,105 @@ const Pagination = lazy(() => import('@/components/ui/Pagination'));
 
 export type ChemistListProps = {
   chemists: Array<APIResponse<ChemistModel>>;
+  specialties: Array<APIResponse<SpecialtyModel>>;
 } & MetaResponse;
 
-const ChemistList = memo(({ chemists, pagination }: ChemistListProps) => {
-  const { page = PAGE_DEFAULT, pageCount = PAGE_DEFAULT } = pagination ?? {};
+const ChemistList = memo(
+  ({ chemists, pagination, specialties }: ChemistListProps) => {
+    const { page = PAGE_DEFAULT, pageCount = PAGE_DEFAULT } = pagination ?? {};
 
-  const [isPending, startTransition] = useTransition();
-  const { isOpen, onOpen, onClose } = useDisclosure();
+    const [isPending, startTransition] = useTransition();
+    const { isOpen, onOpen, onClose } = useDisclosure();
 
-  const searchParams = useSearchParams() ?? '';
-  const pathname = usePathname() ?? '';
-  const { replace } = useRouter();
+    const searchParams = useSearchParams() ?? '';
+    const pathname = usePathname() ?? '';
+    const { replace } = useRouter();
 
-  const params = useMemo(
-    () => new URLSearchParams(searchParams),
-    [searchParams],
-  );
+    const params = useMemo(
+      () => new URLSearchParams(searchParams),
+      [searchParams],
+    );
 
-  const handleReplaceURL = useCallback(
-    (params: URLSearchParams) => {
-      startTransition?.(() => {
-        replace(`${pathname}?${params.toString()}`);
-      });
-    },
-    [pathname, replace, startTransition],
-  );
+    const handleReplaceURL = useCallback(
+      (params: URLSearchParams) => {
+        startTransition?.(() => {
+          replace(`${pathname}?${params.toString()}`);
+        });
+      },
+      [pathname, replace, startTransition],
+    );
 
-  const handlePageChange = useCallback(
-    (page: number) => {
-      if (page === 1) {
-        params.delete('page');
-      } else {
-        params.set('page', `${page}`);
-      }
+    const handlePageChange = useCallback(
+      (page: number) => {
+        if (page === 1) {
+          params.delete('page');
+        } else {
+          params.set('page', `${page}`);
+        }
 
-      handleReplaceURL(params);
-    },
-    [handleReplaceURL, params],
-  );
+        handleReplaceURL(params);
+      },
+      [handleReplaceURL, params],
+    );
 
-  const specialties = chemists.map(
-    (chemists) =>
-      chemists.attributes.users_permissions_user.data.attributes.specialtyId
-        ?.data,
-  );
-  const specialtyOptions = transformSpecialties(
-    specialties as SpecialtyResponse[],
-  );
+    const specialtyOptions = transformSpecialties(specialties);
 
-  return (
-    <>
-      <div className="flex flex-col mt-3 md:flex-row gap-4 md:mb-10">
-        <InputSearch placeholder="Search Appointments" />
-        <div className="flex justify-between md:gap-4 mb-10 md:mb-0 ">
-          <MenuDropdown
-            icon={<CategoryIcon customClass="w-4 h-4 md:w-6 md:h-6" />}
-            label="Specialty"
-            // TODO: add options later
-            options={specialtyOptions}
-            classNames={{
-              trigger: 'w-[120px] md:w-[170px] h-[52px]',
-            }}
-          />
+    return (
+      <>
+        <div className="flex flex-col mt-3 md:flex-row gap-4 md:mb-10">
+          <InputSearch placeholder="Search Appointments" />
+          <div className="flex justify-between md:gap-4 mb-10 md:mb-0 ">
+            <MenuDropdown
+              icon={<CategoryIcon customClass="w-4 h-4 md:w-6 md:h-6" />}
+              label="Specialty"
+              // TODO: add options later
+              options={specialtyOptions}
+              classNames={{
+                trigger: 'w-[120px] md:w-[170px] h-[52px]',
+              }}
+            />
 
-          <Button className="font-medium h-[52px]" onClick={onOpen}>
-            Create
-          </Button>
-        </div>
-      </div>
-      {isPending ? (
-        <ChemistListSkeleton />
-      ) : (
-        <>
-          <div className="grid gap-8 grid-cols-1 md:grid-cols-2 2xl:grid-cols-3 min-[2048px]:grid-cols-4 justify-evenly justify-items-center">
-            {chemists.length > 0 ? (
-              chemists.map((chemist) => (
-                <ChemistCard
-                  key={chemist.id}
-                  {...chemist.attributes.users_permissions_user?.data
-                    ?.attributes}
-                />
-              ))
-            ) : (
-              <Text size="lg" variant="description">
-                {RESULT_NOT_FOUND}
-              </Text>
-            )}
+            <Button className="font-medium h-[52px]" onClick={onOpen}>
+              Create
+            </Button>
           </div>
-          {!!pagination && pagination.pageCount > 1 && (
-            <Suspense fallback={null}>
-              <Pagination
-                classNames={{ base: 'mt-4' }}
-                initialPage={page}
-                total={pageCount}
-                onChange={handlePageChange}
-              />
-            </Suspense>
-          )}
-        </>
-      )}
-      <ChemistModal isOpen={isOpen} onClose={onClose} />
-    </>
-  );
-});
+        </div>
+        {isPending ? (
+          <ChemistListSkeleton />
+        ) : (
+          <>
+            <div className="grid gap-8 grid-cols-1 md:grid-cols-2 2xl:grid-cols-3 min-[2048px]:grid-cols-4 justify-evenly justify-items-center">
+              {chemists.length > 0 ? (
+                chemists.map((chemist) => (
+                  <ChemistCard
+                    key={chemist.id}
+                    {...chemist.attributes.users_permissions_user?.data
+                      ?.attributes}
+                  />
+                ))
+              ) : (
+                <Text size="lg" variant="description">
+                  {RESULT_NOT_FOUND}
+                </Text>
+              )}
+            </div>
+            {!!pagination && pagination.pageCount > 1 && (
+              <Suspense fallback={null}>
+                <Pagination
+                  classNames={{ base: 'mt-4' }}
+                  initialPage={page}
+                  total={pageCount}
+                  onChange={handlePageChange}
+                />
+              </Suspense>
+            )}
+          </>
+        )}
+        <ChemistModal isOpen={isOpen} onClose={onClose} />
+      </>
+    );
+  },
+);
 
 ChemistList.displayName = 'ChemistList';
 

@@ -3,7 +3,7 @@ import {
   APIRelatedResponse,
   APIResponse,
   Option,
-  SpecialtyResponse,
+  SpecialtyModel,
   UserLogged,
   UserModel,
 } from '@/types';
@@ -56,7 +56,7 @@ export const transformUsers = (users: UserLogged[]): Option[] =>
   }));
 
 export const transformSpecialties = (
-  specialties: SpecialtyResponse[],
+  specialties: APIResponse<SpecialtyModel>[],
 ): Option[] =>
   specialties.map((specialty) => ({
     key: specialty.id,

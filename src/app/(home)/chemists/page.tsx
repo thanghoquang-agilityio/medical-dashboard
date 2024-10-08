@@ -1,7 +1,7 @@
 import { lazy, Suspense } from 'react';
 
 // Services
-import { getChemists } from '@/services';
+import { getChemists, getSpecialties } from '@/services';
 
 // Types
 import { DIRECTION, SearchParams } from '@/types';
@@ -51,9 +51,15 @@ const ChemistPage = async ({
     searchParams: searchParamsAPI,
   });
 
+  const { specialties } = await getSpecialties({});
+
   return (
     <Suspense fallback={<ChemistListSkeleton />}>
-      <ChemistList chemists={chemists} pagination={pagination} />
+      <ChemistList
+        chemists={chemists}
+        pagination={pagination}
+        specialties={specialties}
+      />
     </Suspense>
   );
 };

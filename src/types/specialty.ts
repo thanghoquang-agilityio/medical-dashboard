@@ -1,4 +1,4 @@
-import { APIResponse } from '@/types';
+import { APIResponse, MetaResponse } from '@/types';
 
 export interface SpecialtyModel {
   name: string;
@@ -7,11 +7,14 @@ export interface SpecialtyModel {
 
 export type SpecialtyResponse = APIResponse<SpecialtyModel>;
 
-export type CategoriesDataResponse = Promise<{
-  specialties: SpecialtyResponse[];
-  error?: Error;
-}>;
+export type SpecialtyDataResponse = Promise<
+  {
+    specialties: SpecialtyResponse[];
+    error?: string | null;
+  } & MetaResponse
+>;
 
-export type CategoriesResponse = {
+export type SpecialtiesResponse = {
   data: SpecialtyResponse[];
+  meta: MetaResponse;
 };
