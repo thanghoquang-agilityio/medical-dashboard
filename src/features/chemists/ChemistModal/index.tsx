@@ -3,24 +3,22 @@
 import { memo } from 'react';
 
 // Types
-import { UserModel } from '@/types';
+import { Option, UserModel } from '@/types';
 
 // Components
 import { BaseModal } from '@/components/ui/BaseModal';
 import ChemistForm from '../ChemistForm';
 
-// Utils
-// import { USER_OPTIONS } from '@/mocks/user';
-
 export type ChemistModalProps = {
   isOpen: boolean;
+  specialtyOptions: Option[];
   onClose: () => void;
   data?: UserModel;
   id?: string;
 };
 
 const ChemistModal = memo(
-  ({ isOpen, onClose, id, data }: ChemistModalProps) => {
+  ({ isOpen, onClose, specialtyOptions, id, data }: ChemistModalProps) => {
     return (
       <BaseModal
         isOpen={isOpen}
@@ -28,8 +26,12 @@ const ChemistModal = memo(
         placement="center"
         size="2xl"
       >
-        {/* TODO: Update later */}
-        <ChemistForm data={data} id={id} onClose={onClose} />
+        <ChemistForm
+          data={data}
+          id={id}
+          onClose={onClose}
+          specialtyOptions={specialtyOptions}
+        />
       </BaseModal>
     );
   },

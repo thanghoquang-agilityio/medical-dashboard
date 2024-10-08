@@ -62,6 +62,7 @@ const ChemistList = memo(
     const { replace } = useRouter();
 
     const specialtyOptions = transformSpecialties(specialties);
+    const specialtyOptionsForm = specialtyOptions.slice(1);
     const [_, setSpecialty] = useState(new Set([defaultSpecialty]));
 
     const params = useMemo(
@@ -182,7 +183,13 @@ const ChemistList = memo(
             )}
           </div>
         )}
-        {isAdmin && <ChemistModal isOpen={isOpen} onClose={onClose} />}
+        {isAdmin && (
+          <ChemistModal
+            isOpen={isOpen}
+            onClose={onClose}
+            specialtyOptions={specialtyOptionsForm}
+          />
+        )}
       </>
     );
   },
