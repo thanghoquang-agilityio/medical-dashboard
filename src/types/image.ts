@@ -11,6 +11,7 @@ type Formats = {
 
 export interface ImageModel {
   name: string;
+  id: string;
   hash?: string;
   ext?: ImageExtension;
   formats?: Formats;

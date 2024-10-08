@@ -2,7 +2,7 @@
 
 import { Controller, SubmitHandler, useForm } from 'react-hook-form';
 import { Card, Link as NextUILink } from '@nextui-org/react';
-import { ChangeEvent, useCallback, useState } from 'react';
+import { ChangeEvent, useCallback, useMemo, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 
@@ -24,13 +24,14 @@ import { SIGN_UP_FORM_VALIDATION } from './rule';
 import { SignupFormData, STATUS_TYPE } from '@/types';
 
 // Utils
-import { clearErrorOnChange } from '@/utils';
+import { clearErrorOnChange, isEnableSubmit } from '@/utils';
 
 // Actions
-import { signup } from '@/actions/auth';
+import { addUserToChemists, signup } from '@/actions/auth';
 
 // Contexts
 import { useToast } from '@/context/toast';
+import { updatePublishUser } from '@/services';
 
 const DEFAULT_VALUE: SignupFormData = {
   username: '',
@@ -43,8 +44,9 @@ const SignupForm = () => {
   const {
     control,
     getValues,
-    formState: { isValid, isDirty, isLoading, errors },
+    formState: { isLoading, errors, dirtyFields },
     clearErrors,
+    setError: setFormError,
     handleSubmit,
   } = useForm<SignupFormData>({
     mode: 'onBlur',
@@ -83,14 +85,49 @@ const SignupForm = () => {
     [clearErrors, errors],
   );
 
+  const handleError = useCallback(
+    (error: string) => {
+      setError(error);
+      openToast({
+        message: ERROR_MESSAGE.SIGNUP,
+        type: STATUS_TYPE.ERROR,
+      });
+      setIsPending(false);
+      return;
+    },
+    [openToast],
+  );
+
   const handleSignup: SubmitHandler<SignupFormData> = useCallback(
     async (formData) => {
       setError('');
       setIsPending(true);
+
       const { confirmPassWord: _, ...signupData } = formData;
       const { user, error } = await signup(signupData);
 
+      if (error) {
+        handleError(error);
+        return;
+      }
+
       if (user) {
+        const { id } = user;
+
+        const updateUserError = await updatePublishUser(id);
+        if (updateUserError.error) {
+          handleError(updateUserError.error);
+          return;
+        }
+
+        const addUserError = await addUserToChemists({
+          users_permissions_user: id,
+        });
+        if (addUserError.error) {
+          handleError(addUserError.error);
+          return;
+        }
+
         openToast({
           message: SUCCESS_MESSAGE.SIGNUP,
           type: STATUS_TYPE.SUCCESS,
@@ -98,21 +135,28 @@ const SignupForm = () => {
 
         router.replace(`${AUTH_ROUTES.LOGIN}`);
       }
-
-      if (error) {
-        setError(error || '');
-        openToast({
-          message: ERROR_MESSAGE.SIGNUP,
-          type: STATUS_TYPE.ERROR,
-        });
-        setIsPending(false);
-      }
     },
-    [openToast, router],
+    [handleError, openToast, router],
   );
 
   const iconClass = 'w-6 h-6 ml-4 text-primary-200';
-  const isDisabled = isLoading || isPending;
+
+  const isFetching = useMemo(
+    () => isLoading || isPending,
+    [isLoading, isPending],
+  );
+
+  const dirtyFieldList = Object.keys(dirtyFields);
+
+  const isDisabled = useMemo(() => {
+    const REQUIRED_FIELDS: Array<keyof SignupFormData> = [
+      'username',
+      'email',
+      'password',
+      'confirmPassWord',
+    ];
+    return !isEnableSubmit(REQUIRED_FIELDS, dirtyFieldList, errors);
+  }, [dirtyFieldList, errors]);
 
   return (
     <Card className="w-full max-w-[528px] bg-background-100 flex flex-col justify-center items-center rounded-3xl py-6 lg:px-6 mx-2">
@@ -137,7 +181,7 @@ const SignupForm = () => {
               placeholder="user name"
               startContent={<DoctorIcon customClass={iconClass} />}
               isInvalid={!!error?.message}
-              isDisabled={isDisabled}
+              isDisabled={isFetching}
               errorMessage={error?.message}
               onChange={handleInputChange(name, onChange)}
             />
@@ -158,7 +202,7 @@ const SignupForm = () => {
               placeholder="email address"
               startContent={<EmailIcon customClass={iconClass} />}
               isInvalid={!!error?.message}
-              isDisabled={isDisabled}
+              isDisabled={isFetching}
               errorMessage={error?.message}
               onChange={handleInputChange(name, onChange)}
             />
@@ -191,12 +235,16 @@ const SignupForm = () => {
                 </Button>
               }
               isInvalid={!!error?.message}
-              isDisabled={isDisabled}
+              isDisabled={isFetching}
               errorMessage={error?.message}
               onChange={handleInputChange(name, onChange)}
             />
           )}
-          rules={SIGN_UP_FORM_VALIDATION.PASSWORD}
+          rules={SIGN_UP_FORM_VALIDATION.PASSWORD(
+            getValues,
+            setFormError,
+            clearErrors,
+          )}
         />
 
         <Controller
@@ -223,7 +271,7 @@ const SignupForm = () => {
                 </Button>
               }
               isInvalid={!!error?.message}
-              isDisabled={isDisabled}
+              isDisabled={isFetching}
               errorMessage={error?.message}
               onChange={handleInputChange(name, onChange)}
             />
@@ -239,8 +287,8 @@ const SignupForm = () => {
           <Button
             type="submit"
             size="lg"
-            isDisabled={!isValid || !isDirty}
-            isLoading={isDisabled}
+            isDisabled={isDisabled}
+            isLoading={isFetching}
           >
             Signup
           </Button>
@@ -251,7 +299,7 @@ const SignupForm = () => {
             as={Link}
             href={AUTH_ROUTES.LOGIN}
             className="font-semibold text-secondary-300"
-            isDisabled={isDisabled}
+            isDisabled={isFetching}
           >
             Login
           </NextUILink>

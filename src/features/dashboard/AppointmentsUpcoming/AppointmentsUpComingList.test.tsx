@@ -31,6 +31,7 @@ describe('AppointmentsUpComingList test cases', () => {
       pageCount: 1,
       total: 3,
     },
+    role: 'Admin',
   };
   const mockReplace = jest.fn();
   const mockUsePathname = usePathname as jest.Mock;

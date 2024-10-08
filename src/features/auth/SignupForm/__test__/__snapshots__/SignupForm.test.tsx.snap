@@ -204,7 +204,7 @@ exports[`SignupForm Component should renders correctly form 1`] = `
               />
               <button
                 aria-label="visible password"
-                class="z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap subpixel-antialiased overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 !gap-0 transition-transform-colors-opacity motion-reduce:transition-none data-[hover=true]:opacity-hover border-transparent font-semibold bg-linear-success bg-none gap-1 text-sm rounded-lg p-0 min-w-5 h-5 text-primary-200"
+                class="z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap subpixel-antialiased overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-small gap-2 rounded-medium !gap-0 transition-transform-colors-opacity motion-reduce:transition-none w-10 data-[hover=true]:opacity-hover border-transparent font-semibold bg-linear-success bg-none p-0 min-w-5 h-5 text-primary-200"
                 type="button"
               >
                 <svg
@@ -281,7 +281,7 @@ exports[`SignupForm Component should renders correctly form 1`] = `
               />
               <button
                 aria-label="visible confirm password"
-                class="z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap subpixel-antialiased overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 !gap-0 transition-transform-colors-opacity motion-reduce:transition-none data-[hover=true]:opacity-hover border-transparent font-semibold bg-linear-success bg-none gap-1 text-sm rounded-lg p-0 min-w-5 h-5 text-primary-200"
+                class="z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap subpixel-antialiased overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-small gap-2 rounded-medium !gap-0 transition-transform-colors-opacity motion-reduce:transition-none w-10 data-[hover=true]:opacity-hover border-transparent font-semibold bg-linear-success bg-none p-0 min-w-5 h-5 text-primary-200"
                 type="button"
               >
                 <svg
@@ -305,14 +305,18 @@ exports[`SignupForm Component should renders correctly form 1`] = `
           </div>
         </div>
       </div>
-      <button
-        class="z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap subpixel-antialiased overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 px-6 min-w-24 h-12 opacity-disabled pointer-events-none [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none data-[hover=true]:opacity-hover border-transparent font-semibold bg-linear-success text-content1 w-full text-small gap-2 rounded-small mt-4"
-        data-disabled="true"
-        disabled=""
-        type="submit"
+      <div
+        class="h-[78px] flex flex-col justify-end"
       >
-        Signup
-      </button>
+        <button
+          class="z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap subpixel-antialiased overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 px-6 min-w-24 opacity-disabled pointer-events-none [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none data-[hover=true]:opacity-hover border-transparent font-semibold bg-linear-success text-content1 w-full max-h-12 h-12 text-small gap-2 rounded-small"
+          data-disabled="true"
+          disabled=""
+          type="submit"
+        >
+          Signup
+        </button>
+      </div>
       <div
         class="flex justify-center w-full gap-6 pt-10 pb-3"
       >

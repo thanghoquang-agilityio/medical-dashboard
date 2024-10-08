@@ -8,6 +8,7 @@ export const Button = extendVariants(ButtonNextUI, {
       solid: 'border-transparent font-semibold',
       outline:
         'border-1 border-secondary-300 hover:bg-linear-success hover:text-content1 font-semibold',
+      light: 'bg-transparent',
     },
 
     color: {
@@ -35,6 +36,5 @@ export const Button = extendVariants(ButtonNextUI, {
   defaultVariants: {
     variant: 'solid',
     color: 'primary',
-    size: 'xs',
   },
 });

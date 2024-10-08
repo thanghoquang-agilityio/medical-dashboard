@@ -8,22 +8,25 @@ interface ConfirmModalProps {
   title: string;
   subTitle: string;
   isOpen: boolean;
+  isLoading?: boolean;
   onClose: () => void;
-  onDelete: () => void;
+  onAction: () => void;
 }
 
 const ConfirmModal = ({
   title,
   subTitle,
   isOpen,
+  isLoading,
   onClose,
-  onDelete,
+  onAction,
 }: ConfirmModalProps) => (
   <BaseModal isOpen={isOpen} onClose={onClose} placement="center">
     <div className="flex flex-col items-center">
       <Text variant="title" size="2xl">
         {title}
       </Text>
+
       <Text customClass="my-6">{subTitle}</Text>
     </div>
     <Divider />
@@ -33,13 +36,14 @@ const ConfirmModal = ({
         variant="outline"
         color="outline"
         className="font-medium w-full"
+        isDisabled={isLoading}
       >
         No
       </Button>
       <Button
-        color="secondary"
-        onClick={onDelete}
+        onClick={onAction}
         className="font-medium w-full"
+        isLoading={isLoading}
       >
         Yes
       </Button>

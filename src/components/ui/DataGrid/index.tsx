@@ -97,7 +97,7 @@ const DataGrid = memo(
           tabIndex={0}
           id="table"
           classNames={{
-            emptyWrapper: 'text-primary-100 text-xl font-medium',
+            emptyWrapper: 'text-primary-100 text-xl font-medium h-[152px] pb-4',
             wrapper: cn(
               `bg-transparent-200 shadow-none p-0 ${classWrapper ?? ''}`,
             ),
@@ -132,7 +132,14 @@ const DataGrid = memo(
                           )}
                         >
                           {column.customNode ? (
-                            column.customNode(column, item.attributes)
+                            column.key === 'actions' ? (
+                              column.customNode({ item: item.attributes, id })
+                            ) : (
+                              column.customNode({
+                                column,
+                                item: item.attributes,
+                              })
+                            )
                           ) : (
                             <Text variant="error" size="xs">
                               {getObjectValue(item.attributes, column.key)}

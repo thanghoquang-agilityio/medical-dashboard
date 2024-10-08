@@ -22,9 +22,10 @@ export const getNotifications = async ({
   options = { next: { tags: [API_ENDPOINT.NOTIFICATIONS] } },
 }: FetchDataProps): NotificationsDataResponse => {
   try {
+    const params = new URLSearchParams(searchParams);
     const api = await apiClient.apiClientSession();
     const url = decodeURIComponent(
-      `${API_ENDPOINT.NOTIFICATIONS}?${searchParams.toString()}`,
+      `${API_ENDPOINT.NOTIFICATIONS}?${params.toString()}`,
     );
     const { data, meta, error } = await api.get<
       NotificationsResponse & { error?: string }

@@ -1,5 +1,3 @@
-'use server';
-
 import { revalidateTag } from 'next/cache';
 
 // Constants
@@ -24,9 +22,10 @@ export const getAppointments = async ({
   options = { next: { tags: [API_ENDPOINT.APPOINTMENTS] } },
 }: FetchDataProps): AppointmentsDataResponse => {
   try {
+    const params = new URLSearchParams(searchParams);
     const api = await apiClient.apiClientSession();
     const url = decodeURIComponent(
-      `${API_ENDPOINT.APPOINTMENTS}?${searchParams.toString()}`,
+      `${API_ENDPOINT.APPOINTMENTS}?${params.toString()}`,
     );
     const { data, meta, error } = await api.get<
       AppointmentsResponse & { error?: string }
@@ -112,6 +111,7 @@ export const updateAppointment = async (
       return { appointment: null, error: errorResponse.error.message };
     }
 
+    revalidateTag(`${API_ENDPOINT.APPOINTMENTS}/dashboard`);
     revalidateTag(API_ENDPOINT.APPOINTMENTS);
 
     return { appointment: data, error: null };
@@ -140,6 +140,7 @@ export const deleteAppointment = async (
       return { appointment: null, error: errorResponse.error.message };
     }
 
+    revalidateTag(`${API_ENDPOINT.APPOINTMENTS}/dashboard`);
     revalidateTag(API_ENDPOINT.APPOINTMENTS);
 
     return { appointment: data, error: null };

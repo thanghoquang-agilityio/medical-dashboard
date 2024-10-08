@@ -14,11 +14,13 @@ export const colors = {
   },
   green: '#38CB89',
   'aqua-green': '#21E786',
+  'minty-green': '#00FF85',
   neutral: {
     light: '#1C1C1E',
     dark: '#E3E3E1',
   },
   orange: '#FF5630',
+  'light-orange': '#FFB054',
   purple: '#54577A',
   'purple-shiny': {
     light: '#E8E8E8',

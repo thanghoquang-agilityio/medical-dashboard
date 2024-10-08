@@ -2,8 +2,11 @@ export const API_ENDPOINT = {
   AUTH: '/auth/local',
   APPOINTMENTS: '/appointments',
   NOTIFICATIONS: '/notifications',
-  SPECIALTIES: '/Specialties',
+  SPECIALTIES: '/specialties',
   USERS: '/users',
+  UPLOAD: '/upload',
+  CHEMISTS: '/chemists',
+  PERMISSIONS: '/users-permissions',
 };
 
 export const API_URL = `${process.env.NEXT_PUBLIC_API_URL}/api`;

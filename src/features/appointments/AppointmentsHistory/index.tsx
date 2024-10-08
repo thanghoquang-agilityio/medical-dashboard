@@ -1,9 +1,9 @@
 'use client';
 
-import dynamic from 'next/dynamic';
 import {
   ChangeEvent,
   Key,
+  lazy,
   memo,
   useCallback,
   useMemo,
@@ -17,112 +17,35 @@ import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 import {
   AppointmentModel,
   AppointmentResponse,
+  AppointmentStatus,
   ColumnType,
   MetaResponse,
-  STATUS_TYPE_RESPONSE,
+  ROLE,
+  STATUS_TYPE,
 } from '@/types';
 
-// Utils
-import { formatDayMonthYear, formatTimeAppointment } from '@/utils';
-
 // Constants
-import { API_IMAGE_URL, APPOINTMENT_STATUS_OPTIONS, ROLE } from '@/constants';
+import {
+  APPOINTMENT_STATUS_OPTIONS,
+  ERROR_MESSAGE,
+  SUCCESS_MESSAGE,
+} from '@/constants';
+
+// Hocs
+import { useToast } from '@/context/toast';
 
 // Components
-import {
-  Avatar,
-  Button,
-  InputSearch,
-  Select,
-  Status,
-  Text,
-} from '@/components/ui';
+import { Button, InputSearch, Select, Text } from '@/components/ui';
 import { AppointmentsHistoryListSkeleton } from './AppointmentsHistorySkeleton';
 import AppointmentModal from '../AppointmentModal';
-const DataGrid = dynamic(() => import('@/components/ui/DataGrid'));
+import { createColumns } from './columns';
 
-// Create config columns for appointments
-const createColumns = (role: string): ColumnType<AppointmentModel>[] => {
-  const baseColumns: ColumnType<AppointmentModel>[] = [
-    {
-      key: 'senderId',
-      title: '',
-      customNode: (_, item) => {
-        const { url = '' } =
-          item.senderId.data.attributes.avatar?.data?.attributes || {};
+// Service
+import { deleteAppointment, updateAppointment } from '@/actions/appointment';
+import { getStatusKey } from '@/utils';
 
-        return (
-          <div className="flex gap-2 items-center">
-            <Avatar
-              src={`${API_IMAGE_URL}${url}`}
-              size="md"
-              isBordered
-              className="shrink-0"
-            />
-            <Text variant="primary" size="sm">
-              {item.senderId.data.attributes.username}
-            </Text>
-          </div>
-        );
-      },
-    },
-    {
-      key: 'receiverId',
-      title: '',
-      customNode: (_, item) => {
-        const { url = '' } =
-          item.receiverId.data.attributes.avatar?.data?.attributes || {};
-
-        return (
-          <div className="flex gap-2 items-center">
-            <Avatar
-              src={`${API_IMAGE_URL}${url}`}
-              size="md"
-              isBordered
-              className="shrink-0"
-            />
-            <Text variant="primary" size="sm">
-              {item.receiverId.data.attributes.username}
-            </Text>
-          </div>
-        );
-      },
-    },
-    {
-      key: 'durationTime',
-      title: '',
-      customNode: (_, item) => (
-        <Text variant="primary" size="xs">
-          {formatTimeAppointment({
-            start: item.startTime,
-            duration: item.durationTime,
-          })}
-        </Text>
-      ),
-    },
-    {
-      key: 'startTime',
-      title: '',
-      customNode: (_, item) => {
-        const date = formatDayMonthYear(item.startTime);
-        return (
-          <Text variant="primary" size="xs">
-            {date}
-          </Text>
-        );
-      },
-    },
-    {
-      key: 'status',
-      title: '',
-      customNode: (_, item) => (
-        <Status status={STATUS_TYPE_RESPONSE[item.status]} />
-      ),
-    },
-  ];
-
-  return role === ROLE.ADMIN ? baseColumns : baseColumns.slice(1);
-};
+const DataGrid = lazy(() => import('@/components/ui/DataGrid'));
+const ConfirmModal = lazy(() => import('@/components/ui/ConfirmModal'));
 
 export interface AppointmentsHistoryProps extends MetaResponse {
   userId: string;
@@ -138,14 +61,13 @@ const AppointmentsHistory = ({
   role,
   defaultStatus = '',
 }: AppointmentsHistoryProps) => {
-  const columns = createColumns(role);
+  const openToast = useToast();
+  const isAdmin = role === ROLE.ADMIN;
 
   const [isPending, startTransition] = useTransition();
   const [status, setStatus] = useState(new Set<string>([defaultStatus]));
-  const [appointment, setAppointment] = useState<
-    AppointmentModel | undefined
-  >();
-  const [appointmentId, setAppointmentId] = useState<string | undefined>();
+  const [appointment, setAppointment] = useState<AppointmentModel>();
+  const [appointmentId, setAppointmentId] = useState<string>('');
 
   const searchParams = useSearchParams() ?? '';
   const pathname = usePathname() ?? '';
@@ -155,6 +77,7 @@ const AppointmentsHistory = ({
     () => new URLSearchParams(searchParams),
     [searchParams],
   );
+  const search = searchParams.get('search') ?? '';
 
   const handleReplaceURL = useCallback(
     (params: URLSearchParams) => {
@@ -192,31 +115,104 @@ const AppointmentsHistory = ({
 
   const { isOpen, onClose, onOpen } = useDisclosure();
 
-  const handleEdit = useCallback(
-    (key: Key) => {
+  const handleOpenCreateModal = useCallback(() => {
+    setAppointment(undefined);
+    onOpen();
+  }, [onOpen]);
+
+  const handleOpenEditModal = useCallback(
+    (key?: Key) => {
       const appointment = appointments.find(
         (appointment) => key == appointment.id,
       );
-      setAppointment(appointment?.attributes);
-      setAppointmentId(appointment?.id);
+      const { attributes, id = '' } = appointment || {};
+
+      setAppointment(attributes);
+      setAppointmentId(id);
       onOpen();
     },
     [appointments, onOpen],
   );
 
-  const handleCreate = useCallback(() => {
-    setAppointment(undefined);
-    onOpen();
-  }, [onOpen]);
+  const {
+    isOpen: isOpenConfirm,
+    onClose: onClosConfirm,
+    onOpen: onOpenConfirm,
+  } = useDisclosure();
+  const [isLoading, setIsLoading] = useState(false);
+
+  const handleOpenConfirmModal = useCallback(
+    (key?: Key) => {
+      const appointment = appointments.find(
+        (appointment) => key == appointment.id,
+      );
+      const { id = '' } = appointment || {};
+
+      setAppointmentId(id);
+      onOpenConfirm();
+    },
+    [appointments, onOpenConfirm],
+  );
+
+  const columns = createColumns({
+    isAdmin,
+    onEdit: handleOpenEditModal,
+    onRemoveOrCancel: handleOpenConfirmModal,
+  });
+
+  const handleDeleteAppointment = useCallback(async () => {
+    setIsLoading(true);
+    const { error } = await deleteAppointment(appointmentId);
+    if (error) {
+      openToast({
+        message: ERROR_MESSAGE.DELETE('appointment'),
+        type: STATUS_TYPE.ERROR,
+      });
+
+      setIsLoading(false);
+      return;
+    }
+
+    openToast({
+      message: SUCCESS_MESSAGE.DELETE('appointment'),
+      type: STATUS_TYPE.SUCCESS,
+    });
+    onClosConfirm();
+  }, [appointmentId, onClosConfirm, openToast]);
+
+  const handleCancelAppointment = useCallback(async () => {
+    setIsLoading(true);
+    const statusPayload = getStatusKey('cancelled') || 0;
+    const error = (
+      await updateAppointment(appointmentId, {
+        status: statusPayload as AppointmentStatus,
+      })
+    ).error;
+
+    if (error) {
+      openToast({
+        message: ERROR_MESSAGE.CANCEL('appointment'),
+        type: STATUS_TYPE.ERROR,
+      });
+      setIsLoading(false);
+      return;
+    }
+
+    openToast({
+      message: SUCCESS_MESSAGE.CANCEL('appointment'),
+      type: STATUS_TYPE.SUCCESS,
+    });
+    onClosConfirm();
+  }, [appointmentId, onClosConfirm, openToast]);
 
   return (
     <>
-      <div className="flex justify-between gap-10">
-        <InputSearch
-          placeholder="Search Appointments"
-          classNames={{ mainWrapper: 'pb-10' }}
-        />
-        <Button onClick={handleCreate} className="mt-3 font-medium">
+      <div className="flex mt-3 justify-between gap-10 mb-8">
+        <InputSearch placeholder="Search Appointments" value={search} />
+        <Button
+          onClick={handleOpenCreateModal}
+          className="h-[52px] font-medium"
+        >
           Create
         </Button>
       </div>
@@ -242,7 +238,7 @@ const AppointmentsHistory = ({
         </div>
         <div className="flex flex-col items-center">
           {isPending ? (
-            <AppointmentsHistoryListSkeleton />
+            <AppointmentsHistoryListSkeleton isAdmin={isAdmin} />
           ) : (
             <DataGrid
               data={appointments}
@@ -251,11 +247,11 @@ const AppointmentsHistory = ({
               pagination={pagination}
               hasDivider
               classWrapper="p-1"
-              onRowAction={handleEdit}
             />
           )}
         </div>
       </Card>
+
       <AppointmentModal
         data={appointment}
         id={appointmentId}
@@ -263,6 +259,15 @@ const AppointmentsHistory = ({
         role={role}
         onClose={onClose}
         isOpen={isOpen}
+      />
+
+      <ConfirmModal
+        title="Confirmation"
+        subTitle={`Do you want to ${isAdmin ? 'delete' : 'cancel'} this appointment?`}
+        isOpen={isOpenConfirm}
+        isLoading={isLoading}
+        onClose={onClosConfirm}
+        onAction={isAdmin ? handleDeleteAppointment : handleCancelAppointment}
       />
     </>
   );

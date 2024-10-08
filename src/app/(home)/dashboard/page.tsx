@@ -1,29 +1,27 @@
 import { Suspense, lazy } from 'react';
 import { auth } from '@/config/auth';
 
-// Components
-import { Text, Button, Image } from '@/components/ui';
-import { CloseIcon } from '@/icons';
-const AppointmentsUpcoming = lazy(
-  () => import('@/features/dashboard/AppointmentsUpcoming'),
-);
-const ActivityFeed = lazy(() => import('@/features/dashboard/ActivityFeed'));
-
 // Constants
 import {
   APPOINTMENT_STATUS_OPTIONS,
   PAGE_DEFAULT,
-  ROLE,
   SRC_BANNER_AVATAR,
 } from '@/constants';
 
 // Types
-import { SearchParams } from '@/types';
+import { ROLE, SearchParams } from '@/types';
 
 // Utils
 import { getGreeting } from '@/utils';
+// Components
+import { Text, Button, Image } from '@/components/ui';
+import { CloseIcon } from '@/icons';
 import { ActivityFeedSkeleton } from '@/features/dashboard/ActivityFeed/ActivityFeedSkeleton';
 import { AppointmentsUpcomingSkeleton } from '@/features/dashboard/AppointmentsUpcoming/AppointmentsUpcomingSkeleton';
+const AppointmentsUpcoming = lazy(
+  () => import('@/features/dashboard/AppointmentsUpcoming'),
+);
+const ActivityFeed = lazy(() => import('@/features/dashboard/ActivityFeed'));
 
 interface DashboardPageSearchParamsProps extends SearchParams {
   status?: string;
@@ -39,7 +37,7 @@ const DashboardPage = async ({
 
   const {
     id = '',
-    role = ROLE.USER,
+    role = ROLE.NORMAL_USER,
     username = '',
   } = (await auth())?.user || {};
 
@@ -73,11 +71,13 @@ const DashboardPage = async ({
         />
       </div>
 
-      <div className="flex flex-col-reverse lg:flex-row justify-between my-[31px] gap-[30px] w-full">
+      <div className="flex flex-col-reverse lg:flex-row justify-between mt-8 gap-[30px] w-full">
         <Suspense fallback={<ActivityFeedSkeleton />}>
           <ActivityFeed page={page} userId={id} role={role} />
         </Suspense>
-        <Suspense fallback={<AppointmentsUpcomingSkeleton />}>
+        <Suspense
+          fallback={<AppointmentsUpcomingSkeleton defaultStatus={status} />}
+        >
           <AppointmentsUpcoming userId={id} role={role} status={status} />
         </Suspense>
       </div>
