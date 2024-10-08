@@ -19,6 +19,7 @@ export const MOCK_CHEMISTS_LIST: Array<APIResponse<ChemistModel>> = [
               data: {
                 id: '10',
                 attributes: {
+                  id: '10',
                   name: 'kyle.webp',
                   hash: 'kyle_554a95ac44',
                   url: '/uploads/kyle_554a95ac44.webp',
@@ -55,6 +56,7 @@ export const MOCK_CHEMISTS_LIST: Array<APIResponse<ChemistModel>> = [
               data: {
                 id: '8',
                 attributes: {
+                  id: '20',
                   name: 'white.webp',
                   hash: 'white_8b3aabe189',
                   url: '/uploads/white_8b3aabe189.webp',
@@ -93,6 +95,7 @@ export const MOCK_CHEMISTS_LIST: Array<APIResponse<ChemistModel>> = [
               data: {
                 id: '7',
                 attributes: {
+                  id: '19',
                   name: 'jane.webp',
                   hash: 'jane_bf4e84b9e6',
                   url: '/uploads/jane_bf4e84b9e6.webp',
@@ -130,6 +133,7 @@ export const MOCK_CHEMISTS_LIST: Array<APIResponse<ChemistModel>> = [
               data: {
                 id: '9',
                 attributes: {
+                  id: '18',
                   name: 'alex.webp',
                   hash: 'alex_45859439cd',
                   url: '/uploads/alex_45859439cd.webp',
@@ -167,6 +171,7 @@ export const MOCK_CHEMISTS_LIST: Array<APIResponse<ChemistModel>> = [
               data: {
                 id: '6',
                 attributes: {
+                  id: '17',
                   name: 'avt_hue.jpg',
                   hash: 'avt_hue_335d006883',
                   url: '/uploads/avt_hue_335d006883.jpg',

@@ -1,10 +1,11 @@
 import { lazy, Suspense } from 'react';
 
 // Services
+import { auth } from '@/config/auth';
 import { getChemists, getSpecialties } from '@/services';
 
 // Types
-import { DIRECTION, SearchParams } from '@/types';
+import { DIRECTION, ROLE, SearchParams } from '@/types';
 
 // Constants
 import { PAGE_DEFAULT, PAGE_SIZE_CHEMISTS_DEFAULT } from '@/constants';
@@ -21,6 +22,8 @@ const ChemistPage = async ({
 }: {
   searchParams?: ChemistPageSearchParamsProps;
 }) => {
+  const { role = ROLE.NORMAL_USER } = (await auth())?.user || {};
+
   const {
     page = PAGE_DEFAULT,
     search,
@@ -71,6 +74,7 @@ const ChemistPage = async ({
         chemists={chemists}
         pagination={pagination}
         defaultSpecialty={specialty}
+        role={role}
         specialties={specialties}
       />
     </Suspense>
