@@ -2,7 +2,7 @@ export const API_ENDPOINT = {
   AUTH: '/auth/local',
   APPOINTMENTS: '/appointments',
   NOTIFICATIONS: '/notifications',
-  SPECIALTIES: '/Specialties',
+  SPECIALTIES: '/specialties',
   USERS: '/users',
   CHEMISTS: '/chemists',
   PERMISSIONS: '/users-permissions',

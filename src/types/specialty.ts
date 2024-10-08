@@ -7,7 +7,7 @@ export interface SpecialtyModel {
 
 export type SpecialtyResponse = APIResponse<SpecialtyModel>;
 
-export type SpecialtyDataResponse = Promise<
+export type SpecialtiesDataResponse = Promise<
   {
     specialties: SpecialtyResponse[];
     error?: string | null;

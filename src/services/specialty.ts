@@ -5,21 +5,20 @@ import {
   ErrorResponse,
   FetchDataProps,
   SpecialtiesResponse,
-  SpecialtyDataResponse,
+  SpecialtiesDataResponse,
 } from '@/types';
 import { apiClient } from './api';
 
 export const getSpecialties = async ({
   searchParams = new URLSearchParams(),
-  options = { next: { tags: [API_ENDPOINT.CHEMISTS] } },
-}: FetchDataProps): SpecialtyDataResponse => {
+  options = { next: { tags: [API_ENDPOINT.SPECIALTIES] } },
+}: FetchDataProps): SpecialtiesDataResponse => {
   try {
-    const api = await apiClient.apiClientSession();
     const url = decodeURIComponent(
-      `${API_ENDPOINT.CHEMISTS}?${searchParams.toString()}`,
+      `${API_ENDPOINT.SPECIALTIES}?${searchParams.toString()}`,
     );
 
-    const { data, meta, error } = await api.get<
+    const { data, meta, error } = await apiClient.get<
       SpecialtiesResponse & { error?: string }
     >(url, {
       ...options,
