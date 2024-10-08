@@ -96,3 +96,26 @@ export const addUser = async (
     return { user: null, error: errorMessage };
   }
 };
+
+export const updateUser = async (
+  id: string,
+  data: UserPayload,
+): Promise<{ user: UserModel | null; error: string | null }> => {
+  try {
+    const api = await apiClient.apiClientSession();
+
+    const { error = null, ...user } = await api.put<
+      UserModel & { error: string | null }
+    >(`${API_ENDPOINT.USERS}/${id}`, {
+      body: data,
+    });
+
+    return { user: user, error };
+  } catch (error) {
+    const errorMessage =
+      error instanceof Error
+        ? error.message
+        : 'An unexpected error occurred in the request update user';
+    return { user: null, error: errorMessage };
+  }
+};

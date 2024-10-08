@@ -4,6 +4,7 @@ import {
   getUsers as getUsersService,
   getUserRoles as getUserRolesService,
   addUser as addUserService,
+  updateUser as updateUserService,
 } from '@/services';
 import { UserPayload } from '@/types';
 
@@ -19,5 +20,10 @@ export const getUserRoles = async () => {
 
 export const addUser = async (data: UserPayload) => {
   const user = await addUserService(data);
+  return user;
+};
+
+export const updateUser = async (id: string, data: UserPayload) => {
+  const user = await updateUserService(id, data);
   return user;
 };
