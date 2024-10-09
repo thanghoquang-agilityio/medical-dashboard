@@ -1,22 +1,39 @@
+'use client';
+import { lazy, useCallback, useState } from 'react';
+
 // Components
-import { Card, CardBody, CardFooter, CardHeader } from '@nextui-org/react';
+import {
+  Card,
+  CardBody,
+  CardFooter,
+  CardHeader,
+  useDisclosure,
+} from '@nextui-org/react';
 import { Avatar, Button, Text } from '@/components/ui';
-import { NoteIcon, StarIcon } from '@/icons';
+import { CloseIcon, NoteIcon, StarIcon } from '@/icons';
+const ConfirmModal = lazy(() => import('@/components/ui/ConfirmModal'));
 
 // Types
-import { UserModel } from '@/types';
-import { API_IMAGE_URL } from '@/constants';
+import { STATUS_TYPE, UserModel } from '@/types';
+import { API_IMAGE_URL, ERROR_MESSAGE, SUCCESS_MESSAGE } from '@/constants';
 
 // Utils
 import { cn } from '@/utils';
+import {
+  updateUnpublishAppointment,
+  updateUnpublishNotification,
+  updateUnpublishUser,
+} from '@/services';
+import { useToast } from '@/context/toast';
 
 export interface ChemistCardProps {
+  id: string;
   data: UserModel;
   isAdmin: boolean;
   onEdit?: () => void;
 }
 
-const ChemistCard = ({ data, isAdmin, onEdit }: ChemistCardProps) => {
+const ChemistCard = ({ id, data, isAdmin, onEdit }: ChemistCardProps) => {
   const {
     username = '',
     description = '',
@@ -35,6 +52,44 @@ const ChemistCard = ({ data, isAdmin, onEdit }: ChemistCardProps) => {
   const { attributes: attributesSpecialty } = dataSpecialty || {};
   const { name: specialty = '' } = attributesSpecialty || {};
 
+  const openToast = useToast();
+
+  const {
+    isOpen: isOpenConfirm,
+    onClose: onClosConfirm,
+    onOpen: onOpenConfirm,
+  } = useDisclosure();
+
+  const [isLoading, setIsLoading] = useState(false);
+
+  const handleOpenConfirmModal = useCallback(() => {
+    onOpenConfirm();
+  }, [onOpenConfirm]);
+
+  const handleDelete = useCallback(async () => {
+    setIsLoading(true);
+    const { error: errorUser } = await updateUnpublishUser(id);
+    if (errorUser) {
+      openToast({
+        message: ERROR_MESSAGE.DELETE('chemist'),
+        type: STATUS_TYPE.ERROR,
+      });
+      setIsLoading(false);
+      return;
+    }
+
+    openToast({
+      message: SUCCESS_MESSAGE.DELETE('chemist'),
+      type: STATUS_TYPE.SUCCESS,
+    });
+
+    setIsLoading(false);
+    onClosConfirm();
+
+    await updateUnpublishAppointment(id);
+    await updateUnpublishNotification(id);
+  }, [id, onClosConfirm, openToast]);
+
   return (
     <div
       className={cn(
@@ -42,7 +97,19 @@ const ChemistCard = ({ data, isAdmin, onEdit }: ChemistCardProps) => {
       )}
       onClick={onEdit}
     >
-      <Card className="bg-background-200 w-full h-full p-5 sm:p-6 gap-6">
+      <Card className="bg-background-200 w-full h-full p-5 sm:p-6 gap-6 overflow-visible">
+        {isAdmin && (
+          <Button
+            aria-label="close"
+            isIconOnly
+            size="tiny"
+            color="red"
+            className="absolute top-[-8px] right-[-8px] min-w-6"
+            onClick={handleOpenConfirmModal}
+          >
+            <CloseIcon />
+          </Button>
+        )}
         <CardHeader className="flex justify-between p-0">
           <div className="flex items-center gap-2">
             <Avatar src={`${API_IMAGE_URL}${url}`} size="lg" />
@@ -90,6 +157,15 @@ const ChemistCard = ({ data, isAdmin, onEdit }: ChemistCardProps) => {
           </div>
         </CardFooter>
       </Card>
+
+      <ConfirmModal
+        title="Confirmation"
+        subTitle={`Do you want to delete this chemist?`}
+        isOpen={isOpenConfirm}
+        isLoading={isLoading}
+        onClose={onClosConfirm}
+        onAction={handleDelete}
+      />
     </div>
   );
 };
