@@ -1,4 +1,5 @@
 import { lazy, Suspense } from 'react';
+import { Metadata } from 'next';
 
 // Services
 import { auth } from '@/config/auth';
@@ -16,6 +17,11 @@ import { ChemistSkeleton } from '@/features/chemists/ChemistList/ChemistSkeleton
 const ChemistList = lazy(() => import('@/features/chemists/ChemistList'));
 
 export interface ChemistPageSearchParamsProps extends SearchParams {}
+
+export const metadata: Metadata = {
+  title: 'Chemists',
+  description: 'Chemists page for Medical Dashboard',
+};
 
 const ChemistPage = async ({
   searchParams,

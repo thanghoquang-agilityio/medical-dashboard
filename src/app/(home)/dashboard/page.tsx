@@ -1,5 +1,6 @@
 import { Suspense, lazy } from 'react';
 import { auth } from '@/config/auth';
+import { Metadata } from 'next';
 
 // Constants
 import {
@@ -22,6 +23,11 @@ const AppointmentsUpcoming = lazy(
   () => import('@/features/dashboard/AppointmentsUpcoming'),
 );
 const ActivityFeed = lazy(() => import('@/features/dashboard/ActivityFeed'));
+
+export const metadata: Metadata = {
+  title: 'Dashboard',
+  description: 'Dashboard page for Medical Dashboard',
+};
 
 interface DashboardPageSearchParamsProps extends SearchParams {
   status?: string;
