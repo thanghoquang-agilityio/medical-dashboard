@@ -29,7 +29,7 @@ export const MenuAction = ({ options }: MoreActionProps) => {
       classNames={{
         trigger: cn(
           'p-0 min-w-4 h-4 md:h-[26px] md:min-w-[26px] bg-background-100 rounded-md ',
-          'data-[focus=true]:border-primary-100 data-[focus=true]:border-opacity-20 border-primary-100 border-opacity-20',
+          'data-[focus=true]:border-transparent data-[focus=true]:border-opacity-20 border-transparent border-opacity-20',
         ),
         content: 'min-w-[90px] border-1 border-primary-100 border-opacity-10',
       }}

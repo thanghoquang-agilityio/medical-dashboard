@@ -59,7 +59,10 @@ export const MenuDropdown = memo(
         }}
       >
         <DropdownTrigger>
-          <Button className="flex gap-3 items-center">
+          <Button
+            aria-label="Dropdown button"
+            className="flex gap-3 items-center"
+          >
             <div className="text-primary-100 max-h-6 max-w-6">{icon}</div>
             {label && (
               <Text variant="title" size="xs">
