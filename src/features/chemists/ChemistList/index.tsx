@@ -168,7 +168,6 @@ const ChemistList = memo(
               }}
               selectionMode="multiple"
               onAction={handleSelectSpecialty}
-              className="z-10"
             />
             {isAdmin && (
               <Button className="font-medium h-[52px]" onClick={handleCreate}>
