@@ -85,7 +85,7 @@ const ChemistForm = memo(
       getValues,
       clearErrors,
       setError: setFormError,
-      formState: { errors, isValid, isLoading },
+      formState: { errors, isValid, isLoading, isDirty },
     } = useForm<ChemistFormData>({
       mode: 'onBlur',
       reValidateMode: 'onBlur',
@@ -503,7 +503,7 @@ const ChemistForm = memo(
               Cancel
             </Button>
             <Button
-              isDisabled={!isValid}
+              isDisabled={!isValid || !isDirty || isPending}
               isLoading={isLoading || isPending}
               type="submit"
             >
