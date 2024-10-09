@@ -107,10 +107,13 @@ const AppointmentsHistory = ({
 
   const handleSelectStatus = useCallback(
     (e: ChangeEvent<HTMLSelectElement>) => {
+      if (e.target.value !== status.values().next().value)
+        params.delete('page');
+
       setStatus(new Set([e.target.value]));
       updateSearchParams(e.target.value);
     },
-    [updateSearchParams],
+    [params, status, updateSearchParams],
   );
 
   const { isOpen, onClose, onOpen } = useDisclosure();
