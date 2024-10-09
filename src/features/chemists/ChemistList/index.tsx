@@ -190,6 +190,7 @@ const ChemistList = memo(
 
                   return (
                     <ChemistCard
+                      id={id}
                       key={id}
                       isAdmin={isAdmin}
                       data={data}
