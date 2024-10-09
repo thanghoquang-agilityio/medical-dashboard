@@ -20,8 +20,7 @@ export const HeaderAuth = memo(() => {
         width={80}
         height={80}
       />
-
-      <SwitchTheme customClass="text-foreground min-[640px]:text-white" />
+      <SwitchTheme customClass="sm:text-white" />
     </header>
   );
 });
