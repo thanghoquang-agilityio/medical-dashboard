@@ -61,8 +61,14 @@ const AppointmentPage = async ({
     if (role === ROLE.NORMAL_USER || !role) {
       APPOINTMENT_SEARCH_PARAMS.forEach((param, index) =>
         searchParamsAPI.set(
-          `filters[$or][0][$and][${index}][${param}][username][$containsi]`,
+          `filters[$or][${index}][$and][0][${param}][username][$containsi]`,
           search,
+        ),
+      );
+      APPOINTMENT_SEARCH_PARAMS.reverse().forEach((param, index) =>
+        searchParamsAPI.set(
+          `filters[$or][${index}][$and][1][${param}][id][$eq]`,
+          id,
         ),
       );
     } else {
@@ -73,13 +79,13 @@ const AppointmentPage = async ({
         ),
       );
     }
-  }
-
-  if (role === ROLE.NORMAL_USER || !role) {
-    APPOINTMENT_SEARCH_PARAMS.forEach((param, index) =>
-      searchParamsAPI.set(`filters[$or][${index}][${param}][id][$eq]`, id),
-    );
-    searchParamsAPI.set('populate[senderId][populate][avatar]', '*');
+  } else {
+    if (role === ROLE.NORMAL_USER || !role) {
+      APPOINTMENT_SEARCH_PARAMS.forEach((param, index) =>
+        searchParamsAPI.set(`filters[$or][${index}][${param}][id][$eq]`, id),
+      );
+      searchParamsAPI.set('populate[senderId][populate][avatar]', '*');
+    }
   }
 
   const valueStatus = APPOINTMENT_STATUS_OPTIONS.find(
