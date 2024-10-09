@@ -182,15 +182,14 @@ const ChemistList = memo(
         {isPending ? (
           <ChemistListSkeleton />
         ) : (
-          <div className="flex flex-col items-center">
-            <div className="w-full grid gap-8 grid-cols-1 md:grid-cols-2 2xl:grid-cols-3 min-[2048px]:grid-cols-4 justify-evenly justify-items-center">
-              {chemists.length > 0 ? (
-                chemists.map((chemist) => {
+          <div className="flex flex-col items-center min-h-[40vh] sm:min-h-[60vh]">
+            {chemists.length > 0 ? (
+              <div className="w-full grid gap-8 grid-cols-1 md:grid-cols-2 2xl:grid-cols-3 min-[2048px]:grid-cols-4 justify-evenly justify-items-center">
+                {chemists.map((chemist) => {
                   const { attributes } = chemist;
                   const { users_permissions_user } = attributes || {};
                   const { id = '', attributes: data } =
                     users_permissions_user?.data || {};
-
                   return (
                     <ChemistCard
                       id={id}
@@ -200,13 +199,13 @@ const ChemistList = memo(
                       onEdit={() => handleEdit({ data: data, id: id })}
                     />
                   );
-                })
-              ) : (
-                <Text size="lg" variant="description">
-                  {RESULT_NOT_FOUND}
-                </Text>
-              )}
-            </div>
+                })}
+              </div>
+            ) : (
+              <Text size="lg" variant="description" customClass="my-auto">
+                {RESULT_NOT_FOUND}
+              </Text>
+            )}
             {!!pagination && pagination.pageCount > 1 && (
               <Suspense fallback={null}>
                 <Pagination
