@@ -27,7 +27,7 @@ const HeaderDashboard = ({
   isInvisibleBadge = false,
 }: HeaderProps) => {
   return (
-    <header className="flex sticky z-[10] top-0 justify-end items-center gap-6 w-full h-14 bg-background-100 px-[17px] md:px-8">
+    <header className="flex sticky z-[20] top-0 justify-end items-center gap-6 w-full h-14 bg-background-100 px-[17px] md:px-8">
       <SidebarMobile />
       <SwitchTheme />
 
