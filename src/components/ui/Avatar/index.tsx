@@ -27,7 +27,7 @@ export const Avatar = ({
   const sizeClass = SIZE_CLASSES[size];
   const borderClass = hasBorder
     ? `ring-offset-0 ring-yellow ring-opacity-25 ring-4`
-    : 'ring-offset-2 ring-green';
+    : 'ring-offset-2 ring-1 ring-green';
   const backgroundClass = `bg-${color}`;
 
   const className =
