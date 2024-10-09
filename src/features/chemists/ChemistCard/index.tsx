@@ -25,7 +25,7 @@ const ChemistCard = ({ data, isAdmin, onEdit }: ChemistCardProps) => {
     tasks,
     avatar,
     specialtyId,
-  } = data;
+  } = data || {};
 
   const { data: dataAvatar } = avatar || {};
   const { attributes: attributesAvatar } = dataAvatar || {};
