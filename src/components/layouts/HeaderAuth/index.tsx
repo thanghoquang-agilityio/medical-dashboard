@@ -21,7 +21,7 @@ export const HeaderAuth = memo(() => {
         height={80}
       />
 
-      <SwitchTheme />
+      <SwitchTheme customClass="text-foreground min-[640px]:text-white" />
     </header>
   );
 });
