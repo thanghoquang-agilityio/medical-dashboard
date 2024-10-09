@@ -20,6 +20,7 @@ import {
   MetaResponse,
   ROLE,
   SpecialtyModel,
+  UserModel,
 } from '@/types';
 
 // Components
@@ -54,6 +55,9 @@ const ChemistList = memo(
   }: ChemistListProps) => {
     const { page = PAGE_DEFAULT, pageCount = PAGE_DEFAULT } = pagination ?? {};
 
+    const [chemist, setChemist] = useState<UserModel>();
+    const [chemistId, setChemistId] = useState<string>('');
+
     const [isPending, startTransition] = useTransition();
     const { isOpen, onOpen, onClose } = useDisclosure();
 
@@ -63,6 +67,7 @@ const ChemistList = memo(
 
     const specialtyOptions = transformSpecialties(specialties);
     const specialtyOptionsForm = specialtyOptions.slice(1);
+
     const [_, setSpecialty] = useState(new Set([defaultSpecialty]));
 
     const params = useMemo(
@@ -131,6 +136,23 @@ const ChemistList = memo(
     );
 
     const isAdmin = role === ROLE.ADMIN;
+    // Handle create
+    const handleCreate = useCallback(() => {
+      setChemist(undefined);
+      setChemistId('');
+      onOpen();
+    }, [onOpen]);
+
+    // Handle edit
+    const handleEdit = useCallback(
+      ({ data, id }: { data: UserModel; id: string }) => {
+        if (!isAdmin) return;
+        setChemist(data);
+        setChemistId(id);
+        onOpen();
+      },
+      [isAdmin, onOpen],
+    );
 
     return (
       <>
@@ -148,7 +170,7 @@ const ChemistList = memo(
               onAction={handleSelectSpecialty}
             />
             {isAdmin && (
-              <Button className="font-medium h-[52px]" onClick={onOpen}>
+              <Button className="font-medium h-[52px]" onClick={handleCreate}>
                 Create
               </Button>
             )}
@@ -160,13 +182,21 @@ const ChemistList = memo(
           <div className="flex flex-col items-center">
             <div className="w-full grid gap-8 grid-cols-1 md:grid-cols-2 2xl:grid-cols-3 min-[2048px]:grid-cols-4 justify-evenly justify-items-center">
               {chemists.length > 0 ? (
-                chemists.map((chemist) => (
-                  <ChemistCard
-                    key={chemist.id}
-                    {...chemist.attributes.users_permissions_user?.data
-                      ?.attributes}
-                  />
-                ))
+                chemists.map((chemist) => {
+                  const { attributes } = chemist;
+                  const { users_permissions_user } = attributes || {};
+                  const { id = '', attributes: data } =
+                    users_permissions_user?.data || {};
+
+                  return (
+                    <ChemistCard
+                      key={id}
+                      isAdmin={isAdmin}
+                      data={data}
+                      onEdit={() => handleEdit({ data: data, id: id })}
+                    />
+                  );
+                })
               ) : (
                 <Text size="lg" variant="description">
                   {RESULT_NOT_FOUND}
@@ -188,6 +218,8 @@ const ChemistList = memo(
         {isAdmin && (
           <ChemistModal
             isOpen={isOpen}
+            id={chemistId}
+            data={chemist}
             onClose={onClose}
             specialtyOptions={specialtyOptionsForm}
           />
@@ -198,5 +230,4 @@ const ChemistList = memo(
 );
 
 ChemistList.displayName = 'ChemistList';
-
 export default ChemistList;

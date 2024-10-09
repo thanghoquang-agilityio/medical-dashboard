@@ -5,6 +5,7 @@ import { forwardRef } from 'react';
 // Components
 import { Button, Input, Avatar } from '@/components/ui';
 import { CloseIcon, UploadImageIcon } from '@/icons';
+import { API_IMAGE_URL } from '@/constants';
 
 interface ImageUploadProps extends React.HTMLAttributes<HTMLDivElement> {
   src?: string;
@@ -44,7 +45,11 @@ export const ImageUpload = forwardRef<HTMLInputElement, ImageUploadProps>(
               alt={altText}
             />
           ) : (
-            <Avatar src={src} alt={altText} className=" w-[100px] h-[100px]" />
+            <Avatar
+              src={`${API_IMAGE_URL}${src}`}
+              alt={altText}
+              className=" w-[100px] h-[100px]"
+            />
           )}
           {hasImage && (
             <Button

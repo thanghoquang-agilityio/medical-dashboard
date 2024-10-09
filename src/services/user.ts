@@ -9,6 +9,7 @@ import {
   UserPayload,
 } from '@/types';
 import { API_ENDPOINT } from '@/constants';
+import { revalidateTag } from 'next/cache';
 
 export const getUserLogged = async (
   jwt: string,
@@ -43,7 +44,7 @@ export const getUsers = async (): Promise<{
     const { error = null, ...user } = await api.get<
       UserLogged[] & { error: string | null }
     >(url, {
-      next: { revalidate: 3600, tags: [API_ENDPOINT.USERS, 'all'] },
+      next: { revalidate: 3600, tags: [API_ENDPOINT.USERS] },
     });
 
     const usersArray = Object.values(user) as UserLogged[];
@@ -102,6 +103,8 @@ export const addUser = async (
       };
     }
 
+    revalidateTag(API_ENDPOINT.CHEMISTS);
+
     return { user: user, error };
   } catch (error) {
     const errorMessage =
@@ -131,6 +134,8 @@ export const updateUser = async (
         error: (JSON.parse(error) as ErrorResponse).error.message,
       };
     }
+
+    revalidateTag(API_ENDPOINT.CHEMISTS);
 
     return { user: user, error };
   } catch (error) {
@@ -162,6 +167,9 @@ export const updatePublishUser = async (
         error: (JSON.parse(error) as ErrorResponse).error.message,
       };
     }
+
+    revalidateTag(API_ENDPOINT.USERS);
+    revalidateTag(API_ENDPOINT.CHEMISTS);
 
     return { user: user, error };
   } catch (error) {
