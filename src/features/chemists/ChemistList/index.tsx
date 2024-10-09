@@ -176,6 +176,9 @@ const ChemistList = memo(
             )}
           </div>
         </div>
+        <Text variant="primary" size="2xl" customClass="my-5">
+          {params.size ? 'Chemist Results' : 'All Chemists'}
+        </Text>
         {isPending ? (
           <ChemistListSkeleton />
         ) : (
