@@ -13,8 +13,6 @@ export const colors = {
     dark: '#8F8F8F',
   },
   green: '#38CB89',
-  'aqua-green': '#21E786',
-  'minty-green': '#00FF85',
   neutral: {
     light: '#1C1C1E',
     dark: '#E3E3E1',

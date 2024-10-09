@@ -32,7 +32,7 @@ const VARIANT_CLASSES = {
   warning: 'text-warning',
   error: 'text-danger-100',
   default: 'text-foreground',
-  action: 'text-minty-green font-medium',
+  action: 'text-green font-medium',
 };
 
 const SIZE_CLASSES = {

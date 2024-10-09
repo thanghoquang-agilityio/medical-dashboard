@@ -57,7 +57,10 @@ const ChemistCard = ({ data, isAdmin, onEdit }: ChemistCardProps) => {
               )}
             </div>
           </div>
-          <Button color="default" className="text-minty-green">
+          <Button
+            color="default"
+            className="text-green text-lg font-medium p-0 min-w-10"
+          >
             Book
           </Button>
         </CardHeader>
