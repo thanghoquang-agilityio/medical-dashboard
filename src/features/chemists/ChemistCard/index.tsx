@@ -1,35 +1,22 @@
-import { lazy } from 'react';
-import {
-  Card,
-  CardBody,
-  CardFooter,
-  CardHeader,
-  useDisclosure,
-} from '@nextui-org/react';
-
 // Components
+import { Card, CardBody, CardFooter, CardHeader } from '@nextui-org/react';
 import { Avatar, Button, Text } from '@/components/ui';
 import { NoteIcon, StarIcon } from '@/icons';
 
 // Types
-import { Option, UserModel } from '@/types';
+import { UserModel } from '@/types';
 import { API_IMAGE_URL } from '@/constants';
 
-const ChemistModal = lazy(() => import('@/features/chemists/ChemistModal'));
+// Utils
+import { cn } from '@/utils';
 
 export interface ChemistCardProps {
-  id: string;
   data: UserModel;
-  isAdmin?: boolean;
-  specialtyOptions: Option[];
+  isAdmin: boolean;
+  onEdit?: () => void;
 }
 
-const ChemistCard = ({
-  id,
-  specialtyOptions,
-  data,
-  isAdmin = false,
-}: ChemistCardProps) => {
+const ChemistCard = ({ data, isAdmin, onEdit }: ChemistCardProps) => {
   const {
     username = '',
     description = '',
@@ -40,31 +27,37 @@ const ChemistCard = ({
     specialtyId,
   } = data;
 
-  const { isOpen: isModalOpen, onClose, onOpen: onModalOpen } = useDisclosure();
+  const { data: dataAvatar } = avatar || {};
+  const { attributes: attributesAvatar } = dataAvatar || {};
+  const { url = '' } = attributesAvatar || {};
+
+  const { data: dataSpecialty } = specialtyId || {};
+  const { attributes: attributesSpecialty } = dataSpecialty || {};
+  const { name: specialty = '' } = attributesSpecialty || {};
 
   return (
-    <div className="min-w-[300px] w-full h-[228px]" onClick={onModalOpen}>
+    <div
+      className={cn(
+        `min-w-[300px] w-full h-[228px] ${isAdmin ? 'cursor-pointer' : 'cursor-default'}`,
+      )}
+      onClick={onEdit}
+    >
       <Card className="bg-background-200 w-full h-full p-5 sm:p-6 gap-6">
         <CardHeader className="flex justify-between p-0">
           <div className="flex items-center gap-2">
-            <Avatar
-              src={`${API_IMAGE_URL}${avatar?.data?.attributes?.url}`}
-              size="lg"
-            />
+            <Avatar src={`${API_IMAGE_URL}${url}`} size="lg" />
             <div className="flex flex-col gap-1">
               <Text size="md" variant="title">
                 {username}
               </Text>
-              <Text size="xs" variant="description" customClass="font-normal">
-                {specialtyId?.data?.attributes?.name || 'Unknown'}
-              </Text>
+              {specialty && (
+                <Text size="xs" variant="description" customClass="font-normal">
+                  {specialty}
+                </Text>
+              )}
             </div>
           </div>
-          <Button
-            color="default"
-            className="text-minty-green"
-            onClick={onModalOpen}
-          >
+          <Button color="default" className="text-minty-green">
             Book
           </Button>
         </CardHeader>
@@ -94,15 +87,6 @@ const ChemistCard = ({
           </div>
         </CardFooter>
       </Card>
-      {isAdmin && (
-        <ChemistModal
-          id={id}
-          data={data}
-          isOpen={isModalOpen}
-          onClose={onClose}
-          specialtyOptions={specialtyOptions}
-        />
-      )}
     </div>
   );
 };

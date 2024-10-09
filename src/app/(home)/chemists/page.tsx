@@ -26,8 +26,8 @@ const ChemistPage = async ({
 
   const {
     page = PAGE_DEFAULT,
-    search,
-    specialty,
+    search = '',
+    specialty = '',
   } = searchParams as ChemistPageSearchParamsProps;
 
   const searchParamsAPI = new URLSearchParams();
@@ -61,7 +61,6 @@ const ChemistPage = async ({
       specialty,
     );
   }
-
   const { chemists, pagination } = await getChemists({
     searchParams: searchParamsAPI,
   });

@@ -1,6 +1,5 @@
 'use client';
 
-import { Textarea, useDisclosure } from '@nextui-org/react';
 import {
   ChangeEvent,
   memo,
@@ -14,6 +13,7 @@ import { Controller, SubmitHandler, useForm } from 'react-hook-form';
 // Components
 import { Button, ImageUpload, Input, Select, Text } from '@/components/ui';
 import { EyeIcon, EyeSlashIcon, NoteIcon, StarIcon } from '@/icons';
+import { Textarea } from '@nextui-org/react';
 
 // Types
 import {
@@ -25,53 +25,56 @@ import {
   STATUS_TYPE,
   Option,
 } from '@/types';
+import { ERROR_MESSAGE, SUCCESS_MESSAGE } from '@/constants';
 
-// Utils
+// Helper
 import { clearErrorOnChange, getRoleIdByName } from '@/utils';
+import { useToast } from '@/context/toast';
+import { addUserToChemists } from '@/actions/auth';
+import {
+  addUser,
+  getUserRoles,
+  updatePublishUser,
+  updateUser,
+  uploadImage,
+} from '@/services';
 
 // Rules
 import { CHEMIST_FORM_VALIDATION } from './rule';
-import { addUser, getUserRoles, updateUser, uploadImage } from '@/services';
-import { addUserToChemists } from '@/actions/auth';
-import { useToast } from '@/context/toast';
-import { ERROR_MESSAGE, SUCCESS_MESSAGE } from '@/constants';
 
 export type ChemistFormProps = {
   specialtyOptions: Option[];
   id?: string;
   data?: UserModel;
-  onClose?: () => void;
-  specialtyId?: string;
+  onClose: () => void;
 };
 
 const ChemistForm = memo(
-  ({ id, data, specialtyOptions, specialtyId, onClose }: ChemistFormProps) => {
+  ({ id = '', data, specialtyOptions, onClose }: ChemistFormProps) => {
     const {
       username = '',
       email = '',
       password = '',
-      avatar = '',
+      avatar,
       description = '',
       rating = 0,
       tasks = 0,
       reviews = 0,
+      specialtyId,
     } = data || {};
 
-    const { onOpen } = useDisclosure();
-    const [imageUpload, setImageUpload] = useState<string | undefined>(
-      undefined,
-    );
-    const [formImage, setFormImage] = useState<FormData | undefined>(undefined);
-    const [imageRemote, setImageRemote] = useState<string | undefined>(
-      avatar.toString(),
-    );
-    const [isShowPassword, setIsShowPassword] = useState<boolean>(false);
+    const { id: avatarId, attributes: attributesAvatar } = avatar?.data || {};
+    const { url = '' } = attributesAvatar || {};
+
+    const { id: specialty } = specialtyId?.data || {};
+
+    const [imageUpload, setImageUpload] = useState<string>('');
+    const [formImage, setFormImage] = useState<FormData | null>(null);
+    const [imageRemote, setImageRemote] = useState<string>(url);
+
     const [error, setError] = useState('');
     const [isPending, setIsPending] = useState(false);
-    const [isShowConfirmPassword, setIsShowConfirmPassword] =
-      useState<boolean>(false);
     const [roles, getRoles] = useState<RolePermission[]>([]);
-    const hiddenFileInput = useRef<HTMLInputElement>(null);
 
     const openToast = useToast();
 
@@ -87,13 +90,13 @@ const ChemistForm = memo(
       mode: 'onBlur',
       reValidateMode: 'onBlur',
       defaultValues: {
-        avatar: avatar.toString(),
+        avatar: url,
         username,
         password,
         confirmPassWord: password,
         email,
         description,
-        specialtyId,
+        specialtyId: String(specialty),
       },
     });
 
@@ -109,16 +112,20 @@ const ChemistForm = memo(
 
     const isEdit = !!data;
 
+    // Handle show hide password
+    const [isShowPassword, setIsShowPassword] = useState<boolean>(false);
+    const [isShowConfirmPassword, setIsShowConfirmPassword] =
+      useState<boolean>(false);
     const handleToggleVisiblePassword = useCallback(
       () => setIsShowPassword((prev) => !prev),
       [],
     );
-
     const handleToggleShowConfirmPassword = useCallback(
       () => setIsShowConfirmPassword((prev) => !prev),
       [],
     );
-    // Handle input changes
+
+    // Handle input file changes
     const handleUpload = (event: React.ChangeEvent<HTMLInputElement>) => {
       const files = event.target.files;
       if (files && files[0]) {
@@ -133,9 +140,10 @@ const ChemistForm = memo(
     };
 
     // Handle remove upload image
+    const hiddenFileInput = useRef<HTMLInputElement>(null);
     const handleRemoveImage = () => {
       setImageUpload('');
-      setFormImage(undefined);
+      setFormImage(null);
       setValue('avatar', '');
       setImageRemote('');
 
@@ -144,11 +152,14 @@ const ChemistForm = memo(
       }
     };
 
+    const handleClick = useCallback(() => {
+      hiddenFileInput.current?.click();
+    }, []);
+
     const handleInputChange = useCallback(
       (name: keyof ChemistFormData, onChange: (value: string) => void) => {
         return (e: ChangeEvent<HTMLInputElement>) => {
           onChange(e.target.value);
-
           // Clear error message on change
           clearErrorOnChange(name, errors, clearErrors);
         };
@@ -156,9 +167,18 @@ const ChemistForm = memo(
       [clearErrors, errors],
     );
 
-    const handleClick = () => {
-      hiddenFileInput.current?.click();
-    };
+    const handleError = useCallback(
+      (error: string) => {
+        setError(error);
+        openToast({
+          message: ERROR_MESSAGE.CREATE('chemist'),
+          type: STATUS_TYPE.ERROR,
+        });
+        setIsPending(false);
+        return;
+      },
+      [openToast],
+    );
 
     // Handle submit form data to create chemist
     const handleSubmitForm: SubmitHandler<ChemistFormData> = useCallback(
@@ -166,59 +186,56 @@ const ChemistForm = memo(
         setError('');
         setIsPending(true);
 
-        const { username, email, password, specialtyId, description } =
+        const { avatar, username, email, password, specialtyId, description } =
           formData;
 
-        const avatar = formImage ? await uploadImage(formImage) : undefined;
+        const avatarUpload = formImage
+          ? await uploadImage(formImage)
+          : undefined;
 
         const payload: UserPayload = {
           username,
           email,
-          password,
           description,
-          avatar: Number(avatar?.image?.[0]?.id),
           specialtyId: Number(specialtyId),
           role: Number(getRoleIdByName(roles, ROLE.NORMAL_USER)),
+          ...(!isEdit && { password }),
+          ...(isEdit
+            ? avatarUpload
+              ? { avatar: Number(avatarUpload?.image?.[0]?.id) }
+              : { avatar: avatar && !avatarUpload ? Number(avatarId) : null }
+            : avatar && { avatar: Number(avatarUpload?.image?.[0]?.id) }),
         };
 
         if (isEdit) {
-          const { error } = await updateUser(String(id), payload);
+          const { error } = await updateUser(id, payload);
 
           if (error) {
-            setError(error);
-            openToast({
-              message: ERROR_MESSAGE.UPDATE('chemist'),
-              type: STATUS_TYPE.ERROR,
-            });
-            setIsPending(false);
+            handleError(error);
             return;
           }
         } else {
           const { user, error } = await addUser(payload);
 
           if (error) {
-            setError(error);
-            openToast({
-              message: ERROR_MESSAGE.CREATE('chemist'),
-              type: STATUS_TYPE.ERROR,
-            });
-            setIsPending(false);
+            handleError(error);
             return;
           }
 
           if (user) {
-            const { id } = user;
-            const { error } = await addUserToChemists({
+            const { id = '' } = user;
+
+            const updateUserResult = await updatePublishUser(id);
+            if (updateUserResult.error) {
+              handleError(updateUserResult.error);
+              return;
+            }
+
+            const addUserResult = await addUserToChemists({
               users_permissions_user: String(id),
             });
-
-            if (error) {
-              setError(error);
-              openToast({
-                message: ERROR_MESSAGE.CREATE('chemist'),
-                type: STATUS_TYPE.ERROR,
-              });
-              setIsPending(false);
+            if (addUserResult.error) {
+              handleError(addUserResult.error);
               return;
             }
 
@@ -230,11 +247,10 @@ const ChemistForm = memo(
             });
           }
         }
-
         setIsPending(false);
         onClose?.();
       },
-      [id, isEdit, formImage, roles, onClose, openToast],
+      [formImage, roles, isEdit, avatarId, onClose, id, handleError, openToast],
     );
 
     return (
@@ -296,7 +312,7 @@ const ChemistForm = memo(
               placeholder="Please enter username"
               type="text"
               size="sm"
-              isDisabled={isLoading}
+              isDisabled={isLoading || isEdit}
               isInvalid={!!error?.message}
               errorMessage={error?.message}
             />
@@ -318,7 +334,7 @@ const ChemistForm = memo(
               placeholder="Please enter email"
               type="text"
               size="sm"
-              isDisabled={isLoading}
+              isDisabled={isLoading || isEdit}
               isInvalid={!!error?.message}
               errorMessage={error?.message}
             />
@@ -326,79 +342,86 @@ const ChemistForm = memo(
           rules={CHEMIST_FORM_VALIDATION.EMAIL}
         />
 
-        {/* Password */}
-        <Controller
-          name="password"
-          control={control}
-          render={({
-            field: { onChange, name, ...rest },
-            fieldState: { error },
-          }) => (
-            <Input
-              {...rest}
-              name={name}
-              label="Password"
-              labelPlacement="outside"
-              size="sm"
-              type={isShowPassword ? 'text' : 'password'}
-              placeholder="Please enter password"
-              endContent={
-                <Button
-                  aria-label="visible password"
-                  onClick={handleToggleVisiblePassword}
-                  isIconOnly
-                  className="p-0 min-w-5 h-5 text-primary-200"
-                >
-                  {isShowPassword ? <EyeIcon /> : <EyeSlashIcon />}
-                </Button>
-              }
-              isDisabled={isLoading || isEdit}
-              isInvalid={!!error?.message}
-              errorMessage={error?.message}
-              onChange={handleInputChange(name, onChange)}
+        {!isEdit && (
+          <>
+            {/* Password */}
+            <Controller
+              name="password"
+              control={control}
+              render={({
+                field: { onChange, name, ...rest },
+                fieldState: { error },
+              }) => (
+                <Input
+                  {...rest}
+                  name={name}
+                  label="Password"
+                  labelPlacement="outside"
+                  size="sm"
+                  type={isShowPassword ? 'text' : 'password'}
+                  placeholder="Please enter password"
+                  endContent={
+                    <Button
+                      aria-label="visible password"
+                      onClick={handleToggleVisiblePassword}
+                      isIconOnly
+                      className="p-0 min-w-5 h-5 text-primary-200"
+                    >
+                      {isShowPassword ? <EyeIcon /> : <EyeSlashIcon />}
+                    </Button>
+                  }
+                  isDisabled={isLoading}
+                  isInvalid={!!error?.message}
+                  errorMessage={error?.message}
+                  onChange={handleInputChange(name, onChange)}
+                />
+              )}
+              rules={CHEMIST_FORM_VALIDATION.PASSWORD(
+                getValues,
+                setFormError,
+                clearErrors,
+                isEdit,
+              )}
             />
-          )}
-          rules={CHEMIST_FORM_VALIDATION.PASSWORD(
-            getValues,
-            setFormError,
-            clearErrors,
-            isEdit,
-          )}
-        />
 
-        {/* Confirm Password */}
-        <Controller
-          name="confirmPassWord"
-          control={control}
-          render={({
-            field: { onChange, name, ...rest },
-            fieldState: { error },
-          }) => (
-            <Input
-              {...rest}
-              size="sm"
-              label="Confirm Password"
-              labelPlacement="outside"
-              type={isShowConfirmPassword ? 'text' : 'password'}
-              placeholder="Please enter confirm password"
-              endContent={
-                <Button
-                  aria-label="visible confirm password"
-                  onClick={handleToggleShowConfirmPassword}
-                  isIconOnly
-                  className="p-0 min-w-5 h-5 text-primary-200"
-                >
-                  {isShowConfirmPassword ? <EyeIcon /> : <EyeSlashIcon />}
-                </Button>
-              }
-              isDisabled={isLoading || isEdit}
-              isInvalid={!!error?.message}
-              errorMessage={error?.message}
-              onChange={handleInputChange(name, onChange)}
+            {/* Confirm Password */}
+            <Controller
+              name="confirmPassWord"
+              control={control}
+              render={({
+                field: { onChange, name, ...rest },
+                fieldState: { error },
+              }) => (
+                <Input
+                  {...rest}
+                  size="sm"
+                  label="Confirm Password"
+                  labelPlacement="outside"
+                  type={isShowConfirmPassword ? 'text' : 'password'}
+                  placeholder="Please enter confirm password"
+                  endContent={
+                    <Button
+                      aria-label="visible confirm password"
+                      onClick={handleToggleShowConfirmPassword}
+                      isIconOnly
+                      className="p-0 min-w-5 h-5 text-primary-200"
+                    >
+                      {isShowConfirmPassword ? <EyeIcon /> : <EyeSlashIcon />}
+                    </Button>
+                  }
+                  isDisabled={isLoading}
+                  isInvalid={!!error?.message}
+                  errorMessage={error?.message}
+                  onChange={handleInputChange(name, onChange)}
+                />
+              )}
+              rules={CHEMIST_FORM_VALIDATION.CONFIRM_PASSWORD(
+                getValues,
+                isEdit,
+              )}
             />
-          )}
-          rules={CHEMIST_FORM_VALIDATION.CONFIRM_PASSWORD(getValues, isEdit)}
-        />
+          </>
+        )}
 
         {/* Specialty */}
         <Controller
@@ -424,7 +447,7 @@ const ChemistForm = memo(
                 value: 'text-sm text-primary-100',
               }}
               isDisabled={isLoading}
-              defaultSelectedKeys={value}
+              defaultSelectedKeys={[value]}
               options={specialtyOptions}
               isInvalid={!!error?.message}
               errorMessage={error?.message}
@@ -450,7 +473,8 @@ const ChemistForm = memo(
               value={value}
               size="sm"
               classNames={{
-                inputWrapper: 'border-primary-100 border-[1px]',
+                inputWrapper:
+                  'border-text-foreground border-1 data-[focus=true]:border-secondary-300 group-data-[focus-visible=true]:ring-0',
                 errorMessage: 'text-danger text-xs ml-2',
                 label: 'text-sm',
               }}
@@ -471,7 +495,7 @@ const ChemistForm = memo(
           )}
           <div className="w-full gap-2 flex justify-end">
             <Button
-              onClick={onOpen}
+              onClick={onClose}
               variant="outline"
               color="outline"
               className="font-medium"
