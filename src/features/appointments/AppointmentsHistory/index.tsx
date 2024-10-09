@@ -155,6 +155,7 @@ const AppointmentsHistory = ({
   );
 
   const columns = createColumns({
+    userId,
     isAdmin,
     onEdit: handleOpenEditModal,
     onRemoveOrCancel: handleOpenConfirmModal,
