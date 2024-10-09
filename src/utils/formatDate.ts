@@ -37,7 +37,7 @@ export const formatTimeAppointment = ({
   const [hours, minutes, _] = duration.split(':').map(Number);
   const endTime = startTime.add(hours, 'hour').add(minutes, 'minute');
 
-  return `${startTime.format('h:mm A')} to ${endTime.format('h:mm A')}`;
+  return `${startTime.format('h:mm a')} to ${endTime.format('h:mm a')}`;
 };
 
 /**
