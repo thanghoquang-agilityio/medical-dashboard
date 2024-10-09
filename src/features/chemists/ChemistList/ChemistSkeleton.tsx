@@ -27,7 +27,7 @@ export const ChemistListSkeleton = memo(() => {
                     <Skeleton className="w-32 h-4 rounded-small" />
                   </div>
                 </div>
-                <Button color="default" className="text-minty-green">
+                <Button color="default" className="text-green">
                   Book
                 </Button>
               </div>
