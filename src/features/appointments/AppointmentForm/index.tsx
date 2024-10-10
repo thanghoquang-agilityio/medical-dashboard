@@ -41,14 +41,14 @@ import { useToast } from '@/context/toast';
 // Actions
 import { getUsers } from '@/actions/user';
 import { addAppointment, updateAppointment } from '@/actions/appointment';
-import { createNotifications } from '@/services/notificationFirebase';
+// import { createNotifications } from '@/services/notificationFirebase';
 
 // Rules
 import { APPOINTMENT_FORM_VALIDATION } from './rule';
+import { useCreateNotification } from '@/hocs/useNotification';
 
 export type AppointmentModalProps = {
-  userId: string;
-  role: string;
+  userLogged: UserLogged | null;
   id?: string;
   data?: AppointmentModel;
   onClose: () => void;
@@ -71,7 +71,10 @@ export interface AppointMentForm
 }
 
 const AppointmentForm = memo(
-  ({ userId, role, data, onClose, id = '' }: AppointmentModalProps) => {
+  ({ userLogged, data, onClose, id = '' }: AppointmentModalProps) => {
+    const { id: userId = '', role: roleModel } = userLogged || {};
+    const { name: role = ROLE.NORMAL_USER } = roleModel || {};
+
     const {
       startTime = '',
       durationTime = '',
@@ -126,6 +129,10 @@ const AppointmentForm = memo(
     const OPTION_USERS = transformUsers(users);
     const isEdit = !!data;
 
+    const { handleCreateNotification } = useCreateNotification({
+      userLogged,
+    });
+
     const onSubmit = async ({
       startDate,
       startTime,
@@ -141,22 +148,20 @@ const AppointmentForm = memo(
       setError('');
       setIsPending(true);
       let error: string | null;
-      let appointmentCreated: AppointmentResponse | null;
+      let newAppointment: AppointmentResponse | null;
 
-      if (isEdit) error = (await updateAppointment(id, formatData)).error;
-      else {
-        const { error: errorCreated, appointment } =
+      if (isEdit) {
+        const { error: errorUpdate, appointment } = await updateAppointment(
+          id,
+          formatData,
+        );
+        error = errorUpdate;
+        newAppointment = appointment;
+      } else {
+        const { error: errorCreate, appointment } =
           await addAppointment(formatData);
-        error = errorCreated;
-        appointmentCreated = appointment;
-        const { id = '', attributes = {} as AppointmentModel } =
-          appointmentCreated || {};
-
-        await createNotifications({
-          appointment: attributes,
-          idAppointment: id,
-          message: 'have been created appointment',
-        });
+        error = errorCreate;
+        newAppointment = appointment;
       }
 
       if (error) {
@@ -172,12 +177,27 @@ const AppointmentForm = memo(
         return;
       }
 
-      openToast({
-        message: isEdit
-          ? SUCCESS_MESSAGE.UPDATE('appointment')
-          : SUCCESS_MESSAGE.CREATE('appointment'),
-        type: STATUS_TYPE.SUCCESS,
-      });
+      if (newAppointment) {
+        openToast({
+          message: isEdit
+            ? SUCCESS_MESSAGE.UPDATE('appointment')
+            : SUCCESS_MESSAGE.CREATE('appointment'),
+          type: STATUS_TYPE.SUCCESS,
+        });
+
+        handleCreateNotification(
+          newAppointment,
+          isEdit ? 'updated' : 'created',
+        );
+
+        // TODO: create notifications in firebase
+        // const { id = '', attributes = {} as AppointmentModel } = newAppointment;
+        // await createNotifications({
+        //   appointment: attributes,
+        //   idAppointment: id,
+        //   message: 'have been created appointment',
+        // });
+      }
     };
 
     const durationTimeOptions = generateTimeOptions();

@@ -15,7 +15,7 @@ import { DIRECTION, ROLE, SearchParams } from '@/types';
 import { auth } from '@/config/auth';
 
 // Services
-import { getAppointments } from '@/services';
+import { getAppointments, getUserLogged } from '@/services';
 
 // Components
 import { AppointmentsHistorySkeleton } from '@/features/appointments/AppointmentsHistory/AppointmentsHistorySkeleton';
@@ -43,7 +43,14 @@ const AppointmentPage = async ({
     status = '',
   } = searchParams as AppointmentPageSearchParamsProps;
 
-  const { id = '', role = ROLE.NORMAL_USER } = (await auth())?.user || {};
+  const {
+    id = '',
+    role = ROLE.NORMAL_USER,
+    token = '',
+  } = (await auth())?.user || {};
+
+  const { user: userLogged } = await getUserLogged(token);
+
   const searchParamsAPI = new URLSearchParams();
   const APPOINTMENT_SEARCH_PARAMS = ['receiverId', 'senderId'];
 
@@ -105,8 +112,7 @@ const AppointmentPage = async ({
       <AppointmentsHistory
         appointments={appointments || []}
         pagination={meta?.pagination}
-        userId={id}
-        role={role}
+        userLogged={userLogged}
         defaultStatus={status}
       />
     </Suspense>

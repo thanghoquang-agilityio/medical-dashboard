@@ -31,3 +31,6 @@ export const SUCCESS_MESSAGE = {
   UPDATE: (item: string) => `Update ${item} successfully.`,
   CANCEL: (item: string) => `Cancel ${item} successfully.`,
 };
+
+export const NOTIFICATION_CONTENT = (action: string) =>
+  `have been ${action} appointment`;
