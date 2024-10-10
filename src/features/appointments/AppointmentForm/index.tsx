@@ -73,8 +73,8 @@ export interface AppointMentForm
 const AppointmentForm = memo(
   ({ userId, role, data, onClose, id = '' }: AppointmentModalProps) => {
     const {
-      startTime = '',
-      durationTime = '',
+      startTime,
+      durationTime,
       status = 0,
       senderId: senderResponse,
       receiverId: receiverResponse,
@@ -101,8 +101,9 @@ const AppointmentForm = memo(
       reValidateMode: 'onBlur',
       defaultValues: {
         startDate: startTime && getCurrentDate(startTime),
-        startTime: convertToTimeObject(startTime),
-        durationTime: convertTimeToMinutes(durationTime).toString(),
+        startTime: startTime && convertToTimeObject(startTime),
+        durationTime:
+          durationTime && convertTimeToMinutes(durationTime).toString(),
         status: status,
         senderId: isAdmin ? senderId.toString() : userId,
         receiverId: receiverId.toString(),
