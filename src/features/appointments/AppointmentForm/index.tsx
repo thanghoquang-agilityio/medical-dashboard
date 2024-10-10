@@ -76,8 +76,8 @@ const AppointmentForm = memo(
     const { name: role = ROLE.NORMAL_USER } = roleModel || {};
 
     const {
-      startTime = '',
-      durationTime = '',
+      startTime,
+      durationTime,
       status = 0,
       senderId: senderResponse,
       receiverId: receiverResponse,
@@ -104,8 +104,9 @@ const AppointmentForm = memo(
       reValidateMode: 'onBlur',
       defaultValues: {
         startDate: startTime && getCurrentDate(startTime),
-        startTime: convertToTimeObject(startTime),
-        durationTime: convertTimeToMinutes(durationTime).toString(),
+        startTime: startTime && convertToTimeObject(startTime),
+        durationTime:
+          durationTime && convertTimeToMinutes(durationTime).toString(),
         status: status,
         senderId: isAdmin ? senderId.toString() : userId.toString(),
         receiverId: receiverId.toString(),
