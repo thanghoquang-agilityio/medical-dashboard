@@ -5,7 +5,7 @@ import { act, fireEvent, render, screen } from '@testing-library/react';
 import { PRIVATE_ROUTES } from '@/constants';
 
 // Mocks
-import { MOCK_APPOINTMENTS } from '@/mocks';
+import { MOCK_APPOINTMENTS, MOCK_USERS_LOGGED } from '@/mocks';
 
 // Components
 import AppointmentsUpcomingList, {
@@ -21,6 +21,12 @@ jest.mock('next/navigation', () => ({
   useSearchParams: jest.fn(),
   useRouter: jest.fn(),
 }));
+
+jest.mock('@/utils', () => ({
+  ...jest.requireActual('@/utils'),
+  cn: jest.fn(() => 'mocked-class'),
+}));
+
 describe('AppointmentsUpComingList test cases', () => {
   const mockProps: AppointmentsUpcomingListProps = {
     appointments: MOCK_APPOINTMENTS,
@@ -31,7 +37,7 @@ describe('AppointmentsUpComingList test cases', () => {
       pageCount: 1,
       total: 3,
     },
-    role: 'Admin',
+    userLogged: MOCK_USERS_LOGGED[0],
   };
   const mockReplace = jest.fn();
   const mockUsePathname = usePathname as jest.Mock;

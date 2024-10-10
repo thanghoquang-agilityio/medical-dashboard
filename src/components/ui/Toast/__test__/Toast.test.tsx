@@ -6,6 +6,10 @@ import { STATUS_TYPE } from '@/types';
 // Components
 import { Toast } from '..';
 
+jest.mock('@/utils', () => ({
+  cn: jest.fn(() => 'mocked-class'),
+}));
+
 describe('Toast component', () => {
   const mockOnClose = jest.fn();
 
