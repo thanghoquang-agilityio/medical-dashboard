@@ -43,13 +43,11 @@ const AppointmentPage = async ({
     status = '',
   } = searchParams as AppointmentPageSearchParamsProps;
 
-  const {
-    id = '',
-    role = ROLE.NORMAL_USER,
-    token = '',
-  } = (await auth())?.user || {};
+  const { token = '' } = (await auth())?.user || {};
 
   const { user: userLogged } = await getUserLogged(token);
+  const { id = '', role: roleModel } = userLogged || {};
+  const { name: role = ROLE.NORMAL_USER } = roleModel || {};
 
   const searchParamsAPI = new URLSearchParams();
   const APPOINTMENT_SEARCH_PARAMS = ['receiverId', 'senderId'];

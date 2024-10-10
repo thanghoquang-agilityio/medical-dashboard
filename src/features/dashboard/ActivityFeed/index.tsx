@@ -1,17 +1,10 @@
-'use client';
-
-import { Suspense, lazy, useEffect, useMemo, useRef, useState } from 'react';
+import { Suspense, lazy, useMemo } from 'react';
 
 // Types
-import { MetaResponse, NotificationResponse, ROLE } from '@/types';
+import { ROLE, UserLogged } from '@/types';
 
 // Constants
-import {
-  API_ENDPOINT,
-  PAGE_SIZE_DEFAULT,
-  PAGINATION_DEFAULT,
-  PRIVATE_ROUTES,
-} from '@/constants';
+import { API_ENDPOINT, PAGE_SIZE_DEFAULT, PRIVATE_ROUTES } from '@/constants';
 
 // Actions
 import { getNotifications } from '@/actions/notification';
@@ -20,17 +13,12 @@ const ActivityFeedList = lazy(() => import('./ActivityFeedList'));
 
 export interface ActivityFeedProps {
   page: number;
-  userId: string;
-  role: string;
+  userLogged: UserLogged | null;
 }
 
-const ActivityFeed = ({ page, userId, role }: ActivityFeedProps) => {
-  const [lastFetchedPage, setLastFetchedPage] = useState(page);
-  const [isLoading, setIsLoading] = useState(true);
-  const [notifications, setNotifications] = useState<NotificationResponse[]>(
-    [],
-  );
-  const [meta, setMeta] = useState<MetaResponse>(PAGINATION_DEFAULT);
+const ActivityFeed = async ({ page, userLogged }: ActivityFeedProps) => {
+  const { id: userId = '', role: roleModel } = userLogged || {};
+  const { name: role = ROLE.NORMAL_USER } = roleModel || {};
 
   const searchParamsAPI = useMemo(() => {
     const params = new URLSearchParams();
@@ -45,52 +33,30 @@ const ActivityFeed = ({ page, userId, role }: ActivityFeedProps) => {
     return params;
   }, [page, userId, role]);
 
-  const isFirstRender = useRef(true); // Move useRef outside of useEffect
+  const { notifications, error, ...meta } = await getNotifications({
+    searchParams: searchParamsAPI,
+    options: {
+      next: {
+        tags: [
+          API_ENDPOINT.NOTIFICATIONS,
+          `${PRIVATE_ROUTES.DASHBOARD}/${userId}`,
+        ],
+      },
+    },
+  });
 
-  useEffect(() => {
-    setIsLoading(true);
-    const fetchNotifications = async () => {
-      const { notifications, error, ...meta } = await getNotifications({
-        searchParams: searchParamsAPI,
-        options: {
-          next: {
-            tags: [
-              API_ENDPOINT.NOTIFICATIONS,
-              `${PRIVATE_ROUTES.DASHBOARD}/${userId}`,
-            ],
-          },
-        },
-      });
-
-      if (error) throw error;
-      setNotifications(notifications);
-      setMeta(meta);
-      setIsLoading(false);
-    };
-
-    if (isFirstRender.current || page !== lastFetchedPage) {
-      setLastFetchedPage(page);
-      fetchNotifications();
-      isFirstRender.current = false; // Update after the first call
-    }
-  }, [page, lastFetchedPage, searchParamsAPI, userId]);
+  if (error) throw error;
 
   return (
-    <>
-      {isLoading ? (
-        <ActivityFeedSkeleton />
-      ) : (
-        <Suspense fallback={<ActivityFeedSkeleton />}>
-          <ActivityFeedList
-            userId={userId}
-            notifications={notifications || []}
-            pagination={
-              meta.pagination && { ...meta.pagination, page: Number(page) }
-            }
-          />
-        </Suspense>
-      )}
-    </>
+    <Suspense fallback={<ActivityFeedSkeleton />}>
+      <ActivityFeedList
+        userId={userId}
+        notifications={notifications || []}
+        pagination={
+          meta.pagination && { ...meta.pagination, page: Number(page) }
+        }
+      />
+    </Suspense>
   );
 };
 

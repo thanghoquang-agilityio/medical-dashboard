@@ -107,7 +107,7 @@ const AppointmentForm = memo(
         startTime: convertToTimeObject(startTime),
         durationTime: convertTimeToMinutes(durationTime).toString(),
         status: status,
-        senderId: isAdmin ? senderId.toString() : userId,
+        senderId: isAdmin ? senderId.toString() : userId.toString(),
         receiverId: receiverId.toString(),
       },
     });
@@ -222,6 +222,7 @@ const AppointmentForm = memo(
       if (watch('startDate') && dirtyFields.startTime) {
         trigger('startTime');
       }
+      // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [watch('startDate')]);
 
     return (
@@ -249,7 +250,7 @@ const AppointmentForm = memo(
                   labelPlacement="outside"
                   variant="bordered"
                   classNames={selectCustomStyle}
-                  defaultSelectedKeys={!isAdmin ? [userId] : [value]}
+                  defaultSelectedKeys={!isAdmin ? [userId.toString()] : [value]}
                   isDisabled={isEdit || !isAdmin}
                   options={OPTION_USERS}
                   isInvalid={!!error?.message}
