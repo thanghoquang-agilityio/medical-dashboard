@@ -16,7 +16,7 @@ exports[`AppointmentsHistory Component should render correctly when appointments
         data-slot="main-wrapper"
       >
         <div
-          class="relative w-full inline-flex tap-highlight-transparent flex-row items-center shadow-sm px-3 gap-3 data-[hover=true]:bg-default-200 group-data-[focus=true]:bg-default-100 min-h-10 rounded-medium transition-background motion-reduce:transition-none !duration-150 outline-none group-data-[focus-visible=true]:z-10 group-data-[focus-visible=true]:ring-2 group-data-[focus-visible=true]:ring-focus group-data-[focus-visible=true]:ring-offset-2 group-data-[focus-visible=true]:ring-offset-background bg-transparent border-text-foreground !bg-transparent data-[hover=true]:!bg-transparent group-data-[focus=true]:ring-0 group-data-[focus=true]:ring-offset-0 group-data-[focus=true]:!bg-transparent data-[focus=true]:border-secondary-300 group-data-[invalid=true]:border-red py-4 border h-[52px]"
+          class="relative w-full inline-flex tap-highlight-transparent flex-row items-center shadow-sm px-3 gap-3 data-[hover=true]:bg-default-200 group-data-[focus=true]:bg-default-100 min-h-10 rounded-medium transition-background motion-reduce:transition-none !duration-150 outline-none group-data-[focus-visible=true]:z-10 group-data-[focus-visible=true]:ring-2 group-data-[focus-visible=true]:ring-focus group-data-[focus-visible=true]:ring-offset-2 group-data-[focus-visible=true]:ring-offset-background bg-transparent border-text-foreground !bg-transparent data-[hover=true]:!bg-transparent group-data-[focus=true]:ring-0 group-data-[focus=true]:ring-offset-0 group-data-[focus=true]:!bg-transparent data-[focus=true]:border-secondary-300 group-data-[invalid=true]:border-danger-100 py-4 border h-[52px]"
           data-slot="input-wrapper"
           style="cursor: text;"
         >
@@ -62,7 +62,7 @@ exports[`AppointmentsHistory Component should render correctly when appointments
             </svg>
             <input
               aria-label="Search Appointments"
-              class="w-full font-normal !outline-none focus-visible:outline-none data-[has-start-content=true]:ps-1.5 data-[has-end-content=true]:pe-1.5 file:cursor-pointer file:bg-transparent file:border-0 autofill:bg-transparent bg-clip-text peer pr-6 rtl:pr-0 rtl:pl-6 group-data-[has-value=true]:text-default-foreground text-primary-100 placeholder:text-primary-300 bg-transparent text-sm mx-2"
+              class="w-full font-normal !outline-none focus-visible:outline-none data-[has-start-content=true]:ps-1.5 data-[has-end-content=true]:pe-1.5 file:cursor-pointer file:bg-transparent file:border-0 autofill:bg-transparent bg-clip-text peer pr-6 rtl:pr-0 rtl:pl-6 group-data-[has-value=true]:text-default-foreground text-primary-100 placeholder:text-primary-300 bg-transparent text-sm mx-2 group-data-[invalid=true]:!text-danger-100"
               data-has-start-content="true"
               data-slot="input"
               id="react-aria-:r42:"
@@ -166,17 +166,17 @@ exports[`AppointmentsHistory Component should render correctly when appointments
               aria-haspopup="listbox"
               aria-label="Status"
               aria-labelledby="react-aria-:r4e: react-aria-:r49:"
-              class="relative gap-3 w-full inline-flex flex-row items-center shadow-sm tap-highlight-transparent group-data-[focus=true]:bg-default-100 outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 px-2.5 py-2 h-[46px] rounded-medium bg-background-100 shadow-stack border-1 outline-offset-0 data-[focus=true]:border-green data-[focus=true]:border-1 data-[focus=true]:bg-background-100 data-[hover=true]:bg-background-100 group-data-[invalid=true]:border-red min-h-[36px]"
+              class="relative gap-3 w-full inline-flex flex-row items-center shadow-sm tap-highlight-transparent group-data-[focus=true]:bg-default-100 outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 px-2.5 py-2 h-[46px] rounded-medium bg-background-100 shadow-stack border-1 outline-offset-0 data-[focus=true]:border-green data-[focus=true]:border-1 data-[focus=true]:bg-background-100 data-[hover=true]:bg-background-100 group-data-[invalid=true]:!border-danger-100 min-h-[36px]"
               data-slot="trigger"
               id="react-aria-:r49:"
               type="button"
             >
               <div
-                class="inline-flex h-full min-h-4 items-center gap-1.5 box-border text-xs leading-[18px] w-[80px]"
+                class="inline-flex h-full min-h-4 items-center gap-1.5 box-border text-xs leading-[18px] group-data-[invalid=true]:!text-danger-100 w-[80px]"
                 data-slot="innerWrapper"
               >
                 <span
-                  class="w-full text-left rtl:text-right truncate group-data-[has-value=true]:text-default-foreground text-xs text-primary-100 font-medium"
+                  class="w-full text-left rtl:text-right truncate group-data-[has-value=true]:text-default-foreground text-xs group-data-[invalid=true]:!text-danger-100 text-primary-100 font-medium"
                   data-slot="value"
                   id="react-aria-:r4e:"
                 >
@@ -234,12 +234,12 @@ exports[`AppointmentsHistory Component should render correctly when appointments
               >
                 <th
                   class="group px-3 h-10 align-middle bg-default-100 whitespace-nowrap text-foreground-500 text-tiny font-semibold first:rounded-s-lg last:rounded-e-lg data-[sortable=true]:cursor-pointer data-[hover=true]:text-foreground-400 outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-start"
-                  data-key="receiverId"
-                  id="table-receiverId"
+                  data-key="senderId"
+                  id="table-senderId"
                   role="columnheader"
                   tabindex="-1"
                 >
-                  Receiver
+                  Sender
                 </th>
                 <th
                   class="group px-3 h-10 align-middle bg-default-100 whitespace-nowrap text-foreground-500 text-tiny font-semibold first:rounded-s-lg last:rounded-e-lg data-[sortable=true]:cursor-pointer data-[hover=true]:text-foreground-400 outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-start"
@@ -325,7 +325,7 @@ exports[`AppointmentsHistory Component should render correctly with admin role w
         data-slot="main-wrapper"
       >
         <div
-          class="relative w-full inline-flex tap-highlight-transparent flex-row items-center shadow-sm px-3 gap-3 data-[hover=true]:bg-default-200 group-data-[focus=true]:bg-default-100 min-h-10 rounded-medium transition-background motion-reduce:transition-none !duration-150 outline-none group-data-[focus-visible=true]:z-10 group-data-[focus-visible=true]:ring-2 group-data-[focus-visible=true]:ring-focus group-data-[focus-visible=true]:ring-offset-2 group-data-[focus-visible=true]:ring-offset-background bg-transparent border-text-foreground !bg-transparent data-[hover=true]:!bg-transparent group-data-[focus=true]:ring-0 group-data-[focus=true]:ring-offset-0 group-data-[focus=true]:!bg-transparent data-[focus=true]:border-secondary-300 group-data-[invalid=true]:border-red py-4 border h-[52px]"
+          class="relative w-full inline-flex tap-highlight-transparent flex-row items-center shadow-sm px-3 gap-3 data-[hover=true]:bg-default-200 group-data-[focus=true]:bg-default-100 min-h-10 rounded-medium transition-background motion-reduce:transition-none !duration-150 outline-none group-data-[focus-visible=true]:z-10 group-data-[focus-visible=true]:ring-2 group-data-[focus-visible=true]:ring-focus group-data-[focus-visible=true]:ring-offset-2 group-data-[focus-visible=true]:ring-offset-background bg-transparent border-text-foreground !bg-transparent data-[hover=true]:!bg-transparent group-data-[focus=true]:ring-0 group-data-[focus=true]:ring-offset-0 group-data-[focus=true]:!bg-transparent data-[focus=true]:border-secondary-300 group-data-[invalid=true]:border-danger-100 py-4 border h-[52px]"
           data-slot="input-wrapper"
           style="cursor: text;"
         >
@@ -371,7 +371,7 @@ exports[`AppointmentsHistory Component should render correctly with admin role w
             </svg>
             <input
               aria-label="Search Appointments"
-              class="w-full font-normal !outline-none focus-visible:outline-none data-[has-start-content=true]:ps-1.5 data-[has-end-content=true]:pe-1.5 file:cursor-pointer file:bg-transparent file:border-0 autofill:bg-transparent bg-clip-text peer pr-6 rtl:pr-0 rtl:pl-6 group-data-[has-value=true]:text-default-foreground text-primary-100 placeholder:text-primary-300 bg-transparent text-sm mx-2"
+              class="w-full font-normal !outline-none focus-visible:outline-none data-[has-start-content=true]:ps-1.5 data-[has-end-content=true]:pe-1.5 file:cursor-pointer file:bg-transparent file:border-0 autofill:bg-transparent bg-clip-text peer pr-6 rtl:pr-0 rtl:pl-6 group-data-[has-value=true]:text-default-foreground text-primary-100 placeholder:text-primary-300 bg-transparent text-sm mx-2 group-data-[invalid=true]:!text-danger-100"
               data-has-start-content="true"
               data-slot="input"
               id="react-aria-:r32:"
@@ -475,17 +475,17 @@ exports[`AppointmentsHistory Component should render correctly with admin role w
               aria-haspopup="listbox"
               aria-label="Status"
               aria-labelledby="react-aria-:r3e: react-aria-:r39:"
-              class="relative gap-3 w-full inline-flex flex-row items-center shadow-sm tap-highlight-transparent group-data-[focus=true]:bg-default-100 outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 px-2.5 py-2 h-[46px] rounded-medium bg-background-100 shadow-stack border-1 outline-offset-0 data-[focus=true]:border-green data-[focus=true]:border-1 data-[focus=true]:bg-background-100 data-[hover=true]:bg-background-100 group-data-[invalid=true]:border-red min-h-[36px]"
+              class="relative gap-3 w-full inline-flex flex-row items-center shadow-sm tap-highlight-transparent group-data-[focus=true]:bg-default-100 outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 px-2.5 py-2 h-[46px] rounded-medium bg-background-100 shadow-stack border-1 outline-offset-0 data-[focus=true]:border-green data-[focus=true]:border-1 data-[focus=true]:bg-background-100 data-[hover=true]:bg-background-100 group-data-[invalid=true]:!border-danger-100 min-h-[36px]"
               data-slot="trigger"
               id="react-aria-:r39:"
               type="button"
             >
               <div
-                class="inline-flex h-full min-h-4 items-center gap-1.5 box-border text-xs leading-[18px] w-[80px]"
+                class="inline-flex h-full min-h-4 items-center gap-1.5 box-border text-xs leading-[18px] group-data-[invalid=true]:!text-danger-100 w-[80px]"
                 data-slot="innerWrapper"
               >
                 <span
-                  class="w-full text-left rtl:text-right truncate group-data-[has-value=true]:text-default-foreground text-xs text-primary-100 font-medium"
+                  class="w-full text-left rtl:text-right truncate group-data-[has-value=true]:text-default-foreground text-xs group-data-[invalid=true]:!text-danger-100 text-primary-100 font-medium"
                   data-slot="value"
                   id="react-aria-:r3e:"
                 >
@@ -549,15 +549,6 @@ exports[`AppointmentsHistory Component should render correctly with admin role w
                   tabindex="-1"
                 >
                   Sender
-                </th>
-                <th
-                  class="group px-3 h-10 align-middle bg-default-100 whitespace-nowrap text-foreground-500 text-tiny font-semibold first:rounded-s-lg last:rounded-e-lg data-[sortable=true]:cursor-pointer data-[hover=true]:text-foreground-400 outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-start"
-                  data-key="receiverId"
-                  id="table-receiverId"
-                  role="columnheader"
-                  tabindex="-1"
-                >
-                  Receiver
                 </th>
                 <th
                   class="group px-3 h-10 align-middle bg-default-100 whitespace-nowrap text-foreground-500 text-tiny font-semibold first:rounded-s-lg last:rounded-e-lg data-[sortable=true]:cursor-pointer data-[hover=true]:text-foreground-400 outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-start"
@@ -625,7 +616,7 @@ exports[`AppointmentsHistory Component should render correctly with admin role w
                     class="flex gap-2 items-center"
                   >
                     <span
-                      class="flex relative justify-center items-center box-border overflow-hidden align-middle z-0 outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-tiny text-default-foreground rounded-full ring-2 ring-offset-background dark:ring-offset-background-dark min-w-8 w-8 h-8 bg-undefined ring-offset-2 ring-green shrink-0"
+                      class="flex relative justify-center items-center box-border overflow-hidden align-middle z-0 outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-tiny text-default-foreground rounded-full ring-offset-background dark:ring-offset-background-dark min-w-8 w-8 h-8 bg-undefined ring-offset-2 ring-1 ring-green shrink-0"
                       tabindex="-1"
                     >
                       <img
@@ -661,55 +652,6 @@ exports[`AppointmentsHistory Component should render correctly with admin role w
                       class="text-primary-100 font-medium text-sm text-ellipsis whitespace-nowrap overflow-hidden"
                     >
                       Alex Stanton
-                    </p>
-                  </div>
-                </td>
-                <td
-                  class="relative align-middle whitespace-normal text-small font-normal [&>*]:z-1 [&>*]:relative outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 before:content-[''] before:absolute before:z-0 before:inset-0 before:opacity-0 data-[selected=true]:before:opacity-100 group-data-[disabled=true]:text-foreground-300 group-data-[disabled=true]:cursor-not-allowed before:bg-default/60 data-[selected=true]:text-default-foreground first:before:rounded-s-lg last:before:rounded-e-lg text-start p-0 py-3 border-0 border-primary-100 border-b border-opacity-10"
-                  data-key="table-row-cell-receiverId"
-                  role="gridcell"
-                  tabindex="-1"
-                >
-                  <div
-                    class="flex gap-2 items-center"
-                  >
-                    <span
-                      class="flex relative justify-center items-center box-border overflow-hidden align-middle z-0 outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-tiny text-default-foreground rounded-full ring-2 ring-offset-background dark:ring-offset-background-dark min-w-8 w-8 h-8 bg-undefined ring-offset-2 ring-green shrink-0"
-                      tabindex="-1"
-                    >
-                      <img
-                        alt="avatar"
-                        class="flex object-cover w-full h-full transition-opacity !duration-500 opacity-0 data-[loaded=true]:opacity-100"
-                        src="http://localhost:1341"
-                      />
-                      <span
-                        aria-label="avatar"
-                        class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex items-center justify-center text-inherit w-full h-full"
-                        role="img"
-                      >
-                        <svg
-                          aria-hidden="true"
-                          fill="none"
-                          height="80%"
-                          role="presentation"
-                          viewBox="0 0 24 24"
-                          width="80%"
-                        >
-                          <path
-                            d="M12 2C9.38 2 7.25 4.13 7.25 6.75C7.25 9.32 9.26 11.4 11.88 11.49C11.96 11.48 12.04 11.48 12.1 11.49C12.12 11.49 12.13 11.49 12.15 11.49C12.16 11.49 12.16 11.49 12.17 11.49C14.73 11.4 16.74 9.32 16.75 6.75C16.75 4.13 14.62 2 12 2Z"
-                            fill="currentColor"
-                          />
-                          <path
-                            d="M17.0809 14.1489C14.2909 12.2889 9.74094 12.2889 6.93094 14.1489C5.66094 14.9989 4.96094 16.1489 4.96094 17.3789C4.96094 18.6089 5.66094 19.7489 6.92094 20.5889C8.32094 21.5289 10.1609 21.9989 12.0009 21.9989C13.8409 21.9989 15.6809 21.5289 17.0809 20.5889C18.3409 19.7389 19.0409 18.5989 19.0409 17.3589C19.0309 16.1289 18.3409 14.9889 17.0809 14.1489Z"
-                            fill="currentColor"
-                          />
-                        </svg>
-                      </span>
-                    </span>
-                    <p
-                      class="text-primary-100 font-medium text-sm text-ellipsis whitespace-nowrap overflow-hidden"
-                    >
-                      Jessica Jane
                     </p>
                   </div>
                 </td>
@@ -818,7 +760,7 @@ exports[`AppointmentsHistory Component should render correctly with admin role w
                     class="flex gap-2 items-center"
                   >
                     <span
-                      class="flex relative justify-center items-center box-border overflow-hidden align-middle z-0 outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-tiny text-default-foreground rounded-full ring-2 ring-offset-background dark:ring-offset-background-dark min-w-8 w-8 h-8 bg-undefined ring-offset-2 ring-green shrink-0"
+                      class="flex relative justify-center items-center box-border overflow-hidden align-middle z-0 outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-tiny text-default-foreground rounded-full ring-offset-background dark:ring-offset-background-dark min-w-8 w-8 h-8 bg-undefined ring-offset-2 ring-1 ring-green shrink-0"
                       tabindex="-1"
                     >
                       <img
@@ -854,55 +796,6 @@ exports[`AppointmentsHistory Component should render correctly with admin role w
                       class="text-primary-100 font-medium text-sm text-ellipsis whitespace-nowrap overflow-hidden"
                     >
                       Alex Stanton
-                    </p>
-                  </div>
-                </td>
-                <td
-                  class="relative align-middle whitespace-normal text-small font-normal [&>*]:z-1 [&>*]:relative outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 before:content-[''] before:absolute before:z-0 before:inset-0 before:opacity-0 data-[selected=true]:before:opacity-100 group-data-[disabled=true]:text-foreground-300 group-data-[disabled=true]:cursor-not-allowed before:bg-default/60 data-[selected=true]:text-default-foreground first:before:rounded-s-lg last:before:rounded-e-lg text-start p-0 py-3 border-0 border-primary-100 border-b border-opacity-10"
-                  data-key="table-row-cell-receiverId"
-                  role="gridcell"
-                  tabindex="-1"
-                >
-                  <div
-                    class="flex gap-2 items-center"
-                  >
-                    <span
-                      class="flex relative justify-center items-center box-border overflow-hidden align-middle z-0 outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-tiny text-default-foreground rounded-full ring-2 ring-offset-background dark:ring-offset-background-dark min-w-8 w-8 h-8 bg-undefined ring-offset-2 ring-green shrink-0"
-                      tabindex="-1"
-                    >
-                      <img
-                        alt="avatar"
-                        class="flex object-cover w-full h-full transition-opacity !duration-500 opacity-0 data-[loaded=true]:opacity-100"
-                        src="http://localhost:1341"
-                      />
-                      <span
-                        aria-label="avatar"
-                        class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex items-center justify-center text-inherit w-full h-full"
-                        role="img"
-                      >
-                        <svg
-                          aria-hidden="true"
-                          fill="none"
-                          height="80%"
-                          role="presentation"
-                          viewBox="0 0 24 24"
-                          width="80%"
-                        >
-                          <path
-                            d="M12 2C9.38 2 7.25 4.13 7.25 6.75C7.25 9.32 9.26 11.4 11.88 11.49C11.96 11.48 12.04 11.48 12.1 11.49C12.12 11.49 12.13 11.49 12.15 11.49C12.16 11.49 12.16 11.49 12.17 11.49C14.73 11.4 16.74 9.32 16.75 6.75C16.75 4.13 14.62 2 12 2Z"
-                            fill="currentColor"
-                          />
-                          <path
-                            d="M17.0809 14.1489C14.2909 12.2889 9.74094 12.2889 6.93094 14.1489C5.66094 14.9989 4.96094 16.1489 4.96094 17.3789C4.96094 18.6089 5.66094 19.7489 6.92094 20.5889C8.32094 21.5289 10.1609 21.9989 12.0009 21.9989C13.8409 21.9989 15.6809 21.5289 17.0809 20.5889C18.3409 19.7389 19.0409 18.5989 19.0409 17.3589C19.0309 16.1289 18.3409 14.9889 17.0809 14.1489Z"
-                            fill="currentColor"
-                          />
-                        </svg>
-                      </span>
-                    </span>
-                    <p
-                      class="text-primary-100 font-medium text-sm text-ellipsis whitespace-nowrap overflow-hidden"
-                    >
-                      ThangHq
                     </p>
                   </div>
                 </td>
@@ -1010,7 +903,7 @@ exports[`AppointmentsHistory Component should render correctly with admin role w
                     class="flex gap-2 items-center"
                   >
                     <span
-                      class="flex relative justify-center items-center box-border overflow-hidden align-middle z-0 outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-tiny text-default-foreground rounded-full ring-2 ring-offset-background dark:ring-offset-background-dark min-w-8 w-8 h-8 bg-undefined ring-offset-2 ring-green shrink-0"
+                      class="flex relative justify-center items-center box-border overflow-hidden align-middle z-0 outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-tiny text-default-foreground rounded-full ring-offset-background dark:ring-offset-background-dark min-w-8 w-8 h-8 bg-undefined ring-offset-2 ring-1 ring-green shrink-0"
                       tabindex="-1"
                     >
                       <img
@@ -1046,55 +939,6 @@ exports[`AppointmentsHistory Component should render correctly with admin role w
                       class="text-primary-100 font-medium text-sm text-ellipsis whitespace-nowrap overflow-hidden"
                     >
                       ThangHq
-                    </p>
-                  </div>
-                </td>
-                <td
-                  class="relative align-middle whitespace-normal text-small font-normal [&>*]:z-1 [&>*]:relative outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 before:content-[''] before:absolute before:z-0 before:inset-0 before:opacity-0 data-[selected=true]:before:opacity-100 group-data-[disabled=true]:text-foreground-300 group-data-[disabled=true]:cursor-not-allowed before:bg-default/60 data-[selected=true]:text-default-foreground first:before:rounded-s-lg last:before:rounded-e-lg text-start p-0 pt-3"
-                  data-key="table-row-cell-receiverId"
-                  role="gridcell"
-                  tabindex="-1"
-                >
-                  <div
-                    class="flex gap-2 items-center"
-                  >
-                    <span
-                      class="flex relative justify-center items-center box-border overflow-hidden align-middle z-0 outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-tiny text-default-foreground rounded-full ring-2 ring-offset-background dark:ring-offset-background-dark min-w-8 w-8 h-8 bg-undefined ring-offset-2 ring-green shrink-0"
-                      tabindex="-1"
-                    >
-                      <img
-                        alt="avatar"
-                        class="flex object-cover w-full h-full transition-opacity !duration-500 opacity-0 data-[loaded=true]:opacity-100"
-                        src="http://localhost:1341"
-                      />
-                      <span
-                        aria-label="avatar"
-                        class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex items-center justify-center text-inherit w-full h-full"
-                        role="img"
-                      >
-                        <svg
-                          aria-hidden="true"
-                          fill="none"
-                          height="80%"
-                          role="presentation"
-                          viewBox="0 0 24 24"
-                          width="80%"
-                        >
-                          <path
-                            d="M12 2C9.38 2 7.25 4.13 7.25 6.75C7.25 9.32 9.26 11.4 11.88 11.49C11.96 11.48 12.04 11.48 12.1 11.49C12.12 11.49 12.13 11.49 12.15 11.49C12.16 11.49 12.16 11.49 12.17 11.49C14.73 11.4 16.74 9.32 16.75 6.75C16.75 4.13 14.62 2 12 2Z"
-                            fill="currentColor"
-                          />
-                          <path
-                            d="M17.0809 14.1489C14.2909 12.2889 9.74094 12.2889 6.93094 14.1489C5.66094 14.9989 4.96094 16.1489 4.96094 17.3789C4.96094 18.6089 5.66094 19.7489 6.92094 20.5889C8.32094 21.5289 10.1609 21.9989 12.0009 21.9989C13.8409 21.9989 15.6809 21.5289 17.0809 20.5889C18.3409 19.7389 19.0409 18.5989 19.0409 17.3589C19.0309 16.1289 18.3409 14.9889 17.0809 14.1489Z"
-                            fill="currentColor"
-                          />
-                        </svg>
-                      </span>
-                    </span>
-                    <p
-                      class="text-primary-100 font-medium text-sm text-ellipsis whitespace-nowrap overflow-hidden"
-                    >
-                      Alex Stanton
                     </p>
                   </div>
                 </td>
@@ -1208,7 +1052,7 @@ exports[`AppointmentsHistory Component should render correctly with user role wh
         data-slot="main-wrapper"
       >
         <div
-          class="relative w-full inline-flex tap-highlight-transparent flex-row items-center shadow-sm px-3 gap-3 data-[hover=true]:bg-default-200 group-data-[focus=true]:bg-default-100 min-h-10 rounded-medium transition-background motion-reduce:transition-none !duration-150 outline-none group-data-[focus-visible=true]:z-10 group-data-[focus-visible=true]:ring-2 group-data-[focus-visible=true]:ring-focus group-data-[focus-visible=true]:ring-offset-2 group-data-[focus-visible=true]:ring-offset-background bg-transparent border-text-foreground !bg-transparent data-[hover=true]:!bg-transparent group-data-[focus=true]:ring-0 group-data-[focus=true]:ring-offset-0 group-data-[focus=true]:!bg-transparent data-[focus=true]:border-secondary-300 group-data-[invalid=true]:border-red py-4 border h-[52px]"
+          class="relative w-full inline-flex tap-highlight-transparent flex-row items-center shadow-sm px-3 gap-3 data-[hover=true]:bg-default-200 group-data-[focus=true]:bg-default-100 min-h-10 rounded-medium transition-background motion-reduce:transition-none !duration-150 outline-none group-data-[focus-visible=true]:z-10 group-data-[focus-visible=true]:ring-2 group-data-[focus-visible=true]:ring-focus group-data-[focus-visible=true]:ring-offset-2 group-data-[focus-visible=true]:ring-offset-background bg-transparent border-text-foreground !bg-transparent data-[hover=true]:!bg-transparent group-data-[focus=true]:ring-0 group-data-[focus=true]:ring-offset-0 group-data-[focus=true]:!bg-transparent data-[focus=true]:border-secondary-300 group-data-[invalid=true]:border-danger-100 py-4 border h-[52px]"
           data-slot="input-wrapper"
           style="cursor: text;"
         >
@@ -1254,7 +1098,7 @@ exports[`AppointmentsHistory Component should render correctly with user role wh
             </svg>
             <input
               aria-label="Search Appointments"
-              class="w-full font-normal !outline-none focus-visible:outline-none data-[has-start-content=true]:ps-1.5 data-[has-end-content=true]:pe-1.5 file:cursor-pointer file:bg-transparent file:border-0 autofill:bg-transparent bg-clip-text peer pr-6 rtl:pr-0 rtl:pl-6 group-data-[has-value=true]:text-default-foreground text-primary-100 placeholder:text-primary-300 bg-transparent text-sm mx-2"
+              class="w-full font-normal !outline-none focus-visible:outline-none data-[has-start-content=true]:ps-1.5 data-[has-end-content=true]:pe-1.5 file:cursor-pointer file:bg-transparent file:border-0 autofill:bg-transparent bg-clip-text peer pr-6 rtl:pr-0 rtl:pl-6 group-data-[has-value=true]:text-default-foreground text-primary-100 placeholder:text-primary-300 bg-transparent text-sm mx-2 group-data-[invalid=true]:!text-danger-100"
               data-has-start-content="true"
               data-slot="input"
               id="react-aria-:r22:"
@@ -1358,17 +1202,17 @@ exports[`AppointmentsHistory Component should render correctly with user role wh
               aria-haspopup="listbox"
               aria-label="Status"
               aria-labelledby="react-aria-:r2e: react-aria-:r29:"
-              class="relative gap-3 w-full inline-flex flex-row items-center shadow-sm tap-highlight-transparent group-data-[focus=true]:bg-default-100 outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 px-2.5 py-2 h-[46px] rounded-medium bg-background-100 shadow-stack border-1 outline-offset-0 data-[focus=true]:border-green data-[focus=true]:border-1 data-[focus=true]:bg-background-100 data-[hover=true]:bg-background-100 group-data-[invalid=true]:border-red min-h-[36px]"
+              class="relative gap-3 w-full inline-flex flex-row items-center shadow-sm tap-highlight-transparent group-data-[focus=true]:bg-default-100 outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 px-2.5 py-2 h-[46px] rounded-medium bg-background-100 shadow-stack border-1 outline-offset-0 data-[focus=true]:border-green data-[focus=true]:border-1 data-[focus=true]:bg-background-100 data-[hover=true]:bg-background-100 group-data-[invalid=true]:!border-danger-100 min-h-[36px]"
               data-slot="trigger"
               id="react-aria-:r29:"
               type="button"
             >
               <div
-                class="inline-flex h-full min-h-4 items-center gap-1.5 box-border text-xs leading-[18px] w-[80px]"
+                class="inline-flex h-full min-h-4 items-center gap-1.5 box-border text-xs leading-[18px] group-data-[invalid=true]:!text-danger-100 w-[80px]"
                 data-slot="innerWrapper"
               >
                 <span
-                  class="w-full text-left rtl:text-right truncate group-data-[has-value=true]:text-default-foreground text-xs text-primary-100 font-medium"
+                  class="w-full text-left rtl:text-right truncate group-data-[has-value=true]:text-default-foreground text-xs group-data-[invalid=true]:!text-danger-100 text-primary-100 font-medium"
                   data-slot="value"
                   id="react-aria-:r2e:"
                 >
@@ -1426,12 +1270,12 @@ exports[`AppointmentsHistory Component should render correctly with user role wh
               >
                 <th
                   class="group px-3 h-10 align-middle bg-default-100 whitespace-nowrap text-foreground-500 text-tiny font-semibold first:rounded-s-lg last:rounded-e-lg data-[sortable=true]:cursor-pointer data-[hover=true]:text-foreground-400 outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-start"
-                  data-key="receiverId"
-                  id="table-receiverId"
+                  data-key="senderId"
+                  id="table-senderId"
                   role="columnheader"
                   tabindex="-1"
                 >
-                  Receiver
+                  Sender
                 </th>
                 <th
                   class="group px-3 h-10 align-middle bg-default-100 whitespace-nowrap text-foreground-500 text-tiny font-semibold first:rounded-s-lg last:rounded-e-lg data-[sortable=true]:cursor-pointer data-[hover=true]:text-foreground-400 outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-start"
@@ -1481,7 +1325,7 @@ exports[`AppointmentsHistory Component should render correctly with user role wh
               role="rowgroup"
             >
               <tr
-                aria-labelledby="table-1-receiverId"
+                aria-labelledby="table-1-senderId"
                 class="group outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2"
                 data-first="true"
                 data-key="1"
@@ -1490,8 +1334,8 @@ exports[`AppointmentsHistory Component should render correctly with user role wh
               >
                 <td
                   class="relative align-middle whitespace-normal text-small font-normal [&>*]:z-1 [&>*]:relative outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 before:content-[''] before:absolute before:z-0 before:inset-0 before:opacity-0 data-[selected=true]:before:opacity-100 group-data-[disabled=true]:text-foreground-300 group-data-[disabled=true]:cursor-not-allowed before:bg-default/60 data-[selected=true]:text-default-foreground first:before:rounded-s-lg last:before:rounded-e-lg text-start p-0 py-3 border-0 border-primary-100 border-b border-opacity-10"
-                  data-key="table-row-cell-receiverId"
-                  id="table-1-receiverId"
+                  data-key="table-row-cell-senderId"
+                  id="table-1-senderId"
                   role="rowheader"
                   tabindex="-1"
                 >
@@ -1499,7 +1343,7 @@ exports[`AppointmentsHistory Component should render correctly with user role wh
                     class="flex gap-2 items-center"
                   >
                     <span
-                      class="flex relative justify-center items-center box-border overflow-hidden align-middle z-0 outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-tiny text-default-foreground rounded-full ring-2 ring-offset-background dark:ring-offset-background-dark min-w-8 w-8 h-8 bg-undefined ring-offset-2 ring-green shrink-0"
+                      class="flex relative justify-center items-center box-border overflow-hidden align-middle z-0 outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-tiny text-default-foreground rounded-full ring-offset-background dark:ring-offset-background-dark min-w-8 w-8 h-8 bg-undefined ring-offset-2 ring-1 ring-green shrink-0"
                       tabindex="-1"
                     >
                       <img
@@ -1534,7 +1378,7 @@ exports[`AppointmentsHistory Component should render correctly with user role wh
                     <p
                       class="text-primary-100 font-medium text-sm text-ellipsis whitespace-nowrap overflow-hidden"
                     >
-                      Jessica Jane
+                      Alex Stanton
                     </p>
                   </div>
                 </td>
@@ -1624,7 +1468,7 @@ exports[`AppointmentsHistory Component should render correctly with user role wh
                 </td>
               </tr>
               <tr
-                aria-labelledby="table-2-receiverId"
+                aria-labelledby="table-2-senderId"
                 class="group outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2"
                 data-key="2"
                 data-middle="true"
@@ -1634,8 +1478,8 @@ exports[`AppointmentsHistory Component should render correctly with user role wh
               >
                 <td
                   class="relative align-middle whitespace-normal text-small font-normal [&>*]:z-1 [&>*]:relative outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 before:content-[''] before:absolute before:z-0 before:inset-0 before:opacity-0 data-[selected=true]:before:opacity-100 group-data-[disabled=true]:text-foreground-300 group-data-[disabled=true]:cursor-not-allowed before:bg-default/60 data-[selected=true]:text-default-foreground first:before:rounded-s-lg last:before:rounded-e-lg text-start p-0 py-3 border-0 border-primary-100 border-b border-opacity-10"
-                  data-key="table-row-cell-receiverId"
-                  id="table-2-receiverId"
+                  data-key="table-row-cell-senderId"
+                  id="table-2-senderId"
                   role="rowheader"
                   tabindex="-1"
                 >
@@ -1643,7 +1487,7 @@ exports[`AppointmentsHistory Component should render correctly with user role wh
                     class="flex gap-2 items-center"
                   >
                     <span
-                      class="flex relative justify-center items-center box-border overflow-hidden align-middle z-0 outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-tiny text-default-foreground rounded-full ring-2 ring-offset-background dark:ring-offset-background-dark min-w-8 w-8 h-8 bg-undefined ring-offset-2 ring-green shrink-0"
+                      class="flex relative justify-center items-center box-border overflow-hidden align-middle z-0 outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-tiny text-default-foreground rounded-full ring-offset-background dark:ring-offset-background-dark min-w-8 w-8 h-8 bg-undefined ring-offset-2 ring-1 ring-green shrink-0"
                       tabindex="-1"
                     >
                       <img
@@ -1678,7 +1522,7 @@ exports[`AppointmentsHistory Component should render correctly with user role wh
                     <p
                       class="text-primary-100 font-medium text-sm text-ellipsis whitespace-nowrap overflow-hidden"
                     >
-                      ThangHq
+                      Alex Stanton
                     </p>
                   </div>
                 </td>
@@ -1768,7 +1612,7 @@ exports[`AppointmentsHistory Component should render correctly with user role wh
                 </td>
               </tr>
               <tr
-                aria-labelledby="table-3-receiverId"
+                aria-labelledby="table-3-senderId"
                 class="group outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2"
                 data-key="3"
                 data-last="true"
@@ -1777,8 +1621,8 @@ exports[`AppointmentsHistory Component should render correctly with user role wh
               >
                 <td
                   class="relative align-middle whitespace-normal text-small font-normal [&>*]:z-1 [&>*]:relative outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 before:content-[''] before:absolute before:z-0 before:inset-0 before:opacity-0 data-[selected=true]:before:opacity-100 group-data-[disabled=true]:text-foreground-300 group-data-[disabled=true]:cursor-not-allowed before:bg-default/60 data-[selected=true]:text-default-foreground first:before:rounded-s-lg last:before:rounded-e-lg text-start p-0 pt-3"
-                  data-key="table-row-cell-receiverId"
-                  id="table-3-receiverId"
+                  data-key="table-row-cell-senderId"
+                  id="table-3-senderId"
                   role="rowheader"
                   tabindex="-1"
                 >
@@ -1786,7 +1630,7 @@ exports[`AppointmentsHistory Component should render correctly with user role wh
                     class="flex gap-2 items-center"
                   >
                     <span
-                      class="flex relative justify-center items-center box-border overflow-hidden align-middle z-0 outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-tiny text-default-foreground rounded-full ring-2 ring-offset-background dark:ring-offset-background-dark min-w-8 w-8 h-8 bg-undefined ring-offset-2 ring-green shrink-0"
+                      class="flex relative justify-center items-center box-border overflow-hidden align-middle z-0 outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-tiny text-default-foreground rounded-full ring-offset-background dark:ring-offset-background-dark min-w-8 w-8 h-8 bg-undefined ring-offset-2 ring-1 ring-green shrink-0"
                       tabindex="-1"
                     >
                       <img
@@ -1821,7 +1665,7 @@ exports[`AppointmentsHistory Component should render correctly with user role wh
                     <p
                       class="text-primary-100 font-medium text-sm text-ellipsis whitespace-nowrap overflow-hidden"
                     >
-                      Alex Stanton
+                      ThangHq
                     </p>
                   </div>
                 </td>

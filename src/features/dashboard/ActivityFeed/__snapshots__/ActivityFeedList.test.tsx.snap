@@ -84,7 +84,7 @@ exports[`ActivityFeedList test cases should render correctly 1`] = `
                     class="flex gap-3 justify-items-start ml-1"
                   >
                     <span
-                      class="flex relative justify-center items-center box-border overflow-hidden align-middle z-0 outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-tiny text-default-foreground rounded-full ring-offset-background dark:ring-offset-background-dark min-w-8 w-8 h-8 bg-undefined ring-offset-2 ring-green ring-1"
+                      class="flex relative justify-center items-center box-border overflow-hidden align-middle z-0 outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-tiny text-default-foreground rounded-full ring-offset-background dark:ring-offset-background-dark min-w-8 w-8 h-8 bg-undefined ring-offset-2 ring-1 ring-green"
                       tabindex="-1"
                     >
                       <img
@@ -169,7 +169,7 @@ exports[`ActivityFeedList test cases should render correctly 1`] = `
                     class="flex gap-3 justify-items-start ml-1"
                   >
                     <span
-                      class="flex relative justify-center items-center box-border overflow-hidden align-middle z-0 outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-tiny text-default-foreground rounded-full ring-offset-background dark:ring-offset-background-dark min-w-8 w-8 h-8 bg-undefined ring-offset-2 ring-green ring-1"
+                      class="flex relative justify-center items-center box-border overflow-hidden align-middle z-0 outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-tiny text-default-foreground rounded-full ring-offset-background dark:ring-offset-background-dark min-w-8 w-8 h-8 bg-undefined ring-offset-2 ring-1 ring-green"
                       tabindex="-1"
                     >
                       <img

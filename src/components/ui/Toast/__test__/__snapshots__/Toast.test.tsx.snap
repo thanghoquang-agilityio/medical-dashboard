@@ -10,7 +10,7 @@ exports[`Toast component renders the success toast correctly 1`] = `
   >
     <svg
       aria-hidden="true"
-      class="inline-flex items-center justify-center bg-opacity-20 flex-shrink-0 w-5 h-5 rounded-lg text-success"
+      class="mocked-class"
       fill="currentColor"
       viewBox="0 0 20 20"
       xmlns="http://www.w3.org/2000/svg"
