@@ -2,7 +2,7 @@
 import { Suspense, lazy, memo } from 'react';
 
 // Types
-import { AppointmentModel } from '@/types';
+import { AppointmentModel, UserLogged } from '@/types';
 
 // Components
 import { BaseModal } from '@/components/ui/BaseModal';
@@ -10,15 +10,14 @@ import { AppointmentFormSkeleton } from '../AppointmentForm/AppointmentFormSkele
 const AppointmentForm = lazy(() => import('../AppointmentForm'));
 
 export type AppointmentModalProps = {
-  userId: string;
-  role: string;
+  userLogged: UserLogged | null;
   isOpen: boolean;
   onClose: () => void;
   data?: AppointmentModel;
   id?: string;
 };
 const AppointmentModal = memo(
-  ({ userId, role, data, id, isOpen, onClose }: AppointmentModalProps) => {
+  ({ userLogged, data, id, isOpen, onClose }: AppointmentModalProps) => {
     return (
       <BaseModal
         isOpen={isOpen}
@@ -28,8 +27,7 @@ const AppointmentModal = memo(
       >
         <Suspense fallback={<AppointmentFormSkeleton data={data} />}>
           <AppointmentForm
-            userId={userId}
-            role={role}
+            userLogged={userLogged}
             data={data}
             id={id}
             onClose={onClose}

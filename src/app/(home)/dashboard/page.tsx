@@ -1,6 +1,7 @@
-import { Suspense, lazy } from 'react';
-import { auth } from '@/config/auth';
+import { Suspense } from 'react';
+import dynamic from 'next/dynamic';
 import { Metadata } from 'next';
+import { auth } from '@/config/auth';
 
 // Constants
 import {
@@ -10,7 +11,7 @@ import {
 } from '@/constants';
 
 // Types
-import { ROLE, SearchParams } from '@/types';
+import { SearchParams } from '@/types';
 
 // Utils
 import { getGreeting } from '@/utils';
@@ -19,10 +20,11 @@ import { Text, Button, Image } from '@/components/ui';
 import { CloseIcon } from '@/icons';
 import { ActivityFeedSkeleton } from '@/features/dashboard/ActivityFeed/ActivityFeedSkeleton';
 import { AppointmentsUpcomingSkeleton } from '@/features/dashboard/AppointmentsUpcoming/AppointmentsUpcomingSkeleton';
-const AppointmentsUpcoming = lazy(
+import { getUserLogged } from '@/services';
+const AppointmentsUpcoming = dynamic(
   () => import('@/features/dashboard/AppointmentsUpcoming'),
 );
-const ActivityFeed = lazy(() => import('@/features/dashboard/ActivityFeed'));
+const ActivityFeed = dynamic(() => import('@/features/dashboard/ActivityFeed'));
 
 export const metadata: Metadata = {
   title: 'Dashboard',
@@ -41,11 +43,9 @@ const DashboardPage = async ({
   const { page = PAGE_DEFAULT, status = APPOINTMENT_STATUS_OPTIONS[0].key } =
     searchParams as DashboardPageSearchParamsProps;
 
-  const {
-    id = '',
-    role = ROLE.NORMAL_USER,
-    username = '',
-  } = (await auth())?.user || {};
+  const { token = '' } = (await auth())?.user || {};
+  const { user: userLogged } = await getUserLogged(token);
+  const { username = '' } = userLogged || {};
 
   return (
     <div className="mt-7">
@@ -79,12 +79,12 @@ const DashboardPage = async ({
 
       <div className="flex flex-col-reverse lg:flex-row justify-between mt-8 gap-[30px] w-full">
         <Suspense fallback={<ActivityFeedSkeleton />}>
-          <ActivityFeed page={page} userId={id} role={role} />
+          <ActivityFeed page={page} userLogged={userLogged} />
         </Suspense>
         <Suspense
           fallback={<AppointmentsUpcomingSkeleton defaultStatus={status} />}
         >
-          <AppointmentsUpcoming userId={id} role={role} status={status} />
+          <AppointmentsUpcoming userLogged={userLogged} status={status} />
         </Suspense>
       </div>
     </div>

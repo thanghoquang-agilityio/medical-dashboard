@@ -7,7 +7,7 @@ import { formatDateTime, fromDateToNow } from '@/utils';
 import { NotificationResponse } from '@/types';
 
 // Constants
-import { API_IMAGE_URL } from '@/constants';
+import { API_IMAGE_URL, TYPE_CLASSES } from '@/constants';
 
 // Components
 import { Badge, Divider } from '@nextui-org/react';
@@ -23,7 +23,12 @@ const Notifications = memo(
   ({ notifications, isInvisibleBadge }: NotificationsProps) => {
     return (
       <Popover
-        className="relative bg-background-200 pr-0"
+        classNames={{
+          base: 'w-[350px] sm:w-[460px]',
+          content:
+            'w-[350px] sm:w-[455px] relative bg-background-200 pl-4 pr-0',
+        }}
+        placement="bottom-end"
         popoverTrigger={
           <Button
             isIconOnly
@@ -54,16 +59,20 @@ const Notifications = memo(
               notifications.map(({ attributes, id }) => (
                 <div
                   key={id}
-                  className="relative flex justify-center justify-items-start my-2"
+                  className="w-[350px] sm:w-[455px] relative flex justify-center justify-start my-2"
                 >
                   <Avatar
                     src={`${API_IMAGE_URL}${attributes.senderAvatar}`}
                     size="md"
                     hasBorder
                   />
-                  <div className={`flex flex-col pl-2 pr-10`}>
-                    <Text size="xs" variant="description">
-                      You {attributes.info.content}{' '}
+                  <div className="w-[315px] sm:w-[420px] flex flex-col pl-2 pr-10">
+                    <Text
+                      size="xs"
+                      variant="description"
+                      customClass={TYPE_CLASSES.wrap}
+                    >
+                      You {attributes.info.content} at&nbsp;
                       {formatDateTime(attributes.info.startTime)}
                     </Text>
                     <Text variant="subTitle" size="2xs">
@@ -80,7 +89,6 @@ const Notifications = memo(
             )}
           </>
         }
-        placement="bottom-end"
       />
     );
   },
