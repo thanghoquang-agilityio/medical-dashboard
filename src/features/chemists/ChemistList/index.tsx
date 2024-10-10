@@ -130,7 +130,8 @@ const ChemistList = memo(
           return;
         }
 
-        updateSearchParams(formatString(selectedSpecialty?.label as string));
+        const { label = '' } = selectedSpecialty || {};
+        updateSearchParams(formatString(label));
       },
       [handleReplaceURL, params, specialtyOptions, updateSearchParams],
     );
@@ -190,13 +191,14 @@ const ChemistList = memo(
                   const { users_permissions_user } = attributes || {};
                   const { id = '', attributes: data } =
                     users_permissions_user?.data || {};
+
                   return (
                     <ChemistCard
                       id={id}
                       key={id}
                       isAdmin={isAdmin}
                       data={data}
-                      onEdit={() => handleEdit({ data: data, id: id })}
+                      onEdit={handleEdit}
                     />
                   );
                 })}

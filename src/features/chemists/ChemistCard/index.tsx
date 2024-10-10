@@ -30,7 +30,7 @@ export interface ChemistCardProps {
   id: string;
   data: UserModel;
   isAdmin: boolean;
-  onEdit?: () => void;
+  onEdit?: ({ data, id }: { data: UserModel; id: string }) => void;
 }
 
 const ChemistCard = ({ id, data, isAdmin, onEdit }: ChemistCardProps) => {
@@ -90,12 +90,16 @@ const ChemistCard = ({ id, data, isAdmin, onEdit }: ChemistCardProps) => {
     await updateUnpublishNotification(id);
   }, [id, onClosConfirm, openToast]);
 
+  const handleEdit = useCallback(() => {
+    onEdit?.({ data, id });
+  }, [data, id, onEdit]);
+
   return (
     <div
       className={cn(
         `min-w-[300px] w-full h-[228px] ${isAdmin ? 'cursor-pointer' : 'cursor-default'}`,
       )}
-      onClick={onEdit}
+      onClick={handleEdit}
     >
       <Card className="bg-background-200 w-full h-full p-5 sm:p-6 gap-6 overflow-visible">
         {isAdmin && (
