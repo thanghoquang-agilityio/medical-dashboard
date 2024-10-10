@@ -19,7 +19,7 @@ export interface ActivityFeedProps {
 const ActivityFeed = async ({ page, userLogged }: ActivityFeedProps) => {
   const { id: userId = '', role: roleModel } = userLogged || {};
   const { name: role = ROLE.NORMAL_USER } = roleModel || {};
-  console.log('userLogged', userLogged);
+
   const searchParamsAPI = useMemo(() => {
     const params = new URLSearchParams();
     params.set('populate[0]', 'senderId');
