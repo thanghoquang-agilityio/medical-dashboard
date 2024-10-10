@@ -9,8 +9,7 @@ import {
   transformUsers,
 } from '../common';
 import { APIRelatedResponse, APIResponse, ROLE, UserModel } from '@/types';
-import { MOCK_USER_ROLE, MOCK_USERS_LOGGED } from '@/mocks/user';
-import { MOCK_SPECIALTIES } from '@/mocks/chemists';
+import { MOCK_USER_ROLE, MOCK_USERS_LOGGED, MOCK_SPECIALTIES } from '@/mocks';
 
 describe('getObjectValue function', () => {
   it('should return value correctly value with key found', () => {
