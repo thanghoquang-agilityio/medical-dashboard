@@ -238,15 +238,16 @@ const ChemistForm = memo(
               handleError(addUserResult.error);
               return;
             }
-
-            openToast({
-              message: isEdit
-                ? SUCCESS_MESSAGE.UPDATE('chemist')
-                : SUCCESS_MESSAGE.CREATE('chemist'),
-              type: STATUS_TYPE.SUCCESS,
-            });
           }
         }
+
+        openToast({
+          message: isEdit
+            ? SUCCESS_MESSAGE.UPDATE('chemist')
+            : SUCCESS_MESSAGE.CREATE('chemist'),
+          type: STATUS_TYPE.SUCCESS,
+        });
+
         setIsPending(false);
         onClose?.();
       },
