@@ -19,9 +19,9 @@ export default function AuthLayout({
         width={1600}
         height={960}
       />
-      <div className="flex flex-col relative z-20 w-full h-full max-w-[1600px] m-auto">
+      <div className="container flex flex-col relative z-20 w-full h-full max-w-[1600px] m-auto">
         <HeaderAuth />
-        <div className="flex 2xl:justify-end 2xl:mr-[144px] flex-1 2xl:flex-none 2xl:mt-20 items-center justify-center font-outfit">
+        <div className="flex 2xl:justify-end mt-10 lg:m-auto w-full 2xl:flex-none  items-center justify-center font-outfit">
           {children}
         </div>
       </div>

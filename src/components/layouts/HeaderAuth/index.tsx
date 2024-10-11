@@ -12,7 +12,7 @@ const SwitchTheme = dynamic(() => import('@/components/ui/SwitchTheme'));
 
 export const HeaderAuth = memo(() => {
   return (
-    <header className="flex justify-between items-center lg:px-[144px] md:px-24 sm:px-12 px-5 py-9">
+    <header className="flex justify-between items-center px-5 py-9">
       <Image
         src={SRC_LOGO}
         alt="Brand"
