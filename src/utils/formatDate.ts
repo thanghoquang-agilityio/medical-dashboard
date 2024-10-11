@@ -115,7 +115,7 @@ export const isLaterThanCurrentTime = (isoString: string) => {
 
 export const generateTimeOptions = (): Option[] => {
   const times: Option[] = [];
-  const hour = 8;
+  const hour = 5;
   for (let i = 1; i <= hour * 4; i++) {
     const hour = Math.floor(i / 4);
     const minutes = (i % 4) * 15;
