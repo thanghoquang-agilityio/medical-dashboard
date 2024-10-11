@@ -1,5 +1,6 @@
 import dayjs from 'dayjs';
 import { TimeInputValue } from '@nextui-org/react';
+import utc from 'dayjs/plugin/utc';
 
 export const getCurrentDate = (timestamp?: string) =>
   new Date(timestamp ?? new Date()).toISOString().split('T')[0];
@@ -7,12 +8,13 @@ export const getCurrentDate = (timestamp?: string) =>
 export const convertToTimeObject = (isoString: string) => {
   if (!isoString) return undefined;
 
-  const startTime = dayjs(isoString);
+  const startTime = new Date(isoString);
 
   return {
-    hour: Number(startTime.format('hh')),
-    minute: Number(startTime.format('mm')),
-    second: Number(startTime.format('ss')),
+    hour: startTime.getUTCHours(),
+    minute: startTime.getUTCMinutes(),
+    second: startTime.getUTCSeconds(),
+    millisecond: startTime.getUTCMilliseconds(),
   };
 };
 
@@ -26,10 +28,11 @@ export const generateISODate = (
   inputTime: TimeInputValue,
   dateTime: string,
 ) => {
+  dayjs.extend(utc);
   const { hour = 0, minute = 0, second = 0, millisecond = 0 } = inputTime;
 
-  // Parse the provided date string with dayjs
-  const date = dayjs(dateTime);
+  // Parse the provided date string with dayjs in UTC mode
+  const date = dayjs.utc(dateTime);
 
   // Set the time using the input object
   const updatedDate = date

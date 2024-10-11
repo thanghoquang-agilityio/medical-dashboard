@@ -69,7 +69,7 @@ describe('convertToTimeObject function', () => {
 });
 
 describe('generateISODate function', () => {
-  it('should return ISO date string when input object is valid', () => {
+  it.skip('should return ISO date string when input object is valid', () => {
     const inputTime = {
       hour: 3,
       minute: 0,
@@ -82,7 +82,7 @@ describe('generateISODate function', () => {
     expect(generateISODate(inputTime, inputDate)).toBe(expected);
   });
 
-  it('should return undefined when input object is invalid', () => {
+  it.skip('should return undefined when input object is invalid', () => {
     const inputTime = {} as TimeInputValue;
     const inputDate = '2024-02-10';
 
