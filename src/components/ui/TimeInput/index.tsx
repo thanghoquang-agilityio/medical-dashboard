@@ -6,7 +6,7 @@ import {
 } from '@nextui-org/react';
 
 // Utils
-import { cn } from '@/utils';
+import { cn } from '@/utils/styles';
 
 export const TimeInput = extendVariants(TimeInputNextUI, {
   variants: {

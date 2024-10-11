@@ -1,0 +1,6 @@
+export const MOCK_DATE = {
+  INVALID: 'Invalid Date',
+  NOW: '2024-02-11T10:00:00.000',
+  PASS: '2022-09-20T02:36:00.000',
+  FUTURE: '2024-09-18T02:30:00.000',
+};

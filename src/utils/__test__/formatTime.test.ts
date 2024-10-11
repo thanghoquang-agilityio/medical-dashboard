@@ -6,8 +6,7 @@ import {
   generateISODate,
   getCurrentDate,
 } from '../formatTime';
-
-const invalidDate = 'Invalid Date';
+import { MOCK_DATE } from '@/mocks';
 
 describe('getCurrentDate function', () => {
   it('should return current date in ISO format', () => {
@@ -24,8 +23,8 @@ describe('getCurrentDate function', () => {
   });
 
   it('should return the passed date in ISO format', () => {
-    const passedDate = '2024-02-10T07:43:12.000';
-    const expected = '2024-02-10';
+    const passedDate = MOCK_DATE.NOW;
+    const expected = '2024-02-11';
 
     expect(getCurrentDate(passedDate)).toBe(expected);
   });
@@ -33,7 +32,7 @@ describe('getCurrentDate function', () => {
 
 describe('convertToTimeObject function', () => {
   it('should return object with hour, minute, second is NaN when input is invalid', () => {
-    expect(convertToTimeObject(invalidDate)).toEqual({
+    expect(convertToTimeObject(MOCK_DATE.INVALID)).toEqual({
       hour: NaN,
       minute: NaN,
       second: NaN,
@@ -47,7 +46,7 @@ describe('convertToTimeObject function', () => {
   });
 
   it('should return object with hour, minute, second when input is valid', () => {
-    const input = '2022-10-10T10:00:00.000';
+    const input = MOCK_DATE.NOW;
     const expected = {
       hour: 10,
       minute: 0,
@@ -102,9 +101,9 @@ describe('convertMinutesToTime function', () => {
   });
 
   it('should return empty string when input is invalid', () => {
-    const input = 'invalid';
+    const input = MOCK_DATE.INVALID;
 
-    expect(convertMinutesToTime(input)).toBe(invalidDate);
+    expect(convertMinutesToTime(input)).toBe(MOCK_DATE.INVALID);
   });
 });
 
@@ -117,7 +116,7 @@ describe('convertTimeToMinutes function', () => {
   });
 
   it('should return 0 when input is invalid', () => {
-    const input = 'invalid';
+    const input = MOCK_DATE.INVALID;
 
     expect(convertTimeToMinutes(input)).toBeNaN();
   });

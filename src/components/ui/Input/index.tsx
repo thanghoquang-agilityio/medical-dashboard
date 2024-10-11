@@ -1,6 +1,6 @@
 'use client';
 
-import { cn } from '@/utils';
+import { cn } from '@/utils/styles';
 import { extendVariants, Input as NextUIInput } from '@nextui-org/react';
 
 export const Input = extendVariants(NextUIInput, {
