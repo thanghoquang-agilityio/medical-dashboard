@@ -124,7 +124,7 @@ describe('SignupForm Component', () => {
 
     await waitFor(() => {
       expect(
-        screen.getByText(FORM_VALIDATION_MESSAGE.FORMAT('Name')),
+        screen.getByText(FORM_VALIDATION_MESSAGE.ONLY_TEXT),
       ).toBeInTheDocument();
     });
   });
