@@ -13,7 +13,7 @@ export const SIGN_UP_FORM_VALIDATION = {
     required: FORM_VALIDATION_MESSAGE.REQUIRED('Name'),
     pattern: {
       value: REGEX.NAME,
-      message: FORM_VALIDATION_MESSAGE.FORMAT('Name'),
+      message: FORM_VALIDATION_MESSAGE.ONLY_TEXT,
     },
   },
   PASSWORD: (
