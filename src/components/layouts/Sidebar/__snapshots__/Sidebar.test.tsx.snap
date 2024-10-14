@@ -82,10 +82,10 @@ exports[`Sidebar test cases should render correctly 1`] = `
           </a>
         </div>
         <div
-          class="cursor-not-allowed"
+          class=""
         >
           <a
-            class="text-primary-100 text-sm flex h-[60px] gap-5 mb-[1px] py-5 px-8 lg:px-10 hover:bg-linear-sidebar"
+            class="text-primary-100 text-sm flex h-[60px] gap-5 mb-[1px] py-5 px-8 lg:px-10 bg-linear-sidebar text-sky font-semibold"
             href="/appointments"
           >
             <div
@@ -579,10 +579,10 @@ exports[`Sidebar test cases should render correctly 1`] = `
             </a>
           </div>
           <div
-            class="cursor-not-allowed"
+            class=""
           >
             <a
-              class="text-primary-100 text-sm flex h-[60px] gap-5 mb-[1px] py-5 px-8 lg:px-10 justify-center hover:bg-linear-sidebar"
+              class="text-primary-100 text-sm flex h-[60px] gap-5 mb-[1px] py-5 px-8 lg:px-10 justify-center bg-linear-sidebar text-sky font-semibold"
               href="/appointments"
             >
               <div
