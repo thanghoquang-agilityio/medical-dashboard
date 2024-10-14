@@ -1,9 +1,7 @@
-import { TimeInputValue } from '@nextui-org/react';
 import {
   convertMinutesToTime,
   convertTimeToMinutes,
   convertToTimeObject,
-  generateISODate,
   getCurrentDate,
 } from '../formatTime';
 import { MOCK_DATE } from '@/mocks';
@@ -31,64 +29,37 @@ describe('getCurrentDate function', () => {
 });
 
 describe('convertToTimeObject function', () => {
-  it.skip('should return object with hour, minute, second is NaN when input is invalid', () => {
-    expect(convertToTimeObject(MOCK_DATE.INVALID)).toEqual({
-      hour: NaN,
-      minute: NaN,
-      second: NaN,
+  it('should correctly convert a valid ISO string to a time object', () => {
+    const isoString = '2024-10-12T14:30:45.123Z';
+    const result = convertToTimeObject(isoString);
+    expect(result).toEqual({
+      hour: 14,
+      minute: 30,
+      second: 45,
+      millisecond: 123,
     });
   });
 
-  it.skip('should return undefined when input is empty', () => {
-    const input = '';
-
-    expect(convertToTimeObject(input)).toBeUndefined();
-  });
-
-  it.skip('should return object with hour, minute, second when input is valid', () => {
-    const input = MOCK_DATE.NOW;
-    const expected = {
-      hour: 10,
-      minute: 0,
-      second: 0,
-    };
-
-    expect(convertToTimeObject(input)).toEqual(expected);
-  });
-
-  it.skip('should return object with hour, minute, second when input is valid', () => {
-    const input = 'Thu Oct 10 2022 14:41:18 GMT+0700 (Indochina Time)';
-    const expected = {
-      hour: 2,
-      minute: 41,
-      second: 18,
-    };
-
-    expect(convertToTimeObject(input)).toEqual(expected);
-  });
-});
-
-describe('generateISODate function', () => {
-  it.skip('should return ISO date string when input object is valid', () => {
-    const inputTime = {
-      hour: 3,
+  it('should handle edge case where time is midnight (00:00:00.000 UTC)', () => {
+    const isoString = '2024-10-12T00:00:00.000Z';
+    const result = convertToTimeObject(isoString);
+    expect(result).toEqual({
+      hour: 0,
       minute: 0,
       second: 0,
       millisecond: 0,
-    } as TimeInputValue;
-    const inputDate = '2024-02-10';
-    const expected = '2024-02-09T20:00:00.000Z';
-
-    expect(generateISODate(inputTime, inputDate)).toBe(expected);
+    });
   });
 
-  it.skip('should return undefined when input object is invalid', () => {
-    const inputTime = {} as TimeInputValue;
-    const inputDate = '2024-02-10';
-
-    expect(generateISODate(inputTime, inputDate)).toBe(
-      '2024-02-09T17:00:00.000Z',
-    );
+  it('should handle different time zones by always returning UTC time', () => {
+    const isoString = '2024-10-12T14:30:45.123-04:00'; // ISO string with time zone offset
+    const result = convertToTimeObject(isoString);
+    expect(result).toEqual({
+      hour: 18, // 14:30 in UTC-4 is 18:30 in UTC
+      minute: 30,
+      second: 45,
+      millisecond: 123,
+    });
   });
 });
 
