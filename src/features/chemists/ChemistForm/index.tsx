@@ -70,7 +70,6 @@ const ChemistForm = memo(
 
     const [imageUpload, setImageUpload] = useState<string>('');
     const [formImage, setFormImage] = useState<FormData | null>(null);
-    const [imageRemote, setImageRemote] = useState<string>(url);
 
     const [error, setError] = useState('');
     const [isPending, setIsPending] = useState(false);
@@ -78,14 +77,16 @@ const ChemistForm = memo(
 
     const openToast = useToast();
 
+    const hiddenFileInput = useRef<HTMLInputElement>(null);
+
     const {
       control,
       handleSubmit,
-      setValue,
       getValues,
       clearErrors,
       setError: setFormError,
       formState: { errors, isValid, isLoading, isDirty },
+      trigger,
     } = useForm<ChemistFormData>({
       mode: 'onBlur',
       reValidateMode: 'onBlur',
@@ -96,7 +97,7 @@ const ChemistForm = memo(
         confirmPassWord: password,
         email,
         description,
-        specialtyId: String(specialty),
+        specialtyId: specialty?.toString(),
       },
     });
 
@@ -126,26 +127,26 @@ const ChemistForm = memo(
     );
 
     // Handle input file changes
-    const handleUpload = (event: React.ChangeEvent<HTMLInputElement>) => {
-      const files = event.target.files;
-      if (files && files[0]) {
-        const image = files[0];
-        const formData = new FormData();
-        formData.append('files', image);
+    const handleUpload =
+      (callback: (value: string) => void) =>
+      (event: React.ChangeEvent<HTMLInputElement>) => {
+        const files = event.target.files;
+        if (files && files[0]) {
+          const image = files[0];
+          const formData = new FormData();
+          formData.append('files', image);
 
-        setFormImage(formData);
-        setImageUpload(URL.createObjectURL(image));
-        setValue('avatar', URL.createObjectURL(image));
-      }
-    };
+          setFormImage(formData);
+          setImageUpload(URL.createObjectURL(image));
+          callback(URL.createObjectURL(image));
+        }
+      };
 
     // Handle remove upload image
-    const hiddenFileInput = useRef<HTMLInputElement>(null);
-    const handleRemoveImage = () => {
+    const handleRemoveImage = (callback: (value: string) => void) => () => {
       setImageUpload('');
       setFormImage(null);
-      setValue('avatar', '');
-      setImageRemote('');
+      callback('');
 
       if (hiddenFileInput.current) {
         hiddenFileInput.current.value = '';
@@ -214,31 +215,35 @@ const ChemistForm = memo(
             handleError(error);
             return;
           }
-        } else {
-          const { user, error } = await addUser(payload);
 
-          if (error) {
-            handleError(error);
-            return;
-          }
+          return;
+        }
 
-          if (user) {
-            const { id = '' } = user;
+        const { user, error } = await addUser(payload);
 
-            const updateUserResult = await updatePublishUser(id);
-            if (updateUserResult.error) {
-              handleError(updateUserResult.error);
-              return;
-            }
+        if (error) {
+          handleError(error);
+          return;
+        }
 
-            const addUserResult = await addUserToChemists({
-              users_permissions_user: String(id),
-            });
-            if (addUserResult.error) {
-              handleError(addUserResult.error);
-              return;
-            }
-          }
+        if (!user) return;
+
+        const { id: userId = '' } = user;
+
+        const updateUserResult = await updatePublishUser(userId);
+
+        if (updateUserResult.error) {
+          handleError(updateUserResult.error);
+          return;
+        }
+
+        const addUserResult = await addUserToChemists({
+          users_permissions_user: userId,
+        });
+
+        if (addUserResult.error) {
+          handleError(addUserResult.error);
+          return;
         }
 
         openToast({
@@ -249,10 +254,14 @@ const ChemistForm = memo(
         });
 
         setIsPending(false);
-        onClose?.();
+        onClose();
       },
       [formImage, roles, isEdit, avatarId, onClose, id, handleError, openToast],
     );
+
+    const handleCloseSelect = (field: keyof ChemistFormData) => () => {
+      trigger(field);
+    };
 
     return (
       <form
@@ -267,14 +276,14 @@ const ChemistForm = memo(
         <Controller
           control={control}
           name="avatar"
-          render={({ field }) => (
+          render={({ field: { value, onChange, ...rest } }) => (
             <ImageUpload
-              {...field}
+              {...rest}
               ref={hiddenFileInput}
-              src={imageRemote}
+              src={value}
               srcUpload={imageUpload}
-              onRemoveImage={handleRemoveImage}
-              onUploadImage={handleUpload}
+              onRemoveImage={handleRemoveImage(onChange)}
+              onUploadImage={handleUpload(onChange)}
               onClick={handleClick}
             />
           )}
@@ -428,8 +437,9 @@ const ChemistForm = memo(
         <Controller
           control={control}
           name="specialtyId"
+          rules={CHEMIST_FORM_VALIDATION.SPECIALTY}
           render={({
-            field: { name, value, onChange, ...rest },
+            field: { name, value, onChange, onBlur: _onBlur, ...rest },
             fieldState: { error },
           }) => (
             <Select
@@ -448,14 +458,14 @@ const ChemistForm = memo(
                 value: 'text-sm text-primary-100',
               }}
               isDisabled={isLoading}
-              defaultSelectedKeys={[value]}
+              selectedKeys={[value]}
               options={specialtyOptions}
               isInvalid={!!error?.message}
               errorMessage={error?.message}
               onChange={onChange}
+              onClose={handleCloseSelect(name)}
             />
           )}
-          rules={CHEMIST_FORM_VALIDATION.SPECIALTY}
         />
 
         {/* Description */}

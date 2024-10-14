@@ -35,7 +35,7 @@ export const ImageUpload = forwardRef<HTMLInputElement, ImageUploadProps>(
     const hasImage = srcUpload || src;
 
     return (
-      <div className="flex flex-col justify-center items-center gap-2">
+      <div className="flex flex-col justify-center items-center gap-3">
         <div className="relative" style={{ width, height }}>
           {srcUpload ? (
             // eslint-disable-next-line @next/next/no-img-element
