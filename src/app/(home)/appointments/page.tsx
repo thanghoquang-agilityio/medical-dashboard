@@ -39,7 +39,7 @@ const AppointmentPage = async ({
 }) => {
   const {
     page = PAGE_DEFAULT,
-    search,
+    search = '',
     status = '',
   } = searchParams as AppointmentPageSearchParamsProps;
 
