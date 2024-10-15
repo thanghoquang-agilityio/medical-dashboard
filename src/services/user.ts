@@ -40,7 +40,9 @@ export const getUsers = async (): Promise<{
   try {
     const api = await apiClient.apiClientSession();
 
-    const url = decodeURIComponent(`${API_ENDPOINT.USERS}`);
+    const url = decodeURIComponent(
+      `${API_ENDPOINT.USERS}?filters[publishedAt][$notNull]=true`,
+    );
     const { error = null, ...user } = await api.get<
       UserLogged[] & { error: string | null }
     >(url, {
