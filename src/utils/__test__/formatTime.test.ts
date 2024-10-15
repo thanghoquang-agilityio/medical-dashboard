@@ -1,10 +1,15 @@
+import dayjs from 'dayjs';
+import utc from 'dayjs/plugin/utc';
+
 import {
   convertMinutesToTime,
   convertTimeToMinutes,
   convertToTimeObject,
+  generateISODate,
   getCurrentDate,
 } from '../formatTime';
 import { MOCK_DATE } from '@/mocks';
+import { TimeInputValue } from '@nextui-org/react';
 
 describe('getCurrentDate function', () => {
   it('should return current date in ISO format', () => {
@@ -61,6 +66,11 @@ describe('convertToTimeObject function', () => {
       millisecond: 123,
     });
   });
+
+  it('should return undefined if no ISO string is provided', () => {
+    const result = convertToTimeObject('');
+    expect(result).toBeUndefined();
+  });
 });
 
 describe('convertMinutesToTime function', () => {
@@ -90,5 +100,40 @@ describe('convertTimeToMinutes function', () => {
     const input = MOCK_DATE.INVALID;
 
     expect(convertTimeToMinutes(input)).toBeNaN();
+  });
+});
+
+describe('generateISODate', () => {
+  beforeAll(() => {
+    dayjs.extend(utc);
+  });
+
+  it('should generate a valid ISO string when inputTime is provided', () => {
+    const inputTime = {
+      hour: 14,
+      minute: 30,
+      second: 45,
+      millisecond: 123,
+    } as TimeInputValue;
+    const dateTime = '2024-10-12T00:00:00Z';
+
+    const result = generateISODate(inputTime, dateTime);
+
+    // Expected date is the provided date with the updated time values
+    expect(result).toBe('2024-10-12T14:30:45.123Z');
+  });
+
+  it('should handle leap years correctly', () => {
+    const inputTime = {
+      hour: 23,
+      minute: 59,
+      second: 59,
+      millisecond: 999,
+    } as TimeInputValue;
+    const dateTime = '2024-02-29T00:00:00Z'; // Leap year
+
+    const result = generateISODate(inputTime, dateTime);
+
+    expect(result).toBe('2024-02-29T23:59:59.999Z');
   });
 });
