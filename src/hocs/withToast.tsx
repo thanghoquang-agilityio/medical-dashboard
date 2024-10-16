@@ -3,7 +3,7 @@
 import React, { ReactNode, useState } from 'react';
 
 import { STATUS_TYPE } from '@/types';
-import { Toast } from '@/components/ui';
+import { Toast } from '@/components/ui/Toast';
 
 export interface ToastProps {
   type?: STATUS_TYPE;
