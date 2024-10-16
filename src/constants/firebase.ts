@@ -1,1 +1,1 @@
-export const NOTIFICATION_FIREBASE = 'notifications';
+export const REGISTRATION_TOKENS = 'token';
