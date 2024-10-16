@@ -285,6 +285,7 @@ const ChemistForm = memo(
               onRemoveImage={handleRemoveImage(onChange)}
               onUploadImage={handleUpload(onChange)}
               onClick={handleClick}
+              isDisabled={isPending}
             />
           )}
         />
@@ -322,7 +323,7 @@ const ChemistForm = memo(
               placeholder="Please enter username"
               type="text"
               size="sm"
-              isDisabled={isLoading || isEdit}
+              isDisabled={isLoading || isEdit || isPending}
               isInvalid={!!error?.message}
               errorMessage={error?.message}
             />
@@ -344,7 +345,7 @@ const ChemistForm = memo(
               placeholder="Please enter email"
               type="text"
               size="sm"
-              isDisabled={isLoading || isEdit}
+              isDisabled={isLoading || isEdit || isPending}
               isInvalid={!!error?.message}
               errorMessage={error?.message}
             />
@@ -380,7 +381,7 @@ const ChemistForm = memo(
                       {isShowPassword ? <EyeIcon /> : <EyeSlashIcon />}
                     </Button>
                   }
-                  isDisabled={isLoading}
+                  isDisabled={isLoading || isPending}
                   isInvalid={!!error?.message}
                   errorMessage={error?.message}
                   onChange={handleInputChange(name, onChange)}
@@ -419,7 +420,7 @@ const ChemistForm = memo(
                       {isShowConfirmPassword ? <EyeIcon /> : <EyeSlashIcon />}
                     </Button>
                   }
-                  isDisabled={isLoading}
+                  isDisabled={isLoading || isPending}
                   isInvalid={!!error?.message}
                   errorMessage={error?.message}
                   onChange={handleInputChange(name, onChange)}
@@ -457,7 +458,7 @@ const ChemistForm = memo(
                 label: 'top-5 text-sm text-foreground',
                 value: 'text-sm text-primary-100',
               }}
-              isDisabled={isLoading}
+              isDisabled={isLoading || isPending}
               selectedKeys={[value]}
               options={specialtyOptions}
               isInvalid={!!error?.message}
@@ -489,7 +490,7 @@ const ChemistForm = memo(
                 errorMessage: 'text-danger text-xs ml-2',
                 label: 'text-sm',
               }}
-              isDisabled={isLoading}
+              isDisabled={isLoading || isPending}
               placeholder="Please enter description"
               isInvalid={!!error?.message}
               errorMessage={error?.message}
