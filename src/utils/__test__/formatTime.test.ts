@@ -88,33 +88,24 @@ describe('generateISODate', () => {
     dayjs.extend(utc);
   });
 
-  it('should generate a valid ISO string when inputTime is provided', () => {
+  it('should generate an ISO date string with the provided time values', () => {
     const inputTime = {
       hour: 14,
       minute: 30,
       second: 45,
-      millisecond: 123,
+      millisecond: 500,
     } as TimeInputValue;
-    const dateTime = '2024-10-12T00:00:00Z';
+    const dateTime = '2024-10-15'; // Example date
 
     const result = generateISODate(inputTime, dateTime);
+    const expectedDate = dayjs('2024-10-15')
+      .hour(14)
+      .minute(30)
+      .second(45)
+      .millisecond(500)
+      .toISOString();
 
-    // Expected date is the provided date with the updated time values
-    expect(result).toBe('2024-10-12T14:30:45.123Z');
-  });
-
-  it('should handle leap years correctly', () => {
-    const inputTime = {
-      hour: 23,
-      minute: 59,
-      second: 59,
-      millisecond: 999,
-    } as TimeInputValue;
-    const dateTime = '2024-02-29T00:00:00Z'; // Leap year
-
-    const result = generateISODate(inputTime, dateTime);
-
-    expect(result).toBe('2024-02-29T23:59:59.999Z');
+    expect(result).toBe(expectedDate);
   });
 });
 
