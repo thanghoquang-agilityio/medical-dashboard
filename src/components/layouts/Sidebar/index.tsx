@@ -76,7 +76,7 @@ export const Sidebar = () => {
               <Navbar />
             </div>
 
-            <div className="py-5">
+            <div className="py-5 flex justify-center">
               <Button
                 color="stone"
                 isIconOnly
