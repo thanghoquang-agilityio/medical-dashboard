@@ -43,5 +43,3 @@ next-env.d.ts
 # github
 /.github
 
-#firebase
-/public/swenv.js

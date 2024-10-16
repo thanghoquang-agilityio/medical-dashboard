@@ -44,7 +44,9 @@ import { Button, InputSearch, Select, Text } from '@/components/ui';
 import { AppointmentsHistoryListSkeleton } from './AppointmentsHistorySkeleton';
 import AppointmentModal from '../AppointmentModal';
 import { createColumns } from './columns';
-import { useCreateNotification } from '@/hocs/useNotification';
+
+// Hooks
+import { useNotification } from '@/hooks';
 
 const DataGrid = lazy(() => import('@/components/ui/DataGrid'));
 const ConfirmModal = lazy(() => import('@/components/ui/ConfirmModal'));
@@ -167,7 +169,7 @@ const AppointmentsHistory = ({
     onRemoveOrCancel: handleOpenConfirmModal,
   });
 
-  const { handleCreateNotification } = useCreateNotification({ userLogged });
+  const { handleCreateNotification } = useNotification({ userLogged });
 
   const handleDeleteAppointment = useCallback(async () => {
     setIsLoading(true);
@@ -183,11 +185,6 @@ const AppointmentsHistory = ({
     }
 
     if (appointment) {
-      openToast({
-        message: SUCCESS_MESSAGE.DELETE('appointment'),
-        type: STATUS_TYPE.SUCCESS,
-      });
-
       handleCreateNotification(appointment, 'deleted');
       onClosConfirm();
     }
