@@ -39,7 +39,7 @@ export default async function DashboardLayout({
 
   return (
     <main>
-      <Sidebar />
+      <Sidebar email={email} />
       <div className="flex flex-col min-h-[100vh] max-h-fit w-full relative bg-background-100 md:pl-[81px] lg:pl-[277px] max-w-[2560px] m-auto">
         <HeaderDashboard
           email={email}
