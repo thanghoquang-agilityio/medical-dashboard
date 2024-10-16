@@ -1,12 +1,11 @@
 import { UseFormGetValues } from 'react-hook-form';
 import { TimeInputValue } from '@nextui-org/react';
-import dayjs from 'dayjs';
 
 // Constants
 import { FORM_VALIDATION_MESSAGE } from '@/constants';
 
 // Utils
-import { generateISODate } from '@/utils';
+import { isFutureDate, generateISODate } from '@/utils';
 
 // Types
 import { AppointMentForm } from '.';
@@ -43,10 +42,10 @@ export const APPOINTMENT_FORM_VALIDATION = {
       required: FORM_VALIDATION_MESSAGE.REQUIRED('The start time'),
       validate: (value: TimeInputValue) => {
         const startDate = getValues('startDate');
-        const now = dayjs();
+
         // Validates the start time based on today's date and current time
         return (
-          !dayjs(generateISODate(value, startDate)).isBefore(now) ||
+          isFutureDate(generateISODate(value, startDate)) ||
           FORM_VALIDATION_MESSAGE.MIN_TIME('The start time')
         );
       },
