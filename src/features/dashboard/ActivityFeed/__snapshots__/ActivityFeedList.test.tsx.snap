@@ -24,7 +24,7 @@ exports[`ActivityFeedList test cases should render correctly 1`] = `
             aria-describedby=""
             aria-label="Table"
             class="min-w-full h-auto table-auto w-full"
-            id="table"
+            id="activity-feed"
             role="grid"
             tabindex="0"
           >
@@ -39,7 +39,7 @@ exports[`ActivityFeedList test cases should render correctly 1`] = `
                 <th
                   class="group px-3 h-10 align-middle bg-default-100 whitespace-nowrap text-foreground-500 text-tiny font-semibold first:rounded-s-lg last:rounded-e-lg data-[sortable=true]:cursor-pointer data-[hover=true]:text-foreground-400 outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-start"
                   data-key="sender"
-                  id="table-sender"
+                  id="activity-feed-sender"
                   role="columnheader"
                   tabindex="-1"
                 >
@@ -48,7 +48,7 @@ exports[`ActivityFeedList test cases should render correctly 1`] = `
                 <th
                   class="group px-3 h-10 align-middle bg-default-100 whitespace-nowrap text-foreground-500 text-tiny font-semibold first:rounded-s-lg last:rounded-e-lg data-[sortable=true]:cursor-pointer data-[hover=true]:text-foreground-400 outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-start"
                   data-key="status"
-                  id="table-status"
+                  id="activity-feed-status"
                   role="columnheader"
                   tabindex="-1"
                 >
@@ -66,7 +66,7 @@ exports[`ActivityFeedList test cases should render correctly 1`] = `
               role="rowgroup"
             >
               <tr
-                aria-labelledby="table-1-sender"
+                aria-labelledby="activity-feed-1-sender"
                 class="group outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2"
                 data-first="true"
                 data-key="1"
@@ -76,7 +76,7 @@ exports[`ActivityFeedList test cases should render correctly 1`] = `
                 <td
                   class="relative align-middle whitespace-normal text-small font-normal [&>*]:z-1 [&>*]:relative outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 before:content-[''] before:absolute before:z-0 before:inset-0 before:opacity-0 data-[selected=true]:before:opacity-100 group-data-[disabled=true]:text-foreground-300 group-data-[disabled=true]:cursor-not-allowed before:bg-default/60 data-[selected=true]:text-default-foreground first:before:rounded-s-lg last:before:rounded-e-lg text-start p-0 pb-6"
                   data-key="table-row-cell-sender"
-                  id="table-1-sender"
+                  id="activity-feed-1-sender"
                   role="rowheader"
                   tabindex="-1"
                 >
@@ -150,7 +150,7 @@ exports[`ActivityFeedList test cases should render correctly 1`] = `
                 </td>
               </tr>
               <tr
-                aria-labelledby="table-2-sender"
+                aria-labelledby="activity-feed-2-sender"
                 class="group outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2"
                 data-key="2"
                 data-last="true"
@@ -161,7 +161,7 @@ exports[`ActivityFeedList test cases should render correctly 1`] = `
                 <td
                   class="relative align-middle whitespace-normal text-small font-normal [&>*]:z-1 [&>*]:relative outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 before:content-[''] before:absolute before:z-0 before:inset-0 before:opacity-0 data-[selected=true]:before:opacity-100 group-data-[disabled=true]:text-foreground-300 group-data-[disabled=true]:cursor-not-allowed before:bg-default/60 data-[selected=true]:text-default-foreground first:before:rounded-s-lg last:before:rounded-e-lg text-start p-0"
                   data-key="table-row-cell-sender"
-                  id="table-2-sender"
+                  id="activity-feed-2-sender"
                   role="rowheader"
                   tabindex="-1"
                 >
