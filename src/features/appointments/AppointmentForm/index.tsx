@@ -29,11 +29,7 @@ import {
 import { Button, Input, Select, Text, TimeInput } from '@/components/ui';
 
 // Constants
-import {
-  APPOINTMENT_STATUS,
-  ERROR_MESSAGE,
-  SUCCESS_MESSAGE,
-} from '@/constants';
+import { APPOINTMENT_STATUS, ERROR_MESSAGE } from '@/constants';
 
 // Hocs
 import { useToast } from '@/context/toast';
@@ -41,11 +37,12 @@ import { useToast } from '@/context/toast';
 // Actions
 import { getUsers } from '@/actions/user';
 import { addAppointment, updateAppointment } from '@/actions/appointment';
-// import { createNotifications } from '@/services/notificationFirebase';
 
 // Rules
 import { APPOINTMENT_FORM_VALIDATION } from './rule';
-import { useCreateNotification } from '@/hocs/useNotification';
+
+// Hooks
+import { useNotification } from '@/hooks';
 
 export type AppointmentModalProps = {
   userLogged: UserLogged | null;
@@ -130,7 +127,7 @@ const AppointmentForm = memo(
     const OPTION_USERS = transformUsers(users);
     const isEdit = !!data;
 
-    const { handleCreateNotification } = useCreateNotification({
+    const { handleCreateNotification } = useNotification({
       userLogged,
     });
 
@@ -179,25 +176,10 @@ const AppointmentForm = memo(
       }
 
       if (newAppointment) {
-        openToast({
-          message: isEdit
-            ? SUCCESS_MESSAGE.UPDATE('appointment')
-            : SUCCESS_MESSAGE.CREATE('appointment'),
-          type: STATUS_TYPE.SUCCESS,
-        });
-
         handleCreateNotification(
           newAppointment,
           isEdit ? 'updated' : 'created',
         );
-
-        // TODO: create notifications in firebase
-        // const { id = '', attributes = {} as AppointmentModel } = newAppointment;
-        // await createNotifications({
-        //   appointment: attributes,
-        //   idAppointment: id,
-        //   message: 'have been created appointment',
-        // });
       }
     };
 

@@ -125,6 +125,7 @@ export const useFcmToken = (email?: string) => {
           payload.notification || {};
 
         openToast({ message: body });
+
         refresh();
       });
 

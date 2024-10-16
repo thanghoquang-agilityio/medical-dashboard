@@ -34,13 +34,15 @@ import {
 // Helper
 import { deleteAppointment, updateAppointment } from '@/actions/appointment';
 import { getStatusKey } from '@/utils';
-import { useCreateNotification } from '@/hocs/useNotification';
 import { useToast } from '@/context/toast';
 
 // Components
 import { Select, Text } from '@/components/ui';
 import { createColumns } from './columns';
 import { AppointmentsUpcomingListSkeleton } from './AppointmentsUpcomingSkeleton';
+
+// Hooks
+import { useNotification } from '@/hooks';
 const DataGrid = lazy(() => import('@/components/ui/DataGrid'));
 const ConfirmModal = lazy(() => import('@/components/ui/ConfirmModal'));
 
@@ -134,7 +136,7 @@ const AppointmentsUpcomingList = memo(
       onRemoveOrCancel: handleOpenConfirmModal,
     });
 
-    const { handleCreateNotification } = useCreateNotification({
+    const { handleCreateNotification } = useNotification({
       userLogged,
     });
 
