@@ -1,4 +1,3 @@
-// 'use client';
 import { Suspense, lazy, useMemo } from 'react';
 
 // Constants
