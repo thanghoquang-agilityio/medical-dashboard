@@ -1,6 +1,10 @@
 import { ReactNode } from 'react';
 import { act, fireEvent, render, waitFor } from '@testing-library/react';
+
+// Hocs
 import { TWithToast, buildToastRenderer, withToast } from '../withToast';
+
+// Types
 import { STATUS_TYPE } from '@/types';
 
 const Component = ({
@@ -36,6 +40,10 @@ afterEach(() => {
   jest.clearAllTimers();
   jest.clearAllMocks();
 });
+
+jest.mock('@/utils', () => ({
+  cn: jest.fn(() => 'mocked-class'),
+}));
 
 describe('withToast tests', () => {
   it('should show Toast correctly when the Open Toast button is clicked', async () => {
