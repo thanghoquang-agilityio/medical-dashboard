@@ -85,7 +85,7 @@ const Notifications = memo(
                   </div>
                 ))
               ) : (
-                <Text variant="title" customClass="my-auto">
+                <Text variant="title" customClass="my-auto pr-4">
                   No notification
                 </Text>
               )}
