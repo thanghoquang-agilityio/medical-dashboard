@@ -4,9 +4,8 @@ import { useEffect, useRef, useState } from 'react';
 import { onMessage, Unsubscribe } from 'firebase/messaging';
 import { useRouter } from 'next/navigation';
 import { useToast } from '@/context/toast';
-import { doc, getDoc, setDoc } from 'firebase/firestore';
-import { db, fetchToken, messaging } from '@/config/firebase.config';
-import { REGISTRATION_TOKENS } from '@/constants';
+import { fetchToken, messaging } from '@/config/firebase.config';
+import { registerFCM } from '@/services/notificationFirebase';
 
 async function getNotificationPermissionAndToken() {
   // Step 1: Check if Notifications are supported in the browser.
@@ -78,26 +77,11 @@ export const useFcmToken = (email?: string) => {
     isLoading.current = false;
 
     // Check and add if the token has already been in firebase storage or not
-    if (email) {
-      const docSnap = await getDoc(doc(db, REGISTRATION_TOKENS, email));
-
-      const { tokens: registrationTokens } = (docSnap.data() as {
-        tokens: Array<string>;
-      }) || {
-        tokens: [],
-      };
-
-      const isRegistered = registrationTokens.some(
-        (registerToken) => registerToken === token,
-      );
-
-      if (!isRegistered) {
-        registrationTokens.push(token);
-        await setDoc(doc(db, REGISTRATION_TOKENS, email), {
-          tokens: registrationTokens,
-        });
-      }
-    }
+    email &&
+      registerFCM({
+        email,
+        token,
+      });
   };
 
   useEffect(() => {
