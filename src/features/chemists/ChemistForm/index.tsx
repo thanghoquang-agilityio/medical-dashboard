@@ -313,7 +313,10 @@ const ChemistForm = memo(
         <Controller
           name="username"
           control={control}
-          render={({ field: { name, ...rest }, fieldState: { error } }) => (
+          render={({
+            field: { name, onChange, ...rest },
+            fieldState: { error },
+          }) => (
             <Input
               {...rest}
               isRequired
@@ -326,6 +329,7 @@ const ChemistForm = memo(
               isDisabled={isLoading || isEdit || isPending}
               isInvalid={!!error?.message}
               errorMessage={error?.message}
+              onChange={handleInputChange(name, onChange)}
             />
           )}
           rules={CHEMIST_FORM_VALIDATION.USERNAME}
@@ -335,7 +339,10 @@ const ChemistForm = memo(
         <Controller
           name="email"
           control={control}
-          render={({ field: { name, ...rest }, fieldState: { error } }) => (
+          render={({
+            field: { name, onChange, ...rest },
+            fieldState: { error },
+          }) => (
             <Input
               {...rest}
               label="Email"
@@ -348,6 +355,7 @@ const ChemistForm = memo(
               isDisabled={isLoading || isEdit || isPending}
               isInvalid={!!error?.message}
               errorMessage={error?.message}
+              onChange={handleInputChange(name, onChange)}
             />
           )}
           rules={CHEMIST_FORM_VALIDATION.EMAIL}
@@ -474,7 +482,7 @@ const ChemistForm = memo(
           name="description"
           control={control}
           render={({
-            field: { name, value, ...rest },
+            field: { name, value, onChange, ...rest },
             fieldState: { error },
           }) => (
             <Textarea
@@ -494,6 +502,7 @@ const ChemistForm = memo(
               placeholder="Please enter description"
               isInvalid={!!error?.message}
               errorMessage={error?.message}
+              onChange={handleInputChange(name, onChange)}
             />
           )}
           rules={CHEMIST_FORM_VALIDATION.DESCRIPTION}
@@ -511,6 +520,7 @@ const ChemistForm = memo(
               variant="outline"
               color="outline"
               className="font-medium"
+              isDisabled={isPending}
             >
               Cancel
             </Button>
