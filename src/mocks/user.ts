@@ -1,4 +1,10 @@
-import { ROLE, RolePermission, UserLogged, UserModel } from '@/types';
+import {
+  ROLE,
+  RolePermission,
+  UserLogged,
+  UserModel,
+  UserSession,
+} from '@/types';
 
 export const MOCK_USER_LIST = {
   data: [
@@ -501,3 +507,13 @@ export const MOCK_USER_ROLE: RolePermission[] = [
     name: ROLE.ADMIN,
   },
 ];
+
+export const MOCK_USER_SESSION: UserSession = {
+  id: MOCK_USERS_LOGGED[0].id,
+  username: MOCK_USERS_LOGGED[0].username,
+  email: MOCK_USERS_LOGGED[0].email,
+  token: 'access-token',
+  role: '',
+  avatar: '',
+  remember: true,
+};
