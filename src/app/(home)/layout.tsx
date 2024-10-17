@@ -22,7 +22,7 @@ export default async function DashboardLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const { avatar, id, email = '' } = (await auth())?.user || {};
+  const { avatar, id } = (await auth())?.user || {};
   const searchParamsAPI = new URLSearchParams();
 
   searchParamsAPI.set('populate[0]', 'senderId');
@@ -39,10 +39,9 @@ export default async function DashboardLayout({
 
   return (
     <main>
-      <Sidebar email={email} />
+      <Sidebar />
       <div className="flex flex-col min-h-[100vh] max-h-fit w-full relative bg-background-100 md:pl-[81px] lg:pl-[277px] max-w-[2560px] m-auto">
         <HeaderDashboard
-          email={email}
           avatarUrl={avatar ?? ''}
           notifications={notifications}
           isInvisibleBadge={!notifications.length}
