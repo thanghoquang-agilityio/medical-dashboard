@@ -235,6 +235,7 @@ const AppointmentsUpcomingList = memo(
               columns={columns as ColumnType<unknown>[]}
               classWrapper="pt-4"
               classCell="pb-4"
+              id="appointment-upcoming"
             />
           )}
 

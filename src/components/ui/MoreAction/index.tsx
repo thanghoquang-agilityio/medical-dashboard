@@ -24,6 +24,7 @@ export const MenuAction = ({ options }: MoreActionProps) => {
 
   return (
     <MenuDropdown
+      aria-label="more-action"
       onAction={handleAction}
       options={optionsMenu}
       classNames={{
