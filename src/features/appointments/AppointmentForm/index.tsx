@@ -407,6 +407,7 @@ const AppointmentForm = memo(
                 color="outline"
                 className="font-medium"
                 onClick={onClose}
+                isDisabled={isPending}
               >
                 Cancel
               </Button>

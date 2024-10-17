@@ -158,7 +158,7 @@ const ChemistList = memo(
     return (
       <>
         <div className="flex flex-col mt-3 md:flex-row gap-4 md:mb-8">
-          <InputSearch placeholder="Search Appointments" value={search} />
+          <InputSearch placeholder="Search Chemists" value={search} />
           <div className="flex justify-between md:gap-4 mb-10 md:mb-0 ">
             <MenuDropdown
               icon={<CategoryIcon customClass="w-4 h-4 md:w-6 md:h-6" />}

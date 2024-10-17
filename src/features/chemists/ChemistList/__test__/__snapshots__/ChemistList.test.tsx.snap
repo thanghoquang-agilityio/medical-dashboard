@@ -61,12 +61,12 @@ exports[`ChemistList should render correctly 1`] = `
               </defs>
             </svg>
             <input
-              aria-label="Search Appointments"
+              aria-label="Search Chemists"
               class="w-full font-normal !outline-none focus-visible:outline-none data-[has-start-content=true]:ps-1.5 data-[has-end-content=true]:pe-1.5 file:cursor-pointer file:bg-transparent file:border-0 autofill:bg-transparent bg-clip-text peer pr-6 rtl:pr-0 rtl:pl-6 group-data-[has-value=true]:text-default-foreground text-primary-100 placeholder:text-primary-300 bg-transparent text-sm mx-2 group-data-[invalid=true]:!text-danger-100"
               data-has-start-content="true"
               data-slot="input"
               id="react-aria-:ri:"
-              placeholder="Search Appointments"
+              placeholder="Search Chemists"
               type="text"
               value=""
             />
