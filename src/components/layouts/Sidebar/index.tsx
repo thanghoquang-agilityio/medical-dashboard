@@ -18,7 +18,7 @@ import { logout } from '@/services';
 import { useFcmToken } from '@/hooks';
 import { unregisterFCM } from '@/services/notificationFirebase';
 
-export const Sidebar = ({ email }: { email: string }) => {
+export const Sidebar = () => {
   const [isPending, setIsPending] = useState(false);
 
   const { token } = useFcmToken();
@@ -28,7 +28,6 @@ export const Sidebar = ({ email }: { email: string }) => {
 
     token &&
       (await unregisterFCM({
-        email,
         token,
       }));
 

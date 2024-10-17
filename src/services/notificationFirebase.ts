@@ -1,18 +1,14 @@
 'use server';
 
+import { auth } from '@/config/auth';
 import { db } from '@/config/firebase.config';
 import { REGISTRATION_TOKENS } from '@/constants';
+import { ROLE } from '@/types';
 import admin from 'firebase-admin';
 import { MulticastMessage } from 'firebase-admin/messaging';
 import { doc, getDoc, setDoc } from 'firebase/firestore';
 
-export const sendNotification = async ({
-  message,
-  email,
-}: {
-  message: string;
-  email: string;
-}) => {
+export const sendNotification = async ({ message }: { message: string }) => {
   // Make sure there is only one firebase admin instance
   if (!admin.apps.length) {
     admin.initializeApp({
@@ -25,7 +21,7 @@ export const sendNotification = async ({
   }
 
   try {
-    const registrationTokens = await getFCMTokens(email);
+    const registrationTokens = await getFCMTokens();
 
     const payload: MulticastMessage = {
       tokens: registrationTokens,
@@ -44,26 +40,34 @@ export const sendNotification = async ({
   }
 };
 
-export const getFCMTokens = async (email: string) => {
-  const docSnap = await getDoc(doc(db, REGISTRATION_TOKENS, email));
+export const getFCMTokens = async () => {
+  const { email = '', role = ROLE.NORMAL_USER } = (await auth())?.user || {};
 
-  const { tokens: registrationTokens } = (docSnap.data() as {
+  const userDocSnap = await getDoc(doc(db, REGISTRATION_TOKENS, email));
+
+  const adminDocSnap = await getDoc(doc(db, REGISTRATION_TOKENS, 'admin'));
+
+  const { tokens: userRegistrationTokens } = (userDocSnap.data() as {
     tokens: Array<string>;
   }) || {
     tokens: [],
   };
 
-  return registrationTokens;
+  const { tokens: adminRegistrationTokens } = (adminDocSnap.data() as {
+    tokens: Array<string>;
+  }) || {
+    tokens: [],
+  };
+
+  return role === ROLE.ADMIN
+    ? adminRegistrationTokens
+    : [...userRegistrationTokens, ...adminRegistrationTokens];
 };
 
-export const registerFCM = async ({
-  token,
-  email,
-}: {
-  token: string;
-  email: string;
-}) => {
-  const registrationTokens = await getFCMTokens(email);
+export const registerFCM = async ({ token }: { token: string }) => {
+  const { email = '', role } = (await auth())?.user || {};
+
+  const registrationTokens = await getFCMTokens();
 
   const isRegistered = registrationTokens.some(
     (registerToken) => registerToken === token,
@@ -71,26 +75,35 @@ export const registerFCM = async ({
 
   if (!isRegistered) {
     registrationTokens.push(token);
-    await setDoc(doc(db, REGISTRATION_TOKENS, email), {
+
+    const docRef = doc(
+      db,
+      REGISTRATION_TOKENS,
+      role === ROLE.ADMIN ? 'admin' : email,
+    );
+
+    await setDoc(docRef, {
       tokens: registrationTokens,
     });
   }
 };
 
-export const unregisterFCM = async ({
-  token,
-  email,
-}: {
-  token: string;
-  email: string;
-}) => {
-  const registrationTokens = await getFCMTokens(email);
+export const unregisterFCM = async ({ token }: { token: string }) => {
+  const { email = '', role } = (await auth())?.user || {};
+
+  const registrationTokens = await getFCMTokens();
 
   const filteredTokens = registrationTokens.filter(
     (registrationToken) => registrationToken !== token,
   );
 
-  await setDoc(doc(db, REGISTRATION_TOKENS, email), {
+  const docRef = doc(
+    db,
+    REGISTRATION_TOKENS,
+    role === ROLE.ADMIN ? 'admin' : email,
+  );
+
+  await setDoc(docRef, {
     tokens: filteredTokens,
   });
 };

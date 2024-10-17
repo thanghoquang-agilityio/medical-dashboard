@@ -34,12 +34,7 @@ export const useNotification = ({
         durationTime = '',
       } = attributes || {};
 
-      const {
-        id: userId = '',
-        username = '',
-        avatar,
-        email = '',
-      } = userLogged || {};
+      const { id: userId = '', username = '', avatar } = userLogged || {};
       const { url = '' } = avatar || {};
 
       const notification: NotificationPayload = {
@@ -70,7 +65,6 @@ export const useNotification = ({
       token &&
         (await sendNotification({
           message: 'You have new notification',
-          email,
         }));
     },
     [openToast, token, userLogged],

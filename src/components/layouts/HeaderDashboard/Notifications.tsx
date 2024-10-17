@@ -34,7 +34,7 @@ const Notifications = memo(
             className="p-0 min-w-6 h-6 text-primary-300 overflow-visible"
           >
             <Badge
-              className="bg-danger-200 text-content1"
+              className="bg-danger-100 text-content1"
               classNames={{
                 badge:
                   'min-w-3 min-h-3 w-3 h-3 text-[6px] top-[15%] right-[15%]',

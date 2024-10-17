@@ -30,7 +30,7 @@ async function getNotificationPermissionAndToken() {
   return null;
 }
 
-export const useFcmToken = (email?: string) => {
+export const useFcmToken = () => {
   const router = useRouter(); // Initialize the router for navigation.
   const [notificationPermissionStatus, setNotificationPermissionStatus] =
     useState<NotificationPermission | null>(null); // State to store the notification permission status.
@@ -77,11 +77,9 @@ export const useFcmToken = (email?: string) => {
     isLoading.current = false;
 
     // Check and add if the token has already been in firebase storage or not
-    email &&
-      registerFCM({
-        email,
-        token,
-      });
+    registerFCM({
+      token,
+    });
   };
 
   useEffect(() => {
