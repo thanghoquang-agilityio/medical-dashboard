@@ -56,7 +56,7 @@ export const createColumns = ({
               src={`${API_IMAGE_URL}${url}`}
               size="md"
               isBordered
-              className="shrink-0"
+              className="shrink-0 hidden sm:block"
             />
             <Text variant="primary" size="sm">
               {username}
@@ -83,7 +83,7 @@ export const createColumns = ({
               src={`${API_IMAGE_URL}${url}`}
               size="md"
               isBordered
-              className="shrink-0"
+              className="shrink-0 hidden sm:block"
             />
             <Text variant="primary" size="sm">
               {username}
@@ -142,7 +142,7 @@ export const createColumns = ({
       customNode: ({ item }) => {
         const { startTime = '', durationTime = '' } = item || {};
         return (
-          <Text variant="primary" size="xs">
+          <Text variant="primary" size="xs" customClass="hidden sm:block">
             {formatTimeAppointment({
               start: startTime,
               duration: durationTime,
@@ -170,7 +170,7 @@ export const createColumns = ({
       title: 'Status',
       customNode: ({ item }) => {
         const { status = 0 } = item || {};
-        return <Status status={status} />;
+        return <Status status={status} className="hidden sm:block" />;
       },
     },
     {
