@@ -6,7 +6,7 @@ import {
 } from '@nextui-org/react';
 
 // Utils
-import { cn } from '@/utils';
+import { cn } from '@/utils/styles';
 
 export const TimeInput = extendVariants(TimeInputNextUI, {
   variants: {
@@ -14,13 +14,16 @@ export const TimeInput = extendVariants(TimeInputNextUI, {
       default: {
         inputWrapper: cn(
           'bg-transparent border-text-foreground',
-          '!bg-transparent hover:!bg-transparent focus:!bg-transparent focus:border-secondary-300 group-data-[invalid=true]:border-red',
+          '!bg-transparent hover:!bg-transparent focus:!bg-transparent focus:border-secondary-300 group-data-[invalid=true]:border-danger-100',
         ),
+        innerWrapper:
+          'group-data-[invalid=true]:border-danger-100 group-data-[invalid=true]:text-danger-100',
         input:
-          'text-primary-100 placeholder:text-primary-300 bg-transparent text-sm mx-2 data-[focus=true]:!bg-transparent',
+          'text-primary-100 placeholder:text-primary-300 bg-transparent text-sm mx-2 data-[focus=true]:!bg-transparent group-data-[invalid=true]:text-danger-100',
         errorMessage: 'text-danger-100 text-xs ml-2',
-        label: 'top-[13px] text-sm',
-        segment: 'focus:bg-primary-100 focus:bg-opacity-20',
+        label: 'top-[13px] text-sm group-data-[invalid=true]:text-danger-100',
+        segment:
+          'focus:bg-primary-100 focus:bg-opacity-20 group-data-[invalid=true]:text-danger-100',
       },
     },
     size: {

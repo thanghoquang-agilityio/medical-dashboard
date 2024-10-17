@@ -26,12 +26,12 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(
         mainWrapper: classNames?.mainWrapper,
         base: classNames?.base,
         label: cn(
-          'text-primary-100 text-xs font-medium',
+          'text-primary-100 text-xs font-medium group-data-[invalid=true]:!text-danger-100',
           'group-data-[filled=true]:text-primary-100 after:text-primary-100',
           classNames?.label,
         ),
         value: cn(
-          `text-xs`,
+          `text-xs group-data-[invalid=true]:!text-danger-100`,
           value
             ? 'text-primary-300 font-medium'
             : 'text-primary-100 font-medium',
@@ -42,16 +42,22 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(
           'bg-background-100 shadow-stack border-1 outline-offset-0',
           'data-[focus=true]:border-green data-[focus=true]:border-1 data-[focus=true]:bg-background-100',
           'data-[hover=true]:bg-background-100',
-          'group-data-[invalid=true]:border-red',
+          'group-data-[invalid=true]:!border-danger-100',
           classNames?.trigger,
         ),
-        innerWrapper: cn('text-xs leading-[18px]', classNames?.innerWrapper),
+        innerWrapper: cn(
+          'text-xs leading-[18px] group-data-[invalid=true]:!text-danger-100',
+          classNames?.innerWrapper,
+        ),
         selectorIcon: cn('text-primary-100', classNames?.selectorIcon),
         popoverContent: cn(
           'bg-background-100 w-full rounded-lg',
           classNames?.popoverContent,
         ),
-        errorMessage: cn('text-danger text-sm ml-2', classNames?.errorMessage),
+        errorMessage: cn(
+          '!text-danger-100 text-sm ml-2',
+          classNames?.errorMessage,
+        ),
       }}
     >
       {options.map(({ key, label }) => (

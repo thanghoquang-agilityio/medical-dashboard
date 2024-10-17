@@ -82,10 +82,10 @@ exports[`Sidebar test cases should render correctly 1`] = `
           </a>
         </div>
         <div
-          class="cursor-not-allowed"
+          class=""
         >
           <a
-            class="text-primary-100 text-sm flex h-[60px] gap-5 mb-[1px] py-5 px-8 lg:px-10 hover:bg-linear-sidebar"
+            class="text-primary-100 text-sm flex h-[60px] gap-5 mb-[1px] py-5 px-8 lg:px-10 bg-linear-sidebar text-sky font-semibold"
             href="/appointments"
           >
             <div
@@ -579,10 +579,10 @@ exports[`Sidebar test cases should render correctly 1`] = `
             </a>
           </div>
           <div
-            class="cursor-not-allowed"
+            class=""
           >
             <a
-              class="text-primary-100 text-sm flex h-[60px] gap-5 mb-[1px] py-5 px-8 lg:px-10 justify-center hover:bg-linear-sidebar"
+              class="text-primary-100 text-sm flex h-[60px] gap-5 mb-[1px] py-5 px-8 lg:px-10 justify-center bg-linear-sidebar text-sky font-semibold"
               href="/appointments"
             >
               <div
@@ -946,7 +946,7 @@ exports[`Sidebar test cases should render correctly 1`] = `
           </div>
         </div>
         <div
-          class="py-5"
+          class="py-5 flex justify-center"
         >
           <button
             class="z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap subpixel-antialiased overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-small gap-2 rounded-medium px-0 !gap-0 transition-transform-colors-opacity motion-reduce:transition-none min-w-10 data-[hover=true]:opacity-hover border-transparent font-semibold text-primary-200 bg-none w-6 h-6"

@@ -1,0 +1,963 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ChemistForm test cases should render correctly 1`] = `
+<DocumentFragment>
+  <form
+    class="p-4 flex flex-col"
+    data-testid="chemist-form"
+  >
+    <p
+      class="text-primary-100 font-semibold text-xl text-ellipsis whitespace-nowrap overflow-hidden"
+    >
+      Update chemist
+    </p>
+    <div
+      class="flex flex-col justify-center items-center gap-3"
+    >
+      <div
+        class="relative"
+        style="width: 100px; height: 100px;"
+      >
+        <span
+          class="flex relative justify-center items-center box-border overflow-hidden align-middle z-0 outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-tiny text-default-foreground rounded-full min-w-8 bg-undefined ring-offset-2 ring-1 ring-green w-[100px] h-[100px]"
+          tabindex="-1"
+        >
+          <img
+            alt="Image for avatar"
+            class="flex object-cover w-full h-full transition-opacity !duration-500 opacity-0 data-[loaded=true]:opacity-100"
+            src="http://localhost:1341mock_url"
+          />
+          <span
+            aria-label="Image for avatar"
+            class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex items-center justify-center text-inherit w-full h-full"
+            role="img"
+          >
+            <svg
+              aria-hidden="true"
+              fill="none"
+              height="80%"
+              role="presentation"
+              viewBox="0 0 24 24"
+              width="80%"
+            >
+              <path
+                d="M12 2C9.38 2 7.25 4.13 7.25 6.75C7.25 9.32 9.26 11.4 11.88 11.49C11.96 11.48 12.04 11.48 12.1 11.49C12.12 11.49 12.13 11.49 12.15 11.49C12.16 11.49 12.16 11.49 12.17 11.49C14.73 11.4 16.74 9.32 16.75 6.75C16.75 4.13 14.62 2 12 2Z"
+                fill="currentColor"
+              />
+              <path
+                d="M17.0809 14.1489C14.2909 12.2889 9.74094 12.2889 6.93094 14.1489C5.66094 14.9989 4.96094 16.1489 4.96094 17.3789C4.96094 18.6089 5.66094 19.7489 6.92094 20.5889C8.32094 21.5289 10.1609 21.9989 12.0009 21.9989C13.8409 21.9989 15.6809 21.5289 17.0809 20.5889C18.3409 19.7389 19.0409 18.5989 19.0409 17.3589C19.0309 16.1289 18.3409 14.9889 17.0809 14.1489Z"
+                fill="currentColor"
+              />
+            </svg>
+          </span>
+        </span>
+        <button
+          class="group box-border appearance-none select-none whitespace-nowrap subpixel-antialiased overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-small gap-2 rounded-medium !gap-0 transition-transform-colors-opacity motion-reduce:transition-none data-[hover=true]:opacity-hover border-transparent font-semibold bg-linear-success bg-none w-6 max-h-6 flex items-center justify-end text-primary-300 absolute top-[-6px] right-[-2px] z-10 p-0 min-w-6 h-6"
+          type="button"
+        >
+          <svg
+            class="text-primary-300 w-auto"
+            fill="none"
+            viewBox="0 0 22 22"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <circle
+              cx="11.2681"
+              cy="10.7317"
+              fill="white"
+              r="7.5122"
+            />
+            <path
+              d="M11 0C8.82441 0 6.69767 0.645139 4.88873 1.85383C3.07979 3.06253 1.66989 4.78049 0.83733 6.79048C0.00476611 8.80047 -0.213071 11.0122 0.211367 13.146C0.635804 15.2798 1.68345 17.2398 3.22183 18.7782C4.76021 20.3165 6.72022 21.3642 8.85401 21.7886C10.9878 22.2131 13.1995 21.9952 15.2095 21.1627C17.2195 20.3301 18.9375 18.9202 20.1462 17.1113C21.3549 15.3023 22 13.1756 22 11C21.9944 8.08433 20.8337 5.28969 18.772 3.228C16.7103 1.16631 13.9157 0.00559093 11 0ZM14.9875 13.7817C15.1464 13.9422 15.2355 14.1588 15.2355 14.3846C15.2355 14.6104 15.1464 14.8271 14.9875 14.9875C14.8258 15.1439 14.6096 15.2313 14.3846 15.2313C14.1596 15.2313 13.9435 15.1439 13.7817 14.9875L11 12.1952L8.21827 14.9875C8.05654 15.1439 7.84036 15.2313 7.61539 15.2313C7.39041 15.2313 7.17424 15.1439 7.0125 14.9875C6.85361 14.8271 6.76447 14.6104 6.76447 14.3846C6.76447 14.1588 6.85361 13.9422 7.0125 13.7817L9.80481 11L7.0125 8.21827C6.87757 8.05386 6.80862 7.84515 6.81905 7.63272C6.82948 7.42029 6.91856 7.21934 7.06895 7.06895C7.21934 6.91856 7.4203 6.82948 7.63272 6.81905C7.84515 6.80861 8.05387 6.87757 8.21827 7.0125L11 9.80481L13.7817 7.0125C13.9461 6.87757 14.1549 6.80861 14.3673 6.81905C14.5797 6.82948 14.7807 6.91856 14.9311 7.06895C15.0814 7.21934 15.1705 7.42029 15.181 7.63272C15.1914 7.84515 15.1224 8.05386 14.9875 8.21827L12.1952 11L14.9875 13.7817Z"
+              fill="currentColor"
+            />
+          </svg>
+        </button>
+      </div>
+      <button
+        class="z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap subpixel-antialiased overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 px-4 min-w-20 text-small gap-2 rounded-medium [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none data-[hover=true]:opacity-hover border-transparent font-semibold bg-linear-success w-20 h-8 text-primary-100"
+        type="button"
+      >
+        <svg
+          class="w-full h-full"
+          preserveAspectRatio="xMidYMid meet"
+          viewBox="0 0 512.000000 512.000000"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <g
+            fill="currentColor"
+            stroke="none"
+            transform="translate(0.000000,512.000000) scale(0.100000,-0.100000)"
+          >
+            <path
+              d="M4095 4626 c-48 -22 -392 -375 -400 -411 -4 -16 -8 -35 -10 -42 -7   -23 17 -84 46 -117 60 -70 170 -65 239 9 l25 27 5 -260 c5 -244 6 -262 26   -289 73 -98 195 -98 268 0 20 27 21 45 26 289 l5 260 25 -27 c69 -74 169 -78   236 -11 30 30 57 94 49 119 -2 7 -6 26 -10 42 -8 37 -354 390 -402 411 -40 17   -89 17 -128 0z"
+            />
+            <path
+              d="M1045 4415 c-221 -48 -407 -197 -500 -400 -69 -148 -65 -68 -65   -1455 0 -1387 -4 -1307 65 -1455 86 -187 251 -327 460 -392 57 -17 130 -18   1550 -18 1389 0 1494 1 1553 18 202 55 373 197 462 382 73 152 71 129 68 977   -3 750 -3 757 -24 785 -73 98 -195 98 -268 0 -20 -27 -21 -41 -24 -400 l-3   -371 -492 492 c-522 521 -535 532 -627 532 -93 0 -101 -7 -687 -592 -549 -548   -552 -551 -592 -551 -39 0 -48 7 -170 126 -71 69 -144 133 -162 143 -46 24   -142 24 -189 0 -19 -10 -162 -145 -317 -299 l-283 -282 0 1020 c0 645 4 1043   10 1083 29 179 115 281 275 328 55 16 140 18 1012 23 939 6 952 6 980 27 44   32 76 105 68 155 -9 53 -64 115 -113 129 -60 16 -1911 12 -1987 -5z"
+            />
+            <path
+              d="M1637 3456 c-113 -31 -198 -141 -196 -254 1 -104 51 -189 140 -237   104 -57 250 -31 324 57 51 60 68 113 63 194 -8 121 -75 204 -191 239 -60 18   -77 18 -140 1z"
+            />
+          </g>
+        </svg>
+        <div
+          class="group flex-col data-[hidden=true]:hidden w-full relative justify-end data-[has-label=true]:mt-[calc(theme(fontSize.small)_+_10px)] hidden"
+          data-filled="true"
+          data-filled-within="true"
+          data-has-value="true"
+          data-slot="base"
+        >
+          <div
+            class="flex flex-col h-20"
+            data-slot="main-wrapper"
+          >
+            <div
+              class="relative w-full inline-flex tap-highlight-transparent flex-row items-center shadow-sm px-3 gap-3 data-[hover=true]:bg-default-200 group-data-[focus=true]:bg-default-100 min-h-10 rounded-medium transition-background motion-reduce:transition-none !duration-150 outline-none group-data-[focus-visible=true]:z-10 group-data-[focus-visible=true]:ring-2 group-data-[focus-visible=true]:ring-focus group-data-[focus-visible=true]:ring-offset-2 group-data-[focus-visible=true]:ring-offset-background bg-transparent border-text-foreground !bg-transparent data-[hover=true]:!bg-transparent group-data-[focus=true]:ring-0 group-data-[focus=true]:ring-offset-0 group-data-[focus=true]:!bg-transparent data-[focus=true]:border-secondary-300 group-data-[invalid=true]:border-danger-100 h-auto py-4 border"
+              data-slot="input-wrapper"
+              style="cursor: text;"
+            >
+              <div
+                class="inline-flex w-full items-center h-full box-border"
+                data-slot="inner-wrapper"
+              >
+                <input
+                  accept="image/*"
+                  aria-label=" "
+                  class="w-full font-normal !outline-none focus-visible:outline-none data-[has-start-content=true]:ps-1.5 data-[has-end-content=true]:pe-1.5 file:cursor-pointer file:bg-transparent file:border-0 autofill:bg-transparent bg-clip-text group-data-[has-value=true]:text-default-foreground text-primary-100 placeholder:text-primary-300 bg-transparent text-sm mx-2 group-data-[invalid=true]:!text-danger-100"
+                  data-slot="input"
+                  data-testid="upload-image"
+                  id="react-aria-:r0:"
+                  type="file"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </button>
+    </div>
+    <div
+      class="flex justify-between self-center gap-6 mt-4"
+    >
+      <div
+        class="flex items-center gap-1 sm:gap-2"
+      >
+        <svg
+          class="w-6 h-6"
+          fill="none"
+          height="24"
+          viewBox="0 0 24 24"
+          width="24"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M21.6599 10.44L20.6799 14.62C19.8399 18.23 18.1799 19.69 15.0599 19.39C14.5599 19.35 14.0199 19.26 13.4399 19.12L11.7599 18.72C7.58994 17.73 6.29994 15.67 7.27994 11.49L8.25994 7.3C8.45994 6.45 8.69994 5.71 8.99994 5.1C10.1699 2.68 12.1599 2.03 15.4999 2.82L17.1699 3.21C21.3599 4.19 22.6399 6.26 21.6599 10.44Z"
+            stroke="#54577A"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="1.5"
+          />
+          <path
+            d="M15.0601 19.39C14.4401 19.81 13.6601 20.16 12.7101 20.47L11.1301 20.99C7.1601 22.27 5.0701 21.2 3.7801 17.23L2.5001 13.28C1.2201 9.31 2.2801 7.21 6.2501 5.93L7.8301 5.41C8.2401 5.28 8.6301 5.17 9.0001 5.1C8.7001 5.71 8.4601 6.45 8.2601 7.3L7.2801 11.49C6.3001 15.67 7.5901 17.73 11.7601 18.72L13.4401 19.12C14.0201 19.26 14.5601 19.35 15.0601 19.39Z"
+            stroke="#54577A"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="1.5"
+          />
+          <path
+            d="M12.6399 8.53L17.4899 9.76"
+            stroke="#54577A"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="1.5"
+          />
+          <path
+            d="M11.6599 12.4L14.5599 13.14"
+            stroke="#54577A"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="1.5"
+          />
+        </svg>
+        <p
+          class="text-primary-100 text-sm text-ellipsis whitespace-nowrap overflow-hidden font-medium"
+        >
+          0 Tasks
+        </p>
+      </div>
+      <div
+        class="flex items-center gap-1 sm:gap-2"
+      >
+        <svg
+          class="w-6 h-6 text-light-orange"
+          fill="none"
+          viewBox="0 0 20 20"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M9.04894 0.927052C9.3483 0.00574112 10.6517 0.00573993 10.9511 0.927051L12.4697 5.60081C12.6035 6.01284 12.9875 6.2918 13.4207 6.2918H18.335C19.3037 6.2918 19.7065 7.53141 18.9228 8.10081L14.947 10.9894C14.5966 11.244 14.4499 11.6954 14.5838 12.1074L16.1024 16.7812C16.4017 17.7025 15.3472 18.4686 14.5635 17.8992L10.5878 15.0106C10.2373 14.756 9.7627 14.756 9.41221 15.0106L5.43648 17.8992C4.65276 18.4686 3.59828 17.7025 3.89763 16.7812L5.41623 12.1074C5.55011 11.6954 5.40345 11.244 5.05296 10.9894L1.07722 8.10081C0.293507 7.53141 0.696283 6.2918 1.66501 6.2918H6.57929C7.01252 6.2918 7.39647 6.01284 7.53035 5.60081L9.04894 0.927052Z"
+            fill="currentColor"
+          />
+        </svg>
+        <p
+          class="text-primary-100 text-sm text-ellipsis whitespace-nowrap overflow-hidden font-medium"
+        >
+          0 (0 Reviews)
+        </p>
+      </div>
+    </div>
+    <div
+      class="group flex flex-col data-[hidden=true]:hidden w-full opacity-disabled pointer-events-none relative justify-end data-[has-label=true]:mt-[calc(theme(fontSize.small)_+_8px)] is-filled"
+      data-disabled="true"
+      data-filled="true"
+      data-filled-within="true"
+      data-has-elements="true"
+      data-has-label="true"
+      data-has-value="true"
+      data-required="true"
+      data-slot="base"
+    >
+      <div
+        class="flex flex-col h-[68px]"
+        data-slot="main-wrapper"
+      >
+        <div
+          class="relative w-full inline-flex tap-highlight-transparent flex-row items-center shadow-sm gap-3 data-[hover=true]:bg-default-200 group-data-[focus=true]:bg-default-100 min-h-8 px-2 rounded-small pointer-events-none transition-background motion-reduce:transition-none !duration-150 outline-none group-data-[focus-visible=true]:z-10 group-data-[focus-visible=true]:ring-2 group-data-[focus-visible=true]:ring-focus group-data-[focus-visible=true]:ring-offset-2 group-data-[focus-visible=true]:ring-offset-background bg-transparent border-text-foreground !bg-transparent data-[hover=true]:!bg-transparent group-data-[focus=true]:ring-0 group-data-[focus=true]:ring-offset-0 group-data-[focus=true]:!bg-transparent data-[focus=true]:border-secondary-300 group-data-[invalid=true]:border-danger-100 h-auto py-3 max-h-10 border is-filled"
+          data-slot="input-wrapper"
+          style="cursor: text;"
+        >
+          <label
+            class="absolute origin-top-left rtl:origin-top-right subpixel-antialiased block text-foreground-500 pointer-events-none after:content-['*'] after:text-danger after:ml-0.5 rtl:after:ml-[unset] rtl:after:mr-0.5 will-change-auto !duration-200 !ease-out motion-reduce:transition-none transition-[transform,color,left,opacity] group-data-[filled-within=true]:text-foreground group-data-[filled-within=true]:pointer-events-auto pb-0 z-20 -translate-y-1/2 group-data-[filled-within=true]:start-0 start-2 group-data-[filled-within=true]:-translate-y-[calc(100%_+_theme(fontSize.tiny)/2_+_16px)] pe-2 max-w-full text-ellipsis overflow-hidden text-sm group-data-[invalid=true]:!text-danger-100 top-[20px]"
+            data-slot="label"
+            for="react-aria-:r5:"
+            id="react-aria-:r6:"
+          >
+            Username
+          </label>
+          <div
+            class="inline-flex w-full items-center h-full box-border"
+            data-slot="inner-wrapper"
+          >
+            <input
+              aria-label="Username"
+              aria-labelledby="react-aria-:r5: react-aria-:r6:"
+              aria-required="true"
+              class="w-full font-normal !outline-none focus-visible:outline-none data-[has-start-content=true]:ps-1.5 data-[has-end-content=true]:pe-1.5 file:cursor-pointer file:bg-transparent file:border-0 autofill:bg-transparent bg-clip-text group-data-[has-value=true]:text-default-foreground text-primary-100 placeholder:text-primary-300 bg-transparent text-sm group-data-[invalid=true]:!text-danger-100 mx-1 is-filled"
+              data-filled="true"
+              data-filled-within="true"
+              data-slot="input"
+              disabled=""
+              id="react-aria-:r5:"
+              name="username"
+              placeholder="Please enter username"
+              type="text"
+              value="mockuser"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="group flex flex-col data-[hidden=true]:hidden w-full opacity-disabled pointer-events-none relative justify-end data-[has-label=true]:mt-[calc(theme(fontSize.small)_+_8px)] is-filled"
+      data-disabled="true"
+      data-filled="true"
+      data-filled-within="true"
+      data-has-elements="true"
+      data-has-label="true"
+      data-has-value="true"
+      data-required="true"
+      data-slot="base"
+    >
+      <div
+        class="flex flex-col h-[68px]"
+        data-slot="main-wrapper"
+      >
+        <div
+          class="relative w-full inline-flex tap-highlight-transparent flex-row items-center shadow-sm gap-3 data-[hover=true]:bg-default-200 group-data-[focus=true]:bg-default-100 min-h-8 px-2 rounded-small pointer-events-none transition-background motion-reduce:transition-none !duration-150 outline-none group-data-[focus-visible=true]:z-10 group-data-[focus-visible=true]:ring-2 group-data-[focus-visible=true]:ring-focus group-data-[focus-visible=true]:ring-offset-2 group-data-[focus-visible=true]:ring-offset-background bg-transparent border-text-foreground !bg-transparent data-[hover=true]:!bg-transparent group-data-[focus=true]:ring-0 group-data-[focus=true]:ring-offset-0 group-data-[focus=true]:!bg-transparent data-[focus=true]:border-secondary-300 group-data-[invalid=true]:border-danger-100 h-auto py-3 max-h-10 border is-filled"
+          data-slot="input-wrapper"
+          style="cursor: text;"
+        >
+          <label
+            class="absolute origin-top-left rtl:origin-top-right subpixel-antialiased block text-foreground-500 pointer-events-none after:content-['*'] after:text-danger after:ml-0.5 rtl:after:ml-[unset] rtl:after:mr-0.5 will-change-auto !duration-200 !ease-out motion-reduce:transition-none transition-[transform,color,left,opacity] group-data-[filled-within=true]:text-foreground group-data-[filled-within=true]:pointer-events-auto pb-0 z-20 -translate-y-1/2 group-data-[filled-within=true]:start-0 start-2 group-data-[filled-within=true]:-translate-y-[calc(100%_+_theme(fontSize.tiny)/2_+_16px)] pe-2 max-w-full text-ellipsis overflow-hidden text-sm group-data-[invalid=true]:!text-danger-100 top-[20px]"
+            data-slot="label"
+            for="react-aria-:ra:"
+            id="react-aria-:rb:"
+          >
+            Email
+          </label>
+          <div
+            class="inline-flex w-full items-center h-full box-border"
+            data-slot="inner-wrapper"
+          >
+            <input
+              aria-label="Email"
+              aria-labelledby="react-aria-:ra: react-aria-:rb:"
+              aria-required="true"
+              class="w-full font-normal !outline-none focus-visible:outline-none data-[has-start-content=true]:ps-1.5 data-[has-end-content=true]:pe-1.5 file:cursor-pointer file:bg-transparent file:border-0 autofill:bg-transparent bg-clip-text group-data-[has-value=true]:text-default-foreground text-primary-100 placeholder:text-primary-300 bg-transparent text-sm group-data-[invalid=true]:!text-danger-100 mx-1 is-filled"
+              data-filled="true"
+              data-filled-within="true"
+              data-slot="input"
+              disabled=""
+              id="react-aria-:ra:"
+              name="email"
+              placeholder="Please enter email"
+              type="text"
+              value="mock@example.com"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="group flex flex-col w-full transition-background motion-reduce:transition-none !duration-150 group relative justify-end data-[has-label=true]:mt-[calc(theme(fontSize.small)_+_10px)]"
+      data-filled="true"
+      data-has-label="true"
+      data-slot="base"
+    >
+      <div
+        aria-hidden="true"
+        data-a11y-ignore="aria-hidden-focus"
+        data-testid="hidden-select-container"
+        style="border: 0px; clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap;"
+      >
+        <input
+          style="font-size: 16px;"
+          tabindex="-1"
+          type="text"
+          value=""
+        />
+        <label>
+          Specialty
+          <select
+            name="specialtyId"
+            size="1"
+            tabindex="-1"
+            title=""
+          >
+            <option />
+            <option
+              value="1"
+            >
+              Mock Specialty
+            </option>
+          </select>
+        </label>
+      </div>
+      <div
+        class="w-full flex flex-col h-16"
+        data-slot="mainWrapper"
+      >
+        <button
+          aria-expanded="false"
+          aria-haspopup="listbox"
+          aria-labelledby="react-aria-:rm: react-aria-:ri:"
+          class="relative gap-3 w-full inline-flex flex-row items-center shadow-sm outline-none tap-highlight-transparent border-default-200 data-[hover=true]:border-default-400 data-[open=true]:border-default-foreground min-h-10 transition-colors motion-reduce:transition-none px-2.5 rounded-medium bg-background-100 shadow-stack border-1 outline-offset-0 data-[focus=true]:border-green data-[focus=true]:border-1 data-[focus=true]:bg-background-100 data-[hover=true]:bg-background-100 group-data-[invalid=true]:!border-danger-100 h-[auto] py-3 max-h-10"
+          data-slot="trigger"
+          data-testid="specialty-select"
+          id="react-aria-:rh:"
+          type="button"
+        >
+          <label
+            class="block absolute subpixel-antialiased pointer-events-none will-change-auto origin-top-left rtl:origin-top-right !duration-200 !ease-out transition-[transform,color,left,opacity] motion-reduce:transition-none pb-0 z-20 -translate-y-1/2 group-data-[filled=true]:start-0 start-3 group-data-[filled=true]:-translate-y-[calc(100%_+_theme(fontSize.small)/2_+_20px)] pe-2 max-w-full text-ellipsis overflow-hidden font-medium group-data-[invalid=true]:!text-danger-100 group-data-[filled=true]:text-primary-100 after:text-primary-100 top-5 text-sm text-foreground"
+            data-slot="label"
+            id="react-aria-:ri:"
+          >
+            Specialty
+          </label>
+          <div
+            class="inline-flex h-full w-[calc(100%_-_theme(spacing.6))] min-h-4 items-center gap-1.5 box-border text-xs leading-[18px] group-data-[invalid=true]:!text-danger-100"
+            data-slot="innerWrapper"
+          >
+            <span
+              class="w-full text-left rtl:text-right group-data-[has-value=true]:text-default-foreground truncate group-data-[invalid=true]:!text-danger-100 font-medium text-sm text-primary-100"
+              data-slot="value"
+              id="react-aria-:rm:"
+            >
+              Select specialty
+            </span>
+          </div>
+          <svg
+            aria-hidden="true"
+            class="absolute end-3 w-4 h-4 transition-transform duration-150 ease motion-reduce:transition-none data-[open=true]:rotate-180 text-primary-100"
+            data-slot="selectorIcon"
+            fill="none"
+            focusable="false"
+            height="1em"
+            role="presentation"
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="1.5"
+            viewBox="0 0 24 24"
+            width="1em"
+          >
+            <path
+              d="m6 9 6 6 6-6"
+            />
+          </svg>
+        </button>
+      </div>
+    </div>
+    <div
+      class="group flex flex-col data-[hidden=true]:hidden w-full is-filled"
+      data-filled="true"
+      data-filled-within="true"
+      data-has-elements="true"
+      data-has-label="true"
+      data-has-value="true"
+      data-slot="base"
+    >
+      <label
+        class="z-10 pointer-events-none origin-top-left rtl:origin-top-right subpixel-antialiased block text-foreground-500 relative will-change-auto !duration-200 !ease-out motion-reduce:transition-none transition-[transform,color,left,opacity] group-data-[filled-within=true]:text-foreground group-data-[filled-within=true]:pointer-events-auto pb-1.5 pe-2 max-w-full text-ellipsis overflow-hidden text-sm"
+        data-slot="label"
+        for="react-aria-:rn:"
+        id="react-aria-:ro:"
+      >
+        Description
+      </label>
+      <div
+        class="relative w-full inline-flex tap-highlight-transparent flex-row items-center shadow-sm gap-3 bg-default-100 data-[hover=true]:bg-default-200 group-data-[focus=true]:bg-default-100 h-8 min-h-8 px-2 rounded-small !h-auto transition-background motion-reduce:transition-none !duration-150 outline-none group-data-[focus-visible=true]:z-10 group-data-[focus-visible=true]:ring-focus group-data-[focus-visible=true]:ring-offset-2 group-data-[focus-visible=true]:ring-offset-background py-2 border-text-foreground border-1 data-[focus=true]:border-secondary-300 group-data-[focus-visible=true]:ring-0 is-filled"
+        data-has-multiple-rows="true"
+        data-slot="input-wrapper"
+        style="cursor: text;"
+      >
+        <div
+          class="inline-flex w-full h-full box-border items-start group-data-[has-label=true]:items-start"
+          data-slot="inner-wrapper"
+        >
+          <textarea
+            aria-label="Description"
+            aria-labelledby="react-aria-:rn: react-aria-:ro:"
+            class="w-full font-normal bg-transparent !outline-none placeholder:text-foreground-500 focus-visible:outline-none data-[has-start-content=true]:ps-1.5 data-[has-end-content=true]:pe-1.5 file:cursor-pointer file:bg-transparent file:border-0 autofill:bg-transparent bg-clip-text text-small resize-none data-[hide-scroll=true]:scrollbar-hide group-data-[has-value=true]:text-default-foreground transition-height !duration-100 motion-reduce:transition-none is-filled"
+            data-filled="true"
+            data-filled-within="true"
+            data-hide-scroll="true"
+            data-slot="input"
+            id="react-aria-:rn:"
+            name="description"
+            placeholder="Please enter description"
+          >
+            mock description
+          </textarea>
+        </div>
+      </div>
+    </div>
+    <div
+      class="h-[78px] flex flex-col justify-end"
+    >
+      <div
+        class="w-full gap-2 flex justify-end"
+      >
+        <button
+          class="z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap subpixel-antialiased overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 px-4 min-w-20 h-10 text-small gap-2 rounded-medium [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none border-1 border-secondary-300 hover:bg-linear-success hover:text-content1 text-secondary-300 font-medium"
+          type="button"
+        >
+          Cancel
+        </button>
+        <button
+          class="z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap subpixel-antialiased overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 px-4 min-w-20 h-10 text-small gap-2 rounded-medium opacity-disabled pointer-events-none [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none data-[hover=true]:opacity-hover border-transparent font-semibold bg-linear-success text-content1"
+          data-disabled="true"
+          data-testid="submit"
+          disabled=""
+          type="submit"
+        >
+          Submit
+        </button>
+      </div>
+    </div>
+  </form>
+</DocumentFragment>
+`;
+
+exports[`ChemistForm test cases should render correctly without data and id 1`] = `
+<DocumentFragment>
+  <form
+    class="p-4 flex flex-col"
+    data-testid="chemist-form"
+  >
+    <p
+      class="text-primary-100 font-semibold text-xl text-ellipsis whitespace-nowrap overflow-hidden"
+    >
+      Create chemist
+    </p>
+    <div
+      class="flex flex-col justify-center items-center gap-3"
+    >
+      <div
+        class="relative"
+        style="width: 100px; height: 100px;"
+      >
+        <span
+          class="flex relative justify-center items-center box-border overflow-hidden align-middle z-0 outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-tiny text-default-foreground rounded-full min-w-8 bg-undefined ring-offset-2 ring-1 ring-green w-[100px] h-[100px]"
+          tabindex="-1"
+        >
+          <img
+            alt="Image for avatar"
+            class="flex object-cover w-full h-full transition-opacity !duration-500 opacity-0 data-[loaded=true]:opacity-100"
+            src="http://localhost:1341"
+          />
+          <span
+            aria-label="Image for avatar"
+            class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex items-center justify-center text-inherit w-full h-full"
+            role="img"
+          >
+            <svg
+              aria-hidden="true"
+              fill="none"
+              height="80%"
+              role="presentation"
+              viewBox="0 0 24 24"
+              width="80%"
+            >
+              <path
+                d="M12 2C9.38 2 7.25 4.13 7.25 6.75C7.25 9.32 9.26 11.4 11.88 11.49C11.96 11.48 12.04 11.48 12.1 11.49C12.12 11.49 12.13 11.49 12.15 11.49C12.16 11.49 12.16 11.49 12.17 11.49C14.73 11.4 16.74 9.32 16.75 6.75C16.75 4.13 14.62 2 12 2Z"
+                fill="currentColor"
+              />
+              <path
+                d="M17.0809 14.1489C14.2909 12.2889 9.74094 12.2889 6.93094 14.1489C5.66094 14.9989 4.96094 16.1489 4.96094 17.3789C4.96094 18.6089 5.66094 19.7489 6.92094 20.5889C8.32094 21.5289 10.1609 21.9989 12.0009 21.9989C13.8409 21.9989 15.6809 21.5289 17.0809 20.5889C18.3409 19.7389 19.0409 18.5989 19.0409 17.3589C19.0309 16.1289 18.3409 14.9889 17.0809 14.1489Z"
+                fill="currentColor"
+              />
+            </svg>
+          </span>
+        </span>
+      </div>
+      <button
+        class="z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap subpixel-antialiased overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 px-4 min-w-20 text-small gap-2 rounded-medium [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none data-[hover=true]:opacity-hover border-transparent font-semibold bg-linear-success w-20 h-8 text-primary-100"
+        type="button"
+      >
+        <svg
+          class="w-full h-full"
+          preserveAspectRatio="xMidYMid meet"
+          viewBox="0 0 512.000000 512.000000"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <g
+            fill="currentColor"
+            stroke="none"
+            transform="translate(0.000000,512.000000) scale(0.100000,-0.100000)"
+          >
+            <path
+              d="M4095 4626 c-48 -22 -392 -375 -400 -411 -4 -16 -8 -35 -10 -42 -7   -23 17 -84 46 -117 60 -70 170 -65 239 9 l25 27 5 -260 c5 -244 6 -262 26   -289 73 -98 195 -98 268 0 20 27 21 45 26 289 l5 260 25 -27 c69 -74 169 -78   236 -11 30 30 57 94 49 119 -2 7 -6 26 -10 42 -8 37 -354 390 -402 411 -40 17   -89 17 -128 0z"
+            />
+            <path
+              d="M1045 4415 c-221 -48 -407 -197 -500 -400 -69 -148 -65 -68 -65   -1455 0 -1387 -4 -1307 65 -1455 86 -187 251 -327 460 -392 57 -17 130 -18   1550 -18 1389 0 1494 1 1553 18 202 55 373 197 462 382 73 152 71 129 68 977   -3 750 -3 757 -24 785 -73 98 -195 98 -268 0 -20 -27 -21 -41 -24 -400 l-3   -371 -492 492 c-522 521 -535 532 -627 532 -93 0 -101 -7 -687 -592 -549 -548   -552 -551 -592 -551 -39 0 -48 7 -170 126 -71 69 -144 133 -162 143 -46 24   -142 24 -189 0 -19 -10 -162 -145 -317 -299 l-283 -282 0 1020 c0 645 4 1043   10 1083 29 179 115 281 275 328 55 16 140 18 1012 23 939 6 952 6 980 27 44   32 76 105 68 155 -9 53 -64 115 -113 129 -60 16 -1911 12 -1987 -5z"
+            />
+            <path
+              d="M1637 3456 c-113 -31 -198 -141 -196 -254 1 -104 51 -189 140 -237   104 -57 250 -31 324 57 51 60 68 113 63 194 -8 121 -75 204 -191 239 -60 18   -77 18 -140 1z"
+            />
+          </g>
+        </svg>
+        <div
+          class="group flex-col data-[hidden=true]:hidden w-full relative justify-end data-[has-label=true]:mt-[calc(theme(fontSize.small)_+_10px)] hidden"
+          data-filled="true"
+          data-filled-within="true"
+          data-has-value="true"
+          data-slot="base"
+        >
+          <div
+            class="flex flex-col h-20"
+            data-slot="main-wrapper"
+          >
+            <div
+              class="relative w-full inline-flex tap-highlight-transparent flex-row items-center shadow-sm px-3 gap-3 data-[hover=true]:bg-default-200 group-data-[focus=true]:bg-default-100 min-h-10 rounded-medium transition-background motion-reduce:transition-none !duration-150 outline-none group-data-[focus-visible=true]:z-10 group-data-[focus-visible=true]:ring-2 group-data-[focus-visible=true]:ring-focus group-data-[focus-visible=true]:ring-offset-2 group-data-[focus-visible=true]:ring-offset-background bg-transparent border-text-foreground !bg-transparent data-[hover=true]:!bg-transparent group-data-[focus=true]:ring-0 group-data-[focus=true]:ring-offset-0 group-data-[focus=true]:!bg-transparent data-[focus=true]:border-secondary-300 group-data-[invalid=true]:border-danger-100 h-auto py-4 border"
+              data-slot="input-wrapper"
+              style="cursor: text;"
+            >
+              <div
+                class="inline-flex w-full items-center h-full box-border"
+                data-slot="inner-wrapper"
+              >
+                <input
+                  accept="image/*"
+                  aria-label=" "
+                  class="w-full font-normal !outline-none focus-visible:outline-none data-[has-start-content=true]:ps-1.5 data-[has-end-content=true]:pe-1.5 file:cursor-pointer file:bg-transparent file:border-0 autofill:bg-transparent bg-clip-text group-data-[has-value=true]:text-default-foreground text-primary-100 placeholder:text-primary-300 bg-transparent text-sm mx-2 group-data-[invalid=true]:!text-danger-100"
+                  data-slot="input"
+                  data-testid="upload-image"
+                  id="react-aria-:rs:"
+                  type="file"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </button>
+    </div>
+    <div
+      class="group flex flex-col data-[hidden=true]:hidden w-full relative justify-end data-[has-label=true]:mt-[calc(theme(fontSize.small)_+_8px)]"
+      data-filled="true"
+      data-filled-within="true"
+      data-has-elements="true"
+      data-has-label="true"
+      data-required="true"
+      data-slot="base"
+    >
+      <div
+        class="flex flex-col h-[68px]"
+        data-slot="main-wrapper"
+      >
+        <div
+          class="relative w-full inline-flex tap-highlight-transparent flex-row items-center shadow-sm gap-3 data-[hover=true]:bg-default-200 group-data-[focus=true]:bg-default-100 min-h-8 px-2 rounded-small transition-background motion-reduce:transition-none !duration-150 outline-none group-data-[focus-visible=true]:z-10 group-data-[focus-visible=true]:ring-2 group-data-[focus-visible=true]:ring-focus group-data-[focus-visible=true]:ring-offset-2 group-data-[focus-visible=true]:ring-offset-background bg-transparent border-text-foreground !bg-transparent data-[hover=true]:!bg-transparent group-data-[focus=true]:ring-0 group-data-[focus=true]:ring-offset-0 group-data-[focus=true]:!bg-transparent data-[focus=true]:border-secondary-300 group-data-[invalid=true]:border-danger-100 h-auto py-3 max-h-10 border"
+          data-slot="input-wrapper"
+          style="cursor: text;"
+        >
+          <label
+            class="absolute pointer-events-none origin-top-left rtl:origin-top-right subpixel-antialiased block text-foreground-500 after:content-['*'] after:text-danger after:ml-0.5 rtl:after:ml-[unset] rtl:after:mr-0.5 will-change-auto !duration-200 !ease-out motion-reduce:transition-none transition-[transform,color,left,opacity] group-data-[filled-within=true]:text-foreground group-data-[filled-within=true]:pointer-events-auto pb-0 z-20 -translate-y-1/2 group-data-[filled-within=true]:start-0 start-2 group-data-[filled-within=true]:-translate-y-[calc(100%_+_theme(fontSize.tiny)/2_+_16px)] pe-2 max-w-full text-ellipsis overflow-hidden text-sm group-data-[invalid=true]:!text-danger-100 top-[20px]"
+            data-slot="label"
+            for="react-aria-:r11:"
+            id="react-aria-:r12:"
+          >
+            Username
+          </label>
+          <div
+            class="inline-flex w-full items-center h-full box-border"
+            data-slot="inner-wrapper"
+          >
+            <input
+              aria-label="Username"
+              aria-labelledby="react-aria-:r11: react-aria-:r12:"
+              aria-required="true"
+              class="w-full font-normal !outline-none focus-visible:outline-none data-[has-start-content=true]:ps-1.5 data-[has-end-content=true]:pe-1.5 file:cursor-pointer file:bg-transparent file:border-0 autofill:bg-transparent bg-clip-text group-data-[has-value=true]:text-default-foreground text-primary-100 placeholder:text-primary-300 bg-transparent text-sm group-data-[invalid=true]:!text-danger-100 mx-1"
+              data-slot="input"
+              id="react-aria-:r11:"
+              name="username"
+              placeholder="Please enter username"
+              type="text"
+              value=""
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="group flex flex-col data-[hidden=true]:hidden w-full relative justify-end data-[has-label=true]:mt-[calc(theme(fontSize.small)_+_8px)]"
+      data-filled="true"
+      data-filled-within="true"
+      data-has-elements="true"
+      data-has-label="true"
+      data-required="true"
+      data-slot="base"
+    >
+      <div
+        class="flex flex-col h-[68px]"
+        data-slot="main-wrapper"
+      >
+        <div
+          class="relative w-full inline-flex tap-highlight-transparent flex-row items-center shadow-sm gap-3 data-[hover=true]:bg-default-200 group-data-[focus=true]:bg-default-100 min-h-8 px-2 rounded-small transition-background motion-reduce:transition-none !duration-150 outline-none group-data-[focus-visible=true]:z-10 group-data-[focus-visible=true]:ring-2 group-data-[focus-visible=true]:ring-focus group-data-[focus-visible=true]:ring-offset-2 group-data-[focus-visible=true]:ring-offset-background bg-transparent border-text-foreground !bg-transparent data-[hover=true]:!bg-transparent group-data-[focus=true]:ring-0 group-data-[focus=true]:ring-offset-0 group-data-[focus=true]:!bg-transparent data-[focus=true]:border-secondary-300 group-data-[invalid=true]:border-danger-100 h-auto py-3 max-h-10 border"
+          data-slot="input-wrapper"
+          style="cursor: text;"
+        >
+          <label
+            class="absolute pointer-events-none origin-top-left rtl:origin-top-right subpixel-antialiased block text-foreground-500 after:content-['*'] after:text-danger after:ml-0.5 rtl:after:ml-[unset] rtl:after:mr-0.5 will-change-auto !duration-200 !ease-out motion-reduce:transition-none transition-[transform,color,left,opacity] group-data-[filled-within=true]:text-foreground group-data-[filled-within=true]:pointer-events-auto pb-0 z-20 -translate-y-1/2 group-data-[filled-within=true]:start-0 start-2 group-data-[filled-within=true]:-translate-y-[calc(100%_+_theme(fontSize.tiny)/2_+_16px)] pe-2 max-w-full text-ellipsis overflow-hidden text-sm group-data-[invalid=true]:!text-danger-100 top-[20px]"
+            data-slot="label"
+            for="react-aria-:r16:"
+            id="react-aria-:r17:"
+          >
+            Email
+          </label>
+          <div
+            class="inline-flex w-full items-center h-full box-border"
+            data-slot="inner-wrapper"
+          >
+            <input
+              aria-label="Email"
+              aria-labelledby="react-aria-:r16: react-aria-:r17:"
+              aria-required="true"
+              class="w-full font-normal !outline-none focus-visible:outline-none data-[has-start-content=true]:ps-1.5 data-[has-end-content=true]:pe-1.5 file:cursor-pointer file:bg-transparent file:border-0 autofill:bg-transparent bg-clip-text group-data-[has-value=true]:text-default-foreground text-primary-100 placeholder:text-primary-300 bg-transparent text-sm group-data-[invalid=true]:!text-danger-100 mx-1"
+              data-slot="input"
+              id="react-aria-:r16:"
+              name="email"
+              placeholder="Please enter email"
+              type="text"
+              value=""
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="group flex flex-col data-[hidden=true]:hidden w-full relative justify-end data-[has-label=true]:mt-[calc(theme(fontSize.small)_+_8px)]"
+      data-filled="true"
+      data-filled-within="true"
+      data-has-elements="true"
+      data-has-label="true"
+      data-slot="base"
+    >
+      <div
+        class="flex flex-col h-[68px]"
+        data-slot="main-wrapper"
+      >
+        <div
+          class="relative w-full inline-flex tap-highlight-transparent flex-row items-center shadow-sm gap-3 data-[hover=true]:bg-default-200 group-data-[focus=true]:bg-default-100 min-h-8 px-2 rounded-small transition-background motion-reduce:transition-none !duration-150 outline-none group-data-[focus-visible=true]:z-10 group-data-[focus-visible=true]:ring-2 group-data-[focus-visible=true]:ring-focus group-data-[focus-visible=true]:ring-offset-2 group-data-[focus-visible=true]:ring-offset-background bg-transparent border-text-foreground !bg-transparent data-[hover=true]:!bg-transparent group-data-[focus=true]:ring-0 group-data-[focus=true]:ring-offset-0 group-data-[focus=true]:!bg-transparent data-[focus=true]:border-secondary-300 group-data-[invalid=true]:border-danger-100 h-auto py-3 max-h-10 border"
+          data-slot="input-wrapper"
+          style="cursor: text;"
+        >
+          <label
+            class="absolute pointer-events-none origin-top-left rtl:origin-top-right subpixel-antialiased block text-foreground-500 will-change-auto !duration-200 !ease-out motion-reduce:transition-none transition-[transform,color,left,opacity] group-data-[filled-within=true]:text-foreground group-data-[filled-within=true]:pointer-events-auto pb-0 z-20 -translate-y-1/2 group-data-[filled-within=true]:start-0 start-2 group-data-[filled-within=true]:-translate-y-[calc(100%_+_theme(fontSize.tiny)/2_+_16px)] pe-2 max-w-full text-ellipsis overflow-hidden text-sm group-data-[invalid=true]:!text-danger-100 top-[20px]"
+            data-slot="label"
+            for="react-aria-:r1b:"
+            id="react-aria-:r1c:"
+          >
+            Password
+          </label>
+          <div
+            class="inline-flex w-full items-center h-full box-border"
+            data-slot="inner-wrapper"
+          >
+            <input
+              aria-label="Password"
+              aria-labelledby="react-aria-:r1b: react-aria-:r1c:"
+              class="w-full font-normal !outline-none focus-visible:outline-none data-[has-start-content=true]:ps-1.5 data-[has-end-content=true]:pe-1.5 file:cursor-pointer file:bg-transparent file:border-0 autofill:bg-transparent bg-clip-text group-data-[has-value=true]:text-default-foreground text-primary-100 placeholder:text-primary-300 bg-transparent text-sm group-data-[invalid=true]:!text-danger-100 mx-1"
+              data-has-end-content="true"
+              data-slot="input"
+              id="react-aria-:r1b:"
+              name="password"
+              placeholder="Please enter password"
+              type="password"
+              value=""
+            />
+            <button
+              aria-label="visible password"
+              class="z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap subpixel-antialiased overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-small gap-2 rounded-medium !gap-0 transition-transform-colors-opacity motion-reduce:transition-none w-10 data-[hover=true]:opacity-hover border-transparent font-semibold bg-linear-success bg-none p-0 min-w-5 h-5 text-primary-200"
+              type="button"
+            >
+              <svg
+                class="w-full h-full"
+                height="16"
+                viewBox="0 0 640 512"
+                width="20"
+              >
+                <g
+                  opacity="0.6"
+                >
+                  <path
+                    d="M38.8 5.1C28.4-3.1 13.3-1.2 5.1 9.2S-1.2 34.7 9.2 42.9l592 464c10.4 8.2 25.5 6.3 33.7-4.1s6.3-25.5-4.1-33.7L525.6 386.7c39.6-40.6 66.4-86.1 79.9-118.4c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C465.5 68.8 400.8 32 320 32c-68.2 0-125 26.3-169.3 60.8L38.8 5.1zm151 118.3C226 97.7 269.5 80 320 80c65.2 0 118.8 29.6 159.9 67.7C518.4 183.5 545 226 558.6 256c-12.6 28-36.6 66.8-70.9 100.9l-53.8-42.2c9.1-17.6 14.2-37.5 14.2-58.7c0-70.7-57.3-128-128-128c-32.2 0-61.7 11.9-84.2 31.5l-46.1-36.1zM394.9 284.2l-81.5-63.9c4.2-8.5 6.6-18.2 6.6-28.3c0-5.5-.7-10.9-2-16c.7 0 1.3 0 2 0c44.2 0 80 35.8 80 80c0 9.9-1.8 19.4-5.1 28.2zm51.3 163.3l-41.9-33C378.8 425.4 350.7 432 320 432c-65.2 0-118.8-29.6-159.9-67.7C121.6 328.5 95 286 81.4 256c8.3-18.4 21.5-41.5 39.4-64.8L83.1 161.5C60.3 191.2 44 220.8 34.5 243.7c-3.3 7.9-3.3 16.7 0 24.6c14.9 35.7 46.2 87.7 93 131.1C174.5 443.2 239.2 480 320 480c47.8 0 89.9-12.9 126.2-32.5zm-88-69.3L302 334c-23.5-5.4-43.1-21.2-53.7-42.3l-56.1-44.2c-.2 2.8-.3 5.6-.3 8.5c0 70.7 57.3 128 128 128c13.3 0 26.1-2 38.2-5.8z"
+                    fill="currentColor"
+                    opacity="1"
+                  />
+                </g>
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="group flex flex-col data-[hidden=true]:hidden w-full relative justify-end data-[has-label=true]:mt-[calc(theme(fontSize.small)_+_8px)]"
+      data-filled="true"
+      data-filled-within="true"
+      data-has-elements="true"
+      data-has-label="true"
+      data-slot="base"
+    >
+      <div
+        class="flex flex-col h-[68px]"
+        data-slot="main-wrapper"
+      >
+        <div
+          class="relative w-full inline-flex tap-highlight-transparent flex-row items-center shadow-sm gap-3 data-[hover=true]:bg-default-200 group-data-[focus=true]:bg-default-100 min-h-8 px-2 rounded-small transition-background motion-reduce:transition-none !duration-150 outline-none group-data-[focus-visible=true]:z-10 group-data-[focus-visible=true]:ring-2 group-data-[focus-visible=true]:ring-focus group-data-[focus-visible=true]:ring-offset-2 group-data-[focus-visible=true]:ring-offset-background bg-transparent border-text-foreground !bg-transparent data-[hover=true]:!bg-transparent group-data-[focus=true]:ring-0 group-data-[focus=true]:ring-offset-0 group-data-[focus=true]:!bg-transparent data-[focus=true]:border-secondary-300 group-data-[invalid=true]:border-danger-100 h-auto py-3 max-h-10 border"
+          data-slot="input-wrapper"
+          style="cursor: text;"
+        >
+          <label
+            class="absolute pointer-events-none origin-top-left rtl:origin-top-right subpixel-antialiased block text-foreground-500 will-change-auto !duration-200 !ease-out motion-reduce:transition-none transition-[transform,color,left,opacity] group-data-[filled-within=true]:text-foreground group-data-[filled-within=true]:pointer-events-auto pb-0 z-20 -translate-y-1/2 group-data-[filled-within=true]:start-0 start-2 group-data-[filled-within=true]:-translate-y-[calc(100%_+_theme(fontSize.tiny)/2_+_16px)] pe-2 max-w-full text-ellipsis overflow-hidden text-sm group-data-[invalid=true]:!text-danger-100 top-[20px]"
+            data-slot="label"
+            for="react-aria-:r1g:"
+            id="react-aria-:r1h:"
+          >
+            Confirm Password
+          </label>
+          <div
+            class="inline-flex w-full items-center h-full box-border"
+            data-slot="inner-wrapper"
+          >
+            <input
+              aria-label="Confirm Password"
+              aria-labelledby="react-aria-:r1g: react-aria-:r1h:"
+              class="w-full font-normal !outline-none focus-visible:outline-none data-[has-start-content=true]:ps-1.5 data-[has-end-content=true]:pe-1.5 file:cursor-pointer file:bg-transparent file:border-0 autofill:bg-transparent bg-clip-text group-data-[has-value=true]:text-default-foreground text-primary-100 placeholder:text-primary-300 bg-transparent text-sm group-data-[invalid=true]:!text-danger-100 mx-1"
+              data-has-end-content="true"
+              data-slot="input"
+              id="react-aria-:r1g:"
+              placeholder="Please enter confirm password"
+              type="password"
+              value=""
+            />
+            <button
+              aria-label="visible confirm password"
+              class="z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap subpixel-antialiased overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-small gap-2 rounded-medium !gap-0 transition-transform-colors-opacity motion-reduce:transition-none w-10 data-[hover=true]:opacity-hover border-transparent font-semibold bg-linear-success bg-none p-0 min-w-5 h-5 text-primary-200"
+              type="button"
+            >
+              <svg
+                class="w-full h-full"
+                height="16"
+                viewBox="0 0 640 512"
+                width="20"
+              >
+                <g
+                  opacity="0.6"
+                >
+                  <path
+                    d="M38.8 5.1C28.4-3.1 13.3-1.2 5.1 9.2S-1.2 34.7 9.2 42.9l592 464c10.4 8.2 25.5 6.3 33.7-4.1s6.3-25.5-4.1-33.7L525.6 386.7c39.6-40.6 66.4-86.1 79.9-118.4c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C465.5 68.8 400.8 32 320 32c-68.2 0-125 26.3-169.3 60.8L38.8 5.1zm151 118.3C226 97.7 269.5 80 320 80c65.2 0 118.8 29.6 159.9 67.7C518.4 183.5 545 226 558.6 256c-12.6 28-36.6 66.8-70.9 100.9l-53.8-42.2c9.1-17.6 14.2-37.5 14.2-58.7c0-70.7-57.3-128-128-128c-32.2 0-61.7 11.9-84.2 31.5l-46.1-36.1zM394.9 284.2l-81.5-63.9c4.2-8.5 6.6-18.2 6.6-28.3c0-5.5-.7-10.9-2-16c.7 0 1.3 0 2 0c44.2 0 80 35.8 80 80c0 9.9-1.8 19.4-5.1 28.2zm51.3 163.3l-41.9-33C378.8 425.4 350.7 432 320 432c-65.2 0-118.8-29.6-159.9-67.7C121.6 328.5 95 286 81.4 256c8.3-18.4 21.5-41.5 39.4-64.8L83.1 161.5C60.3 191.2 44 220.8 34.5 243.7c-3.3 7.9-3.3 16.7 0 24.6c14.9 35.7 46.2 87.7 93 131.1C174.5 443.2 239.2 480 320 480c47.8 0 89.9-12.9 126.2-32.5zm-88-69.3L302 334c-23.5-5.4-43.1-21.2-53.7-42.3l-56.1-44.2c-.2 2.8-.3 5.6-.3 8.5c0 70.7 57.3 128 128 128c13.3 0 26.1-2 38.2-5.8z"
+                    fill="currentColor"
+                    opacity="1"
+                  />
+                </g>
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="group flex flex-col w-full transition-background motion-reduce:transition-none !duration-150 group relative justify-end data-[has-label=true]:mt-[calc(theme(fontSize.small)_+_10px)]"
+      data-filled="true"
+      data-has-label="true"
+      data-slot="base"
+    >
+      <div
+        aria-hidden="true"
+        data-a11y-ignore="aria-hidden-focus"
+        data-testid="hidden-select-container"
+        style="border: 0px; clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap;"
+      >
+        <input
+          style="font-size: 16px;"
+          tabindex="-1"
+          type="text"
+          value=""
+        />
+        <label>
+          Specialty
+          <select
+            name="specialtyId"
+            size="1"
+            tabindex="-1"
+            title=""
+          >
+            <option />
+            <option
+              value="1"
+            >
+              Mock Specialty
+            </option>
+          </select>
+        </label>
+      </div>
+      <div
+        class="w-full flex flex-col h-16"
+        data-slot="mainWrapper"
+      >
+        <button
+          aria-expanded="false"
+          aria-haspopup="listbox"
+          aria-labelledby="react-aria-:r1s: react-aria-:r1o:"
+          class="relative gap-3 w-full inline-flex flex-row items-center shadow-sm outline-none tap-highlight-transparent border-default-200 data-[hover=true]:border-default-400 data-[open=true]:border-default-foreground min-h-10 transition-colors motion-reduce:transition-none px-2.5 rounded-medium bg-background-100 shadow-stack border-1 outline-offset-0 data-[focus=true]:border-green data-[focus=true]:border-1 data-[focus=true]:bg-background-100 data-[hover=true]:bg-background-100 group-data-[invalid=true]:!border-danger-100 h-[auto] py-3 max-h-10"
+          data-slot="trigger"
+          data-testid="specialty-select"
+          id="react-aria-:r1n:"
+          type="button"
+        >
+          <label
+            class="block absolute subpixel-antialiased pointer-events-none will-change-auto origin-top-left rtl:origin-top-right !duration-200 !ease-out transition-[transform,color,left,opacity] motion-reduce:transition-none pb-0 z-20 -translate-y-1/2 group-data-[filled=true]:start-0 start-3 group-data-[filled=true]:-translate-y-[calc(100%_+_theme(fontSize.small)/2_+_20px)] pe-2 max-w-full text-ellipsis overflow-hidden font-medium group-data-[invalid=true]:!text-danger-100 group-data-[filled=true]:text-primary-100 after:text-primary-100 top-5 text-sm text-foreground"
+            data-slot="label"
+            id="react-aria-:r1o:"
+          >
+            Specialty
+          </label>
+          <div
+            class="inline-flex h-full w-[calc(100%_-_theme(spacing.6))] min-h-4 items-center gap-1.5 box-border text-xs leading-[18px] group-data-[invalid=true]:!text-danger-100"
+            data-slot="innerWrapper"
+          >
+            <span
+              class="w-full text-left rtl:text-right group-data-[has-value=true]:text-default-foreground truncate group-data-[invalid=true]:!text-danger-100 font-medium text-sm text-primary-100"
+              data-slot="value"
+              id="react-aria-:r1s:"
+            >
+              Select specialty
+            </span>
+          </div>
+          <svg
+            aria-hidden="true"
+            class="absolute end-3 w-4 h-4 transition-transform duration-150 ease motion-reduce:transition-none data-[open=true]:rotate-180 text-primary-100"
+            data-slot="selectorIcon"
+            fill="none"
+            focusable="false"
+            height="1em"
+            role="presentation"
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="1.5"
+            viewBox="0 0 24 24"
+            width="1em"
+          >
+            <path
+              d="m6 9 6 6 6-6"
+            />
+          </svg>
+        </button>
+      </div>
+    </div>
+    <div
+      class="group flex flex-col data-[hidden=true]:hidden w-full"
+      data-filled="true"
+      data-filled-within="true"
+      data-has-elements="true"
+      data-has-label="true"
+      data-slot="base"
+    >
+      <label
+        class="z-10 pointer-events-none origin-top-left rtl:origin-top-right subpixel-antialiased block text-foreground-500 relative will-change-auto !duration-200 !ease-out motion-reduce:transition-none transition-[transform,color,left,opacity] group-data-[filled-within=true]:text-foreground group-data-[filled-within=true]:pointer-events-auto pb-1.5 pe-2 max-w-full text-ellipsis overflow-hidden text-sm"
+        data-slot="label"
+        for="react-aria-:r1t:"
+        id="react-aria-:r1u:"
+      >
+        Description
+      </label>
+      <div
+        class="relative w-full inline-flex tap-highlight-transparent flex-row items-center shadow-sm gap-3 bg-default-100 data-[hover=true]:bg-default-200 group-data-[focus=true]:bg-default-100 h-8 min-h-8 px-2 rounded-small !h-auto transition-background motion-reduce:transition-none !duration-150 outline-none group-data-[focus-visible=true]:z-10 group-data-[focus-visible=true]:ring-focus group-data-[focus-visible=true]:ring-offset-2 group-data-[focus-visible=true]:ring-offset-background py-2 border-text-foreground border-1 data-[focus=true]:border-secondary-300 group-data-[focus-visible=true]:ring-0"
+        data-has-multiple-rows="true"
+        data-slot="input-wrapper"
+        style="cursor: text;"
+      >
+        <div
+          class="inline-flex w-full h-full box-border items-start group-data-[has-label=true]:items-start"
+          data-slot="inner-wrapper"
+        >
+          <textarea
+            aria-label="Description"
+            aria-labelledby="react-aria-:r1t: react-aria-:r1u:"
+            class="w-full font-normal bg-transparent !outline-none placeholder:text-foreground-500 focus-visible:outline-none data-[has-start-content=true]:ps-1.5 data-[has-end-content=true]:pe-1.5 file:cursor-pointer file:bg-transparent file:border-0 autofill:bg-transparent bg-clip-text text-small resize-none data-[hide-scroll=true]:scrollbar-hide group-data-[has-value=true]:text-default-foreground transition-height !duration-100 motion-reduce:transition-none"
+            data-hide-scroll="true"
+            data-slot="input"
+            id="react-aria-:r1t:"
+            name="description"
+            placeholder="Please enter description"
+          />
+        </div>
+      </div>
+    </div>
+    <div
+      class="h-[78px] flex flex-col justify-end"
+    >
+      <div
+        class="w-full gap-2 flex justify-end"
+      >
+        <button
+          class="z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap subpixel-antialiased overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 px-4 min-w-20 h-10 text-small gap-2 rounded-medium [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none border-1 border-secondary-300 hover:bg-linear-success hover:text-content1 text-secondary-300 font-medium"
+          type="button"
+        >
+          Cancel
+        </button>
+        <button
+          class="z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap subpixel-antialiased overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 px-4 min-w-20 h-10 text-small gap-2 rounded-medium opacity-disabled pointer-events-none [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none data-[hover=true]:opacity-hover border-transparent font-semibold bg-linear-success text-content1"
+          data-disabled="true"
+          data-testid="submit"
+          disabled=""
+          type="submit"
+        >
+          Submit
+        </button>
+      </div>
+    </div>
+  </form>
+</DocumentFragment>
+`;

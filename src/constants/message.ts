@@ -12,6 +12,7 @@ export const FORM_VALIDATION_MESSAGE = {
   MIN_TIME: (item: string) => `${item} must be in present or future.`,
   DURATION: (item: string) => `${item} must be between 00:00 and 23:59.`,
   NOT_SAME_AS_SENDER: 'Sender and receiver cannot be the same.',
+  ONLY_TEXT: 'Please enter text only.',
 };
 
 export const ERROR_MESSAGE = {
@@ -31,3 +32,6 @@ export const SUCCESS_MESSAGE = {
   UPDATE: (item: string) => `Update ${item} successfully.`,
   CANCEL: (item: string) => `Cancel ${item} successfully.`,
 };
+
+export const NOTIFICATION_CONTENT = (action: string) =>
+  `have been ${action} appointment`;

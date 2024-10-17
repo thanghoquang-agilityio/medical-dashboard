@@ -1,4 +1,6 @@
 'use server';
+import { revalidateTag } from 'next/cache';
+
 // Types
 import {
   ChemistDataResponse,
@@ -35,6 +37,8 @@ export const addUserToChemists = async (
         error: (JSON.parse(error) as ErrorResponse).error.message,
       };
     }
+
+    revalidateTag(API_ENDPOINT.CHEMISTS);
 
     return { chemist: data, error: null };
   } catch (error) {

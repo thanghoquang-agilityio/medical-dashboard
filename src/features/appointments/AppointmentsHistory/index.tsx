@@ -10,8 +10,8 @@ import {
   useState,
   useTransition,
 } from 'react';
-import { Card, useDisclosure } from '@nextui-org/react';
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
+import { Card, useDisclosure } from '@nextui-org/react';
 
 // Types
 import {
@@ -22,6 +22,7 @@ import {
   MetaResponse,
   ROLE,
   STATUS_TYPE,
+  UserLogged,
 } from '@/types';
 
 // Constants
@@ -31,8 +32,12 @@ import {
   SUCCESS_MESSAGE,
 } from '@/constants';
 
-// Hocs
+// Helper
 import { useToast } from '@/context/toast';
+import { getStatusKey } from '@/utils';
+
+// Service
+import { deleteAppointment, updateAppointment } from '@/actions/appointment';
 
 // Components
 import { Button, InputSearch, Select, Text } from '@/components/ui';
@@ -40,28 +45,28 @@ import { AppointmentsHistoryListSkeleton } from './AppointmentsHistorySkeleton';
 import AppointmentModal from '../AppointmentModal';
 import { createColumns } from './columns';
 
-// Service
-import { deleteAppointment, updateAppointment } from '@/actions/appointment';
-import { getStatusKey } from '@/utils';
+// Hooks
+import { useNotification } from '@/hooks';
 
 const DataGrid = lazy(() => import('@/components/ui/DataGrid'));
 const ConfirmModal = lazy(() => import('@/components/ui/ConfirmModal'));
 
 export interface AppointmentsHistoryProps extends MetaResponse {
-  userId: string;
+  userLogged: UserLogged | null;
   appointments: AppointmentResponse[];
-  role: string;
   defaultStatus?: string;
 }
 
 const AppointmentsHistory = ({
-  userId,
+  userLogged,
   appointments,
   pagination,
-  role,
   defaultStatus = '',
 }: AppointmentsHistoryProps) => {
   const openToast = useToast();
+  const { id: userId = '', role: roleModel } = userLogged || {};
+  const { name: role = ROLE.NORMAL_USER } = roleModel || {};
+
   const isAdmin = role === ROLE.ADMIN;
 
   const [isPending, startTransition] = useTransition();
@@ -107,10 +112,13 @@ const AppointmentsHistory = ({
 
   const handleSelectStatus = useCallback(
     (e: ChangeEvent<HTMLSelectElement>) => {
+      if (e.target.value !== status.values().next().value)
+        params.delete('page');
+
       setStatus(new Set([e.target.value]));
       updateSearchParams(e.target.value);
     },
-    [updateSearchParams],
+    [params, status, updateSearchParams],
   );
 
   const { isOpen, onClose, onOpen } = useDisclosure();
@@ -155,14 +163,17 @@ const AppointmentsHistory = ({
   );
 
   const columns = createColumns({
+    userId,
     isAdmin,
     onEdit: handleOpenEditModal,
     onRemoveOrCancel: handleOpenConfirmModal,
   });
 
+  const { handleCreateNotification } = useNotification({ userLogged });
+
   const handleDeleteAppointment = useCallback(async () => {
     setIsLoading(true);
-    const { error } = await deleteAppointment(appointmentId);
+    const { appointment, error } = await deleteAppointment(appointmentId);
     if (error) {
       openToast({
         message: ERROR_MESSAGE.DELETE('appointment'),
@@ -173,21 +184,18 @@ const AppointmentsHistory = ({
       return;
     }
 
-    openToast({
-      message: SUCCESS_MESSAGE.DELETE('appointment'),
-      type: STATUS_TYPE.SUCCESS,
-    });
-    onClosConfirm();
-  }, [appointmentId, onClosConfirm, openToast]);
+    if (appointment) {
+      handleCreateNotification(appointment, 'deleted');
+      onClosConfirm();
+    }
+  }, [appointmentId, handleCreateNotification, onClosConfirm, openToast]);
 
   const handleCancelAppointment = useCallback(async () => {
     setIsLoading(true);
     const statusPayload = getStatusKey('cancelled') || 0;
-    const error = (
-      await updateAppointment(appointmentId, {
-        status: statusPayload as AppointmentStatus,
-      })
-    ).error;
+    const { appointment, error } = await updateAppointment(appointmentId, {
+      status: statusPayload as AppointmentStatus,
+    });
 
     if (error) {
       openToast({
@@ -198,12 +206,16 @@ const AppointmentsHistory = ({
       return;
     }
 
-    openToast({
-      message: SUCCESS_MESSAGE.CANCEL('appointment'),
-      type: STATUS_TYPE.SUCCESS,
-    });
-    onClosConfirm();
-  }, [appointmentId, onClosConfirm, openToast]);
+    if (appointment) {
+      openToast({
+        message: SUCCESS_MESSAGE.CANCEL('appointment'),
+        type: STATUS_TYPE.SUCCESS,
+      });
+
+      handleCreateNotification(appointment, 'cancelled');
+      onClosConfirm();
+    }
+  }, [appointmentId, handleCreateNotification, onClosConfirm, openToast]);
 
   return (
     <>
@@ -255,8 +267,7 @@ const AppointmentsHistory = ({
       <AppointmentModal
         data={appointment}
         id={appointmentId}
-        userId={userId}
-        role={role}
+        userLogged={userLogged}
         onClose={onClose}
         isOpen={isOpen}
       />

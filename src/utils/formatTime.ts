@@ -1,5 +1,10 @@
 import dayjs from 'dayjs';
 import { TimeInputValue } from '@nextui-org/react';
+import utc from 'dayjs/plugin/utc';
+import timezone from 'dayjs/plugin/timezone';
+
+dayjs.extend(timezone);
+dayjs.extend(utc);
 
 export const getCurrentDate = (timestamp?: string) =>
   new Date(timestamp ?? new Date()).toISOString().split('T')[0];
@@ -10,9 +15,10 @@ export const convertToTimeObject = (isoString: string) => {
   const startTime = dayjs(isoString);
 
   return {
-    hour: Number(startTime.format('hh')),
-    minute: Number(startTime.format('mm')),
-    second: Number(startTime.format('ss')),
+    hour: startTime.hour(),
+    minute: startTime.minute(),
+    second: startTime.second(),
+    millisecond: startTime.millisecond(),
   };
 };
 
@@ -28,7 +34,7 @@ export const generateISODate = (
 ) => {
   const { hour = 0, minute = 0, second = 0, millisecond = 0 } = inputTime;
 
-  // Parse the provided date string with dayjs
+  // Parse the provided date string with dayjs in UTC mode
   const date = dayjs(dateTime);
 
   // Set the time using the input object
@@ -63,4 +69,17 @@ export const convertTimeToMinutes = (time: string) => {
 
   // Calculate the total minutes
   return totalHours * 60 + totalMinutes;
+};
+
+/**
+ * Checks if a given date is in the future relative to the current time in GMT+7 timezone (Asia/Bangkok).
+ *
+ * @param {string} dateInput - The date string to be checked.
+ * @returns {boolean} - Returns true if the input date is in the future, false otherwise.
+ */
+export const isFutureDate = (dateInput: string) => {
+  // GMT+7 timezone
+  const currentTime = dayjs().tz('Asia/Bangkok');
+
+  return dayjs(dateInput).tz('Asia/Bangkok').isAfter(currentTime);
 };

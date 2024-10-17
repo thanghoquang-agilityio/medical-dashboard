@@ -4,7 +4,7 @@ import {
   APIResponse,
   Option,
   RolePermission,
-  SpecialtyModel,
+  SpecialtyResponse,
   UserLogged,
   UserModel,
 } from '@/types';
@@ -57,7 +57,7 @@ export const transformUsers = (users: UserLogged[]): Option[] =>
   }));
 
 export const transformSpecialties = (
-  specialties: APIResponse<SpecialtyModel>[],
+  specialties: SpecialtyResponse[],
 ): Option[] => [
   { key: 'all', label: 'All' },
   ...specialties.map((specialty) => ({

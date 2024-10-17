@@ -27,15 +27,17 @@ import {
 import { DeleteIcon, EditIcon, XmarkIcon } from '@/icons';
 
 export const createColumns = ({
+  userId,
   isAdmin,
   onEdit,
   onRemoveOrCancel,
 }: {
+  userId: string;
   isAdmin: boolean;
   onEdit: (key?: Key) => void;
   onRemoveOrCancel: (key?: Key) => void;
 }): ColumnType<AppointmentModel>[] => {
-  const baseColumns: ColumnType<AppointmentModel>[] = [
+  const columnsAdmin: ColumnType<AppointmentModel>[] = [
     {
       key: 'senderId',
       title: 'Sender',
@@ -54,7 +56,7 @@ export const createColumns = ({
               src={`${API_IMAGE_URL}${url}`}
               size="md"
               isBordered
-              className="shrink-0"
+              className="shrink-0 hidden sm:block"
             />
             <Text variant="primary" size="sm">
               {username}
@@ -81,7 +83,7 @@ export const createColumns = ({
               src={`${API_IMAGE_URL}${url}`}
               size="md"
               isBordered
-              className="shrink-0"
+              className="shrink-0 hidden sm:block"
             />
             <Text variant="primary" size="sm">
               {username}
@@ -90,13 +92,57 @@ export const createColumns = ({
         );
       },
     },
+  ];
+
+  const columnsNormalUser: ColumnType<AppointmentModel>[] = [
+    {
+      key: 'senderId',
+      title: 'Sender',
+      customNode: ({ item }) => {
+        const { senderId, receiverId } = item || {};
+        // Sender
+        const { attributes: attributesSender, id: idSender } =
+          senderId?.data || {};
+        const { avatar: avatarSender, username: usernameSender = '' } =
+          attributesSender || {};
+        const { data: dataAvatarSender } = avatarSender || {};
+        const { attributes: attributesAvatarSender } = dataAvatarSender || {};
+        const { url: urlSender = '' } = attributesAvatarSender || {};
+
+        // Receiver
+        const { attributes: attributesReceiver } = receiverId?.data || {};
+        const { avatar: avatarReceiver, username: usernameReceiver = '' } =
+          attributesReceiver || {};
+        const { data: dataAvatarReceiver } = avatarReceiver || {};
+        const { attributes: attributesAvatarReceiver } =
+          dataAvatarReceiver || {};
+        const { url: urlReceiver = '' } = attributesAvatarReceiver || {};
+
+        return (
+          <div className="flex gap-2 items-center">
+            <Avatar
+              src={`${API_IMAGE_URL}${userId == idSender ? urlReceiver : urlSender}`}
+              size="md"
+              isBordered
+              className="shrink-0"
+            />
+            <Text variant="primary" size="sm">
+              {userId == idSender ? usernameReceiver : usernameSender}
+            </Text>
+          </div>
+        );
+      },
+    },
+  ];
+
+  const baseColumns: ColumnType<AppointmentModel>[] = [
     {
       key: 'durationTime',
       title: 'Duration time',
       customNode: ({ item }) => {
         const { startTime = '', durationTime = '' } = item || {};
         return (
-          <Text variant="primary" size="xs">
+          <Text variant="primary" size="xs" customClass="hidden sm:block">
             {formatTimeAppointment({
               start: startTime,
               duration: durationTime,
@@ -124,7 +170,7 @@ export const createColumns = ({
       title: 'Status',
       customNode: ({ item }) => {
         const { status = 0 } = item || {};
-        return <Status status={status} />;
+        return <Status status={status} className="hidden sm:block" />;
       },
     },
     {
@@ -171,5 +217,7 @@ export const createColumns = ({
     },
   ];
 
-  return isAdmin ? baseColumns : baseColumns.slice(1);
+  return isAdmin
+    ? columnsAdmin.concat(baseColumns)
+    : columnsNormalUser.concat(baseColumns);
 };

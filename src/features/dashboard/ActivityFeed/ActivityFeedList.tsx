@@ -100,6 +100,7 @@ const ActivityFeedList = memo(
         ) : (
           <div className="flex flex-col items-center">
             <DataGrid
+              id="activity-feed"
               data={notifications}
               pagination={pagination}
               startTransition={startTransition}

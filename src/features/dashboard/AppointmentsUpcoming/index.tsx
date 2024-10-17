@@ -1,5 +1,4 @@
-'use client';
-import { Suspense, lazy, useEffect, useMemo, useRef, useState } from 'react';
+import { Suspense, lazy, useMemo } from 'react';
 
 // Constants
 import {
@@ -13,25 +12,21 @@ import { getAppointments } from '@/actions/appointment';
 
 // Components
 import { AppointmentsUpcomingSkeleton } from './AppointmentsUpcomingSkeleton';
-import { AppointmentResponse } from '@/types';
+import { UserLogged } from '@/types';
 const AppointmentsUpcomingList = lazy(
   () => import('./AppointmentsUpcomingList'),
 );
 
 export interface AppointmentsUpcomingProps {
-  userId: string;
-  role: string;
+  userLogged: UserLogged | null;
   status?: string;
 }
 
-const AppointmentsUpcoming = ({
-  userId,
-  role,
+const AppointmentsUpcoming = async ({
+  userLogged,
   status = APPOINTMENT_STATUS_OPTIONS[0].key,
 }: AppointmentsUpcomingProps) => {
-  const [lastFetchedStatus, setLastFetchedStatus] = useState(status);
-  const [isLoading, setIsLoading] = useState(true);
-  const [appointments, setAppointments] = useState<AppointmentResponse[]>([]);
+  const { id: userId = '' } = userLogged || {};
 
   const searchParamsAPI = useMemo(() => {
     const params = new URLSearchParams();
@@ -49,49 +44,27 @@ const AppointmentsUpcoming = ({
     return params;
   }, [userId, status]);
 
-  const isFirstRender = useRef(true); // Move useRef outside of useEffect
+  const { appointments, error } = await getAppointments({
+    searchParams: searchParamsAPI,
+    options: {
+      next: {
+        tags: [`${API_ENDPOINT.APPOINTMENTS}/dashboard`],
+      },
+    },
+  });
 
-  useEffect(() => {
-    setIsLoading(true);
-    const fetchAppointments = async () => {
-      const { appointments, error } = await getAppointments({
-        searchParams: searchParamsAPI,
-        options: {
-          next: {
-            tags: [`${API_ENDPOINT.APPOINTMENTS}/dashboard`],
-          },
-        },
-      });
-
-      if (error) throw error;
-      setAppointments(appointments);
-      setIsLoading(false);
-    };
-
-    if (isFirstRender.current || status !== lastFetchedStatus) {
-      setLastFetchedStatus(status);
-      fetchAppointments();
-      isFirstRender.current = false; // Update after the first call
-    }
-  }, [lastFetchedStatus, searchParamsAPI, status, userId]);
+  if (error) throw error;
 
   return (
-    <>
-      {isLoading ? (
-        <AppointmentsUpcomingSkeleton defaultStatus={status} />
-      ) : (
-        <Suspense
-          fallback={<AppointmentsUpcomingSkeleton defaultStatus={status} />}
-        >
-          <AppointmentsUpcomingList
-            appointments={appointments || []}
-            defaultStatus={status}
-            userId={userId}
-            role={role}
-          />
-        </Suspense>
-      )}
-    </>
+    <Suspense
+      fallback={<AppointmentsUpcomingSkeleton defaultStatus={status} />}
+    >
+      <AppointmentsUpcomingList
+        appointments={appointments || []}
+        defaultStatus={status}
+        userLogged={userLogged}
+      />
+    </Suspense>
   );
 };
 

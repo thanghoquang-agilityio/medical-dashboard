@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "next build ",
     "start": "next start",
     "lint": "next lint",
     "prepare": "husky",
@@ -20,7 +20,8 @@
     "@nextui-org/theme": "^2.2.9",
     "clsx": "^2.1.1",
     "dayjs": "^1.11.13",
-    "firebase": "^10.13.1",
+    "firebase": "^10.13.2",
+    "firebase-admin": "^12.6.0",
     "framer-motion": "11.3.23-alpha.2",
     "next": "14.2.5",
     "next-auth": "5.0.0-beta.21",

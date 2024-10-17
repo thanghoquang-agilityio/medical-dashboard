@@ -29,11 +29,7 @@ import {
 import { Button, Input, Select, Text, TimeInput } from '@/components/ui';
 
 // Constants
-import {
-  APPOINTMENT_STATUS,
-  ERROR_MESSAGE,
-  SUCCESS_MESSAGE,
-} from '@/constants';
+import { APPOINTMENT_STATUS, ERROR_MESSAGE } from '@/constants';
 
 // Hocs
 import { useToast } from '@/context/toast';
@@ -41,14 +37,15 @@ import { useToast } from '@/context/toast';
 // Actions
 import { getUsers } from '@/actions/user';
 import { addAppointment, updateAppointment } from '@/actions/appointment';
-import { createNotifications } from '@/services/notificationFirebase';
 
 // Rules
 import { APPOINTMENT_FORM_VALIDATION } from './rule';
 
+// Hooks
+import { useNotification } from '@/hooks';
+
 export type AppointmentModalProps = {
-  userId: string;
-  role: string;
+  userLogged: UserLogged | null;
   id?: string;
   data?: AppointmentModel;
   onClose: () => void;
@@ -71,10 +68,13 @@ export interface AppointMentForm
 }
 
 const AppointmentForm = memo(
-  ({ userId, role, data, onClose, id = '' }: AppointmentModalProps) => {
+  ({ userLogged, data, onClose, id = '' }: AppointmentModalProps) => {
+    const { id: userId = '', role: roleModel } = userLogged || {};
+    const { name: role = ROLE.NORMAL_USER } = roleModel || {};
+
     const {
-      startTime = '',
-      durationTime = '',
+      startTime,
+      durationTime,
       status = 0,
       senderId: senderResponse,
       receiverId: receiverResponse,
@@ -101,10 +101,11 @@ const AppointmentForm = memo(
       reValidateMode: 'onBlur',
       defaultValues: {
         startDate: startTime && getCurrentDate(startTime),
-        startTime: convertToTimeObject(startTime),
-        durationTime: convertTimeToMinutes(durationTime).toString(),
+        startTime: startTime && convertToTimeObject(startTime),
+        durationTime:
+          durationTime && convertTimeToMinutes(durationTime).toString(),
         status: status,
-        senderId: isAdmin ? senderId.toString() : userId,
+        senderId: isAdmin ? senderId.toString() : userId.toString(),
         receiverId: receiverId.toString(),
       },
     });
@@ -126,6 +127,10 @@ const AppointmentForm = memo(
     const OPTION_USERS = transformUsers(users);
     const isEdit = !!data;
 
+    const { handleCreateNotification } = useNotification({
+      userLogged,
+    });
+
     const onSubmit = async ({
       startDate,
       startTime,
@@ -141,22 +146,20 @@ const AppointmentForm = memo(
       setError('');
       setIsPending(true);
       let error: string | null;
-      let appointmentCreated: AppointmentResponse | null;
+      let newAppointment: AppointmentResponse | null;
 
-      if (isEdit) error = (await updateAppointment(id, formatData)).error;
-      else {
-        const { error: errorCreated, appointment } =
+      if (isEdit) {
+        const { error: errorUpdate, appointment } = await updateAppointment(
+          id,
+          formatData,
+        );
+        error = errorUpdate;
+        newAppointment = appointment;
+      } else {
+        const { error: errorCreate, appointment } =
           await addAppointment(formatData);
-        error = errorCreated;
-        appointmentCreated = appointment;
-        const { id = '', attributes = {} as AppointmentModel } =
-          appointmentCreated || {};
-
-        await createNotifications({
-          appointment: attributes,
-          idAppointment: id,
-          message: 'have been created appointment',
-        });
+        error = errorCreate;
+        newAppointment = appointment;
       }
 
       if (error) {
@@ -172,12 +175,12 @@ const AppointmentForm = memo(
         return;
       }
 
-      openToast({
-        message: isEdit
-          ? SUCCESS_MESSAGE.UPDATE('appointment')
-          : SUCCESS_MESSAGE.CREATE('appointment'),
-        type: STATUS_TYPE.SUCCESS,
-      });
+      if (newAppointment) {
+        handleCreateNotification(
+          newAppointment,
+          isEdit ? 'updated' : 'created',
+        );
+      }
     };
 
     const durationTimeOptions = generateTimeOptions();
@@ -202,6 +205,7 @@ const AppointmentForm = memo(
       if (watch('startDate') && dirtyFields.startTime) {
         trigger('startTime');
       }
+      // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [watch('startDate')]);
 
     return (
@@ -229,8 +233,8 @@ const AppointmentForm = memo(
                   labelPlacement="outside"
                   variant="bordered"
                   classNames={selectCustomStyle}
-                  defaultSelectedKeys={!isAdmin ? [userId] : [value]}
-                  isDisabled={isEdit || !isAdmin}
+                  defaultSelectedKeys={!isAdmin ? [userId.toString()] : [value]}
+                  isDisabled={isEdit || !isAdmin || isPending}
                   options={OPTION_USERS}
                   isInvalid={!!error?.message}
                   errorMessage={error?.message}
@@ -261,7 +265,7 @@ const AppointmentForm = memo(
                   defaultSelectedKeys={[value]}
                   options={OPTION_USERS}
                   isInvalid={!!error?.message}
-                  isDisabled={isEdit}
+                  isDisabled={isEdit || isPending}
                   errorMessage={error?.message}
                   onChange={onChange}
                   onClose={handleCloseSelect(name)}
@@ -403,6 +407,7 @@ const AppointmentForm = memo(
                 color="outline"
                 className="font-medium"
                 onClick={onClose}
+                isDisabled={isPending}
               >
                 Cancel
               </Button>

@@ -37,7 +37,7 @@ export const formatTimeAppointment = ({
   const [hours, minutes, _] = duration.split(':').map(Number);
   const endTime = startTime.add(hours, 'hour').add(minutes, 'minute');
 
-  return `${startTime.format('h:mm A')} to ${endTime.format('h:mm A')}`;
+  return `${startTime.format('h:mm a')} to ${endTime.format('h:mm a')}`;
 };
 
 /**
@@ -115,7 +115,7 @@ export const isLaterThanCurrentTime = (isoString: string) => {
 
 export const generateTimeOptions = (): Option[] => {
   const times: Option[] = [];
-  const hour = 8;
+  const hour = 5;
   for (let i = 1; i <= hour * 4; i++) {
     const hour = Math.floor(i / 4);
     const minutes = (i % 4) * 15;

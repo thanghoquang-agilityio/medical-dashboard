@@ -5,8 +5,10 @@ import { forwardRef } from 'react';
 // Components
 import { Button, Input, Avatar } from '@/components/ui';
 import { CloseIcon, UploadImageIcon } from '@/icons';
+import { API_IMAGE_URL } from '@/constants';
 
 interface ImageUploadProps extends React.HTMLAttributes<HTMLDivElement> {
+  isDisabled?: boolean;
   src?: string;
   srcUpload?: string;
   onRemoveImage?: () => void;
@@ -20,6 +22,7 @@ interface ImageUploadProps extends React.HTMLAttributes<HTMLDivElement> {
 export const ImageUpload = forwardRef<HTMLInputElement, ImageUploadProps>(
   (
     {
+      isDisabled = false,
       src = '',
       srcUpload = '',
       altText = 'Image for avatar',
@@ -34,7 +37,7 @@ export const ImageUpload = forwardRef<HTMLInputElement, ImageUploadProps>(
     const hasImage = srcUpload || src;
 
     return (
-      <div className="flex flex-col justify-center items-center gap-2">
+      <div className="flex flex-col justify-center items-center gap-3">
         <div className="relative" style={{ width, height }}>
           {srcUpload ? (
             // eslint-disable-next-line @next/next/no-img-element
@@ -44,7 +47,11 @@ export const ImageUpload = forwardRef<HTMLInputElement, ImageUploadProps>(
               alt={altText}
             />
           ) : (
-            <Avatar src={src} alt={altText} className=" w-[100px] h-[100px]" />
+            <Avatar
+              src={`${API_IMAGE_URL}${src}`}
+              alt={altText}
+              className=" w-[100px] h-[100px]"
+            />
           )}
           {hasImage && (
             <Button
@@ -52,6 +59,7 @@ export const ImageUpload = forwardRef<HTMLInputElement, ImageUploadProps>(
               className="flex items-center justify-end text-primary-300 absolute top-[-6px] right-[-2px] z-10 p-0 min-w-6 h-6"
               isIconOnly
               onClick={onRemoveImage}
+              isDisabled={isDisabled}
             >
               <CloseIcon customClass="text-primary-300 w-auto" />
             </Button>
@@ -61,6 +69,7 @@ export const ImageUpload = forwardRef<HTMLInputElement, ImageUploadProps>(
           color="primary"
           className="w-20 h-8 text-primary-100"
           onClick={onClick}
+          isDisabled={isDisabled}
         >
           <UploadImageIcon />
           <Input
@@ -68,6 +77,7 @@ export const ImageUpload = forwardRef<HTMLInputElement, ImageUploadProps>(
             className="hidden"
             ref={ref}
             onChange={onUploadImage}
+            data-testid="upload-image"
             accept="image/*"
           />
         </Button>

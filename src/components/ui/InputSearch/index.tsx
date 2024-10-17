@@ -29,7 +29,7 @@ export const InputSearch = memo(
     const updateSearchParams = useCallback(
       (search: string) => {
         if (search) {
-          params.set('search', search);
+          params.set('search', search.trim());
         } else {
           params.delete('search');
         }

@@ -64,7 +64,7 @@ const Footer = () => {
       <Text variant="success" size="2xl" customClass="font-semibold">
         VHA <span className="text-primary-100">PARTNER</span>
       </Text>
-      <div className="grid sm:grid-cols-6 grid-cols-3 gap-2">
+      <div className="grid xl:grid-cols-6 grid-cols-3 gap-2">
         {FOOTER_ITEMS.map(({ src, alt }, index) => (
           <div
             key={src}

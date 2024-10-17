@@ -25,7 +25,7 @@ exports[`SignupForm Component should renders correctly form 1`] = `
           data-slot="main-wrapper"
         >
           <div
-            class="relative w-full inline-flex tap-highlight-transparent flex-row items-center shadow-sm px-3 gap-3 data-[hover=true]:bg-default-200 group-data-[focus=true]:bg-default-100 min-h-12 rounded-large transition-background motion-reduce:transition-none !duration-150 outline-none group-data-[focus-visible=true]:z-10 group-data-[focus-visible=true]:ring-2 group-data-[focus-visible=true]:ring-focus group-data-[focus-visible=true]:ring-offset-2 group-data-[focus-visible=true]:ring-offset-background bg-transparent border-text-foreground !bg-transparent data-[hover=true]:!bg-transparent group-data-[focus=true]:ring-0 group-data-[focus=true]:ring-offset-0 group-data-[focus=true]:!bg-transparent data-[focus=true]:border-secondary-300 group-data-[invalid=true]:border-red h-auto py-5 border"
+            class="relative w-full inline-flex tap-highlight-transparent flex-row items-center shadow-sm px-3 gap-3 data-[hover=true]:bg-default-200 group-data-[focus=true]:bg-default-100 min-h-12 rounded-large transition-background motion-reduce:transition-none !duration-150 outline-none group-data-[focus-visible=true]:z-10 group-data-[focus-visible=true]:ring-2 group-data-[focus-visible=true]:ring-focus group-data-[focus-visible=true]:ring-offset-2 group-data-[focus-visible=true]:ring-offset-background bg-transparent border-text-foreground !bg-transparent data-[hover=true]:!bg-transparent group-data-[focus=true]:ring-0 group-data-[focus=true]:ring-offset-0 group-data-[focus=true]:!bg-transparent data-[focus=true]:border-secondary-300 group-data-[invalid=true]:border-danger-100 h-auto py-5 border"
             data-slot="input-wrapper"
             style="cursor: text;"
           >
@@ -86,7 +86,7 @@ exports[`SignupForm Component should renders correctly form 1`] = `
               </svg>
               <input
                 aria-label="user name"
-                class="w-full font-normal !outline-none focus-visible:outline-none data-[has-start-content=true]:ps-1.5 data-[has-end-content=true]:pe-1.5 file:cursor-pointer file:bg-transparent file:border-0 autofill:bg-transparent bg-clip-text group-data-[has-value=true]:text-default-foreground text-primary-100 placeholder:text-primary-300 bg-transparent text-md mx-2"
+                class="w-full font-normal !outline-none focus-visible:outline-none data-[has-start-content=true]:ps-1.5 data-[has-end-content=true]:pe-1.5 file:cursor-pointer file:bg-transparent file:border-0 autofill:bg-transparent bg-clip-text group-data-[has-value=true]:text-default-foreground text-primary-100 placeholder:text-primary-300 bg-transparent text-sm mx-2 group-data-[invalid=true]:!text-danger-100"
                 data-has-start-content="true"
                 data-slot="input"
                 id="react-aria-:r4c:"
@@ -110,7 +110,7 @@ exports[`SignupForm Component should renders correctly form 1`] = `
           data-slot="main-wrapper"
         >
           <div
-            class="relative w-full inline-flex tap-highlight-transparent flex-row items-center shadow-sm px-3 gap-3 data-[hover=true]:bg-default-200 group-data-[focus=true]:bg-default-100 min-h-12 rounded-large transition-background motion-reduce:transition-none !duration-150 outline-none group-data-[focus-visible=true]:z-10 group-data-[focus-visible=true]:ring-2 group-data-[focus-visible=true]:ring-focus group-data-[focus-visible=true]:ring-offset-2 group-data-[focus-visible=true]:ring-offset-background bg-transparent border-text-foreground !bg-transparent data-[hover=true]:!bg-transparent group-data-[focus=true]:ring-0 group-data-[focus=true]:ring-offset-0 group-data-[focus=true]:!bg-transparent data-[focus=true]:border-secondary-300 group-data-[invalid=true]:border-red h-auto py-5 border"
+            class="relative w-full inline-flex tap-highlight-transparent flex-row items-center shadow-sm px-3 gap-3 data-[hover=true]:bg-default-200 group-data-[focus=true]:bg-default-100 min-h-12 rounded-large transition-background motion-reduce:transition-none !duration-150 outline-none group-data-[focus-visible=true]:z-10 group-data-[focus-visible=true]:ring-2 group-data-[focus-visible=true]:ring-focus group-data-[focus-visible=true]:ring-offset-2 group-data-[focus-visible=true]:ring-offset-background bg-transparent border-text-foreground !bg-transparent data-[hover=true]:!bg-transparent group-data-[focus=true]:ring-0 group-data-[focus=true]:ring-offset-0 group-data-[focus=true]:!bg-transparent data-[focus=true]:border-secondary-300 group-data-[invalid=true]:border-danger-100 h-auto py-5 border"
             data-slot="input-wrapper"
             style="cursor: text;"
           >
@@ -137,7 +137,7 @@ exports[`SignupForm Component should renders correctly form 1`] = `
               </svg>
               <input
                 aria-label="email address"
-                class="w-full font-normal !outline-none focus-visible:outline-none data-[has-start-content=true]:ps-1.5 data-[has-end-content=true]:pe-1.5 file:cursor-pointer file:bg-transparent file:border-0 autofill:bg-transparent bg-clip-text group-data-[has-value=true]:text-default-foreground text-primary-100 placeholder:text-primary-300 bg-transparent text-md mx-2"
+                class="w-full font-normal !outline-none focus-visible:outline-none data-[has-start-content=true]:ps-1.5 data-[has-end-content=true]:pe-1.5 file:cursor-pointer file:bg-transparent file:border-0 autofill:bg-transparent bg-clip-text group-data-[has-value=true]:text-default-foreground text-primary-100 placeholder:text-primary-300 bg-transparent text-sm mx-2 group-data-[invalid=true]:!text-danger-100"
                 data-has-start-content="true"
                 data-slot="input"
                 id="react-aria-:r4h:"
@@ -161,7 +161,7 @@ exports[`SignupForm Component should renders correctly form 1`] = `
           data-slot="main-wrapper"
         >
           <div
-            class="relative w-full inline-flex tap-highlight-transparent flex-row items-center shadow-sm px-3 gap-3 data-[hover=true]:bg-default-200 group-data-[focus=true]:bg-default-100 min-h-12 rounded-large transition-background motion-reduce:transition-none !duration-150 outline-none group-data-[focus-visible=true]:z-10 group-data-[focus-visible=true]:ring-2 group-data-[focus-visible=true]:ring-focus group-data-[focus-visible=true]:ring-offset-2 group-data-[focus-visible=true]:ring-offset-background bg-transparent border-text-foreground !bg-transparent data-[hover=true]:!bg-transparent group-data-[focus=true]:ring-0 group-data-[focus=true]:ring-offset-0 group-data-[focus=true]:!bg-transparent data-[focus=true]:border-secondary-300 group-data-[invalid=true]:border-red h-auto py-5 border"
+            class="relative w-full inline-flex tap-highlight-transparent flex-row items-center shadow-sm px-3 gap-3 data-[hover=true]:bg-default-200 group-data-[focus=true]:bg-default-100 min-h-12 rounded-large transition-background motion-reduce:transition-none !duration-150 outline-none group-data-[focus-visible=true]:z-10 group-data-[focus-visible=true]:ring-2 group-data-[focus-visible=true]:ring-focus group-data-[focus-visible=true]:ring-offset-2 group-data-[focus-visible=true]:ring-offset-background bg-transparent border-text-foreground !bg-transparent data-[hover=true]:!bg-transparent group-data-[focus=true]:ring-0 group-data-[focus=true]:ring-offset-0 group-data-[focus=true]:!bg-transparent data-[focus=true]:border-secondary-300 group-data-[invalid=true]:border-danger-100 h-auto py-5 border"
             data-slot="input-wrapper"
             style="cursor: text;"
           >
@@ -192,7 +192,7 @@ exports[`SignupForm Component should renders correctly form 1`] = `
               </svg>
               <input
                 aria-label="password"
-                class="w-full font-normal !outline-none focus-visible:outline-none data-[has-start-content=true]:ps-1.5 data-[has-end-content=true]:pe-1.5 file:cursor-pointer file:bg-transparent file:border-0 autofill:bg-transparent bg-clip-text group-data-[has-value=true]:text-default-foreground text-primary-100 placeholder:text-primary-300 bg-transparent text-md mx-2"
+                class="w-full font-normal !outline-none focus-visible:outline-none data-[has-start-content=true]:ps-1.5 data-[has-end-content=true]:pe-1.5 file:cursor-pointer file:bg-transparent file:border-0 autofill:bg-transparent bg-clip-text group-data-[has-value=true]:text-default-foreground text-primary-100 placeholder:text-primary-300 bg-transparent text-sm mx-2 group-data-[invalid=true]:!text-danger-100"
                 data-has-end-content="true"
                 data-has-start-content="true"
                 data-slot="input"
@@ -239,7 +239,7 @@ exports[`SignupForm Component should renders correctly form 1`] = `
           data-slot="main-wrapper"
         >
           <div
-            class="relative w-full inline-flex tap-highlight-transparent flex-row items-center shadow-sm px-3 gap-3 data-[hover=true]:bg-default-200 group-data-[focus=true]:bg-default-100 min-h-12 rounded-large transition-background motion-reduce:transition-none !duration-150 outline-none group-data-[focus-visible=true]:z-10 group-data-[focus-visible=true]:ring-2 group-data-[focus-visible=true]:ring-focus group-data-[focus-visible=true]:ring-offset-2 group-data-[focus-visible=true]:ring-offset-background bg-transparent border-text-foreground !bg-transparent data-[hover=true]:!bg-transparent group-data-[focus=true]:ring-0 group-data-[focus=true]:ring-offset-0 group-data-[focus=true]:!bg-transparent data-[focus=true]:border-secondary-300 group-data-[invalid=true]:border-red h-auto py-5 border"
+            class="relative w-full inline-flex tap-highlight-transparent flex-row items-center shadow-sm px-3 gap-3 data-[hover=true]:bg-default-200 group-data-[focus=true]:bg-default-100 min-h-12 rounded-large transition-background motion-reduce:transition-none !duration-150 outline-none group-data-[focus-visible=true]:z-10 group-data-[focus-visible=true]:ring-2 group-data-[focus-visible=true]:ring-focus group-data-[focus-visible=true]:ring-offset-2 group-data-[focus-visible=true]:ring-offset-background bg-transparent border-text-foreground !bg-transparent data-[hover=true]:!bg-transparent group-data-[focus=true]:ring-0 group-data-[focus=true]:ring-offset-0 group-data-[focus=true]:!bg-transparent data-[focus=true]:border-secondary-300 group-data-[invalid=true]:border-danger-100 h-auto py-5 border"
             data-slot="input-wrapper"
             style="cursor: text;"
           >
@@ -270,7 +270,7 @@ exports[`SignupForm Component should renders correctly form 1`] = `
               </svg>
               <input
                 aria-label="confirm password"
-                class="w-full font-normal !outline-none focus-visible:outline-none data-[has-start-content=true]:ps-1.5 data-[has-end-content=true]:pe-1.5 file:cursor-pointer file:bg-transparent file:border-0 autofill:bg-transparent bg-clip-text group-data-[has-value=true]:text-default-foreground text-primary-100 placeholder:text-primary-300 bg-transparent text-md mx-2"
+                class="w-full font-normal !outline-none focus-visible:outline-none data-[has-start-content=true]:ps-1.5 data-[has-end-content=true]:pe-1.5 file:cursor-pointer file:bg-transparent file:border-0 autofill:bg-transparent bg-clip-text group-data-[has-value=true]:text-default-foreground text-primary-100 placeholder:text-primary-300 bg-transparent text-sm mx-2 group-data-[invalid=true]:!text-danger-100"
                 data-has-end-content="true"
                 data-has-start-content="true"
                 data-slot="input"

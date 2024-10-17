@@ -5,7 +5,6 @@ import {
 } from 'react-hook-form';
 
 import { FORM_VALIDATION_MESSAGE, REGEX } from '@/constants';
-import { LOGIN_FORM_VALIDATION } from '@/features/auth/LoginForm/rule';
 import { ChemistFormData } from '@/types';
 
 export const CHEMIST_FORM_VALIDATION = {
@@ -20,16 +19,31 @@ export const CHEMIST_FORM_VALIDATION = {
     required: FORM_VALIDATION_MESSAGE.REQUIRED('Name'),
     pattern: {
       value: REGEX.NAME,
-      message: FORM_VALIDATION_MESSAGE.FORMAT('Name'),
+      message: FORM_VALIDATION_MESSAGE.ONLY_TEXT,
     },
   },
   PASSWORD: (
     getValues: UseFormGetValues<ChemistFormData>,
     setError: UseFormSetError<ChemistFormData>,
     clearErrors: UseFormClearErrors<ChemistFormData>,
+    isEdit: boolean,
   ) => {
     return {
-      ...LOGIN_FORM_VALIDATION.PASSWORD,
+      required: isEdit
+        ? undefined
+        : FORM_VALIDATION_MESSAGE.REQUIRED('Password'),
+      minLength: {
+        value: 8,
+        message: FORM_VALIDATION_MESSAGE.MIN_LENGTH('Password', 8),
+      },
+      maxLength: {
+        value: 32,
+        message: FORM_VALIDATION_MESSAGE.MAX_LENGTH('Password', 32),
+      },
+      pattern: {
+        value: REGEX.ALL_WHITE_SPACE,
+        message: FORM_VALIDATION_MESSAGE.ALL_WHITE_SPACE('Password'),
+      },
       validate: {
         matchesPassword: (value: string) =>
           !getValues('confirmPassWord') ||
@@ -44,9 +58,14 @@ export const CHEMIST_FORM_VALIDATION = {
       },
     };
   },
-  CONFIRM_PASSWORD: (getValues: UseFormGetValues<ChemistFormData>) => {
+  CONFIRM_PASSWORD: (
+    getValues: UseFormGetValues<ChemistFormData>,
+    isEdit: boolean,
+  ) => {
     return {
-      required: FORM_VALIDATION_MESSAGE.REQUIRED('Confirm Password'),
+      required: isEdit
+        ? undefined
+        : FORM_VALIDATION_MESSAGE.REQUIRED('Confirm Password'),
       validate: {
         matchesPassword: (value: string) =>
           value === getValues('password') ||

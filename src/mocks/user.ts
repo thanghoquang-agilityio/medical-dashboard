@@ -1,4 +1,10 @@
-import { UserModel } from '@/types';
+import {
+  ROLE,
+  RolePermission,
+  UserLogged,
+  UserModel,
+  UserSession,
+} from '@/types';
 
 export const MOCK_USER_LIST = {
   data: [
@@ -467,3 +473,47 @@ export const USER_OPTIONS: UserModel[] = [
     },
   },
 ];
+
+export const MOCK_USERS_LOGGED: UserLogged[] = [
+  {
+    id: '30',
+    username: 'John Smith',
+    email: 'john_smith@asnet.com.vn',
+    description: "I'm John Smith from VHA with love.",
+    role: { name: ROLE.NORMAL_USER },
+    rating: 3,
+    tasks: 12,
+    reviews: 333,
+  },
+  {
+    id: '20',
+    username: 'Jessica Jane',
+    email: 'jessica_jane@asnet.com.vn',
+    role: { name: ROLE.ADMIN },
+    description: "I'm Jessica Jane', from VHA with love.",
+    rating: 5,
+    tasks: 30,
+    reviews: 1442,
+  },
+];
+
+export const MOCK_USER_ROLE: RolePermission[] = [
+  {
+    id: 1,
+    name: ROLE.NORMAL_USER,
+  },
+  {
+    id: 2,
+    name: ROLE.ADMIN,
+  },
+];
+
+export const MOCK_USER_SESSION: UserSession = {
+  id: MOCK_USERS_LOGGED[0].id,
+  username: MOCK_USERS_LOGGED[0].username,
+  email: MOCK_USERS_LOGGED[0].email,
+  token: 'access-token',
+  role: '',
+  avatar: '',
+  remember: true,
+};

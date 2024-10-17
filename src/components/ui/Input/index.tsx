@@ -1,6 +1,6 @@
 'use client';
 
-import { cn } from '@/utils';
+import { cn } from '@/utils/styles';
 import { extendVariants, Input as NextUIInput } from '@nextui-org/react';
 
 export const Input = extendVariants(NextUIInput, {
@@ -9,12 +9,12 @@ export const Input = extendVariants(NextUIInput, {
       default: {
         inputWrapper: cn(
           'bg-transparent border-text-foreground',
-          '!bg-transparent data-[hover=true]:!bg-transparent group-data-[focus=true]:ring-0 group-data-[focus=true]:ring-offset-0 group-data-[focus=true]:!bg-transparent data-[focus=true]:border-secondary-300 group-data-[invalid=true]:border-red',
+          '!bg-transparent data-[hover=true]:!bg-transparent group-data-[focus=true]:ring-0 group-data-[focus=true]:ring-offset-0 group-data-[focus=true]:!bg-transparent data-[focus=true]:border-secondary-300 group-data-[invalid=true]:border-danger-100',
         ),
         input:
-          'text-primary-100 placeholder:text-primary-300 bg-transparent text-sm mx-2',
-        errorMessage: 'text-danger text-xs ml-2',
-        label: 'top-5 text-sm',
+          'text-primary-100 placeholder:text-primary-300 bg-transparent text-sm mx-2 group-data-[invalid=true]:!text-danger-100',
+        errorMessage: 'text-danger-100 text-xs ml-2',
+        label: 'top-5 text-sm group-data-[invalid=true]:!text-danger-100',
       },
     },
     size: {

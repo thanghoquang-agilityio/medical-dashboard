@@ -9,6 +9,7 @@ import {
   UserPayload,
 } from '@/types';
 import { API_ENDPOINT } from '@/constants';
+import { revalidateTag } from 'next/cache';
 
 export const getUserLogged = async (
   jwt: string,
@@ -39,11 +40,13 @@ export const getUsers = async (): Promise<{
   try {
     const api = await apiClient.apiClientSession();
 
-    const url = decodeURIComponent(`${API_ENDPOINT.USERS}`);
+    const url = decodeURIComponent(
+      `${API_ENDPOINT.USERS}?filters[publishedAt][$notNull]=true`,
+    );
     const { error = null, ...user } = await api.get<
       UserLogged[] & { error: string | null }
     >(url, {
-      next: { revalidate: 3600, tags: [API_ENDPOINT.USERS, 'all'] },
+      next: { revalidate: 3600, tags: [API_ENDPOINT.USERS] },
     });
 
     const usersArray = Object.values(user) as UserLogged[];
@@ -102,6 +105,8 @@ export const addUser = async (
       };
     }
 
+    revalidateTag(API_ENDPOINT.CHEMISTS);
+
     return { user: user, error };
   } catch (error) {
     const errorMessage =
@@ -131,6 +136,8 @@ export const updateUser = async (
         error: (JSON.parse(error) as ErrorResponse).error.message,
       };
     }
+
+    revalidateTag(API_ENDPOINT.CHEMISTS);
 
     return { user: user, error };
   } catch (error) {
@@ -163,6 +170,9 @@ export const updatePublishUser = async (
       };
     }
 
+    revalidateTag(API_ENDPOINT.USERS);
+    revalidateTag(API_ENDPOINT.CHEMISTS);
+
     return { user: user, error };
   } catch (error) {
     const errorMessage =
@@ -170,5 +180,124 @@ export const updatePublishUser = async (
         ? error.message
         : 'An unexpected error occurred in the request update user';
     return { user: null, error: errorMessage };
+  }
+};
+
+const updateUnpublishChemist = async (
+  id: string,
+): Promise<{ error: string | null }> => {
+  try {
+    const api = await apiClient.apiClientSession();
+
+    const { error = null } = await api.put<{ error: string | null }>(
+      `${API_ENDPOINT.CHEMISTS}/unpublish/${id}`,
+    );
+
+    if (error) {
+      return {
+        error: (JSON.parse(error) as ErrorResponse).error.message,
+      };
+    }
+
+    revalidateTag(API_ENDPOINT.CHEMISTS);
+
+    return { error: null };
+  } catch (error) {
+    const errorMessage =
+      error instanceof Error
+        ? error.message
+        : 'An unexpected error occurred in the request update user';
+    return { error: errorMessage };
+  }
+};
+
+export const updateUnpublishUser = async (
+  id: string,
+): Promise<{ user: UserModel | null; error: string | null }> => {
+  try {
+    const api = await apiClient.apiClientSession();
+
+    const { error = null, ...user } = await api.put<
+      UserModel & { error: string | null }
+    >(`${API_ENDPOINT.USERS}/${id}`, {
+      body: {
+        publishedAt: null,
+      },
+    });
+
+    if (error) {
+      return {
+        user: null,
+        error: (JSON.parse(error) as ErrorResponse).error.message,
+      };
+    }
+
+    revalidateTag(API_ENDPOINT.USERS);
+
+    await updateUnpublishChemist(id);
+
+    return { user: user, error };
+  } catch (error) {
+    const errorMessage =
+      error instanceof Error
+        ? error.message
+        : 'An unexpected error occurred in the request update user';
+    return { user: null, error: errorMessage };
+  }
+};
+
+export const updateUnpublishNotification = async (
+  id: string,
+): Promise<{ error: string | null }> => {
+  try {
+    const api = await apiClient.apiClientSession();
+
+    const { error = null } = await api.put<{ error: string | null }>(
+      `${API_ENDPOINT.NOTIFICATIONS}/unpublish/${id}`,
+    );
+
+    if (error) {
+      return {
+        error: (JSON.parse(error) as ErrorResponse).error.message,
+      };
+    }
+
+    revalidateTag(API_ENDPOINT.NOTIFICATIONS);
+
+    return { error: null };
+  } catch (error) {
+    const errorMessage =
+      error instanceof Error
+        ? error.message
+        : 'An unexpected error occurred in the request update user';
+    return { error: errorMessage };
+  }
+};
+
+export const updateUnpublishAppointment = async (
+  id: string,
+): Promise<{ error: string | null }> => {
+  try {
+    const api = await apiClient.apiClientSession();
+
+    const { error = null } = await api.put<{ error: string | null }>(
+      `${API_ENDPOINT.APPOINTMENTS}/unpublish/${id}`,
+    );
+
+    if (error) {
+      return {
+        error: (JSON.parse(error) as ErrorResponse).error.message,
+      };
+    }
+
+    revalidateTag(API_ENDPOINT.APPOINTMENTS);
+
+    return { error: null };
+  } catch (error) {
+    const errorMessage =
+      error instanceof Error
+        ? error.message
+        : 'An unexpected error occurred in the request update user';
+    return { error: errorMessage };
   }
 };

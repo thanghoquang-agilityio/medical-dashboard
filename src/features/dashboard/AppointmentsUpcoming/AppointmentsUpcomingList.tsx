@@ -28,41 +28,45 @@ import {
   MetaResponse,
   ROLE,
   STATUS_TYPE,
+  UserLogged,
 } from '@/types';
 
-// Actions
+// Helper
 import { deleteAppointment, updateAppointment } from '@/actions/appointment';
+import { getStatusKey } from '@/utils';
+import { useToast } from '@/context/toast';
 
 // Components
-import { useToast } from '@/context/toast';
 import { Select, Text } from '@/components/ui';
-import { AppointmentsUpcomingListSkeleton } from './AppointmentsUpcomingSkeleton';
 import { createColumns } from './columns';
-import { getStatusKey } from '@/utils';
+import { AppointmentsUpcomingListSkeleton } from './AppointmentsUpcomingSkeleton';
+
+// Hooks
+import { useNotification } from '@/hooks';
 const DataGrid = lazy(() => import('@/components/ui/DataGrid'));
 const ConfirmModal = lazy(() => import('@/components/ui/ConfirmModal'));
 
 export interface AppointmentsUpcomingListProps extends MetaResponse {
   appointments: AppointmentResponse[];
   defaultStatus: string;
-  userId: string;
-  role: string;
+  userLogged: UserLogged | null;
 }
 
 const AppointmentsUpcomingList = memo(
   ({
     appointments,
     defaultStatus,
-    userId,
-    role,
+    userLogged,
   }: AppointmentsUpcomingListProps) => {
     const openToast = useToast();
+    const { id: userId = '', role: roleModel } = userLogged || {};
+    const { name: role = ROLE.NORMAL_USER } = roleModel || {};
+
     const isAdmin = role === ROLE.ADMIN;
 
     const [isPending, startTransition] = useTransition();
     const [status, setStatus] = useState(new Set<string>([defaultStatus]));
-    const [appointmentsList, setAppointmentsList] =
-      useState<AppointmentResponse[]>(appointments);
+
     const [appointmentId, setAppointmentId] = useState<string>('');
 
     const searchParams = useSearchParams() ?? '';
@@ -132,9 +136,13 @@ const AppointmentsUpcomingList = memo(
       onRemoveOrCancel: handleOpenConfirmModal,
     });
 
+    const { handleCreateNotification } = useNotification({
+      userLogged,
+    });
+
     const handleDeleteAppointment = useCallback(async () => {
       setIsLoading(true);
-      const { error } = await deleteAppointment(appointmentId);
+      const { appointment, error } = await deleteAppointment(appointmentId);
       if (error) {
         openToast({
           message: ERROR_MESSAGE.DELETE('appointment'),
@@ -145,27 +153,25 @@ const AppointmentsUpcomingList = memo(
         return;
       }
 
-      const newAppointment = appointmentsList.filter(
-        (item) => item.id !== appointmentId,
-      );
-      setAppointmentsList(newAppointment);
+      if (appointment) {
+        openToast({
+          message: SUCCESS_MESSAGE.DELETE('appointment'),
+          type: STATUS_TYPE.SUCCESS,
+        });
 
-      openToast({
-        message: SUCCESS_MESSAGE.DELETE('appointment'),
-        type: STATUS_TYPE.SUCCESS,
-      });
+        handleCreateNotification(appointment, 'deleted');
+      }
+
       setIsLoading(false);
       onClosConfirm();
-    }, [appointmentId, appointmentsList, onClosConfirm, openToast]);
+    }, [appointmentId, handleCreateNotification, onClosConfirm, openToast]);
 
     const handleCancelAppointment = useCallback(async () => {
       setIsLoading(true);
       const statusPayload = getStatusKey('cancelled') || 0;
-      const error = (
-        await updateAppointment(appointmentId, {
-          status: statusPayload as AppointmentStatus,
-        })
-      ).error;
+      const { appointment, error } = await updateAppointment(appointmentId, {
+        status: statusPayload as AppointmentStatus,
+      });
 
       if (error) {
         openToast({
@@ -176,15 +182,25 @@ const AppointmentsUpcomingList = memo(
         return;
       }
 
-      updateSearchParams(APPOINTMENT_STATUS_OPTIONS[2].key);
+      if (appointment) {
+        openToast({
+          message: SUCCESS_MESSAGE.CANCEL('appointment'),
+          type: STATUS_TYPE.SUCCESS,
+        });
 
-      openToast({
-        message: SUCCESS_MESSAGE.CANCEL('appointment'),
-        type: STATUS_TYPE.SUCCESS,
-      });
+        handleCreateNotification(appointment, 'cancelled');
+      }
+
+      updateSearchParams(APPOINTMENT_STATUS_OPTIONS[2].key);
       setIsLoading(false);
       onClosConfirm();
-    }, [appointmentId, onClosConfirm, openToast, updateSearchParams]);
+    }, [
+      appointmentId,
+      handleCreateNotification,
+      onClosConfirm,
+      openToast,
+      updateSearchParams,
+    ]);
 
     return (
       <>
@@ -215,10 +231,11 @@ const AppointmentsUpcomingList = memo(
             <AppointmentsUpcomingListSkeleton />
           ) : (
             <DataGrid
-              data={appointmentsList}
+              data={appointments}
               columns={columns as ColumnType<unknown>[]}
               classWrapper="pt-4"
               classCell="pb-4"
+              id="appointment-upcoming"
             />
           )}
 

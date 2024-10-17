@@ -95,7 +95,6 @@ const DataGrid = memo(
           hideHeader
           className="w-full"
           tabIndex={0}
-          id="table"
           classNames={{
             emptyWrapper: 'text-primary-100 text-xl font-medium h-[152px] pb-4',
             wrapper: cn(
