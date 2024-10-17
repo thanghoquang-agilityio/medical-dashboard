@@ -77,6 +77,7 @@ export const ImageUpload = forwardRef<HTMLInputElement, ImageUploadProps>(
             className="hidden"
             ref={ref}
             onChange={onUploadImage}
+            data-testid="upload-image"
             accept="image/*"
           />
         </Button>

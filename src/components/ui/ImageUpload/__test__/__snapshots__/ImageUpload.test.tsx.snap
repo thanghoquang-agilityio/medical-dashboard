@@ -97,6 +97,7 @@ exports[`ImageUpload Component renders correctly with default props 1`] = `
                     aria-label=" "
                     class="w-full font-normal !outline-none focus-visible:outline-none data-[has-start-content=true]:ps-1.5 data-[has-end-content=true]:pe-1.5 file:cursor-pointer file:bg-transparent file:border-0 autofill:bg-transparent bg-clip-text group-data-[has-value=true]:text-default-foreground text-primary-100 placeholder:text-primary-300 bg-transparent text-sm mx-2 group-data-[invalid=true]:!text-danger-100"
                     data-slot="input"
+                    data-testid="upload-image"
                     id="react-aria-:r0:"
                     type="file"
                   />
@@ -201,6 +202,7 @@ exports[`ImageUpload Component renders correctly with default props 1`] = `
                   aria-label=" "
                   class="w-full font-normal !outline-none focus-visible:outline-none data-[has-start-content=true]:ps-1.5 data-[has-end-content=true]:pe-1.5 file:cursor-pointer file:bg-transparent file:border-0 autofill:bg-transparent bg-clip-text group-data-[has-value=true]:text-default-foreground text-primary-100 placeholder:text-primary-300 bg-transparent text-sm mx-2 group-data-[invalid=true]:!text-danger-100"
                   data-slot="input"
+                  data-testid="upload-image"
                   id="react-aria-:r0:"
                   type="file"
                 />
