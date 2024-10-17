@@ -267,6 +267,7 @@ const ChemistForm = memo(
       <form
         onSubmit={handleSubmit(handleSubmitForm)}
         className="p-4 flex flex-col"
+        data-testid="chemist-form"
       >
         <Text variant="title" size="xl">
           {isEdit ? 'Update chemist' : 'Create chemist'}
@@ -280,6 +281,7 @@ const ChemistForm = memo(
             <ImageUpload
               {...rest}
               ref={hiddenFileInput}
+              data-testid="chemist-avatar"
               src={value}
               srcUpload={imageUpload}
               onRemoveImage={handleRemoveImage(onChange)}
@@ -456,6 +458,7 @@ const ChemistForm = memo(
               name={name}
               value={value}
               label="Specialty"
+              data-testid="specialty-select"
               placeholder="Select specialty"
               labelPlacement="outside"
               variant="bordered"
@@ -528,6 +531,7 @@ const ChemistForm = memo(
               isDisabled={!isValid || !isDirty || isPending}
               isLoading={isLoading || isPending}
               type="submit"
+              data-testid="submit"
             >
               Submit
             </Button>
