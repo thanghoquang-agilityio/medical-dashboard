@@ -22,7 +22,9 @@ export const login = async (
         password: body.password,
       },
     });
+
     const { error, jwt, user } = response;
+
     if (error && !user) {
       return {
         user: null,
@@ -38,7 +40,6 @@ export const login = async (
         error: errorGetUserLogged,
       };
     }
-
     const {
       id = '',
       avatar,
@@ -55,8 +56,8 @@ export const login = async (
       remember: body.remember,
       role: name,
       avatar: url,
-      username: username,
-      email: email,
+      username,
+      email,
     };
 
     return { user: data, error: null };
