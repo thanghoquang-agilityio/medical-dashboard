@@ -95,13 +95,13 @@ describe('ChemistForm test cases', () => {
     );
 
     const usernameInput: HTMLInputElement = screen.getByRole('textbox', {
-      name: /username username/i,
+      name: /username/i,
     });
 
     fireEvent.change(usernameInput, { target: { value: 'mockuser' } });
 
     const emailInput: HTMLInputElement = screen.getByRole('textbox', {
-      name: /email email/i,
+      name: /email/i,
     });
 
     fireEvent.change(emailInput, {
