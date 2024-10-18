@@ -59,6 +59,7 @@ export const getAppointments = async ({
 
 export const addAppointment = async (
   appointment: AppointmentPayload,
+  signal?: AbortSignal,
 ): Promise<AppointmentDataResponse> => {
   try {
     const api = await apiClient.apiClientSession();
@@ -69,6 +70,7 @@ export const addAppointment = async (
       body: {
         data: appointment,
       },
+      signal,
     });
 
     if (error) {
