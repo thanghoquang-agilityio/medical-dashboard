@@ -43,7 +43,7 @@ export const AvatarHasBorder: Story = {
   args: {
     size: 'lg',
     src: 'https://i.pravatar.cc/150?u=a042581f4e29026024d',
-    hasBorder: true,
+    isBordered: true,
     color: 'warning',
   },
 };
