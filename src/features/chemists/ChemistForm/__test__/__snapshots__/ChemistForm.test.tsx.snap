@@ -487,37 +487,20 @@ exports[`ChemistForm test cases should render correctly without data and id 1`] 
         style="width: 100px; height: 100px;"
       >
         <span
-          class="flex relative justify-center items-center box-border overflow-hidden align-middle z-0 outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-tiny text-default-foreground rounded-full min-w-8 bg-undefined ring-offset-2 ring-1 ring-green w-[100px] h-[100px]"
+          class="box-border overflow-hidden outline-none rounded-full ring-offset-background dark:ring-offset-background-dark shrink-0 min-w-8 w-8 h-8 bg-undefined ring-offset-0 ring-0 false"
           tabindex="-1"
         >
           <img
             alt="Image for avatar"
-            class="flex object-cover w-full h-full transition-opacity !duration-500 opacity-0 data-[loaded=true]:opacity-100"
-            src="http://localhost:1341"
+            data-nimg="1"
+            decoding="async"
+            fetchpriority="high"
+            height="48"
+            src="http://localhost/_next/image?url=http%3A%2F%2Flocalhost%3A1341&w=96&q=75"
+            srcset="/_next/image?url=http%3A%2F%2Flocalhost%3A1341&w=48&q=75 1x, /_next/image?url=http%3A%2F%2Flocalhost%3A1341&w=96&q=75 2x"
+            style="color: transparent; object-fit: cover;"
+            width="48"
           />
-          <span
-            aria-label="Image for avatar"
-            class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex items-center justify-center text-inherit w-full h-full"
-            role="img"
-          >
-            <svg
-              aria-hidden="true"
-              fill="none"
-              height="80%"
-              role="presentation"
-              viewBox="0 0 24 24"
-              width="80%"
-            >
-              <path
-                d="M12 2C9.38 2 7.25 4.13 7.25 6.75C7.25 9.32 9.26 11.4 11.88 11.49C11.96 11.48 12.04 11.48 12.1 11.49C12.12 11.49 12.13 11.49 12.15 11.49C12.16 11.49 12.16 11.49 12.17 11.49C14.73 11.4 16.74 9.32 16.75 6.75C16.75 4.13 14.62 2 12 2Z"
-                fill="currentColor"
-              />
-              <path
-                d="M17.0809 14.1489C14.2909 12.2889 9.74094 12.2889 6.93094 14.1489C5.66094 14.9989 4.96094 16.1489 4.96094 17.3789C4.96094 18.6089 5.66094 19.7489 6.92094 20.5889C8.32094 21.5289 10.1609 21.9989 12.0009 21.9989C13.8409 21.9989 15.6809 21.5289 17.0809 20.5889C18.3409 19.7389 19.0409 18.5989 19.0409 17.3589C19.0309 16.1289 18.3409 14.9889 17.0809 14.1489Z"
-                fill="currentColor"
-              />
-            </svg>
-          </span>
         </span>
       </div>
       <button
@@ -572,7 +555,7 @@ exports[`ChemistForm test cases should render correctly without data and id 1`] 
                   class="w-full font-normal !outline-none focus-visible:outline-none data-[has-start-content=true]:ps-1.5 data-[has-end-content=true]:pe-1.5 file:cursor-pointer file:bg-transparent file:border-0 autofill:bg-transparent bg-clip-text group-data-[has-value=true]:text-default-foreground text-primary-100 placeholder:text-primary-300 bg-transparent text-sm mx-2 group-data-[invalid=true]:!text-danger-100"
                   data-slot="input"
                   data-testid="upload-image"
-                  id="react-aria-:rs:"
+                  id="react-aria-:r1o:"
                   type="file"
                 />
               </div>
@@ -602,8 +585,8 @@ exports[`ChemistForm test cases should render correctly without data and id 1`] 
           <label
             class="absolute pointer-events-none origin-top-left rtl:origin-top-right subpixel-antialiased block text-foreground-500 after:content-['*'] after:text-danger after:ml-0.5 rtl:after:ml-[unset] rtl:after:mr-0.5 will-change-auto !duration-200 !ease-out motion-reduce:transition-none transition-[transform,color,left,opacity] group-data-[filled-within=true]:text-foreground group-data-[filled-within=true]:pointer-events-auto pb-0 z-20 -translate-y-1/2 group-data-[filled-within=true]:start-0 start-2 group-data-[filled-within=true]:-translate-y-[calc(100%_+_theme(fontSize.tiny)/2_+_16px)] pe-2 max-w-full text-ellipsis overflow-hidden text-sm group-data-[invalid=true]:!text-danger-100 top-[20px]"
             data-slot="label"
-            for="react-aria-:r11:"
-            id="react-aria-:r12:"
+            for="react-aria-:r1t:"
+            id="react-aria-:r1u:"
           >
             Username
           </label>
@@ -613,11 +596,11 @@ exports[`ChemistForm test cases should render correctly without data and id 1`] 
           >
             <input
               aria-label="Username"
-              aria-labelledby="react-aria-:r11: react-aria-:r12:"
+              aria-labelledby="react-aria-:r1t: react-aria-:r1u:"
               aria-required="true"
               class="w-full font-normal !outline-none focus-visible:outline-none data-[has-start-content=true]:ps-1.5 data-[has-end-content=true]:pe-1.5 file:cursor-pointer file:bg-transparent file:border-0 autofill:bg-transparent bg-clip-text group-data-[has-value=true]:text-default-foreground text-primary-100 placeholder:text-primary-300 bg-transparent text-sm group-data-[invalid=true]:!text-danger-100 mx-1"
               data-slot="input"
-              id="react-aria-:r11:"
+              id="react-aria-:r1t:"
               name="username"
               placeholder="Please enter username"
               type="text"
@@ -648,8 +631,8 @@ exports[`ChemistForm test cases should render correctly without data and id 1`] 
           <label
             class="absolute pointer-events-none origin-top-left rtl:origin-top-right subpixel-antialiased block text-foreground-500 after:content-['*'] after:text-danger after:ml-0.5 rtl:after:ml-[unset] rtl:after:mr-0.5 will-change-auto !duration-200 !ease-out motion-reduce:transition-none transition-[transform,color,left,opacity] group-data-[filled-within=true]:text-foreground group-data-[filled-within=true]:pointer-events-auto pb-0 z-20 -translate-y-1/2 group-data-[filled-within=true]:start-0 start-2 group-data-[filled-within=true]:-translate-y-[calc(100%_+_theme(fontSize.tiny)/2_+_16px)] pe-2 max-w-full text-ellipsis overflow-hidden text-sm group-data-[invalid=true]:!text-danger-100 top-[20px]"
             data-slot="label"
-            for="react-aria-:r16:"
-            id="react-aria-:r17:"
+            for="react-aria-:r22:"
+            id="react-aria-:r23:"
           >
             Email
           </label>
@@ -659,11 +642,11 @@ exports[`ChemistForm test cases should render correctly without data and id 1`] 
           >
             <input
               aria-label="Email"
-              aria-labelledby="react-aria-:r16: react-aria-:r17:"
+              aria-labelledby="react-aria-:r22: react-aria-:r23:"
               aria-required="true"
               class="w-full font-normal !outline-none focus-visible:outline-none data-[has-start-content=true]:ps-1.5 data-[has-end-content=true]:pe-1.5 file:cursor-pointer file:bg-transparent file:border-0 autofill:bg-transparent bg-clip-text group-data-[has-value=true]:text-default-foreground text-primary-100 placeholder:text-primary-300 bg-transparent text-sm group-data-[invalid=true]:!text-danger-100 mx-1"
               data-slot="input"
-              id="react-aria-:r16:"
+              id="react-aria-:r22:"
               name="email"
               placeholder="Please enter email"
               type="text"
@@ -693,8 +676,8 @@ exports[`ChemistForm test cases should render correctly without data and id 1`] 
           <label
             class="absolute pointer-events-none origin-top-left rtl:origin-top-right subpixel-antialiased block text-foreground-500 will-change-auto !duration-200 !ease-out motion-reduce:transition-none transition-[transform,color,left,opacity] group-data-[filled-within=true]:text-foreground group-data-[filled-within=true]:pointer-events-auto pb-0 z-20 -translate-y-1/2 group-data-[filled-within=true]:start-0 start-2 group-data-[filled-within=true]:-translate-y-[calc(100%_+_theme(fontSize.tiny)/2_+_16px)] pe-2 max-w-full text-ellipsis overflow-hidden text-sm group-data-[invalid=true]:!text-danger-100 top-[20px]"
             data-slot="label"
-            for="react-aria-:r1b:"
-            id="react-aria-:r1c:"
+            for="react-aria-:r27:"
+            id="react-aria-:r28:"
           >
             Password
           </label>
@@ -704,11 +687,11 @@ exports[`ChemistForm test cases should render correctly without data and id 1`] 
           >
             <input
               aria-label="Password"
-              aria-labelledby="react-aria-:r1b: react-aria-:r1c:"
+              aria-labelledby="react-aria-:r27: react-aria-:r28:"
               class="w-full font-normal !outline-none focus-visible:outline-none data-[has-start-content=true]:ps-1.5 data-[has-end-content=true]:pe-1.5 file:cursor-pointer file:bg-transparent file:border-0 autofill:bg-transparent bg-clip-text group-data-[has-value=true]:text-default-foreground text-primary-100 placeholder:text-primary-300 bg-transparent text-sm group-data-[invalid=true]:!text-danger-100 mx-1"
               data-has-end-content="true"
               data-slot="input"
-              id="react-aria-:r1b:"
+              id="react-aria-:r27:"
               name="password"
               placeholder="Please enter password"
               type="password"
@@ -760,8 +743,8 @@ exports[`ChemistForm test cases should render correctly without data and id 1`] 
           <label
             class="absolute pointer-events-none origin-top-left rtl:origin-top-right subpixel-antialiased block text-foreground-500 will-change-auto !duration-200 !ease-out motion-reduce:transition-none transition-[transform,color,left,opacity] group-data-[filled-within=true]:text-foreground group-data-[filled-within=true]:pointer-events-auto pb-0 z-20 -translate-y-1/2 group-data-[filled-within=true]:start-0 start-2 group-data-[filled-within=true]:-translate-y-[calc(100%_+_theme(fontSize.tiny)/2_+_16px)] pe-2 max-w-full text-ellipsis overflow-hidden text-sm group-data-[invalid=true]:!text-danger-100 top-[20px]"
             data-slot="label"
-            for="react-aria-:r1g:"
-            id="react-aria-:r1h:"
+            for="react-aria-:r2c:"
+            id="react-aria-:r2d:"
           >
             Confirm Password
           </label>
@@ -771,11 +754,11 @@ exports[`ChemistForm test cases should render correctly without data and id 1`] 
           >
             <input
               aria-label="Confirm Password"
-              aria-labelledby="react-aria-:r1g: react-aria-:r1h:"
+              aria-labelledby="react-aria-:r2c: react-aria-:r2d:"
               class="w-full font-normal !outline-none focus-visible:outline-none data-[has-start-content=true]:ps-1.5 data-[has-end-content=true]:pe-1.5 file:cursor-pointer file:bg-transparent file:border-0 autofill:bg-transparent bg-clip-text group-data-[has-value=true]:text-default-foreground text-primary-100 placeholder:text-primary-300 bg-transparent text-sm group-data-[invalid=true]:!text-danger-100 mx-1"
               data-has-end-content="true"
               data-slot="input"
-              id="react-aria-:r1g:"
+              id="react-aria-:r2c:"
               placeholder="Please enter confirm password"
               type="password"
               value=""
@@ -848,17 +831,17 @@ exports[`ChemistForm test cases should render correctly without data and id 1`] 
         <button
           aria-expanded="false"
           aria-haspopup="listbox"
-          aria-labelledby="react-aria-:r1s: react-aria-:r1o:"
+          aria-labelledby="react-aria-:r2o: react-aria-:r2k:"
           class="relative gap-3 w-full inline-flex flex-row items-center shadow-sm outline-none tap-highlight-transparent border-default-200 data-[hover=true]:border-default-400 data-[open=true]:border-default-foreground min-h-10 transition-colors motion-reduce:transition-none px-2.5 rounded-medium bg-background-100 shadow-stack border-1 outline-offset-0 data-[focus=true]:border-green data-[focus=true]:border-1 data-[focus=true]:bg-background-100 data-[hover=true]:bg-background-100 group-data-[invalid=true]:!border-danger-100 h-[auto] py-3 max-h-10"
           data-slot="trigger"
           data-testid="specialty-select"
-          id="react-aria-:r1n:"
+          id="react-aria-:r2j:"
           type="button"
         >
           <label
             class="block absolute subpixel-antialiased pointer-events-none will-change-auto origin-top-left rtl:origin-top-right !duration-200 !ease-out transition-[transform,color,left,opacity] motion-reduce:transition-none pb-0 z-20 -translate-y-1/2 group-data-[filled=true]:start-0 start-3 group-data-[filled=true]:-translate-y-[calc(100%_+_theme(fontSize.small)/2_+_20px)] pe-2 max-w-full text-ellipsis overflow-hidden font-medium group-data-[invalid=true]:!text-danger-100 group-data-[filled=true]:text-primary-100 after:text-primary-100 top-5 text-sm text-foreground"
             data-slot="label"
-            id="react-aria-:r1o:"
+            id="react-aria-:r2k:"
           >
             Specialty
           </label>
@@ -869,7 +852,7 @@ exports[`ChemistForm test cases should render correctly without data and id 1`] 
             <span
               class="w-full text-left rtl:text-right group-data-[has-value=true]:text-default-foreground truncate group-data-[invalid=true]:!text-danger-100 font-medium text-sm text-primary-100"
               data-slot="value"
-              id="react-aria-:r1s:"
+              id="react-aria-:r2o:"
             >
               Select specialty
             </span>
@@ -907,8 +890,8 @@ exports[`ChemistForm test cases should render correctly without data and id 1`] 
       <label
         class="z-10 pointer-events-none origin-top-left rtl:origin-top-right subpixel-antialiased block text-foreground-500 relative will-change-auto !duration-200 !ease-out motion-reduce:transition-none transition-[transform,color,left,opacity] group-data-[filled-within=true]:text-foreground group-data-[filled-within=true]:pointer-events-auto pb-1.5 pe-2 max-w-full text-ellipsis overflow-hidden text-sm"
         data-slot="label"
-        for="react-aria-:r1t:"
-        id="react-aria-:r1u:"
+        for="react-aria-:r2p:"
+        id="react-aria-:r2q:"
       >
         Description
       </label>
@@ -924,11 +907,11 @@ exports[`ChemistForm test cases should render correctly without data and id 1`] 
         >
           <textarea
             aria-label="Description"
-            aria-labelledby="react-aria-:r1t: react-aria-:r1u:"
+            aria-labelledby="react-aria-:r2p: react-aria-:r2q:"
             class="w-full font-normal bg-transparent !outline-none placeholder:text-foreground-500 focus-visible:outline-none data-[has-start-content=true]:ps-1.5 data-[has-end-content=true]:pe-1.5 file:cursor-pointer file:bg-transparent file:border-0 autofill:bg-transparent bg-clip-text text-small resize-none data-[hide-scroll=true]:scrollbar-hide group-data-[has-value=true]:text-default-foreground transition-height !duration-100 motion-reduce:transition-none"
             data-hide-scroll="true"
             data-slot="input"
-            id="react-aria-:r1t:"
+            id="react-aria-:r2p:"
             name="description"
             placeholder="Please enter description"
           />

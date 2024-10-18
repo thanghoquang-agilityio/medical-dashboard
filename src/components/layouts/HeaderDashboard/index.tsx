@@ -42,9 +42,9 @@ const HeaderDashboard = ({
       <Avatar
         src={`${API_IMAGE_URL}${avatarUrl}`}
         name={userName}
-        hasBorder
         size="md"
         color="warning"
+        isCustomBordered
       />
     </header>
   );
