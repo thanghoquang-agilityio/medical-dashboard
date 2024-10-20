@@ -1,14 +1,31 @@
 import { render, screen } from '@testing-library/react';
-import ActivityFeedList, { ActivityFeedListProps } from './ActivityFeedList';
-import { MOCK_NOTIFICATION_LIST } from '@/mocks';
-import React, { act } from 'react';
+import React, { act, JSX, ClassAttributes, ImgHTMLAttributes } from 'react';
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
+
+// Mocks
+import { MOCK_NOTIFICATION_LIST } from '@/mocks';
+
+// Components
+import ActivityFeedList, { ActivityFeedListProps } from './ActivityFeedList';
+
+// Constants
 import { PRIVATE_ROUTES } from '@/constants';
 
 jest.mock('next/navigation', () => ({
   usePathname: jest.fn(),
   useSearchParams: jest.fn(),
   useRouter: jest.fn(),
+}));
+
+jest.mock('next/image', () => ({
+  __esModule: true,
+  default: (
+    props: JSX.IntrinsicAttributes &
+      ClassAttributes<HTMLImageElement> &
+      ImgHTMLAttributes<HTMLImageElement>,
+  ) => {
+    return <img {...props} />;
+  },
 }));
 
 describe('ActivityFeedList test cases', () => {
