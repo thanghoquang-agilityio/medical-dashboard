@@ -12,6 +12,9 @@ import { API_ENDPOINT, PRIVATE_ROUTES } from '@/constants';
 // Components
 import { Sidebar } from '@/components/layouts';
 
+// Types
+import { DIRECTION } from '@/types';
+
 const HeaderDashboard = dynamic(
   () => import('@/components/layouts/HeaderDashboard'),
 );
@@ -27,6 +30,7 @@ export default async function DashboardLayout({
 
   searchParamsAPI.set('populate[0]', 'senderId');
   searchParamsAPI.set('filters[senderId][id][$eq]', `${id}`);
+  searchParamsAPI.set('sort[0]', `createdAt:${DIRECTION.DESC}`);
 
   const { notifications } = await getNotifications({
     searchParams: searchParamsAPI,

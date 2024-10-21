@@ -198,7 +198,7 @@ const LoginForm = () => {
           <Button
             type="submit"
             size="lg"
-            isDisabled={isDisabled || isFetching || !!error}
+            isDisabled={isDisabled || isFetching}
             isLoading={isFetching}
           >
             Login
