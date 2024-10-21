@@ -26,7 +26,7 @@ describe('ChemistForm test cases', () => {
       avatar: {
         data: {
           id: 'mock_id',
-          attributes: { url: 'mock_url', name: 'mock_name', id: '1' },
+          attributes: { url: '/mock_url', name: 'mock_name', id: '1' },
         },
       },
       description: 'mock description',

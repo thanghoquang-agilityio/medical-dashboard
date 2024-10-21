@@ -22,13 +22,10 @@ exports[`ImageUpload Component renders correctly with default props 1`] = `
             >
               <img
                 alt="Image for avatar"
-                data-nimg="1"
-                decoding="async"
-                fetchpriority="high"
+                blurdataurl="/images/avatar-thumbnail.webp"
                 height="48"
-                src="http://localhost/_next/image?url=http%3A%2F%2Flocalhost%3A1341&w=96&q=75"
-                srcset="/_next/image?url=http%3A%2F%2Flocalhost%3A1341&w=48&q=75 1x, /_next/image?url=http%3A%2F%2Flocalhost%3A1341&w=96&q=75 2x"
-                style="color: transparent; object-fit: cover;"
+                src="http://localhost:1341"
+                style="object-fit: cover;"
                 width="48"
               />
             </span>
@@ -114,13 +111,10 @@ exports[`ImageUpload Component renders correctly with default props 1`] = `
           >
             <img
               alt="Image for avatar"
-              data-nimg="1"
-              decoding="async"
-              fetchpriority="high"
+              blurdataurl="/images/avatar-thumbnail.webp"
               height="48"
-              src="http://localhost/_next/image?url=http%3A%2F%2Flocalhost%3A1341&w=96&q=75"
-              srcset="/_next/image?url=http%3A%2F%2Flocalhost%3A1341&w=48&q=75 1x, /_next/image?url=http%3A%2F%2Flocalhost%3A1341&w=96&q=75 2x"
-              style="color: transparent; object-fit: cover;"
+              src="http://localhost:1341"
+              style="object-fit: cover;"
               width="48"
             />
           </span>
