@@ -12,7 +12,6 @@ interface ImageUploadProps extends React.HTMLAttributes<HTMLDivElement> {
   src?: string;
   srcUpload?: string;
   onRemoveImage?: () => void;
-  onClick?: () => void;
   onUploadImage?: (event: React.ChangeEvent<HTMLInputElement>) => void;
   altText?: string;
   width?: number;
@@ -30,29 +29,24 @@ export const ImageUpload = forwardRef<HTMLInputElement, ImageUploadProps>(
       height = 100,
       onRemoveImage,
       onUploadImage,
-      onClick,
     },
     ref,
   ) => {
     const hasImage = srcUpload || src;
 
     return (
-      <div className="flex flex-col justify-center items-center gap-3">
-        <div className="relative" style={{ width, height }}>
-          {srcUpload ? (
-            // eslint-disable-next-line @next/next/no-img-element
-            <img
-              className="object-cover w-full h-full rounded-full"
-              src={srcUpload}
-              alt={altText}
-            />
-          ) : (
+      <div className="flex flex-col justify-center items-center">
+        <div className="relative rounded-full" style={{ width, height }}>
+          <label htmlFor="avatar" className="group cursor-pointer relative">
             <Avatar
-              src={`${API_IMAGE_URL}${src}`}
+              className="w-[100px] h-[100px]"
+              src={srcUpload || `${API_IMAGE_URL}${src}`}
               alt={altText}
-              className=" w-[100px] h-[100px]"
             />
-          )}
+            <div className="w-[100px] h-[100px] rounded-full absolute z-20 inset-0 bg-black bg-opacity-30 flex justify-center items-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+              <UploadImageIcon customClass="w-5 h-5" />
+            </div>
+          </label>
           {hasImage && (
             <Button
               size="tiny"
@@ -65,22 +59,16 @@ export const ImageUpload = forwardRef<HTMLInputElement, ImageUploadProps>(
             </Button>
           )}
         </div>
-        <Button
-          color="primary"
-          className="w-20 h-8 text-primary-100"
-          onClick={onClick}
-          isDisabled={isDisabled}
-        >
-          <UploadImageIcon />
-          <Input
-            type="file"
-            className="hidden"
-            ref={ref}
-            onChange={onUploadImage}
-            data-testid="upload-image"
-            accept="image/*"
-          />
-        </Button>
+
+        <Input
+          type="file"
+          className="hidden"
+          ref={ref}
+          onChange={onUploadImage}
+          id="avatar"
+          data-testid="upload-image"
+          accept="image/*"
+        />
       </div>
     );
   },

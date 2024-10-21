@@ -153,10 +153,6 @@ const ChemistForm = memo(
       }
     };
 
-    const handleClick = useCallback(() => {
-      hiddenFileInput.current?.click();
-    }, []);
-
     const handleInputChange = useCallback(
       (name: keyof ChemistFormData, onChange: (value: string) => void) => {
         return (e: ChangeEvent<HTMLInputElement>) => {
@@ -286,7 +282,6 @@ const ChemistForm = memo(
               srcUpload={imageUpload}
               onRemoveImage={handleRemoveImage(onChange)}
               onUploadImage={handleUpload(onChange)}
-              onClick={handleClick}
               isDisabled={isPending}
             />
           )}
