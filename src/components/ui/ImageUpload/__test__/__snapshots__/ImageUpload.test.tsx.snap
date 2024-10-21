@@ -6,143 +6,60 @@ exports[`ImageUpload Component renders correctly with default props 1`] = `
   "baseElement": <body>
     <div>
       <div
-        class="flex flex-col justify-center items-center gap-3"
+        class="flex flex-col justify-center items-center"
       >
         <div
-          class="relative"
+          class="relative rounded-full"
           style="width: 100px; height: 100px;"
         >
-          <span
-            class="box-border overflow-hidden outline-none rounded-full ring-offset-background dark:ring-offset-background-dark shrink-0 min-w-8 w-8 h-8 bg-undefined ring-offset-0 ring-0 false"
-            tabindex="-1"
+          <label
+            class="group cursor-pointer relative"
+            for="avatar"
           >
-            <img
-              alt="Image for avatar"
-              data-nimg="1"
-              decoding="async"
-              fetchpriority="high"
-              height="48"
-              src="http://localhost/_next/image?url=http%3A%2F%2Flocalhost%3A1341&w=96&q=75"
-              srcset="/_next/image?url=http%3A%2F%2Flocalhost%3A1341&w=48&q=75 1x, /_next/image?url=http%3A%2F%2Flocalhost%3A1341&w=96&q=75 2x"
-              style="color: transparent; object-fit: cover;"
-              width="48"
-            />
-          </span>
-        </div>
-        <button
-          class="z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap subpixel-antialiased overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 px-4 min-w-20 text-small gap-2 rounded-medium [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none data-[hover=true]:opacity-hover border-transparent font-semibold bg-linear-success w-20 h-8 text-primary-100"
-          type="button"
-        >
-          <svg
-            class="w-full h-full"
-            preserveAspectRatio="xMidYMid meet"
-            viewBox="0 0 512.000000 512.000000"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <g
-              fill="currentColor"
-              stroke="none"
-              transform="translate(0.000000,512.000000) scale(0.100000,-0.100000)"
+            <span
+              class="box-border overflow-hidden outline-none rounded-full ring-offset-background dark:ring-offset-background-dark shrink-0 min-w-8 w-8 h-8 bg-undefined ring-offset-0 ring-0 false"
+              tabindex="-1"
             >
-              <path
-                d="M4095 4626 c-48 -22 -392 -375 -400 -411 -4 -16 -8 -35 -10 -42 -7   -23 17 -84 46 -117 60 -70 170 -65 239 9 l25 27 5 -260 c5 -244 6 -262 26   -289 73 -98 195 -98 268 0 20 27 21 45 26 289 l5 260 25 -27 c69 -74 169 -78   236 -11 30 30 57 94 49 119 -2 7 -6 26 -10 42 -8 37 -354 390 -402 411 -40 17   -89 17 -128 0z"
+              <img
+                alt="Image for avatar"
+                data-nimg="1"
+                decoding="async"
+                fetchpriority="high"
+                height="48"
+                src="http://localhost/_next/image?url=http%3A%2F%2Flocalhost%3A1341&w=96&q=75"
+                srcset="/_next/image?url=http%3A%2F%2Flocalhost%3A1341&w=48&q=75 1x, /_next/image?url=http%3A%2F%2Flocalhost%3A1341&w=96&q=75 2x"
+                style="color: transparent; object-fit: cover;"
+                width="48"
               />
-              <path
-                d="M1045 4415 c-221 -48 -407 -197 -500 -400 -69 -148 -65 -68 -65   -1455 0 -1387 -4 -1307 65 -1455 86 -187 251 -327 460 -392 57 -17 130 -18   1550 -18 1389 0 1494 1 1553 18 202 55 373 197 462 382 73 152 71 129 68 977   -3 750 -3 757 -24 785 -73 98 -195 98 -268 0 -20 -27 -21 -41 -24 -400 l-3   -371 -492 492 c-522 521 -535 532 -627 532 -93 0 -101 -7 -687 -592 -549 -548   -552 -551 -592 -551 -39 0 -48 7 -170 126 -71 69 -144 133 -162 143 -46 24   -142 24 -189 0 -19 -10 -162 -145 -317 -299 l-283 -282 0 1020 c0 645 4 1043   10 1083 29 179 115 281 275 328 55 16 140 18 1012 23 939 6 952 6 980 27 44   32 76 105 68 155 -9 53 -64 115 -113 129 -60 16 -1911 12 -1987 -5z"
-              />
-              <path
-                d="M1637 3456 c-113 -31 -198 -141 -196 -254 1 -104 51 -189 140 -237   104 -57 250 -31 324 57 51 60 68 113 63 194 -8 121 -75 204 -191 239 -60 18   -77 18 -140 1z"
-              />
-            </g>
-          </svg>
-          <div
-            class="group flex-col data-[hidden=true]:hidden w-full relative justify-end data-[has-label=true]:mt-[calc(theme(fontSize.small)_+_10px)] hidden"
-            data-filled="true"
-            data-filled-within="true"
-            data-has-value="true"
-            data-slot="base"
-          >
+            </span>
             <div
-              class="flex flex-col h-20"
-              data-slot="main-wrapper"
+              class="w-[100px] h-[100px] rounded-full absolute z-20 inset-0 bg-black bg-opacity-30 flex justify-center items-center opacity-0 group-hover:opacity-100 transition-opacity duration-300"
             >
-              <div
-                class="relative w-full inline-flex tap-highlight-transparent flex-row items-center shadow-sm px-3 gap-3 data-[hover=true]:bg-default-200 group-data-[focus=true]:bg-default-100 min-h-10 rounded-medium transition-background motion-reduce:transition-none !duration-150 outline-none group-data-[focus-visible=true]:z-10 group-data-[focus-visible=true]:ring-2 group-data-[focus-visible=true]:ring-focus group-data-[focus-visible=true]:ring-offset-2 group-data-[focus-visible=true]:ring-offset-background bg-transparent border-text-foreground !bg-transparent data-[hover=true]:!bg-transparent group-data-[focus=true]:ring-0 group-data-[focus=true]:ring-offset-0 group-data-[focus=true]:!bg-transparent data-[focus=true]:border-secondary-300 group-data-[invalid=true]:border-danger-100 h-auto py-4 border"
-                data-slot="input-wrapper"
-                style="cursor: text;"
+              <svg
+                class="w-5 h-5"
+                preserveAspectRatio="xMidYMid meet"
+                viewBox="0 0 512.000000 512.000000"
+                xmlns="http://www.w3.org/2000/svg"
               >
-                <div
-                  class="inline-flex w-full items-center h-full box-border"
-                  data-slot="inner-wrapper"
+                <g
+                  fill="currentColor"
+                  stroke="none"
+                  transform="translate(0.000000,512.000000) scale(0.100000,-0.100000)"
                 >
-                  <input
-                    accept="image/*"
-                    aria-label=" "
-                    class="w-full font-normal !outline-none focus-visible:outline-none data-[has-start-content=true]:ps-1.5 data-[has-end-content=true]:pe-1.5 file:cursor-pointer file:bg-transparent file:border-0 autofill:bg-transparent bg-clip-text group-data-[has-value=true]:text-default-foreground text-primary-100 placeholder:text-primary-300 bg-transparent text-sm mx-2 group-data-[invalid=true]:!text-danger-100"
-                    data-slot="input"
-                    data-testid="upload-image"
-                    id="react-aria-:r0:"
-                    type="file"
+                  <path
+                    d="M4095 4626 c-48 -22 -392 -375 -400 -411 -4 -16 -8 -35 -10 -42 -7   -23 17 -84 46 -117 60 -70 170 -65 239 9 l25 27 5 -260 c5 -244 6 -262 26   -289 73 -98 195 -98 268 0 20 27 21 45 26 289 l5 260 25 -27 c69 -74 169 -78   236 -11 30 30 57 94 49 119 -2 7 -6 26 -10 42 -8 37 -354 390 -402 411 -40 17   -89 17 -128 0z"
                   />
-                </div>
-              </div>
+                  <path
+                    d="M1045 4415 c-221 -48 -407 -197 -500 -400 -69 -148 -65 -68 -65   -1455 0 -1387 -4 -1307 65 -1455 86 -187 251 -327 460 -392 57 -17 130 -18   1550 -18 1389 0 1494 1 1553 18 202 55 373 197 462 382 73 152 71 129 68 977   -3 750 -3 757 -24 785 -73 98 -195 98 -268 0 -20 -27 -21 -41 -24 -400 l-3   -371 -492 492 c-522 521 -535 532 -627 532 -93 0 -101 -7 -687 -592 -549 -548   -552 -551 -592 -551 -39 0 -48 7 -170 126 -71 69 -144 133 -162 143 -46 24   -142 24 -189 0 -19 -10 -162 -145 -317 -299 l-283 -282 0 1020 c0 645 4 1043   10 1083 29 179 115 281 275 328 55 16 140 18 1012 23 939 6 952 6 980 27 44   32 76 105 68 155 -9 53 -64 115 -113 129 -60 16 -1911 12 -1987 -5z"
+                  />
+                  <path
+                    d="M1637 3456 c-113 -31 -198 -141 -196 -254 1 -104 51 -189 140 -237   104 -57 250 -31 324 57 51 60 68 113 63 194 -8 121 -75 204 -191 239 -60 18   -77 18 -140 1z"
+                  />
+                </g>
+              </svg>
             </div>
-          </div>
-        </button>
-      </div>
-    </div>
-  </body>,
-  "container": <div>
-    <div
-      class="flex flex-col justify-center items-center gap-3"
-    >
-      <div
-        class="relative"
-        style="width: 100px; height: 100px;"
-      >
-        <span
-          class="box-border overflow-hidden outline-none rounded-full ring-offset-background dark:ring-offset-background-dark shrink-0 min-w-8 w-8 h-8 bg-undefined ring-offset-0 ring-0 false"
-          tabindex="-1"
-        >
-          <img
-            alt="Image for avatar"
-            data-nimg="1"
-            decoding="async"
-            fetchpriority="high"
-            height="48"
-            src="http://localhost/_next/image?url=http%3A%2F%2Flocalhost%3A1341&w=96&q=75"
-            srcset="/_next/image?url=http%3A%2F%2Flocalhost%3A1341&w=48&q=75 1x, /_next/image?url=http%3A%2F%2Flocalhost%3A1341&w=96&q=75 2x"
-            style="color: transparent; object-fit: cover;"
-            width="48"
-          />
-        </span>
-      </div>
-      <button
-        class="z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap subpixel-antialiased overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 px-4 min-w-20 text-small gap-2 rounded-medium [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none data-[hover=true]:opacity-hover border-transparent font-semibold bg-linear-success w-20 h-8 text-primary-100"
-        type="button"
-      >
-        <svg
-          class="w-full h-full"
-          preserveAspectRatio="xMidYMid meet"
-          viewBox="0 0 512.000000 512.000000"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <g
-            fill="currentColor"
-            stroke="none"
-            transform="translate(0.000000,512.000000) scale(0.100000,-0.100000)"
-          >
-            <path
-              d="M4095 4626 c-48 -22 -392 -375 -400 -411 -4 -16 -8 -35 -10 -42 -7   -23 17 -84 46 -117 60 -70 170 -65 239 9 l25 27 5 -260 c5 -244 6 -262 26   -289 73 -98 195 -98 268 0 20 27 21 45 26 289 l5 260 25 -27 c69 -74 169 -78   236 -11 30 30 57 94 49 119 -2 7 -6 26 -10 42 -8 37 -354 390 -402 411 -40 17   -89 17 -128 0z"
-            />
-            <path
-              d="M1045 4415 c-221 -48 -407 -197 -500 -400 -69 -148 -65 -68 -65   -1455 0 -1387 -4 -1307 65 -1455 86 -187 251 -327 460 -392 57 -17 130 -18   1550 -18 1389 0 1494 1 1553 18 202 55 373 197 462 382 73 152 71 129 68 977   -3 750 -3 757 -24 785 -73 98 -195 98 -268 0 -20 -27 -21 -41 -24 -400 l-3   -371 -492 492 c-522 521 -535 532 -627 532 -93 0 -101 -7 -687 -592 -549 -548   -552 -551 -592 -551 -39 0 -48 7 -170 126 -71 69 -144 133 -162 143 -46 24   -142 24 -189 0 -19 -10 -162 -145 -317 -299 l-283 -282 0 1020 c0 645 4 1043   10 1083 29 179 115 281 275 328 55 16 140 18 1012 23 939 6 952 6 980 27 44   32 76 105 68 155 -9 53 -64 115 -113 129 -60 16 -1911 12 -1987 -5z"
-            />
-            <path
-              d="M1637 3456 c-113 -31 -198 -141 -196 -254 1 -104 51 -189 140 -237   104 -57 250 -31 324 57 51 60 68 113 63 194 -8 121 -75 204 -191 239 -60 18   -77 18 -140 1z"
-            />
-          </g>
-        </svg>
+          </label>
+        </div>
         <div
           class="group flex-col data-[hidden=true]:hidden w-full relative justify-end data-[has-label=true]:mt-[calc(theme(fontSize.small)_+_10px)] hidden"
           data-filled="true"
@@ -169,14 +86,105 @@ exports[`ImageUpload Component renders correctly with default props 1`] = `
                   class="w-full font-normal !outline-none focus-visible:outline-none data-[has-start-content=true]:ps-1.5 data-[has-end-content=true]:pe-1.5 file:cursor-pointer file:bg-transparent file:border-0 autofill:bg-transparent bg-clip-text group-data-[has-value=true]:text-default-foreground text-primary-100 placeholder:text-primary-300 bg-transparent text-sm mx-2 group-data-[invalid=true]:!text-danger-100"
                   data-slot="input"
                   data-testid="upload-image"
-                  id="react-aria-:r0:"
+                  id="avatar"
                   type="file"
                 />
               </div>
             </div>
           </div>
         </div>
-      </button>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="flex flex-col justify-center items-center"
+    >
+      <div
+        class="relative rounded-full"
+        style="width: 100px; height: 100px;"
+      >
+        <label
+          class="group cursor-pointer relative"
+          for="avatar"
+        >
+          <span
+            class="box-border overflow-hidden outline-none rounded-full ring-offset-background dark:ring-offset-background-dark shrink-0 min-w-8 w-8 h-8 bg-undefined ring-offset-0 ring-0 false"
+            tabindex="-1"
+          >
+            <img
+              alt="Image for avatar"
+              data-nimg="1"
+              decoding="async"
+              fetchpriority="high"
+              height="48"
+              src="http://localhost/_next/image?url=http%3A%2F%2Flocalhost%3A1341&w=96&q=75"
+              srcset="/_next/image?url=http%3A%2F%2Flocalhost%3A1341&w=48&q=75 1x, /_next/image?url=http%3A%2F%2Flocalhost%3A1341&w=96&q=75 2x"
+              style="color: transparent; object-fit: cover;"
+              width="48"
+            />
+          </span>
+          <div
+            class="w-[100px] h-[100px] rounded-full absolute z-20 inset-0 bg-black bg-opacity-30 flex justify-center items-center opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+          >
+            <svg
+              class="w-5 h-5"
+              preserveAspectRatio="xMidYMid meet"
+              viewBox="0 0 512.000000 512.000000"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <g
+                fill="currentColor"
+                stroke="none"
+                transform="translate(0.000000,512.000000) scale(0.100000,-0.100000)"
+              >
+                <path
+                  d="M4095 4626 c-48 -22 -392 -375 -400 -411 -4 -16 -8 -35 -10 -42 -7   -23 17 -84 46 -117 60 -70 170 -65 239 9 l25 27 5 -260 c5 -244 6 -262 26   -289 73 -98 195 -98 268 0 20 27 21 45 26 289 l5 260 25 -27 c69 -74 169 -78   236 -11 30 30 57 94 49 119 -2 7 -6 26 -10 42 -8 37 -354 390 -402 411 -40 17   -89 17 -128 0z"
+                />
+                <path
+                  d="M1045 4415 c-221 -48 -407 -197 -500 -400 -69 -148 -65 -68 -65   -1455 0 -1387 -4 -1307 65 -1455 86 -187 251 -327 460 -392 57 -17 130 -18   1550 -18 1389 0 1494 1 1553 18 202 55 373 197 462 382 73 152 71 129 68 977   -3 750 -3 757 -24 785 -73 98 -195 98 -268 0 -20 -27 -21 -41 -24 -400 l-3   -371 -492 492 c-522 521 -535 532 -627 532 -93 0 -101 -7 -687 -592 -549 -548   -552 -551 -592 -551 -39 0 -48 7 -170 126 -71 69 -144 133 -162 143 -46 24   -142 24 -189 0 -19 -10 -162 -145 -317 -299 l-283 -282 0 1020 c0 645 4 1043   10 1083 29 179 115 281 275 328 55 16 140 18 1012 23 939 6 952 6 980 27 44   32 76 105 68 155 -9 53 -64 115 -113 129 -60 16 -1911 12 -1987 -5z"
+                />
+                <path
+                  d="M1637 3456 c-113 -31 -198 -141 -196 -254 1 -104 51 -189 140 -237   104 -57 250 -31 324 57 51 60 68 113 63 194 -8 121 -75 204 -191 239 -60 18   -77 18 -140 1z"
+                />
+              </g>
+            </svg>
+          </div>
+        </label>
+      </div>
+      <div
+        class="group flex-col data-[hidden=true]:hidden w-full relative justify-end data-[has-label=true]:mt-[calc(theme(fontSize.small)_+_10px)] hidden"
+        data-filled="true"
+        data-filled-within="true"
+        data-has-value="true"
+        data-slot="base"
+      >
+        <div
+          class="flex flex-col h-20"
+          data-slot="main-wrapper"
+        >
+          <div
+            class="relative w-full inline-flex tap-highlight-transparent flex-row items-center shadow-sm px-3 gap-3 data-[hover=true]:bg-default-200 group-data-[focus=true]:bg-default-100 min-h-10 rounded-medium transition-background motion-reduce:transition-none !duration-150 outline-none group-data-[focus-visible=true]:z-10 group-data-[focus-visible=true]:ring-2 group-data-[focus-visible=true]:ring-focus group-data-[focus-visible=true]:ring-offset-2 group-data-[focus-visible=true]:ring-offset-background bg-transparent border-text-foreground !bg-transparent data-[hover=true]:!bg-transparent group-data-[focus=true]:ring-0 group-data-[focus=true]:ring-offset-0 group-data-[focus=true]:!bg-transparent data-[focus=true]:border-secondary-300 group-data-[invalid=true]:border-danger-100 h-auto py-4 border"
+            data-slot="input-wrapper"
+            style="cursor: text;"
+          >
+            <div
+              class="inline-flex w-full items-center h-full box-border"
+              data-slot="inner-wrapper"
+            >
+              <input
+                accept="image/*"
+                aria-label=" "
+                class="w-full font-normal !outline-none focus-visible:outline-none data-[has-start-content=true]:ps-1.5 data-[has-end-content=true]:pe-1.5 file:cursor-pointer file:bg-transparent file:border-0 autofill:bg-transparent bg-clip-text group-data-[has-value=true]:text-default-foreground text-primary-100 placeholder:text-primary-300 bg-transparent text-sm mx-2 group-data-[invalid=true]:!text-danger-100"
+                data-slot="input"
+                data-testid="upload-image"
+                id="avatar"
+                type="file"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>,
   "debug": [Function],
