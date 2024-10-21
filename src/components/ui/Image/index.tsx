@@ -1,7 +1,7 @@
 'use client';
 
 import NextImage, { ImageProps } from 'next/image';
-import { memo, useState } from 'react';
+import { memo, useEffect, useState } from 'react';
 
 // Constants
 import { SRC_IMAGE_NOT_AVAILABLE } from '@/constants';
@@ -21,6 +21,10 @@ export const Image = memo(
     const handleError = () => setFallbackSrc(true);
     const altImage =
       src !== SRC_IMAGE_NOT_AVAILABLE && alt ? alt : IMAGE_NOT_AVAILABLE;
+
+    useEffect(() => {
+      setFallbackSrc(false);
+    }, [src]);
 
     return (
       <NextImage
