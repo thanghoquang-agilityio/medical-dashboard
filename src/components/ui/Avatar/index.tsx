@@ -1,12 +1,15 @@
-import {
-  Avatar as AvatarNextUI,
-  AvatarProps as AvatarNextUIProps,
-} from '@nextui-org/react';
+import { AvatarProps as AvatarNextUIProps } from '@nextui-org/react';
+
+// Components
+import { Image } from '../Image';
+
+// Constants
+import { AVATAR_THUMBNAIL } from '@/constants';
 
 interface AvatarProps extends AvatarNextUIProps {
   size?: 'sm' | 'md' | 'lg';
   customClass?: string;
-  hasBorder?: boolean;
+  isCustomBordered?: boolean;
   isShowFallback?: boolean;
 }
 
@@ -18,31 +21,40 @@ const SIZE_CLASSES = {
 
 export const Avatar = ({
   color,
+  isCustomBordered = false,
   customClass = '',
   size = 'md',
-  hasBorder = false,
-  isShowFallback = true,
-  ...rest
+  src = '',
+  alt = '',
+  isBordered = false,
 }: AvatarProps) => {
   const sizeClass = SIZE_CLASSES[size];
-  const borderClass = hasBorder
-    ? `ring-offset-0 ring-yellow ring-opacity-25 ring-4`
-    : 'ring-offset-2 ring-1 ring-green';
+  const borderClass = isBordered
+    ? 'ring-offset-2 ring-1 ring-green'
+    : 'ring-offset-0 ring-0';
+
+  const customBorderedClass =
+    isCustomBordered && 'ring-offset-0 ring-yellow ring-opacity-25 ring-4';
+
   const backgroundClass = `bg-${color}`;
 
   const className =
-    `${sizeClass} ${backgroundClass} ${borderClass} ${customClass}`.trim();
-
-  const classNames = {
-    base: className,
-  };
+    `${sizeClass} ${backgroundClass} ${borderClass} ${customBorderedClass} ${customClass}`.trim();
 
   return (
-    <AvatarNextUI
-      {...rest}
-      classNames={classNames}
-      showFallback={isShowFallback}
-    />
+    <span
+      tabIndex={-1}
+      className={`box-border overflow-hidden outline-none rounded-full ring-offset-background dark:ring-offset-background-dark shrink-0 ${className}`}
+    >
+      <Image
+        width={48}
+        height={48}
+        src={src}
+        alt={alt}
+        blurDataURL={AVATAR_THUMBNAIL}
+        fallbackImg={AVATAR_THUMBNAIL}
+      />
+    </span>
   );
 };
 

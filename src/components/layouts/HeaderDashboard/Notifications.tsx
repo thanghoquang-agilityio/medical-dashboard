@@ -64,7 +64,7 @@ const Notifications = memo(
                     <Avatar
                       src={`${API_IMAGE_URL}${attributes.senderAvatar}`}
                       size="md"
-                      hasBorder
+                      isCustomBordered
                     />
                     <div className="w-[315px] sm:w-[420px] flex flex-col pl-2 pr-10">
                       <Text

@@ -56,7 +56,7 @@ export const createColumns = ({
               src={`${API_IMAGE_URL}${url}`}
               size="md"
               isBordered
-              className="shrink-0 hidden sm:block"
+              customClass="shrink-0 hidden sm:block"
             />
             <Text variant="primary" size="sm">
               {username}
@@ -83,7 +83,7 @@ export const createColumns = ({
               src={`${API_IMAGE_URL}${url}`}
               size="md"
               isBordered
-              className="shrink-0 hidden sm:block"
+              customClass="shrink-0 hidden sm:block"
             />
             <Text variant="primary" size="sm">
               {username}

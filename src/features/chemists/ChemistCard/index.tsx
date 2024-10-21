@@ -116,11 +116,7 @@ const ChemistCard = ({ id, data, isAdmin, onEdit }: ChemistCardProps) => {
         )}
         <CardHeader className="flex justify-between p-0">
           <div className="flex items-center gap-2">
-            <Avatar
-              src={`${API_IMAGE_URL}${url}`}
-              size="lg"
-              className="ring-offset-0 ring-0"
-            />
+            <Avatar src={`${API_IMAGE_URL}${url}`} size="lg" />
             <div className="flex flex-col gap-1">
               <Text size="md" variant="title">
                 {username}
