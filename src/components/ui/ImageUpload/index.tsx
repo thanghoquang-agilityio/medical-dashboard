@@ -5,7 +5,6 @@ import { forwardRef } from 'react';
 // Components
 import { Button, Input, Avatar } from '@/components/ui';
 import { CloseIcon, UploadImageIcon } from '@/icons';
-import { API_IMAGE_URL } from '@/constants';
 
 interface ImageUploadProps extends React.HTMLAttributes<HTMLDivElement> {
   isDisabled?: boolean;
@@ -40,7 +39,7 @@ export const ImageUpload = forwardRef<HTMLInputElement, ImageUploadProps>(
           <label htmlFor="avatar" className="group cursor-pointer relative">
             {srcUpload || src ? (
               <Avatar
-                src={srcUpload || `${API_IMAGE_URL}${src}`}
+                src={srcUpload || src}
                 alt={altText}
                 width={100}
                 height={100}
