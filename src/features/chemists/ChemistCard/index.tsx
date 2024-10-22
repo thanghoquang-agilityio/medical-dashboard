@@ -95,73 +95,78 @@ const ChemistCard = ({ id, data, isAdmin, onEdit }: ChemistCardProps) => {
   }, [data, id, onEdit]);
 
   return (
-    <div
-      className={cn(
-        `min-w-[300px] w-full h-[228px] ${isAdmin ? 'cursor-pointer' : 'cursor-default'}`,
-      )}
-      onClick={handleEdit}
-    >
-      <Card className="bg-background-200 w-full h-full p-5 sm:p-6 gap-6 overflow-visible">
-        {isAdmin && (
-          <Button
-            aria-label="close"
-            isIconOnly
-            size="tiny"
-            color="red"
-            className="absolute top-[-8px] right-[-8px] min-w-6"
-            onClick={handleOpenConfirmModal}
-          >
-            <CloseIcon />
-          </Button>
+    <>
+      <div
+        className={cn(
+          `min-w-[300px] w-full h-[228px] ${isAdmin ? 'cursor-pointer' : 'cursor-default'}`,
         )}
-        <CardHeader className="flex justify-between p-0">
-          <div className="flex items-center gap-2">
-            <Avatar src={`${API_IMAGE_URL}${url}`} size="lg" />
-            <div className="flex flex-col gap-1">
-              <Text size="md" variant="title">
-                {username}
-              </Text>
-              {specialty && (
-                <Text size="xs" variant="description" customClass="font-normal">
-                  {specialty}
+        onClick={handleEdit}
+      >
+        <Card className="bg-background-200 w-full h-full p-5 sm:p-6 gap-6 overflow-visible">
+          {isAdmin && (
+            <Button
+              aria-label="close"
+              isIconOnly
+              size="tiny"
+              color="red"
+              className="absolute top-[-8px] right-[-8px] min-w-6"
+              onClick={handleOpenConfirmModal}
+            >
+              <CloseIcon />
+            </Button>
+          )}
+          <CardHeader className="flex justify-between p-0">
+            <div className="flex items-center gap-2">
+              <Avatar src={`${API_IMAGE_URL}${url}`} size="lg" />
+              <div className="flex flex-col gap-1">
+                <Text size="md" variant="title">
+                  {username}
                 </Text>
-              )}
+                {specialty && (
+                  <Text
+                    size="xs"
+                    variant="description"
+                    customClass="font-normal"
+                  >
+                    {specialty}
+                  </Text>
+                )}
+              </div>
             </div>
-          </div>
-          <Button
-            color="default"
-            className="text-green text-lg font-medium p-0 min-w-10"
-          >
-            Book
-          </Button>
-        </CardHeader>
-        <CardBody className="p-0">
-          <Text
-            size="sm"
-            type="wrap"
-            variant="description"
-            customClass="line-clamp-2"
-          >
-            {description || 'No description'}
-          </Text>
-        </CardBody>
-        <CardFooter className="p-0 flex justify-between">
-          <div className="flex items-center gap-1 sm:gap-2">
-            <NoteIcon customClass="w-6 h-6" />
-            <Text size="sm" variant="title" customClass="font-medium">
-              {tasks} Task
+            <Button
+              color="default"
+              className="text-green text-lg font-medium p-0 min-w-10"
+            >
+              Book
+            </Button>
+          </CardHeader>
+          <CardBody className="p-0">
+            <Text
+              size="sm"
+              type="wrap"
+              variant="description"
+              customClass="line-clamp-2"
+            >
+              {description || 'No description'}
             </Text>
-          </div>
+          </CardBody>
+          <CardFooter className="p-0 flex justify-between">
+            <div className="flex items-center gap-1 sm:gap-2">
+              <NoteIcon customClass="w-6 h-6" />
+              <Text size="sm" variant="title" customClass="font-medium">
+                {tasks} Task
+              </Text>
+            </div>
 
-          <div className="flex items-center gap-1 sm:gap-2">
-            <StarIcon customClass="w-6 h-6 text-light-orange" />
-            <Text size="sm" variant="title" customClass="font-medium">
-              {rating} ({reviews} Reviews)
-            </Text>
-          </div>
-        </CardFooter>
-      </Card>
-
+            <div className="flex items-center gap-1 sm:gap-2">
+              <StarIcon customClass="w-6 h-6 text-light-orange" />
+              <Text size="sm" variant="title" customClass="font-medium">
+                {rating} ({reviews} Reviews)
+              </Text>
+            </div>
+          </CardFooter>
+        </Card>
+      </div>
       <ConfirmModal
         title="Confirmation"
         subTitle={`Do you want to delete this chemist?`}
@@ -170,7 +175,7 @@ const ChemistCard = ({ id, data, isAdmin, onEdit }: ChemistCardProps) => {
         onClose={onClosConfirm}
         onAction={handleDelete}
       />
-    </div>
+    </>
   );
 };
 
