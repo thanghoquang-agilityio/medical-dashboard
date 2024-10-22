@@ -168,4 +168,32 @@ Check and update config image hosting on `next.config.mjs` file follow [Next.js 
 
 Thang is typically available during weekdays and aims to respond to issues and pull requests within 48 hours. For urgent matters, please email directly.
 
-#### Test commit
+#### Setup Api on local
+
+- Clone this repo: https://github.com/thanghoquang-agilityio/medical-dashboard-api
+- Run command pnpm i
+- Create an .env and paste following:
+
+```
+  HOST=0.0.0.0
+  PORT=1341
+  APP_KEYS=dkS4WZEr18vHuQ/JWFkTvQ==,zEiumqMpvu8X0/i3eULdBA==,EzYg6KZ4f2rH7t7HC9JWGg==,+0TetkwFGgkMnIfb6waR4A==
+  API_TOKEN_SALT=I9KwAX7y0FMJ674ocFAklw==
+  ADMIN_JWT_SECRET=HvPZPD1T0YkCG+byUB8kNQ==
+  TRANSFER_TOKEN_SALT=Nqk0hJcp7C21EFLZY9nuEg==
+  # Database
+  DATABASE_CLIENT=sqlite
+  DATABASE_FILENAME=.tmp/data.db
+  JWT_SECRET=6b5O8gJWggCzxzDYIXygCw==
+```
+
+- Run pnpm develop
+- Open admin panel and register an admin account
+- Create an API token and replace it with the NEXT_PUBLIC_AUTH_TOKEN in web app
+- Go to **Settings** -> **API Tokens** and choose your token to set permissions : allow all access for **Chemist**, **Specialty**, **Upload**, **Users-permissions**.
+- Go to **Settings** -> **Users & Permissions plugin** -> **Roles** and set permissions:
+  - Allow all access for admin role
+  - Limit permissions for normal user
+    - Can not _delete_ and _updateUnpublished_ for **Appointment**
+    - Can not _delete_, _update_, _create_ and _updateUnpublished_ for **Chemist**
+    - Can only _find_ and _findOne_ for **Specialty**

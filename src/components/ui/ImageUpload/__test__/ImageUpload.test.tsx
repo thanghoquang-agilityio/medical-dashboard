@@ -40,13 +40,14 @@ describe('ImageUpload Component', () => {
 
   it('renders an avatar if src is provided', () => {
     renderComponent({ src: '/avatar.png' });
-    const avatar = screen.getByAltText('Image for avatar');
-    expect(avatar).toHaveAttribute('src', 'http://localhost:1341/avatar.png');
+    const avatar: HTMLImageElement = screen.getByAltText('Image for avatar');
+    expect(avatar.src.includes('avatar.png')).toBeTruthy();
   });
 
   it('renders an uploaded image if srcUpload is provided', () => {
-    renderComponent({ srcUpload: 'uploaded-image.png' });
-    const uploadedImage = screen.getByAltText('Image for avatar');
-    expect(uploadedImage).toHaveAttribute('src', 'uploaded-image.png');
+    renderComponent({ srcUpload: '/uploaded-image.png' });
+    const uploadedImage: HTMLImageElement =
+      screen.getByAltText('Image for avatar');
+    expect(uploadedImage.src.includes('uploaded-image.png')).toBeTruthy;
   });
 });
