@@ -38,16 +38,19 @@ export const ImageUpload = forwardRef<HTMLInputElement, ImageUploadProps>(
       <div className="flex flex-col justify-center items-center">
         <div className="relative rounded-full" style={{ width, height }}>
           <label htmlFor="avatar" className="group cursor-pointer relative">
-            <Avatar
-              src={srcUpload || `${API_IMAGE_URL}${src}`}
-              alt={altText}
-              width={100}
-              height={100}
-            />
-
-            <div className="w-[100px] h-[100px] rounded-full absolute z-20 inset-0 bg-black bg-opacity-30 flex justify-center items-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-              <UploadImageIcon customClass="w-5 h-5" />
-            </div>
+            {srcUpload || src ? (
+              <Avatar
+                src={srcUpload || `${API_IMAGE_URL}${src}`}
+                alt={altText}
+                width={100}
+                height={100}
+                className="w-[100px] h-[100px] rounded-full"
+              />
+            ) : (
+              <div className="w-[100px] h-[100px] rounded-full absolute z-20 inset-0 bg-black bg-opacity-30 flex justify-center items-center transition-opacity duration-300">
+                <UploadImageIcon customClass="w-8 h-8" />
+              </div>
+            )}
           </label>
           {hasImage && (
             <Button

@@ -90,6 +90,7 @@ exports[`ActivityFeedList test cases should render correctly 1`] = `
                       <img
                         alt="UnavailableImage"
                         blurdataurl="/images/avatar-thumbnail.webp"
+                        class=""
                         height="48"
                         src="http://localhost:1341https://i.pravatar.cc/300"
                         style="object-fit: cover;"
@@ -155,6 +156,7 @@ exports[`ActivityFeedList test cases should render correctly 1`] = `
                       <img
                         alt="UnavailableImage"
                         blurdataurl="/images/avatar-thumbnail.webp"
+                        class=""
                         height="48"
                         src="http://localhost:1341https://i.pravatar.cc/300"
                         style="object-fit: cover;"
