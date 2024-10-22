@@ -11,6 +11,8 @@ interface AvatarProps extends AvatarNextUIProps {
   customClass?: string;
   isCustomBordered?: boolean;
   isShowFallback?: boolean;
+  width?: number;
+  height?: number;
 }
 
 const SIZE_CLASSES = {
@@ -26,7 +28,10 @@ export const Avatar = ({
   size = 'md',
   src = '',
   alt = '',
+  width = 48,
+  height = 48,
   isBordered = false,
+  className = '',
 }: AvatarProps) => {
   const sizeClass = SIZE_CLASSES[size];
   const borderClass = isBordered
@@ -38,21 +43,22 @@ export const Avatar = ({
 
   const backgroundClass = `bg-${color}`;
 
-  const className =
+  const baseClass =
     `${sizeClass} ${backgroundClass} ${borderClass} ${customBorderedClass} ${customClass}`.trim();
 
   return (
     <span
       tabIndex={-1}
-      className={`box-border overflow-hidden outline-none rounded-full ring-offset-background dark:ring-offset-background-dark shrink-0 ${className}`}
+      className={`box-border overflow-hidden outline-none rounded-full ring-offset-background dark:ring-offset-background-dark shrink-0 ${baseClass}`}
     >
       <Image
-        width={48}
-        height={48}
+        width={width}
+        height={height}
         src={src}
         alt={alt}
         blurDataURL={AVATAR_THUMBNAIL}
         fallbackImg={AVATAR_THUMBNAIL}
+        className={className}
       />
     </span>
   );

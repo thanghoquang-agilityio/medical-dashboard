@@ -206,6 +206,7 @@ exports[`ChemistList should render correctly 1`] = `
               >
                 <img
                   alt="UnavailableImage"
+                  class=""
                   data-nimg="1"
                   decoding="async"
                   fetchpriority="high"
@@ -361,6 +362,7 @@ exports[`ChemistList should render correctly 1`] = `
               >
                 <img
                   alt="UnavailableImage"
+                  class=""
                   data-nimg="1"
                   decoding="async"
                   fetchpriority="high"
@@ -516,6 +518,7 @@ exports[`ChemistList should render correctly 1`] = `
               >
                 <img
                   alt="UnavailableImage"
+                  class=""
                   data-nimg="1"
                   decoding="async"
                   fetchpriority="high"
@@ -671,6 +674,7 @@ exports[`ChemistList should render correctly 1`] = `
               >
                 <img
                   alt="UnavailableImage"
+                  class=""
                   data-nimg="1"
                   decoding="async"
                   fetchpriority="high"
@@ -826,6 +830,7 @@ exports[`ChemistList should render correctly 1`] = `
               >
                 <img
                   alt="UnavailableImage"
+                  class=""
                   data-nimg="1"
                   decoding="async"
                   fetchpriority="high"

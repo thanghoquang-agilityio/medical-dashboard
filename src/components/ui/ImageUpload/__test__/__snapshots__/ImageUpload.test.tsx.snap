@@ -16,24 +16,11 @@ exports[`ImageUpload Component renders correctly with default props 1`] = `
             class="group cursor-pointer relative"
             for="avatar"
           >
-            <span
-              class="box-border overflow-hidden outline-none rounded-full ring-offset-background dark:ring-offset-background-dark shrink-0 min-w-8 w-8 h-8 bg-undefined ring-offset-0 ring-0 false"
-              tabindex="-1"
-            >
-              <img
-                alt="Image for avatar"
-                blurdataurl="/images/avatar-thumbnail.webp"
-                height="48"
-                src="http://localhost:1341"
-                style="object-fit: cover;"
-                width="48"
-              />
-            </span>
             <div
-              class="w-[100px] h-[100px] rounded-full absolute z-20 inset-0 bg-black bg-opacity-30 flex justify-center items-center opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+              class="w-[100px] h-[100px] rounded-full absolute z-20 inset-0 bg-black bg-opacity-30 flex justify-center items-center transition-opacity duration-300"
             >
               <svg
-                class="w-5 h-5"
+                class="w-8 h-8"
                 preserveAspectRatio="xMidYMid meet"
                 viewBox="0 0 512.000000 512.000000"
                 xmlns="http://www.w3.org/2000/svg"
@@ -105,24 +92,11 @@ exports[`ImageUpload Component renders correctly with default props 1`] = `
           class="group cursor-pointer relative"
           for="avatar"
         >
-          <span
-            class="box-border overflow-hidden outline-none rounded-full ring-offset-background dark:ring-offset-background-dark shrink-0 min-w-8 w-8 h-8 bg-undefined ring-offset-0 ring-0 false"
-            tabindex="-1"
-          >
-            <img
-              alt="Image for avatar"
-              blurdataurl="/images/avatar-thumbnail.webp"
-              height="48"
-              src="http://localhost:1341"
-              style="object-fit: cover;"
-              width="48"
-            />
-          </span>
           <div
-            class="w-[100px] h-[100px] rounded-full absolute z-20 inset-0 bg-black bg-opacity-30 flex justify-center items-center opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+            class="w-[100px] h-[100px] rounded-full absolute z-20 inset-0 bg-black bg-opacity-30 flex justify-center items-center transition-opacity duration-300"
           >
             <svg
-              class="w-5 h-5"
+              class="w-8 h-8"
               preserveAspectRatio="xMidYMid meet"
               viewBox="0 0 512.000000 512.000000"
               xmlns="http://www.w3.org/2000/svg"

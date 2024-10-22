@@ -8,6 +8,12 @@ const nextConfig = {
         port: '',
         pathname: '/**',
       },
+
+      // TODO: update config images later
+      {
+        protocol: 'http',
+        hostname: '**',
+      },
     ],
   },
 };

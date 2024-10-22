@@ -621,6 +621,7 @@ exports[`AppointmentsHistory Component should render correctly with admin role w
                     >
                       <img
                         alt="UnavailableImage"
+                        class="shrink-0"
                         data-nimg="1"
                         decoding="async"
                         fetchpriority="high"
@@ -748,6 +749,7 @@ exports[`AppointmentsHistory Component should render correctly with admin role w
                     >
                       <img
                         alt="UnavailableImage"
+                        class="shrink-0"
                         data-nimg="1"
                         decoding="async"
                         fetchpriority="high"
@@ -874,6 +876,7 @@ exports[`AppointmentsHistory Component should render correctly with admin role w
                     >
                       <img
                         alt="UnavailableImage"
+                        class="shrink-0"
                         data-nimg="1"
                         decoding="async"
                         fetchpriority="high"
@@ -1297,6 +1300,7 @@ exports[`AppointmentsHistory Component should render correctly with user role wh
                     >
                       <img
                         alt="UnavailableImage"
+                        class="shrink-0"
                         data-nimg="1"
                         decoding="async"
                         fetchpriority="high"
@@ -1424,6 +1428,7 @@ exports[`AppointmentsHistory Component should render correctly with user role wh
                     >
                       <img
                         alt="UnavailableImage"
+                        class="shrink-0"
                         data-nimg="1"
                         decoding="async"
                         fetchpriority="high"
@@ -1550,6 +1555,7 @@ exports[`AppointmentsHistory Component should render correctly with user role wh
                     >
                       <img
                         alt="UnavailableImage"
+                        class="shrink-0"
                         data-nimg="1"
                         decoding="async"
                         fetchpriority="high"

@@ -8,6 +8,7 @@ exports[`Avatar Component renders with default size (md) and without border 1`] 
   >
     <img
       alt="UnavailableImage"
+      class=""
       data-nimg="1"
       decoding="async"
       fetchpriority="high"
