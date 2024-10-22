@@ -1,19 +1,26 @@
 'use server';
 
-import { apiClient } from './api';
-import { ImageModel } from '@/types';
-import { API_ENDPOINT } from '@/constants';
+import { IMGBB_URL } from '@/constants';
+import { ImgBBResponse } from '@/types';
 
-export const uploadImage = async (payload: FormData) => {
+export const uploadImageToImgbb = async (payload: FormData) => {
   try {
-    const response = await apiClient.postFile<ImageModel[]>(
-      API_ENDPOINT.UPLOAD,
-      {
-        body: payload,
-      },
-    );
+    const response = await fetch(IMGBB_URL, {
+      headers: undefined,
+      body: payload,
+      method: 'POST',
+    });
 
-    return { image: response, error: null };
+    if (!response.ok) {
+      const error = await response.text();
+
+      throw new Error(error);
+    }
+
+    const {
+      data: { url },
+    }: ImgBBResponse = await response.json();
+    return { image: url, error: null };
   } catch (error) {
     const errorMessage =
       error instanceof Error

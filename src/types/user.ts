@@ -26,6 +26,7 @@ export interface UserModel {
   email: string;
   password?: string;
   avatar?: APIRelatedResponse<ImageResponse>;
+  avatarUrl?: string;
   description?: string;
   rating?: number;
   tasks?: number;

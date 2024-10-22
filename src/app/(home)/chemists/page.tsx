@@ -38,7 +38,7 @@ const ChemistPage = async ({
 
   const searchParamsAPI = new URLSearchParams();
 
-  const CHEMISTS_SEARCH_PARAMS = ['avatar', 'specialtyId'];
+  const CHEMISTS_SEARCH_PARAMS = ['specialtyId'];
 
   CHEMISTS_SEARCH_PARAMS.forEach((param, index) => {
     searchParamsAPI.set(

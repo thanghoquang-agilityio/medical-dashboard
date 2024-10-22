@@ -15,7 +15,7 @@ const ConfirmModal = lazy(() => import('@/components/ui/ConfirmModal'));
 
 // Types
 import { STATUS_TYPE, UserModel } from '@/types';
-import { API_IMAGE_URL, ERROR_MESSAGE, SUCCESS_MESSAGE } from '@/constants';
+import { AVATAR_THUMBNAIL, ERROR_MESSAGE, SUCCESS_MESSAGE } from '@/constants';
 
 // Utils
 import { cn } from '@/utils';
@@ -40,13 +40,9 @@ const ChemistCard = ({ id, data, isAdmin, onEdit }: ChemistCardProps) => {
     rating = 0,
     reviews,
     tasks,
-    avatar,
     specialtyId,
+    avatarUrl,
   } = data || {};
-
-  const { data: dataAvatar } = avatar || {};
-  const { attributes: attributesAvatar } = dataAvatar || {};
-  const { url = '' } = attributesAvatar || {};
 
   const { data: dataSpecialty } = specialtyId || {};
   const { attributes: attributesSpecialty } = dataSpecialty || {};
@@ -117,7 +113,7 @@ const ChemistCard = ({ id, data, isAdmin, onEdit }: ChemistCardProps) => {
           )}
           <CardHeader className="flex justify-between p-0">
             <div className="flex items-center gap-2">
-              <Avatar src={`${API_IMAGE_URL}${url}`} size="lg" />
+              <Avatar src={avatarUrl || `${AVATAR_THUMBNAIL}`} size="lg" />
               <div className="flex flex-col gap-1">
                 <Text size="md" variant="title">
                   {username}
