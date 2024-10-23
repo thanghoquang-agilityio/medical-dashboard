@@ -28,7 +28,7 @@ import {
 import { useToast } from '@/context/toast';
 
 // Utils
-import { cn } from '@/utils';
+import { cn, formatNumberWithUnit } from '@/utils';
 
 export interface ChemistCardProps {
   id: string;
@@ -42,8 +42,8 @@ const ChemistCard = ({ id, data, isAdmin, onEdit }: ChemistCardProps) => {
     username = '',
     description = '',
     rating = 0,
-    reviews,
-    tasks,
+    reviews = 0,
+    tasks = 0,
     specialtyId,
     avatarUrl = AVATAR_THUMBNAIL,
   } = data || {};
@@ -154,14 +154,14 @@ const ChemistCard = ({ id, data, isAdmin, onEdit }: ChemistCardProps) => {
             <div className="flex items-center gap-1 sm:gap-2">
               <NoteIcon customClass="w-6 h-6" />
               <Text size="sm" variant="title" customClass="font-medium">
-                {tasks} Task
+                {formatNumberWithUnit(tasks, 'Task')}
               </Text>
             </div>
 
             <div className="flex items-center gap-1 sm:gap-2">
               <StarIcon customClass="w-6 h-6 text-light-orange" />
               <Text size="sm" variant="title" customClass="font-medium">
-                {rating} ({reviews} Reviews)
+                {rating} ({formatNumberWithUnit(reviews, 'Review')})
               </Text>
             </div>
           </CardFooter>
