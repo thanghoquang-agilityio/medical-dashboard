@@ -43,7 +43,7 @@ export const ImageUpload = forwardRef<HTMLInputElement, ImageUploadProps>(
                 alt={altText}
                 width={100}
                 height={100}
-                className="w-[100px] h-[100px] rounded-full"
+                className="w-[100px] h-[100px] rounded-full aspect-square"
               />
             ) : (
               <div className="w-[100px] h-[100px] rounded-full absolute z-20 inset-0 bg-black bg-opacity-30 flex justify-center items-center transition-opacity duration-300">

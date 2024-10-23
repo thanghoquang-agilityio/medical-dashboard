@@ -4,9 +4,6 @@ import dynamic from 'next/dynamic';
 // Types
 import { NotificationResponse } from '@/types';
 
-// Constants
-import { API_IMAGE_URL } from '@/constants';
-
 // Components
 import { Avatar } from '@/components/ui';
 import { SidebarMobile } from '../Sidebar/SideBarMobile';
@@ -40,11 +37,12 @@ const HeaderDashboard = ({
         isInvisibleBadge={isInvisibleBadge}
       />
       <Avatar
-        src={`${API_IMAGE_URL}${avatarUrl}`}
+        src={avatarUrl}
         name={userName}
         size="md"
         color="warning"
         isCustomBordered
+        className="aspect-square"
       />
     </header>
   );

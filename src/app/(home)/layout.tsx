@@ -7,7 +7,7 @@ import { auth } from '@/config/auth';
 import { getNotifications } from '@/services';
 
 // Constants
-import { API_ENDPOINT, PRIVATE_ROUTES } from '@/constants';
+import { API_ENDPOINT, AVATAR_THUMBNAIL, PRIVATE_ROUTES } from '@/constants';
 
 // Components
 import { Sidebar } from '@/components/layouts';
@@ -25,7 +25,7 @@ export default async function DashboardLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const { avatar, id } = (await auth())?.user || {};
+  const { avatarUrl = AVATAR_THUMBNAIL, id } = (await auth())?.user || {};
   const searchParamsAPI = new URLSearchParams();
 
   searchParamsAPI.set('populate[0]', 'senderId');
@@ -46,7 +46,7 @@ export default async function DashboardLayout({
       <Sidebar />
       <div className="flex flex-col min-h-[100vh] max-h-fit w-full relative bg-background-100 md:pl-[81px] lg:pl-[277px] max-w-[2560px] m-auto">
         <HeaderDashboard
-          avatarUrl={avatar ?? ''}
+          avatarUrl={avatarUrl || AVATAR_THUMBNAIL}
           notifications={notifications}
           isInvisibleBadge={!notifications.length}
         />

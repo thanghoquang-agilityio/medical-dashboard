@@ -9,7 +9,7 @@ import {
   SignupFormData,
   ErrorResponse,
 } from '@/types';
-import { API_ENDPOINT } from '@/constants';
+import { API_ENDPOINT, AVATAR_THUMBNAIL } from '@/constants';
 import { signOut } from '@/config/auth';
 
 export const login = async (
@@ -42,12 +42,11 @@ export const login = async (
     }
     const {
       id = '',
-      avatar,
       role,
       username = '',
       email = '',
+      avatarUrl = AVATAR_THUMBNAIL,
     } = userLogged || {};
-    const { url = '' } = avatar || {};
     const { name = '' } = role || {};
 
     const data = {
@@ -55,7 +54,7 @@ export const login = async (
       token: jwt,
       remember: body.remember,
       role: name,
-      avatar: url,
+      avatarUrl,
       username,
       email,
     };

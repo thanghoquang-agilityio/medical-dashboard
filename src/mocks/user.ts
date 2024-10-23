@@ -1,3 +1,4 @@
+import { AVATAR_THUMBNAIL } from '@/constants';
 import {
   ROLE,
   RolePermission,
@@ -514,6 +515,6 @@ export const MOCK_USER_SESSION: UserSession = {
   email: MOCK_USERS_LOGGED[0].email,
   token: 'access-token',
   role: '',
-  avatar: '',
+  avatarUrl: AVATAR_THUMBNAIL,
   remember: true,
 };

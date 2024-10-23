@@ -41,7 +41,7 @@ const ChemistCard = ({ id, data, isAdmin, onEdit }: ChemistCardProps) => {
     reviews,
     tasks,
     specialtyId,
-    avatarUrl,
+    avatarUrl = AVATAR_THUMBNAIL,
   } = data || {};
 
   const { data: dataSpecialty } = specialtyId || {};
@@ -113,11 +113,7 @@ const ChemistCard = ({ id, data, isAdmin, onEdit }: ChemistCardProps) => {
           )}
           <CardHeader className="flex justify-between p-0">
             <div className="flex items-center gap-2">
-              <Avatar
-                src={avatarUrl || `${AVATAR_THUMBNAIL}`}
-                size="lg"
-                className="aspect-square"
-              />
+              <Avatar src={avatarUrl} size="lg" className="aspect-square" />
               <div className="flex flex-col gap-1">
                 <Text size="md" variant="title">
                   {username}

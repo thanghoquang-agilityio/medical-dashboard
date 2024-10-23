@@ -3,7 +3,6 @@ import {
   APIResponse,
   AppointmentModel,
   ImageModel,
-  ImageResponse,
   MetaResponse,
   NotificationModel,
   SpecialtyModel,
@@ -25,7 +24,6 @@ export interface UserModel {
   username: string;
   email: string;
   password?: string;
-  avatar?: APIRelatedResponse<ImageResponse>;
   avatarUrl?: string;
   description?: string;
   rating?: number;
@@ -59,7 +57,7 @@ export type UserSession = {
   id: string;
   username: string;
   email: string;
-  avatar: string;
+  avatarUrl: string;
   role: string;
   token: string;
   remember: boolean;

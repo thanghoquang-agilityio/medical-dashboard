@@ -52,7 +52,11 @@ const ActivityInfo = memo(({ item, userId = '' }: ActivityInfoProps) => {
 
   return (
     <div className="flex gap-3 justify-items-start ml-1">
-      <Avatar isBordered src={`${API_IMAGE_URL}${senderAvatar}`} />
+      <Avatar
+        isBordered
+        src={`${API_IMAGE_URL}${senderAvatar}`}
+        className="aspect-square"
+      />
       <div className="flex flex-col mr-8">
         <Text variant="description" customClass="text-2xs md:text-xs text-wrap">
           {description}
