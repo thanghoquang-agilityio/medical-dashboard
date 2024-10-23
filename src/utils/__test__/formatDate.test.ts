@@ -20,7 +20,7 @@ describe('formatDateTime', () => {
   describe('formatDateTime function', () => {
     it('should return formatted date time string when input is valid', () => {
       const input = MOCK_DATE.NOW;
-      const expected = 'Feb 11, 2024 10:00 AM';
+      const expected = 'Feb 11, 2024 10:00 am';
 
       expect(formatDateTime(input)).toBe(expected);
     });

@@ -10,7 +10,7 @@ dayjs.extend(relativeTime);
  * @returns string - Formatted date time
  */
 export const formatDateTime = (value: string) => {
-  return dayjs(value).format('MMM D, YYYY h:mm A');
+  return dayjs(value).format('MMM D, YYYY h:mm a');
 };
 
 /**

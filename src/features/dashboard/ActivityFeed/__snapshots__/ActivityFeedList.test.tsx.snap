@@ -103,7 +103,7 @@ exports[`ActivityFeedList test cases should render correctly 1`] = `
                       <p
                         class="text-primary-200 font-medium text-ellipsis whitespace-nowrap overflow-hidden text-2xs md:text-xs text-wrap"
                       >
-                         updated at Sep 12, 2024 9:00 AM
+                         updated at Sep 12, 2024 9:00 am
                       </p>
                       <p
                         class="text-primary-300 font-normal text-2xs text-ellipsis whitespace-nowrap overflow-hidden"
@@ -169,7 +169,7 @@ exports[`ActivityFeedList test cases should render correctly 1`] = `
                       <p
                         class="text-primary-200 font-medium text-ellipsis whitespace-nowrap overflow-hidden text-2xs md:text-xs text-wrap"
                       >
-                         deleted at Sep 12, 2024 9:00 AM
+                         deleted at Sep 12, 2024 9:00 am
                       </p>
                       <p
                         class="text-primary-300 font-normal text-2xs text-ellipsis whitespace-nowrap overflow-hidden"
