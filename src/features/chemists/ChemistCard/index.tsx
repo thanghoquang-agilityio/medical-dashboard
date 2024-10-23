@@ -27,6 +27,9 @@ import {
 // Hooks
 import { useToast } from '@/context/toast';
 
+// Utils
+import { cn } from '@/utils';
+
 export interface ChemistCardProps {
   id: string;
   data: UserModel;
@@ -94,7 +97,12 @@ const ChemistCard = ({ id, data, isAdmin, onEdit }: ChemistCardProps) => {
   return (
     <>
       <div className="min-w-[300px] w-full h-[228px] relative">
-        <Card className="bg-background-200 w-full h-full p-6 pt-0 gap-6 overflow-visible">
+        <Card
+          className={cn(
+            'bg-background-200 w-full h-full p-6 gap-6 overflow-visible',
+            isAdmin ? 'pt-0' : '',
+          )}
+        >
           {isAdmin && (
             <div className="group">
               <div className="absolute z-50 rounded-large opacity-0 top-0 left-0 right-0 bottom-0 bg-primary-200 group-hover:opacity-70 flex justify-center items-center">
