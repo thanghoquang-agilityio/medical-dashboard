@@ -102,18 +102,21 @@ export const createColumns = ({
         const { attributes: attributesSender, id: idSender } =
           senderId?.data || {};
 
-        const { avatarUrl: urlSender } = attributesSender || {};
+        const { avatarUrl: urlSender = AVATAR_THUMBNAIL } =
+          attributesSender || {};
         const { username: usernameSender = '' } = attributesSender || {};
 
         // Receiver
         const { attributes: attributesReceiver } = receiverId?.data || {};
-        const { username: usernameReceiver = '', avatarUrl: urlReceiver } =
-          attributesReceiver || {};
+        const {
+          username: usernameReceiver = '',
+          avatarUrl: urlReceiver = AVATAR_THUMBNAIL,
+        } = attributesReceiver || {};
 
         return (
           <div className="flex gap-2 items-center">
             <Avatar
-              src={`${API_IMAGE_URL}${userId == idSender ? urlReceiver : urlSender}`}
+              src={`${API_IMAGE_URL}/${userId == idSender ? urlReceiver : urlSender}`}
               size="md"
               isBordered
               className="shrink-0 aspect-square"
