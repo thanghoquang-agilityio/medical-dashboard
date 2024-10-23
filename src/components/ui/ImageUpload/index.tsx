@@ -5,6 +5,7 @@ import { forwardRef } from 'react';
 // Components
 import { Button, Input, Avatar } from '@/components/ui';
 import { CloseIcon, UploadImageIcon } from '@/icons';
+import { AVATAR_THUMBNAIL } from '@/constants';
 
 interface ImageUploadProps extends React.HTMLAttributes<HTMLDivElement> {
   isDisabled?: boolean;
@@ -31,13 +32,13 @@ export const ImageUpload = forwardRef<HTMLInputElement, ImageUploadProps>(
     },
     ref,
   ) => {
-    const hasImage = srcUpload || src;
+    const hasImage = !!srcUpload || (!!src && src !== AVATAR_THUMBNAIL);
 
     return (
       <div className="flex flex-col justify-center items-center">
         <div className="relative rounded-full" style={{ width, height }}>
           <label htmlFor="avatar" className="group cursor-pointer relative">
-            {srcUpload || src ? (
+            {srcUpload || src !== AVATAR_THUMBNAIL ? (
               <Avatar
                 src={srcUpload || src}
                 alt={altText}

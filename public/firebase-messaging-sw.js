@@ -6,11 +6,16 @@ importScripts(
   'https://www.gstatic.com/firebasejs/10.14.1/firebase-messaging-compat.js',
 );
 
-// Fetch the Firebase config from your API route
-fetch('/api/firebase-config')
-  .then((response) => response.json())
-  .then((firebaseConfig) => {
-    firebase.initializeApp(firebaseConfig);
+const firebaseConfig = {
+  apiKey: 'AIzaSyCgtLM8Dh_Bh_v0RsKhmFc4WROEsHwk-64',
+  authDomain: 'medical-d0eba.firebaseapp.com',
+  projectId: 'medical-d0eba',
+  storageBucket: 'medical-d0eba.appspot.com',
+  messagingSenderId: '849892781571',
+  appId: '1:849892781571:web:3858388a396b96fbc7a836',
+  measurementId: 'G-R7D3EDCRNZ',
+};
 
-    firebase.messaging();
-  });
+firebase.initializeApp(firebaseConfig);
+
+firebase.messaging();

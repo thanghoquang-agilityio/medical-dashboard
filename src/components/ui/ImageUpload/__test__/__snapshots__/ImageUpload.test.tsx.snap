@@ -16,32 +16,20 @@ exports[`ImageUpload Component renders correctly with default props 1`] = `
             class="group cursor-pointer relative"
             for="avatar"
           >
-            <div
-              class="w-[100px] h-[100px] rounded-full absolute z-20 inset-0 bg-black bg-opacity-30 flex justify-center items-center transition-opacity duration-300"
+            <span
+              class="box-border overflow-hidden outline-none rounded-full ring-offset-background dark:ring-offset-background-dark shrink-0 min-w-8 w-8 h-8 bg-undefined ring-offset-0 ring-0 false"
+              tabindex="-1"
             >
-              <svg
-                class="w-8 h-8"
-                preserveAspectRatio="xMidYMid meet"
-                viewBox="0 0 512.000000 512.000000"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <g
-                  fill="currentColor"
-                  stroke="none"
-                  transform="translate(0.000000,512.000000) scale(0.100000,-0.100000)"
-                >
-                  <path
-                    d="M4095 4626 c-48 -22 -392 -375 -400 -411 -4 -16 -8 -35 -10 -42 -7   -23 17 -84 46 -117 60 -70 170 -65 239 9 l25 27 5 -260 c5 -244 6 -262 26   -289 73 -98 195 -98 268 0 20 27 21 45 26 289 l5 260 25 -27 c69 -74 169 -78   236 -11 30 30 57 94 49 119 -2 7 -6 26 -10 42 -8 37 -354 390 -402 411 -40 17   -89 17 -128 0z"
-                  />
-                  <path
-                    d="M1045 4415 c-221 -48 -407 -197 -500 -400 -69 -148 -65 -68 -65   -1455 0 -1387 -4 -1307 65 -1455 86 -187 251 -327 460 -392 57 -17 130 -18   1550 -18 1389 0 1494 1 1553 18 202 55 373 197 462 382 73 152 71 129 68 977   -3 750 -3 757 -24 785 -73 98 -195 98 -268 0 -20 -27 -21 -41 -24 -400 l-3   -371 -492 492 c-522 521 -535 532 -627 532 -93 0 -101 -7 -687 -592 -549 -548   -552 -551 -592 -551 -39 0 -48 7 -170 126 -71 69 -144 133 -162 143 -46 24   -142 24 -189 0 -19 -10 -162 -145 -317 -299 l-283 -282 0 1020 c0 645 4 1043   10 1083 29 179 115 281 275 328 55 16 140 18 1012 23 939 6 952 6 980 27 44   32 76 105 68 155 -9 53 -64 115 -113 129 -60 16 -1911 12 -1987 -5z"
-                  />
-                  <path
-                    d="M1637 3456 c-113 -31 -198 -141 -196 -254 1 -104 51 -189 140 -237   104 -57 250 -31 324 57 51 60 68 113 63 194 -8 121 -75 204 -191 239 -60 18   -77 18 -140 1z"
-                  />
-                </g>
-              </svg>
-            </div>
+              <img
+                alt="Image for avatar"
+                blurdataurl="/images/avatar-thumbnail.webp"
+                class="w-[100px] h-[100px] rounded-full aspect-square"
+                height="100"
+                src="/images/avatar-thumbnail.webp"
+                style="object-fit: cover;"
+                width="100"
+              />
+            </span>
           </label>
         </div>
         <div
@@ -92,32 +80,20 @@ exports[`ImageUpload Component renders correctly with default props 1`] = `
           class="group cursor-pointer relative"
           for="avatar"
         >
-          <div
-            class="w-[100px] h-[100px] rounded-full absolute z-20 inset-0 bg-black bg-opacity-30 flex justify-center items-center transition-opacity duration-300"
+          <span
+            class="box-border overflow-hidden outline-none rounded-full ring-offset-background dark:ring-offset-background-dark shrink-0 min-w-8 w-8 h-8 bg-undefined ring-offset-0 ring-0 false"
+            tabindex="-1"
           >
-            <svg
-              class="w-8 h-8"
-              preserveAspectRatio="xMidYMid meet"
-              viewBox="0 0 512.000000 512.000000"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <g
-                fill="currentColor"
-                stroke="none"
-                transform="translate(0.000000,512.000000) scale(0.100000,-0.100000)"
-              >
-                <path
-                  d="M4095 4626 c-48 -22 -392 -375 -400 -411 -4 -16 -8 -35 -10 -42 -7   -23 17 -84 46 -117 60 -70 170 -65 239 9 l25 27 5 -260 c5 -244 6 -262 26   -289 73 -98 195 -98 268 0 20 27 21 45 26 289 l5 260 25 -27 c69 -74 169 -78   236 -11 30 30 57 94 49 119 -2 7 -6 26 -10 42 -8 37 -354 390 -402 411 -40 17   -89 17 -128 0z"
-                />
-                <path
-                  d="M1045 4415 c-221 -48 -407 -197 -500 -400 -69 -148 -65 -68 -65   -1455 0 -1387 -4 -1307 65 -1455 86 -187 251 -327 460 -392 57 -17 130 -18   1550 -18 1389 0 1494 1 1553 18 202 55 373 197 462 382 73 152 71 129 68 977   -3 750 -3 757 -24 785 -73 98 -195 98 -268 0 -20 -27 -21 -41 -24 -400 l-3   -371 -492 492 c-522 521 -535 532 -627 532 -93 0 -101 -7 -687 -592 -549 -548   -552 -551 -592 -551 -39 0 -48 7 -170 126 -71 69 -144 133 -162 143 -46 24   -142 24 -189 0 -19 -10 -162 -145 -317 -299 l-283 -282 0 1020 c0 645 4 1043   10 1083 29 179 115 281 275 328 55 16 140 18 1012 23 939 6 952 6 980 27 44   32 76 105 68 155 -9 53 -64 115 -113 129 -60 16 -1911 12 -1987 -5z"
-                />
-                <path
-                  d="M1637 3456 c-113 -31 -198 -141 -196 -254 1 -104 51 -189 140 -237   104 -57 250 -31 324 57 51 60 68 113 63 194 -8 121 -75 204 -191 239 -60 18   -77 18 -140 1z"
-                />
-              </g>
-            </svg>
-          </div>
+            <img
+              alt="Image for avatar"
+              blurdataurl="/images/avatar-thumbnail.webp"
+              class="w-[100px] h-[100px] rounded-full aspect-square"
+              height="100"
+              src="/images/avatar-thumbnail.webp"
+              style="object-fit: cover;"
+              width="100"
+            />
+          </span>
         </label>
       </div>
       <div
