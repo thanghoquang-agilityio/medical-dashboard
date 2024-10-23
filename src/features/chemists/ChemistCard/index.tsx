@@ -10,20 +10,21 @@ import {
   useDisclosure,
 } from '@nextui-org/react';
 import { Avatar, Button, Text } from '@/components/ui';
-import { CloseIcon, NoteIcon, StarIcon } from '@/icons';
+import { DeleteIcon, EditIcon, NoteIcon, StarIcon } from '@/icons';
 const ConfirmModal = lazy(() => import('@/components/ui/ConfirmModal'));
 
 // Types
 import { STATUS_TYPE, UserModel } from '@/types';
 import { AVATAR_THUMBNAIL, ERROR_MESSAGE, SUCCESS_MESSAGE } from '@/constants';
 
-// Utils
-import { cn } from '@/utils';
+// Services
 import {
   updateUnpublishAppointment,
   updateUnpublishNotification,
   updateUnpublishUser,
 } from '@/services';
+
+// Hooks
 import { useToast } from '@/context/toast';
 
 export interface ChemistCardProps {
@@ -92,24 +93,19 @@ const ChemistCard = ({ id, data, isAdmin, onEdit }: ChemistCardProps) => {
 
   return (
     <>
-      <div
-        className={cn(
-          `min-w-[300px] w-full h-[228px] ${isAdmin ? 'cursor-pointer' : 'cursor-default'}`,
-        )}
-        onClick={handleEdit}
-      >
-        <Card className="bg-background-200 w-full h-full p-5 sm:p-6 gap-6 overflow-visible">
+      <div className="min-w-[300px] w-full h-[228px] relative">
+        <Card className="bg-background-200 w-full h-full p-6 pt-0 gap-6 overflow-visible">
           {isAdmin && (
-            <Button
-              aria-label="close"
-              isIconOnly
-              size="tiny"
-              color="red"
-              className="absolute top-[-8px] right-[-8px] min-w-6"
-              onClick={handleOpenConfirmModal}
-            >
-              <CloseIcon />
-            </Button>
+            <div className="group">
+              <div className="absolute z-50 rounded-large opacity-0 top-0 left-0 right-0 bottom-0 bg-primary-200 group-hover:opacity-70 flex justify-center items-center">
+                <Button isIconOnly onClick={handleEdit}>
+                  <EditIcon customClass="text-background-100 flex-shrink-0 w-4 h-4" />
+                </Button>
+                <Button isIconOnly onClick={handleOpenConfirmModal}>
+                  <DeleteIcon customClass="text-background-100 flex-shrink-0 w-4 h-4" />
+                </Button>
+              </div>
+            </div>
           )}
           <CardHeader className="flex justify-between p-0">
             <div className="flex items-center gap-2">
@@ -165,7 +161,7 @@ const ChemistCard = ({ id, data, isAdmin, onEdit }: ChemistCardProps) => {
       </div>
       <ConfirmModal
         title="Confirmation"
-        subTitle={`Do you want to delete this chemist?`}
+        subTitle="Do you want to delete this chemist?"
         isOpen={isOpenConfirm}
         isLoading={isLoading}
         onClose={onClosConfirm}
