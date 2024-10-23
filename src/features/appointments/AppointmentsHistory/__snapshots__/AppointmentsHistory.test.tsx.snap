@@ -552,6 +552,15 @@ exports[`AppointmentsHistory Component should render correctly with admin role w
                 </th>
                 <th
                   class="group px-3 h-10 align-middle bg-default-100 whitespace-nowrap text-foreground-500 text-tiny font-semibold first:rounded-s-lg last:rounded-e-lg data-[sortable=true]:cursor-pointer data-[hover=true]:text-foreground-400 outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-start"
+                  data-key="receiverId"
+                  id="react-aria-:r3f:-receiverId"
+                  role="columnheader"
+                  tabindex="-1"
+                >
+                  Receiver
+                </th>
+                <th
+                  class="group px-3 h-10 align-middle bg-default-100 whitespace-nowrap text-foreground-500 text-tiny font-semibold first:rounded-s-lg last:rounded-e-lg data-[sortable=true]:cursor-pointer data-[hover=true]:text-foreground-400 outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-start"
                   data-key="durationTime"
                   id="react-aria-:r3f:-durationTime"
                   role="columnheader"
@@ -616,18 +625,18 @@ exports[`AppointmentsHistory Component should render correctly with admin role w
                     class="flex gap-2 items-center"
                   >
                     <span
-                      class="box-border overflow-hidden outline-none rounded-full ring-offset-background dark:ring-offset-background-dark shrink-0 min-w-8 w-8 h-8 bg-undefined ring-offset-2 ring-1 ring-green false"
+                      class="box-border overflow-hidden outline-none rounded-full ring-offset-background dark:ring-offset-background-dark shrink-0 min-w-8 w-8 h-8 bg-undefined ring-offset-2 ring-1 ring-green false shrink-0 hidden sm:block"
                       tabindex="-1"
                     >
                       <img
                         alt="UnavailableImage"
-                        class="shrink-0"
+                        class="aspect-square"
                         data-nimg="1"
                         decoding="async"
                         fetchpriority="high"
                         height="48"
-                        src="http://localhost/_next/image?url=http%3A%2F%2Flocalhost%3A1341&w=96&q=75"
-                        srcset="/_next/image?url=http%3A%2F%2Flocalhost%3A1341&w=48&q=75 1x, /_next/image?url=http%3A%2F%2Flocalhost%3A1341&w=96&q=75 2x"
+                        src="http://localhost/_next/image?url=%2Fimages%2Favatar-thumbnail.webp&w=96&q=75"
+                        srcset="/_next/image?url=%2Fimages%2Favatar-thumbnail.webp&w=48&q=75 1x, /_next/image?url=%2Fimages%2Favatar-thumbnail.webp&w=96&q=75 2x"
                         style="color: transparent; object-fit: cover;"
                         width="48"
                       />
@@ -636,6 +645,39 @@ exports[`AppointmentsHistory Component should render correctly with admin role w
                       class="text-primary-100 font-medium text-sm text-ellipsis whitespace-nowrap overflow-hidden"
                     >
                       Alex Stanton
+                    </p>
+                  </div>
+                </td>
+                <td
+                  class="relative align-middle whitespace-normal text-small font-normal [&>*]:z-1 [&>*]:relative outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 before:content-[''] before:absolute before:z-0 before:inset-0 before:opacity-0 data-[selected=true]:before:opacity-100 group-data-[disabled=true]:text-foreground-300 group-data-[disabled=true]:cursor-not-allowed before:bg-default/60 data-[selected=true]:text-default-foreground first:before:rounded-s-lg last:before:rounded-e-lg text-start p-0 py-3 border-0 border-primary-100 border-b border-opacity-10"
+                  data-key="table-row-cell-receiverId"
+                  role="gridcell"
+                  tabindex="-1"
+                >
+                  <div
+                    class="flex gap-2 items-center"
+                  >
+                    <span
+                      class="box-border overflow-hidden outline-none rounded-full ring-offset-background dark:ring-offset-background-dark shrink-0 min-w-8 w-8 h-8 bg-undefined ring-offset-2 ring-1 ring-green false shrink-0 hidden sm:block"
+                      tabindex="-1"
+                    >
+                      <img
+                        alt="UnavailableImage"
+                        class="aspect-square"
+                        data-nimg="1"
+                        decoding="async"
+                        fetchpriority="high"
+                        height="48"
+                        src="http://localhost/_next/image?url=%2Fimages%2Favatar-thumbnail.webp&w=96&q=75"
+                        srcset="/_next/image?url=%2Fimages%2Favatar-thumbnail.webp&w=48&q=75 1x, /_next/image?url=%2Fimages%2Favatar-thumbnail.webp&w=96&q=75 2x"
+                        style="color: transparent; object-fit: cover;"
+                        width="48"
+                      />
+                    </span>
+                    <p
+                      class="text-primary-100 font-medium text-sm text-ellipsis whitespace-nowrap overflow-hidden"
+                    >
+                      Jessica Jane
                     </p>
                   </div>
                 </td>
@@ -744,18 +786,18 @@ exports[`AppointmentsHistory Component should render correctly with admin role w
                     class="flex gap-2 items-center"
                   >
                     <span
-                      class="box-border overflow-hidden outline-none rounded-full ring-offset-background dark:ring-offset-background-dark shrink-0 min-w-8 w-8 h-8 bg-undefined ring-offset-2 ring-1 ring-green false"
+                      class="box-border overflow-hidden outline-none rounded-full ring-offset-background dark:ring-offset-background-dark shrink-0 min-w-8 w-8 h-8 bg-undefined ring-offset-2 ring-1 ring-green false shrink-0 hidden sm:block"
                       tabindex="-1"
                     >
                       <img
                         alt="UnavailableImage"
-                        class="shrink-0"
+                        class="aspect-square"
                         data-nimg="1"
                         decoding="async"
                         fetchpriority="high"
                         height="48"
-                        src="http://localhost/_next/image?url=http%3A%2F%2Flocalhost%3A1341&w=96&q=75"
-                        srcset="/_next/image?url=http%3A%2F%2Flocalhost%3A1341&w=48&q=75 1x, /_next/image?url=http%3A%2F%2Flocalhost%3A1341&w=96&q=75 2x"
+                        src="http://localhost/_next/image?url=%2Fimages%2Favatar-thumbnail.webp&w=96&q=75"
+                        srcset="/_next/image?url=%2Fimages%2Favatar-thumbnail.webp&w=48&q=75 1x, /_next/image?url=%2Fimages%2Favatar-thumbnail.webp&w=96&q=75 2x"
                         style="color: transparent; object-fit: cover;"
                         width="48"
                       />
@@ -764,6 +806,39 @@ exports[`AppointmentsHistory Component should render correctly with admin role w
                       class="text-primary-100 font-medium text-sm text-ellipsis whitespace-nowrap overflow-hidden"
                     >
                       Alex Stanton
+                    </p>
+                  </div>
+                </td>
+                <td
+                  class="relative align-middle whitespace-normal text-small font-normal [&>*]:z-1 [&>*]:relative outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 before:content-[''] before:absolute before:z-0 before:inset-0 before:opacity-0 data-[selected=true]:before:opacity-100 group-data-[disabled=true]:text-foreground-300 group-data-[disabled=true]:cursor-not-allowed before:bg-default/60 data-[selected=true]:text-default-foreground first:before:rounded-s-lg last:before:rounded-e-lg text-start p-0 py-3 border-0 border-primary-100 border-b border-opacity-10"
+                  data-key="table-row-cell-receiverId"
+                  role="gridcell"
+                  tabindex="-1"
+                >
+                  <div
+                    class="flex gap-2 items-center"
+                  >
+                    <span
+                      class="box-border overflow-hidden outline-none rounded-full ring-offset-background dark:ring-offset-background-dark shrink-0 min-w-8 w-8 h-8 bg-undefined ring-offset-2 ring-1 ring-green false shrink-0 hidden sm:block"
+                      tabindex="-1"
+                    >
+                      <img
+                        alt="UnavailableImage"
+                        class="aspect-square"
+                        data-nimg="1"
+                        decoding="async"
+                        fetchpriority="high"
+                        height="48"
+                        src="http://localhost/_next/image?url=%2Fimages%2Favatar-thumbnail.webp&w=96&q=75"
+                        srcset="/_next/image?url=%2Fimages%2Favatar-thumbnail.webp&w=48&q=75 1x, /_next/image?url=%2Fimages%2Favatar-thumbnail.webp&w=96&q=75 2x"
+                        style="color: transparent; object-fit: cover;"
+                        width="48"
+                      />
+                    </span>
+                    <p
+                      class="text-primary-100 font-medium text-sm text-ellipsis whitespace-nowrap overflow-hidden"
+                    >
+                      ThangHq
                     </p>
                   </div>
                 </td>
@@ -871,18 +946,18 @@ exports[`AppointmentsHistory Component should render correctly with admin role w
                     class="flex gap-2 items-center"
                   >
                     <span
-                      class="box-border overflow-hidden outline-none rounded-full ring-offset-background dark:ring-offset-background-dark shrink-0 min-w-8 w-8 h-8 bg-undefined ring-offset-2 ring-1 ring-green false"
+                      class="box-border overflow-hidden outline-none rounded-full ring-offset-background dark:ring-offset-background-dark shrink-0 min-w-8 w-8 h-8 bg-undefined ring-offset-2 ring-1 ring-green false shrink-0 hidden sm:block"
                       tabindex="-1"
                     >
                       <img
                         alt="UnavailableImage"
-                        class="shrink-0"
+                        class="aspect-square"
                         data-nimg="1"
                         decoding="async"
                         fetchpriority="high"
                         height="48"
-                        src="http://localhost/_next/image?url=http%3A%2F%2Flocalhost%3A1341&w=96&q=75"
-                        srcset="/_next/image?url=http%3A%2F%2Flocalhost%3A1341&w=48&q=75 1x, /_next/image?url=http%3A%2F%2Flocalhost%3A1341&w=96&q=75 2x"
+                        src="http://localhost/_next/image?url=%2Fimages%2Favatar-thumbnail.webp&w=96&q=75"
+                        srcset="/_next/image?url=%2Fimages%2Favatar-thumbnail.webp&w=48&q=75 1x, /_next/image?url=%2Fimages%2Favatar-thumbnail.webp&w=96&q=75 2x"
                         style="color: transparent; object-fit: cover;"
                         width="48"
                       />
@@ -891,6 +966,39 @@ exports[`AppointmentsHistory Component should render correctly with admin role w
                       class="text-primary-100 font-medium text-sm text-ellipsis whitespace-nowrap overflow-hidden"
                     >
                       ThangHq
+                    </p>
+                  </div>
+                </td>
+                <td
+                  class="relative align-middle whitespace-normal text-small font-normal [&>*]:z-1 [&>*]:relative outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 before:content-[''] before:absolute before:z-0 before:inset-0 before:opacity-0 data-[selected=true]:before:opacity-100 group-data-[disabled=true]:text-foreground-300 group-data-[disabled=true]:cursor-not-allowed before:bg-default/60 data-[selected=true]:text-default-foreground first:before:rounded-s-lg last:before:rounded-e-lg text-start p-0 pt-3"
+                  data-key="table-row-cell-receiverId"
+                  role="gridcell"
+                  tabindex="-1"
+                >
+                  <div
+                    class="flex gap-2 items-center"
+                  >
+                    <span
+                      class="box-border overflow-hidden outline-none rounded-full ring-offset-background dark:ring-offset-background-dark shrink-0 min-w-8 w-8 h-8 bg-undefined ring-offset-2 ring-1 ring-green false shrink-0 hidden sm:block"
+                      tabindex="-1"
+                    >
+                      <img
+                        alt="UnavailableImage"
+                        class="aspect-square"
+                        data-nimg="1"
+                        decoding="async"
+                        fetchpriority="high"
+                        height="48"
+                        src="http://localhost/_next/image?url=%2Fimages%2Favatar-thumbnail.webp&w=96&q=75"
+                        srcset="/_next/image?url=%2Fimages%2Favatar-thumbnail.webp&w=48&q=75 1x, /_next/image?url=%2Fimages%2Favatar-thumbnail.webp&w=96&q=75 2x"
+                        style="color: transparent; object-fit: cover;"
+                        width="48"
+                      />
+                    </span>
+                    <p
+                      class="text-primary-100 font-medium text-sm text-ellipsis whitespace-nowrap overflow-hidden"
+                    >
+                      Alex Stanton
                     </p>
                   </div>
                 </td>
@@ -1300,13 +1408,13 @@ exports[`AppointmentsHistory Component should render correctly with user role wh
                     >
                       <img
                         alt="UnavailableImage"
-                        class="shrink-0"
+                        class="shrink-0 aspect-square"
                         data-nimg="1"
                         decoding="async"
                         fetchpriority="high"
                         height="48"
-                        src="http://localhost/_next/image?url=http%3A%2F%2Flocalhost%3A1341&w=96&q=75"
-                        srcset="/_next/image?url=http%3A%2F%2Flocalhost%3A1341&w=48&q=75 1x, /_next/image?url=http%3A%2F%2Flocalhost%3A1341&w=96&q=75 2x"
+                        src="http://localhost/_next/image?url=http%3A%2F%2Flocalhost%3A1341%2Fimages%2Favatar-thumbnail.webp&w=96&q=75"
+                        srcset="/_next/image?url=http%3A%2F%2Flocalhost%3A1341%2Fimages%2Favatar-thumbnail.webp&w=48&q=75 1x, /_next/image?url=http%3A%2F%2Flocalhost%3A1341%2Fimages%2Favatar-thumbnail.webp&w=96&q=75 2x"
                         style="color: transparent; object-fit: cover;"
                         width="48"
                       />
@@ -1428,13 +1536,13 @@ exports[`AppointmentsHistory Component should render correctly with user role wh
                     >
                       <img
                         alt="UnavailableImage"
-                        class="shrink-0"
+                        class="shrink-0 aspect-square"
                         data-nimg="1"
                         decoding="async"
                         fetchpriority="high"
                         height="48"
-                        src="http://localhost/_next/image?url=http%3A%2F%2Flocalhost%3A1341&w=96&q=75"
-                        srcset="/_next/image?url=http%3A%2F%2Flocalhost%3A1341&w=48&q=75 1x, /_next/image?url=http%3A%2F%2Flocalhost%3A1341&w=96&q=75 2x"
+                        src="http://localhost/_next/image?url=http%3A%2F%2Flocalhost%3A1341%2Fimages%2Favatar-thumbnail.webp&w=96&q=75"
+                        srcset="/_next/image?url=http%3A%2F%2Flocalhost%3A1341%2Fimages%2Favatar-thumbnail.webp&w=48&q=75 1x, /_next/image?url=http%3A%2F%2Flocalhost%3A1341%2Fimages%2Favatar-thumbnail.webp&w=96&q=75 2x"
                         style="color: transparent; object-fit: cover;"
                         width="48"
                       />
@@ -1555,13 +1663,13 @@ exports[`AppointmentsHistory Component should render correctly with user role wh
                     >
                       <img
                         alt="UnavailableImage"
-                        class="shrink-0"
+                        class="shrink-0 aspect-square"
                         data-nimg="1"
                         decoding="async"
                         fetchpriority="high"
                         height="48"
-                        src="http://localhost/_next/image?url=http%3A%2F%2Flocalhost%3A1341&w=96&q=75"
-                        srcset="/_next/image?url=http%3A%2F%2Flocalhost%3A1341&w=48&q=75 1x, /_next/image?url=http%3A%2F%2Flocalhost%3A1341&w=96&q=75 2x"
+                        src="http://localhost/_next/image?url=http%3A%2F%2Flocalhost%3A1341%2Fimages%2Favatar-thumbnail.webp&w=96&q=75"
+                        srcset="/_next/image?url=http%3A%2F%2Flocalhost%3A1341%2Fimages%2Favatar-thumbnail.webp&w=48&q=75 1x, /_next/image?url=http%3A%2F%2Flocalhost%3A1341%2Fimages%2Favatar-thumbnail.webp&w=96&q=75 2x"
                         style="color: transparent; object-fit: cover;"
                         width="48"
                       />

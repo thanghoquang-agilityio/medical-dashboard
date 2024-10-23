@@ -23,12 +23,7 @@ describe('ChemistForm test cases', () => {
       email: 'mock@example.com',
       username: 'mockuser',
       password: 'mockpassword',
-      avatar: {
-        data: {
-          id: 'mock_id',
-          attributes: { url: '/mock_url', name: 'mock_name', id: '1' },
-        },
-      },
+      avatarUrl: '/mock_url',
       description: 'mock description',
       rating: 0,
     },

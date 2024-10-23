@@ -10,10 +10,7 @@ import {
 import AppointmentsHistory, { AppointmentsHistoryProps } from '.';
 
 // Mocks
-import { MOCK_APPOINTMENTS } from '@/mocks';
-
-// Types
-import { ROLE } from '@/types';
+import { MOCK_APPOINTMENTS, MOCK_USERS_LOGGED } from '@/mocks';
 
 const mockReplace = jest.fn();
 
@@ -29,7 +26,7 @@ describe('AppointmentsHistory Component', () => {
     act(() => render(<AppointmentsHistory {...props} />));
 
   it('should render empty result', async () => {
-    await setup({ appointments: [], role: ROLE.NORMAL_USER, userId: '1' });
+    await setup({ appointments: [], userLogged: MOCK_USERS_LOGGED[0] });
 
     await waitFor(() => {
       expect(screen.getByText(/Result Not Found/i)).toBeInTheDocument();
@@ -37,7 +34,7 @@ describe('AppointmentsHistory Component', () => {
   });
 
   it('should render loading indicator when during fetching', async () => {
-    await setup({ appointments: [], role: ROLE.NORMAL_USER, userId: '1' });
+    await setup({ appointments: [], userLogged: MOCK_USERS_LOGGED[0] });
 
     waitFor(() => {
       expect(screen.getByLabelText('Loading')).toBeInTheDocument();
@@ -47,8 +44,7 @@ describe('AppointmentsHistory Component', () => {
   it('should render correctly with user role when have appointments value', async () => {
     const { container } = await setup({
       appointments: MOCK_APPOINTMENTS,
-      role: ROLE.NORMAL_USER,
-      userId: '1',
+      userLogged: MOCK_USERS_LOGGED[0],
     });
 
     expect(container).toMatchSnapshot();
@@ -57,8 +53,7 @@ describe('AppointmentsHistory Component', () => {
   it('should render correctly with admin role when have appointments value', async () => {
     const { container } = await setup({
       appointments: MOCK_APPOINTMENTS,
-      role: ROLE.ADMIN,
-      userId: '1',
+      userLogged: MOCK_USERS_LOGGED[1],
     });
 
     expect(container).toMatchSnapshot();
@@ -67,8 +62,7 @@ describe('AppointmentsHistory Component', () => {
   it('should render correctly when appointments value is empty', async () => {
     const { container } = await setup({
       appointments: [],
-      role: ROLE.NORMAL_USER,
-      userId: '1',
+      userLogged: MOCK_USERS_LOGGED[0],
     });
 
     expect(container).toMatchSnapshot();
@@ -77,8 +71,7 @@ describe('AppointmentsHistory Component', () => {
   it('should be able to filter by status', async () => {
     await setup({
       appointments: MOCK_APPOINTMENTS,
-      role: ROLE.NORMAL_USER,
-      userId: '1',
+      userLogged: MOCK_USERS_LOGGED[0],
     });
 
     const statusSelect = screen.getByRole('button', {

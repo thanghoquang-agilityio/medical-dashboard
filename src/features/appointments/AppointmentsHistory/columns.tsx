@@ -12,7 +12,7 @@ import {
 } from '@/utils';
 
 // Constants
-import { API_IMAGE_URL } from '@/constants';
+import { API_IMAGE_URL, AVATAR_THUMBNAIL } from '@/constants';
 
 // Components
 import {
@@ -45,18 +45,17 @@ export const createColumns = ({
         const { senderId = '' } = item || {};
         const { data } = senderId || {};
         const { attributes } = data || {};
-        const { avatar, username = '' } = attributes || {};
-        const { data: dataAvatar } = avatar || {};
-        const { attributes: attributesAvatar } = dataAvatar || {};
-        const { url = '' } = attributesAvatar || {};
+        const { username = '', avatarUrl = AVATAR_THUMBNAIL } =
+          attributes || {};
 
         return (
           <div className="flex gap-2 items-center">
             <Avatar
-              src={`${API_IMAGE_URL}${url}`}
+              src={avatarUrl}
               size="md"
               isBordered
               customClass="shrink-0 hidden sm:block"
+              className="aspect-square"
             />
             <Text variant="primary" size="sm">
               {username}
@@ -72,18 +71,17 @@ export const createColumns = ({
         const { receiverId = '' } = item || {};
         const { data } = receiverId || {};
         const { attributes } = data || {};
-        const { avatar, username = '' } = attributes || {};
-        const { data: dataAvatar } = avatar || {};
-        const { attributes: attributesAvatar } = dataAvatar || {};
-        const { url = '' } = attributesAvatar || {};
+        const { username = '', avatarUrl = AVATAR_THUMBNAIL } =
+          attributes || {};
 
         return (
           <div className="flex gap-2 items-center">
             <Avatar
-              src={`${API_IMAGE_URL}${url}`}
+              src={avatarUrl}
               size="md"
               isBordered
               customClass="shrink-0 hidden sm:block"
+              className="aspect-square"
             />
             <Text variant="primary" size="sm">
               {username}
@@ -103,20 +101,14 @@ export const createColumns = ({
         // Sender
         const { attributes: attributesSender, id: idSender } =
           senderId?.data || {};
-        const { avatar: avatarSender, username: usernameSender = '' } =
-          attributesSender || {};
-        const { data: dataAvatarSender } = avatarSender || {};
-        const { attributes: attributesAvatarSender } = dataAvatarSender || {};
-        const { url: urlSender = '' } = attributesAvatarSender || {};
+
+        const { avatarUrl: urlSender } = attributesSender || {};
+        const { username: usernameSender = '' } = attributesSender || {};
 
         // Receiver
         const { attributes: attributesReceiver } = receiverId?.data || {};
-        const { avatar: avatarReceiver, username: usernameReceiver = '' } =
+        const { username: usernameReceiver = '', avatarUrl: urlReceiver } =
           attributesReceiver || {};
-        const { data: dataAvatarReceiver } = avatarReceiver || {};
-        const { attributes: attributesAvatarReceiver } =
-          dataAvatarReceiver || {};
-        const { url: urlReceiver = '' } = attributesAvatarReceiver || {};
 
         return (
           <div className="flex gap-2 items-center">
@@ -124,7 +116,7 @@ export const createColumns = ({
               src={`${API_IMAGE_URL}${userId == idSender ? urlReceiver : urlSender}`}
               size="md"
               isBordered
-              className="shrink-0"
+              className="shrink-0 aspect-square"
             />
             <Text variant="primary" size="sm">
               {userId == idSender ? usernameReceiver : usernameSender}

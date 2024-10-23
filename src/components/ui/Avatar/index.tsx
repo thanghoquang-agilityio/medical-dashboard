@@ -54,7 +54,7 @@ export const Avatar = ({
       <Image
         width={width}
         height={height}
-        src={src}
+        src={src || AVATAR_THUMBNAIL}
         alt={alt}
         blurDataURL={AVATAR_THUMBNAIL}
         fallbackImg={AVATAR_THUMBNAIL}

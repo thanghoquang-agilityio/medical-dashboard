@@ -1,3 +1,4 @@
+import { AVATAR_THUMBNAIL } from '@/constants';
 import { APIResponse, ChemistModel, SpecialtyResponse } from '@/types';
 
 export const MOCK_CHEMISTS_LIST: Array<APIResponse<ChemistModel>> = [
@@ -15,17 +16,7 @@ export const MOCK_CHEMISTS_LIST: Array<APIResponse<ChemistModel>> = [
             rating: 5,
             tasks: 22,
             reviews: 321,
-            avatar: {
-              data: {
-                id: '10',
-                attributes: {
-                  id: '10',
-                  name: 'kyle.webp',
-                  hash: 'kyle_554a95ac44',
-                  url: '/uploads/kyle_554a95ac44.webp',
-                },
-              },
-            },
+            avatarUrl: AVATAR_THUMBNAIL,
             specialtyId: {
               data: {
                 id: '8',
@@ -52,18 +43,7 @@ export const MOCK_CHEMISTS_LIST: Array<APIResponse<ChemistModel>> = [
             rating: 5,
             tasks: 40,
             reviews: 600,
-            avatar: {
-              data: {
-                id: '8',
-                attributes: {
-                  id: '20',
-                  name: 'white.webp',
-                  hash: 'white_8b3aabe189',
-                  url: '/uploads/white_8b3aabe189.webp',
-                },
-              },
-            },
-
+            avatarUrl: AVATAR_THUMBNAIL,
             specialtyId: {
               data: {
                 id: '10',
@@ -91,18 +71,7 @@ export const MOCK_CHEMISTS_LIST: Array<APIResponse<ChemistModel>> = [
             rating: 4,
             tasks: 23,
             reviews: 123,
-            avatar: {
-              data: {
-                id: '7',
-                attributes: {
-                  id: '19',
-                  name: 'jane.webp',
-                  hash: 'jane_bf4e84b9e6',
-                  url: '/uploads/jane_bf4e84b9e6.webp',
-                },
-              },
-            },
-
+            avatarUrl: AVATAR_THUMBNAIL,
             specialtyId: {
               data: {
                 id: '9',
@@ -129,17 +98,7 @@ export const MOCK_CHEMISTS_LIST: Array<APIResponse<ChemistModel>> = [
             rating: 3,
             tasks: 12,
             reviews: 333,
-            avatar: {
-              data: {
-                id: '9',
-                attributes: {
-                  id: '18',
-                  name: 'alex.webp',
-                  hash: 'alex_45859439cd',
-                  url: '/uploads/alex_45859439cd.webp',
-                },
-              },
-            },
+            avatarUrl: AVATAR_THUMBNAIL,
             specialtyId: {
               data: {
                 id: '7',
@@ -167,17 +126,7 @@ export const MOCK_CHEMISTS_LIST: Array<APIResponse<ChemistModel>> = [
             rating: 5,
             tasks: 40,
             reviews: 600,
-            avatar: {
-              data: {
-                id: '6',
-                attributes: {
-                  id: '17',
-                  name: 'avt_hue.jpg',
-                  hash: 'avt_hue_335d006883',
-                  url: '/uploads/avt_hue_335d006883.jpg',
-                },
-              },
-            },
+            avatarUrl: AVATAR_THUMBNAIL,
             specialtyId: {
               data: {
                 id: '6',

@@ -28,13 +28,13 @@ exports[`ChemistForm test cases should render correctly 1`] = `
           >
             <img
               alt="Image for avatar"
-              class="w-[100px] h-[100px] rounded-full"
+              class="w-[100px] h-[100px] rounded-full aspect-square"
               data-nimg="1"
               decoding="async"
               fetchpriority="high"
               height="100"
-              src="http://localhost/_next/image?url=%2Fimages%2Favatar-thumbnail.webp&w=256&q=75"
-              srcset="/_next/image?url=%2Fimages%2Favatar-thumbnail.webp&w=128&q=75 1x, /_next/image?url=%2Fimages%2Favatar-thumbnail.webp&w=256&q=75 2x"
+              src="http://localhost/_next/image?url=%2Fmock_url&w=256&q=75"
+              srcset="/_next/image?url=%2Fmock_url&w=128&q=75 1x, /_next/image?url=%2Fmock_url&w=256&q=75 2x"
               style="color: transparent; object-fit: cover;"
               width="100"
             />
@@ -458,7 +458,7 @@ exports[`ChemistForm test cases should render correctly without data and id 1`] 
           >
             <img
               alt="Image for avatar"
-              class="w-[100px] h-[100px] rounded-full"
+              class="w-[100px] h-[100px] rounded-full aspect-square"
               data-nimg="1"
               decoding="async"
               fetchpriority="high"
