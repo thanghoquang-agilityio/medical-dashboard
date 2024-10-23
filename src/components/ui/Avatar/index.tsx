@@ -31,7 +31,7 @@ export const Avatar = ({
   width = 48,
   height = 48,
   isBordered = false,
-  className = '',
+  className,
 }: AvatarProps) => {
   const sizeClass = SIZE_CLASSES[size];
   const borderClass = isBordered
