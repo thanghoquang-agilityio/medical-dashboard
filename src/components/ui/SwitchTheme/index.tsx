@@ -39,6 +39,7 @@ const SwitchTheme = ({ customClass = '' }: { customClass?: string }) => {
         <Spinner
           size="sm"
           classNames={{ circle1: 'border-[2px]', circle2: 'border-[2px]' }}
+          className="absolute"
         />
       </div>
     );
