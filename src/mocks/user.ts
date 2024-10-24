@@ -515,6 +515,6 @@ export const MOCK_USER_SESSION: UserSession = {
   email: MOCK_USERS_LOGGED[0].email,
   token: 'access-token',
   role: '',
-  avatarUrl: AVATAR_THUMBNAIL,
+  avatar: AVATAR_THUMBNAIL,
   remember: true,
 };

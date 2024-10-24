@@ -16,7 +16,7 @@ export const MOCK_CHEMISTS_LIST: Array<APIResponse<ChemistModel>> = [
             rating: 5,
             tasks: 22,
             reviews: 321,
-            avatarUrl: AVATAR_THUMBNAIL,
+            avatar: AVATAR_THUMBNAIL,
             specialtyId: {
               data: {
                 id: '8',
@@ -43,7 +43,7 @@ export const MOCK_CHEMISTS_LIST: Array<APIResponse<ChemistModel>> = [
             rating: 5,
             tasks: 40,
             reviews: 600,
-            avatarUrl: AVATAR_THUMBNAIL,
+            avatar: AVATAR_THUMBNAIL,
             specialtyId: {
               data: {
                 id: '10',
@@ -71,7 +71,7 @@ export const MOCK_CHEMISTS_LIST: Array<APIResponse<ChemistModel>> = [
             rating: 4,
             tasks: 23,
             reviews: 123,
-            avatarUrl: AVATAR_THUMBNAIL,
+            avatar: AVATAR_THUMBNAIL,
             specialtyId: {
               data: {
                 id: '9',
@@ -98,7 +98,7 @@ export const MOCK_CHEMISTS_LIST: Array<APIResponse<ChemistModel>> = [
             rating: 3,
             tasks: 12,
             reviews: 333,
-            avatarUrl: AVATAR_THUMBNAIL,
+            avatar: AVATAR_THUMBNAIL,
             specialtyId: {
               data: {
                 id: '7',
@@ -126,7 +126,7 @@ export const MOCK_CHEMISTS_LIST: Array<APIResponse<ChemistModel>> = [
             rating: 5,
             tasks: 40,
             reviews: 600,
-            avatarUrl: AVATAR_THUMBNAIL,
+            avatar: AVATAR_THUMBNAIL,
             specialtyId: {
               data: {
                 id: '6',

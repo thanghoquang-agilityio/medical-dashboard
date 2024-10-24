@@ -45,7 +45,7 @@ export const login = async (
       role,
       username = '',
       email = '',
-      avatarUrl = AVATAR_THUMBNAIL,
+      avatar = AVATAR_THUMBNAIL,
     } = userLogged || {};
     const { name = '' } = role || {};
 
@@ -54,7 +54,7 @@ export const login = async (
       token: jwt,
       remember: body.remember,
       role: name,
-      avatarUrl,
+      avatar,
       username,
       email,
     };

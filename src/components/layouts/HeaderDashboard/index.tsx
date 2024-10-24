@@ -14,14 +14,14 @@ const SwitchTheme = dynamic(() => import('@/components/ui/SwitchTheme'));
 const Notifications = dynamic(() => import('./Notifications'));
 
 interface HeaderProps {
-  avatarUrl: string;
+  avatar: string;
   notifications?: NotificationResponse[];
   userName?: string;
   isInvisibleBadge?: boolean;
 }
 
 const HeaderDashboard = ({
-  avatarUrl,
+  avatar,
   userName,
   notifications,
   isInvisibleBadge = false,
@@ -38,7 +38,7 @@ const HeaderDashboard = ({
         isInvisibleBadge={isInvisibleBadge}
       />
       <Avatar
-        src={avatarUrl}
+        src={avatar}
         name={userName}
         size="md"
         color="warning"

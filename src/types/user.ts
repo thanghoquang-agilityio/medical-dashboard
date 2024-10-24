@@ -2,7 +2,6 @@ import {
   APIRelatedResponse,
   APIResponse,
   AppointmentModel,
-  ImageModel,
   MetaResponse,
   NotificationModel,
   SpecialtyModel,
@@ -24,7 +23,7 @@ export interface UserModel {
   username: string;
   email: string;
   password?: string;
-  avatarUrl?: string;
+  avatar?: string;
   description?: string;
   rating?: number;
   tasks?: number;
@@ -45,7 +44,7 @@ export type UserLogged = Omit<
   | 'appointmentReceived'
 > & {
   id: string;
-  avatar?: ImageModel;
+  avatar?: string;
   role: RoleModel;
   specialtyId?: SpecialtyModel;
   notificationsSent?: NotificationModel[];
@@ -57,7 +56,7 @@ export type UserSession = {
   id: string;
   username: string;
   email: string;
-  avatarUrl: string;
+  avatar: string;
   role: string;
   token: string;
   remember: boolean;
@@ -87,5 +86,5 @@ export type UserPayload = Omit<
   role: number;
   password?: string;
   specialtyId: number;
-  avatar?: number | null;
+  avatar?: string;
 };
