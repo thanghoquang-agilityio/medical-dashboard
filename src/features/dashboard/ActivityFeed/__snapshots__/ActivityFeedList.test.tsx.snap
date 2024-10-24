@@ -92,7 +92,7 @@ exports[`ActivityFeedList test cases should render correctly 1`] = `
                         blurdataurl="/images/avatar-thumbnail.webp"
                         class="aspect-square"
                         height="48"
-                        src="http://localhost:1341/upload/300"
+                        src="/upload/300"
                         style="object-fit: cover;"
                         width="48"
                       />
@@ -158,7 +158,7 @@ exports[`ActivityFeedList test cases should render correctly 1`] = `
                         blurdataurl="/images/avatar-thumbnail.webp"
                         class="aspect-square"
                         height="48"
-                        src="http://localhost:1341/upload/300"
+                        src="/upload/300"
                         style="object-fit: cover;"
                         width="48"
                       />

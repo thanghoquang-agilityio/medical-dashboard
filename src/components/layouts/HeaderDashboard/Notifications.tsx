@@ -7,7 +7,7 @@ import { formatDateTime, fromDateToNow } from '@/utils';
 import { NotificationResponse } from '@/types';
 
 // Constants
-import { API_IMAGE_URL, TYPE_CLASSES } from '@/constants';
+import { TYPE_CLASSES } from '@/constants';
 
 // Components
 import { Badge, Divider } from '@nextui-org/react';
@@ -62,7 +62,7 @@ const Notifications = memo(
                     className="w-full relative flex justify-start my-2"
                   >
                     <Avatar
-                      src={`${API_IMAGE_URL}${attributes.senderAvatar}`}
+                      src={attributes.senderAvatar}
                       size="md"
                       isCustomBordered
                       className="aspect-square"
