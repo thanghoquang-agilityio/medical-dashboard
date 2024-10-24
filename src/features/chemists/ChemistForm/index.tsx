@@ -163,7 +163,11 @@ const ChemistForm = memo(
 
     const handleError = useCallback(
       (error: string) => {
+        if (error === ERROR_MESSAGE.DUPLICATE_FIELD)
+          error = ERROR_MESSAGE.USERNAME;
+
         setError(error);
+
         openToast({
           message: ERROR_MESSAGE.CREATE('chemist'),
           type: STATUS_TYPE.ERROR,
