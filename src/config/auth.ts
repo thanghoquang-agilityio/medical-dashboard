@@ -21,12 +21,7 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
 
         if (!user) throw new Error('User not found.');
 
-        const formatUser = {
-          ...user,
-          avatarUrl: user.avatarUrl === 'null' ? null : user.avatarUrl,
-        };
-
-        return formatUser;
+        return user;
       },
     }),
   ],
