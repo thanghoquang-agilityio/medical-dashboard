@@ -4,13 +4,16 @@ import dynamic from 'next/dynamic';
 import { auth } from '@/config/auth';
 
 // Services
-import { getNotifications } from '@/services';
+import { getNotifications, getUserLogged } from '@/services';
 
 // Constants
 import { API_ENDPOINT, PRIVATE_ROUTES } from '@/constants';
 
 // Components
 import { Sidebar } from '@/components/layouts';
+
+// Types
+import { DIRECTION } from '@/types';
 
 const HeaderDashboard = dynamic(
   () => import('@/components/layouts/HeaderDashboard'),
@@ -22,11 +25,14 @@ export default async function DashboardLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const { avatar, id } = (await auth())?.user || {};
+  const { id, token = '' } = (await auth())?.user || {};
+  const { user: userLogged } = await getUserLogged(token);
+  const { avatar = '' } = userLogged || {};
   const searchParamsAPI = new URLSearchParams();
 
   searchParamsAPI.set('populate[0]', 'senderId');
   searchParamsAPI.set('filters[senderId][id][$eq]', `${id}`);
+  searchParamsAPI.set('sort[0]', `createdAt:${DIRECTION.DESC}`);
 
   const { notifications } = await getNotifications({
     searchParams: searchParamsAPI,
@@ -42,7 +48,7 @@ export default async function DashboardLayout({
       <Sidebar />
       <div className="flex flex-col min-h-[100vh] max-h-fit w-full relative bg-background-100 md:pl-[81px] lg:pl-[277px] max-w-[2560px] m-auto">
         <HeaderDashboard
-          avatarUrl={avatar ?? ''}
+          avatar={avatar}
           notifications={notifications}
           isInvisibleBadge={!notifications.length}
         />

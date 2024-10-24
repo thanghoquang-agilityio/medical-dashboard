@@ -40,8 +40,8 @@ export const Sidebar = () => {
     <>
       {isPending && (
         <>
-          <div className="absolute inset-0 z-40 w-screen h-screen bg-primary-100 opacity-30" />
-          <Spinner size="lg" />
+          <div className="fixed inset-0 z-40 w-screen h-screen bg-primary-100 opacity-30" />
+          <Spinner size="lg" className="fixed" />
         </>
       )}
       <div className="fixed z-10 max-h-screen overflow-y-scroll">

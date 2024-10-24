@@ -1,6 +1,18 @@
 import { render, screen } from '@testing-library/react';
+import { JSX, ClassAttributes, ImgHTMLAttributes } from 'react';
 
 import { ImageUpload } from '..';
+
+jest.mock('next/image', () => ({
+  __esModule: true,
+  default: (
+    props: JSX.IntrinsicAttributes &
+      ClassAttributes<HTMLImageElement> &
+      ImgHTMLAttributes<HTMLImageElement>,
+  ) => {
+    return <img {...props} />;
+  },
+}));
 
 describe('ImageUpload Component', () => {
   const mockOnRemoveImage = jest.fn();
@@ -28,13 +40,14 @@ describe('ImageUpload Component', () => {
 
   it('renders an avatar if src is provided', () => {
     renderComponent({ src: '/avatar.png' });
-    const avatar = screen.getByAltText('Image for avatar');
-    expect(avatar).toHaveAttribute('src', 'http://localhost:1341/avatar.png');
+    const avatar: HTMLImageElement = screen.getByAltText('Image for avatar');
+    expect(avatar.src.includes('avatar.png')).toBeTruthy();
   });
 
   it('renders an uploaded image if srcUpload is provided', () => {
-    renderComponent({ srcUpload: 'uploaded-image.png' });
-    const uploadedImage = screen.getByAltText('Image for avatar');
-    expect(uploadedImage).toHaveAttribute('src', 'uploaded-image.png');
+    renderComponent({ srcUpload: '/uploaded-image.png' });
+    const uploadedImage: HTMLImageElement =
+      screen.getByAltText('Image for avatar');
+    expect(uploadedImage.src.includes('uploaded-image.png')).toBeTruthy;
   });
 });

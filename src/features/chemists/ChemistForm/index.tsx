@@ -25,7 +25,7 @@ import {
   STATUS_TYPE,
   Option,
 } from '@/types';
-import { ERROR_MESSAGE, SUCCESS_MESSAGE } from '@/constants';
+import { AVATAR_THUMBNAIL, ERROR_MESSAGE, SUCCESS_MESSAGE } from '@/constants';
 
 // Helper
 import { clearErrorOnChange, getRoleIdByName } from '@/utils';
@@ -36,7 +36,7 @@ import {
   getUserRoles,
   updatePublishUser,
   updateUser,
-  uploadImage,
+  uploadImageToImgbb,
 } from '@/services';
 
 // Rules
@@ -55,16 +55,13 @@ const ChemistForm = memo(
       username = '',
       email = '',
       password = '',
-      avatar,
       description = '',
       rating = 0,
       tasks = 0,
       reviews = 0,
       specialtyId,
+      avatar,
     } = data || {};
-
-    const { id: avatarId, attributes: attributesAvatar } = avatar?.data || {};
-    const { url = '' } = attributesAvatar || {};
 
     const { id: specialty } = specialtyId?.data || {};
 
@@ -91,7 +88,7 @@ const ChemistForm = memo(
       mode: 'onBlur',
       reValidateMode: 'onBlur',
       defaultValues: {
-        avatar: url,
+        avatar: avatar || AVATAR_THUMBNAIL,
         username,
         password,
         confirmPassWord: password,
@@ -134,7 +131,7 @@ const ChemistForm = memo(
         if (files && files[0]) {
           const image = files[0];
           const formData = new FormData();
-          formData.append('files', image);
+          formData.append('image', image);
 
           setFormImage(formData);
           setImageUpload(URL.createObjectURL(image));
@@ -153,10 +150,6 @@ const ChemistForm = memo(
       }
     };
 
-    const handleClick = useCallback(() => {
-      hiddenFileInput.current?.click();
-    }, []);
-
     const handleInputChange = useCallback(
       (name: keyof ChemistFormData, onChange: (value: string) => void) => {
         return (e: ChangeEvent<HTMLInputElement>) => {
@@ -170,7 +163,11 @@ const ChemistForm = memo(
 
     const handleError = useCallback(
       (error: string) => {
+        if (error === ERROR_MESSAGE.DUPLICATE_FIELD)
+          error = ERROR_MESSAGE.USERNAME;
+
         setError(error);
+
         openToast({
           message: ERROR_MESSAGE.CREATE('chemist'),
           type: STATUS_TYPE.ERROR,
@@ -190,9 +187,8 @@ const ChemistForm = memo(
         const { avatar, username, email, password, specialtyId, description } =
           formData;
 
-        const avatarUpload = formImage
-          ? await uploadImage(formImage)
-          : undefined;
+        const avatarUpload =
+          (formImage && (await uploadImageToImgbb(formImage)).image) || '';
 
         const payload: UserPayload = {
           username,
@@ -200,12 +196,8 @@ const ChemistForm = memo(
           description,
           specialtyId: Number(specialtyId),
           role: Number(getRoleIdByName(roles, ROLE.NORMAL_USER)),
+          avatar: avatarUpload || avatar,
           ...(!isEdit && { password }),
-          ...(isEdit
-            ? avatarUpload
-              ? { avatar: Number(avatarUpload?.image?.[0]?.id) }
-              : { avatar: avatar && !avatarUpload ? Number(avatarId) : null }
-            : avatar && { avatar: Number(avatarUpload?.image?.[0]?.id) }),
         };
 
         if (isEdit) {
@@ -256,7 +248,7 @@ const ChemistForm = memo(
         setIsPending(false);
         onClose();
       },
-      [formImage, roles, isEdit, avatarId, onClose, id, handleError, openToast],
+      [formImage, handleError, id, isEdit, onClose, openToast, roles],
     );
 
     const handleCloseSelect = (field: keyof ChemistFormData) => () => {
@@ -286,7 +278,6 @@ const ChemistForm = memo(
               srcUpload={imageUpload}
               onRemoveImage={handleRemoveImage(onChange)}
               onUploadImage={handleUpload(onChange)}
-              onClick={handleClick}
               isDisabled={isPending}
             />
           )}

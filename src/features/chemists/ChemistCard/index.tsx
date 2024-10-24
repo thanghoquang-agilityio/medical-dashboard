@@ -10,21 +10,25 @@ import {
   useDisclosure,
 } from '@nextui-org/react';
 import { Avatar, Button, Text } from '@/components/ui';
-import { CloseIcon, NoteIcon, StarIcon } from '@/icons';
+import { DeleteIcon, EditIcon, NoteIcon, StarIcon } from '@/icons';
 const ConfirmModal = lazy(() => import('@/components/ui/ConfirmModal'));
 
 // Types
 import { STATUS_TYPE, UserModel } from '@/types';
-import { API_IMAGE_URL, ERROR_MESSAGE, SUCCESS_MESSAGE } from '@/constants';
+import { AVATAR_THUMBNAIL, ERROR_MESSAGE, SUCCESS_MESSAGE } from '@/constants';
 
-// Utils
-import { cn } from '@/utils';
+// Services
 import {
   updateUnpublishAppointment,
   updateUnpublishNotification,
   updateUnpublishUser,
 } from '@/services';
+
+// Hooks
 import { useToast } from '@/context/toast';
+
+// Utils
+import { cn, formatNumberWithUnit } from '@/utils';
 
 export interface ChemistCardProps {
   id: string;
@@ -38,15 +42,11 @@ const ChemistCard = ({ id, data, isAdmin, onEdit }: ChemistCardProps) => {
     username = '',
     description = '',
     rating = 0,
-    reviews,
-    tasks,
-    avatar,
+    reviews = 0,
+    tasks = 0,
     specialtyId,
+    avatar = AVATAR_THUMBNAIL,
   } = data || {};
-
-  const { data: dataAvatar } = avatar || {};
-  const { attributes: attributesAvatar } = dataAvatar || {};
-  const { url = '' } = attributesAvatar || {};
 
   const { data: dataSpecialty } = specialtyId || {};
   const { attributes: attributesSpecialty } = dataSpecialty || {};
@@ -95,86 +95,87 @@ const ChemistCard = ({ id, data, isAdmin, onEdit }: ChemistCardProps) => {
   }, [data, id, onEdit]);
 
   return (
-    <div
-      className={cn(
-        `min-w-[300px] w-full h-[228px] ${isAdmin ? 'cursor-pointer' : 'cursor-default'}`,
-      )}
-      onClick={handleEdit}
-    >
-      <Card className="bg-background-200 w-full h-full p-5 sm:p-6 gap-6 overflow-visible">
-        {isAdmin && (
-          <Button
-            aria-label="close"
-            isIconOnly
-            size="tiny"
-            color="red"
-            className="absolute top-[-8px] right-[-8px] min-w-6"
-            onClick={handleOpenConfirmModal}
-          >
-            <CloseIcon />
-          </Button>
-        )}
-        <CardHeader className="flex justify-between p-0">
-          <div className="flex items-center gap-2">
-            <Avatar
-              src={`${API_IMAGE_URL}${url}`}
-              size="lg"
-              className="ring-offset-0 ring-0"
-            />
-            <div className="flex flex-col gap-1">
-              <Text size="md" variant="title">
-                {username}
-              </Text>
-              {specialty && (
-                <Text size="xs" variant="description" customClass="font-normal">
-                  {specialty}
-                </Text>
-              )}
+    <>
+      <div className="min-w-[300px] w-full h-[228px] relative">
+        <Card
+          className={cn(
+            'bg-background-200 w-full h-full p-6 gap-6 overflow-visible',
+            isAdmin ? 'pt-0' : '',
+          )}
+        >
+          {isAdmin && (
+            <div className="group">
+              <div className="absolute z-10 rounded-large opacity-0 top-0 left-0 right-0 bottom-0 bg-primary-200 group-hover:opacity-70 flex justify-center items-center">
+                <Button isIconOnly onClick={handleEdit}>
+                  <EditIcon customClass="text-background-100 flex-shrink-0 w-4 h-4" />
+                </Button>
+                <Button isIconOnly onClick={handleOpenConfirmModal}>
+                  <DeleteIcon customClass="text-background-100 flex-shrink-0 w-4 h-4" />
+                </Button>
+              </div>
             </div>
-          </div>
-          <Button
-            color="default"
-            className="text-green text-lg font-medium p-0 min-w-10"
-          >
-            Book
-          </Button>
-        </CardHeader>
-        <CardBody className="p-0">
-          <Text
-            size="sm"
-            type="wrap"
-            variant="description"
-            customClass="line-clamp-2"
-          >
-            {description || 'No description'}
-          </Text>
-        </CardBody>
-        <CardFooter className="p-0 flex justify-between">
-          <div className="flex items-center gap-1 sm:gap-2">
-            <NoteIcon customClass="w-6 h-6" />
-            <Text size="sm" variant="title" customClass="font-medium">
-              {tasks} Task
+          )}
+          <CardHeader className="flex justify-between p-0">
+            <div className="flex items-center gap-2">
+              <Avatar src={avatar} size="lg" className="aspect-square" />
+              <div className="flex flex-col gap-1">
+                <Text size="md" variant="title">
+                  {username}
+                </Text>
+                {specialty && (
+                  <Text
+                    size="xs"
+                    variant="description"
+                    customClass="font-normal"
+                  >
+                    {specialty}
+                  </Text>
+                )}
+              </div>
+            </div>
+            <Button
+              color="default"
+              className="text-green text-lg font-medium p-0 min-w-10"
+            >
+              Book
+            </Button>
+          </CardHeader>
+          <CardBody className="p-0">
+            <Text
+              size="sm"
+              type="wrap"
+              variant="description"
+              customClass="line-clamp-2"
+            >
+              {description || 'No description'}
             </Text>
-          </div>
+          </CardBody>
+          <CardFooter className="p-0 flex justify-between">
+            <div className="flex items-center gap-1 sm:gap-2">
+              <NoteIcon customClass="w-6 h-6" />
+              <Text size="sm" variant="title" customClass="font-medium">
+                {formatNumberWithUnit(tasks, 'Task')}
+              </Text>
+            </div>
 
-          <div className="flex items-center gap-1 sm:gap-2">
-            <StarIcon customClass="w-6 h-6 text-light-orange" />
-            <Text size="sm" variant="title" customClass="font-medium">
-              {rating} ({reviews} Reviews)
-            </Text>
-          </div>
-        </CardFooter>
-      </Card>
-
+            <div className="flex items-center gap-1 sm:gap-2">
+              <StarIcon customClass="w-6 h-6 text-light-orange" />
+              <Text size="sm" variant="title" customClass="font-medium">
+                {rating} ({formatNumberWithUnit(reviews, 'Review')})
+              </Text>
+            </div>
+          </CardFooter>
+        </Card>
+      </div>
       <ConfirmModal
         title="Confirmation"
-        subTitle={`Do you want to delete this chemist?`}
+        subTitle="Do you want to delete this chemist?"
         isOpen={isOpenConfirm}
         isLoading={isLoading}
         onClose={onClosConfirm}
         onAction={handleDelete}
       />
-    </div>
+    </>
   );
 };
 

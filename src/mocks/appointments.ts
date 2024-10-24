@@ -1,3 +1,4 @@
+import { AVATAR_THUMBNAIL } from '@/constants';
 import { APIResponse, AppointmentModel } from '@/types';
 
 export const MOCK_APPOINTMENTS: APIResponse<AppointmentModel>[] = [
@@ -18,6 +19,7 @@ export const MOCK_APPOINTMENTS: APIResponse<AppointmentModel>[] = [
             rating: 5,
             tasks: 40,
             reviews: 600,
+            avatar: AVATAR_THUMBNAIL,
           },
         },
       },
@@ -32,6 +34,7 @@ export const MOCK_APPOINTMENTS: APIResponse<AppointmentModel>[] = [
             rating: 5,
             tasks: 40,
             reviews: 600,
+            avatar: AVATAR_THUMBNAIL,
           },
         },
       },
@@ -54,6 +57,7 @@ export const MOCK_APPOINTMENTS: APIResponse<AppointmentModel>[] = [
             rating: 5,
             tasks: 40,
             reviews: 600,
+            avatar: AVATAR_THUMBNAIL,
           },
         },
       },
@@ -68,6 +72,7 @@ export const MOCK_APPOINTMENTS: APIResponse<AppointmentModel>[] = [
             rating: 5,
             tasks: 40,
             reviews: 600,
+            avatar: AVATAR_THUMBNAIL,
           },
         },
       },
@@ -90,6 +95,7 @@ export const MOCK_APPOINTMENTS: APIResponse<AppointmentModel>[] = [
             rating: 5,
             tasks: 40,
             reviews: 600,
+            avatar: AVATAR_THUMBNAIL,
           },
         },
       },
@@ -104,6 +110,7 @@ export const MOCK_APPOINTMENTS: APIResponse<AppointmentModel>[] = [
             rating: 5,
             tasks: 40,
             reviews: 600,
+            avatar: AVATAR_THUMBNAIL,
           },
         },
       },

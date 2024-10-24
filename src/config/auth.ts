@@ -18,6 +18,7 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
       },
       async authorize(_, req) {
         const user = await req.json();
+
         if (!user) throw new Error('User not found.');
 
         return user;

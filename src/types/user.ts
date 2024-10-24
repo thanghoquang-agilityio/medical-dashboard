@@ -2,8 +2,6 @@ import {
   APIRelatedResponse,
   APIResponse,
   AppointmentModel,
-  ImageModel,
-  ImageResponse,
   MetaResponse,
   NotificationModel,
   SpecialtyModel,
@@ -25,7 +23,7 @@ export interface UserModel {
   username: string;
   email: string;
   password?: string;
-  avatar?: APIRelatedResponse<ImageResponse>;
+  avatar?: string;
   description?: string;
   rating?: number;
   tasks?: number;
@@ -46,7 +44,7 @@ export type UserLogged = Omit<
   | 'appointmentReceived'
 > & {
   id: string;
-  avatar?: ImageModel;
+  avatar?: string;
   role: RoleModel;
   specialtyId?: SpecialtyModel;
   notificationsSent?: NotificationModel[];
@@ -88,5 +86,5 @@ export type UserPayload = Omit<
   role: number;
   password?: string;
   specialtyId: number;
-  avatar?: number | null;
+  avatar?: string;
 };

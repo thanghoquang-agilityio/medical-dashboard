@@ -13,10 +13,13 @@ const Pagination = memo(
   ({ total, initialPage, classNames, onChange }: PaginationProps) => (
     <PaginationNextUI
       classNames={{
-        cursor: 'bg-linear-success',
-        item: cn('active:text-black-violet ', itemClass),
-        prev: cn(itemClass, 'data-[disabled=true]:opacity-40'),
-        next: cn(itemClass, 'data-[disabled=true]:opacity-40'),
+        cursor: 'hidden',
+        item: cn(
+          'data-[active=true]:bg-linear-success data-[active=true]:text-white',
+          itemClass,
+        ),
+        prev: cn(itemClass, 'hidden md:flex data-[disabled=true]:opacity-40'),
+        next: cn(itemClass, 'hidden md:flex data-[disabled=true]:opacity-40'),
         ...classNames,
       }}
       showControls

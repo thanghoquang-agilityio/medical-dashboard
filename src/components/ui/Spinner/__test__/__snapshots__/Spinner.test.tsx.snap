@@ -3,7 +3,7 @@
 exports[`Spinner Component should render Spinner component correctly 1`] = `
 <div>
   <div
-    class="absolute inset-0 z-50"
+    class="inset-0 z-50 undefined"
   >
     <div
       aria-label="Loading"

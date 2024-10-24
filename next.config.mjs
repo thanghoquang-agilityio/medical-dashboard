@@ -8,8 +8,16 @@ const nextConfig = {
         port: '',
         pathname: '/**',
       },
+      // TODO: update config images later
+      {
+        protocol: 'http',
+        hostname: '**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'i.ibb.co',
+      },
     ],
   },
 };
-
 export default nextConfig;

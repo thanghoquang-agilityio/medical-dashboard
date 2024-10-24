@@ -23,12 +23,7 @@ describe('ChemistForm test cases', () => {
       email: 'mock@example.com',
       username: 'mockuser',
       password: 'mockpassword',
-      avatar: {
-        data: {
-          id: 'mock_id',
-          attributes: { url: 'mock_url', name: 'mock_name', id: '1' },
-        },
-      },
+      avatar: '/mock_url',
       description: 'mock description',
       rating: 0,
     },
@@ -95,13 +90,13 @@ describe('ChemistForm test cases', () => {
     );
 
     const usernameInput: HTMLInputElement = screen.getByRole('textbox', {
-      name: /username username/i,
+      name: /username/i,
     });
 
     fireEvent.change(usernameInput, { target: { value: 'mockuser' } });
 
     const emailInput: HTMLInputElement = screen.getByRole('textbox', {
-      name: /email email/i,
+      name: /email/i,
     });
 
     fireEvent.change(emailInput, {

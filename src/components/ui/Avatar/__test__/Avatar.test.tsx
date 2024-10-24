@@ -1,4 +1,4 @@
-import { render } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 
 import { Avatar } from '..';
 
@@ -9,12 +9,23 @@ describe('Avatar Component', () => {
     expect(container).toMatchSnapshot();
   });
 
-  it('renders with border when hasBorder is true', () => {
-    const { getByTestId } = render(
-      <Avatar hasBorder data-testid="avatar-border" />,
-    );
+  it('renders with border when isBordered is true', () => {
+    render(<Avatar isBordered />);
 
-    const avatar = getByTestId('avatar-border');
-    expect(avatar).toHaveClass('ring-opacity-25');
+    const spanElement = screen.getByRole('img').closest('span');
+
+    // Check for bordered class
+    expect(spanElement).toHaveClass('ring-offset-2 ring-1 ring-green');
+  });
+
+  it('renders with border when isCustomBordered is true', () => {
+    render(<Avatar isCustomBordered />);
+
+    const spanElement = screen.getByRole('img').closest('span');
+
+    // Check for bordered class
+    expect(spanElement).toHaveClass(
+      'ring-offset-0 ring-yellow ring-opacity-25 ring-4',
+    );
   });
 });

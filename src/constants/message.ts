@@ -22,6 +22,8 @@ export const ERROR_MESSAGE = {
   CREATE: (item: string) => `Create ${item} failed. Please try again.`,
   UPDATE: (item: string) => `Update ${item} failed. Please try again.`,
   CANCEL: (item: string) => `Cancel ${item} failed. Please try again.`,
+  DUPLICATE_FIELD: 'This attribute must be unique',
+  USERNAME: 'Username already taken',
 };
 
 export const SUCCESS_MESSAGE = {

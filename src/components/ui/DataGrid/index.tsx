@@ -111,7 +111,7 @@ const DataGrid = memo(
           </TableHeader>
           <TableBody
             emptyContent={RESULT_NOT_FOUND}
-            loadingContent={<Spinner size="lg" />}
+            loadingContent={<Spinner size="lg" className="absolute" />}
           >
             {data.length
               ? data.map((item, index) => {

@@ -33,6 +33,7 @@ export const SidebarMobile = () => {
           className="p-0 min-w-4 h-7 bg-linear-success rounded-none rounded-r-lg lg:hidden"
           onClick={onOpen}
           data-testid="open-sidebar-mobile"
+          aria-label="open sidebar"
         >
           <ArrowRightIcon customClass="w-4 h-4" />
         </Button>
@@ -54,7 +55,7 @@ export const SidebarMobile = () => {
           backdrop: 'lg:hidden z-[40]',
         }}
         closeButton={
-          <Button onClick={onClose}>
+          <Button onClick={onClose} aria-label="close sidebar">
             <ArrowRightIcon customClass="w-4 h-4 rotate-180" />
           </Button>
         }

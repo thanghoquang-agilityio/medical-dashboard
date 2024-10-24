@@ -189,7 +189,7 @@ exports[`LoginForm Component should renders correctly form 1`] = `
           </span>
         </label>
         <a
-          class="relative inline-flex items-center tap-highlight-transparent outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 no-underline hover:opacity-80 active:opacity-disabled transition-opacity font-semibold text-secondary-300 text-lg"
+          class="relative inline-flex items-center tap-highlight-transparent outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 no-underline hover:opacity-80 active:opacity-disabled transition-opacity font-semibold text-link text-lg"
           href="/forgot-password"
           role="link"
           tabindex="0"
@@ -218,7 +218,7 @@ exports[`LoginForm Component should renders correctly form 1`] = `
           Don’t Have An Account?
         </p>
         <a
-          class="relative inline-flex items-center tap-highlight-transparent outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-medium no-underline hover:opacity-80 active:opacity-disabled transition-opacity font-semibold text-secondary-300"
+          class="relative inline-flex items-center tap-highlight-transparent outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-medium no-underline hover:opacity-80 active:opacity-disabled transition-opacity font-semibold text-link"
           href="/signup"
           role="link"
           tabindex="0"
