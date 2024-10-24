@@ -60,7 +60,7 @@ const ChemistForm = memo(
       tasks = 0,
       reviews = 0,
       specialtyId,
-      avatarUrl,
+      avatar,
     } = data || {};
 
     const { id: specialty } = specialtyId?.data || {};
@@ -88,7 +88,7 @@ const ChemistForm = memo(
       mode: 'onBlur',
       reValidateMode: 'onBlur',
       defaultValues: {
-        avatar: avatarUrl || AVATAR_THUMBNAIL,
+        avatar: avatar || AVATAR_THUMBNAIL,
         username,
         password,
         confirmPassWord: password,
@@ -192,7 +192,7 @@ const ChemistForm = memo(
           description,
           specialtyId: Number(specialtyId),
           role: Number(getRoleIdByName(roles, ROLE.NORMAL_USER)),
-          avatarUrl: avatarUpload || avatar,
+          avatar: avatarUpload || avatar,
           ...(!isEdit && { password }),
         };
 

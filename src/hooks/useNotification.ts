@@ -34,12 +34,11 @@ export const useNotification = ({
         durationTime = '',
       } = attributes || {};
 
-      const { id: userId = '', username = '', avatar } = userLogged || {};
-      const { url = '' } = avatar || {};
+      const { id: userId = '', username = '', avatar = '' } = userLogged || {};
 
       const notification: NotificationPayload = {
         senderName: username,
-        senderAvatar: url,
+        senderAvatar: avatar,
         isRead: false,
         info: {
           id,

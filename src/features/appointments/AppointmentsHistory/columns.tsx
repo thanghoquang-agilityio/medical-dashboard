@@ -42,12 +42,12 @@ export const createColumns = ({
         const { senderId = '' } = item || {};
         const { data } = senderId || {};
         const { attributes } = data || {};
-        const { username = '', avatarUrl } = attributes || {};
+        const { username = '', avatar = '' } = attributes || {};
 
         return (
           <div className="flex gap-2 items-center">
             <Avatar
-              src={avatarUrl}
+              src={avatar}
               size="md"
               isBordered
               customClass="shrink-0 hidden sm:block"
@@ -67,12 +67,12 @@ export const createColumns = ({
         const { receiverId = '' } = item || {};
         const { data } = receiverId || {};
         const { attributes } = data || {};
-        const { username = '', avatarUrl } = attributes || {};
+        const { username = '', avatar = '' } = attributes || {};
 
         return (
           <div className="flex gap-2 items-center">
             <Avatar
-              src={avatarUrl}
+              src={avatar}
               size="md"
               isBordered
               customClass="shrink-0 hidden sm:block"
@@ -97,12 +97,12 @@ export const createColumns = ({
         const { attributes: attributesSender, id: idSender } =
           senderId?.data || {};
 
-        const { avatarUrl: urlSender } = attributesSender || {};
+        const { avatar: urlSender } = attributesSender || {};
         const { username: usernameSender = '' } = attributesSender || {};
 
         // Receiver
         const { attributes: attributesReceiver } = receiverId?.data || {};
-        const { username: usernameReceiver = '', avatarUrl: urlReceiver } =
+        const { username: usernameReceiver = '', avatar: urlReceiver } =
           attributesReceiver || {};
 
         return (
