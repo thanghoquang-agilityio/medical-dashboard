@@ -11,9 +11,6 @@ import {
   isLaterThanCurrentTime,
 } from '@/utils';
 
-// Constants
-import { API_IMAGE_URL, AVATAR_THUMBNAIL } from '@/constants';
-
 // Components
 import {
   Avatar,
@@ -45,8 +42,7 @@ export const createColumns = ({
         const { senderId = '' } = item || {};
         const { data } = senderId || {};
         const { attributes } = data || {};
-        const { username = '', avatarUrl = AVATAR_THUMBNAIL } =
-          attributes || {};
+        const { username = '', avatarUrl } = attributes || {};
 
         return (
           <div className="flex gap-2 items-center">
@@ -71,8 +67,7 @@ export const createColumns = ({
         const { receiverId = '' } = item || {};
         const { data } = receiverId || {};
         const { attributes } = data || {};
-        const { username = '', avatarUrl = AVATAR_THUMBNAIL } =
-          attributes || {};
+        const { username = '', avatarUrl } = attributes || {};
 
         return (
           <div className="flex gap-2 items-center">
@@ -113,7 +108,7 @@ export const createColumns = ({
         return (
           <div className="flex gap-2 items-center">
             <Avatar
-              src={`${API_IMAGE_URL}${userId == idSender ? urlReceiver : urlSender}`}
+              src={userId == idSender ? urlReceiver : urlSender}
               size="md"
               isBordered
               className="shrink-0 aspect-square"

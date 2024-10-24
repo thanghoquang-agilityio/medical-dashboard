@@ -1,10 +1,10 @@
 'use client';
 
 import NextImage, { ImageProps } from 'next/image';
-import { memo, useEffect, useState } from 'react';
+import { memo, useCallback, useEffect, useState } from 'react';
 
 // Constants
-import { SRC_IMAGE_NOT_AVAILABLE } from '@/constants';
+import { AVATAR_THUMBNAIL, SRC_IMAGE_NOT_AVAILABLE } from '@/constants';
 
 const IMAGE_NOT_AVAILABLE = 'UnavailableImage';
 
@@ -13,7 +13,7 @@ export const Image = memo(
     className,
     src,
     alt,
-    fallbackImg,
+    fallbackImg = AVATAR_THUMBNAIL,
     ...rest
   }: ImageProps & { fallbackImg?: string }) => {
     const [fallbackSrc, setFallbackSrc] = useState(false);
@@ -26,6 +26,14 @@ export const Image = memo(
       setFallbackSrc(false);
     }, [src]);
 
+    const handleLoad = useCallback(
+      (event: React.SyntheticEvent<HTMLImageElement>) => {
+        const img = event.currentTarget;
+        if (img.naturalWidth === 0) setFallbackSrc(true);
+      },
+      [fallbackSrc],
+    );
+
     return (
       <NextImage
         className={className}
@@ -34,6 +42,7 @@ export const Image = memo(
         onError={handleError}
         style={{ objectFit: 'cover' }}
         priority
+        onLoad={handleLoad}
         {...rest}
       />
     );
