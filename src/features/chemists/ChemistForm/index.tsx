@@ -189,8 +189,7 @@ const ChemistForm = memo(
 
         const avatarUpload =
           (formImage && (await uploadImageToImgbb(formImage)).image) || '';
-        console.log(avatarUpload);
-        console.log(typeof avatarUpload);
+
         const payload: UserPayload = {
           username,
           email,
