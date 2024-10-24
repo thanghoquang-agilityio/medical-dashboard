@@ -173,13 +173,13 @@ describe('formatDateTime', () => {
     it('should return true when input date is later than current time', () => {
       const input = MOCK_DATE.PASS;
 
-      expect(isLaterThanCurrentTime(input)).toBe(true);
+      expect(isLaterThanCurrentTime(input)).toBe(false);
     });
 
     it('should return false when input date is not later than current time', () => {
       const input = MOCK_DATE.FUTURE;
 
-      expect(isLaterThanCurrentTime(input)).toBe(false);
+      expect(isLaterThanCurrentTime(input)).toBe(true);
     });
 
     it('should return false when input is empty', () => {

@@ -110,7 +110,7 @@ export const isLaterThanCurrentTime = (isoString: string) => {
   const inputDate = dayjs(isoString);
   const currentDate = dayjs();
 
-  return inputDate.isBefore(currentDate);
+  return inputDate.isAfter(currentDate);
 };
 
 export const generateTimeOptions = (): Option[] => {

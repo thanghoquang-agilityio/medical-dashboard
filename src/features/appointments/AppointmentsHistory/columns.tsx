@@ -166,7 +166,7 @@ export const createColumns = ({
       customNode: ({ item, id = '' }) => {
         const { startTime = '', status = 0 } = item || {};
         const isDisabled =
-          isLaterThanCurrentTime(startTime) ||
+          !isLaterThanCurrentTime(startTime) ||
           (!isAdmin && status !== getStatusKey('new')) ||
           (isAdmin && status === getStatusKey('cancelled'));
 
