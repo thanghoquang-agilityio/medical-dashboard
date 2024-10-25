@@ -91,6 +91,7 @@ export const Sidebar = () => {
 
             <div className="py-5 flex justify-center">
               <Button
+                aria-label="logout button"
                 color="stone"
                 isIconOnly
                 className="w-6 h-6"
