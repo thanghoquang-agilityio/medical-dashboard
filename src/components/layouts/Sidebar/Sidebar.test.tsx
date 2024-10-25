@@ -27,9 +27,7 @@ describe('Sidebar test cases', () => {
   it('should able to logout when clicking logout button', () => {
     setup();
 
-    const logoutBtn = screen.getByRole('button', {
-      name: /logout/i,
-    });
+    const logoutBtn = screen.getByLabelText('logout button');
 
     fireEvent.click(logoutBtn);
 
