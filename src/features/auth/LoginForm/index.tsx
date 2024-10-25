@@ -183,8 +183,8 @@ const LoginForm = () => {
           <NextUILink
             as={Link}
             href={AUTH_ROUTES.FORGOT_PASSWORD}
-            className="font-semibold text-link text-lg"
-            isDisabled={isFetching}
+            className="font-semibold text-secondary-400 text-lg"
+            isDisabled={true}
           >
             Forgot Password?
           </NextUILink>
@@ -207,7 +207,7 @@ const LoginForm = () => {
         <div className="flex justify-center w-full gap-6 pt-10 pb-3">
           <Text>Don&rsquo;t Have An Account?</Text>
           <NextUILink
-            className="font-semibold text-link"
+            className="font-semibold text-secondary-400"
             as={Link}
             href={AUTH_ROUTES.SIGNUP}
             isDisabled={isFetching}
