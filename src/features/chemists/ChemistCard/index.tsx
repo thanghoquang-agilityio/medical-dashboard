@@ -105,7 +105,7 @@ const ChemistCard = ({ id, data, isAdmin, onEdit }: ChemistCardProps) => {
         >
           {isAdmin && (
             <div className="group">
-              <div className="absolute z-10 rounded-large opacity-0 top-0 left-0 right-0 bottom-0 bg-primary-200 group-hover:opacity-70 flex justify-center items-center">
+              <div className="absolute z-10 rounded-large opacity-0 top-0 left-0 right-0 bottom-0 bg-primary-200 dark:group-hover:opacity-50 group-hover:opacity-70 flex justify-center items-center">
                 <Button isIconOnly onClick={handleEdit}>
                   <EditIcon customClass="text-background-100 flex-shrink-0 w-4 h-4" />
                 </Button>
