@@ -298,7 +298,7 @@ const SignupForm = () => {
           <NextUILink
             as={Link}
             href={AUTH_ROUTES.LOGIN}
-            className="font-semibold text-link"
+            className="font-semibold text-secondary-400"
             isDisabled={isFetching}
           >
             Login
