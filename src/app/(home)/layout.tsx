@@ -34,7 +34,7 @@ export default async function DashboardLayout({
   searchParamsAPI.set('filters[senderId][id][$eq]', `${id}`);
   searchParamsAPI.set('sort[0]', `createdAt:${DIRECTION.DESC}`);
 
-  const { notifications } = await getNotifications({
+  const { notifications, pagination } = await getNotifications({
     searchParams: searchParamsAPI,
     options: {
       next: {
@@ -48,9 +48,12 @@ export default async function DashboardLayout({
       <Sidebar />
       <div className="flex flex-col min-h-[100vh] max-h-fit w-full relative bg-background-100 md:pl-[81px] lg:pl-[277px] max-w-[2560px] m-auto">
         <HeaderDashboard
+          id={id}
           avatar={avatar}
-          notifications={notifications}
           isInvisibleBadge={!notifications.length}
+          notifications={notifications}
+          totalNotifications={pagination?.total || 0}
+          searchParams={searchParamsAPI.toString()}
         />
         <div className="relative min-h-fit h-full px-[17px] md:px-8">
           {children}
