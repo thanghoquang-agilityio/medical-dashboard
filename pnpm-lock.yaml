@@ -15,7 +15,6 @@ importers:
     dependencies:
       '@nextui-org/react':
         specifier: ^2.4.6
-<<<<<<< HEAD
         version: 2.4.8(@types/react@18.3.8)(framer-motion@11.3.23-alpha.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(tailwindcss@3.4.12(ts-node@10.9.2(@types/node@20.16.5)(typescript@5.6.2)))
       '@nextui-org/system':
         specifier: ^2.2.5
@@ -23,15 +22,6 @@ importers:
       '@nextui-org/theme':
         specifier: ^2.2.9
         version: 2.2.11(tailwindcss@3.4.12(ts-node@10.9.2(@types/node@20.16.5)(typescript@5.6.2)))
-=======
-        version: 2.4.8(@types/react@18.3.8)(framer-motion@11.3.23-alpha.2)(react-dom@18.3.1)(react@18.3.1)(tailwindcss@3.4.12)
-      '@nextui-org/system':
-        specifier: ^2.2.5
-        version: 2.2.6(@nextui-org/theme@2.2.11)(framer-motion@11.3.23-alpha.2)(react-dom@18.3.1)(react@18.3.1)
-      '@nextui-org/theme':
-        specifier: ^2.2.9
-        version: 2.2.11(tailwindcss@3.4.12)
->>>>>>> a3eb945 (build: update pagination module)
       clsx:
         specifier: ^2.1.1
         version: 2.1.1
@@ -46,7 +36,6 @@ importers:
         version: 12.6.0
       framer-motion:
         specifier: 11.3.23-alpha.2
-<<<<<<< HEAD
         version: 11.3.23-alpha.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       next:
         specifier: 14.2.5
@@ -57,18 +46,6 @@ importers:
       next-themes:
         specifier: ^0.3.0
         version: 0.3.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-=======
-        version: 11.3.23-alpha.2(react-dom@18.3.1)(react@18.3.1)
-      next:
-        specifier: 14.2.5
-        version: 14.2.5(@babel/core@7.25.2)(react-dom@18.3.1)(react@18.3.1)
-      next-auth:
-        specifier: 5.0.0-beta.21
-        version: 5.0.0-beta.21(next@14.2.5)(react@18.3.1)
-      next-themes:
-        specifier: ^0.3.0
-        version: 0.3.0(react-dom@18.3.1)(react@18.3.1)
->>>>>>> a3eb945 (build: update pagination module)
       react:
         specifier: ^18.3.1
         version: 18.3.1
@@ -93,11 +70,7 @@ importers:
         version: 3.5.5
       '@storybook/addon-essentials':
         specifier: ^8.1.2
-<<<<<<< HEAD
         version: 8.3.2(storybook@8.3.2)(webpack-sources@3.2.3)
-=======
-        version: 8.3.2(storybook@8.3.2)
->>>>>>> a3eb945 (build: update pagination module)
       '@storybook/addon-interactions':
         specifier: ^8.1.2
         version: 8.3.2(storybook@8.3.2)
@@ -109,7 +82,6 @@ importers:
         version: 8.3.2(react@18.3.1)(storybook@8.3.2)
       '@storybook/blocks':
         specifier: ^8.1.2
-<<<<<<< HEAD
         version: 8.3.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(storybook@8.3.2)
       '@storybook/nextjs':
         specifier: ^8.1.2
@@ -117,15 +89,6 @@ importers:
       '@storybook/react':
         specifier: ^8.1.2
         version: 8.3.2(@storybook/test@8.3.2(storybook@8.3.2))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(storybook@8.3.2)(typescript@5.6.2)
-=======
-        version: 8.3.2(react-dom@18.3.1)(react@18.3.1)(storybook@8.3.2)
-      '@storybook/nextjs':
-        specifier: ^8.1.2
-        version: 8.3.2(esbuild@0.23.1)(next@14.2.5)(react-dom@18.3.1)(react@18.3.1)(storybook@8.3.2)(typescript@5.6.2)(webpack@5.94.0)
-      '@storybook/react':
-        specifier: ^8.1.2
-        version: 8.3.2(@storybook/test@8.3.2)(react-dom@18.3.1)(react@18.3.1)(storybook@8.3.2)(typescript@5.6.2)
->>>>>>> a3eb945 (build: update pagination module)
       '@storybook/test':
         specifier: ^8.1.2
         version: 8.3.2(storybook@8.3.2)
@@ -134,11 +97,7 @@ importers:
         version: 6.5.0
       '@testing-library/react':
         specifier: ^15.0.7
-<<<<<<< HEAD
         version: 15.0.7(@types/react@18.3.8)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-=======
-        version: 15.0.7(@types/react@18.3.8)(react-dom@18.3.1)(react@18.3.1)
->>>>>>> a3eb945 (build: update pagination module)
       '@types/jest':
         specifier: ^29.5.12
         version: 29.5.13
@@ -153,11 +112,7 @@ importers:
         version: 18.3.0
       '@typescript-eslint/eslint-plugin':
         specifier: ^7.18.0
-<<<<<<< HEAD
         version: 7.18.0(@typescript-eslint/parser@7.18.0(eslint@8.57.1)(typescript@5.6.2))(eslint@8.57.1)(typescript@5.6.2)
-=======
-        version: 7.18.0(@typescript-eslint/parser@7.18.0)(eslint@8.57.1)(typescript@5.6.2)
->>>>>>> a3eb945 (build: update pagination module)
       eslint:
         specifier: ^8.57.0
         version: 8.57.1
@@ -175,23 +130,16 @@ importers:
         version: 9.1.6
       jest:
         specifier: ^29.7.0
-<<<<<<< HEAD
         version: 29.7.0(@types/node@20.16.5)(ts-node@10.9.2(@types/node@20.16.5)(typescript@5.6.2))
-=======
-        version: 29.7.0(@types/node@20.16.5)(ts-node@10.9.2)
->>>>>>> a3eb945 (build: update pagination module)
       jest-environment-jsdom:
         specifier: ^29.7.0
         version: 29.7.0
       lint-staged:
         specifier: ^15.2.10
         version: 15.2.10
-<<<<<<< HEAD
       patch-package:
         specifier: ^8.0.0
         version: 8.0.0
-=======
->>>>>>> a3eb945 (build: update pagination module)
       postcss:
         specifier: ^8.4.45
         version: 8.4.47
@@ -206,17 +154,10 @@ importers:
         version: 2.5.2
       tailwindcss:
         specifier: ^3.4.10
-<<<<<<< HEAD
         version: 3.4.12(ts-node@10.9.2(@types/node@20.16.5)(typescript@5.6.2))
       ts-jest:
         specifier: ^29.2.5
         version: 29.2.5(@babel/core@7.25.2)(@jest/transform@29.7.0)(@jest/types@29.6.3)(babel-jest@29.7.0(@babel/core@7.25.2))(esbuild@0.23.1)(jest@29.7.0(@types/node@20.16.5)(ts-node@10.9.2(@types/node@20.16.5)(typescript@5.6.2)))(typescript@5.6.2)
-=======
-        version: 3.4.12(ts-node@10.9.2)
-      ts-jest:
-        specifier: ^29.2.5
-        version: 29.2.5(@babel/core@7.25.2)(esbuild@0.23.1)(jest@29.7.0)(typescript@5.6.2)
->>>>>>> a3eb945 (build: update pagination module)
       ts-node:
         specifier: ^10.9.2
         version: 10.9.2(@types/node@20.16.5)(typescript@5.6.2)
@@ -3415,12 +3356,9 @@ packages:
   '@xtuc/long@4.2.2':
     resolution: {integrity: sha512-NuHqBY1PB/D8xU6s/thBgOAiAP7HOYDQ32+BFZILJ8ivkUkAHQnWfn6WhL79Owj1qmUnoN/YPhktdIoucipkAQ==}
 
-<<<<<<< HEAD
   '@yarnpkg/lockfile@1.1.0':
     resolution: {integrity: sha512-GpSwvyXOcOOlV70vbnzjj4fW5xW/FdUF6nQEt1ENy7m4ZCczi1+/buVUPAqmGfqznsORNFzUMjctTIp8a9tuCQ==}
 
-=======
->>>>>>> a3eb945 (build: update pagination module)
   JSONStream@1.3.5:
     resolution: {integrity: sha512-E+iruNOY8VV9s4JEbe1aNEm6MiszPRr/UfcHMz0TQh1BXSxHK+ASV1R6W4HpjBhSeS+54PIsAMCBmwD06LLsqQ==}
     hasBin: true
@@ -3647,13 +3585,10 @@ packages:
   asynckit@0.4.0:
     resolution: {integrity: sha512-Oei9OH4tRh0YqU3GxhX79dM/mwVgvbZJaSNaRk+bshkj0S5cfHcgYakreBjrHwatXKbz+IoIdYLxrKim2MjW0Q==}
 
-<<<<<<< HEAD
   at-least-node@1.0.0:
     resolution: {integrity: sha512-+q/t7Ekv1EDY2l6Gda6LLiX14rU9TV20Wa3ofeQmwPFZbOMo9DXrLbOjFaaclkXKWidIaopwAObQDqwWtGUjqg==}
     engines: {node: '>= 4.0.0'}
 
-=======
->>>>>>> a3eb945 (build: update pagination module)
   available-typed-arrays@1.0.7:
     resolution: {integrity: sha512-wvUjBtSGN7+7SjNpq/9M2Tg350UZD3q62IFZLbRAR1bSMlCo1ZaeW+BJ+D090e4hIIZLBcTDWe4Mh4jvUDajzQ==}
     engines: {node: '>= 0.4'}
@@ -4731,12 +4666,9 @@ packages:
     resolution: {integrity: sha512-YyZM99iHrqLKjmt4LJDj58KI+fYyufRLBSYcqycxf//KpBk9FoewoGX0450m9nB44qrZnovzC2oeP5hUibxc/g==}
     engines: {node: '>=18'}
 
-<<<<<<< HEAD
   find-yarn-workspace-root@2.0.0:
     resolution: {integrity: sha512-1IMnbjt4KzsQfnhnzNd8wUEgXZ44IzZaZmnLYx7D5FZlaHt2gW20Cri8Q+E/t5tIj4+epTBub+2Zxu/vNILzqQ==}
 
-=======
->>>>>>> a3eb945 (build: update pagination module)
   firebase-admin@12.6.0:
     resolution: {integrity: sha512-gc0pDiUmxscxBhcjMcttmjvExJmnQdVRb+IIth95CvMm7F9rLdabrQZThW2mK02HR696P+rzd6NqkdUA3URu4w==}
     engines: {node: '>=14'}
@@ -4807,13 +4739,10 @@ packages:
     resolution: {integrity: sha512-PmDi3uwK5nFuXh7XDTlVnS17xJS7vW36is2+w3xcv8SVxiB4NyATf4ctkVY5bkSjX0Y4nbvZCq1/EjtEyr9ktw==}
     engines: {node: '>=14.14'}
 
-<<<<<<< HEAD
   fs-extra@9.1.0:
     resolution: {integrity: sha512-hcg3ZmepS30/7BSFqRvoo3DOMQu7IjqxO5nCDt+zM9XWjb33Wg7ziNT+Qvqbuc3+gWpzO02JubVyk2G4Zvo1OQ==}
     engines: {node: '>=10'}
 
-=======
->>>>>>> a3eb945 (build: update pagination module)
   fs-monkey@1.0.6:
     resolution: {integrity: sha512-b1FMfwetIKymC0eioW7mTywihSQE4oLzQn1dB6rZB5fx/3NpNEdAWeCSMB+60/AeT0TCXsxzAlcYVEFCTAksWg==}
 
@@ -5586,13 +5515,10 @@ packages:
   json-stable-stringify-without-jsonify@1.0.1:
     resolution: {integrity: sha512-Bdboy+l7tA3OGW6FjyFHWkP5LuByj1Tk33Ljyq0axyzdk9//JSi2u3fP1QSmd1KNwq6VOKYGlAu87CisVir6Pw==}
 
-<<<<<<< HEAD
   json-stable-stringify@1.1.1:
     resolution: {integrity: sha512-SU/971Kt5qVQfJpyDveVhQ/vya+5hvrjClFOcr8c0Fq5aODJjMwutrOfCU+eCnVD5gpx1Q3fEqkyom77zH1iIg==}
     engines: {node: '>= 0.4'}
 
-=======
->>>>>>> a3eb945 (build: update pagination module)
   json5@1.0.2:
     resolution: {integrity: sha512-g1MWMLBiz8FKi1e4w0UyVL3w+iJceWAFBAaBnnGKOpNa5f8TLktkbre1+s6oICydWAm+HRUGTmI+//xv2hvXYA==}
     hasBin: true
@@ -5605,12 +5531,9 @@ packages:
   jsonfile@6.1.0:
     resolution: {integrity: sha512-5dgndWOriYSm5cnYaJNhalLNDKOqFwyDB/rr1E9ZsGciGvKPs8R2xYGCacuf3z6K1YKDz182fd+fY3cn3pMqXQ==}
 
-<<<<<<< HEAD
   jsonify@0.0.1:
     resolution: {integrity: sha512-2/Ki0GcmuqSrgFyelQq9M05y7PS0mEwuIzrf3f1fPqkVDVRvZrPZtVSMHxdgo8Aq0sxAOb/cr2aqqA3LeWHVPg==}
 
-=======
->>>>>>> a3eb945 (build: update pagination module)
   jsonparse@1.3.1:
     resolution: {integrity: sha512-POQXvpdL69+CluYsillJ7SUhKvytYjW9vG/GKpnf+xP8UWgYEM/RaMzHHofbALDiKbbP1W8UEYmgGl39WkPZsg==}
     engines: {'0': node >= 0.2.0}
@@ -5642,12 +5565,9 @@ packages:
   keyv@4.5.4:
     resolution: {integrity: sha512-oxVHkHR/EJf2CNXnWxRLW6mg7JyCCUcG0DtEGmL2ctUo1PNTin1PUil+r/+4r5MpVgC/fn1kjsx7mjSujKqIpw==}
 
-<<<<<<< HEAD
   klaw-sync@6.0.0:
     resolution: {integrity: sha512-nIeuVSzdCCs6TDPTqI8w1Yre34sSq7AkZ4B3sfOBbI2CgVSB4Du4aLQijFU2+lhAFCwt9+42Hel6lQNIv6AntQ==}
 
-=======
->>>>>>> a3eb945 (build: update pagination module)
   kleur@3.0.3:
     resolution: {integrity: sha512-eTIzlVOSUR+JxdDFepEYcBMtZ9Qqdef+rnzWdRZuMbOywu5tO2w2N7rqjoANZ5k9vywhL6Br1VRjUIgTQx4E8w==}
     engines: {node: '>=6'}
@@ -6123,13 +6043,10 @@ packages:
     resolution: {integrity: sha512-VXJjc87FScF88uafS3JllDgvAm+c/Slfz06lorj2uAY34rlUu0Nt+v8wreiImcrgAjjIHp1rXpTDlLOGw29WwQ==}
     engines: {node: '>=18'}
 
-<<<<<<< HEAD
   open@7.4.2:
     resolution: {integrity: sha512-MVHddDVweXZF3awtlAS+6pgKLlm/JgxZ90+/NBurBoQctVOOB/zDdVjcyPzQ+0laDGbsWgrRkflI65sQeOgT9Q==}
     engines: {node: '>=8'}
 
-=======
->>>>>>> a3eb945 (build: update pagination module)
   open@8.4.2:
     resolution: {integrity: sha512-7x81NCL719oNbsq/3mh+hVrAWmFuEYUqrq/Iw3kUzH8ReypT9QQ0BLoJS7/G9k6N81XjW4qHWtjWwe/9eLy1EQ==}
     engines: {node: '>=12'}
@@ -6141,13 +6058,10 @@ packages:
   os-browserify@0.3.0:
     resolution: {integrity: sha512-gjcpUc3clBf9+210TRaDWbf+rZZZEshZ+DlXMRCeAjp0xhTrnQsKHypIy1J3d5hKdUzj69t708EHtU8P6bUn0A==}
 
-<<<<<<< HEAD
   os-tmpdir@1.0.2:
     resolution: {integrity: sha512-D2FR03Vir7FIu45XBY20mTb+/ZSWB00sjU9jdQXt83gDrI4Ztz5Fs7/yy74g2N5SVQY4xY1qDr4rNddwYRVX0g==}
     engines: {node: '>=0.10.0'}
 
-=======
->>>>>>> a3eb945 (build: update pagination module)
   p-limit@2.3.0:
     resolution: {integrity: sha512-//88mFWSJx8lxCzwdAABTJL2MyWB12+eIY7MDL2SqLmAkeKU9qxRvWuSyTjm3FUmpBEMuFfckAIqEaVGUDxb6w==}
     engines: {node: '>=6'}
@@ -6207,14 +6121,11 @@ packages:
   pascal-case@3.1.2:
     resolution: {integrity: sha512-uWlGT3YSnK9x3BQJaOdcZwrnV6hPpd8jFH1/ucpiLRPh/2zCVJKS19E4GvYHvaCcACn3foXZ0cLB9Wrx1KGe5g==}
 
-<<<<<<< HEAD
   patch-package@8.0.0:
     resolution: {integrity: sha512-da8BVIhzjtgScwDJ2TtKsfT5JFWz1hYoBl9rUQ1f38MC2HwnEIkK8VN3dKMKcP7P7bvvgzNDbfNHtx3MsQb5vA==}
     engines: {node: '>=14', npm: '>5'}
     hasBin: true
 
-=======
->>>>>>> a3eb945 (build: update pagination module)
   path-browserify@1.0.1:
     resolution: {integrity: sha512-b7uo2UCUOYZcnF/3ID0lulOJi/bafxa1xPe7ZPsammBSpjSWQkjNxlt635YGS2MiR9GjvuXCtz2emr3jbsz98g==}
 
@@ -6716,14 +6627,11 @@ packages:
   rfdc@1.4.1:
     resolution: {integrity: sha512-q1b3N5QkRUWUl7iyylaaj3kOpIT0N2i9MqIEQXP73GVsN9cw3fdx8X63cEmWhJGi2PPCF23Ijp7ktmd39rawIA==}
 
-<<<<<<< HEAD
   rimraf@2.7.1:
     resolution: {integrity: sha512-uWjbaKIK3T1OSVptzX7Nl6PvQ3qAGtKEtVRjRuazjfL3Bx5eI409VZSqgND+4UNnmzLVdPj9FqFJNPqBZFve4w==}
     deprecated: Rimraf versions prior to v4 are no longer supported
     hasBin: true
 
-=======
->>>>>>> a3eb945 (build: update pagination module)
   rimraf@3.0.2:
     resolution: {integrity: sha512-JZkJMZkAGFFPP2YqXZXPbMlMBgsxzE8ILs4lMIX/2o0L9UBw9O/Y3o6wFw/i9YLapcUJWwqbi3kdxIPdC62TIA==}
     deprecated: Rimraf versions prior to v4 are no longer supported
@@ -6856,13 +6764,10 @@ packages:
   sisteransi@1.0.5:
     resolution: {integrity: sha512-bLGGlR1QxBcynn2d5YmDX4MGjlZvy2MRBDRNHLJ8VI6l6+9FUiyTFNJ0IveOSP0bcXgVDPRcfGqA0pjaqUpfVg==}
 
-<<<<<<< HEAD
   slash@2.0.0:
     resolution: {integrity: sha512-ZYKh3Wh2z1PpEXWr0MpSBZ0V6mZHAQfYevttO11c51CaWjGTaadiKZ+wVt1PbMlDV5qhMFslpZCemhwOK7C89A==}
     engines: {node: '>=6'}
 
-=======
->>>>>>> a3eb945 (build: update pagination module)
   slash@3.0.0:
     resolution: {integrity: sha512-g9Q1haeby36OSStwb4ntCGGGaKsaVSjQ68fBxoQcutl5fS1vuY18H3wSt3jFyFtrkx+Kz0V1G85A4MyAdDMi2Q==}
     engines: {node: '>=8'}
@@ -7171,13 +7076,10 @@ packages:
     resolution: {integrity: sha512-n1cw8k1k0x4pgA2+9XrOkFydTerNcJ1zWCO5Nn9scWHTD+5tp8dghT2x1uduQePZTZgd3Tupf+x9BxJjeJi77Q==}
     engines: {node: '>=14.0.0'}
 
-<<<<<<< HEAD
   tmp@0.0.33:
     resolution: {integrity: sha512-jRCJlojKnZ3addtTOjdIqoRuPEKBvNXcGYqzO6zWZX8KfKEpnGY5jfggJQ3EjKuu8D4bJRr0y+cYJFmYbImXGw==}
     engines: {node: '>=0.6.0'}
 
-=======
->>>>>>> a3eb945 (build: update pagination module)
   tmpl@1.0.5:
     resolution: {integrity: sha512-3f0uOEAQwIqGuWW2MVzYg8fV/QNnc/IpuJNG837rLuczAaLVHslWHZQj4IGiEl5Hs3kkbhwL9Ab7Hrsmuj+Smw==}
 
@@ -9308,11 +9210,7 @@ snapshots:
       jest-util: 29.7.0
       slash: 3.0.0
 
-<<<<<<< HEAD
   '@jest/core@29.7.0(ts-node@10.9.2(@types/node@20.16.5)(typescript@5.6.2))':
-=======
-  '@jest/core@29.7.0(ts-node@10.9.2)':
->>>>>>> a3eb945 (build: update pagination module)
     dependencies:
       '@jest/console': 29.7.0
       '@jest/reporters': 29.7.0
@@ -9534,11 +9432,7 @@ snapshots:
   '@next/swc-win32-x64-msvc@14.2.5':
     optional: true
 
-<<<<<<< HEAD
   '@nextui-org/accordion@2.0.40(@nextui-org/system@2.2.6(@nextui-org/theme@2.2.11(tailwindcss@3.4.12(ts-node@10.9.2(@types/node@20.16.5)(typescript@5.6.2))))(framer-motion@11.3.23-alpha.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(@nextui-org/theme@2.2.11(tailwindcss@3.4.12(ts-node@10.9.2(@types/node@20.16.5)(typescript@5.6.2))))(framer-motion@11.3.23-alpha.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
-=======
-  '@nextui-org/accordion@2.0.40(@nextui-org/system@2.2.6)(@nextui-org/theme@2.2.11)(framer-motion@11.3.23-alpha.2)(react-dom@18.3.1)(react@18.3.1)':
->>>>>>> a3eb945 (build: update pagination module)
     dependencies:
       '@nextui-org/aria-utils': 2.0.26(@nextui-org/theme@2.2.11(tailwindcss@3.4.12(ts-node@10.9.2(@types/node@20.16.5)(typescript@5.6.2))))(framer-motion@11.3.23-alpha.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@nextui-org/divider': 2.0.32(@nextui-org/theme@2.2.11(tailwindcss@3.4.12(ts-node@10.9.2(@types/node@20.16.5)(typescript@5.6.2))))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -9560,11 +9454,7 @@ snapshots:
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
 
-<<<<<<< HEAD
   '@nextui-org/aria-utils@2.0.26(@nextui-org/theme@2.2.11(tailwindcss@3.4.12(ts-node@10.9.2(@types/node@20.16.5)(typescript@5.6.2))))(framer-motion@11.3.23-alpha.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
-=======
-  '@nextui-org/aria-utils@2.0.26(@nextui-org/theme@2.2.11)(framer-motion@11.3.23-alpha.2)(react-dom@18.3.1)(react@18.3.1)':
->>>>>>> a3eb945 (build: update pagination module)
     dependencies:
       '@nextui-org/react-rsc-utils': 2.0.14(react@18.3.1)
       '@nextui-org/shared-utils': 2.0.8
@@ -9580,11 +9470,7 @@ snapshots:
       - '@nextui-org/theme'
       - framer-motion
 
-<<<<<<< HEAD
   '@nextui-org/autocomplete@2.1.7(@nextui-org/system@2.2.6(@nextui-org/theme@2.2.11(tailwindcss@3.4.12(ts-node@10.9.2(@types/node@20.16.5)(typescript@5.6.2))))(framer-motion@11.3.23-alpha.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(@nextui-org/theme@2.2.11(tailwindcss@3.4.12(ts-node@10.9.2(@types/node@20.16.5)(typescript@5.6.2))))(@types/react@18.3.8)(framer-motion@11.3.23-alpha.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
-=======
-  '@nextui-org/autocomplete@2.1.7(@nextui-org/system@2.2.6)(@nextui-org/theme@2.2.11)(@types/react@18.3.8)(framer-motion@11.3.23-alpha.2)(react-dom@18.3.1)(react@18.3.1)':
->>>>>>> a3eb945 (build: update pagination module)
     dependencies:
       '@nextui-org/aria-utils': 2.0.26(@nextui-org/theme@2.2.11(tailwindcss@3.4.12(ts-node@10.9.2(@types/node@20.16.5)(typescript@5.6.2))))(framer-motion@11.3.23-alpha.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@nextui-org/button': 2.0.38(@nextui-org/system@2.2.6(@nextui-org/theme@2.2.11(tailwindcss@3.4.12(ts-node@10.9.2(@types/node@20.16.5)(typescript@5.6.2))))(framer-motion@11.3.23-alpha.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(@nextui-org/theme@2.2.11(tailwindcss@3.4.12(ts-node@10.9.2(@types/node@20.16.5)(typescript@5.6.2))))(framer-motion@11.3.23-alpha.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -9615,11 +9501,7 @@ snapshots:
     transitivePeerDependencies:
       - '@types/react'
 
-<<<<<<< HEAD
   '@nextui-org/avatar@2.0.33(@nextui-org/system@2.2.6(@nextui-org/theme@2.2.11(tailwindcss@3.4.12(ts-node@10.9.2(@types/node@20.16.5)(typescript@5.6.2))))(framer-motion@11.3.23-alpha.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(@nextui-org/theme@2.2.11(tailwindcss@3.4.12(ts-node@10.9.2(@types/node@20.16.5)(typescript@5.6.2))))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
-=======
-  '@nextui-org/avatar@2.0.33(@nextui-org/system@2.2.6)(@nextui-org/theme@2.2.11)(react-dom@18.3.1)(react@18.3.1)':
->>>>>>> a3eb945 (build: update pagination module)
     dependencies:
       '@nextui-org/react-utils': 2.0.17(react@18.3.1)
       '@nextui-org/shared-utils': 2.0.8
@@ -9632,11 +9514,7 @@ snapshots:
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
 
-<<<<<<< HEAD
   '@nextui-org/badge@2.0.32(@nextui-org/system@2.2.6(@nextui-org/theme@2.2.11(tailwindcss@3.4.12(ts-node@10.9.2(@types/node@20.16.5)(typescript@5.6.2))))(framer-motion@11.3.23-alpha.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(@nextui-org/theme@2.2.11(tailwindcss@3.4.12(ts-node@10.9.2(@types/node@20.16.5)(typescript@5.6.2))))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
-=======
-  '@nextui-org/badge@2.0.32(@nextui-org/system@2.2.6)(@nextui-org/theme@2.2.11)(react-dom@18.3.1)(react@18.3.1)':
->>>>>>> a3eb945 (build: update pagination module)
     dependencies:
       '@nextui-org/react-utils': 2.0.17(react@18.3.1)
       '@nextui-org/shared-utils': 2.0.8
@@ -9645,11 +9523,7 @@ snapshots:
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
 
-<<<<<<< HEAD
   '@nextui-org/breadcrumbs@2.0.13(@nextui-org/system@2.2.6(@nextui-org/theme@2.2.11(tailwindcss@3.4.12(ts-node@10.9.2(@types/node@20.16.5)(typescript@5.6.2))))(framer-motion@11.3.23-alpha.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(@nextui-org/theme@2.2.11(tailwindcss@3.4.12(ts-node@10.9.2(@types/node@20.16.5)(typescript@5.6.2))))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
-=======
-  '@nextui-org/breadcrumbs@2.0.13(@nextui-org/system@2.2.6)(@nextui-org/theme@2.2.11)(react-dom@18.3.1)(react@18.3.1)':
->>>>>>> a3eb945 (build: update pagination module)
     dependencies:
       '@nextui-org/react-utils': 2.0.17(react@18.3.1)
       '@nextui-org/shared-icons': 2.0.9(react@18.3.1)
@@ -9664,11 +9538,7 @@ snapshots:
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
 
-<<<<<<< HEAD
   '@nextui-org/button@2.0.38(@nextui-org/system@2.2.6(@nextui-org/theme@2.2.11(tailwindcss@3.4.12(ts-node@10.9.2(@types/node@20.16.5)(typescript@5.6.2))))(framer-motion@11.3.23-alpha.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(@nextui-org/theme@2.2.11(tailwindcss@3.4.12(ts-node@10.9.2(@types/node@20.16.5)(typescript@5.6.2))))(framer-motion@11.3.23-alpha.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
-=======
-  '@nextui-org/button@2.0.38(@nextui-org/system@2.2.6)(@nextui-org/theme@2.2.11)(framer-motion@11.3.23-alpha.2)(react-dom@18.3.1)(react@18.3.1)':
->>>>>>> a3eb945 (build: update pagination module)
     dependencies:
       '@nextui-org/react-utils': 2.0.17(react@18.3.1)
       '@nextui-org/ripple': 2.0.33(@nextui-org/system@2.2.6(@nextui-org/theme@2.2.11(tailwindcss@3.4.12(ts-node@10.9.2(@types/node@20.16.5)(typescript@5.6.2))))(framer-motion@11.3.23-alpha.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(@nextui-org/theme@2.2.11(tailwindcss@3.4.12(ts-node@10.9.2(@types/node@20.16.5)(typescript@5.6.2))))(framer-motion@11.3.23-alpha.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -9687,11 +9557,7 @@ snapshots:
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
 
-<<<<<<< HEAD
   '@nextui-org/calendar@2.0.12(@nextui-org/system@2.2.6(@nextui-org/theme@2.2.11(tailwindcss@3.4.12(ts-node@10.9.2(@types/node@20.16.5)(typescript@5.6.2))))(framer-motion@11.3.23-alpha.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(@nextui-org/theme@2.2.11(tailwindcss@3.4.12(ts-node@10.9.2(@types/node@20.16.5)(typescript@5.6.2))))(framer-motion@11.3.23-alpha.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
-=======
-  '@nextui-org/calendar@2.0.12(@nextui-org/system@2.2.6)(@nextui-org/theme@2.2.11)(framer-motion@11.3.23-alpha.2)(react-dom@18.3.1)(react@18.3.1)':
->>>>>>> a3eb945 (build: update pagination module)
     dependencies:
       '@internationalized/date': 3.5.5
       '@nextui-org/button': 2.0.38(@nextui-org/system@2.2.6(@nextui-org/theme@2.2.11(tailwindcss@3.4.12(ts-node@10.9.2(@types/node@20.16.5)(typescript@5.6.2))))(framer-motion@11.3.23-alpha.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(@nextui-org/theme@2.2.11(tailwindcss@3.4.12(ts-node@10.9.2(@types/node@20.16.5)(typescript@5.6.2))))(framer-motion@11.3.23-alpha.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -9721,11 +9587,7 @@ snapshots:
     transitivePeerDependencies:
       - framer-motion
 
-<<<<<<< HEAD
   '@nextui-org/card@2.0.34(@nextui-org/system@2.2.6(@nextui-org/theme@2.2.11(tailwindcss@3.4.12(ts-node@10.9.2(@types/node@20.16.5)(typescript@5.6.2))))(framer-motion@11.3.23-alpha.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(@nextui-org/theme@2.2.11(tailwindcss@3.4.12(ts-node@10.9.2(@types/node@20.16.5)(typescript@5.6.2))))(framer-motion@11.3.23-alpha.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
-=======
-  '@nextui-org/card@2.0.34(@nextui-org/system@2.2.6)(@nextui-org/theme@2.2.11)(framer-motion@11.3.23-alpha.2)(react-dom@18.3.1)(react@18.3.1)':
->>>>>>> a3eb945 (build: update pagination module)
     dependencies:
       '@nextui-org/react-utils': 2.0.17(react@18.3.1)
       '@nextui-org/ripple': 2.0.33(@nextui-org/system@2.2.6(@nextui-org/theme@2.2.11(tailwindcss@3.4.12(ts-node@10.9.2(@types/node@20.16.5)(typescript@5.6.2))))(framer-motion@11.3.23-alpha.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(@nextui-org/theme@2.2.11(tailwindcss@3.4.12(ts-node@10.9.2(@types/node@20.16.5)(typescript@5.6.2))))(framer-motion@11.3.23-alpha.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -9742,11 +9604,7 @@ snapshots:
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
 
-<<<<<<< HEAD
   '@nextui-org/checkbox@2.1.5(@nextui-org/system@2.2.6(@nextui-org/theme@2.2.11(tailwindcss@3.4.12(ts-node@10.9.2(@types/node@20.16.5)(typescript@5.6.2))))(framer-motion@11.3.23-alpha.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(@nextui-org/theme@2.2.11(tailwindcss@3.4.12(ts-node@10.9.2(@types/node@20.16.5)(typescript@5.6.2))))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
-=======
-  '@nextui-org/checkbox@2.1.5(@nextui-org/system@2.2.6)(@nextui-org/theme@2.2.11)(react-dom@18.3.1)(react@18.3.1)':
->>>>>>> a3eb945 (build: update pagination module)
     dependencies:
       '@nextui-org/react-utils': 2.0.17(react@18.3.1)
       '@nextui-org/shared-utils': 2.0.8
@@ -9766,11 +9624,7 @@ snapshots:
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
 
-<<<<<<< HEAD
   '@nextui-org/chip@2.0.33(@nextui-org/system@2.2.6(@nextui-org/theme@2.2.11(tailwindcss@3.4.12(ts-node@10.9.2(@types/node@20.16.5)(typescript@5.6.2))))(framer-motion@11.3.23-alpha.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(@nextui-org/theme@2.2.11(tailwindcss@3.4.12(ts-node@10.9.2(@types/node@20.16.5)(typescript@5.6.2))))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
-=======
-  '@nextui-org/chip@2.0.33(@nextui-org/system@2.2.6)(@nextui-org/theme@2.2.11)(react-dom@18.3.1)(react@18.3.1)':
->>>>>>> a3eb945 (build: update pagination module)
     dependencies:
       '@nextui-org/react-utils': 2.0.17(react@18.3.1)
       '@nextui-org/shared-icons': 2.0.9(react@18.3.1)
@@ -9784,11 +9638,7 @@ snapshots:
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
 
-<<<<<<< HEAD
   '@nextui-org/code@2.0.33(@nextui-org/theme@2.2.11(tailwindcss@3.4.12(ts-node@10.9.2(@types/node@20.16.5)(typescript@5.6.2))))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
-=======
-  '@nextui-org/code@2.0.33(@nextui-org/theme@2.2.11)(react-dom@18.3.1)(react@18.3.1)':
->>>>>>> a3eb945 (build: update pagination module)
     dependencies:
       '@nextui-org/react-utils': 2.0.17(react@18.3.1)
       '@nextui-org/shared-utils': 2.0.8
@@ -9797,11 +9647,7 @@ snapshots:
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
 
-<<<<<<< HEAD
   '@nextui-org/date-input@2.1.4(@nextui-org/system@2.2.6(@nextui-org/theme@2.2.11(tailwindcss@3.4.12(ts-node@10.9.2(@types/node@20.16.5)(typescript@5.6.2))))(framer-motion@11.3.23-alpha.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(@nextui-org/theme@2.2.11(tailwindcss@3.4.12(ts-node@10.9.2(@types/node@20.16.5)(typescript@5.6.2))))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
-=======
-  '@nextui-org/date-input@2.1.4(@nextui-org/system@2.2.6)(@nextui-org/theme@2.2.11)(react-dom@18.3.1)(react@18.3.1)':
->>>>>>> a3eb945 (build: update pagination module)
     dependencies:
       '@internationalized/date': 3.5.5
       '@nextui-org/react-utils': 2.0.17(react@18.3.1)
@@ -9817,11 +9663,7 @@ snapshots:
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
 
-<<<<<<< HEAD
   '@nextui-org/date-picker@2.1.8(@nextui-org/system@2.2.6(@nextui-org/theme@2.2.11(tailwindcss@3.4.12(ts-node@10.9.2(@types/node@20.16.5)(typescript@5.6.2))))(framer-motion@11.3.23-alpha.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(@nextui-org/theme@2.2.11(tailwindcss@3.4.12(ts-node@10.9.2(@types/node@20.16.5)(typescript@5.6.2))))(@types/react@18.3.8)(framer-motion@11.3.23-alpha.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
-=======
-  '@nextui-org/date-picker@2.1.8(@nextui-org/system@2.2.6)(@nextui-org/theme@2.2.11)(@types/react@18.3.8)(framer-motion@11.3.23-alpha.2)(react-dom@18.3.1)(react@18.3.1)':
->>>>>>> a3eb945 (build: update pagination module)
     dependencies:
       '@internationalized/date': 3.5.5
       '@nextui-org/aria-utils': 2.0.26(@nextui-org/theme@2.2.11(tailwindcss@3.4.12(ts-node@10.9.2(@types/node@20.16.5)(typescript@5.6.2))))(framer-motion@11.3.23-alpha.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -9848,11 +9690,7 @@ snapshots:
       - '@types/react'
       - framer-motion
 
-<<<<<<< HEAD
   '@nextui-org/divider@2.0.32(@nextui-org/theme@2.2.11(tailwindcss@3.4.12(ts-node@10.9.2(@types/node@20.16.5)(typescript@5.6.2))))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
-=======
-  '@nextui-org/divider@2.0.32(@nextui-org/theme@2.2.11)(react-dom@18.3.1)(react@18.3.1)':
->>>>>>> a3eb945 (build: update pagination module)
     dependencies:
       '@nextui-org/react-rsc-utils': 2.0.14(react@18.3.1)
       '@nextui-org/shared-utils': 2.0.8
@@ -9862,11 +9700,7 @@ snapshots:
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
 
-<<<<<<< HEAD
   '@nextui-org/dropdown@2.1.31(@nextui-org/system@2.2.6(@nextui-org/theme@2.2.11(tailwindcss@3.4.12(ts-node@10.9.2(@types/node@20.16.5)(typescript@5.6.2))))(framer-motion@11.3.23-alpha.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(@nextui-org/theme@2.2.11(tailwindcss@3.4.12(ts-node@10.9.2(@types/node@20.16.5)(typescript@5.6.2))))(@types/react@18.3.8)(framer-motion@11.3.23-alpha.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
-=======
-  '@nextui-org/dropdown@2.1.31(@nextui-org/system@2.2.6)(@nextui-org/theme@2.2.11)(@types/react@18.3.8)(framer-motion@11.3.23-alpha.2)(react-dom@18.3.1)(react@18.3.1)':
->>>>>>> a3eb945 (build: update pagination module)
     dependencies:
       '@nextui-org/aria-utils': 2.0.26(@nextui-org/theme@2.2.11(tailwindcss@3.4.12(ts-node@10.9.2(@types/node@20.16.5)(typescript@5.6.2))))(framer-motion@11.3.23-alpha.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@nextui-org/menu': 2.0.30(@nextui-org/system@2.2.6(@nextui-org/theme@2.2.11(tailwindcss@3.4.12(ts-node@10.9.2(@types/node@20.16.5)(typescript@5.6.2))))(framer-motion@11.3.23-alpha.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(@nextui-org/theme@2.2.11(tailwindcss@3.4.12(ts-node@10.9.2(@types/node@20.16.5)(typescript@5.6.2))))(framer-motion@11.3.23-alpha.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -9886,11 +9720,7 @@ snapshots:
     transitivePeerDependencies:
       - '@types/react'
 
-<<<<<<< HEAD
   '@nextui-org/framer-utils@2.0.25(@nextui-org/theme@2.2.11(tailwindcss@3.4.12(ts-node@10.9.2(@types/node@20.16.5)(typescript@5.6.2))))(framer-motion@11.3.23-alpha.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
-=======
-  '@nextui-org/framer-utils@2.0.25(@nextui-org/theme@2.2.11)(framer-motion@11.3.23-alpha.2)(react-dom@18.3.1)(react@18.3.1)':
->>>>>>> a3eb945 (build: update pagination module)
     dependencies:
       '@nextui-org/shared-utils': 2.0.8
       '@nextui-org/system': 2.2.6(@nextui-org/theme@2.2.11(tailwindcss@3.4.12(ts-node@10.9.2(@types/node@20.16.5)(typescript@5.6.2))))(framer-motion@11.3.23-alpha.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -9901,11 +9731,7 @@ snapshots:
     transitivePeerDependencies:
       - '@nextui-org/theme'
 
-<<<<<<< HEAD
   '@nextui-org/image@2.0.32(@nextui-org/system@2.2.6(@nextui-org/theme@2.2.11(tailwindcss@3.4.12(ts-node@10.9.2(@types/node@20.16.5)(typescript@5.6.2))))(framer-motion@11.3.23-alpha.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(@nextui-org/theme@2.2.11(tailwindcss@3.4.12(ts-node@10.9.2(@types/node@20.16.5)(typescript@5.6.2))))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
-=======
-  '@nextui-org/image@2.0.32(@nextui-org/system@2.2.6)(@nextui-org/theme@2.2.11)(react-dom@18.3.1)(react@18.3.1)':
->>>>>>> a3eb945 (build: update pagination module)
     dependencies:
       '@nextui-org/react-utils': 2.0.17(react@18.3.1)
       '@nextui-org/shared-utils': 2.0.8
@@ -9915,11 +9741,7 @@ snapshots:
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
 
-<<<<<<< HEAD
   '@nextui-org/input@2.2.5(@nextui-org/system@2.2.6(@nextui-org/theme@2.2.11(tailwindcss@3.4.12(ts-node@10.9.2(@types/node@20.16.5)(typescript@5.6.2))))(framer-motion@11.3.23-alpha.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(@nextui-org/theme@2.2.11(tailwindcss@3.4.12(ts-node@10.9.2(@types/node@20.16.5)(typescript@5.6.2))))(@types/react@18.3.8)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
-=======
-  '@nextui-org/input@2.2.5(@nextui-org/system@2.2.6)(@nextui-org/theme@2.2.11)(@types/react@18.3.8)(react-dom@18.3.1)(react@18.3.1)':
->>>>>>> a3eb945 (build: update pagination module)
     dependencies:
       '@nextui-org/react-utils': 2.0.17(react@18.3.1)
       '@nextui-org/shared-icons': 2.0.9(react@18.3.1)
@@ -9940,11 +9762,7 @@ snapshots:
     transitivePeerDependencies:
       - '@types/react'
 
-<<<<<<< HEAD
   '@nextui-org/kbd@2.0.34(@nextui-org/theme@2.2.11(tailwindcss@3.4.12(ts-node@10.9.2(@types/node@20.16.5)(typescript@5.6.2))))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
-=======
-  '@nextui-org/kbd@2.0.34(@nextui-org/theme@2.2.11)(react-dom@18.3.1)(react@18.3.1)':
->>>>>>> a3eb945 (build: update pagination module)
     dependencies:
       '@nextui-org/react-utils': 2.0.17(react@18.3.1)
       '@nextui-org/shared-utils': 2.0.8
@@ -9954,11 +9772,7 @@ snapshots:
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
 
-<<<<<<< HEAD
   '@nextui-org/link@2.0.35(@nextui-org/system@2.2.6(@nextui-org/theme@2.2.11(tailwindcss@3.4.12(ts-node@10.9.2(@types/node@20.16.5)(typescript@5.6.2))))(framer-motion@11.3.23-alpha.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(@nextui-org/theme@2.2.11(tailwindcss@3.4.12(ts-node@10.9.2(@types/node@20.16.5)(typescript@5.6.2))))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
-=======
-  '@nextui-org/link@2.0.35(@nextui-org/system@2.2.6)(@nextui-org/theme@2.2.11)(react-dom@18.3.1)(react@18.3.1)':
->>>>>>> a3eb945 (build: update pagination module)
     dependencies:
       '@nextui-org/react-utils': 2.0.17(react@18.3.1)
       '@nextui-org/shared-icons': 2.0.9(react@18.3.1)
@@ -9973,11 +9787,7 @@ snapshots:
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
 
-<<<<<<< HEAD
   '@nextui-org/listbox@2.1.27(@nextui-org/system@2.2.6(@nextui-org/theme@2.2.11(tailwindcss@3.4.12(ts-node@10.9.2(@types/node@20.16.5)(typescript@5.6.2))))(framer-motion@11.3.23-alpha.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(@nextui-org/theme@2.2.11(tailwindcss@3.4.12(ts-node@10.9.2(@types/node@20.16.5)(typescript@5.6.2))))(framer-motion@11.3.23-alpha.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
-=======
-  '@nextui-org/listbox@2.1.27(@nextui-org/system@2.2.6)(@nextui-org/theme@2.2.11)(framer-motion@11.3.23-alpha.2)(react-dom@18.3.1)(react@18.3.1)':
->>>>>>> a3eb945 (build: update pagination module)
     dependencies:
       '@nextui-org/aria-utils': 2.0.26(@nextui-org/theme@2.2.11(tailwindcss@3.4.12(ts-node@10.9.2(@types/node@20.16.5)(typescript@5.6.2))))(framer-motion@11.3.23-alpha.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@nextui-org/divider': 2.0.32(@nextui-org/theme@2.2.11(tailwindcss@3.4.12(ts-node@10.9.2(@types/node@20.16.5)(typescript@5.6.2))))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -9998,11 +9808,7 @@ snapshots:
     transitivePeerDependencies:
       - framer-motion
 
-<<<<<<< HEAD
   '@nextui-org/menu@2.0.30(@nextui-org/system@2.2.6(@nextui-org/theme@2.2.11(tailwindcss@3.4.12(ts-node@10.9.2(@types/node@20.16.5)(typescript@5.6.2))))(framer-motion@11.3.23-alpha.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(@nextui-org/theme@2.2.11(tailwindcss@3.4.12(ts-node@10.9.2(@types/node@20.16.5)(typescript@5.6.2))))(framer-motion@11.3.23-alpha.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
-=======
-  '@nextui-org/menu@2.0.30(@nextui-org/system@2.2.6)(@nextui-org/theme@2.2.11)(framer-motion@11.3.23-alpha.2)(react-dom@18.3.1)(react@18.3.1)':
->>>>>>> a3eb945 (build: update pagination module)
     dependencies:
       '@nextui-org/aria-utils': 2.0.26(@nextui-org/theme@2.2.11(tailwindcss@3.4.12(ts-node@10.9.2(@types/node@20.16.5)(typescript@5.6.2))))(framer-motion@11.3.23-alpha.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@nextui-org/divider': 2.0.32(@nextui-org/theme@2.2.11(tailwindcss@3.4.12(ts-node@10.9.2(@types/node@20.16.5)(typescript@5.6.2))))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -10025,11 +9831,7 @@ snapshots:
     transitivePeerDependencies:
       - framer-motion
 
-<<<<<<< HEAD
   '@nextui-org/modal@2.0.41(@nextui-org/system@2.2.6(@nextui-org/theme@2.2.11(tailwindcss@3.4.12(ts-node@10.9.2(@types/node@20.16.5)(typescript@5.6.2))))(framer-motion@11.3.23-alpha.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(@nextui-org/theme@2.2.11(tailwindcss@3.4.12(ts-node@10.9.2(@types/node@20.16.5)(typescript@5.6.2))))(framer-motion@11.3.23-alpha.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
-=======
-  '@nextui-org/modal@2.0.41(@nextui-org/system@2.2.6)(@nextui-org/theme@2.2.11)(framer-motion@11.3.23-alpha.2)(react-dom@18.3.1)(react@18.3.1)':
->>>>>>> a3eb945 (build: update pagination module)
     dependencies:
       '@nextui-org/framer-utils': 2.0.25(@nextui-org/theme@2.2.11(tailwindcss@3.4.12(ts-node@10.9.2(@types/node@20.16.5)(typescript@5.6.2))))(framer-motion@11.3.23-alpha.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@nextui-org/react-utils': 2.0.17(react@18.3.1)
@@ -10051,11 +9853,7 @@ snapshots:
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
 
-<<<<<<< HEAD
   '@nextui-org/navbar@2.0.37(@nextui-org/system@2.2.6(@nextui-org/theme@2.2.11(tailwindcss@3.4.12(ts-node@10.9.2(@types/node@20.16.5)(typescript@5.6.2))))(framer-motion@11.3.23-alpha.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(@nextui-org/theme@2.2.11(tailwindcss@3.4.12(ts-node@10.9.2(@types/node@20.16.5)(typescript@5.6.2))))(@types/react@18.3.8)(framer-motion@11.3.23-alpha.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
-=======
-  '@nextui-org/navbar@2.0.37(@nextui-org/system@2.2.6)(@nextui-org/theme@2.2.11)(@types/react@18.3.8)(framer-motion@11.3.23-alpha.2)(react-dom@18.3.1)(react@18.3.1)':
->>>>>>> a3eb945 (build: update pagination module)
     dependencies:
       '@nextui-org/framer-utils': 2.0.25(@nextui-org/theme@2.2.11(tailwindcss@3.4.12(ts-node@10.9.2(@types/node@20.16.5)(typescript@5.6.2))))(framer-motion@11.3.23-alpha.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@nextui-org/react-utils': 2.0.17(react@18.3.1)
@@ -10077,11 +9875,7 @@ snapshots:
     transitivePeerDependencies:
       - '@types/react'
 
-<<<<<<< HEAD
   '@nextui-org/pagination@2.0.36(patch_hash=57232wbvmwkq7pmsgkc2xqzxea)(@nextui-org/system@2.2.6(@nextui-org/theme@2.2.11(tailwindcss@3.4.12(ts-node@10.9.2(@types/node@20.16.5)(typescript@5.6.2))))(framer-motion@11.3.23-alpha.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(@nextui-org/theme@2.2.11(tailwindcss@3.4.12(ts-node@10.9.2(@types/node@20.16.5)(typescript@5.6.2))))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
-=======
-  '@nextui-org/pagination@2.0.36(patch_hash=57232wbvmwkq7pmsgkc2xqzxea)(@nextui-org/system@2.2.6)(@nextui-org/theme@2.2.11)(react-dom@18.3.1)(react@18.3.1)':
->>>>>>> a3eb945 (build: update pagination module)
     dependencies:
       '@nextui-org/react-utils': 2.0.17(react@18.3.1)
       '@nextui-org/shared-icons': 2.0.9(react@18.3.1)
@@ -10097,11 +9891,7 @@ snapshots:
       react-dom: 18.3.1(react@18.3.1)
       scroll-into-view-if-needed: 3.0.10
 
-<<<<<<< HEAD
   '@nextui-org/popover@2.1.29(@nextui-org/system@2.2.6(@nextui-org/theme@2.2.11(tailwindcss@3.4.12(ts-node@10.9.2(@types/node@20.16.5)(typescript@5.6.2))))(framer-motion@11.3.23-alpha.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(@nextui-org/theme@2.2.11(tailwindcss@3.4.12(ts-node@10.9.2(@types/node@20.16.5)(typescript@5.6.2))))(@types/react@18.3.8)(framer-motion@11.3.23-alpha.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
-=======
-  '@nextui-org/popover@2.1.29(@nextui-org/system@2.2.6)(@nextui-org/theme@2.2.11)(@types/react@18.3.8)(framer-motion@11.3.23-alpha.2)(react-dom@18.3.1)(react@18.3.1)':
->>>>>>> a3eb945 (build: update pagination module)
     dependencies:
       '@nextui-org/aria-utils': 2.0.26(@nextui-org/theme@2.2.11(tailwindcss@3.4.12(ts-node@10.9.2(@types/node@20.16.5)(typescript@5.6.2))))(framer-motion@11.3.23-alpha.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@nextui-org/button': 2.0.38(@nextui-org/system@2.2.6(@nextui-org/theme@2.2.11(tailwindcss@3.4.12(ts-node@10.9.2(@types/node@20.16.5)(typescript@5.6.2))))(framer-motion@11.3.23-alpha.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(@nextui-org/theme@2.2.11(tailwindcss@3.4.12(ts-node@10.9.2(@types/node@20.16.5)(typescript@5.6.2))))(framer-motion@11.3.23-alpha.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -10127,11 +9917,7 @@ snapshots:
     transitivePeerDependencies:
       - '@types/react'
 
-<<<<<<< HEAD
   '@nextui-org/progress@2.0.34(@nextui-org/system@2.2.6(@nextui-org/theme@2.2.11(tailwindcss@3.4.12(ts-node@10.9.2(@types/node@20.16.5)(typescript@5.6.2))))(framer-motion@11.3.23-alpha.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(@nextui-org/theme@2.2.11(tailwindcss@3.4.12(ts-node@10.9.2(@types/node@20.16.5)(typescript@5.6.2))))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
-=======
-  '@nextui-org/progress@2.0.34(@nextui-org/system@2.2.6)(@nextui-org/theme@2.2.11)(react-dom@18.3.1)(react@18.3.1)':
->>>>>>> a3eb945 (build: update pagination module)
     dependencies:
       '@nextui-org/react-utils': 2.0.17(react@18.3.1)
       '@nextui-org/shared-utils': 2.0.8
@@ -10145,11 +9931,7 @@ snapshots:
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
 
-<<<<<<< HEAD
   '@nextui-org/radio@2.1.5(@nextui-org/system@2.2.6(@nextui-org/theme@2.2.11(tailwindcss@3.4.12(ts-node@10.9.2(@types/node@20.16.5)(typescript@5.6.2))))(framer-motion@11.3.23-alpha.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(@nextui-org/theme@2.2.11(tailwindcss@3.4.12(ts-node@10.9.2(@types/node@20.16.5)(typescript@5.6.2))))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
-=======
-  '@nextui-org/radio@2.1.5(@nextui-org/system@2.2.6)(@nextui-org/theme@2.2.11)(react-dom@18.3.1)(react@18.3.1)':
->>>>>>> a3eb945 (build: update pagination module)
     dependencies:
       '@nextui-org/react-utils': 2.0.17(react@18.3.1)
       '@nextui-org/shared-utils': 2.0.8
@@ -10176,11 +9958,7 @@ snapshots:
       '@nextui-org/shared-utils': 2.0.8
       react: 18.3.1
 
-<<<<<<< HEAD
   '@nextui-org/react@2.4.8(@types/react@18.3.8)(framer-motion@11.3.23-alpha.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(tailwindcss@3.4.12(ts-node@10.9.2(@types/node@20.16.5)(typescript@5.6.2)))':
-=======
-  '@nextui-org/react@2.4.8(@types/react@18.3.8)(framer-motion@11.3.23-alpha.2)(react-dom@18.3.1)(react@18.3.1)(tailwindcss@3.4.12)':
->>>>>>> a3eb945 (build: update pagination module)
     dependencies:
       '@nextui-org/accordion': 2.0.40(@nextui-org/system@2.2.6(@nextui-org/theme@2.2.11(tailwindcss@3.4.12(ts-node@10.9.2(@types/node@20.16.5)(typescript@5.6.2))))(framer-motion@11.3.23-alpha.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(@nextui-org/theme@2.2.11(tailwindcss@3.4.12(ts-node@10.9.2(@types/node@20.16.5)(typescript@5.6.2))))(framer-motion@11.3.23-alpha.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@nextui-org/autocomplete': 2.1.7(@nextui-org/system@2.2.6(@nextui-org/theme@2.2.11(tailwindcss@3.4.12(ts-node@10.9.2(@types/node@20.16.5)(typescript@5.6.2))))(framer-motion@11.3.23-alpha.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(@nextui-org/theme@2.2.11(tailwindcss@3.4.12(ts-node@10.9.2(@types/node@20.16.5)(typescript@5.6.2))))(@types/react@18.3.8)(framer-motion@11.3.23-alpha.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -10233,11 +10011,7 @@ snapshots:
       - '@types/react'
       - tailwindcss
 
-<<<<<<< HEAD
   '@nextui-org/ripple@2.0.33(@nextui-org/system@2.2.6(@nextui-org/theme@2.2.11(tailwindcss@3.4.12(ts-node@10.9.2(@types/node@20.16.5)(typescript@5.6.2))))(framer-motion@11.3.23-alpha.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(@nextui-org/theme@2.2.11(tailwindcss@3.4.12(ts-node@10.9.2(@types/node@20.16.5)(typescript@5.6.2))))(framer-motion@11.3.23-alpha.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
-=======
-  '@nextui-org/ripple@2.0.33(@nextui-org/system@2.2.6)(@nextui-org/theme@2.2.11)(framer-motion@11.3.23-alpha.2)(react-dom@18.3.1)(react@18.3.1)':
->>>>>>> a3eb945 (build: update pagination module)
     dependencies:
       '@nextui-org/react-utils': 2.0.17(react@18.3.1)
       '@nextui-org/shared-utils': 2.0.8
@@ -10247,11 +10021,7 @@ snapshots:
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
 
-<<<<<<< HEAD
   '@nextui-org/scroll-shadow@2.1.20(@nextui-org/system@2.2.6(@nextui-org/theme@2.2.11(tailwindcss@3.4.12(ts-node@10.9.2(@types/node@20.16.5)(typescript@5.6.2))))(framer-motion@11.3.23-alpha.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(@nextui-org/theme@2.2.11(tailwindcss@3.4.12(ts-node@10.9.2(@types/node@20.16.5)(typescript@5.6.2))))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
-=======
-  '@nextui-org/scroll-shadow@2.1.20(@nextui-org/system@2.2.6)(@nextui-org/theme@2.2.11)(react-dom@18.3.1)(react@18.3.1)':
->>>>>>> a3eb945 (build: update pagination module)
     dependencies:
       '@nextui-org/react-utils': 2.0.17(react@18.3.1)
       '@nextui-org/shared-utils': 2.0.8
@@ -10261,11 +10031,7 @@ snapshots:
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
 
-<<<<<<< HEAD
   '@nextui-org/select@2.2.7(@nextui-org/system@2.2.6(@nextui-org/theme@2.2.11(tailwindcss@3.4.12(ts-node@10.9.2(@types/node@20.16.5)(typescript@5.6.2))))(framer-motion@11.3.23-alpha.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(@nextui-org/theme@2.2.11(tailwindcss@3.4.12(ts-node@10.9.2(@types/node@20.16.5)(typescript@5.6.2))))(@types/react@18.3.8)(framer-motion@11.3.23-alpha.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
-=======
-  '@nextui-org/select@2.2.7(@nextui-org/system@2.2.6)(@nextui-org/theme@2.2.11)(@types/react@18.3.8)(framer-motion@11.3.23-alpha.2)(react-dom@18.3.1)(react@18.3.1)':
->>>>>>> a3eb945 (build: update pagination module)
     dependencies:
       '@nextui-org/aria-utils': 2.0.26(@nextui-org/theme@2.2.11(tailwindcss@3.4.12(ts-node@10.9.2(@types/node@20.16.5)(typescript@5.6.2))))(framer-motion@11.3.23-alpha.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@nextui-org/listbox': 2.1.27(@nextui-org/system@2.2.6(@nextui-org/theme@2.2.11(tailwindcss@3.4.12(ts-node@10.9.2(@types/node@20.16.5)(typescript@5.6.2))))(framer-motion@11.3.23-alpha.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(@nextui-org/theme@2.2.11(tailwindcss@3.4.12(ts-node@10.9.2(@types/node@20.16.5)(typescript@5.6.2))))(framer-motion@11.3.23-alpha.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -10298,11 +10064,7 @@ snapshots:
 
   '@nextui-org/shared-utils@2.0.8': {}
 
-<<<<<<< HEAD
   '@nextui-org/skeleton@2.0.32(@nextui-org/system@2.2.6(@nextui-org/theme@2.2.11(tailwindcss@3.4.12(ts-node@10.9.2(@types/node@20.16.5)(typescript@5.6.2))))(framer-motion@11.3.23-alpha.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(@nextui-org/theme@2.2.11(tailwindcss@3.4.12(ts-node@10.9.2(@types/node@20.16.5)(typescript@5.6.2))))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
-=======
-  '@nextui-org/skeleton@2.0.32(@nextui-org/system@2.2.6)(@nextui-org/theme@2.2.11)(react-dom@18.3.1)(react@18.3.1)':
->>>>>>> a3eb945 (build: update pagination module)
     dependencies:
       '@nextui-org/react-utils': 2.0.17(react@18.3.1)
       '@nextui-org/shared-utils': 2.0.8
@@ -10311,11 +10073,7 @@ snapshots:
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
 
-<<<<<<< HEAD
   '@nextui-org/slider@2.2.17(@nextui-org/system@2.2.6(@nextui-org/theme@2.2.11(tailwindcss@3.4.12(ts-node@10.9.2(@types/node@20.16.5)(typescript@5.6.2))))(framer-motion@11.3.23-alpha.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(@nextui-org/theme@2.2.11(tailwindcss@3.4.12(ts-node@10.9.2(@types/node@20.16.5)(typescript@5.6.2))))(framer-motion@11.3.23-alpha.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
-=======
-  '@nextui-org/slider@2.2.17(@nextui-org/system@2.2.6)(@nextui-org/theme@2.2.11)(framer-motion@11.3.23-alpha.2)(react-dom@18.3.1)(react@18.3.1)':
->>>>>>> a3eb945 (build: update pagination module)
     dependencies:
       '@nextui-org/react-utils': 2.0.17(react@18.3.1)
       '@nextui-org/shared-utils': 2.0.8
@@ -10334,11 +10092,7 @@ snapshots:
     transitivePeerDependencies:
       - framer-motion
 
-<<<<<<< HEAD
   '@nextui-org/snippet@2.0.43(@nextui-org/system@2.2.6(@nextui-org/theme@2.2.11(tailwindcss@3.4.12(ts-node@10.9.2(@types/node@20.16.5)(typescript@5.6.2))))(framer-motion@11.3.23-alpha.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(@nextui-org/theme@2.2.11(tailwindcss@3.4.12(ts-node@10.9.2(@types/node@20.16.5)(typescript@5.6.2))))(framer-motion@11.3.23-alpha.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
-=======
-  '@nextui-org/snippet@2.0.43(@nextui-org/system@2.2.6)(@nextui-org/theme@2.2.11)(framer-motion@11.3.23-alpha.2)(react-dom@18.3.1)(react@18.3.1)':
->>>>>>> a3eb945 (build: update pagination module)
     dependencies:
       '@nextui-org/button': 2.0.38(@nextui-org/system@2.2.6(@nextui-org/theme@2.2.11(tailwindcss@3.4.12(ts-node@10.9.2(@types/node@20.16.5)(typescript@5.6.2))))(framer-motion@11.3.23-alpha.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(@nextui-org/theme@2.2.11(tailwindcss@3.4.12(ts-node@10.9.2(@types/node@20.16.5)(typescript@5.6.2))))(framer-motion@11.3.23-alpha.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@nextui-org/react-utils': 2.0.17(react@18.3.1)
@@ -10354,11 +10108,7 @@ snapshots:
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
 
-<<<<<<< HEAD
   '@nextui-org/spacer@2.0.33(@nextui-org/theme@2.2.11(tailwindcss@3.4.12(ts-node@10.9.2(@types/node@20.16.5)(typescript@5.6.2))))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
-=======
-  '@nextui-org/spacer@2.0.33(@nextui-org/theme@2.2.11)(react-dom@18.3.1)(react@18.3.1)':
->>>>>>> a3eb945 (build: update pagination module)
     dependencies:
       '@nextui-org/react-utils': 2.0.17(react@18.3.1)
       '@nextui-org/shared-utils': 2.0.8
@@ -10367,11 +10117,7 @@ snapshots:
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
 
-<<<<<<< HEAD
   '@nextui-org/spinner@2.0.34(@nextui-org/theme@2.2.11(tailwindcss@3.4.12(ts-node@10.9.2(@types/node@20.16.5)(typescript@5.6.2))))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
-=======
-  '@nextui-org/spinner@2.0.34(@nextui-org/theme@2.2.11)(react-dom@18.3.1)(react@18.3.1)':
->>>>>>> a3eb945 (build: update pagination module)
     dependencies:
       '@nextui-org/react-utils': 2.0.17(react@18.3.1)
       '@nextui-org/shared-utils': 2.0.8
@@ -10380,11 +10126,7 @@ snapshots:
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
 
-<<<<<<< HEAD
   '@nextui-org/switch@2.0.34(@nextui-org/system@2.2.6(@nextui-org/theme@2.2.11(tailwindcss@3.4.12(ts-node@10.9.2(@types/node@20.16.5)(typescript@5.6.2))))(framer-motion@11.3.23-alpha.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(@nextui-org/theme@2.2.11(tailwindcss@3.4.12(ts-node@10.9.2(@types/node@20.16.5)(typescript@5.6.2))))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
-=======
-  '@nextui-org/switch@2.0.34(@nextui-org/system@2.2.6)(@nextui-org/theme@2.2.11)(react-dom@18.3.1)(react@18.3.1)':
->>>>>>> a3eb945 (build: update pagination module)
     dependencies:
       '@nextui-org/react-utils': 2.0.17(react@18.3.1)
       '@nextui-org/shared-utils': 2.0.8
@@ -10401,22 +10143,14 @@ snapshots:
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
 
-<<<<<<< HEAD
   '@nextui-org/system-rsc@2.1.6(@nextui-org/theme@2.2.11(tailwindcss@3.4.12(ts-node@10.9.2(@types/node@20.16.5)(typescript@5.6.2))))(react@18.3.1)':
-=======
-  '@nextui-org/system-rsc@2.1.6(@nextui-org/theme@2.2.11)(react@18.3.1)':
->>>>>>> a3eb945 (build: update pagination module)
     dependencies:
       '@nextui-org/theme': 2.2.11(tailwindcss@3.4.12(ts-node@10.9.2(@types/node@20.16.5)(typescript@5.6.2)))
       '@react-types/shared': 3.23.1(react@18.3.1)
       clsx: 1.2.1
       react: 18.3.1
 
-<<<<<<< HEAD
   '@nextui-org/system@2.2.6(@nextui-org/theme@2.2.11(tailwindcss@3.4.12(ts-node@10.9.2(@types/node@20.16.5)(typescript@5.6.2))))(framer-motion@11.3.23-alpha.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
-=======
-  '@nextui-org/system@2.2.6(@nextui-org/theme@2.2.11)(framer-motion@11.3.23-alpha.2)(react-dom@18.3.1)(react@18.3.1)':
->>>>>>> a3eb945 (build: update pagination module)
     dependencies:
       '@internationalized/date': 3.5.5
       '@nextui-org/react-utils': 2.0.17(react@18.3.1)
@@ -10431,11 +10165,7 @@ snapshots:
     transitivePeerDependencies:
       - '@nextui-org/theme'
 
-<<<<<<< HEAD
   '@nextui-org/table@2.0.40(@nextui-org/system@2.2.6(@nextui-org/theme@2.2.11(tailwindcss@3.4.12(ts-node@10.9.2(@types/node@20.16.5)(typescript@5.6.2))))(framer-motion@11.3.23-alpha.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(@nextui-org/theme@2.2.11(tailwindcss@3.4.12(ts-node@10.9.2(@types/node@20.16.5)(typescript@5.6.2))))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
-=======
-  '@nextui-org/table@2.0.40(@nextui-org/system@2.2.6)(@nextui-org/theme@2.2.11)(react-dom@18.3.1)(react@18.3.1)':
->>>>>>> a3eb945 (build: update pagination module)
     dependencies:
       '@nextui-org/checkbox': 2.1.5(@nextui-org/system@2.2.6(@nextui-org/theme@2.2.11(tailwindcss@3.4.12(ts-node@10.9.2(@types/node@20.16.5)(typescript@5.6.2))))(framer-motion@11.3.23-alpha.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(@nextui-org/theme@2.2.11(tailwindcss@3.4.12(ts-node@10.9.2(@types/node@20.16.5)(typescript@5.6.2))))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@nextui-org/react-utils': 2.0.17(react@18.3.1)
@@ -10456,11 +10186,7 @@ snapshots:
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
 
-<<<<<<< HEAD
   '@nextui-org/tabs@2.0.37(@nextui-org/system@2.2.6(@nextui-org/theme@2.2.11(tailwindcss@3.4.12(ts-node@10.9.2(@types/node@20.16.5)(typescript@5.6.2))))(framer-motion@11.3.23-alpha.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(@nextui-org/theme@2.2.11(tailwindcss@3.4.12(ts-node@10.9.2(@types/node@20.16.5)(typescript@5.6.2))))(framer-motion@11.3.23-alpha.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
-=======
-  '@nextui-org/tabs@2.0.37(@nextui-org/system@2.2.6)(@nextui-org/theme@2.2.11)(framer-motion@11.3.23-alpha.2)(react-dom@18.3.1)(react@18.3.1)':
->>>>>>> a3eb945 (build: update pagination module)
     dependencies:
       '@nextui-org/aria-utils': 2.0.26(@nextui-org/theme@2.2.11(tailwindcss@3.4.12(ts-node@10.9.2(@types/node@20.16.5)(typescript@5.6.2))))(framer-motion@11.3.23-alpha.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@nextui-org/framer-utils': 2.0.25(@nextui-org/theme@2.2.11(tailwindcss@3.4.12(ts-node@10.9.2(@types/node@20.16.5)(typescript@5.6.2))))(framer-motion@11.3.23-alpha.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -10482,11 +10208,7 @@ snapshots:
       react-dom: 18.3.1(react@18.3.1)
       scroll-into-view-if-needed: 3.0.10
 
-<<<<<<< HEAD
   '@nextui-org/theme@2.2.11(tailwindcss@3.4.12(ts-node@10.9.2(@types/node@20.16.5)(typescript@5.6.2)))':
-=======
-  '@nextui-org/theme@2.2.11(tailwindcss@3.4.12)':
->>>>>>> a3eb945 (build: update pagination module)
     dependencies:
       clsx: 1.2.1
       color: 4.2.3
@@ -10499,17 +10221,10 @@ snapshots:
       lodash.mapkeys: 4.6.0
       lodash.omit: 4.5.0
       tailwind-merge: 1.14.0
-<<<<<<< HEAD
       tailwind-variants: 0.1.20(tailwindcss@3.4.12(ts-node@10.9.2(@types/node@20.16.5)(typescript@5.6.2)))
       tailwindcss: 3.4.12(ts-node@10.9.2(@types/node@20.16.5)(typescript@5.6.2))
 
   '@nextui-org/tooltip@2.0.41(@nextui-org/system@2.2.6(@nextui-org/theme@2.2.11(tailwindcss@3.4.12(ts-node@10.9.2(@types/node@20.16.5)(typescript@5.6.2))))(framer-motion@11.3.23-alpha.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(@nextui-org/theme@2.2.11(tailwindcss@3.4.12(ts-node@10.9.2(@types/node@20.16.5)(typescript@5.6.2))))(framer-motion@11.3.23-alpha.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
-=======
-      tailwind-variants: 0.1.20(tailwindcss@3.4.12)
-      tailwindcss: 3.4.12(ts-node@10.9.2)
-
-  '@nextui-org/tooltip@2.0.41(@nextui-org/system@2.2.6)(@nextui-org/theme@2.2.11)(framer-motion@11.3.23-alpha.2)(react-dom@18.3.1)(react@18.3.1)':
->>>>>>> a3eb945 (build: update pagination module)
     dependencies:
       '@nextui-org/aria-utils': 2.0.26(@nextui-org/theme@2.2.11(tailwindcss@3.4.12(ts-node@10.9.2(@types/node@20.16.5)(typescript@5.6.2))))(framer-motion@11.3.23-alpha.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@nextui-org/framer-utils': 2.0.25(@nextui-org/theme@2.2.11(tailwindcss@3.4.12(ts-node@10.9.2(@types/node@20.16.5)(typescript@5.6.2))))(framer-motion@11.3.23-alpha.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -10529,11 +10244,7 @@ snapshots:
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
 
-<<<<<<< HEAD
   '@nextui-org/use-aria-accordion@2.0.7(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
-=======
-  '@nextui-org/use-aria-accordion@2.0.7(react-dom@18.3.1)(react@18.3.1)':
->>>>>>> a3eb945 (build: update pagination module)
     dependencies:
       '@react-aria/button': 3.9.5(react@18.3.1)
       '@react-aria/focus': 3.17.1(react@18.3.1)
@@ -10564,11 +10275,7 @@ snapshots:
       '@react-types/shared': 3.23.1(react@18.3.1)
       react: 18.3.1
 
-<<<<<<< HEAD
   '@nextui-org/use-aria-menu@2.0.7(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
-=======
-  '@nextui-org/use-aria-menu@2.0.7(react-dom@18.3.1)(react@18.3.1)':
->>>>>>> a3eb945 (build: update pagination module)
     dependencies:
       '@react-aria/i18n': 3.11.1(react@18.3.1)
       '@react-aria/interactions': 3.21.3(react@18.3.1)
@@ -10582,11 +10289,7 @@ snapshots:
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
 
-<<<<<<< HEAD
   '@nextui-org/use-aria-modal-overlay@2.0.13(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
-=======
-  '@nextui-org/use-aria-modal-overlay@2.0.13(react-dom@18.3.1)(react@18.3.1)':
->>>>>>> a3eb945 (build: update pagination module)
     dependencies:
       '@react-aria/overlays': 3.22.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@react-aria/utils': 3.24.1(react@18.3.1)
@@ -10595,11 +10298,7 @@ snapshots:
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
 
-<<<<<<< HEAD
   '@nextui-org/use-aria-multiselect@2.2.5(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
-=======
-  '@nextui-org/use-aria-multiselect@2.2.5(react-dom@18.3.1)(react@18.3.1)':
->>>>>>> a3eb945 (build: update pagination module)
     dependencies:
       '@react-aria/i18n': 3.11.1(react@18.3.1)
       '@react-aria/interactions': 3.21.3(react@18.3.1)
@@ -10684,11 +10383,7 @@ snapshots:
     dependencies:
       react: 18.3.1
 
-<<<<<<< HEAD
   '@nextui-org/user@2.0.34(@nextui-org/system@2.2.6(@nextui-org/theme@2.2.11(tailwindcss@3.4.12(ts-node@10.9.2(@types/node@20.16.5)(typescript@5.6.2))))(framer-motion@11.3.23-alpha.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(@nextui-org/theme@2.2.11(tailwindcss@3.4.12(ts-node@10.9.2(@types/node@20.16.5)(typescript@5.6.2))))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
-=======
-  '@nextui-org/user@2.0.34(@nextui-org/system@2.2.6)(@nextui-org/theme@2.2.11)(react-dom@18.3.1)(react@18.3.1)':
->>>>>>> a3eb945 (build: update pagination module)
     dependencies:
       '@nextui-org/avatar': 2.0.33(@nextui-org/system@2.2.6(@nextui-org/theme@2.2.11(tailwindcss@3.4.12(ts-node@10.9.2(@types/node@20.16.5)(typescript@5.6.2))))(framer-motion@11.3.23-alpha.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(@nextui-org/theme@2.2.11(tailwindcss@3.4.12(ts-node@10.9.2(@types/node@20.16.5)(typescript@5.6.2))))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@nextui-org/react-utils': 2.0.17(react@18.3.1)
@@ -10722,11 +10417,7 @@ snapshots:
   '@pkgjs/parseargs@0.11.0':
     optional: true
 
-<<<<<<< HEAD
   '@pmmmwh/react-refresh-webpack-plugin@0.5.15(react-refresh@0.14.2)(type-fest@2.19.0)(webpack-hot-middleware@2.26.1)(webpack@5.94.0(esbuild@0.23.1))':
-=======
-  '@pmmmwh/react-refresh-webpack-plugin@0.5.15(react-refresh@0.14.2)(webpack@5.94.0)':
->>>>>>> a3eb945 (build: update pagination module)
     dependencies:
       ansi-html: 0.0.9
       core-js-pure: 3.38.1
@@ -10737,12 +10428,9 @@ snapshots:
       schema-utils: 4.2.0
       source-map: 0.7.4
       webpack: 5.94.0(esbuild@0.23.1)
-<<<<<<< HEAD
     optionalDependencies:
       type-fest: 2.19.0
       webpack-hot-middleware: 2.26.1
-=======
->>>>>>> a3eb945 (build: update pagination module)
 
   '@protobufjs/aspromise@1.1.2': {}
 
@@ -10788,11 +10476,7 @@ snapshots:
       '@swc/helpers': 0.5.13
       react: 18.3.1
 
-<<<<<<< HEAD
   '@react-aria/calendar@3.5.8(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
-=======
-  '@react-aria/calendar@3.5.8(react-dom@18.3.1)(react@18.3.1)':
->>>>>>> a3eb945 (build: update pagination module)
     dependencies:
       '@internationalized/date': 3.5.5
       '@react-aria/i18n': 3.11.1(react@18.3.1)
@@ -10822,11 +10506,7 @@ snapshots:
       '@swc/helpers': 0.5.13
       react: 18.3.1
 
-<<<<<<< HEAD
   '@react-aria/combobox@3.9.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
-=======
-  '@react-aria/combobox@3.9.1(react-dom@18.3.1)(react@18.3.1)':
->>>>>>> a3eb945 (build: update pagination module)
     dependencies:
       '@react-aria/i18n': 3.11.1(react@18.3.1)
       '@react-aria/listbox': 3.13.3(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -10846,11 +10526,7 @@ snapshots:
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
 
-<<<<<<< HEAD
   '@react-aria/datepicker@3.10.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
-=======
-  '@react-aria/datepicker@3.10.1(react-dom@18.3.1)(react@18.3.1)':
->>>>>>> a3eb945 (build: update pagination module)
     dependencies:
       '@internationalized/date': 3.5.5
       '@internationalized/number': 3.5.3
@@ -10873,11 +10549,7 @@ snapshots:
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
 
-<<<<<<< HEAD
   '@react-aria/dialog@3.5.14(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
-=======
-  '@react-aria/dialog@3.5.14(react-dom@18.3.1)(react@18.3.1)':
->>>>>>> a3eb945 (build: update pagination module)
     dependencies:
       '@react-aria/focus': 3.17.1(react@18.3.1)
       '@react-aria/overlays': 3.22.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -10924,11 +10596,7 @@ snapshots:
       '@swc/helpers': 0.5.13
       react: 18.3.1
 
-<<<<<<< HEAD
   '@react-aria/grid@3.10.3(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
-=======
-  '@react-aria/grid@3.10.3(react-dom@18.3.1)(react@18.3.1)':
->>>>>>> a3eb945 (build: update pagination module)
     dependencies:
       '@react-aria/focus': 3.18.2(react@18.3.1)
       '@react-aria/i18n': 3.12.2(react@18.3.1)
@@ -11020,11 +10688,7 @@ snapshots:
       '@swc/helpers': 0.5.13
       react: 18.3.1
 
-<<<<<<< HEAD
   '@react-aria/listbox@3.12.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
-=======
-  '@react-aria/listbox@3.12.1(react-dom@18.3.1)(react@18.3.1)':
->>>>>>> a3eb945 (build: update pagination module)
     dependencies:
       '@react-aria/interactions': 3.21.3(react@18.3.1)
       '@react-aria/label': 3.7.11(react@18.3.1)
@@ -11038,11 +10702,7 @@ snapshots:
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
 
-<<<<<<< HEAD
   '@react-aria/listbox@3.13.3(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
-=======
-  '@react-aria/listbox@3.13.3(react-dom@18.3.1)(react@18.3.1)':
->>>>>>> a3eb945 (build: update pagination module)
     dependencies:
       '@react-aria/interactions': 3.22.2(react@18.3.1)
       '@react-aria/label': 3.7.11(react@18.3.1)
@@ -11060,11 +10720,7 @@ snapshots:
     dependencies:
       '@swc/helpers': 0.5.13
 
-<<<<<<< HEAD
   '@react-aria/menu@3.14.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
-=======
-  '@react-aria/menu@3.14.1(react-dom@18.3.1)(react@18.3.1)':
->>>>>>> a3eb945 (build: update pagination module)
     dependencies:
       '@react-aria/focus': 3.17.1(react@18.3.1)
       '@react-aria/i18n': 3.12.2(react@18.3.1)
@@ -11082,11 +10738,7 @@ snapshots:
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
 
-<<<<<<< HEAD
   '@react-aria/menu@3.15.3(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
-=======
-  '@react-aria/menu@3.15.3(react-dom@18.3.1)(react@18.3.1)':
->>>>>>> a3eb945 (build: update pagination module)
     dependencies:
       '@react-aria/focus': 3.18.2(react@18.3.1)
       '@react-aria/i18n': 3.12.2(react@18.3.1)
@@ -11104,11 +10756,7 @@ snapshots:
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
 
-<<<<<<< HEAD
   '@react-aria/overlays@3.22.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
-=======
-  '@react-aria/overlays@3.22.1(react-dom@18.3.1)(react@18.3.1)':
->>>>>>> a3eb945 (build: update pagination module)
     dependencies:
       '@react-aria/focus': 3.18.2(react@18.3.1)
       '@react-aria/i18n': 3.11.1(react@18.3.1)
@@ -11124,11 +10772,7 @@ snapshots:
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
 
-<<<<<<< HEAD
   '@react-aria/overlays@3.23.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
-=======
-  '@react-aria/overlays@3.23.2(react-dom@18.3.1)(react@18.3.1)':
->>>>>>> a3eb945 (build: update pagination module)
     dependencies:
       '@react-aria/focus': 3.18.2(react@18.3.1)
       '@react-aria/i18n': 3.12.2(react@18.3.1)
@@ -11168,11 +10812,7 @@ snapshots:
       '@swc/helpers': 0.5.13
       react: 18.3.1
 
-<<<<<<< HEAD
   '@react-aria/selection@3.18.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
-=======
-  '@react-aria/selection@3.18.1(react-dom@18.3.1)(react@18.3.1)':
->>>>>>> a3eb945 (build: update pagination module)
     dependencies:
       '@react-aria/focus': 3.17.1(react@18.3.1)
       '@react-aria/i18n': 3.12.2(react@18.3.1)
@@ -11184,11 +10824,7 @@ snapshots:
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
 
-<<<<<<< HEAD
   '@react-aria/selection@3.19.3(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
-=======
-  '@react-aria/selection@3.19.3(react-dom@18.3.1)(react@18.3.1)':
->>>>>>> a3eb945 (build: update pagination module)
     dependencies:
       '@react-aria/focus': 3.18.2(react@18.3.1)
       '@react-aria/i18n': 3.12.2(react@18.3.1)
@@ -11213,11 +10849,7 @@ snapshots:
       '@swc/helpers': 0.5.13
       react: 18.3.1
 
-<<<<<<< HEAD
   '@react-aria/spinbutton@3.6.8(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
-=======
-  '@react-aria/spinbutton@3.6.8(react-dom@18.3.1)(react@18.3.1)':
->>>>>>> a3eb945 (build: update pagination module)
     dependencies:
       '@react-aria/i18n': 3.12.2(react@18.3.1)
       '@react-aria/live-announcer': 3.3.4
@@ -11246,11 +10878,7 @@ snapshots:
       '@swc/helpers': 0.5.13
       react: 18.3.1
 
-<<<<<<< HEAD
   '@react-aria/table@3.14.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
-=======
-  '@react-aria/table@3.14.1(react-dom@18.3.1)(react@18.3.1)':
->>>>>>> a3eb945 (build: update pagination module)
     dependencies:
       '@react-aria/focus': 3.17.1(react@18.3.1)
       '@react-aria/grid': 3.10.3(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -11271,11 +10899,7 @@ snapshots:
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
 
-<<<<<<< HEAD
   '@react-aria/tabs@3.9.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
-=======
-  '@react-aria/tabs@3.9.1(react-dom@18.3.1)(react@18.3.1)':
->>>>>>> a3eb945 (build: update pagination module)
     dependencies:
       '@react-aria/focus': 3.17.1(react@18.3.1)
       '@react-aria/i18n': 3.12.2(react@18.3.1)
@@ -11822,11 +11446,7 @@ snapshots:
       storybook: 8.3.2
       ts-dedent: 2.2.0
 
-<<<<<<< HEAD
   '@storybook/addon-docs@8.3.2(storybook@8.3.2)(webpack-sources@3.2.3)':
-=======
-  '@storybook/addon-docs@8.3.2(storybook@8.3.2)':
->>>>>>> a3eb945 (build: update pagination module)
     dependencies:
       '@mdx-js/react': 3.0.1(@types/react@18.3.8)(react@18.3.1)
       '@storybook/blocks': 8.3.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(storybook@8.3.2)
@@ -11844,11 +11464,7 @@ snapshots:
     transitivePeerDependencies:
       - webpack-sources
 
-<<<<<<< HEAD
   '@storybook/addon-essentials@8.3.2(storybook@8.3.2)(webpack-sources@3.2.3)':
-=======
-  '@storybook/addon-essentials@8.3.2(storybook@8.3.2)':
->>>>>>> a3eb945 (build: update pagination module)
     dependencies:
       '@storybook/addon-actions': 8.3.2(storybook@8.3.2)
       '@storybook/addon-backgrounds': 8.3.2(storybook@8.3.2)
@@ -11884,11 +11500,8 @@ snapshots:
       '@storybook/global': 5.0.0
       storybook: 8.3.2
       ts-dedent: 2.2.0
-<<<<<<< HEAD
     optionalDependencies:
       react: 18.3.1
-=======
->>>>>>> a3eb945 (build: update pagination module)
 
   '@storybook/addon-measure@8.3.2(storybook@8.3.2)':
     dependencies:
@@ -11918,11 +11531,7 @@ snapshots:
       memoizerific: 1.11.3
       storybook: 8.3.2
 
-<<<<<<< HEAD
   '@storybook/blocks@8.3.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(storybook@8.3.2)':
-=======
-  '@storybook/blocks@8.3.2(react-dom@18.3.1)(react@18.3.1)(storybook@8.3.2)':
->>>>>>> a3eb945 (build: update pagination module)
     dependencies:
       '@storybook/csf': 0.1.11
       '@storybook/global': 5.0.0
@@ -11939,12 +11548,9 @@ snapshots:
       telejson: 7.2.0
       ts-dedent: 2.2.0
       util-deprecate: 1.0.2
-<<<<<<< HEAD
     optionalDependencies:
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
-=======
->>>>>>> a3eb945 (build: update pagination module)
 
   '@storybook/builder-webpack5@8.3.2(esbuild@0.23.1)(storybook@8.3.2)(typescript@5.6.2)':
     dependencies:
@@ -12016,11 +11622,7 @@ snapshots:
       - supports-color
       - utf-8-validate
 
-<<<<<<< HEAD
   '@storybook/csf-plugin@8.3.2(storybook@8.3.2)(webpack-sources@3.2.3)':
-=======
-  '@storybook/csf-plugin@8.3.2(storybook@8.3.2)':
->>>>>>> a3eb945 (build: update pagination module)
     dependencies:
       storybook: 8.3.2
       unplugin: 1.14.1(webpack-sources@3.2.3)
@@ -12037,11 +11639,7 @@ snapshots:
 
   '@storybook/global@5.0.0': {}
 
-<<<<<<< HEAD
   '@storybook/icons@1.2.12(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
-=======
-  '@storybook/icons@1.2.12(react-dom@18.3.1)(react@18.3.1)':
->>>>>>> a3eb945 (build: update pagination module)
     dependencies:
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
@@ -12057,11 +11655,7 @@ snapshots:
     dependencies:
       storybook: 8.3.2
 
-<<<<<<< HEAD
   '@storybook/nextjs@8.3.2(esbuild@0.23.1)(next@14.2.5(@babel/core@7.25.2)(@opentelemetry/api@1.9.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(storybook@8.3.2)(type-fest@2.19.0)(typescript@5.6.2)(webpack-hot-middleware@2.26.1)(webpack@5.94.0(esbuild@0.23.1))':
-=======
-  '@storybook/nextjs@8.3.2(esbuild@0.23.1)(next@14.2.5)(react-dom@18.3.1)(react@18.3.1)(storybook@8.3.2)(typescript@5.6.2)(webpack@5.94.0)':
->>>>>>> a3eb945 (build: update pagination module)
     dependencies:
       '@babel/core': 7.25.2
       '@babel/plugin-syntax-bigint': 7.8.3(@babel/core@7.25.2)
@@ -12129,11 +11723,7 @@ snapshots:
       - webpack-hot-middleware
       - webpack-plugin-serve
 
-<<<<<<< HEAD
   '@storybook/preset-react-webpack@8.3.2(@storybook/test@8.3.2(storybook@8.3.2))(esbuild@0.23.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(storybook@8.3.2)(typescript@5.6.2)':
-=======
-  '@storybook/preset-react-webpack@8.3.2(@storybook/test@8.3.2)(esbuild@0.23.1)(react-dom@18.3.1)(react@18.3.1)(storybook@8.3.2)(typescript@5.6.2)':
->>>>>>> a3eb945 (build: update pagination module)
     dependencies:
       '@storybook/core-webpack': 8.3.2(storybook@8.3.2)
       '@storybook/react': 8.3.2(@storybook/test@8.3.2(storybook@8.3.2))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(storybook@8.3.2)(typescript@5.6.2)
@@ -12165,11 +11755,7 @@ snapshots:
     dependencies:
       storybook: 8.3.2
 
-<<<<<<< HEAD
   '@storybook/react-docgen-typescript-plugin@1.0.6--canary.9.0c3f3b7.0(typescript@5.6.2)(webpack@5.94.0(esbuild@0.23.1))':
-=======
-  '@storybook/react-docgen-typescript-plugin@1.0.6--canary.9.0c3f3b7.0(typescript@5.6.2)(webpack@5.94.0)':
->>>>>>> a3eb945 (build: update pagination module)
     dependencies:
       debug: 4.3.7
       endent: 2.1.0
@@ -12183,21 +11769,13 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-<<<<<<< HEAD
   '@storybook/react-dom-shim@8.3.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(storybook@8.3.2)':
-=======
-  '@storybook/react-dom-shim@8.3.2(react-dom@18.3.1)(react@18.3.1)(storybook@8.3.2)':
->>>>>>> a3eb945 (build: update pagination module)
     dependencies:
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
       storybook: 8.3.2
 
-<<<<<<< HEAD
   '@storybook/react@8.3.2(@storybook/test@8.3.2(storybook@8.3.2))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(storybook@8.3.2)(typescript@5.6.2)':
-=======
-  '@storybook/react@8.3.2(@storybook/test@8.3.2)(react-dom@18.3.1)(react@18.3.1)(storybook@8.3.2)(typescript@5.6.2)':
->>>>>>> a3eb945 (build: update pagination module)
     dependencies:
       '@storybook/components': 8.3.2(storybook@8.3.2)
       '@storybook/global': 5.0.0
@@ -12222,12 +11800,9 @@ snapshots:
       ts-dedent: 2.2.0
       type-fest: 2.19.0
       util-deprecate: 1.0.2
-<<<<<<< HEAD
     optionalDependencies:
       '@storybook/test': 8.3.2(storybook@8.3.2)
       typescript: 5.6.2
-=======
->>>>>>> a3eb945 (build: update pagination module)
 
   '@storybook/test@8.3.2(storybook@8.3.2)':
     dependencies:
@@ -12278,22 +11853,15 @@ snapshots:
       lodash: 4.17.21
       redent: 3.0.0
 
-<<<<<<< HEAD
   '@testing-library/react@15.0.7(@types/react@18.3.8)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
-=======
-  '@testing-library/react@15.0.7(@types/react@18.3.8)(react-dom@18.3.1)(react@18.3.1)':
->>>>>>> a3eb945 (build: update pagination module)
     dependencies:
       '@babel/runtime': 7.25.6
       '@testing-library/dom': 10.4.0
       '@types/react-dom': 18.3.0
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
-<<<<<<< HEAD
     optionalDependencies:
       '@types/react': 18.3.8
-=======
->>>>>>> a3eb945 (build: update pagination module)
 
   '@testing-library/user-event@14.5.2(@testing-library/dom@10.4.0)':
     dependencies:
@@ -12488,11 +12056,7 @@ snapshots:
     dependencies:
       '@types/yargs-parser': 21.0.3
 
-<<<<<<< HEAD
   '@typescript-eslint/eslint-plugin@7.18.0(@typescript-eslint/parser@7.18.0(eslint@8.57.1)(typescript@5.6.2))(eslint@8.57.1)(typescript@5.6.2)':
-=======
-  '@typescript-eslint/eslint-plugin@7.18.0(@typescript-eslint/parser@7.18.0)(eslint@8.57.1)(typescript@5.6.2)':
->>>>>>> a3eb945 (build: update pagination module)
     dependencies:
       '@eslint-community/regexpp': 4.11.1
       '@typescript-eslint/parser': 7.18.0(eslint@8.57.1)(typescript@5.6.2)
@@ -12768,11 +12332,8 @@ snapshots:
 
   '@xtuc/long@4.2.2': {}
 
-<<<<<<< HEAD
   '@yarnpkg/lockfile@1.1.0': {}
 
-=======
->>>>>>> a3eb945 (build: update pagination module)
   JSONStream@1.3.5:
     dependencies:
       jsonparse: 1.3.1
@@ -12835,11 +12396,7 @@ snapshots:
     optional: true
 
   ajv-formats@2.1.1(ajv@8.17.1):
-<<<<<<< HEAD
     optionalDependencies:
-=======
-    dependencies:
->>>>>>> a3eb945 (build: update pagination module)
       ajv: 8.17.1
 
   ajv-keywords@3.5.2(ajv@6.12.6):
@@ -13025,11 +12582,8 @@ snapshots:
 
   asynckit@0.4.0: {}
 
-<<<<<<< HEAD
   at-least-node@1.0.0: {}
 
-=======
->>>>>>> a3eb945 (build: update pagination module)
   available-typed-arrays@1.0.7:
     dependencies:
       possible-typed-array-names: 1.0.0
@@ -13051,11 +12605,7 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-<<<<<<< HEAD
   babel-loader@9.2.1(@babel/core@7.25.2)(webpack@5.94.0(esbuild@0.23.1)):
-=======
-  babel-loader@9.2.1(@babel/core@7.25.2)(webpack@5.94.0):
->>>>>>> a3eb945 (build: update pagination module)
     dependencies:
       '@babel/core': 7.25.2
       find-cache-dir: 4.0.0
@@ -13462,11 +13012,7 @@ snapshots:
 
   core-util-is@1.0.3: {}
 
-<<<<<<< HEAD
   cosmiconfig-typescript-loader@5.0.0(@types/node@20.16.5)(cosmiconfig@9.0.0(typescript@5.6.2))(typescript@5.6.2):
-=======
-  cosmiconfig-typescript-loader@5.0.0(@types/node@20.16.5)(cosmiconfig@9.0.0)(typescript@5.6.2):
->>>>>>> a3eb945 (build: update pagination module)
     dependencies:
       '@types/node': 20.16.5
       cosmiconfig: 9.0.0(typescript@5.6.2)
@@ -13512,11 +13058,7 @@ snapshots:
       safe-buffer: 5.2.1
       sha.js: 2.4.11
 
-<<<<<<< HEAD
   create-jest@29.7.0(@types/node@20.16.5)(ts-node@10.9.2(@types/node@20.16.5)(typescript@5.6.2)):
-=======
-  create-jest@29.7.0(@types/node@20.16.5)(ts-node@10.9.2):
->>>>>>> a3eb945 (build: update pagination module)
     dependencies:
       '@jest/types': 29.6.3
       chalk: 4.1.2
@@ -13553,11 +13095,7 @@ snapshots:
       randombytes: 2.1.0
       randomfill: 1.0.4
 
-<<<<<<< HEAD
   css-loader@6.11.0(webpack@5.94.0(esbuild@0.23.1)):
-=======
-  css-loader@6.11.0(webpack@5.94.0):
->>>>>>> a3eb945 (build: update pagination module)
     dependencies:
       icss-utils: 5.1.0(postcss@8.4.47)
       postcss: 8.4.47
@@ -14037,11 +13575,7 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-<<<<<<< HEAD
   eslint-import-resolver-typescript@3.6.3(@typescript-eslint/parser@7.2.0(eslint@8.57.1)(typescript@5.6.2))(eslint-import-resolver-node@0.3.9)(eslint-plugin-import@2.30.0)(eslint@8.57.1):
-=======
-  eslint-import-resolver-typescript@3.6.3(@typescript-eslint/parser@7.2.0)(eslint-import-resolver-node@0.3.9)(eslint-plugin-import@2.30.0)(eslint@8.57.1):
->>>>>>> a3eb945 (build: update pagination module)
     dependencies:
       '@nolyfill/is-core-module': 1.0.39
       debug: 4.3.7
@@ -14060,21 +13594,6 @@ snapshots:
       - eslint-import-resolver-webpack
       - supports-color
 
-<<<<<<< HEAD
-  eslint-module-utils@2.11.0(@typescript-eslint/parser@7.18.0(eslint@8.57.1)(typescript@5.6.2))(eslint-import-resolver-node@0.3.9)(eslint@8.57.1):
-=======
-  eslint-module-utils@2.11.0(@typescript-eslint/parser@7.2.0)(eslint-import-resolver-node@0.3.9)(eslint-import-resolver-typescript@3.6.3)(eslint@8.57.1):
->>>>>>> a3eb945 (build: update pagination module)
-    dependencies:
-      debug: 3.2.7
-    optionalDependencies:
-      '@typescript-eslint/parser': 7.18.0(eslint@8.57.1)(typescript@5.6.2)
-      eslint: 8.57.1
-      eslint-import-resolver-node: 0.3.9
-    transitivePeerDependencies:
-      - supports-color
-
-<<<<<<< HEAD
   eslint-module-utils@2.11.0(@typescript-eslint/parser@7.2.0(eslint@8.57.1)(typescript@5.6.2))(eslint-import-resolver-node@0.3.9)(eslint-import-resolver-typescript@3.6.3(@typescript-eslint/parser@7.2.0(eslint@8.57.1)(typescript@5.6.2))(eslint-import-resolver-node@0.3.9)(eslint-plugin-import@2.30.0)(eslint@8.57.1))(eslint@8.57.1):
     dependencies:
       debug: 3.2.7
@@ -14087,9 +13606,6 @@ snapshots:
       - supports-color
 
   eslint-plugin-import@2.30.0(@typescript-eslint/parser@7.18.0(eslint@8.57.1)(typescript@5.6.2))(eslint@8.57.1):
-=======
-  eslint-plugin-import@2.30.0(@typescript-eslint/parser@7.2.0)(eslint-import-resolver-typescript@3.6.3)(eslint@8.57.1):
->>>>>>> a3eb945 (build: update pagination module)
     dependencies:
       '@rtsao/scc': 1.1.0
       array-includes: 3.1.8
@@ -14100,7 +13616,7 @@ snapshots:
       doctrine: 2.1.0
       eslint: 8.57.1
       eslint-import-resolver-node: 0.3.9
-      eslint-module-utils: 2.11.0(@typescript-eslint/parser@7.18.0(eslint@8.57.1)(typescript@5.6.2))(eslint-import-resolver-node@0.3.9)(eslint@8.57.1)
+      eslint-module-utils: 2.11.0(@typescript-eslint/parser@7.2.0(eslint@8.57.1)(typescript@5.6.2))(eslint-import-resolver-node@0.3.9)(eslint-import-resolver-typescript@3.6.3(@typescript-eslint/parser@7.2.0(eslint@8.57.1)(typescript@5.6.2))(eslint-import-resolver-node@0.3.9)(eslint-plugin-import@2.30.0)(eslint@8.57.1))(eslint@8.57.1)
       hasown: 2.0.2
       is-core-module: 2.15.1
       is-glob: 4.0.3
@@ -14438,13 +13954,10 @@ snapshots:
       path-exists: 5.0.0
       unicorn-magic: 0.1.0
 
-<<<<<<< HEAD
   find-yarn-workspace-root@2.0.0:
     dependencies:
       micromatch: 4.0.8
 
-=======
->>>>>>> a3eb945 (build: update pagination module)
   firebase-admin@12.6.0:
     dependencies:
       '@fastify/busboy': 3.0.0
@@ -14514,11 +14027,7 @@ snapshots:
       cross-spawn: 7.0.3
       signal-exit: 4.1.0
 
-<<<<<<< HEAD
   fork-ts-checker-webpack-plugin@8.0.0(typescript@5.6.2)(webpack@5.94.0(esbuild@0.23.1)):
-=======
-  fork-ts-checker-webpack-plugin@8.0.0(typescript@5.6.2)(webpack@5.94.0):
->>>>>>> a3eb945 (build: update pagination module)
     dependencies:
       '@babel/code-frame': 7.24.7
       chalk: 4.1.2
@@ -14551,20 +14060,12 @@ snapshots:
 
   forwarded@0.2.0: {}
 
-<<<<<<< HEAD
   framer-motion@11.3.23-alpha.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
-=======
-  framer-motion@11.3.23-alpha.2(react-dom@18.3.1)(react@18.3.1):
->>>>>>> a3eb945 (build: update pagination module)
     dependencies:
       tslib: 2.7.0
     optionalDependencies:
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
-<<<<<<< HEAD
-=======
-      tslib: 2.7.0
->>>>>>> a3eb945 (build: update pagination module)
 
   fresh@0.5.2: {}
 
@@ -14580,7 +14081,6 @@ snapshots:
       jsonfile: 6.1.0
       universalify: 2.0.1
 
-<<<<<<< HEAD
   fs-extra@9.1.0:
     dependencies:
       at-least-node: 1.0.0
@@ -14592,12 +14092,6 @@ snapshots:
 
   fs.realpath@1.0.0: {}
 
-=======
-  fs-monkey@1.0.6: {}
-
-  fs.realpath@1.0.0: {}
-
->>>>>>> a3eb945 (build: update pagination module)
   fsevents@2.3.3:
     optional: true
 
@@ -14865,11 +14359,7 @@ snapshots:
 
   html-tags@3.3.1: {}
 
-<<<<<<< HEAD
   html-webpack-plugin@5.6.0(webpack@5.94.0(esbuild@0.23.1)):
-=======
-  html-webpack-plugin@5.6.0(webpack@5.94.0):
->>>>>>> a3eb945 (build: update pagination module)
     dependencies:
       '@types/html-minifier-terser': 6.1.0
       html-minifier-terser: 6.1.0
@@ -15245,11 +14735,7 @@ snapshots:
       - babel-plugin-macros
       - supports-color
 
-<<<<<<< HEAD
   jest-cli@29.7.0(@types/node@20.16.5)(ts-node@10.9.2(@types/node@20.16.5)(typescript@5.6.2)):
-=======
-  jest-cli@29.7.0(@types/node@20.16.5)(ts-node@10.9.2):
->>>>>>> a3eb945 (build: update pagination module)
     dependencies:
       '@jest/core': 29.7.0(ts-node@10.9.2(@types/node@20.16.5)(typescript@5.6.2))
       '@jest/test-result': 29.7.0
@@ -15268,11 +14754,7 @@ snapshots:
       - supports-color
       - ts-node
 
-<<<<<<< HEAD
   jest-config@29.7.0(@types/node@20.16.5)(ts-node@10.9.2(@types/node@20.16.5)(typescript@5.6.2)):
-=======
-  jest-config@29.7.0(@types/node@20.16.5)(ts-node@10.9.2):
->>>>>>> a3eb945 (build: update pagination module)
     dependencies:
       '@babel/core': 7.25.2
       '@jest/test-sequencer': 29.7.0
@@ -15395,11 +14877,7 @@ snapshots:
       jest-util: 29.7.0
 
   jest-pnp-resolver@1.2.3(jest-resolve@29.7.0):
-<<<<<<< HEAD
     optionalDependencies:
-=======
-    dependencies:
->>>>>>> a3eb945 (build: update pagination module)
       jest-resolve: 29.7.0
 
   jest-regex-util@29.6.3: {}
@@ -15543,11 +15021,7 @@ snapshots:
       merge-stream: 2.0.0
       supports-color: 8.1.1
 
-<<<<<<< HEAD
   jest@29.7.0(@types/node@20.16.5)(ts-node@10.9.2(@types/node@20.16.5)(typescript@5.6.2)):
-=======
-  jest@29.7.0(@types/node@20.16.5)(ts-node@10.9.2):
->>>>>>> a3eb945 (build: update pagination module)
     dependencies:
       '@jest/core': 29.7.0(ts-node@10.9.2(@types/node@20.16.5)(typescript@5.6.2))
       '@jest/types': 29.6.3
@@ -15630,7 +15104,6 @@ snapshots:
 
   json-stable-stringify-without-jsonify@1.0.1: {}
 
-<<<<<<< HEAD
   json-stable-stringify@1.1.1:
     dependencies:
       call-bind: 1.0.7
@@ -15638,8 +15111,6 @@ snapshots:
       jsonify: 0.0.1
       object-keys: 1.1.1
 
-=======
->>>>>>> a3eb945 (build: update pagination module)
   json5@1.0.2:
     dependencies:
       minimist: 1.2.8
@@ -15652,15 +15123,10 @@ snapshots:
     optionalDependencies:
       graceful-fs: 4.2.11
 
-<<<<<<< HEAD
   jsonify@0.0.1: {}
 
   jsonparse@1.3.1: {}
 
-=======
-  jsonparse@1.3.1: {}
-
->>>>>>> a3eb945 (build: update pagination module)
   jsonwebtoken@9.0.2:
     dependencies:
       jws: 3.2.2
@@ -15720,7 +15186,6 @@ snapshots:
     dependencies:
       json-buffer: 3.0.1
 
-<<<<<<< HEAD
   klaw-sync@6.0.0:
     dependencies:
       graceful-fs: 4.2.11
@@ -15729,12 +15194,6 @@ snapshots:
 
   language-subtag-registry@0.3.23: {}
 
-=======
-  kleur@3.0.3: {}
-
-  language-subtag-registry@0.3.23: {}
-
->>>>>>> a3eb945 (build: update pagination module)
   language-tags@1.0.9:
     dependencies:
       language-subtag-registry: 0.3.23
@@ -16006,30 +15465,18 @@ snapshots:
 
   neo-async@2.6.2: {}
 
-<<<<<<< HEAD
   next-auth@5.0.0-beta.21(next@14.2.5(@babel/core@7.25.2)(@opentelemetry/api@1.9.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react@18.3.1):
-=======
-  next-auth@5.0.0-beta.21(next@14.2.5)(react@18.3.1):
->>>>>>> a3eb945 (build: update pagination module)
     dependencies:
       '@auth/core': 0.35.0
       next: 14.2.5(@babel/core@7.25.2)(@opentelemetry/api@1.9.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       react: 18.3.1
 
-<<<<<<< HEAD
   next-themes@0.3.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
-=======
-  next-themes@0.3.0(react-dom@18.3.1)(react@18.3.1):
->>>>>>> a3eb945 (build: update pagination module)
     dependencies:
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
 
-<<<<<<< HEAD
   next@14.2.5(@babel/core@7.25.2)(@opentelemetry/api@1.9.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
-=======
-  next@14.2.5(@babel/core@7.25.2)(react-dom@18.3.1)(react@18.3.1):
->>>>>>> a3eb945 (build: update pagination module)
     dependencies:
       '@next/env': 14.2.5
       '@swc/helpers': 0.5.5
@@ -16071,11 +15518,7 @@ snapshots:
 
   node-int64@0.4.0: {}
 
-<<<<<<< HEAD
   node-polyfill-webpack-plugin@2.0.1(webpack@5.94.0(esbuild@0.23.1)):
-=======
-  node-polyfill-webpack-plugin@2.0.1(webpack@5.94.0):
->>>>>>> a3eb945 (build: update pagination module)
     dependencies:
       assert: 2.1.0
       browserify-zlib: 0.2.0
@@ -16191,14 +15634,11 @@ snapshots:
     dependencies:
       mimic-function: 5.0.1
 
-<<<<<<< HEAD
   open@7.4.2:
     dependencies:
       is-docker: 2.2.1
       is-wsl: 2.2.0
 
-=======
->>>>>>> a3eb945 (build: update pagination module)
   open@8.4.2:
     dependencies:
       define-lazy-prop: 2.0.0
@@ -16216,11 +15656,8 @@ snapshots:
 
   os-browserify@0.3.0: {}
 
-<<<<<<< HEAD
   os-tmpdir@1.0.2: {}
 
-=======
->>>>>>> a3eb945 (build: update pagination module)
   p-limit@2.3.0:
     dependencies:
       p-try: 2.2.0
@@ -16287,7 +15724,6 @@ snapshots:
       no-case: 3.0.4
       tslib: 2.7.0
 
-<<<<<<< HEAD
   patch-package@8.0.0:
     dependencies:
       '@yarnpkg/lockfile': 1.1.0
@@ -16320,22 +15756,6 @@ snapshots:
 
   path-parse@1.0.7: {}
 
-=======
-  path-browserify@1.0.1: {}
-
-  path-exists@4.0.0: {}
-
-  path-exists@5.0.0: {}
-
-  path-is-absolute@1.0.1: {}
-
-  path-key@3.1.1: {}
-
-  path-key@4.0.0: {}
-
-  path-parse@1.0.7: {}
-
->>>>>>> a3eb945 (build: update pagination module)
   path-scurry@1.11.1:
     dependencies:
       lru-cache: 10.4.3
@@ -16397,11 +15817,7 @@ snapshots:
       camelcase-css: 2.0.1
       postcss: 8.4.47
 
-<<<<<<< HEAD
   postcss-load-config@4.0.2(postcss@8.4.47)(ts-node@10.9.2(@types/node@20.16.5)(typescript@5.6.2)):
-=======
-  postcss-load-config@4.0.2(postcss@8.4.47)(ts-node@10.9.2):
->>>>>>> a3eb945 (build: update pagination module)
     dependencies:
       lilconfig: 3.1.2
       yaml: 2.5.1
@@ -16409,11 +15825,7 @@ snapshots:
       postcss: 8.4.47
       ts-node: 10.9.2(@types/node@20.16.5)(typescript@5.6.2)
 
-<<<<<<< HEAD
   postcss-loader@8.1.1(postcss@8.4.47)(typescript@5.6.2)(webpack@5.94.0(esbuild@0.23.1)):
-=======
-  postcss-loader@8.1.1(postcss@8.4.47)(typescript@5.6.2)(webpack@5.94.0):
->>>>>>> a3eb945 (build: update pagination module)
     dependencies:
       cosmiconfig: 9.0.0(typescript@5.6.2)
       jiti: 1.21.6
@@ -16588,11 +16000,7 @@ snapshots:
       iconv-lite: 0.4.24
       unpipe: 1.0.0
 
-<<<<<<< HEAD
   react-colorful@5.6.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
-=======
-  react-colorful@5.6.1(react-dom@18.3.1)(react@18.3.1):
->>>>>>> a3eb945 (build: update pagination module)
     dependencies:
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
@@ -16627,11 +16035,7 @@ snapshots:
       react: 18.3.1
       scheduler: 0.23.2
 
-<<<<<<< HEAD
   react-element-to-jsx-string@15.0.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
-=======
-  react-element-to-jsx-string@15.0.0(react-dom@18.3.1)(react@18.3.1):
->>>>>>> a3eb945 (build: update pagination module)
     dependencies:
       '@base2/pretty-print-object': 1.0.1
       is-plain-object: 5.0.0
@@ -16658,13 +16062,7 @@ snapshots:
       react: 18.3.1
       react-style-singleton: 2.2.1(@types/react@18.3.8)(react@18.3.1)
       tslib: 2.7.0
-<<<<<<< HEAD
     optionalDependencies:
-=======
-
-  react-remove-scroll@2.6.0(@types/react@18.3.8)(react@18.3.1):
-    dependencies:
->>>>>>> a3eb945 (build: update pagination module)
       '@types/react': 18.3.8
 
   react-remove-scroll@2.6.0(@types/react@18.3.8)(react@18.3.1):
@@ -16675,13 +16073,7 @@ snapshots:
       tslib: 2.7.0
       use-callback-ref: 1.3.2(@types/react@18.3.8)(react@18.3.1)
       use-sidecar: 1.1.2(@types/react@18.3.8)(react@18.3.1)
-<<<<<<< HEAD
     optionalDependencies:
-=======
-
-  react-style-singleton@2.2.1(@types/react@18.3.8)(react@18.3.1):
-    dependencies:
->>>>>>> a3eb945 (build: update pagination module)
       '@types/react': 18.3.8
 
   react-style-singleton@2.2.1(@types/react@18.3.8)(react@18.3.1):
@@ -16690,11 +16082,8 @@ snapshots:
       invariant: 2.2.4
       react: 18.3.1
       tslib: 2.7.0
-<<<<<<< HEAD
     optionalDependencies:
       '@types/react': 18.3.8
-=======
->>>>>>> a3eb945 (build: update pagination module)
 
   react-textarea-autosize@8.5.3(@types/react@18.3.8)(react@18.3.1):
     dependencies:
@@ -16887,7 +16276,6 @@ snapshots:
 
   rfdc@1.4.1: {}
 
-<<<<<<< HEAD
   rimraf@2.7.1:
     dependencies:
       glob: 7.2.3
@@ -16896,12 +16284,6 @@ snapshots:
     dependencies:
       glob: 7.2.3
 
-=======
-  rimraf@3.0.2:
-    dependencies:
-      glob: 7.2.3
-
->>>>>>> a3eb945 (build: update pagination module)
   ripemd160@2.0.2:
     dependencies:
       hash-base: 3.1.0
@@ -16930,11 +16312,7 @@ snapshots:
 
   safer-buffer@2.1.2: {}
 
-<<<<<<< HEAD
   sass-loader@13.3.3(webpack@5.94.0(esbuild@0.23.1)):
-=======
-  sass-loader@13.3.3(webpack@5.94.0):
->>>>>>> a3eb945 (build: update pagination module)
     dependencies:
       neo-async: 2.6.2
       webpack: 5.94.0(esbuild@0.23.1)
@@ -17074,15 +16452,10 @@ snapshots:
 
   sisteransi@1.0.5: {}
 
-<<<<<<< HEAD
   slash@2.0.0: {}
 
   slash@3.0.0: {}
 
-=======
-  slash@3.0.0: {}
-
->>>>>>> a3eb945 (build: update pagination module)
   slice-ansi@5.0.0:
     dependencies:
       ansi-styles: 6.2.1
@@ -17266,11 +16639,7 @@ snapshots:
   stubs@3.0.0:
     optional: true
 
-<<<<<<< HEAD
   style-loader@3.3.4(webpack@5.94.0(esbuild@0.23.1)):
-=======
-  style-loader@3.3.4(webpack@5.94.0):
->>>>>>> a3eb945 (build: update pagination module)
     dependencies:
       webpack: 5.94.0(esbuild@0.23.1)
 
@@ -17278,24 +16647,15 @@ snapshots:
     dependencies:
       client-only: 0.0.1
       react: 18.3.1
-<<<<<<< HEAD
     optionalDependencies:
-=======
-
-  styled-jsx@5.1.6(@babel/core@7.25.2)(react@18.3.1):
-    dependencies:
->>>>>>> a3eb945 (build: update pagination module)
       '@babel/core': 7.25.2
 
   styled-jsx@5.1.6(@babel/core@7.25.2)(react@18.3.1):
     dependencies:
       client-only: 0.0.1
       react: 18.3.1
-<<<<<<< HEAD
     optionalDependencies:
       '@babel/core': 7.25.2
-=======
->>>>>>> a3eb945 (build: update pagination module)
 
   sucrase@3.35.0:
     dependencies:
@@ -17327,21 +16687,12 @@ snapshots:
 
   tailwind-merge@2.5.2: {}
 
-<<<<<<< HEAD
   tailwind-variants@0.1.20(tailwindcss@3.4.12(ts-node@10.9.2(@types/node@20.16.5)(typescript@5.6.2))):
     dependencies:
       tailwind-merge: 1.14.0
       tailwindcss: 3.4.12(ts-node@10.9.2(@types/node@20.16.5)(typescript@5.6.2))
 
   tailwindcss@3.4.12(ts-node@10.9.2(@types/node@20.16.5)(typescript@5.6.2)):
-=======
-  tailwind-variants@0.1.20(tailwindcss@3.4.12):
-    dependencies:
-      tailwind-merge: 1.14.0
-      tailwindcss: 3.4.12(ts-node@10.9.2)
-
-  tailwindcss@3.4.12(ts-node@10.9.2):
->>>>>>> a3eb945 (build: update pagination module)
     dependencies:
       '@alloc/quick-lru': 5.2.0
       arg: 5.0.2
@@ -17386,11 +16737,7 @@ snapshots:
     dependencies:
       memoizerific: 1.11.3
 
-<<<<<<< HEAD
   terser-webpack-plugin@5.3.10(esbuild@0.23.1)(webpack@5.94.0(esbuild@0.23.1)):
-=======
-  terser-webpack-plugin@5.3.10(esbuild@0.23.1)(webpack@5.94.0):
->>>>>>> a3eb945 (build: update pagination module)
     dependencies:
       '@jridgewell/trace-mapping': 0.3.25
       jest-worker: 27.5.1
@@ -17398,11 +16745,8 @@ snapshots:
       serialize-javascript: 6.0.2
       terser: 5.33.0
       webpack: 5.94.0(esbuild@0.23.1)
-<<<<<<< HEAD
     optionalDependencies:
       esbuild: 0.23.1
-=======
->>>>>>> a3eb945 (build: update pagination module)
 
   terser@5.33.0:
     dependencies:
@@ -17443,7 +16787,6 @@ snapshots:
 
   tinyspy@3.0.2: {}
 
-<<<<<<< HEAD
   tmp@0.0.33:
     dependencies:
       os-tmpdir: 1.0.2
@@ -17452,12 +16795,6 @@ snapshots:
 
   to-fast-properties@2.0.0: {}
 
-=======
-  tmpl@1.0.5: {}
-
-  to-fast-properties@2.0.0: {}
-
->>>>>>> a3eb945 (build: update pagination module)
   to-regex-range@5.0.1:
     dependencies:
       is-number: 7.0.0
@@ -17486,11 +16823,7 @@ snapshots:
 
   ts-interface-checker@0.1.13: {}
 
-<<<<<<< HEAD
   ts-jest@29.2.5(@babel/core@7.25.2)(@jest/transform@29.7.0)(@jest/types@29.6.3)(babel-jest@29.7.0(@babel/core@7.25.2))(esbuild@0.23.1)(jest@29.7.0(@types/node@20.16.5)(ts-node@10.9.2(@types/node@20.16.5)(typescript@5.6.2)))(typescript@5.6.2):
-=======
-  ts-jest@29.2.5(@babel/core@7.25.2)(esbuild@0.23.1)(jest@29.7.0)(typescript@5.6.2):
->>>>>>> a3eb945 (build: update pagination module)
     dependencies:
       bs-logger: 0.2.6
       ejs: 3.1.10
@@ -17503,15 +16836,12 @@ snapshots:
       semver: 7.6.3
       typescript: 5.6.2
       yargs-parser: 21.1.1
-<<<<<<< HEAD
     optionalDependencies:
       '@babel/core': 7.25.2
       '@jest/transform': 29.7.0
       '@jest/types': 29.6.3
       babel-jest: 29.7.0(@babel/core@7.25.2)
       esbuild: 0.23.1
-=======
->>>>>>> a3eb945 (build: update pagination module)
 
   ts-node@10.9.2(@types/node@20.16.5)(typescript@5.6.2):
     dependencies:
@@ -17532,11 +16862,7 @@ snapshots:
       yn: 3.1.1
 
   ts-pnp@1.2.0(typescript@5.6.2):
-<<<<<<< HEAD
     optionalDependencies:
-=======
-    dependencies:
->>>>>>> a3eb945 (build: update pagination module)
       typescript: 5.6.2
 
   tsconfig-paths-webpack-plugin@4.1.0:
@@ -17667,19 +16993,12 @@ snapshots:
 
   unpipe@1.0.0: {}
 
-<<<<<<< HEAD
   unplugin@1.14.1(webpack-sources@3.2.3):
     dependencies:
       acorn: 8.12.1
       webpack-virtual-modules: 0.6.2
     optionalDependencies:
       webpack-sources: 3.2.3
-=======
-  unplugin@1.14.1:
-    dependencies:
-      acorn: 8.12.1
-      webpack-virtual-modules: 0.6.2
->>>>>>> a3eb945 (build: update pagination module)
 
   update-browserslist-db@1.1.0(browserslist@4.23.3):
     dependencies:
@@ -17705,11 +17024,8 @@ snapshots:
     dependencies:
       react: 18.3.1
       tslib: 2.7.0
-<<<<<<< HEAD
     optionalDependencies:
       '@types/react': 18.3.8
-=======
->>>>>>> a3eb945 (build: update pagination module)
 
   use-composed-ref@1.3.0(react@18.3.1):
     dependencies:
@@ -17718,26 +17034,14 @@ snapshots:
   use-isomorphic-layout-effect@1.1.2(@types/react@18.3.8)(react@18.3.1):
     dependencies:
       react: 18.3.1
-<<<<<<< HEAD
     optionalDependencies:
-=======
-
-  use-latest@1.2.1(@types/react@18.3.8)(react@18.3.1):
-    dependencies:
->>>>>>> a3eb945 (build: update pagination module)
       '@types/react': 18.3.8
 
   use-latest@1.2.1(@types/react@18.3.8)(react@18.3.1):
     dependencies:
       react: 18.3.1
       use-isomorphic-layout-effect: 1.1.2(@types/react@18.3.8)(react@18.3.1)
-<<<<<<< HEAD
     optionalDependencies:
-=======
-
-  use-sidecar@1.1.2(@types/react@18.3.8)(react@18.3.1):
-    dependencies:
->>>>>>> a3eb945 (build: update pagination module)
       '@types/react': 18.3.8
 
   use-sidecar@1.1.2(@types/react@18.3.8)(react@18.3.1):
@@ -17745,11 +17049,8 @@ snapshots:
       detect-node-es: 1.1.0
       react: 18.3.1
       tslib: 2.7.0
-<<<<<<< HEAD
     optionalDependencies:
       '@types/react': 18.3.8
-=======
->>>>>>> a3eb945 (build: update pagination module)
 
   util-deprecate@1.0.2: {}
 
@@ -17802,11 +17103,7 @@ snapshots:
 
   webidl-conversions@7.0.0: {}
 
-<<<<<<< HEAD
   webpack-dev-middleware@6.1.3(webpack@5.94.0(esbuild@0.23.1)):
-=======
-  webpack-dev-middleware@6.1.3(webpack@5.94.0):
->>>>>>> a3eb945 (build: update pagination module)
     dependencies:
       colorette: 2.0.20
       memfs: 3.5.3
