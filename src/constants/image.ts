@@ -20,3 +20,12 @@ export const FOOTER_IMAGES = {
 
 export const NOT_FOUND_URL_IMAGE = '/images/not-found.webp';
 export const ERROR_IMAGE = '/images/error.webp';
+
+export const VALID_IMAGE_FORMAT = [
+  'image/jpeg',
+  'image/jpg',
+  'image/png',
+  'image/webp',
+];
+
+export const MAX_IMAGE_SIZE = 32000000;

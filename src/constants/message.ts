@@ -13,6 +13,16 @@ export const FORM_VALIDATION_MESSAGE = {
   DURATION: (item: string) => `${item} must be between 00:00 and 23:59.`,
   NOT_SAME_AS_SENDER: 'Sender and receiver cannot be the same.',
   ONLY_TEXT: 'Please enter text only.',
+  MAX_SIZE: ({
+    item,
+    size,
+    unit,
+  }: {
+    item: string;
+    size: number;
+    unit: string;
+  }) => `Max ${item} size is ${size}${unit}`,
+  ACCEPTED_FORMATS: 'Only .jpg, .jpeg, .png and .webp formats are supported.',
 };
 
 export const ERROR_MESSAGE = {
