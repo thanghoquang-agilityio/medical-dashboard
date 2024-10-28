@@ -25,7 +25,14 @@ import {
   STATUS_TYPE,
   Option,
 } from '@/types';
-import { AVATAR_THUMBNAIL, ERROR_MESSAGE, SUCCESS_MESSAGE } from '@/constants';
+import {
+  AVATAR_THUMBNAIL,
+  ERROR_MESSAGE,
+  FORM_VALIDATION_MESSAGE,
+  MAX_IMAGE_SIZE,
+  SUCCESS_MESSAGE,
+  VALID_IMAGE_FORMAT,
+} from '@/constants';
 
 // Helper
 import { clearErrorOnChange, getRoleIdByName } from '@/utils';
@@ -127,9 +134,34 @@ const ChemistForm = memo(
     const handleUpload =
       (callback: (value: string) => void) =>
       (event: React.ChangeEvent<HTMLInputElement>) => {
+        clearErrors('avatar');
+
         const files = event.target.files;
         if (files && files[0]) {
           const image = files[0];
+
+          const isNoMoreThan32MB = image.size <= MAX_IMAGE_SIZE;
+
+          if (!isNoMoreThan32MB) {
+            setFormError('avatar', {
+              message: FORM_VALIDATION_MESSAGE.MAX_SIZE({
+                item: 'image',
+                size: 32,
+                unit: 'MB',
+              }),
+            });
+            return;
+          }
+
+          const hasValidFormat = VALID_IMAGE_FORMAT.includes(image.type);
+
+          if (!hasValidFormat) {
+            setFormError('avatar', {
+              message: FORM_VALIDATION_MESSAGE.ACCEPTED_FORMATS,
+            });
+            return;
+          }
+
           const formData = new FormData();
           formData.append('image', image);
 
@@ -269,17 +301,27 @@ const ChemistForm = memo(
         <Controller
           control={control}
           name="avatar"
-          render={({ field: { value, onChange, ...rest } }) => (
-            <ImageUpload
-              {...rest}
-              ref={hiddenFileInput}
-              data-testid="chemist-avatar"
-              src={value}
-              srcUpload={imageUpload}
-              onRemoveImage={handleRemoveImage(onChange)}
-              onUploadImage={handleUpload(onChange)}
-              isDisabled={isPending}
-            />
+          render={({
+            field: { value, onChange, ...rest },
+            fieldState: { error },
+          }) => (
+            <>
+              <ImageUpload
+                {...rest}
+                ref={hiddenFileInput}
+                data-testid="chemist-avatar"
+                src={value}
+                srcUpload={imageUpload}
+                onRemoveImage={handleRemoveImage(onChange)}
+                onUploadImage={handleUpload(onChange)}
+                isDisabled={isPending}
+              />
+              {!!error && (
+                <p className="text-danger-100 text-xs ml-2 text-center">
+                  {error.message}
+                </p>
+              )}
+            </>
           )}
         />
 
