@@ -45,25 +45,23 @@ export const getFCMTokens = async () => {
 
   const adminDocSnap = await getDoc(doc(db, REGISTRATION_TOKENS, 'admin'));
 
-  const { tokens: adminRegistrationTokens } = (adminDocSnap.data() as {
+  const { tokens: adminRegistrationTokens } = adminDocSnap.data() as {
     tokens: Array<string>;
-  }) || {
-    tokens: [],
   };
 
   if (role === ROLE.ADMIN) {
-    return adminRegistrationTokens;
+    return adminRegistrationTokens || [];
   }
 
   const userDocSnap = await getDoc(doc(db, REGISTRATION_TOKENS, email));
 
-  const { tokens: userRegistrationTokens } = (userDocSnap.data() as {
+  const { tokens: userRegistrationTokens } = userDocSnap.data() as {
     tokens: Array<string>;
-  }) || {
-    tokens: [],
   };
-
-  return [...userRegistrationTokens, ...adminRegistrationTokens];
+  return [
+    ...(userRegistrationTokens || []),
+    ...(adminRegistrationTokens || []),
+  ];
 };
 
 export const registerFCM = async ({ token }: { token: string }) => {
