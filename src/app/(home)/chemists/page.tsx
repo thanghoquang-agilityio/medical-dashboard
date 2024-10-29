@@ -48,25 +48,26 @@ const ChemistPage = async ({
   });
 
   searchParamsAPI.set('pagination[page]', page.toString());
+
   searchParamsAPI.set(
     'pagination[pageSize]',
     PAGE_SIZE_CHEMISTS_DEFAULT.toString(),
   );
+
   searchParamsAPI.set('sort[0]', `createdAt:${DIRECTION.DESC}`);
 
-  if (search) {
-    searchParamsAPI.set(
-      `filters[$or][0][users_permissions_user][username][$containsi]`,
-      search,
-    );
-  }
-
-  if (specialty) {
-    searchParamsAPI.set(
-      `filters[$or][0][users_permissions_user][specialtyId][name][$containsi]`,
+  const CHEMISTS_FILTER_PARAMS = [
+    [search, `filters[$or][0][users_permissions_user][username][$containsi]`],
+    [
       specialty,
-    );
-  }
+      `filters[$or][0][users_permissions_user][specialtyId][name][$containsi]`,
+    ],
+  ];
+
+  CHEMISTS_FILTER_PARAMS.forEach(([value, key]) => {
+    if (value) searchParamsAPI.set(key, value);
+  });
+
   const { chemists, pagination } = await getChemists({
     searchParams: searchParamsAPI,
   });
