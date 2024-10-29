@@ -43,8 +43,7 @@ const Notifications = memo(
               <Badge
                 className="bg-danger-100 text-content1"
                 classNames={{
-                  badge:
-                    'min-w-3 min-h-3 w-3 h-3 text-[6px] top-[15%] right-[15%]',
+                  badge: 'w-4 h-4 text-[8px] top-[15%] right-[15%]',
                 }}
                 content={totalNotifications}
                 size="sm"
