@@ -14,22 +14,11 @@ import { AUTH_ROUTES, PRIVATE_ROUTES, SRC_LOGO } from '@/constants';
 // Services
 import { logout } from '@/services';
 
-// Hooks
-import { useFcmToken } from '@/hooks';
-import { unregisterFCM } from '@/services/notificationFirebase';
-
 export const Sidebar = () => {
   const [isPending, setIsPending] = useState(false);
 
-  const { token } = useFcmToken();
-
   const handleLogout = async () => {
     setIsPending(true);
-
-    token &&
-      (await unregisterFCM({
-        token,
-      }));
 
     await logout();
 
