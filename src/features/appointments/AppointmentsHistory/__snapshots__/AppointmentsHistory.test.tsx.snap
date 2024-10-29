@@ -626,10 +626,11 @@ exports[`AppointmentsHistory Component should render correctly with admin role w
                   >
                     <span
                       class="box-border overflow-hidden outline-none rounded-full ring-offset-background dark:ring-offset-background-dark shrink-0 min-w-8 w-8 h-8 bg-undefined ring-offset-2 ring-1 ring-green false shrink-0 hidden sm:block"
+                      data-testid="avatar-container"
                       tabindex="-1"
                     >
                       <img
-                        alt="UnavailableImage"
+                        alt=""
                         class="aspect-square"
                         data-nimg="1"
                         decoding="async"
@@ -637,7 +638,7 @@ exports[`AppointmentsHistory Component should render correctly with admin role w
                         height="48"
                         src="http://localhost/_next/image?url=%2Fimages%2Favatar-thumbnail.webp&w=96&q=75"
                         srcset="/_next/image?url=%2Fimages%2Favatar-thumbnail.webp&w=48&q=75 1x, /_next/image?url=%2Fimages%2Favatar-thumbnail.webp&w=96&q=75 2x"
-                        style="color: transparent; object-fit: cover;"
+                        style="color: transparent; background-size: cover; background-position: 50% 50%; background-repeat: no-repeat;"
                         width="48"
                       />
                     </span>
@@ -659,10 +660,11 @@ exports[`AppointmentsHistory Component should render correctly with admin role w
                   >
                     <span
                       class="box-border overflow-hidden outline-none rounded-full ring-offset-background dark:ring-offset-background-dark shrink-0 min-w-8 w-8 h-8 bg-undefined ring-offset-2 ring-1 ring-green false shrink-0 hidden sm:block"
+                      data-testid="avatar-container"
                       tabindex="-1"
                     >
                       <img
-                        alt="UnavailableImage"
+                        alt=""
                         class="aspect-square"
                         data-nimg="1"
                         decoding="async"
@@ -670,7 +672,7 @@ exports[`AppointmentsHistory Component should render correctly with admin role w
                         height="48"
                         src="http://localhost/_next/image?url=%2Fimages%2Favatar-thumbnail.webp&w=96&q=75"
                         srcset="/_next/image?url=%2Fimages%2Favatar-thumbnail.webp&w=48&q=75 1x, /_next/image?url=%2Fimages%2Favatar-thumbnail.webp&w=96&q=75 2x"
-                        style="color: transparent; object-fit: cover;"
+                        style="color: transparent; background-size: cover; background-position: 50% 50%; background-repeat: no-repeat;"
                         width="48"
                       />
                     </span>
@@ -787,10 +789,11 @@ exports[`AppointmentsHistory Component should render correctly with admin role w
                   >
                     <span
                       class="box-border overflow-hidden outline-none rounded-full ring-offset-background dark:ring-offset-background-dark shrink-0 min-w-8 w-8 h-8 bg-undefined ring-offset-2 ring-1 ring-green false shrink-0 hidden sm:block"
+                      data-testid="avatar-container"
                       tabindex="-1"
                     >
                       <img
-                        alt="UnavailableImage"
+                        alt=""
                         class="aspect-square"
                         data-nimg="1"
                         decoding="async"
@@ -798,7 +801,7 @@ exports[`AppointmentsHistory Component should render correctly with admin role w
                         height="48"
                         src="http://localhost/_next/image?url=%2Fimages%2Favatar-thumbnail.webp&w=96&q=75"
                         srcset="/_next/image?url=%2Fimages%2Favatar-thumbnail.webp&w=48&q=75 1x, /_next/image?url=%2Fimages%2Favatar-thumbnail.webp&w=96&q=75 2x"
-                        style="color: transparent; object-fit: cover;"
+                        style="color: transparent; background-size: cover; background-position: 50% 50%; background-repeat: no-repeat;"
                         width="48"
                       />
                     </span>
@@ -820,10 +823,11 @@ exports[`AppointmentsHistory Component should render correctly with admin role w
                   >
                     <span
                       class="box-border overflow-hidden outline-none rounded-full ring-offset-background dark:ring-offset-background-dark shrink-0 min-w-8 w-8 h-8 bg-undefined ring-offset-2 ring-1 ring-green false shrink-0 hidden sm:block"
+                      data-testid="avatar-container"
                       tabindex="-1"
                     >
                       <img
-                        alt="UnavailableImage"
+                        alt=""
                         class="aspect-square"
                         data-nimg="1"
                         decoding="async"
@@ -831,7 +835,7 @@ exports[`AppointmentsHistory Component should render correctly with admin role w
                         height="48"
                         src="http://localhost/_next/image?url=%2Fimages%2Favatar-thumbnail.webp&w=96&q=75"
                         srcset="/_next/image?url=%2Fimages%2Favatar-thumbnail.webp&w=48&q=75 1x, /_next/image?url=%2Fimages%2Favatar-thumbnail.webp&w=96&q=75 2x"
-                        style="color: transparent; object-fit: cover;"
+                        style="color: transparent; background-size: cover; background-position: 50% 50%; background-repeat: no-repeat;"
                         width="48"
                       />
                     </span>
@@ -947,10 +951,11 @@ exports[`AppointmentsHistory Component should render correctly with admin role w
                   >
                     <span
                       class="box-border overflow-hidden outline-none rounded-full ring-offset-background dark:ring-offset-background-dark shrink-0 min-w-8 w-8 h-8 bg-undefined ring-offset-2 ring-1 ring-green false shrink-0 hidden sm:block"
+                      data-testid="avatar-container"
                       tabindex="-1"
                     >
                       <img
-                        alt="UnavailableImage"
+                        alt=""
                         class="aspect-square"
                         data-nimg="1"
                         decoding="async"
@@ -958,7 +963,7 @@ exports[`AppointmentsHistory Component should render correctly with admin role w
                         height="48"
                         src="http://localhost/_next/image?url=%2Fimages%2Favatar-thumbnail.webp&w=96&q=75"
                         srcset="/_next/image?url=%2Fimages%2Favatar-thumbnail.webp&w=48&q=75 1x, /_next/image?url=%2Fimages%2Favatar-thumbnail.webp&w=96&q=75 2x"
-                        style="color: transparent; object-fit: cover;"
+                        style="color: transparent; background-size: cover; background-position: 50% 50%; background-repeat: no-repeat;"
                         width="48"
                       />
                     </span>
@@ -980,10 +985,11 @@ exports[`AppointmentsHistory Component should render correctly with admin role w
                   >
                     <span
                       class="box-border overflow-hidden outline-none rounded-full ring-offset-background dark:ring-offset-background-dark shrink-0 min-w-8 w-8 h-8 bg-undefined ring-offset-2 ring-1 ring-green false shrink-0 hidden sm:block"
+                      data-testid="avatar-container"
                       tabindex="-1"
                     >
                       <img
-                        alt="UnavailableImage"
+                        alt=""
                         class="aspect-square"
                         data-nimg="1"
                         decoding="async"
@@ -991,7 +997,7 @@ exports[`AppointmentsHistory Component should render correctly with admin role w
                         height="48"
                         src="http://localhost/_next/image?url=%2Fimages%2Favatar-thumbnail.webp&w=96&q=75"
                         srcset="/_next/image?url=%2Fimages%2Favatar-thumbnail.webp&w=48&q=75 1x, /_next/image?url=%2Fimages%2Favatar-thumbnail.webp&w=96&q=75 2x"
-                        style="color: transparent; object-fit: cover;"
+                        style="color: transparent; background-size: cover; background-position: 50% 50%; background-repeat: no-repeat;"
                         width="48"
                       />
                     </span>
@@ -1404,10 +1410,11 @@ exports[`AppointmentsHistory Component should render correctly with user role wh
                   >
                     <span
                       class="box-border overflow-hidden outline-none rounded-full ring-offset-background dark:ring-offset-background-dark shrink-0 min-w-8 w-8 h-8 bg-undefined ring-offset-2 ring-1 ring-green false"
+                      data-testid="avatar-container"
                       tabindex="-1"
                     >
                       <img
-                        alt="UnavailableImage"
+                        alt=""
                         class="shrink-0 aspect-square"
                         data-nimg="1"
                         decoding="async"
@@ -1415,7 +1422,7 @@ exports[`AppointmentsHistory Component should render correctly with user role wh
                         height="48"
                         src="http://localhost/_next/image?url=%2Fimages%2Favatar-thumbnail.webp&w=96&q=75"
                         srcset="/_next/image?url=%2Fimages%2Favatar-thumbnail.webp&w=48&q=75 1x, /_next/image?url=%2Fimages%2Favatar-thumbnail.webp&w=96&q=75 2x"
-                        style="color: transparent; object-fit: cover;"
+                        style="color: transparent; background-size: cover; background-position: 50% 50%; background-repeat: no-repeat;"
                         width="48"
                       />
                     </span>
@@ -1532,10 +1539,11 @@ exports[`AppointmentsHistory Component should render correctly with user role wh
                   >
                     <span
                       class="box-border overflow-hidden outline-none rounded-full ring-offset-background dark:ring-offset-background-dark shrink-0 min-w-8 w-8 h-8 bg-undefined ring-offset-2 ring-1 ring-green false"
+                      data-testid="avatar-container"
                       tabindex="-1"
                     >
                       <img
-                        alt="UnavailableImage"
+                        alt=""
                         class="shrink-0 aspect-square"
                         data-nimg="1"
                         decoding="async"
@@ -1543,7 +1551,7 @@ exports[`AppointmentsHistory Component should render correctly with user role wh
                         height="48"
                         src="http://localhost/_next/image?url=%2Fimages%2Favatar-thumbnail.webp&w=96&q=75"
                         srcset="/_next/image?url=%2Fimages%2Favatar-thumbnail.webp&w=48&q=75 1x, /_next/image?url=%2Fimages%2Favatar-thumbnail.webp&w=96&q=75 2x"
-                        style="color: transparent; object-fit: cover;"
+                        style="color: transparent; background-size: cover; background-position: 50% 50%; background-repeat: no-repeat;"
                         width="48"
                       />
                     </span>
@@ -1659,10 +1667,11 @@ exports[`AppointmentsHistory Component should render correctly with user role wh
                   >
                     <span
                       class="box-border overflow-hidden outline-none rounded-full ring-offset-background dark:ring-offset-background-dark shrink-0 min-w-8 w-8 h-8 bg-undefined ring-offset-2 ring-1 ring-green false"
+                      data-testid="avatar-container"
                       tabindex="-1"
                     >
                       <img
-                        alt="UnavailableImage"
+                        alt=""
                         class="shrink-0 aspect-square"
                         data-nimg="1"
                         decoding="async"
@@ -1670,7 +1679,7 @@ exports[`AppointmentsHistory Component should render correctly with user role wh
                         height="48"
                         src="http://localhost/_next/image?url=%2Fimages%2Favatar-thumbnail.webp&w=96&q=75"
                         srcset="/_next/image?url=%2Fimages%2Favatar-thumbnail.webp&w=48&q=75 1x, /_next/image?url=%2Fimages%2Favatar-thumbnail.webp&w=96&q=75 2x"
-                        style="color: transparent; object-fit: cover;"
+                        style="color: transparent; background-size: cover; background-position: 50% 50%; background-repeat: no-repeat;"
                         width="48"
                       />
                     </span>

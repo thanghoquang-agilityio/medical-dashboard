@@ -12,7 +12,7 @@ describe('Avatar Component', () => {
   it('renders with border when isBordered is true', () => {
     render(<Avatar isBordered />);
 
-    const spanElement = screen.getByRole('img').closest('span');
+    const spanElement = screen.getByTestId('avatar-container');
 
     // Check for bordered class
     expect(spanElement).toHaveClass('ring-offset-2 ring-1 ring-green');
@@ -21,7 +21,7 @@ describe('Avatar Component', () => {
   it('renders with border when isCustomBordered is true', () => {
     render(<Avatar isCustomBordered />);
 
-    const spanElement = screen.getByRole('img').closest('span');
+    const spanElement = screen.getByTestId('avatar-container');
 
     // Check for bordered class
     expect(spanElement).toHaveClass(

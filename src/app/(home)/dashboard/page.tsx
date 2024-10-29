@@ -65,6 +65,7 @@ const DashboardPage = async ({
           width={172}
           height={200}
           className="sm:absolute sm:bottom-[-1px] sm:right-[1px]"
+          placeholder="empty"
         />
       </div>
 
