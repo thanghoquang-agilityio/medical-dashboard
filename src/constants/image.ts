@@ -3,6 +3,7 @@ export const SRC_BANNER_AVATAR = '/images/dashboard/banner-avatar.webp';
 export const SRC_BACKGROUND_AUTH = '/images/auth/background.webp';
 export const SRC_LOGO = '/images/logo.webp';
 export const AVATAR_THUMBNAIL = '/images/avatar-thumbnail.webp';
+export const AVATAR_BLUR = '/images/blur.avif';
 
 export const IMAGE_DEFAULT = {
   name: 'Image default',
