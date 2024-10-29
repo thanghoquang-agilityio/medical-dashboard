@@ -14,6 +14,27 @@ jest.mock('@/services/api', () => ({
   },
 }));
 
+jest.mock('next/headers', () => ({
+  cookies: jest.fn().mockReturnValue({
+    get: jest.fn().mockReturnValue({
+      value: 'mock',
+    }),
+    delete: jest.fn(),
+  }),
+}));
+
+jest.mock('next-auth', () => ({
+  __esModule: true,
+  default: jest.fn().mockReturnValue({
+    handlers: jest.fn(),
+    signOut: jest.fn(),
+  }),
+}));
+
+jest.mock('../notificationFirebase.ts', () => ({
+  unregisterFCM: jest.fn(),
+}));
+
 describe('Authorize tests', () => {
   it('login will return value correctly', async () => {
     jest.spyOn(apiClient, 'post').mockResolvedValue({

@@ -11,6 +11,8 @@ import {
 } from '@/types';
 import { API_ENDPOINT, AVATAR_THUMBNAIL } from '@/constants';
 import { signOut } from '@/config/auth';
+import { cookies } from 'next/headers';
+import { unregisterFCM } from './notificationFirebase';
 
 export const login = async (
   body: LoginFormData,
@@ -108,4 +110,10 @@ export const signup = async (
   }
 };
 
-export const logout = async () => await signOut();
+export const logout = async () => {
+  const token = cookies().get('fcm_token')?.value;
+
+  token && (await unregisterFCM({ token }), cookies().delete('fcm_token'));
+
+  await signOut();
+};
