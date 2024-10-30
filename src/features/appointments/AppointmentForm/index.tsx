@@ -209,219 +209,217 @@ const AppointmentForm = memo(
     }, [watch('startDate')]);
 
     return (
-      <>
-        <form onSubmit={handleSubmit(onSubmit)} className="p-4">
-          <Text variant="title" size="xl">
-            {isEdit ? 'Update appointment' : 'Create appointment'}
-          </Text>
+      <form onSubmit={handleSubmit(onSubmit)} className="p-4">
+        <Text variant="title" size="xl">
+          {isEdit ? 'Update appointment' : 'Create appointment'}
+        </Text>
 
-          <div className="flex flex-col md:flex-row md:gap-3 mt-6">
-            <Controller
-              control={control}
-              name="senderId"
-              rules={APPOINTMENT_FORM_VALIDATION.SENDER_ID(getValues)}
-              render={({
-                field: { name, value, onChange, onBlur: _onBlur, ...rest },
-                fieldState: { error },
-              }) => (
-                <Select
-                  {...rest}
-                  name={name}
-                  value={value}
-                  label="Sender"
-                  placeholder="Select sender"
-                  labelPlacement="outside"
-                  variant="bordered"
-                  classNames={selectCustomStyle}
-                  defaultSelectedKeys={!isAdmin ? [userId.toString()] : [value]}
-                  isDisabled={isEdit || !isAdmin || isPending}
-                  options={OPTION_USERS}
-                  isInvalid={!!error?.message}
-                  errorMessage={error?.message}
-                  onChange={onChange}
-                  onClose={handleCloseSelect(name)}
-                />
-              )}
-            />
-
-            <Controller
-              control={control}
-              name="receiverId"
-              rules={APPOINTMENT_FORM_VALIDATION.RECEIVER_ID(getValues)}
-              render={({
-                field: { name, value, onChange, onBlur: _onBlur, ...rest },
-                fieldState: { error },
-              }) => (
-                <Select
-                  {...rest}
-                  name={name}
-                  value={value}
-                  label="Receiver"
-                  placeholder="Select receiver"
-                  labelPlacement="outside"
-                  variant="bordered"
-                  aria-label="Receiver"
-                  classNames={selectCustomStyle}
-                  defaultSelectedKeys={[value]}
-                  options={OPTION_USERS}
-                  isInvalid={!!error?.message}
-                  isDisabled={isEdit || isPending}
-                  errorMessage={error?.message}
-                  onChange={onChange}
-                  onClose={handleCloseSelect(name)}
-                />
-              )}
-            />
-          </div>
-
-          <div className="flex flex-col md:flex-row md:gap-3 items-start">
-            {/* Start Date */}
-            <Controller
-              control={control}
-              name="startDate"
-              rules={APPOINTMENT_FORM_VALIDATION.START_DATE}
-              render={({
-                field: { name, onChange, value, ...rest },
-                fieldState: { error },
-              }) => (
-                <Input
-                  {...rest}
-                  type="date"
-                  label="Start Date"
-                  labelPlacement="outside"
-                  aria-label="Start Date"
-                  size="sm"
-                  name={name}
-                  defaultValue={value}
-                  onChange={handleInputChange(name, onChange)}
-                  isInvalid={!!error?.message}
-                  errorMessage={error?.message}
-                  isDisabled={isPending}
-                  classNames={{
-                    inputWrapper: 'max-h-10',
-                    label: 'top-[17px] text-sm',
-                    input: 'text-sm',
-                    errorMessage: 'text-xs',
-                  }}
-                />
-              )}
-            />
-
-            {/* Start Time */}
-            <Controller
-              control={control}
-              name="startTime"
-              rules={APPOINTMENT_FORM_VALIDATION.START_TIME(getValues)}
-              render={({
-                field: { name, value, onChange, onBlur },
-                fieldState: { error },
-              }) => (
-                <TimeInput
-                  label="Start Time"
-                  name={name}
-                  value={value}
-                  labelPlacement="outside"
-                  onChange={onChange}
-                  onBlur={onBlur}
-                  errorMessage={error?.message}
-                  isInvalid={!!error?.message}
-                  isDisabled={!watch('startDate') || isPending}
-                  onFocusChange={() => {
-                    clearErrorOnChange(name, errors, clearErrors);
-                  }}
-                />
-              )}
-            />
-          </div>
-
-          {/* Duration Time */}
+        <div className="flex flex-col md:flex-row md:gap-3 mt-6">
           <Controller
             control={control}
-            name="durationTime"
-            rules={APPOINTMENT_FORM_VALIDATION.DURATION_TIME}
+            name="senderId"
+            rules={APPOINTMENT_FORM_VALIDATION.SENDER_ID(getValues)}
             render={({
               field: { name, value, onChange, onBlur: _onBlur, ...rest },
               fieldState: { error },
             }) => (
               <Select
                 {...rest}
-                label="Duration Time"
-                placeholder="Duration Time"
-                labelPlacement="outside"
-                aria-label="Duration Time"
-                classNames={selectCustomStyle}
-                options={durationTimeOptions}
                 name={name}
                 value={value}
+                label="Sender"
+                placeholder="Select sender"
+                labelPlacement="outside"
+                variant="bordered"
+                classNames={selectCustomStyle}
+                defaultSelectedKeys={!isAdmin ? [userId.toString()] : [value]}
+                isDisabled={isEdit || !isAdmin || isPending}
+                options={OPTION_USERS}
                 isInvalid={!!error?.message}
                 errorMessage={error?.message}
-                isDisabled={isPending}
                 onChange={onChange}
-                selectedKeys={[value]}
                 onClose={handleCloseSelect(name)}
               />
             )}
           />
 
-          {/* Status */}
           <Controller
             control={control}
-            name="status"
-            rules={APPOINTMENT_FORM_VALIDATION.STATUS}
+            name="receiverId"
+            rules={APPOINTMENT_FORM_VALIDATION.RECEIVER_ID(getValues)}
             render={({
               field: { name, value, onChange, onBlur: _onBlur, ...rest },
               fieldState: { error },
             }) => (
               <Select
                 {...rest}
-                label="Status"
-                placeholder="Status"
-                labelPlacement="outside"
-                aria-label="Status"
-                options={APPOINTMENT_STATUS}
-                defaultSelectedKeys={
-                  value.toString() ?? APPOINTMENT_STATUS[0].key
-                }
-                disabledKeys={value.toString()}
                 name={name}
                 value={value}
+                label="Receiver"
+                placeholder="Select receiver"
+                labelPlacement="outside"
+                variant="bordered"
+                aria-label="Receiver"
                 classNames={selectCustomStyle}
-                isDisabled={!isAdmin || isPending}
-                onChange={onChange}
+                defaultSelectedKeys={[value]}
+                options={OPTION_USERS}
                 isInvalid={!!error?.message}
+                isDisabled={isEdit || isPending}
                 errorMessage={error?.message}
+                onChange={onChange}
                 onClose={handleCloseSelect(name)}
               />
             )}
           />
+        </div>
 
-          <div className="h-[78px] flex flex-col justify-end">
-            {error && (
-              <Text variant="error" size="sm" customClass="py-2">
-                {error}
-              </Text>
-            )}
-            <div className="w-full gap-2 flex justify-end">
-              <Button
-                variant="outline"
-                color="outline"
-                className="font-medium"
-                onClick={onClose}
+        <div className="flex flex-col md:flex-row md:gap-3 items-start">
+          {/* Start Date */}
+          <Controller
+            control={control}
+            name="startDate"
+            rules={APPOINTMENT_FORM_VALIDATION.START_DATE}
+            render={({
+              field: { name, onChange, value, ...rest },
+              fieldState: { error },
+            }) => (
+              <Input
+                {...rest}
+                type="date"
+                label="Start Date"
+                labelPlacement="outside"
+                aria-label="Start Date"
+                size="sm"
+                name={name}
+                defaultValue={value}
+                onChange={handleInputChange(name, onChange)}
+                isInvalid={!!error?.message}
+                errorMessage={error?.message}
                 isDisabled={isPending}
-              >
-                Cancel
-              </Button>
-              <Button
-                isDisabled={!isValid || !isDirty || isPending}
-                isLoading={isLoading || isPending}
-                type="submit"
-              >
-                Submit
-              </Button>
-            </div>
+                classNames={{
+                  inputWrapper: 'max-h-10',
+                  label: 'top-[17px] text-sm',
+                  input: 'text-sm',
+                  errorMessage: 'text-xs',
+                }}
+              />
+            )}
+          />
+
+          {/* Start Time */}
+          <Controller
+            control={control}
+            name="startTime"
+            rules={APPOINTMENT_FORM_VALIDATION.START_TIME(getValues)}
+            render={({
+              field: { name, value, onChange, onBlur },
+              fieldState: { error },
+            }) => (
+              <TimeInput
+                label="Start Time"
+                name={name}
+                value={value}
+                labelPlacement="outside"
+                onChange={onChange}
+                onBlur={onBlur}
+                errorMessage={error?.message}
+                isInvalid={!!error?.message}
+                isDisabled={!watch('startDate') || isPending}
+                onFocusChange={() => {
+                  clearErrorOnChange(name, errors, clearErrors);
+                }}
+              />
+            )}
+          />
+        </div>
+
+        {/* Duration Time */}
+        <Controller
+          control={control}
+          name="durationTime"
+          rules={APPOINTMENT_FORM_VALIDATION.DURATION_TIME}
+          render={({
+            field: { name, value, onChange, onBlur: _onBlur, ...rest },
+            fieldState: { error },
+          }) => (
+            <Select
+              {...rest}
+              label="Duration Time"
+              placeholder="Duration Time"
+              labelPlacement="outside"
+              aria-label="Duration Time"
+              classNames={selectCustomStyle}
+              options={durationTimeOptions}
+              name={name}
+              value={value}
+              isInvalid={!!error?.message}
+              errorMessage={error?.message}
+              isDisabled={isPending}
+              onChange={onChange}
+              selectedKeys={[value]}
+              onClose={handleCloseSelect(name)}
+            />
+          )}
+        />
+
+        {/* Status */}
+        <Controller
+          control={control}
+          name="status"
+          rules={APPOINTMENT_FORM_VALIDATION.STATUS}
+          render={({
+            field: { name, value, onChange, onBlur: _onBlur, ...rest },
+            fieldState: { error },
+          }) => (
+            <Select
+              {...rest}
+              label="Status"
+              placeholder="Status"
+              labelPlacement="outside"
+              aria-label="Status"
+              options={APPOINTMENT_STATUS}
+              defaultSelectedKeys={
+                value.toString() ?? APPOINTMENT_STATUS[0].key
+              }
+              disabledKeys={value.toString()}
+              name={name}
+              value={value}
+              classNames={selectCustomStyle}
+              isDisabled={!isAdmin || isPending}
+              onChange={onChange}
+              isInvalid={!!error?.message}
+              errorMessage={error?.message}
+              onClose={handleCloseSelect(name)}
+            />
+          )}
+        />
+
+        <div className="h-[78px] flex flex-col justify-end">
+          {error && (
+            <Text variant="error" size="sm" customClass="py-2">
+              {error}
+            </Text>
+          )}
+          <div className="w-full gap-2 flex justify-end">
+            <Button
+              variant="outline"
+              color="outline"
+              className="font-medium"
+              onClick={onClose}
+              isDisabled={isPending}
+            >
+              Cancel
+            </Button>
+            <Button
+              isDisabled={!isValid || !isDirty || isPending}
+              isLoading={isLoading || isPending}
+              type="submit"
+            >
+              Submit
+            </Button>
           </div>
-        </form>
-      </>
+        </div>
+      </form>
     );
   },
 );
