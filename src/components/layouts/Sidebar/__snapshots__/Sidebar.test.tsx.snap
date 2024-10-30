@@ -21,7 +21,7 @@ exports[`Sidebar test cases should render correctly 1`] = `
           height="50"
           src="http://localhost/_next/image?url=%2Fimages%2Flogo.webp&w=128&q=75"
           srcset="/_next/image?url=%2Fimages%2Flogo.webp&w=64&q=75 1x, /_next/image?url=%2Fimages%2Flogo.webp&w=128&q=75 2x"
-          style="color: transparent;"
+          style="color: transparent; background-size: cover; background-position: 50% 50%; background-repeat: no-repeat;"
           width="50"
         />
       </a>

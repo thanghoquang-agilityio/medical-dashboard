@@ -58,6 +58,7 @@ export const Avatar = ({
         src={src || AVATAR_THUMBNAIL}
         alt={alt}
         className={className}
+        fallbackSrc={AVATAR_THUMBNAIL}
       />
     </span>
   );

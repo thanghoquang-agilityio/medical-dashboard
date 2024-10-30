@@ -56,7 +56,6 @@ export const Sidebar = () => {
               width={50}
               height={50}
               className="w-full h-auto"
-              placeholder="empty"
             />
           </Link>
 

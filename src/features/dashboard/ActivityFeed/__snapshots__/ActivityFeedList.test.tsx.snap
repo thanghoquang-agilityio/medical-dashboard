@@ -90,7 +90,7 @@ exports[`ActivityFeedList test cases should render correctly 1`] = `
                     >
                       <img
                         alt=""
-                        blurdataurl="/images/blur.avif"
+                        blurdataurl="/images/blur.jpg"
                         class="aspect-square"
                         height="48"
                         placeholder="blur"
@@ -157,7 +157,7 @@ exports[`ActivityFeedList test cases should render correctly 1`] = `
                     >
                       <img
                         alt=""
-                        blurdataurl="/images/blur.avif"
+                        blurdataurl="/images/blur.jpg"
                         class="aspect-square"
                         height="48"
                         placeholder="blur"

@@ -4,7 +4,7 @@ import { memo, useCallback, useEffect, useState } from 'react';
 import NextImage, { ImageProps } from 'next/image';
 
 // Constants
-import { AVATAR_THUMBNAIL, AVATAR_BLUR } from '@/constants';
+import { IMAGE_DEFAULT } from '@/constants';
 
 interface ImageFallbackProps extends ImageProps {
   src: string;
@@ -16,8 +16,8 @@ interface ImageFallbackProps extends ImageProps {
 const ImageFallback = ({
   src,
   alt,
-  blurDataURL = AVATAR_BLUR,
-  fallbackSrc = AVATAR_THUMBNAIL,
+  blurDataURL = IMAGE_DEFAULT.blur,
+  fallbackSrc = IMAGE_DEFAULT.url,
   ...rest
 }: ImageFallbackProps) => {
   const [imgSrc, setImgSrc] = useState(src);

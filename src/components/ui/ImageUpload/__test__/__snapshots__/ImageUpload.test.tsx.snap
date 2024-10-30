@@ -23,7 +23,7 @@ exports[`ImageUpload Component renders correctly with default props 1`] = `
             >
               <img
                 alt="Image for avatar"
-                blurdataurl="/images/blur.avif"
+                blurdataurl="/images/blur.jpg"
                 class="w-[100px] h-[100px] rounded-full aspect-square"
                 height="100"
                 placeholder="blur"
@@ -88,7 +88,7 @@ exports[`ImageUpload Component renders correctly with default props 1`] = `
           >
             <img
               alt="Image for avatar"
-              blurdataurl="/images/blur.avif"
+              blurdataurl="/images/blur.jpg"
               class="w-[100px] h-[100px] rounded-full aspect-square"
               height="100"
               placeholder="blur"

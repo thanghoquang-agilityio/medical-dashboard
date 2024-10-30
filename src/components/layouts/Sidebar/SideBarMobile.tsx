@@ -68,6 +68,7 @@ export const SidebarMobile = () => {
                 alt="logo"
                 width={40}
                 height={40}
+                placeholder="empty"
                 className="w-full h-auto"
               />
             </div>

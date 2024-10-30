@@ -5,7 +5,7 @@ import { render, fireEvent } from '@testing-library/react';
 import { Image } from '.';
 
 // Constants
-import { AVATAR_THUMBNAIL, SRC_IMAGE_NOT_AVAILABLE } from '@/constants';
+import { SRC_IMAGE_NOT_AVAILABLE } from '@/constants';
 
 // Mock next/image component
 jest.mock('next/image', () => {
@@ -53,13 +53,13 @@ describe('Image Component', () => {
     const setState = jest.fn();
     const useStateSpy = jest.spyOn(React, 'useState');
 
-    useStateSpy.mockReturnValue([AVATAR_THUMBNAIL, setState]);
+    useStateSpy.mockReturnValue([SRC_IMAGE_NOT_AVAILABLE, setState]);
 
     const { getByAltText } = ImageComponent();
     const image = getByAltText(props.alt);
 
     fireEvent.error(image);
 
-    expect(setState).toHaveBeenCalledWith(AVATAR_THUMBNAIL);
+    expect(setState).toHaveBeenCalledWith(SRC_IMAGE_NOT_AVAILABLE);
   });
 });
