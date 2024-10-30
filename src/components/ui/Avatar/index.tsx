@@ -48,6 +48,7 @@ export const Avatar = ({
 
   return (
     <span
+      data-testid="avatar-container"
       tabIndex={-1}
       className={`box-border overflow-hidden outline-none rounded-full ring-offset-background dark:ring-offset-background-dark shrink-0 ${baseClass}`}
     >
@@ -56,9 +57,8 @@ export const Avatar = ({
         height={height}
         src={src || AVATAR_THUMBNAIL}
         alt={alt}
-        blurDataURL={AVATAR_THUMBNAIL}
-        fallbackImg={AVATAR_THUMBNAIL}
         className={className}
+        fallbackSrc={AVATAR_THUMBNAIL}
       />
     </span>
   );

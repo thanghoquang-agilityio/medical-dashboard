@@ -217,10 +217,11 @@ exports[`ChemistList should render correctly 1`] = `
             >
               <span
                 class="box-border overflow-hidden outline-none rounded-full ring-offset-background dark:ring-offset-background-dark shrink-0 min-w-12 w-12 h-12 bg-undefined ring-offset-0 ring-0 false"
+                data-testid="avatar-container"
                 tabindex="-1"
               >
                 <img
-                  alt="UnavailableImage"
+                  alt=""
                   class="aspect-square"
                   data-nimg="1"
                   decoding="async"
@@ -228,7 +229,7 @@ exports[`ChemistList should render correctly 1`] = `
                   height="48"
                   src="http://localhost/_next/image?url=%2Fimages%2Favatar-thumbnail.webp&w=96&q=75"
                   srcset="/_next/image?url=%2Fimages%2Favatar-thumbnail.webp&w=48&q=75 1x, /_next/image?url=%2Fimages%2Favatar-thumbnail.webp&w=96&q=75 2x"
-                  style="color: transparent; object-fit: cover;"
+                  style="color: transparent; background-size: cover; background-position: 50% 50%; background-repeat: no-repeat;"
                   width="48"
                 />
               </span>
@@ -388,10 +389,11 @@ exports[`ChemistList should render correctly 1`] = `
             >
               <span
                 class="box-border overflow-hidden outline-none rounded-full ring-offset-background dark:ring-offset-background-dark shrink-0 min-w-12 w-12 h-12 bg-undefined ring-offset-0 ring-0 false"
+                data-testid="avatar-container"
                 tabindex="-1"
               >
                 <img
-                  alt="UnavailableImage"
+                  alt=""
                   class="aspect-square"
                   data-nimg="1"
                   decoding="async"
@@ -399,7 +401,7 @@ exports[`ChemistList should render correctly 1`] = `
                   height="48"
                   src="http://localhost/_next/image?url=%2Fimages%2Favatar-thumbnail.webp&w=96&q=75"
                   srcset="/_next/image?url=%2Fimages%2Favatar-thumbnail.webp&w=48&q=75 1x, /_next/image?url=%2Fimages%2Favatar-thumbnail.webp&w=96&q=75 2x"
-                  style="color: transparent; object-fit: cover;"
+                  style="color: transparent; background-size: cover; background-position: 50% 50%; background-repeat: no-repeat;"
                   width="48"
                 />
               </span>
@@ -559,10 +561,11 @@ exports[`ChemistList should render correctly 1`] = `
             >
               <span
                 class="box-border overflow-hidden outline-none rounded-full ring-offset-background dark:ring-offset-background-dark shrink-0 min-w-12 w-12 h-12 bg-undefined ring-offset-0 ring-0 false"
+                data-testid="avatar-container"
                 tabindex="-1"
               >
                 <img
-                  alt="UnavailableImage"
+                  alt=""
                   class="aspect-square"
                   data-nimg="1"
                   decoding="async"
@@ -570,7 +573,7 @@ exports[`ChemistList should render correctly 1`] = `
                   height="48"
                   src="http://localhost/_next/image?url=%2Fimages%2Favatar-thumbnail.webp&w=96&q=75"
                   srcset="/_next/image?url=%2Fimages%2Favatar-thumbnail.webp&w=48&q=75 1x, /_next/image?url=%2Fimages%2Favatar-thumbnail.webp&w=96&q=75 2x"
-                  style="color: transparent; object-fit: cover;"
+                  style="color: transparent; background-size: cover; background-position: 50% 50%; background-repeat: no-repeat;"
                   width="48"
                 />
               </span>
@@ -730,10 +733,11 @@ exports[`ChemistList should render correctly 1`] = `
             >
               <span
                 class="box-border overflow-hidden outline-none rounded-full ring-offset-background dark:ring-offset-background-dark shrink-0 min-w-12 w-12 h-12 bg-undefined ring-offset-0 ring-0 false"
+                data-testid="avatar-container"
                 tabindex="-1"
               >
                 <img
-                  alt="UnavailableImage"
+                  alt=""
                   class="aspect-square"
                   data-nimg="1"
                   decoding="async"
@@ -741,7 +745,7 @@ exports[`ChemistList should render correctly 1`] = `
                   height="48"
                   src="http://localhost/_next/image?url=%2Fimages%2Favatar-thumbnail.webp&w=96&q=75"
                   srcset="/_next/image?url=%2Fimages%2Favatar-thumbnail.webp&w=48&q=75 1x, /_next/image?url=%2Fimages%2Favatar-thumbnail.webp&w=96&q=75 2x"
-                  style="color: transparent; object-fit: cover;"
+                  style="color: transparent; background-size: cover; background-position: 50% 50%; background-repeat: no-repeat;"
                   width="48"
                 />
               </span>
@@ -901,10 +905,11 @@ exports[`ChemistList should render correctly 1`] = `
             >
               <span
                 class="box-border overflow-hidden outline-none rounded-full ring-offset-background dark:ring-offset-background-dark shrink-0 min-w-12 w-12 h-12 bg-undefined ring-offset-0 ring-0 false"
+                data-testid="avatar-container"
                 tabindex="-1"
               >
                 <img
-                  alt="UnavailableImage"
+                  alt=""
                   class="aspect-square"
                   data-nimg="1"
                   decoding="async"
@@ -912,7 +917,7 @@ exports[`ChemistList should render correctly 1`] = `
                   height="48"
                   src="http://localhost/_next/image?url=%2Fimages%2Favatar-thumbnail.webp&w=96&q=75"
                   srcset="/_next/image?url=%2Fimages%2Favatar-thumbnail.webp&w=48&q=75 1x, /_next/image?url=%2Fimages%2Favatar-thumbnail.webp&w=96&q=75 2x"
-                  style="color: transparent; object-fit: cover;"
+                  style="color: transparent; background-size: cover; background-position: 50% 50%; background-repeat: no-repeat;"
                   width="48"
                 />
               </span>

@@ -18,15 +18,16 @@ exports[`ImageUpload Component renders correctly with default props 1`] = `
           >
             <span
               class="box-border overflow-hidden outline-none rounded-full ring-offset-background dark:ring-offset-background-dark shrink-0 min-w-8 w-8 h-8 bg-undefined ring-offset-0 ring-0 false"
+              data-testid="avatar-container"
               tabindex="-1"
             >
               <img
                 alt="Image for avatar"
-                blurdataurl="/images/avatar-thumbnail.webp"
+                blurdataurl="/images/blur.jpg"
                 class="w-[100px] h-[100px] rounded-full aspect-square"
                 height="100"
+                placeholder="blur"
                 src="/images/avatar-thumbnail.webp"
-                style="object-fit: cover;"
                 width="100"
               />
             </span>
@@ -82,15 +83,16 @@ exports[`ImageUpload Component renders correctly with default props 1`] = `
         >
           <span
             class="box-border overflow-hidden outline-none rounded-full ring-offset-background dark:ring-offset-background-dark shrink-0 min-w-8 w-8 h-8 bg-undefined ring-offset-0 ring-0 false"
+            data-testid="avatar-container"
             tabindex="-1"
           >
             <img
               alt="Image for avatar"
-              blurdataurl="/images/avatar-thumbnail.webp"
+              blurdataurl="/images/blur.jpg"
               class="w-[100px] h-[100px] rounded-full aspect-square"
               height="100"
+              placeholder="blur"
               src="/images/avatar-thumbnail.webp"
-              style="object-fit: cover;"
               width="100"
             />
           </span>

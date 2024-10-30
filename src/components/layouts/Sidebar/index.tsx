@@ -70,7 +70,13 @@ export const Sidebar = () => {
           <div className="flex-col min-h-screen hidden md:flex lg:hidden shadow-lg bg-background-200">
             <div className="m-auto py-6">
               <Link href={PRIVATE_ROUTES.DASHBOARD}>
-                <Image src={SRC_LOGO} alt="logo" width={35} height={35} />
+                <Image
+                  src={SRC_LOGO}
+                  alt="logo"
+                  width={35}
+                  height={35}
+                  placeholder="empty"
+                />
               </Link>
             </div>
 

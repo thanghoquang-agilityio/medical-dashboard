@@ -85,15 +85,16 @@ exports[`ActivityFeedList test cases should render correctly 1`] = `
                   >
                     <span
                       class="box-border overflow-hidden outline-none rounded-full ring-offset-background dark:ring-offset-background-dark shrink-0 min-w-8 w-8 h-8 bg-undefined ring-offset-2 ring-1 ring-green false"
+                      data-testid="avatar-container"
                       tabindex="-1"
                     >
                       <img
-                        alt="UnavailableImage"
-                        blurdataurl="/images/avatar-thumbnail.webp"
+                        alt=""
+                        blurdataurl="/images/blur.jpg"
                         class="aspect-square"
                         height="48"
+                        placeholder="blur"
                         src="/upload/300"
-                        style="object-fit: cover;"
                         width="48"
                       />
                     </span>
@@ -151,15 +152,16 @@ exports[`ActivityFeedList test cases should render correctly 1`] = `
                   >
                     <span
                       class="box-border overflow-hidden outline-none rounded-full ring-offset-background dark:ring-offset-background-dark shrink-0 min-w-8 w-8 h-8 bg-undefined ring-offset-2 ring-1 ring-green false"
+                      data-testid="avatar-container"
                       tabindex="-1"
                     >
                       <img
-                        alt="UnavailableImage"
-                        blurdataurl="/images/avatar-thumbnail.webp"
+                        alt=""
+                        blurdataurl="/images/blur.jpg"
                         class="aspect-square"
                         height="48"
+                        placeholder="blur"
                         src="/upload/300"
-                        style="object-fit: cover;"
                         width="48"
                       />
                     </span>

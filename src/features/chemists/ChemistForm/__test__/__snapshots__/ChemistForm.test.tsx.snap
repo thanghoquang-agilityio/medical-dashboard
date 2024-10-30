@@ -24,6 +24,7 @@ exports[`ChemistForm test cases should render correctly 1`] = `
         >
           <span
             class="box-border overflow-hidden outline-none rounded-full ring-offset-background dark:ring-offset-background-dark shrink-0 min-w-8 w-8 h-8 bg-undefined ring-offset-0 ring-0 false"
+            data-testid="avatar-container"
             tabindex="-1"
           >
             <img
@@ -35,7 +36,7 @@ exports[`ChemistForm test cases should render correctly 1`] = `
               height="100"
               src="http://localhost/_next/image?url=%2Fmock_url&w=256&q=75"
               srcset="/_next/image?url=%2Fmock_url&w=128&q=75 1x, /_next/image?url=%2Fmock_url&w=256&q=75 2x"
-              style="color: transparent; object-fit: cover;"
+              style="color: transparent; background-size: cover; background-position: 50% 50%; background-repeat: no-repeat;"
               width="100"
             />
           </span>

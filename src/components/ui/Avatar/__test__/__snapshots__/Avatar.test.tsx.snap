@@ -4,17 +4,18 @@ exports[`Avatar Component renders with default size (md) and without border 1`] 
 <div>
   <span
     class="box-border overflow-hidden outline-none rounded-full ring-offset-background dark:ring-offset-background-dark shrink-0 min-w-8 w-8 h-8 bg-undefined ring-offset-0 ring-0 false"
+    data-testid="avatar-container"
     tabindex="-1"
   >
     <img
-      alt="UnavailableImage"
+      alt=""
       data-nimg="1"
       decoding="async"
       fetchpriority="high"
       height="48"
       src="http://localhost/_next/image?url=%2Fimages%2Favatar-thumbnail.webp&w=96&q=75"
       srcset="/_next/image?url=%2Fimages%2Favatar-thumbnail.webp&w=48&q=75 1x, /_next/image?url=%2Fimages%2Favatar-thumbnail.webp&w=96&q=75 2x"
-      style="color: transparent; object-fit: cover;"
+      style="color: transparent; background-size: cover; background-position: 50% 50%; background-repeat: no-repeat;"
       width="48"
     />
   </span>

@@ -3,8 +3,8 @@
 exports[`Image Component Match snapshot 1`] = `
 <div>
   <img
-    alt="UnavailableImage"
-    src="/images/avatar-thumbnail.webp"
+    alt="Mock Alt"
+    src="true"
   />
 </div>
 `;
