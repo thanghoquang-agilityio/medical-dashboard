@@ -1,6 +1,6 @@
 'use client';
 
-import { memo, useCallback, useEffect, useState } from 'react';
+import { memo, useCallback, useState } from 'react';
 import NextImage, { ImageProps } from 'next/image';
 
 // Constants
@@ -21,10 +21,6 @@ const ImageFallback = ({
   ...rest
 }: ImageFallbackProps) => {
   const [imgSrc, setImgSrc] = useState(src);
-
-  useEffect(() => {
-    setImgSrc(src);
-  }, [src]);
 
   const handleFallbackImage = useCallback(
     () => setImgSrc(fallbackSrc),
