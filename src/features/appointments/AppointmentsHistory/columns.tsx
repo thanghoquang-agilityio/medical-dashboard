@@ -50,7 +50,7 @@ export const createColumns = ({
               src={avatar}
               size="md"
               isBordered
-              customClass="shrink-0 hidden sm:block"
+              avatarContainerClass="shrink-0 hidden sm:block"
               className="aspect-square"
             />
             <Text variant="primary" size="sm">
@@ -75,7 +75,7 @@ export const createColumns = ({
               src={avatar}
               size="md"
               isBordered
-              customClass="shrink-0 hidden sm:block"
+              avatarContainerClass="shrink-0 hidden sm:block"
               className="aspect-square"
             />
             <Text variant="primary" size="sm">
