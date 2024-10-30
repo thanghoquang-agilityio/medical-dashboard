@@ -32,6 +32,7 @@ exports[`Sidebar test cases should render correctly 1`] = `
           class="cursor-not-allowed"
         >
           <a
+            aria-label="Dashboard"
             class="text-primary-100 text-sm flex h-[60px] gap-5 mb-[1px] py-5 px-8 lg:px-10 hover:bg-linear-sidebar"
             href="/dashboard"
           >
@@ -85,6 +86,7 @@ exports[`Sidebar test cases should render correctly 1`] = `
           class=""
         >
           <a
+            aria-label="Appointment"
             class="text-primary-100 text-sm flex h-[60px] gap-5 mb-[1px] py-5 px-8 lg:px-10 bg-linear-sidebar text-sky font-semibold"
             href="/appointments"
           >
@@ -129,6 +131,7 @@ exports[`Sidebar test cases should render correctly 1`] = `
           class="cursor-not-allowed"
         >
           <a
+            aria-label="Chemists"
             class="text-primary-100 text-sm flex h-[60px] gap-5 mb-[1px] py-5 px-8 lg:px-10 hover:bg-linear-sidebar"
             href="/chemists"
           >
@@ -175,6 +178,7 @@ exports[`Sidebar test cases should render correctly 1`] = `
           class="cursor-not-allowed"
         >
           <a
+            aria-label="Hospitals"
             class="text-primary-100 text-sm flex h-[60px] gap-5 mb-[1px] py-5 px-8 lg:px-10 pointer-events-none hover:bg-linear-sidebar"
             href="#"
           >
@@ -228,6 +232,7 @@ exports[`Sidebar test cases should render correctly 1`] = `
           class="cursor-not-allowed"
         >
           <a
+            aria-label="Doctors"
             class="text-primary-100 text-sm flex h-[60px] gap-5 mb-[1px] py-5 px-8 lg:px-10 pointer-events-none hover:bg-linear-sidebar"
             href="#"
           >
@@ -295,6 +300,7 @@ exports[`Sidebar test cases should render correctly 1`] = `
           class="cursor-not-allowed"
         >
           <a
+            aria-label="Medicines"
             class="text-primary-100 text-sm flex h-[60px] gap-5 mb-[1px] py-5 px-8 lg:px-10 pointer-events-none hover:bg-linear-sidebar"
             href="#"
           >
@@ -367,6 +373,7 @@ exports[`Sidebar test cases should render correctly 1`] = `
           class="cursor-not-allowed"
         >
           <a
+            aria-label="Messages"
             class="text-primary-100 text-sm flex h-[60px] gap-5 mb-[1px] py-5 px-8 lg:px-10 pointer-events-none hover:bg-linear-sidebar"
             href="#"
           >
@@ -420,6 +427,7 @@ exports[`Sidebar test cases should render correctly 1`] = `
           class="cursor-not-allowed"
         >
           <a
+            aria-label="Settings"
             class="text-primary-100 text-sm flex h-[60px] gap-5 mb-[1px] py-5 px-8 lg:px-10 pointer-events-none hover:bg-linear-sidebar"
             href="#"
           >
@@ -532,6 +540,7 @@ exports[`Sidebar test cases should render correctly 1`] = `
             class="cursor-not-allowed"
           >
             <a
+              aria-label="Dashboard"
               class="text-primary-100 text-sm flex h-[60px] gap-5 mb-[1px] py-5 px-8 lg:px-10 justify-center hover:bg-linear-sidebar"
               href="/dashboard"
             >
@@ -582,6 +591,7 @@ exports[`Sidebar test cases should render correctly 1`] = `
             class=""
           >
             <a
+              aria-label="Appointment"
               class="text-primary-100 text-sm flex h-[60px] gap-5 mb-[1px] py-5 px-8 lg:px-10 justify-center bg-linear-sidebar text-sky font-semibold"
               href="/appointments"
             >
@@ -623,6 +633,7 @@ exports[`Sidebar test cases should render correctly 1`] = `
             class="cursor-not-allowed"
           >
             <a
+              aria-label="Chemists"
               class="text-primary-100 text-sm flex h-[60px] gap-5 mb-[1px] py-5 px-8 lg:px-10 justify-center hover:bg-linear-sidebar"
               href="/chemists"
             >
@@ -666,6 +677,7 @@ exports[`Sidebar test cases should render correctly 1`] = `
             class="cursor-not-allowed"
           >
             <a
+              aria-label="Hospitals"
               class="text-primary-100 text-sm flex h-[60px] gap-5 mb-[1px] py-5 px-8 lg:px-10 pointer-events-none justify-center hover:bg-linear-sidebar"
               href="#"
             >
@@ -716,6 +728,7 @@ exports[`Sidebar test cases should render correctly 1`] = `
             class="cursor-not-allowed"
           >
             <a
+              aria-label="Doctors"
               class="text-primary-100 text-sm flex h-[60px] gap-5 mb-[1px] py-5 px-8 lg:px-10 pointer-events-none justify-center hover:bg-linear-sidebar"
               href="#"
             >
@@ -780,6 +793,7 @@ exports[`Sidebar test cases should render correctly 1`] = `
             class="cursor-not-allowed"
           >
             <a
+              aria-label="Medicines"
               class="text-primary-100 text-sm flex h-[60px] gap-5 mb-[1px] py-5 px-8 lg:px-10 pointer-events-none justify-center hover:bg-linear-sidebar"
               href="#"
             >
@@ -848,6 +862,7 @@ exports[`Sidebar test cases should render correctly 1`] = `
             class="cursor-not-allowed"
           >
             <a
+              aria-label="Messages"
               class="text-primary-100 text-sm flex h-[60px] gap-5 mb-[1px] py-5 px-8 lg:px-10 pointer-events-none justify-center hover:bg-linear-sidebar"
               href="#"
             >
@@ -898,6 +913,7 @@ exports[`Sidebar test cases should render correctly 1`] = `
             class="cursor-not-allowed"
           >
             <a
+              aria-label="Settings"
               class="text-primary-100 text-sm flex h-[60px] gap-5 mb-[1px] py-5 px-8 lg:px-10 pointer-events-none justify-center hover:bg-linear-sidebar"
               href="#"
             >
