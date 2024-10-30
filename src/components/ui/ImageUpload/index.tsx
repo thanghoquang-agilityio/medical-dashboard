@@ -1,6 +1,6 @@
 'use client';
 
-import { forwardRef } from 'react';
+import { forwardRef, useEffect, useState } from 'react';
 
 // Components
 import { Button, Input, Avatar } from '@/components/ui';
@@ -32,15 +32,22 @@ export const ImageUpload = forwardRef<HTMLInputElement, ImageUploadProps>(
     },
     ref,
   ) => {
+    const [currentSrc, setCurrentSrc] = useState(srcUpload || src);
+
+    useEffect(() => {
+      // Update the displayed image source whenever src or srcUpload changes
+      setCurrentSrc(srcUpload || src);
+    }, [src, srcUpload]);
+
     const hasImage = !!srcUpload || (!!src && src !== AVATAR_THUMBNAIL);
 
     return (
       <div className="flex flex-col justify-center items-center">
         <div className="relative rounded-full" style={{ width, height }}>
           <label htmlFor="avatar" className="group cursor-pointer relative">
-            {srcUpload || src !== AVATAR_THUMBNAIL ? (
+            {currentSrc && currentSrc !== AVATAR_THUMBNAIL ? (
               <Avatar
-                src={srcUpload || src}
+                src={currentSrc}
                 alt={altText}
                 width={100}
                 height={100}
