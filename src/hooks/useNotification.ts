@@ -55,7 +55,7 @@ export const useNotification = ({
 
       if (errorAddNotification) {
         openToast({
-          message: ERROR_MESSAGE.CREATE('notification'),
+          message: ERROR_MESSAGE.CREATE('notification', errorAddNotification),
           type: STATUS_TYPE.ERROR,
         });
         return;

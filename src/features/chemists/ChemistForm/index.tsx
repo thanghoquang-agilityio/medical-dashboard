@@ -75,7 +75,6 @@ const ChemistForm = memo(
     const [imageUpload, setImageUpload] = useState<string>('');
     const [formImage, setFormImage] = useState<FormData | null>(null);
 
-    const [error, setError] = useState('');
     const [isPending, setIsPending] = useState(false);
     const [roles, getRoles] = useState<RolePermission[]>([]);
 
@@ -198,10 +197,8 @@ const ChemistForm = memo(
         if (error === ERROR_MESSAGE.DUPLICATE_FIELD)
           error = ERROR_MESSAGE.USERNAME;
 
-        setError(error);
-
         openToast({
-          message: ERROR_MESSAGE.CREATE('chemist'),
+          message: ERROR_MESSAGE.CREATE('chemist', error),
           type: STATUS_TYPE.ERROR,
         });
         setIsPending(false);
@@ -213,7 +210,6 @@ const ChemistForm = memo(
     // Handle submit form data to create chemist
     const handleSubmitForm: SubmitHandler<ChemistFormData> = useCallback(
       async (formData) => {
-        setError('');
         setIsPending(true);
 
         const { avatar, username, email, password, specialtyId, description } =
@@ -239,6 +235,11 @@ const ChemistForm = memo(
             handleError(error);
             return;
           }
+
+          openToast({
+            message: SUCCESS_MESSAGE.UPDATE('chemist'),
+            type: STATUS_TYPE.SUCCESS,
+          });
 
           return;
         }
@@ -271,9 +272,7 @@ const ChemistForm = memo(
         }
 
         openToast({
-          message: isEdit
-            ? SUCCESS_MESSAGE.UPDATE('chemist')
-            : SUCCESS_MESSAGE.CREATE('chemist'),
+          message: SUCCESS_MESSAGE.CREATE('chemist'),
           type: STATUS_TYPE.SUCCESS,
         });
 
@@ -545,11 +544,6 @@ const ChemistForm = memo(
         />
 
         <div className="h-[78px] flex flex-col justify-end">
-          {error && (
-            <Text variant="error" size="sm" customClass="py-2">
-              {error}
-            </Text>
-          )}
           <div className="w-full gap-2 flex justify-end">
             <Button
               onClick={onClose}

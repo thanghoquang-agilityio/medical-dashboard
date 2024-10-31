@@ -111,7 +111,6 @@ const AppointmentForm = memo(
     });
 
     const [users, setUsers] = useState<UserLogged[]>([]);
-    const [error, setError] = useState('');
     const [isPending, setIsPending] = useState(false);
 
     useEffect(() => {
@@ -143,7 +142,6 @@ const AppointmentForm = memo(
         durationTime: convertMinutesToTime(durationTime || ''),
       };
 
-      setError('');
       setIsPending(true);
       let error: string | null;
       let newAppointment: AppointmentResponse | null;
@@ -163,11 +161,10 @@ const AppointmentForm = memo(
       }
 
       if (error) {
-        setError(error);
         openToast({
           message: isEdit
-            ? ERROR_MESSAGE.UPDATE('appointment')
-            : ERROR_MESSAGE.CREATE('appointment'),
+            ? ERROR_MESSAGE.UPDATE('appointment', error)
+            : ERROR_MESSAGE.CREATE('appointment', error),
           type: STATUS_TYPE.ERROR,
         });
         setIsPending(false);
@@ -395,11 +392,6 @@ const AppointmentForm = memo(
         />
 
         <div className="h-[78px] flex flex-col justify-end">
-          {error && (
-            <Text variant="error" size="sm" customClass="py-2">
-              {error}
-            </Text>
-          )}
           <div className="w-full gap-2 flex justify-end">
             <Button
               variant="outline"
