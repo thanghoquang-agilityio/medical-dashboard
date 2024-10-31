@@ -120,7 +120,7 @@ const ChemistForm = memo(
       fetchUserRoles();
     }, []);
 
-    const isEdit = !!data.id;
+    const isEdit = !!data.email;
 
     // Handle show hide password
     const [isShowPassword, setIsShowPassword] = useState<boolean>(false);
