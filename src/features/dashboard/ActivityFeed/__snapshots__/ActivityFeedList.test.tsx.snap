@@ -96,6 +96,7 @@ exports[`ActivityFeedList test cases should render correctly 1`] = `
                         height="48"
                         placeholder="blur"
                         src="/upload/300"
+                        style="object-fit: cover;"
                         width="48"
                       />
                     </span>
@@ -165,6 +166,7 @@ exports[`ActivityFeedList test cases should render correctly 1`] = `
                         height="48"
                         placeholder="blur"
                         src="/upload/300"
+                        style="object-fit: cover;"
                         width="48"
                       />
                     </span>

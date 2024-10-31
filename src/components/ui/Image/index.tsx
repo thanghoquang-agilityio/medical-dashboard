@@ -44,6 +44,7 @@ const ImageFallback = ({
       blurDataURL={blurDataURL}
       onLoad={handleLoad}
       onError={handleFallbackImage}
+      style={{ objectFit: 'cover' }}
       {...rest}
     />
   );

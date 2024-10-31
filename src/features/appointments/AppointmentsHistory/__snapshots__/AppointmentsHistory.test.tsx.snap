@@ -639,7 +639,7 @@ exports[`AppointmentsHistory Component should render correctly with admin role w
                         height="48"
                         src="http://localhost/_next/image?url=%2Fimages%2Favatar-thumbnail.webp&w=96&q=75"
                         srcset="/_next/image?url=%2Fimages%2Favatar-thumbnail.webp&w=48&q=75 1x, /_next/image?url=%2Fimages%2Favatar-thumbnail.webp&w=96&q=75 2x"
-                        style="color: transparent; background-size: cover; background-position: 50% 50%; background-repeat: no-repeat;"
+                        style="color: transparent; object-fit: cover; background-size: cover; background-position: 50% 50%; background-repeat: no-repeat;"
                         width="48"
                       />
                     </span>
@@ -674,7 +674,7 @@ exports[`AppointmentsHistory Component should render correctly with admin role w
                         height="48"
                         src="http://localhost/_next/image?url=%2Fimages%2Favatar-thumbnail.webp&w=96&q=75"
                         srcset="/_next/image?url=%2Fimages%2Favatar-thumbnail.webp&w=48&q=75 1x, /_next/image?url=%2Fimages%2Favatar-thumbnail.webp&w=96&q=75 2x"
-                        style="color: transparent; background-size: cover; background-position: 50% 50%; background-repeat: no-repeat;"
+                        style="color: transparent; object-fit: cover; background-size: cover; background-position: 50% 50%; background-repeat: no-repeat;"
                         width="48"
                       />
                     </span>
@@ -808,7 +808,7 @@ exports[`AppointmentsHistory Component should render correctly with admin role w
                         height="48"
                         src="http://localhost/_next/image?url=%2Fimages%2Favatar-thumbnail.webp&w=96&q=75"
                         srcset="/_next/image?url=%2Fimages%2Favatar-thumbnail.webp&w=48&q=75 1x, /_next/image?url=%2Fimages%2Favatar-thumbnail.webp&w=96&q=75 2x"
-                        style="color: transparent; background-size: cover; background-position: 50% 50%; background-repeat: no-repeat;"
+                        style="color: transparent; object-fit: cover; background-size: cover; background-position: 50% 50%; background-repeat: no-repeat;"
                         width="48"
                       />
                     </span>
@@ -843,7 +843,7 @@ exports[`AppointmentsHistory Component should render correctly with admin role w
                         height="48"
                         src="http://localhost/_next/image?url=%2Fimages%2Favatar-thumbnail.webp&w=96&q=75"
                         srcset="/_next/image?url=%2Fimages%2Favatar-thumbnail.webp&w=48&q=75 1x, /_next/image?url=%2Fimages%2Favatar-thumbnail.webp&w=96&q=75 2x"
-                        style="color: transparent; background-size: cover; background-position: 50% 50%; background-repeat: no-repeat;"
+                        style="color: transparent; object-fit: cover; background-size: cover; background-position: 50% 50%; background-repeat: no-repeat;"
                         width="48"
                       />
                     </span>
@@ -976,7 +976,7 @@ exports[`AppointmentsHistory Component should render correctly with admin role w
                         height="48"
                         src="http://localhost/_next/image?url=%2Fimages%2Favatar-thumbnail.webp&w=96&q=75"
                         srcset="/_next/image?url=%2Fimages%2Favatar-thumbnail.webp&w=48&q=75 1x, /_next/image?url=%2Fimages%2Favatar-thumbnail.webp&w=96&q=75 2x"
-                        style="color: transparent; background-size: cover; background-position: 50% 50%; background-repeat: no-repeat;"
+                        style="color: transparent; object-fit: cover; background-size: cover; background-position: 50% 50%; background-repeat: no-repeat;"
                         width="48"
                       />
                     </span>
@@ -1011,7 +1011,7 @@ exports[`AppointmentsHistory Component should render correctly with admin role w
                         height="48"
                         src="http://localhost/_next/image?url=%2Fimages%2Favatar-thumbnail.webp&w=96&q=75"
                         srcset="/_next/image?url=%2Fimages%2Favatar-thumbnail.webp&w=48&q=75 1x, /_next/image?url=%2Fimages%2Favatar-thumbnail.webp&w=96&q=75 2x"
-                        style="color: transparent; background-size: cover; background-position: 50% 50%; background-repeat: no-repeat;"
+                        style="color: transparent; object-fit: cover; background-size: cover; background-position: 50% 50%; background-repeat: no-repeat;"
                         width="48"
                       />
                     </span>
@@ -1441,7 +1441,7 @@ exports[`AppointmentsHistory Component should render correctly with user role wh
                         height="48"
                         src="http://localhost/_next/image?url=%2Fimages%2Favatar-thumbnail.webp&w=96&q=75"
                         srcset="/_next/image?url=%2Fimages%2Favatar-thumbnail.webp&w=48&q=75 1x, /_next/image?url=%2Fimages%2Favatar-thumbnail.webp&w=96&q=75 2x"
-                        style="color: transparent; background-size: cover; background-position: 50% 50%; background-repeat: no-repeat;"
+                        style="color: transparent; object-fit: cover; background-size: cover; background-position: 50% 50%; background-repeat: no-repeat;"
                         width="48"
                       />
                     </span>
@@ -1575,7 +1575,7 @@ exports[`AppointmentsHistory Component should render correctly with user role wh
                         height="48"
                         src="http://localhost/_next/image?url=%2Fimages%2Favatar-thumbnail.webp&w=96&q=75"
                         srcset="/_next/image?url=%2Fimages%2Favatar-thumbnail.webp&w=48&q=75 1x, /_next/image?url=%2Fimages%2Favatar-thumbnail.webp&w=96&q=75 2x"
-                        style="color: transparent; background-size: cover; background-position: 50% 50%; background-repeat: no-repeat;"
+                        style="color: transparent; object-fit: cover; background-size: cover; background-position: 50% 50%; background-repeat: no-repeat;"
                         width="48"
                       />
                     </span>
@@ -1708,7 +1708,7 @@ exports[`AppointmentsHistory Component should render correctly with user role wh
                         height="48"
                         src="http://localhost/_next/image?url=%2Fimages%2Favatar-thumbnail.webp&w=96&q=75"
                         srcset="/_next/image?url=%2Fimages%2Favatar-thumbnail.webp&w=48&q=75 1x, /_next/image?url=%2Fimages%2Favatar-thumbnail.webp&w=96&q=75 2x"
-                        style="color: transparent; background-size: cover; background-position: 50% 50%; background-repeat: no-repeat;"
+                        style="color: transparent; object-fit: cover; background-size: cover; background-position: 50% 50%; background-repeat: no-repeat;"
                         width="48"
                       />
                     </span>

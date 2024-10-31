@@ -8,7 +8,6 @@ import {
   APPOINTMENT_STATUS_OPTIONS,
   PAGE_DEFAULT,
   SRC_BANNER_AVATAR,
-  SRC_BANNER_BLUR,
 } from '@/constants';
 
 // Types
@@ -66,8 +65,7 @@ const DashboardPage = async ({
           width={172}
           height={200}
           className="sm:absolute sm:bottom-[-1px] sm:right-[1px]"
-          placeholder="blur"
-          blurDataURL={SRC_BANNER_BLUR}
+          placeholder="empty"
         />
       </div>
 
