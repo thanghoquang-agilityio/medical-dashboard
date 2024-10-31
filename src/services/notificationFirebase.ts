@@ -21,10 +21,10 @@ export const sendNotification = async ({ message }: { message: string }) => {
   }
 
   try {
-    const registrationTokens = await getFCMTokens();
+    const { adminTokens, userTokens } = await getFCMTokens();
 
     const payload: MulticastMessage = {
-      tokens: registrationTokens,
+      tokens: [...adminTokens, ...userTokens],
       notification: {
         body: message,
       },
@@ -50,24 +50,31 @@ export const getFCMTokens = async () => {
   };
 
   if (role === ROLE.ADMIN) {
-    return adminRegistrationTokens || [];
+    return {
+      adminTokens: adminRegistrationTokens || [],
+      userTokens: [],
+    };
   }
 
   const userDocSnap = await getDoc(doc(db, REGISTRATION_TOKENS, email));
 
-  const { tokens: userRegistrationTokens } = userDocSnap.data() as {
-    tokens: Array<string>;
+  const { tokens: userRegistrationTokens } =
+    (userDocSnap.data() as {
+      tokens: Array<string>;
+    }) || {};
+
+  return {
+    adminTokens: [...(adminRegistrationTokens || [])],
+    userTokens: [...(userRegistrationTokens || [])],
   };
-  return [
-    ...(userRegistrationTokens || []),
-    ...(adminRegistrationTokens || []),
-  ];
 };
 
 export const registerFCM = async ({ token }: { token: string }) => {
   const { email = '', role } = (await auth())?.user || {};
 
-  const registrationTokens = await getFCMTokens();
+  const { adminTokens, userTokens } = await getFCMTokens();
+
+  const registrationTokens = role === ROLE.ADMIN ? adminTokens : userTokens;
 
   const isRegistered = registrationTokens.some(
     (registerToken) => registerToken === token,
@@ -82,6 +89,8 @@ export const registerFCM = async ({ token }: { token: string }) => {
       role === ROLE.ADMIN ? 'admin' : email,
     );
 
+    if (role === ROLE.NORMAL_USER) console.log('register as normal user');
+
     await setDoc(docRef, {
       tokens: registrationTokens,
     });
@@ -91,7 +100,9 @@ export const registerFCM = async ({ token }: { token: string }) => {
 export const unregisterFCM = async ({ token }: { token: string }) => {
   const { email = '', role } = (await auth())?.user || {};
 
-  const registrationTokens = await getFCMTokens();
+  const { adminTokens, userTokens } = await getFCMTokens();
+
+  const registrationTokens = role === ROLE.ADMIN ? adminTokens : userTokens;
 
   const filteredTokens = registrationTokens.filter(
     (registrationToken) => registrationToken !== token,
