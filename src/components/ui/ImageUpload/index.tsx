@@ -34,6 +34,15 @@ export const ImageUpload = forwardRef<HTMLInputElement, ImageUploadProps>(
   ) => {
     const [currentSrc, setCurrentSrc] = useState(srcUpload || src);
 
+    const handleChangeImage = (event: React.ChangeEvent<HTMLInputElement>) => {
+      onUploadImage?.(event);
+
+      if (event.target.files && event.target.files[0]) {
+        const newImageURL = URL.createObjectURL(event.target.files[0]);
+        setCurrentSrc(newImageURL);
+      }
+    };
+
     useEffect(() => {
       // Update the displayed image source whenever src or srcUpload changes
       setCurrentSrc(srcUpload || src);
@@ -47,6 +56,7 @@ export const ImageUpload = forwardRef<HTMLInputElement, ImageUploadProps>(
           <label htmlFor="avatar" className="group cursor-pointer relative">
             {currentSrc && currentSrc !== AVATAR_THUMBNAIL ? (
               <Avatar
+                key={currentSrc}
                 src={currentSrc}
                 alt={altText}
                 width={100}
@@ -76,7 +86,7 @@ export const ImageUpload = forwardRef<HTMLInputElement, ImageUploadProps>(
           type="file"
           className="hidden"
           ref={ref}
-          onChange={onUploadImage}
+          onChange={handleChangeImage}
           id="avatar"
           data-testid="upload-image"
           accept="image/*"
