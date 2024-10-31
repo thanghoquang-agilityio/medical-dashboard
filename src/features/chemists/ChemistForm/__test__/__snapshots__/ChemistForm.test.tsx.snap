@@ -9,7 +9,7 @@ exports[`ChemistForm test cases should render correctly 1`] = `
     <p
       class="text-primary-100 font-semibold text-xl text-ellipsis whitespace-nowrap overflow-hidden"
     >
-      Update chemist
+      Create chemist
     </p>
     <div
       class="flex flex-col justify-center items-center"
@@ -99,78 +99,7 @@ exports[`ChemistForm test cases should render correctly 1`] = `
       </div>
     </div>
     <div
-      class="flex justify-between self-center gap-6 mt-4"
-    >
-      <div
-        class="flex items-center gap-1 sm:gap-2"
-      >
-        <svg
-          class="w-6 h-6"
-          fill="none"
-          height="24"
-          viewBox="0 0 24 24"
-          width="24"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M21.6599 10.44L20.6799 14.62C19.8399 18.23 18.1799 19.69 15.0599 19.39C14.5599 19.35 14.0199 19.26 13.4399 19.12L11.7599 18.72C7.58994 17.73 6.29994 15.67 7.27994 11.49L8.25994 7.3C8.45994 6.45 8.69994 5.71 8.99994 5.1C10.1699 2.68 12.1599 2.03 15.4999 2.82L17.1699 3.21C21.3599 4.19 22.6399 6.26 21.6599 10.44Z"
-            stroke="#54577A"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="1.5"
-          />
-          <path
-            d="M15.0601 19.39C14.4401 19.81 13.6601 20.16 12.7101 20.47L11.1301 20.99C7.1601 22.27 5.0701 21.2 3.7801 17.23L2.5001 13.28C1.2201 9.31 2.2801 7.21 6.2501 5.93L7.8301 5.41C8.2401 5.28 8.6301 5.17 9.0001 5.1C8.7001 5.71 8.4601 6.45 8.2601 7.3L7.2801 11.49C6.3001 15.67 7.5901 17.73 11.7601 18.72L13.4401 19.12C14.0201 19.26 14.5601 19.35 15.0601 19.39Z"
-            stroke="#54577A"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="1.5"
-          />
-          <path
-            d="M12.6399 8.53L17.4899 9.76"
-            stroke="#54577A"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="1.5"
-          />
-          <path
-            d="M11.6599 12.4L14.5599 13.14"
-            stroke="#54577A"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="1.5"
-          />
-        </svg>
-        <p
-          class="text-primary-100 text-sm text-ellipsis whitespace-nowrap overflow-hidden font-medium"
-        >
-          0 Tasks
-        </p>
-      </div>
-      <div
-        class="flex items-center gap-1 sm:gap-2"
-      >
-        <svg
-          class="w-6 h-6 text-light-orange"
-          fill="none"
-          viewBox="0 0 20 20"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M9.04894 0.927052C9.3483 0.00574112 10.6517 0.00573993 10.9511 0.927051L12.4697 5.60081C12.6035 6.01284 12.9875 6.2918 13.4207 6.2918H18.335C19.3037 6.2918 19.7065 7.53141 18.9228 8.10081L14.947 10.9894C14.5966 11.244 14.4499 11.6954 14.5838 12.1074L16.1024 16.7812C16.4017 17.7025 15.3472 18.4686 14.5635 17.8992L10.5878 15.0106C10.2373 14.756 9.7627 14.756 9.41221 15.0106L5.43648 17.8992C4.65276 18.4686 3.59828 17.7025 3.89763 16.7812L5.41623 12.1074C5.55011 11.6954 5.40345 11.244 5.05296 10.9894L1.07722 8.10081C0.293507 7.53141 0.696283 6.2918 1.66501 6.2918H6.57929C7.01252 6.2918 7.39647 6.01284 7.53035 5.60081L9.04894 0.927052Z"
-            fill="currentColor"
-          />
-        </svg>
-        <p
-          class="text-primary-100 text-sm text-ellipsis whitespace-nowrap overflow-hidden font-medium"
-        >
-          0 (0 Reviews)
-        </p>
-      </div>
-    </div>
-    <div
-      class="group flex flex-col data-[hidden=true]:hidden w-full opacity-disabled pointer-events-none relative justify-end data-[has-label=true]:mt-[calc(theme(fontSize.small)_+_8px)] is-filled"
-      data-disabled="true"
+      class="group flex flex-col data-[hidden=true]:hidden w-full relative justify-end data-[has-label=true]:mt-[calc(theme(fontSize.small)_+_8px)] is-filled"
       data-filled="true"
       data-filled-within="true"
       data-has-elements="true"
@@ -184,12 +113,12 @@ exports[`ChemistForm test cases should render correctly 1`] = `
         data-slot="main-wrapper"
       >
         <div
-          class="relative w-full inline-flex tap-highlight-transparent flex-row items-center shadow-sm gap-3 data-[hover=true]:bg-default-200 group-data-[focus=true]:bg-default-100 min-h-8 px-2 rounded-small pointer-events-none transition-background motion-reduce:transition-none !duration-150 outline-none group-data-[focus-visible=true]:z-10 group-data-[focus-visible=true]:ring-2 group-data-[focus-visible=true]:ring-focus group-data-[focus-visible=true]:ring-offset-2 group-data-[focus-visible=true]:ring-offset-background bg-transparent border-text-foreground !bg-transparent data-[hover=true]:!bg-transparent group-data-[focus=true]:ring-0 group-data-[focus=true]:ring-offset-0 group-data-[focus=true]:!bg-transparent data-[focus=true]:border-secondary-300 group-data-[invalid=true]:border-danger-100 h-auto py-3 max-h-10 border is-filled"
+          class="relative w-full inline-flex tap-highlight-transparent flex-row items-center shadow-sm gap-3 data-[hover=true]:bg-default-200 group-data-[focus=true]:bg-default-100 min-h-8 px-2 rounded-small transition-background motion-reduce:transition-none !duration-150 outline-none group-data-[focus-visible=true]:z-10 group-data-[focus-visible=true]:ring-2 group-data-[focus-visible=true]:ring-focus group-data-[focus-visible=true]:ring-offset-2 group-data-[focus-visible=true]:ring-offset-background bg-transparent border-text-foreground !bg-transparent data-[hover=true]:!bg-transparent group-data-[focus=true]:ring-0 group-data-[focus=true]:ring-offset-0 group-data-[focus=true]:!bg-transparent data-[focus=true]:border-secondary-300 group-data-[invalid=true]:border-danger-100 h-auto py-3 max-h-10 border is-filled"
           data-slot="input-wrapper"
           style="cursor: text;"
         >
           <label
-            class="absolute origin-top-left rtl:origin-top-right subpixel-antialiased block text-foreground-500 pointer-events-none after:content-['*'] after:text-danger after:ml-0.5 rtl:after:ml-[unset] rtl:after:mr-0.5 will-change-auto !duration-200 !ease-out motion-reduce:transition-none transition-[transform,color,left,opacity] group-data-[filled-within=true]:text-foreground group-data-[filled-within=true]:pointer-events-auto pb-0 z-20 -translate-y-1/2 group-data-[filled-within=true]:start-0 start-2 group-data-[filled-within=true]:-translate-y-[calc(100%_+_theme(fontSize.tiny)/2_+_16px)] pe-2 max-w-full text-ellipsis overflow-hidden text-sm group-data-[invalid=true]:!text-danger-100 top-[20px]"
+            class="absolute pointer-events-none origin-top-left rtl:origin-top-right subpixel-antialiased block text-foreground-500 after:content-['*'] after:text-danger after:ml-0.5 rtl:after:ml-[unset] rtl:after:mr-0.5 will-change-auto !duration-200 !ease-out motion-reduce:transition-none transition-[transform,color,left,opacity] group-data-[filled-within=true]:text-foreground group-data-[filled-within=true]:pointer-events-auto pb-0 z-20 -translate-y-1/2 group-data-[filled-within=true]:start-0 start-2 group-data-[filled-within=true]:-translate-y-[calc(100%_+_theme(fontSize.tiny)/2_+_16px)] pe-2 max-w-full text-ellipsis overflow-hidden text-sm group-data-[invalid=true]:!text-danger-100 top-[20px]"
             data-slot="label"
             for="react-aria-:r5:"
             id="react-aria-:r6:"
@@ -208,7 +137,6 @@ exports[`ChemistForm test cases should render correctly 1`] = `
               data-filled="true"
               data-filled-within="true"
               data-slot="input"
-              disabled=""
               id="react-aria-:r5:"
               name="username"
               placeholder="Please enter username"
@@ -220,8 +148,7 @@ exports[`ChemistForm test cases should render correctly 1`] = `
       </div>
     </div>
     <div
-      class="group flex flex-col data-[hidden=true]:hidden w-full opacity-disabled pointer-events-none relative justify-end data-[has-label=true]:mt-[calc(theme(fontSize.small)_+_8px)] is-filled"
-      data-disabled="true"
+      class="group flex flex-col data-[hidden=true]:hidden w-full relative justify-end data-[has-label=true]:mt-[calc(theme(fontSize.small)_+_8px)] is-filled"
       data-filled="true"
       data-filled-within="true"
       data-has-elements="true"
@@ -235,12 +162,12 @@ exports[`ChemistForm test cases should render correctly 1`] = `
         data-slot="main-wrapper"
       >
         <div
-          class="relative w-full inline-flex tap-highlight-transparent flex-row items-center shadow-sm gap-3 data-[hover=true]:bg-default-200 group-data-[focus=true]:bg-default-100 min-h-8 px-2 rounded-small pointer-events-none transition-background motion-reduce:transition-none !duration-150 outline-none group-data-[focus-visible=true]:z-10 group-data-[focus-visible=true]:ring-2 group-data-[focus-visible=true]:ring-focus group-data-[focus-visible=true]:ring-offset-2 group-data-[focus-visible=true]:ring-offset-background bg-transparent border-text-foreground !bg-transparent data-[hover=true]:!bg-transparent group-data-[focus=true]:ring-0 group-data-[focus=true]:ring-offset-0 group-data-[focus=true]:!bg-transparent data-[focus=true]:border-secondary-300 group-data-[invalid=true]:border-danger-100 h-auto py-3 max-h-10 border is-filled"
+          class="relative w-full inline-flex tap-highlight-transparent flex-row items-center shadow-sm gap-3 data-[hover=true]:bg-default-200 group-data-[focus=true]:bg-default-100 min-h-8 px-2 rounded-small transition-background motion-reduce:transition-none !duration-150 outline-none group-data-[focus-visible=true]:z-10 group-data-[focus-visible=true]:ring-2 group-data-[focus-visible=true]:ring-focus group-data-[focus-visible=true]:ring-offset-2 group-data-[focus-visible=true]:ring-offset-background bg-transparent border-text-foreground !bg-transparent data-[hover=true]:!bg-transparent group-data-[focus=true]:ring-0 group-data-[focus=true]:ring-offset-0 group-data-[focus=true]:!bg-transparent data-[focus=true]:border-secondary-300 group-data-[invalid=true]:border-danger-100 h-auto py-3 max-h-10 border is-filled"
           data-slot="input-wrapper"
           style="cursor: text;"
         >
           <label
-            class="absolute origin-top-left rtl:origin-top-right subpixel-antialiased block text-foreground-500 pointer-events-none after:content-['*'] after:text-danger after:ml-0.5 rtl:after:ml-[unset] rtl:after:mr-0.5 will-change-auto !duration-200 !ease-out motion-reduce:transition-none transition-[transform,color,left,opacity] group-data-[filled-within=true]:text-foreground group-data-[filled-within=true]:pointer-events-auto pb-0 z-20 -translate-y-1/2 group-data-[filled-within=true]:start-0 start-2 group-data-[filled-within=true]:-translate-y-[calc(100%_+_theme(fontSize.tiny)/2_+_16px)] pe-2 max-w-full text-ellipsis overflow-hidden text-sm group-data-[invalid=true]:!text-danger-100 top-[20px]"
+            class="absolute pointer-events-none origin-top-left rtl:origin-top-right subpixel-antialiased block text-foreground-500 after:content-['*'] after:text-danger after:ml-0.5 rtl:after:ml-[unset] rtl:after:mr-0.5 will-change-auto !duration-200 !ease-out motion-reduce:transition-none transition-[transform,color,left,opacity] group-data-[filled-within=true]:text-foreground group-data-[filled-within=true]:pointer-events-auto pb-0 z-20 -translate-y-1/2 group-data-[filled-within=true]:start-0 start-2 group-data-[filled-within=true]:-translate-y-[calc(100%_+_theme(fontSize.tiny)/2_+_16px)] pe-2 max-w-full text-ellipsis overflow-hidden text-sm group-data-[invalid=true]:!text-danger-100 top-[20px]"
             data-slot="label"
             for="react-aria-:ra:"
             id="react-aria-:rb:"
@@ -259,13 +186,151 @@ exports[`ChemistForm test cases should render correctly 1`] = `
               data-filled="true"
               data-filled-within="true"
               data-slot="input"
-              disabled=""
               id="react-aria-:ra:"
               name="email"
               placeholder="Please enter email"
               type="text"
               value="mock@example.com"
             />
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="group flex flex-col data-[hidden=true]:hidden w-full relative justify-end data-[has-label=true]:mt-[calc(theme(fontSize.small)_+_8px)] is-filled"
+      data-filled="true"
+      data-filled-within="true"
+      data-has-elements="true"
+      data-has-label="true"
+      data-has-value="true"
+      data-slot="base"
+    >
+      <div
+        class="flex flex-col h-[68px]"
+        data-slot="main-wrapper"
+      >
+        <div
+          class="relative w-full inline-flex tap-highlight-transparent flex-row items-center shadow-sm gap-3 data-[hover=true]:bg-default-200 group-data-[focus=true]:bg-default-100 min-h-8 px-2 rounded-small transition-background motion-reduce:transition-none !duration-150 outline-none group-data-[focus-visible=true]:z-10 group-data-[focus-visible=true]:ring-2 group-data-[focus-visible=true]:ring-focus group-data-[focus-visible=true]:ring-offset-2 group-data-[focus-visible=true]:ring-offset-background bg-transparent border-text-foreground !bg-transparent data-[hover=true]:!bg-transparent group-data-[focus=true]:ring-0 group-data-[focus=true]:ring-offset-0 group-data-[focus=true]:!bg-transparent data-[focus=true]:border-secondary-300 group-data-[invalid=true]:border-danger-100 h-auto py-3 max-h-10 border is-filled"
+          data-slot="input-wrapper"
+          style="cursor: text;"
+        >
+          <label
+            class="absolute pointer-events-none origin-top-left rtl:origin-top-right subpixel-antialiased block text-foreground-500 will-change-auto !duration-200 !ease-out motion-reduce:transition-none transition-[transform,color,left,opacity] group-data-[filled-within=true]:text-foreground group-data-[filled-within=true]:pointer-events-auto pb-0 z-20 -translate-y-1/2 group-data-[filled-within=true]:start-0 start-2 group-data-[filled-within=true]:-translate-y-[calc(100%_+_theme(fontSize.tiny)/2_+_16px)] pe-2 max-w-full text-ellipsis overflow-hidden text-sm group-data-[invalid=true]:!text-danger-100 top-[20px]"
+            data-slot="label"
+            for="react-aria-:rf:"
+            id="react-aria-:rg:"
+          >
+            Password
+          </label>
+          <div
+            class="inline-flex w-full items-center h-full box-border"
+            data-slot="inner-wrapper"
+          >
+            <input
+              aria-label="Password"
+              aria-labelledby="react-aria-:rf: react-aria-:rg:"
+              class="w-full font-normal !outline-none focus-visible:outline-none data-[has-start-content=true]:ps-1.5 data-[has-end-content=true]:pe-1.5 file:cursor-pointer file:bg-transparent file:border-0 autofill:bg-transparent bg-clip-text group-data-[has-value=true]:text-default-foreground text-primary-100 placeholder:text-primary-300 bg-transparent text-sm group-data-[invalid=true]:!text-danger-100 mx-1 is-filled"
+              data-filled="true"
+              data-filled-within="true"
+              data-has-end-content="true"
+              data-slot="input"
+              id="react-aria-:rf:"
+              name="password"
+              placeholder="Please enter password"
+              type="password"
+              value="mockpassword"
+            />
+            <button
+              aria-label="visible password"
+              class="z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap subpixel-antialiased overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-small gap-2 rounded-medium !gap-0 transition-transform-colors-opacity motion-reduce:transition-none w-10 data-[hover=true]:opacity-hover border-transparent font-semibold bg-linear-success bg-none p-0 min-w-5 h-5 text-primary-200"
+              type="button"
+            >
+              <svg
+                class="w-full h-full"
+                height="16"
+                viewBox="0 0 640 512"
+                width="20"
+              >
+                <g
+                  opacity="0.6"
+                >
+                  <path
+                    d="M38.8 5.1C28.4-3.1 13.3-1.2 5.1 9.2S-1.2 34.7 9.2 42.9l592 464c10.4 8.2 25.5 6.3 33.7-4.1s6.3-25.5-4.1-33.7L525.6 386.7c39.6-40.6 66.4-86.1 79.9-118.4c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C465.5 68.8 400.8 32 320 32c-68.2 0-125 26.3-169.3 60.8L38.8 5.1zm151 118.3C226 97.7 269.5 80 320 80c65.2 0 118.8 29.6 159.9 67.7C518.4 183.5 545 226 558.6 256c-12.6 28-36.6 66.8-70.9 100.9l-53.8-42.2c9.1-17.6 14.2-37.5 14.2-58.7c0-70.7-57.3-128-128-128c-32.2 0-61.7 11.9-84.2 31.5l-46.1-36.1zM394.9 284.2l-81.5-63.9c4.2-8.5 6.6-18.2 6.6-28.3c0-5.5-.7-10.9-2-16c.7 0 1.3 0 2 0c44.2 0 80 35.8 80 80c0 9.9-1.8 19.4-5.1 28.2zm51.3 163.3l-41.9-33C378.8 425.4 350.7 432 320 432c-65.2 0-118.8-29.6-159.9-67.7C121.6 328.5 95 286 81.4 256c8.3-18.4 21.5-41.5 39.4-64.8L83.1 161.5C60.3 191.2 44 220.8 34.5 243.7c-3.3 7.9-3.3 16.7 0 24.6c14.9 35.7 46.2 87.7 93 131.1C174.5 443.2 239.2 480 320 480c47.8 0 89.9-12.9 126.2-32.5zm-88-69.3L302 334c-23.5-5.4-43.1-21.2-53.7-42.3l-56.1-44.2c-.2 2.8-.3 5.6-.3 8.5c0 70.7 57.3 128 128 128c13.3 0 26.1-2 38.2-5.8z"
+                    fill="currentColor"
+                    opacity="1"
+                  />
+                </g>
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="group flex flex-col data-[hidden=true]:hidden w-full relative justify-end data-[has-label=true]:mt-[calc(theme(fontSize.small)_+_8px)] is-filled"
+      data-filled="true"
+      data-filled-within="true"
+      data-has-elements="true"
+      data-has-label="true"
+      data-has-value="true"
+      data-slot="base"
+    >
+      <div
+        class="flex flex-col h-[68px]"
+        data-slot="main-wrapper"
+      >
+        <div
+          class="relative w-full inline-flex tap-highlight-transparent flex-row items-center shadow-sm gap-3 data-[hover=true]:bg-default-200 group-data-[focus=true]:bg-default-100 min-h-8 px-2 rounded-small transition-background motion-reduce:transition-none !duration-150 outline-none group-data-[focus-visible=true]:z-10 group-data-[focus-visible=true]:ring-2 group-data-[focus-visible=true]:ring-focus group-data-[focus-visible=true]:ring-offset-2 group-data-[focus-visible=true]:ring-offset-background bg-transparent border-text-foreground !bg-transparent data-[hover=true]:!bg-transparent group-data-[focus=true]:ring-0 group-data-[focus=true]:ring-offset-0 group-data-[focus=true]:!bg-transparent data-[focus=true]:border-secondary-300 group-data-[invalid=true]:border-danger-100 h-auto py-3 max-h-10 border is-filled"
+          data-slot="input-wrapper"
+          style="cursor: text;"
+        >
+          <label
+            class="absolute pointer-events-none origin-top-left rtl:origin-top-right subpixel-antialiased block text-foreground-500 will-change-auto !duration-200 !ease-out motion-reduce:transition-none transition-[transform,color,left,opacity] group-data-[filled-within=true]:text-foreground group-data-[filled-within=true]:pointer-events-auto pb-0 z-20 -translate-y-1/2 group-data-[filled-within=true]:start-0 start-2 group-data-[filled-within=true]:-translate-y-[calc(100%_+_theme(fontSize.tiny)/2_+_16px)] pe-2 max-w-full text-ellipsis overflow-hidden text-sm group-data-[invalid=true]:!text-danger-100 top-[20px]"
+            data-slot="label"
+            for="react-aria-:rk:"
+            id="react-aria-:rl:"
+          >
+            Confirm Password
+          </label>
+          <div
+            class="inline-flex w-full items-center h-full box-border"
+            data-slot="inner-wrapper"
+          >
+            <input
+              aria-label="Confirm Password"
+              aria-labelledby="react-aria-:rk: react-aria-:rl:"
+              class="w-full font-normal !outline-none focus-visible:outline-none data-[has-start-content=true]:ps-1.5 data-[has-end-content=true]:pe-1.5 file:cursor-pointer file:bg-transparent file:border-0 autofill:bg-transparent bg-clip-text group-data-[has-value=true]:text-default-foreground text-primary-100 placeholder:text-primary-300 bg-transparent text-sm group-data-[invalid=true]:!text-danger-100 mx-1 is-filled"
+              data-filled="true"
+              data-filled-within="true"
+              data-has-end-content="true"
+              data-slot="input"
+              id="react-aria-:rk:"
+              placeholder="Please enter confirm password"
+              type="password"
+              value="mockpassword"
+            />
+            <button
+              aria-label="visible confirm password"
+              class="z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap subpixel-antialiased overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-small gap-2 rounded-medium !gap-0 transition-transform-colors-opacity motion-reduce:transition-none w-10 data-[hover=true]:opacity-hover border-transparent font-semibold bg-linear-success bg-none p-0 min-w-5 h-5 text-primary-200"
+              type="button"
+            >
+              <svg
+                class="w-full h-full"
+                height="16"
+                viewBox="0 0 640 512"
+                width="20"
+              >
+                <g
+                  opacity="0.6"
+                >
+                  <path
+                    d="M38.8 5.1C28.4-3.1 13.3-1.2 5.1 9.2S-1.2 34.7 9.2 42.9l592 464c10.4 8.2 25.5 6.3 33.7-4.1s6.3-25.5-4.1-33.7L525.6 386.7c39.6-40.6 66.4-86.1 79.9-118.4c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C465.5 68.8 400.8 32 320 32c-68.2 0-125 26.3-169.3 60.8L38.8 5.1zm151 118.3C226 97.7 269.5 80 320 80c65.2 0 118.8 29.6 159.9 67.7C518.4 183.5 545 226 558.6 256c-12.6 28-36.6 66.8-70.9 100.9l-53.8-42.2c9.1-17.6 14.2-37.5 14.2-58.7c0-70.7-57.3-128-128-128c-32.2 0-61.7 11.9-84.2 31.5l-46.1-36.1zM394.9 284.2l-81.5-63.9c4.2-8.5 6.6-18.2 6.6-28.3c0-5.5-.7-10.9-2-16c.7 0 1.3 0 2 0c44.2 0 80 35.8 80 80c0 9.9-1.8 19.4-5.1 28.2zm51.3 163.3l-41.9-33C378.8 425.4 350.7 432 320 432c-65.2 0-118.8-29.6-159.9-67.7C121.6 328.5 95 286 81.4 256c8.3-18.4 21.5-41.5 39.4-64.8L83.1 161.5C60.3 191.2 44 220.8 34.5 243.7c-3.3 7.9-3.3 16.7 0 24.6c14.9 35.7 46.2 87.7 93 131.1C174.5 443.2 239.2 480 320 480c47.8 0 89.9-12.9 126.2-32.5zm-88-69.3L302 334c-23.5-5.4-43.1-21.2-53.7-42.3l-56.1-44.2c-.2 2.8-.3 5.6-.3 8.5c0 70.7 57.3 128 128 128c13.3 0 26.1-2 38.2-5.8z"
+                    fill="currentColor"
+                    opacity="1"
+                  />
+                </g>
+              </svg>
+            </button>
           </div>
         </div>
       </div>
@@ -312,17 +377,17 @@ exports[`ChemistForm test cases should render correctly 1`] = `
         <button
           aria-expanded="false"
           aria-haspopup="listbox"
-          aria-labelledby="react-aria-:rm: react-aria-:ri:"
+          aria-labelledby="react-aria-:r10: react-aria-:rs:"
           class="relative gap-3 w-full inline-flex flex-row items-center shadow-sm outline-none tap-highlight-transparent border-default-200 data-[hover=true]:border-default-400 data-[open=true]:border-default-foreground min-h-10 transition-colors motion-reduce:transition-none px-2.5 rounded-medium bg-background-100 shadow-stack border-1 outline-offset-0 data-[focus=true]:border-green data-[focus=true]:border-1 data-[focus=true]:bg-background-100 data-[hover=true]:bg-background-100 group-data-[invalid=true]:!border-danger-100 h-[auto] py-3 max-h-10"
           data-slot="trigger"
           data-testid="specialty-select"
-          id="react-aria-:rh:"
+          id="react-aria-:rr:"
           type="button"
         >
           <label
             class="block absolute subpixel-antialiased pointer-events-none will-change-auto origin-top-left rtl:origin-top-right !duration-200 !ease-out transition-[transform,color,left,opacity] motion-reduce:transition-none pb-0 z-20 -translate-y-1/2 group-data-[filled=true]:start-0 start-3 group-data-[filled=true]:-translate-y-[calc(100%_+_theme(fontSize.small)/2_+_20px)] pe-2 max-w-full text-ellipsis overflow-hidden font-medium group-data-[invalid=true]:!text-danger-100 group-data-[filled=true]:text-primary-100 after:text-primary-100 top-5 text-sm text-foreground"
             data-slot="label"
-            id="react-aria-:ri:"
+            id="react-aria-:rs:"
           >
             Specialty
           </label>
@@ -333,7 +398,7 @@ exports[`ChemistForm test cases should render correctly 1`] = `
             <span
               class="w-full text-left rtl:text-right group-data-[has-value=true]:text-default-foreground truncate group-data-[invalid=true]:!text-danger-100 font-medium text-sm text-primary-100"
               data-slot="value"
-              id="react-aria-:rm:"
+              id="react-aria-:r10:"
             >
               Select specialty
             </span>
@@ -372,8 +437,8 @@ exports[`ChemistForm test cases should render correctly 1`] = `
       <label
         class="z-10 pointer-events-none origin-top-left rtl:origin-top-right subpixel-antialiased block text-foreground-500 relative will-change-auto !duration-200 !ease-out motion-reduce:transition-none transition-[transform,color,left,opacity] group-data-[filled-within=true]:text-foreground group-data-[filled-within=true]:pointer-events-auto pb-1.5 pe-2 max-w-full text-ellipsis overflow-hidden text-sm"
         data-slot="label"
-        for="react-aria-:rn:"
-        id="react-aria-:ro:"
+        for="react-aria-:r11:"
+        id="react-aria-:r12:"
       >
         Description
       </label>
@@ -389,13 +454,13 @@ exports[`ChemistForm test cases should render correctly 1`] = `
         >
           <textarea
             aria-label="Description"
-            aria-labelledby="react-aria-:rn: react-aria-:ro:"
+            aria-labelledby="react-aria-:r11: react-aria-:r12:"
             class="w-full font-normal bg-transparent !outline-none placeholder:text-foreground-500 focus-visible:outline-none data-[has-start-content=true]:ps-1.5 data-[has-end-content=true]:pe-1.5 file:cursor-pointer file:bg-transparent file:border-0 autofill:bg-transparent bg-clip-text text-small resize-none data-[hide-scroll=true]:scrollbar-hide group-data-[has-value=true]:text-default-foreground transition-height !duration-100 motion-reduce:transition-none is-filled"
             data-filled="true"
             data-filled-within="true"
             data-hide-scroll="true"
             data-slot="input"
-            id="react-aria-:rn:"
+            id="react-aria-:r11:"
             name="description"
             placeholder="Please enter description"
           >
@@ -536,8 +601,8 @@ exports[`ChemistForm test cases should render correctly without data and id 1`] 
           <label
             class="absolute pointer-events-none origin-top-left rtl:origin-top-right subpixel-antialiased block text-foreground-500 after:content-['*'] after:text-danger after:ml-0.5 rtl:after:ml-[unset] rtl:after:mr-0.5 will-change-auto !duration-200 !ease-out motion-reduce:transition-none transition-[transform,color,left,opacity] group-data-[filled-within=true]:text-foreground group-data-[filled-within=true]:pointer-events-auto pb-0 z-20 -translate-y-1/2 group-data-[filled-within=true]:start-0 start-2 group-data-[filled-within=true]:-translate-y-[calc(100%_+_theme(fontSize.tiny)/2_+_16px)] pe-2 max-w-full text-ellipsis overflow-hidden text-sm group-data-[invalid=true]:!text-danger-100 top-[20px]"
             data-slot="label"
-            for="react-aria-:r11:"
-            id="react-aria-:r12:"
+            for="react-aria-:r1b:"
+            id="react-aria-:r1c:"
           >
             Username
           </label>
@@ -547,11 +612,11 @@ exports[`ChemistForm test cases should render correctly without data and id 1`] 
           >
             <input
               aria-label="Username"
-              aria-labelledby="react-aria-:r11: react-aria-:r12:"
+              aria-labelledby="react-aria-:r1b: react-aria-:r1c:"
               aria-required="true"
               class="w-full font-normal !outline-none focus-visible:outline-none data-[has-start-content=true]:ps-1.5 data-[has-end-content=true]:pe-1.5 file:cursor-pointer file:bg-transparent file:border-0 autofill:bg-transparent bg-clip-text group-data-[has-value=true]:text-default-foreground text-primary-100 placeholder:text-primary-300 bg-transparent text-sm group-data-[invalid=true]:!text-danger-100 mx-1"
               data-slot="input"
-              id="react-aria-:r11:"
+              id="react-aria-:r1b:"
               name="username"
               placeholder="Please enter username"
               type="text"
@@ -582,8 +647,8 @@ exports[`ChemistForm test cases should render correctly without data and id 1`] 
           <label
             class="absolute pointer-events-none origin-top-left rtl:origin-top-right subpixel-antialiased block text-foreground-500 after:content-['*'] after:text-danger after:ml-0.5 rtl:after:ml-[unset] rtl:after:mr-0.5 will-change-auto !duration-200 !ease-out motion-reduce:transition-none transition-[transform,color,left,opacity] group-data-[filled-within=true]:text-foreground group-data-[filled-within=true]:pointer-events-auto pb-0 z-20 -translate-y-1/2 group-data-[filled-within=true]:start-0 start-2 group-data-[filled-within=true]:-translate-y-[calc(100%_+_theme(fontSize.tiny)/2_+_16px)] pe-2 max-w-full text-ellipsis overflow-hidden text-sm group-data-[invalid=true]:!text-danger-100 top-[20px]"
             data-slot="label"
-            for="react-aria-:r16:"
-            id="react-aria-:r17:"
+            for="react-aria-:r1g:"
+            id="react-aria-:r1h:"
           >
             Email
           </label>
@@ -593,11 +658,11 @@ exports[`ChemistForm test cases should render correctly without data and id 1`] 
           >
             <input
               aria-label="Email"
-              aria-labelledby="react-aria-:r16: react-aria-:r17:"
+              aria-labelledby="react-aria-:r1g: react-aria-:r1h:"
               aria-required="true"
               class="w-full font-normal !outline-none focus-visible:outline-none data-[has-start-content=true]:ps-1.5 data-[has-end-content=true]:pe-1.5 file:cursor-pointer file:bg-transparent file:border-0 autofill:bg-transparent bg-clip-text group-data-[has-value=true]:text-default-foreground text-primary-100 placeholder:text-primary-300 bg-transparent text-sm group-data-[invalid=true]:!text-danger-100 mx-1"
               data-slot="input"
-              id="react-aria-:r16:"
+              id="react-aria-:r1g:"
               name="email"
               placeholder="Please enter email"
               type="text"
@@ -627,8 +692,8 @@ exports[`ChemistForm test cases should render correctly without data and id 1`] 
           <label
             class="absolute pointer-events-none origin-top-left rtl:origin-top-right subpixel-antialiased block text-foreground-500 will-change-auto !duration-200 !ease-out motion-reduce:transition-none transition-[transform,color,left,opacity] group-data-[filled-within=true]:text-foreground group-data-[filled-within=true]:pointer-events-auto pb-0 z-20 -translate-y-1/2 group-data-[filled-within=true]:start-0 start-2 group-data-[filled-within=true]:-translate-y-[calc(100%_+_theme(fontSize.tiny)/2_+_16px)] pe-2 max-w-full text-ellipsis overflow-hidden text-sm group-data-[invalid=true]:!text-danger-100 top-[20px]"
             data-slot="label"
-            for="react-aria-:r1b:"
-            id="react-aria-:r1c:"
+            for="react-aria-:r1l:"
+            id="react-aria-:r1m:"
           >
             Password
           </label>
@@ -638,11 +703,11 @@ exports[`ChemistForm test cases should render correctly without data and id 1`] 
           >
             <input
               aria-label="Password"
-              aria-labelledby="react-aria-:r1b: react-aria-:r1c:"
+              aria-labelledby="react-aria-:r1l: react-aria-:r1m:"
               class="w-full font-normal !outline-none focus-visible:outline-none data-[has-start-content=true]:ps-1.5 data-[has-end-content=true]:pe-1.5 file:cursor-pointer file:bg-transparent file:border-0 autofill:bg-transparent bg-clip-text group-data-[has-value=true]:text-default-foreground text-primary-100 placeholder:text-primary-300 bg-transparent text-sm group-data-[invalid=true]:!text-danger-100 mx-1"
               data-has-end-content="true"
               data-slot="input"
-              id="react-aria-:r1b:"
+              id="react-aria-:r1l:"
               name="password"
               placeholder="Please enter password"
               type="password"
@@ -694,8 +759,8 @@ exports[`ChemistForm test cases should render correctly without data and id 1`] 
           <label
             class="absolute pointer-events-none origin-top-left rtl:origin-top-right subpixel-antialiased block text-foreground-500 will-change-auto !duration-200 !ease-out motion-reduce:transition-none transition-[transform,color,left,opacity] group-data-[filled-within=true]:text-foreground group-data-[filled-within=true]:pointer-events-auto pb-0 z-20 -translate-y-1/2 group-data-[filled-within=true]:start-0 start-2 group-data-[filled-within=true]:-translate-y-[calc(100%_+_theme(fontSize.tiny)/2_+_16px)] pe-2 max-w-full text-ellipsis overflow-hidden text-sm group-data-[invalid=true]:!text-danger-100 top-[20px]"
             data-slot="label"
-            for="react-aria-:r1g:"
-            id="react-aria-:r1h:"
+            for="react-aria-:r1q:"
+            id="react-aria-:r1r:"
           >
             Confirm Password
           </label>
@@ -705,11 +770,11 @@ exports[`ChemistForm test cases should render correctly without data and id 1`] 
           >
             <input
               aria-label="Confirm Password"
-              aria-labelledby="react-aria-:r1g: react-aria-:r1h:"
+              aria-labelledby="react-aria-:r1q: react-aria-:r1r:"
               class="w-full font-normal !outline-none focus-visible:outline-none data-[has-start-content=true]:ps-1.5 data-[has-end-content=true]:pe-1.5 file:cursor-pointer file:bg-transparent file:border-0 autofill:bg-transparent bg-clip-text group-data-[has-value=true]:text-default-foreground text-primary-100 placeholder:text-primary-300 bg-transparent text-sm group-data-[invalid=true]:!text-danger-100 mx-1"
               data-has-end-content="true"
               data-slot="input"
-              id="react-aria-:r1g:"
+              id="react-aria-:r1q:"
               placeholder="Please enter confirm password"
               type="password"
               value=""
@@ -782,17 +847,17 @@ exports[`ChemistForm test cases should render correctly without data and id 1`] 
         <button
           aria-expanded="false"
           aria-haspopup="listbox"
-          aria-labelledby="react-aria-:r1s: react-aria-:r1o:"
+          aria-labelledby="react-aria-:r26: react-aria-:r22:"
           class="relative gap-3 w-full inline-flex flex-row items-center shadow-sm outline-none tap-highlight-transparent border-default-200 data-[hover=true]:border-default-400 data-[open=true]:border-default-foreground min-h-10 transition-colors motion-reduce:transition-none px-2.5 rounded-medium bg-background-100 shadow-stack border-1 outline-offset-0 data-[focus=true]:border-green data-[focus=true]:border-1 data-[focus=true]:bg-background-100 data-[hover=true]:bg-background-100 group-data-[invalid=true]:!border-danger-100 h-[auto] py-3 max-h-10"
           data-slot="trigger"
           data-testid="specialty-select"
-          id="react-aria-:r1n:"
+          id="react-aria-:r21:"
           type="button"
         >
           <label
             class="block absolute subpixel-antialiased pointer-events-none will-change-auto origin-top-left rtl:origin-top-right !duration-200 !ease-out transition-[transform,color,left,opacity] motion-reduce:transition-none pb-0 z-20 -translate-y-1/2 group-data-[filled=true]:start-0 start-3 group-data-[filled=true]:-translate-y-[calc(100%_+_theme(fontSize.small)/2_+_20px)] pe-2 max-w-full text-ellipsis overflow-hidden font-medium group-data-[invalid=true]:!text-danger-100 group-data-[filled=true]:text-primary-100 after:text-primary-100 top-5 text-sm text-foreground"
             data-slot="label"
-            id="react-aria-:r1o:"
+            id="react-aria-:r22:"
           >
             Specialty
           </label>
@@ -803,7 +868,7 @@ exports[`ChemistForm test cases should render correctly without data and id 1`] 
             <span
               class="w-full text-left rtl:text-right group-data-[has-value=true]:text-default-foreground truncate group-data-[invalid=true]:!text-danger-100 font-medium text-sm text-primary-100"
               data-slot="value"
-              id="react-aria-:r1s:"
+              id="react-aria-:r26:"
             >
               Select specialty
             </span>
@@ -841,8 +906,8 @@ exports[`ChemistForm test cases should render correctly without data and id 1`] 
       <label
         class="z-10 pointer-events-none origin-top-left rtl:origin-top-right subpixel-antialiased block text-foreground-500 relative will-change-auto !duration-200 !ease-out motion-reduce:transition-none transition-[transform,color,left,opacity] group-data-[filled-within=true]:text-foreground group-data-[filled-within=true]:pointer-events-auto pb-1.5 pe-2 max-w-full text-ellipsis overflow-hidden text-sm"
         data-slot="label"
-        for="react-aria-:r1t:"
-        id="react-aria-:r1u:"
+        for="react-aria-:r27:"
+        id="react-aria-:r28:"
       >
         Description
       </label>
@@ -858,11 +923,11 @@ exports[`ChemistForm test cases should render correctly without data and id 1`] 
         >
           <textarea
             aria-label="Description"
-            aria-labelledby="react-aria-:r1t: react-aria-:r1u:"
+            aria-labelledby="react-aria-:r27: react-aria-:r28:"
             class="w-full font-normal bg-transparent !outline-none placeholder:text-foreground-500 focus-visible:outline-none data-[has-start-content=true]:ps-1.5 data-[has-end-content=true]:pe-1.5 file:cursor-pointer file:bg-transparent file:border-0 autofill:bg-transparent bg-clip-text text-small resize-none data-[hide-scroll=true]:scrollbar-hide group-data-[has-value=true]:text-default-foreground transition-height !duration-100 motion-reduce:transition-none"
             data-hide-scroll="true"
             data-slot="input"
-            id="react-aria-:r1t:"
+            id="react-aria-:r27:"
             name="description"
             placeholder="Please enter description"
           />

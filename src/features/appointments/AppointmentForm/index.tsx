@@ -29,7 +29,11 @@ import {
 import { Button, Input, Select, Text, TimeInput } from '@/components/ui';
 
 // Constants
-import { APPOINTMENT_STATUS, ERROR_MESSAGE } from '@/constants';
+import {
+  APPOINTMENT_STATUS,
+  DEFAULT_APPOINTMENT_DATA,
+  ERROR_MESSAGE,
+} from '@/constants';
 
 // Hocs
 import { useToast } from '@/context/toast';
@@ -68,7 +72,12 @@ export interface AppointMentForm
 }
 
 const AppointmentForm = memo(
-  ({ userLogged, data, onClose, id = '' }: AppointmentModalProps) => {
+  ({
+    userLogged,
+    data = DEFAULT_APPOINTMENT_DATA,
+    onClose,
+    id = '',
+  }: AppointmentModalProps) => {
     const { id: userId = '', role: roleModel } = userLogged || {};
     const { name: role = ROLE.NORMAL_USER } = roleModel || {};
 
@@ -124,7 +133,8 @@ const AppointmentForm = memo(
     }, []);
 
     const OPTION_USERS = transformUsers(users);
-    const isEdit = !!data;
+
+    const isEdit = !!senderId;
 
     const { handleCreateNotification } = useNotification({
       userLogged,

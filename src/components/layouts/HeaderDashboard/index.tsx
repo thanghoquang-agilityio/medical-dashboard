@@ -25,10 +25,10 @@ interface HeaderProps {
 
 const HeaderDashboard = ({
   avatar,
-  userName,
+  userName = '',
   isInvisibleBadge = false,
   totalNotifications = 0,
-  id,
+  id = '',
   searchParams,
   notifications,
 }: HeaderProps) => {
