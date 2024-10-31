@@ -212,7 +212,7 @@ const AppointmentsUpcomingList = memo(
             <Select
               aria-label="appointment status"
               options={APPOINTMENT_STATUS_OPTIONS}
-              defaultSelectedKeys={status}
+              defaultSelectedKeys={APPOINTMENT_STATUS_OPTIONS[0].key}
               disabledKeys={status}
               selectedKeys={status}
               placeholder="Status"

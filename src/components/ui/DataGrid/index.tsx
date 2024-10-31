@@ -129,6 +129,8 @@ const DataGrid = memo(
                             `p-0 ${!isLastItem ? classCell ?? '' : ''}`,
                             `${hasDivider ? (!isLastItem ? `py-3 ${classDivider}` : 'pt-3') : ''}`,
                           )}
+                          role="cell"
+                          headers={`${props.id}-${column.key}`}
                         >
                           {column.customNode ? (
                             column.key === 'actions' ? (

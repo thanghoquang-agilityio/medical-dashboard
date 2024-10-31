@@ -617,8 +617,9 @@ exports[`AppointmentsHistory Component should render correctly with admin role w
                 <td
                   class="relative align-middle whitespace-normal text-small font-normal [&>*]:z-1 [&>*]:relative outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 before:content-[''] before:absolute before:z-0 before:inset-0 before:opacity-0 data-[selected=true]:before:opacity-100 group-data-[disabled=true]:text-foreground-300 group-data-[disabled=true]:cursor-not-allowed before:bg-default/60 data-[selected=true]:text-default-foreground first:before:rounded-s-lg last:before:rounded-e-lg text-start p-0 py-3 border-0 border-primary-100 border-b border-opacity-10"
                   data-key="table-row-cell-senderId"
+                  headers="undefined-senderId"
                   id="react-aria-:r3f:-1-senderId"
-                  role="rowheader"
+                  role="cell"
                   tabindex="-1"
                 >
                   <div
@@ -652,7 +653,8 @@ exports[`AppointmentsHistory Component should render correctly with admin role w
                 <td
                   class="relative align-middle whitespace-normal text-small font-normal [&>*]:z-1 [&>*]:relative outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 before:content-[''] before:absolute before:z-0 before:inset-0 before:opacity-0 data-[selected=true]:before:opacity-100 group-data-[disabled=true]:text-foreground-300 group-data-[disabled=true]:cursor-not-allowed before:bg-default/60 data-[selected=true]:text-default-foreground first:before:rounded-s-lg last:before:rounded-e-lg text-start p-0 py-3 border-0 border-primary-100 border-b border-opacity-10"
                   data-key="table-row-cell-receiverId"
-                  role="gridcell"
+                  headers="undefined-receiverId"
+                  role="cell"
                   tabindex="-1"
                 >
                   <div
@@ -686,7 +688,8 @@ exports[`AppointmentsHistory Component should render correctly with admin role w
                 <td
                   class="relative align-middle whitespace-normal text-small font-normal [&>*]:z-1 [&>*]:relative outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 before:content-[''] before:absolute before:z-0 before:inset-0 before:opacity-0 data-[selected=true]:before:opacity-100 group-data-[disabled=true]:text-foreground-300 group-data-[disabled=true]:cursor-not-allowed before:bg-default/60 data-[selected=true]:text-default-foreground first:before:rounded-s-lg last:before:rounded-e-lg text-start p-0 py-3 border-0 border-primary-100 border-b border-opacity-10"
                   data-key="table-row-cell-durationTime"
-                  role="gridcell"
+                  headers="undefined-durationTime"
+                  role="cell"
                   tabindex="-1"
                 >
                   <p
@@ -698,7 +701,8 @@ exports[`AppointmentsHistory Component should render correctly with admin role w
                 <td
                   class="relative align-middle whitespace-normal text-small font-normal [&>*]:z-1 [&>*]:relative outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 before:content-[''] before:absolute before:z-0 before:inset-0 before:opacity-0 data-[selected=true]:before:opacity-100 group-data-[disabled=true]:text-foreground-300 group-data-[disabled=true]:cursor-not-allowed before:bg-default/60 data-[selected=true]:text-default-foreground first:before:rounded-s-lg last:before:rounded-e-lg text-start p-0 py-3 border-0 border-primary-100 border-b border-opacity-10"
                   data-key="table-row-cell-startTime"
-                  role="gridcell"
+                  headers="undefined-startTime"
+                  role="cell"
                   tabindex="-1"
                 >
                   <p
@@ -710,7 +714,8 @@ exports[`AppointmentsHistory Component should render correctly with admin role w
                 <td
                   class="relative align-middle whitespace-normal text-small font-normal [&>*]:z-1 [&>*]:relative outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 before:content-[''] before:absolute before:z-0 before:inset-0 before:opacity-0 data-[selected=true]:before:opacity-100 group-data-[disabled=true]:text-foreground-300 group-data-[disabled=true]:cursor-not-allowed before:bg-default/60 data-[selected=true]:text-default-foreground first:before:rounded-s-lg last:before:rounded-e-lg text-start p-0 py-3 border-0 border-primary-100 border-b border-opacity-10"
                   data-key="table-row-cell-status"
-                  role="gridcell"
+                  headers="undefined-status"
+                  role="cell"
                   tabindex="-1"
                 >
                   <div
@@ -726,7 +731,8 @@ exports[`AppointmentsHistory Component should render correctly with admin role w
                 <td
                   class="relative align-middle whitespace-normal text-small font-normal [&>*]:z-1 [&>*]:relative outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 before:content-[''] before:absolute before:z-0 before:inset-0 before:opacity-0 data-[selected=true]:before:opacity-100 group-data-[disabled=true]:text-foreground-300 group-data-[disabled=true]:cursor-not-allowed before:bg-default/60 data-[selected=true]:text-default-foreground first:before:rounded-s-lg last:before:rounded-e-lg text-start p-0 py-3 border-0 border-primary-100 border-b border-opacity-10"
                   data-key="table-row-cell-actions"
-                  role="gridcell"
+                  headers="undefined-actions"
+                  role="cell"
                   tabindex="-1"
                 >
                   <div
@@ -780,8 +786,9 @@ exports[`AppointmentsHistory Component should render correctly with admin role w
                 <td
                   class="relative align-middle whitespace-normal text-small font-normal [&>*]:z-1 [&>*]:relative outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 before:content-[''] before:absolute before:z-0 before:inset-0 before:opacity-0 data-[selected=true]:before:opacity-100 group-data-[disabled=true]:text-foreground-300 group-data-[disabled=true]:cursor-not-allowed before:bg-default/60 data-[selected=true]:text-default-foreground first:before:rounded-s-lg last:before:rounded-e-lg text-start p-0 py-3 border-0 border-primary-100 border-b border-opacity-10"
                   data-key="table-row-cell-senderId"
+                  headers="undefined-senderId"
                   id="react-aria-:r3f:-2-senderId"
-                  role="rowheader"
+                  role="cell"
                   tabindex="-1"
                 >
                   <div
@@ -815,7 +822,8 @@ exports[`AppointmentsHistory Component should render correctly with admin role w
                 <td
                   class="relative align-middle whitespace-normal text-small font-normal [&>*]:z-1 [&>*]:relative outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 before:content-[''] before:absolute before:z-0 before:inset-0 before:opacity-0 data-[selected=true]:before:opacity-100 group-data-[disabled=true]:text-foreground-300 group-data-[disabled=true]:cursor-not-allowed before:bg-default/60 data-[selected=true]:text-default-foreground first:before:rounded-s-lg last:before:rounded-e-lg text-start p-0 py-3 border-0 border-primary-100 border-b border-opacity-10"
                   data-key="table-row-cell-receiverId"
-                  role="gridcell"
+                  headers="undefined-receiverId"
+                  role="cell"
                   tabindex="-1"
                 >
                   <div
@@ -849,7 +857,8 @@ exports[`AppointmentsHistory Component should render correctly with admin role w
                 <td
                   class="relative align-middle whitespace-normal text-small font-normal [&>*]:z-1 [&>*]:relative outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 before:content-[''] before:absolute before:z-0 before:inset-0 before:opacity-0 data-[selected=true]:before:opacity-100 group-data-[disabled=true]:text-foreground-300 group-data-[disabled=true]:cursor-not-allowed before:bg-default/60 data-[selected=true]:text-default-foreground first:before:rounded-s-lg last:before:rounded-e-lg text-start p-0 py-3 border-0 border-primary-100 border-b border-opacity-10"
                   data-key="table-row-cell-durationTime"
-                  role="gridcell"
+                  headers="undefined-durationTime"
+                  role="cell"
                   tabindex="-1"
                 >
                   <p
@@ -861,7 +870,8 @@ exports[`AppointmentsHistory Component should render correctly with admin role w
                 <td
                   class="relative align-middle whitespace-normal text-small font-normal [&>*]:z-1 [&>*]:relative outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 before:content-[''] before:absolute before:z-0 before:inset-0 before:opacity-0 data-[selected=true]:before:opacity-100 group-data-[disabled=true]:text-foreground-300 group-data-[disabled=true]:cursor-not-allowed before:bg-default/60 data-[selected=true]:text-default-foreground first:before:rounded-s-lg last:before:rounded-e-lg text-start p-0 py-3 border-0 border-primary-100 border-b border-opacity-10"
                   data-key="table-row-cell-startTime"
-                  role="gridcell"
+                  headers="undefined-startTime"
+                  role="cell"
                   tabindex="-1"
                 >
                   <p
@@ -873,7 +883,8 @@ exports[`AppointmentsHistory Component should render correctly with admin role w
                 <td
                   class="relative align-middle whitespace-normal text-small font-normal [&>*]:z-1 [&>*]:relative outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 before:content-[''] before:absolute before:z-0 before:inset-0 before:opacity-0 data-[selected=true]:before:opacity-100 group-data-[disabled=true]:text-foreground-300 group-data-[disabled=true]:cursor-not-allowed before:bg-default/60 data-[selected=true]:text-default-foreground first:before:rounded-s-lg last:before:rounded-e-lg text-start p-0 py-3 border-0 border-primary-100 border-b border-opacity-10"
                   data-key="table-row-cell-status"
-                  role="gridcell"
+                  headers="undefined-status"
+                  role="cell"
                   tabindex="-1"
                 >
                   <div
@@ -889,7 +900,8 @@ exports[`AppointmentsHistory Component should render correctly with admin role w
                 <td
                   class="relative align-middle whitespace-normal text-small font-normal [&>*]:z-1 [&>*]:relative outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 before:content-[''] before:absolute before:z-0 before:inset-0 before:opacity-0 data-[selected=true]:before:opacity-100 group-data-[disabled=true]:text-foreground-300 group-data-[disabled=true]:cursor-not-allowed before:bg-default/60 data-[selected=true]:text-default-foreground first:before:rounded-s-lg last:before:rounded-e-lg text-start p-0 py-3 border-0 border-primary-100 border-b border-opacity-10"
                   data-key="table-row-cell-actions"
-                  role="gridcell"
+                  headers="undefined-actions"
+                  role="cell"
                   tabindex="-1"
                 >
                   <div
@@ -942,8 +954,9 @@ exports[`AppointmentsHistory Component should render correctly with admin role w
                 <td
                   class="relative align-middle whitespace-normal text-small font-normal [&>*]:z-1 [&>*]:relative outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 before:content-[''] before:absolute before:z-0 before:inset-0 before:opacity-0 data-[selected=true]:before:opacity-100 group-data-[disabled=true]:text-foreground-300 group-data-[disabled=true]:cursor-not-allowed before:bg-default/60 data-[selected=true]:text-default-foreground first:before:rounded-s-lg last:before:rounded-e-lg text-start p-0 pt-3"
                   data-key="table-row-cell-senderId"
+                  headers="undefined-senderId"
                   id="react-aria-:r3f:-3-senderId"
-                  role="rowheader"
+                  role="cell"
                   tabindex="-1"
                 >
                   <div
@@ -977,7 +990,8 @@ exports[`AppointmentsHistory Component should render correctly with admin role w
                 <td
                   class="relative align-middle whitespace-normal text-small font-normal [&>*]:z-1 [&>*]:relative outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 before:content-[''] before:absolute before:z-0 before:inset-0 before:opacity-0 data-[selected=true]:before:opacity-100 group-data-[disabled=true]:text-foreground-300 group-data-[disabled=true]:cursor-not-allowed before:bg-default/60 data-[selected=true]:text-default-foreground first:before:rounded-s-lg last:before:rounded-e-lg text-start p-0 pt-3"
                   data-key="table-row-cell-receiverId"
-                  role="gridcell"
+                  headers="undefined-receiverId"
+                  role="cell"
                   tabindex="-1"
                 >
                   <div
@@ -1011,7 +1025,8 @@ exports[`AppointmentsHistory Component should render correctly with admin role w
                 <td
                   class="relative align-middle whitespace-normal text-small font-normal [&>*]:z-1 [&>*]:relative outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 before:content-[''] before:absolute before:z-0 before:inset-0 before:opacity-0 data-[selected=true]:before:opacity-100 group-data-[disabled=true]:text-foreground-300 group-data-[disabled=true]:cursor-not-allowed before:bg-default/60 data-[selected=true]:text-default-foreground first:before:rounded-s-lg last:before:rounded-e-lg text-start p-0 pt-3"
                   data-key="table-row-cell-durationTime"
-                  role="gridcell"
+                  headers="undefined-durationTime"
+                  role="cell"
                   tabindex="-1"
                 >
                   <p
@@ -1023,7 +1038,8 @@ exports[`AppointmentsHistory Component should render correctly with admin role w
                 <td
                   class="relative align-middle whitespace-normal text-small font-normal [&>*]:z-1 [&>*]:relative outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 before:content-[''] before:absolute before:z-0 before:inset-0 before:opacity-0 data-[selected=true]:before:opacity-100 group-data-[disabled=true]:text-foreground-300 group-data-[disabled=true]:cursor-not-allowed before:bg-default/60 data-[selected=true]:text-default-foreground first:before:rounded-s-lg last:before:rounded-e-lg text-start p-0 pt-3"
                   data-key="table-row-cell-startTime"
-                  role="gridcell"
+                  headers="undefined-startTime"
+                  role="cell"
                   tabindex="-1"
                 >
                   <p
@@ -1035,7 +1051,8 @@ exports[`AppointmentsHistory Component should render correctly with admin role w
                 <td
                   class="relative align-middle whitespace-normal text-small font-normal [&>*]:z-1 [&>*]:relative outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 before:content-[''] before:absolute before:z-0 before:inset-0 before:opacity-0 data-[selected=true]:before:opacity-100 group-data-[disabled=true]:text-foreground-300 group-data-[disabled=true]:cursor-not-allowed before:bg-default/60 data-[selected=true]:text-default-foreground first:before:rounded-s-lg last:before:rounded-e-lg text-start p-0 pt-3"
                   data-key="table-row-cell-status"
-                  role="gridcell"
+                  headers="undefined-status"
+                  role="cell"
                   tabindex="-1"
                 >
                   <div
@@ -1051,7 +1068,8 @@ exports[`AppointmentsHistory Component should render correctly with admin role w
                 <td
                   class="relative align-middle whitespace-normal text-small font-normal [&>*]:z-1 [&>*]:relative outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 before:content-[''] before:absolute before:z-0 before:inset-0 before:opacity-0 data-[selected=true]:before:opacity-100 group-data-[disabled=true]:text-foreground-300 group-data-[disabled=true]:cursor-not-allowed before:bg-default/60 data-[selected=true]:text-default-foreground first:before:rounded-s-lg last:before:rounded-e-lg text-start p-0 pt-3"
                   data-key="table-row-cell-actions"
-                  role="gridcell"
+                  headers="undefined-actions"
+                  role="cell"
                   tabindex="-1"
                 >
                   <div
@@ -1401,8 +1419,9 @@ exports[`AppointmentsHistory Component should render correctly with user role wh
                 <td
                   class="relative align-middle whitespace-normal text-small font-normal [&>*]:z-1 [&>*]:relative outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 before:content-[''] before:absolute before:z-0 before:inset-0 before:opacity-0 data-[selected=true]:before:opacity-100 group-data-[disabled=true]:text-foreground-300 group-data-[disabled=true]:cursor-not-allowed before:bg-default/60 data-[selected=true]:text-default-foreground first:before:rounded-s-lg last:before:rounded-e-lg text-start p-0 py-3 border-0 border-primary-100 border-b border-opacity-10"
                   data-key="table-row-cell-senderId"
+                  headers="undefined-senderId"
                   id="react-aria-:r2f:-1-senderId"
-                  role="rowheader"
+                  role="cell"
                   tabindex="-1"
                 >
                   <div
@@ -1436,7 +1455,8 @@ exports[`AppointmentsHistory Component should render correctly with user role wh
                 <td
                   class="relative align-middle whitespace-normal text-small font-normal [&>*]:z-1 [&>*]:relative outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 before:content-[''] before:absolute before:z-0 before:inset-0 before:opacity-0 data-[selected=true]:before:opacity-100 group-data-[disabled=true]:text-foreground-300 group-data-[disabled=true]:cursor-not-allowed before:bg-default/60 data-[selected=true]:text-default-foreground first:before:rounded-s-lg last:before:rounded-e-lg text-start p-0 py-3 border-0 border-primary-100 border-b border-opacity-10"
                   data-key="table-row-cell-durationTime"
-                  role="gridcell"
+                  headers="undefined-durationTime"
+                  role="cell"
                   tabindex="-1"
                 >
                   <p
@@ -1448,7 +1468,8 @@ exports[`AppointmentsHistory Component should render correctly with user role wh
                 <td
                   class="relative align-middle whitespace-normal text-small font-normal [&>*]:z-1 [&>*]:relative outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 before:content-[''] before:absolute before:z-0 before:inset-0 before:opacity-0 data-[selected=true]:before:opacity-100 group-data-[disabled=true]:text-foreground-300 group-data-[disabled=true]:cursor-not-allowed before:bg-default/60 data-[selected=true]:text-default-foreground first:before:rounded-s-lg last:before:rounded-e-lg text-start p-0 py-3 border-0 border-primary-100 border-b border-opacity-10"
                   data-key="table-row-cell-startTime"
-                  role="gridcell"
+                  headers="undefined-startTime"
+                  role="cell"
                   tabindex="-1"
                 >
                   <p
@@ -1460,7 +1481,8 @@ exports[`AppointmentsHistory Component should render correctly with user role wh
                 <td
                   class="relative align-middle whitespace-normal text-small font-normal [&>*]:z-1 [&>*]:relative outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 before:content-[''] before:absolute before:z-0 before:inset-0 before:opacity-0 data-[selected=true]:before:opacity-100 group-data-[disabled=true]:text-foreground-300 group-data-[disabled=true]:cursor-not-allowed before:bg-default/60 data-[selected=true]:text-default-foreground first:before:rounded-s-lg last:before:rounded-e-lg text-start p-0 py-3 border-0 border-primary-100 border-b border-opacity-10"
                   data-key="table-row-cell-status"
-                  role="gridcell"
+                  headers="undefined-status"
+                  role="cell"
                   tabindex="-1"
                 >
                   <div
@@ -1476,7 +1498,8 @@ exports[`AppointmentsHistory Component should render correctly with user role wh
                 <td
                   class="relative align-middle whitespace-normal text-small font-normal [&>*]:z-1 [&>*]:relative outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 before:content-[''] before:absolute before:z-0 before:inset-0 before:opacity-0 data-[selected=true]:before:opacity-100 group-data-[disabled=true]:text-foreground-300 group-data-[disabled=true]:cursor-not-allowed before:bg-default/60 data-[selected=true]:text-default-foreground first:before:rounded-s-lg last:before:rounded-e-lg text-start p-0 py-3 border-0 border-primary-100 border-b border-opacity-10"
                   data-key="table-row-cell-actions"
-                  role="gridcell"
+                  headers="undefined-actions"
+                  role="cell"
                   tabindex="-1"
                 >
                   <div
@@ -1530,8 +1553,9 @@ exports[`AppointmentsHistory Component should render correctly with user role wh
                 <td
                   class="relative align-middle whitespace-normal text-small font-normal [&>*]:z-1 [&>*]:relative outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 before:content-[''] before:absolute before:z-0 before:inset-0 before:opacity-0 data-[selected=true]:before:opacity-100 group-data-[disabled=true]:text-foreground-300 group-data-[disabled=true]:cursor-not-allowed before:bg-default/60 data-[selected=true]:text-default-foreground first:before:rounded-s-lg last:before:rounded-e-lg text-start p-0 py-3 border-0 border-primary-100 border-b border-opacity-10"
                   data-key="table-row-cell-senderId"
+                  headers="undefined-senderId"
                   id="react-aria-:r2f:-2-senderId"
-                  role="rowheader"
+                  role="cell"
                   tabindex="-1"
                 >
                   <div
@@ -1565,7 +1589,8 @@ exports[`AppointmentsHistory Component should render correctly with user role wh
                 <td
                   class="relative align-middle whitespace-normal text-small font-normal [&>*]:z-1 [&>*]:relative outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 before:content-[''] before:absolute before:z-0 before:inset-0 before:opacity-0 data-[selected=true]:before:opacity-100 group-data-[disabled=true]:text-foreground-300 group-data-[disabled=true]:cursor-not-allowed before:bg-default/60 data-[selected=true]:text-default-foreground first:before:rounded-s-lg last:before:rounded-e-lg text-start p-0 py-3 border-0 border-primary-100 border-b border-opacity-10"
                   data-key="table-row-cell-durationTime"
-                  role="gridcell"
+                  headers="undefined-durationTime"
+                  role="cell"
                   tabindex="-1"
                 >
                   <p
@@ -1577,7 +1602,8 @@ exports[`AppointmentsHistory Component should render correctly with user role wh
                 <td
                   class="relative align-middle whitespace-normal text-small font-normal [&>*]:z-1 [&>*]:relative outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 before:content-[''] before:absolute before:z-0 before:inset-0 before:opacity-0 data-[selected=true]:before:opacity-100 group-data-[disabled=true]:text-foreground-300 group-data-[disabled=true]:cursor-not-allowed before:bg-default/60 data-[selected=true]:text-default-foreground first:before:rounded-s-lg last:before:rounded-e-lg text-start p-0 py-3 border-0 border-primary-100 border-b border-opacity-10"
                   data-key="table-row-cell-startTime"
-                  role="gridcell"
+                  headers="undefined-startTime"
+                  role="cell"
                   tabindex="-1"
                 >
                   <p
@@ -1589,7 +1615,8 @@ exports[`AppointmentsHistory Component should render correctly with user role wh
                 <td
                   class="relative align-middle whitespace-normal text-small font-normal [&>*]:z-1 [&>*]:relative outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 before:content-[''] before:absolute before:z-0 before:inset-0 before:opacity-0 data-[selected=true]:before:opacity-100 group-data-[disabled=true]:text-foreground-300 group-data-[disabled=true]:cursor-not-allowed before:bg-default/60 data-[selected=true]:text-default-foreground first:before:rounded-s-lg last:before:rounded-e-lg text-start p-0 py-3 border-0 border-primary-100 border-b border-opacity-10"
                   data-key="table-row-cell-status"
-                  role="gridcell"
+                  headers="undefined-status"
+                  role="cell"
                   tabindex="-1"
                 >
                   <div
@@ -1605,7 +1632,8 @@ exports[`AppointmentsHistory Component should render correctly with user role wh
                 <td
                   class="relative align-middle whitespace-normal text-small font-normal [&>*]:z-1 [&>*]:relative outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 before:content-[''] before:absolute before:z-0 before:inset-0 before:opacity-0 data-[selected=true]:before:opacity-100 group-data-[disabled=true]:text-foreground-300 group-data-[disabled=true]:cursor-not-allowed before:bg-default/60 data-[selected=true]:text-default-foreground first:before:rounded-s-lg last:before:rounded-e-lg text-start p-0 py-3 border-0 border-primary-100 border-b border-opacity-10"
                   data-key="table-row-cell-actions"
-                  role="gridcell"
+                  headers="undefined-actions"
+                  role="cell"
                   tabindex="-1"
                 >
                   <div
@@ -1658,8 +1686,9 @@ exports[`AppointmentsHistory Component should render correctly with user role wh
                 <td
                   class="relative align-middle whitespace-normal text-small font-normal [&>*]:z-1 [&>*]:relative outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 before:content-[''] before:absolute before:z-0 before:inset-0 before:opacity-0 data-[selected=true]:before:opacity-100 group-data-[disabled=true]:text-foreground-300 group-data-[disabled=true]:cursor-not-allowed before:bg-default/60 data-[selected=true]:text-default-foreground first:before:rounded-s-lg last:before:rounded-e-lg text-start p-0 pt-3"
                   data-key="table-row-cell-senderId"
+                  headers="undefined-senderId"
                   id="react-aria-:r2f:-3-senderId"
-                  role="rowheader"
+                  role="cell"
                   tabindex="-1"
                 >
                   <div
@@ -1693,7 +1722,8 @@ exports[`AppointmentsHistory Component should render correctly with user role wh
                 <td
                   class="relative align-middle whitespace-normal text-small font-normal [&>*]:z-1 [&>*]:relative outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 before:content-[''] before:absolute before:z-0 before:inset-0 before:opacity-0 data-[selected=true]:before:opacity-100 group-data-[disabled=true]:text-foreground-300 group-data-[disabled=true]:cursor-not-allowed before:bg-default/60 data-[selected=true]:text-default-foreground first:before:rounded-s-lg last:before:rounded-e-lg text-start p-0 pt-3"
                   data-key="table-row-cell-durationTime"
-                  role="gridcell"
+                  headers="undefined-durationTime"
+                  role="cell"
                   tabindex="-1"
                 >
                   <p
@@ -1705,7 +1735,8 @@ exports[`AppointmentsHistory Component should render correctly with user role wh
                 <td
                   class="relative align-middle whitespace-normal text-small font-normal [&>*]:z-1 [&>*]:relative outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 before:content-[''] before:absolute before:z-0 before:inset-0 before:opacity-0 data-[selected=true]:before:opacity-100 group-data-[disabled=true]:text-foreground-300 group-data-[disabled=true]:cursor-not-allowed before:bg-default/60 data-[selected=true]:text-default-foreground first:before:rounded-s-lg last:before:rounded-e-lg text-start p-0 pt-3"
                   data-key="table-row-cell-startTime"
-                  role="gridcell"
+                  headers="undefined-startTime"
+                  role="cell"
                   tabindex="-1"
                 >
                   <p
@@ -1717,7 +1748,8 @@ exports[`AppointmentsHistory Component should render correctly with user role wh
                 <td
                   class="relative align-middle whitespace-normal text-small font-normal [&>*]:z-1 [&>*]:relative outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 before:content-[''] before:absolute before:z-0 before:inset-0 before:opacity-0 data-[selected=true]:before:opacity-100 group-data-[disabled=true]:text-foreground-300 group-data-[disabled=true]:cursor-not-allowed before:bg-default/60 data-[selected=true]:text-default-foreground first:before:rounded-s-lg last:before:rounded-e-lg text-start p-0 pt-3"
                   data-key="table-row-cell-status"
-                  role="gridcell"
+                  headers="undefined-status"
+                  role="cell"
                   tabindex="-1"
                 >
                   <div
@@ -1733,7 +1765,8 @@ exports[`AppointmentsHistory Component should render correctly with user role wh
                 <td
                   class="relative align-middle whitespace-normal text-small font-normal [&>*]:z-1 [&>*]:relative outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 before:content-[''] before:absolute before:z-0 before:inset-0 before:opacity-0 data-[selected=true]:before:opacity-100 group-data-[disabled=true]:text-foreground-300 group-data-[disabled=true]:cursor-not-allowed before:bg-default/60 data-[selected=true]:text-default-foreground first:before:rounded-s-lg last:before:rounded-e-lg text-start p-0 pt-3"
                   data-key="table-row-cell-actions"
-                  role="gridcell"
+                  headers="undefined-actions"
+                  role="cell"
                   tabindex="-1"
                 >
                   <div
