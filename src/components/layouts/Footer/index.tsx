@@ -61,7 +61,11 @@ const Footer = () => {
 
   return (
     <div className="w-full m-h-40 mt-auto flex justify-center items-center flex-col gap-8 bg-background-100 pt-8 pb-4">
-      <Text variant="success" size="2xl" customClass="font-semibold">
+      <Text
+        variant="success"
+        size="2xl"
+        customClass="text-secondary-500 font-semibold"
+      >
         VHA <span className="text-primary-100">PARTNER</span>
       </Text>
       <div className="grid xl:grid-cols-6 grid-cols-3 gap-2">

@@ -35,6 +35,7 @@ export const colors = {
     light: '#00615A',
     dark: '#38CB89',
   },
+  everglade: '#134931',
 };
 
 export const backgroundImage = {
