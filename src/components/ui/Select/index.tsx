@@ -58,6 +58,7 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(
           '!text-danger-100 text-sm ml-2',
           classNames?.errorMessage,
         ),
+        listbox: classNames?.listbox,
       }}
     >
       {options.map(({ key, label }) => (
