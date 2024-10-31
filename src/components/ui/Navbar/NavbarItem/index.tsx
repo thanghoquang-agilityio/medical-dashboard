@@ -28,6 +28,7 @@ export const NavItem = memo(
       >
         <Link
           href={href}
+          aria-label={name}
           className={clsx(
             'text-primary-100 text-sm flex h-[60px] gap-5 mb-[1px] py-5 px-8 lg:px-10',
             {
