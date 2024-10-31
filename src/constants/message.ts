@@ -29,8 +29,10 @@ export const ERROR_MESSAGE = {
   LOGIN: 'Login failed. Please try again.',
   SIGNUP: 'Signup failed. Please try again.',
   DELETE: (item: string) => `Delete ${item} failed. Please try again.`,
-  CREATE: (item: string) => `Create ${item} failed. Please try again.`,
-  UPDATE: (item: string) => `Update ${item} failed. Please try again.`,
+  CREATE: (item: string, error: string) =>
+    `Create ${item} failed. Detail error: ${error}.`,
+  UPDATE: (item: string, error: string) =>
+    `Update ${item} failed. Detail error: ${error}.`,
   CANCEL: (item: string) => `Cancel ${item} failed. Please try again.`,
   DUPLICATE_FIELD: 'This attribute must be unique',
   USERNAME: 'Username already taken',
