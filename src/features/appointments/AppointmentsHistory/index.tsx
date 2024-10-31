@@ -243,6 +243,7 @@ const AppointmentsHistory = ({
                 mainWrapper: 'max-w-[102px] max-h-[36px]',
                 innerWrapper: 'w-[80px]',
                 trigger: 'min-h-[36px]',
+                listbox: 'px-0',
               }}
               onChange={handleSelectStatus}
             />
