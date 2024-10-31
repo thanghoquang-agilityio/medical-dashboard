@@ -25,7 +25,7 @@ export const createColumns = ({
 
         return (
           <div className="rounded-md w-[30px] md:w-[37px] h-10 bg-background-100 text-center pt-1">
-            <Text customClass="text-xs text-yellow font-bold">
+            <Text customClass="text-xs text-warning font-bold">
               {date.dayOfWeek}
             </Text>
             <Text variant="primary" customClass="text-xs">
@@ -96,9 +96,9 @@ export const createColumns = ({
             key: isAdmin ? 'delete' : 'cancel',
             label: isAdmin ? 'Delete' : 'Cancel',
             startContent: isAdmin ? (
-              <DeleteIcon customClass={`text-red ${iconClasses}`} />
+              <DeleteIcon customClass={`text-danger-100 ${iconClasses}`} />
             ) : (
-              <XmarkIcon customClass={`text-red ${iconClasses}`} />
+              <XmarkIcon customClass={`text-danger-100 ${iconClasses}`} />
             ),
             isDisabled: status !== STATUS[0], // New
             onAction: () => onRemoveOrCancel(id),

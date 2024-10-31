@@ -9,7 +9,7 @@ export const colors = {
   white: '#FFFFFF',
   emerald: '#009D92',
   gray: {
-    light: '#707070',
+    light: '#424242',
     dark: '#8F8F8F',
   },
   green: '#38CB89',
@@ -24,13 +24,22 @@ export const colors = {
     light: '#E8E8E8',
     dark: '#222338',
   },
-  red: '#D80027',
-  sky: '#15BFFD',
+  red: {
+    light: '#8A0019',
+    dark: '#D80027',
+  },
+  sky: {
+    light: '#014760',
+    dark: '#15BFFD',
+  },
   stone: {
     light: '#262626',
     dark: '#D9D9D9',
   },
-  yellow: '#FFA600',
+  yellow: {
+    light: '#573800',
+    dark: '#FFA600',
+  },
   link: {
     light: '#00615A',
     dark: '#38CB89',

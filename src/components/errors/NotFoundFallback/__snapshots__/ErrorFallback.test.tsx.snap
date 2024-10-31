@@ -37,7 +37,7 @@ exports[`NotFoundFallback test cases should render correctly with message 1`] = 
       </span>
       or 
       <a
-        class="text-sky hover:underline"
+        class="text-secondary-100 hover:underline"
         href="/dashboard"
       >
         back to home
