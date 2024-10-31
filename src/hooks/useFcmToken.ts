@@ -71,9 +71,20 @@ export const useFcmToken = () => {
       return;
     }
 
-    // Step 7: Set the fetched token and mark as fetched.
+    // Step 7: Set the fetched token and save to cookie, then mark as fetched.
     setNotificationPermissionStatus(Notification.permission);
     setToken(token);
+
+    const cookiePayload = {
+      key: 'fcm_token',
+      value: token,
+    };
+
+    await fetch('/api/save-to-cookie', {
+      body: JSON.stringify(cookiePayload),
+      method: 'POST',
+    });
+
     isLoading.current = false;
 
     // Check and add if the token has already been in firebase storage or not

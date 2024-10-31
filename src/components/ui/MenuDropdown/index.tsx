@@ -35,7 +35,7 @@ interface MenuDropdownProps
 export const MenuDropdown = memo(
   ({
     options,
-    label,
+    label = '',
     icon,
     classNames,
     onAction,

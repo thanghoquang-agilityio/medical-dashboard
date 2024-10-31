@@ -1,52 +1,53 @@
 'use client';
 
+import { memo, useCallback, useState } from 'react';
 import NextImage, { ImageProps } from 'next/image';
-import { memo, useCallback, useEffect, useState } from 'react';
 
 // Constants
-import { AVATAR_THUMBNAIL, SRC_IMAGE_NOT_AVAILABLE } from '@/constants';
+import { IMAGE_DEFAULT } from '@/constants';
 
-const IMAGE_NOT_AVAILABLE = 'UnavailableImage';
+interface ImageFallbackProps extends ImageProps {
+  src: string;
+  alt: string;
+  blurDataURL?: string;
+  fallbackSrc?: string;
+}
 
-export const Image = memo(
-  ({
-    className,
-    src,
-    alt,
-    fallbackImg = AVATAR_THUMBNAIL,
-    ...rest
-  }: ImageProps & { fallbackImg?: string }) => {
-    const [fallbackSrc, setFallbackSrc] = useState(false);
+const ImageFallback = ({
+  src,
+  alt,
+  blurDataURL = IMAGE_DEFAULT.blur,
+  fallbackSrc = IMAGE_DEFAULT.url,
+  ...rest
+}: ImageFallbackProps) => {
+  const [imgSrc, setImgSrc] = useState(src);
 
-    const handleError = () => setFallbackSrc(true);
-    const altImage =
-      src !== SRC_IMAGE_NOT_AVAILABLE && alt ? alt : IMAGE_NOT_AVAILABLE;
+  const handleFallbackImage = useCallback(
+    () => setImgSrc(fallbackSrc),
+    [fallbackSrc],
+  );
 
-    useEffect(() => {
-      setFallbackSrc(false);
-    }, [src]);
+  const handleLoad = useCallback(
+    (event: React.SyntheticEvent<HTMLImageElement>) => {
+      const img = event.currentTarget;
+      if (img.naturalWidth === 0) setImgSrc(fallbackSrc);
+    },
+    [fallbackSrc],
+  );
 
-    const handleLoad = useCallback(
-      (event: React.SyntheticEvent<HTMLImageElement>) => {
-        const img = event.currentTarget;
-        if (img.naturalWidth === 0) setFallbackSrc(true);
-      },
-      [fallbackSrc],
-    );
+  return (
+    <NextImage
+      priority
+      src={imgSrc}
+      alt={alt}
+      placeholder="blur"
+      blurDataURL={blurDataURL}
+      onLoad={handleLoad}
+      onError={handleFallbackImage}
+      style={{ objectFit: 'cover' }}
+      {...rest}
+    />
+  );
+};
 
-    return (
-      <NextImage
-        className={className}
-        src={fallbackSrc ? fallbackImg || SRC_IMAGE_NOT_AVAILABLE : src}
-        alt={altImage}
-        onError={handleError}
-        style={{ objectFit: 'cover' }}
-        priority
-        onLoad={handleLoad}
-        {...rest}
-      />
-    );
-  },
-);
-
-Image.displayName = 'Image';
+export const Image = memo(ImageFallback);

@@ -41,7 +41,7 @@ const DashboardPage = async ({
   searchParams?: DashboardPageSearchParamsProps;
 }) => {
   const { page = PAGE_DEFAULT, status = APPOINTMENT_STATUS_OPTIONS[0].key } =
-    searchParams as DashboardPageSearchParamsProps;
+    searchParams || {};
 
   const { token = '' } = (await auth())?.user || {};
   const { user: userLogged } = await getUserLogged(token);
@@ -55,7 +55,7 @@ const DashboardPage = async ({
           {username}
         </span>
       </Text>
-      <div className="bg-linear-banner rounded-medium relative h-fit py-3 sm:py-0 sm:h-[132px] flex flex-col-reverse sm:flex-row gap-3 items-center mr-2">
+      <div className="bg-linear-banner rounded-medium relative h-fit py-3 sm:py-0 sm:h-[132px] flex flex-col-reverse sm:flex-row gap-3 items-center">
         <Text customClass="text-wrap text-lg lg:text-xl font-bold px-5 sm:w-[75%] text-center sm:text-left">
           WELCOME TO YOUR PERSONAL VIRTUAL HEALTH ASSISTANT
         </Text>
@@ -65,10 +65,11 @@ const DashboardPage = async ({
           width={172}
           height={200}
           className="sm:absolute sm:bottom-[-1px] sm:right-[1px]"
+          placeholder="empty"
         />
       </div>
 
-      <div className="flex flex-col-reverse xl:flex-row justify-between mt-8 gap-[30px] w-full">
+      <div className="flex flex-col-reverse xl:flex-row justify-between mt-8 gap-8 w-full">
         <Suspense fallback={<ActivityFeedSkeleton />}>
           <ActivityFeed page={page} userLogged={userLogged} />
         </Suspense>

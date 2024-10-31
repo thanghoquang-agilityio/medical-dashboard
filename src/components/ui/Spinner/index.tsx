@@ -2,7 +2,7 @@ import { memo } from 'react';
 import { Spinner as SpinnerNextUI, SpinnerProps } from '@nextui-org/react';
 
 export const Spinner = memo(
-  ({ size = 'lg', classNames, className }: SpinnerProps) => {
+  ({ size = 'lg', classNames, className = '' }: SpinnerProps) => {
     const circleClass =
       'border-[5px] border-b-primary-100 border-l-primary-100';
 

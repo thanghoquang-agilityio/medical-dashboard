@@ -1,0 +1,78 @@
+diff --git a/dist/chunk-AOWPLK3C.mjs b/dist/chunk-AOWPLK3C.mjs
+index 8b88d82443b95b392764841b8f4b35ce4c0c1ea0..95e43ce690de699e126963956273bd9808f0379f 100644
+--- a/dist/chunk-AOWPLK3C.mjs
++++ b/dist/chunk-AOWPLK3C.mjs
+@@ -10,6 +10,9 @@ import { useEffect, useRef, useMemo } from "react";
+ import { mapPropsVariants, useProviderContext } from "@nextui-org/system";
+ import { usePagination as useBasePagination } from "@nextui-org/use-pagination";
+ import scrollIntoView from "scroll-into-view-if-needed";
++
++
++
+ import { pagination } from "@nextui-org/theme";
+ import { useDOMRef } from "@nextui-org/react-utils";
+ import { clsx, dataAttr } from "@nextui-org/shared-utils";
+diff --git a/dist/chunk-TEHPZN3P.mjs b/dist/chunk-TEHPZN3P.mjs
+index 571c159cd3ab55f3a99d40750476a7ed33f6c5b7..0ada7c1a868b0f41a80126a17cc6329956a6bda7 100644
+--- a/dist/chunk-TEHPZN3P.mjs
++++ b/dist/chunk-TEHPZN3P.mjs
+@@ -39,7 +39,7 @@ function usePaginationItem(props) {
+   const getItemProps = (props2 = {}) => {
+     return {
+       ref: domRef,
+-      role: "button",
++
+       tabIndex: isDisabled ? -1 : 0,
+       "aria-label": ariaLabel,
+       "aria-current": dataAttr(isActive),
+diff --git a/dist/index.js b/dist/index.js
+index 080fa8173013fd5e456aa7685d20b939193a1105..724f27c740e85589a3eead1c1eb79eb6c11ed3fa 100644
+--- a/dist/index.js
++++ b/dist/index.js
+@@ -311,7 +311,7 @@ function usePaginationItem(props) {
+   const getItemProps = (props2 = {}) => {
+     return {
+       ref: domRef,
+-      role: "button",
++    
+       tabIndex: isDisabled ? -1 : 0,
+       "aria-label": ariaLabel,
+       "aria-current": (0, import_shared_utils3.dataAttr)(isActive),
+diff --git a/dist/pagination-item.js b/dist/pagination-item.js
+index 6e6a4408bc960456f47afa7c7bcb91f3e8556ef3..73995d242608df5c9707bf210c77082c3fe6bc55 100644
+--- a/dist/pagination-item.js
++++ b/dist/pagination-item.js
+@@ -65,7 +65,7 @@ function usePaginationItem(props) {
+   const getItemProps = (props2 = {}) => {
+     return {
+       ref: domRef,
+-      role: "button",
++  
+       tabIndex: isDisabled ? -1 : 0,
+       "aria-label": ariaLabel,
+       "aria-current": (0, import_shared_utils.dataAttr)(isActive),
+diff --git a/dist/pagination.js b/dist/pagination.js
+index 0d461b7945bd3329f32327e0c48cc8d053bd9be6..ad59aec95f5aecf2bf7b7881eb15408dd971966b 100644
+--- a/dist/pagination.js
++++ b/dist/pagination.js
+@@ -304,7 +304,6 @@ function usePaginationItem(props) {
+   const getItemProps = (props2 = {}) => {
+     return {
+       ref: domRef,
+-      role: "button",
+       tabIndex: isDisabled ? -1 : 0,
+       "aria-label": ariaLabel,
+       "aria-current": (0, import_shared_utils3.dataAttr)(isActive),
+diff --git a/dist/use-pagination-item.js b/dist/use-pagination-item.js
+index e138c87d9c8f4ace12f78ab64145c9f959d48809..e057de07d7db029f8bfee5bf8876c71daf001730 100644
+--- a/dist/use-pagination-item.js
++++ b/dist/use-pagination-item.js
+@@ -62,7 +62,7 @@ function usePaginationItem(props) {
+   const getItemProps = (props2 = {}) => {
+     return {
+       ref: domRef,
+-      role: "button",
++    
+       tabIndex: isDisabled ? -1 : 0,
+       "aria-label": ariaLabel,
+       "aria-current": (0, import_shared_utils.dataAttr)(isActive),

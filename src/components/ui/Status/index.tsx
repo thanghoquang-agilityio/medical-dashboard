@@ -19,7 +19,7 @@ export const STATUS = {
 export const Status = memo(
   ({
     status,
-    className,
+    className = '',
   }: {
     status: AppointmentStatus;
     className?: string;

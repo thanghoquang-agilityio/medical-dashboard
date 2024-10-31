@@ -46,9 +46,7 @@ describe('ChemistList', () => {
   it('should be able to navigate between pages', async () => {
     await setup(mockProps);
 
-    const secondPageBtn = screen.getByRole<HTMLButtonElement>('button', {
-      name: /pagination item 2/i,
-    });
+    const secondPageBtn = screen.getByLabelText('pagination item 2');
 
     fireEvent.click(secondPageBtn);
 
@@ -60,9 +58,7 @@ describe('ChemistList', () => {
       },
     });
 
-    const secondPageActiveBtn = screen.getByRole<HTMLButtonElement>('button', {
-      name: /pagination item 2 active/i,
-    });
+    const secondPageActiveBtn = screen.getByLabelText('pagination item 2');
 
     expect(secondPageActiveBtn).toBeInTheDocument();
   });
@@ -76,9 +72,7 @@ describe('ChemistList', () => {
       },
     });
 
-    const firstPageBtn = screen.getByRole<HTMLButtonElement>('button', {
-      name: /pagination item 1/i,
-    });
+    const firstPageBtn = screen.getByLabelText('pagination item 1');
 
     fireEvent.click(firstPageBtn);
 

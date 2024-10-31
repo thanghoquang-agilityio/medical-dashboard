@@ -18,13 +18,19 @@ interface HeaderProps {
   notifications?: NotificationResponse[];
   userName?: string;
   isInvisibleBadge?: boolean;
+  totalNotifications?: number;
+  id?: string;
+  searchParams: string;
 }
 
 const HeaderDashboard = ({
   avatar,
-  userName,
-  notifications,
+  userName = '',
   isInvisibleBadge = false,
+  totalNotifications = 0,
+  id = '',
+  searchParams,
+  notifications,
 }: HeaderProps) => {
   const _ = useFcmToken();
 
@@ -34,10 +40,14 @@ const HeaderDashboard = ({
       <SwitchTheme />
 
       <Notifications
-        notifications={notifications || []}
+        searchParams={searchParams}
+        notifications={notifications}
+        totalNotifications={totalNotifications}
+        id={id}
         isInvisibleBadge={isInvisibleBadge}
       />
       <Avatar
+        id={id}
         src={avatar}
         name={userName}
         size="md"

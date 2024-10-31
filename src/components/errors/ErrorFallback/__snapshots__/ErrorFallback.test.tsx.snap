@@ -6,14 +6,14 @@ exports[`ErrorFallback test cases should render correctly with message 1`] = `
     class="flex flex-col h-full gap-4 items-center justify-center"
   >
     <img
-      alt="UnavailableImage"
+      alt=""
       data-nimg="1"
       decoding="async"
       fetchpriority="high"
       height="160"
       src="http://localhost/_next/image?url=%2Fimages%2Ferror.webp&w=384&q=75"
       srcset="/_next/image?url=%2Fimages%2Ferror.webp&w=256&q=75 1x, /_next/image?url=%2Fimages%2Ferror.webp&w=384&q=75 2x"
-      style="color: transparent; object-fit: cover;"
+      style="color: transparent; object-fit: cover; background-size: cover; background-position: 50% 50%; background-repeat: no-repeat;"
       width="160"
     />
     <h2

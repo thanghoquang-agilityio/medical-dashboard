@@ -7,7 +7,7 @@ import { useCallback, useEffect, useState } from 'react';
 import { BrightnessIcon, MoonIcon } from '@/icons';
 
 // Components
-import { Button, Spinner } from '@/components/ui';
+import { Button } from '@/components/ui';
 
 // Types
 import { THEME_MODE_TYPE } from '@/types';
@@ -33,16 +33,7 @@ const SwitchTheme = ({ customClass = '' }: { customClass?: string }) => {
     setMounted(true);
   }, []);
 
-  if (!mounted)
-    return (
-      <div className="relative w-8 h-8">
-        <Spinner
-          size="sm"
-          classNames={{ circle1: 'border-[2px]', circle2: 'border-[2px]' }}
-          className="absolute"
-        />
-      </div>
-    );
+  if (!mounted) return null;
 
   return (
     <Button

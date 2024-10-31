@@ -3,7 +3,7 @@
 exports[`AppointmentsUpComingList test cases should render correctly 1`] = `
 <DocumentFragment>
   <div
-    class="flex flex-col relative overflow-hidden text-foreground box-border outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 shadow-medium rounded-large transition-transform-background motion-reduce:transition-none w-full xl:max-w-[320px] 2xl:max-w-[550px] h-fit p-4 pl-5 bg-background-200 mb-10"
+    class="flex flex-col relative overflow-hidden text-foreground box-border outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 shadow-medium rounded-large transition-transform-background motion-reduce:transition-none w-full xl:max-w-[320px] 2xl:max-w-[550px] h-fit p-4 pl-5 bg-background-200"
     tabindex="-1"
   >
     <div
@@ -188,8 +188,9 @@ exports[`AppointmentsUpComingList test cases should render correctly 1`] = `
               <td
                 class="py-2 px-3 relative align-middle whitespace-normal text-small font-normal [&>*]:z-1 [&>*]:relative outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 before:content-[''] before:absolute before:z-0 before:inset-0 before:opacity-0 data-[selected=true]:before:opacity-100 group-data-[disabled=true]:text-foreground-300 group-data-[disabled=true]:cursor-not-allowed before:bg-default/60 data-[selected=true]:text-default-foreground first:before:rounded-s-lg last:before:rounded-e-lg text-start mocked-class"
                 data-key="table-row-cell-startTime"
+                headers="appointment-upcoming-startTime"
                 id="appointment-upcoming-1-startTime"
-                role="rowheader"
+                role="cell"
                 tabindex="-1"
               >
                 <div
@@ -210,7 +211,8 @@ exports[`AppointmentsUpComingList test cases should render correctly 1`] = `
               <td
                 class="py-2 px-3 relative align-middle whitespace-normal text-small font-normal [&>*]:z-1 [&>*]:relative outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 before:content-[''] before:absolute before:z-0 before:inset-0 before:opacity-0 data-[selected=true]:before:opacity-100 group-data-[disabled=true]:text-foreground-300 group-data-[disabled=true]:cursor-not-allowed before:bg-default/60 data-[selected=true]:text-default-foreground first:before:rounded-s-lg last:before:rounded-e-lg text-start mocked-class"
                 data-key="table-row-cell-senderId"
-                role="gridcell"
+                headers="appointment-upcoming-senderId"
+                role="cell"
                 tabindex="-1"
               >
                 <p
@@ -227,7 +229,8 @@ exports[`AppointmentsUpComingList test cases should render correctly 1`] = `
               <td
                 class="py-2 px-3 relative align-middle whitespace-normal text-small font-normal [&>*]:z-1 [&>*]:relative outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 before:content-[''] before:absolute before:z-0 before:inset-0 before:opacity-0 data-[selected=true]:before:opacity-100 group-data-[disabled=true]:text-foreground-300 group-data-[disabled=true]:cursor-not-allowed before:bg-default/60 data-[selected=true]:text-default-foreground first:before:rounded-s-lg last:before:rounded-e-lg text-start mocked-class"
                 data-key="table-row-cell-durationTime"
-                role="gridcell"
+                headers="appointment-upcoming-durationTime"
+                role="cell"
                 tabindex="-1"
               >
                 <p
@@ -239,7 +242,8 @@ exports[`AppointmentsUpComingList test cases should render correctly 1`] = `
               <td
                 class="py-2 px-3 relative align-middle whitespace-normal text-small font-normal [&>*]:z-1 [&>*]:relative outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 before:content-[''] before:absolute before:z-0 before:inset-0 before:opacity-0 data-[selected=true]:before:opacity-100 group-data-[disabled=true]:text-foreground-300 group-data-[disabled=true]:cursor-not-allowed before:bg-default/60 data-[selected=true]:text-default-foreground first:before:rounded-s-lg last:before:rounded-e-lg text-start mocked-class"
                 data-key="table-row-cell-actions"
-                role="gridcell"
+                headers="appointment-upcoming-actions"
+                role="cell"
                 tabindex="-1"
               >
                 <div
@@ -293,8 +297,9 @@ exports[`AppointmentsUpComingList test cases should render correctly 1`] = `
               <td
                 class="py-2 px-3 relative align-middle whitespace-normal text-small font-normal [&>*]:z-1 [&>*]:relative outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 before:content-[''] before:absolute before:z-0 before:inset-0 before:opacity-0 data-[selected=true]:before:opacity-100 group-data-[disabled=true]:text-foreground-300 group-data-[disabled=true]:cursor-not-allowed before:bg-default/60 data-[selected=true]:text-default-foreground first:before:rounded-s-lg last:before:rounded-e-lg text-start mocked-class"
                 data-key="table-row-cell-startTime"
+                headers="appointment-upcoming-startTime"
                 id="appointment-upcoming-2-startTime"
-                role="rowheader"
+                role="cell"
                 tabindex="-1"
               >
                 <div
@@ -315,7 +320,8 @@ exports[`AppointmentsUpComingList test cases should render correctly 1`] = `
               <td
                 class="py-2 px-3 relative align-middle whitespace-normal text-small font-normal [&>*]:z-1 [&>*]:relative outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 before:content-[''] before:absolute before:z-0 before:inset-0 before:opacity-0 data-[selected=true]:before:opacity-100 group-data-[disabled=true]:text-foreground-300 group-data-[disabled=true]:cursor-not-allowed before:bg-default/60 data-[selected=true]:text-default-foreground first:before:rounded-s-lg last:before:rounded-e-lg text-start mocked-class"
                 data-key="table-row-cell-senderId"
-                role="gridcell"
+                headers="appointment-upcoming-senderId"
+                role="cell"
                 tabindex="-1"
               >
                 <p
@@ -332,7 +338,8 @@ exports[`AppointmentsUpComingList test cases should render correctly 1`] = `
               <td
                 class="py-2 px-3 relative align-middle whitespace-normal text-small font-normal [&>*]:z-1 [&>*]:relative outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 before:content-[''] before:absolute before:z-0 before:inset-0 before:opacity-0 data-[selected=true]:before:opacity-100 group-data-[disabled=true]:text-foreground-300 group-data-[disabled=true]:cursor-not-allowed before:bg-default/60 data-[selected=true]:text-default-foreground first:before:rounded-s-lg last:before:rounded-e-lg text-start mocked-class"
                 data-key="table-row-cell-durationTime"
-                role="gridcell"
+                headers="appointment-upcoming-durationTime"
+                role="cell"
                 tabindex="-1"
               >
                 <p
@@ -344,7 +351,8 @@ exports[`AppointmentsUpComingList test cases should render correctly 1`] = `
               <td
                 class="py-2 px-3 relative align-middle whitespace-normal text-small font-normal [&>*]:z-1 [&>*]:relative outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 before:content-[''] before:absolute before:z-0 before:inset-0 before:opacity-0 data-[selected=true]:before:opacity-100 group-data-[disabled=true]:text-foreground-300 group-data-[disabled=true]:cursor-not-allowed before:bg-default/60 data-[selected=true]:text-default-foreground first:before:rounded-s-lg last:before:rounded-e-lg text-start mocked-class"
                 data-key="table-row-cell-actions"
-                role="gridcell"
+                headers="appointment-upcoming-actions"
+                role="cell"
                 tabindex="-1"
               >
                 <div
@@ -397,8 +405,9 @@ exports[`AppointmentsUpComingList test cases should render correctly 1`] = `
               <td
                 class="py-2 px-3 relative align-middle whitespace-normal text-small font-normal [&>*]:z-1 [&>*]:relative outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 before:content-[''] before:absolute before:z-0 before:inset-0 before:opacity-0 data-[selected=true]:before:opacity-100 group-data-[disabled=true]:text-foreground-300 group-data-[disabled=true]:cursor-not-allowed before:bg-default/60 data-[selected=true]:text-default-foreground first:before:rounded-s-lg last:before:rounded-e-lg text-start mocked-class"
                 data-key="table-row-cell-startTime"
+                headers="appointment-upcoming-startTime"
                 id="appointment-upcoming-3-startTime"
-                role="rowheader"
+                role="cell"
                 tabindex="-1"
               >
                 <div
@@ -419,7 +428,8 @@ exports[`AppointmentsUpComingList test cases should render correctly 1`] = `
               <td
                 class="py-2 px-3 relative align-middle whitespace-normal text-small font-normal [&>*]:z-1 [&>*]:relative outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 before:content-[''] before:absolute before:z-0 before:inset-0 before:opacity-0 data-[selected=true]:before:opacity-100 group-data-[disabled=true]:text-foreground-300 group-data-[disabled=true]:cursor-not-allowed before:bg-default/60 data-[selected=true]:text-default-foreground first:before:rounded-s-lg last:before:rounded-e-lg text-start mocked-class"
                 data-key="table-row-cell-senderId"
-                role="gridcell"
+                headers="appointment-upcoming-senderId"
+                role="cell"
                 tabindex="-1"
               >
                 <p
@@ -436,7 +446,8 @@ exports[`AppointmentsUpComingList test cases should render correctly 1`] = `
               <td
                 class="py-2 px-3 relative align-middle whitespace-normal text-small font-normal [&>*]:z-1 [&>*]:relative outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 before:content-[''] before:absolute before:z-0 before:inset-0 before:opacity-0 data-[selected=true]:before:opacity-100 group-data-[disabled=true]:text-foreground-300 group-data-[disabled=true]:cursor-not-allowed before:bg-default/60 data-[selected=true]:text-default-foreground first:before:rounded-s-lg last:before:rounded-e-lg text-start mocked-class"
                 data-key="table-row-cell-durationTime"
-                role="gridcell"
+                headers="appointment-upcoming-durationTime"
+                role="cell"
                 tabindex="-1"
               >
                 <p
@@ -448,7 +459,8 @@ exports[`AppointmentsUpComingList test cases should render correctly 1`] = `
               <td
                 class="py-2 px-3 relative align-middle whitespace-normal text-small font-normal [&>*]:z-1 [&>*]:relative outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 before:content-[''] before:absolute before:z-0 before:inset-0 before:opacity-0 data-[selected=true]:before:opacity-100 group-data-[disabled=true]:text-foreground-300 group-data-[disabled=true]:cursor-not-allowed before:bg-default/60 data-[selected=true]:text-default-foreground first:before:rounded-s-lg last:before:rounded-e-lg text-start mocked-class"
                 data-key="table-row-cell-actions"
-                role="gridcell"
+                headers="appointment-upcoming-actions"
+                role="cell"
                 tabindex="-1"
               >
                 <div

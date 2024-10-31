@@ -15,8 +15,14 @@ export const Popover = ({
   popoverContent,
   placement = 'bottom',
   classNames,
+  scrollRef,
 }: Props) => (
-  <PopoverNextUI placement={placement} offset={4} classNames={classNames}>
+  <PopoverNextUI
+    scrollRef={scrollRef}
+    placement={placement}
+    offset={4}
+    classNames={classNames}
+  >
     <PopoverTrigger>{popoverTrigger}</PopoverTrigger>
     <PopoverContent>{popoverContent}</PopoverContent>
   </PopoverNextUI>

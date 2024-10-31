@@ -15,6 +15,7 @@ export const getNotifications = async ({
   options,
 }: FetchDataProps) => {
   const data = await getNotificationsService({ searchParams, options });
+
   return data;
 };
 

@@ -25,7 +25,15 @@ import {
   STATUS_TYPE,
   Option,
 } from '@/types';
-import { AVATAR_THUMBNAIL, ERROR_MESSAGE, SUCCESS_MESSAGE } from '@/constants';
+import {
+  AVATAR_THUMBNAIL,
+  DEFAULT_CHEMIST_DATA,
+  ERROR_MESSAGE,
+  FORM_VALIDATION_MESSAGE,
+  MAX_IMAGE_SIZE,
+  SUCCESS_MESSAGE,
+  VALID_IMAGE_FORMAT,
+} from '@/constants';
 
 // Helper
 import { clearErrorOnChange, getRoleIdByName } from '@/utils';
@@ -50,7 +58,12 @@ export type ChemistFormProps = {
 };
 
 const ChemistForm = memo(
-  ({ id = '', data, specialtyOptions, onClose }: ChemistFormProps) => {
+  ({
+    id = '',
+    data = DEFAULT_CHEMIST_DATA,
+    specialtyOptions,
+    onClose,
+  }: ChemistFormProps) => {
     const {
       username = '',
       email = '',
@@ -68,7 +81,6 @@ const ChemistForm = memo(
     const [imageUpload, setImageUpload] = useState<string>('');
     const [formImage, setFormImage] = useState<FormData | null>(null);
 
-    const [error, setError] = useState('');
     const [isPending, setIsPending] = useState(false);
     const [roles, getRoles] = useState<RolePermission[]>([]);
 
@@ -108,7 +120,7 @@ const ChemistForm = memo(
       fetchUserRoles();
     }, []);
 
-    const isEdit = !!data;
+    const isEdit = !!data.email;
 
     // Handle show hide password
     const [isShowPassword, setIsShowPassword] = useState<boolean>(false);
@@ -127,9 +139,34 @@ const ChemistForm = memo(
     const handleUpload =
       (callback: (value: string) => void) =>
       (event: React.ChangeEvent<HTMLInputElement>) => {
+        clearErrors('avatar');
+
         const files = event.target.files;
         if (files && files[0]) {
           const image = files[0];
+
+          const isNoMoreThan32MB = image.size <= MAX_IMAGE_SIZE;
+
+          if (!isNoMoreThan32MB) {
+            setFormError('avatar', {
+              message: FORM_VALIDATION_MESSAGE.MAX_SIZE({
+                item: 'image',
+                size: 32,
+                unit: 'MB',
+              }),
+            });
+            return;
+          }
+
+          const hasValidFormat = VALID_IMAGE_FORMAT.includes(image.type);
+
+          if (!hasValidFormat) {
+            setFormError('avatar', {
+              message: FORM_VALIDATION_MESSAGE.ACCEPTED_FORMATS,
+            });
+            return;
+          }
+
           const formData = new FormData();
           formData.append('image', image);
 
@@ -166,10 +203,8 @@ const ChemistForm = memo(
         if (error === ERROR_MESSAGE.DUPLICATE_FIELD)
           error = ERROR_MESSAGE.USERNAME;
 
-        setError(error);
-
         openToast({
-          message: ERROR_MESSAGE.CREATE('chemist'),
+          message: ERROR_MESSAGE.CREATE('chemist', error),
           type: STATUS_TYPE.ERROR,
         });
         setIsPending(false);
@@ -181,7 +216,6 @@ const ChemistForm = memo(
     // Handle submit form data to create chemist
     const handleSubmitForm: SubmitHandler<ChemistFormData> = useCallback(
       async (formData) => {
-        setError('');
         setIsPending(true);
 
         const { avatar, username, email, password, specialtyId, description } =
@@ -207,6 +241,11 @@ const ChemistForm = memo(
             handleError(error);
             return;
           }
+
+          openToast({
+            message: SUCCESS_MESSAGE.UPDATE('chemist'),
+            type: STATUS_TYPE.SUCCESS,
+          });
 
           return;
         }
@@ -239,9 +278,7 @@ const ChemistForm = memo(
         }
 
         openToast({
-          message: isEdit
-            ? SUCCESS_MESSAGE.UPDATE('chemist')
-            : SUCCESS_MESSAGE.CREATE('chemist'),
+          message: SUCCESS_MESSAGE.CREATE('chemist'),
           type: STATUS_TYPE.SUCCESS,
         });
 
@@ -269,17 +306,27 @@ const ChemistForm = memo(
         <Controller
           control={control}
           name="avatar"
-          render={({ field: { value, onChange, ...rest } }) => (
-            <ImageUpload
-              {...rest}
-              ref={hiddenFileInput}
-              data-testid="chemist-avatar"
-              src={value}
-              srcUpload={imageUpload}
-              onRemoveImage={handleRemoveImage(onChange)}
-              onUploadImage={handleUpload(onChange)}
-              isDisabled={isPending}
-            />
+          render={({
+            field: { value, onChange, ...rest },
+            fieldState: { error },
+          }) => (
+            <>
+              <ImageUpload
+                {...rest}
+                ref={hiddenFileInput}
+                data-testid="chemist-avatar"
+                src={value}
+                srcUpload={imageUpload}
+                onRemoveImage={handleRemoveImage(onChange)}
+                onUploadImage={handleUpload(onChange)}
+                isDisabled={isPending}
+              />
+              {!!error && (
+                <p className="text-danger-100 text-xs ml-2 text-center">
+                  {error.message}
+                </p>
+              )}
+            </>
           )}
         />
 
@@ -503,11 +550,6 @@ const ChemistForm = memo(
         />
 
         <div className="h-[78px] flex flex-col justify-end">
-          {error && (
-            <Text variant="error" size="sm" customClass="py-2">
-              {error}
-            </Text>
-          )}
           <div className="w-full gap-2 flex justify-end">
             <Button
               onClick={onClose}

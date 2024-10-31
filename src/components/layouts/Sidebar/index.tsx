@@ -14,22 +14,11 @@ import { AUTH_ROUTES, PRIVATE_ROUTES, SRC_LOGO } from '@/constants';
 // Services
 import { logout } from '@/services';
 
-// Hooks
-import { useFcmToken } from '@/hooks';
-import { unregisterFCM } from '@/services/notificationFirebase';
-
 export const Sidebar = () => {
   const [isPending, setIsPending] = useState(false);
 
-  const { token } = useFcmToken();
-
   const handleLogout = async () => {
     setIsPending(true);
-
-    token &&
-      (await unregisterFCM({
-        token,
-      }));
 
     await logout();
 
@@ -56,6 +45,7 @@ export const Sidebar = () => {
               width={50}
               height={50}
               className="w-full h-auto"
+              placeholder="empty"
             />
           </Link>
 
@@ -81,7 +71,13 @@ export const Sidebar = () => {
           <div className="flex-col min-h-screen hidden md:flex lg:hidden shadow-lg bg-background-200">
             <div className="m-auto py-6">
               <Link href={PRIVATE_ROUTES.DASHBOARD}>
-                <Image src={SRC_LOGO} alt="logo" width={35} height={35} />
+                <Image
+                  src={SRC_LOGO}
+                  alt="logo"
+                  width={35}
+                  height={35}
+                  placeholder="empty"
+                />
               </Link>
             </div>
 
@@ -91,6 +87,7 @@ export const Sidebar = () => {
 
             <div className="py-5 flex justify-center">
               <Button
+                aria-label="logout button"
                 color="stone"
                 isIconOnly
                 className="w-6 h-6"

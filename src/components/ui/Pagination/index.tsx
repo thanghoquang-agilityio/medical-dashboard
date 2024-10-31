@@ -15,11 +15,17 @@ const Pagination = memo(
       classNames={{
         cursor: 'hidden',
         item: cn(
-          'data-[active=true]:bg-linear-success data-[active=true]:text-white',
+          'data-[active=true]:bg-linear-success data-[active=true]:text-white cursor-pointer',
           itemClass,
         ),
-        prev: cn(itemClass, 'hidden md:flex data-[disabled=true]:opacity-40'),
-        next: cn(itemClass, 'hidden md:flex data-[disabled=true]:opacity-40'),
+        prev: cn(
+          itemClass,
+          'hidden md:flex data-[disabled=true]:opacity-40 cursor-pointer',
+        ),
+        next: cn(
+          itemClass,
+          'hidden md:flex data-[disabled=true]:opacity-40 cursor-pointer',
+        ),
         ...classNames,
       }}
       showControls

@@ -175,9 +175,10 @@ exports[`ChemistList should render correctly 1`] = `
             class="group"
           >
             <div
-              class="absolute z-10 rounded-large opacity-0 top-0 left-0 right-0 bottom-0 bg-primary-200 group-hover:opacity-70 flex justify-center items-center"
+              class="absolute z-10 rounded-large opacity-0 top-0 left-0 right-0 bottom-0 bg-primary-200 dark:group-hover:opacity-50 group-hover:opacity-70 flex justify-center items-center"
             >
               <button
+                aria-label="edit-btn"
                 class="z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap subpixel-antialiased overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-small gap-2 rounded-medium px-0 !gap-0 transition-transform-colors-opacity motion-reduce:transition-none min-w-10 w-10 h-10 data-[hover=true]:opacity-hover border-transparent font-semibold bg-linear-success text-content1 bg-none"
                 type="button"
               >
@@ -193,6 +194,7 @@ exports[`ChemistList should render correctly 1`] = `
                 </svg>
               </button>
               <button
+                aria-label="delete-btn"
                 class="z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap subpixel-antialiased overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-small gap-2 rounded-medium px-0 !gap-0 transition-transform-colors-opacity motion-reduce:transition-none min-w-10 w-10 h-10 data-[hover=true]:opacity-hover border-transparent font-semibold bg-linear-success text-content1 bg-none"
                 type="button"
               >
@@ -217,10 +219,11 @@ exports[`ChemistList should render correctly 1`] = `
             >
               <span
                 class="box-border overflow-hidden outline-none rounded-full ring-offset-background dark:ring-offset-background-dark shrink-0 min-w-12 w-12 h-12 bg-undefined ring-offset-0 ring-0 false"
+                data-testid="avatar-container"
                 tabindex="-1"
               >
                 <img
-                  alt="UnavailableImage"
+                  alt=""
                   class="aspect-square"
                   data-nimg="1"
                   decoding="async"
@@ -228,7 +231,7 @@ exports[`ChemistList should render correctly 1`] = `
                   height="48"
                   src="http://localhost/_next/image?url=%2Fimages%2Favatar-thumbnail.webp&w=96&q=75"
                   srcset="/_next/image?url=%2Fimages%2Favatar-thumbnail.webp&w=48&q=75 1x, /_next/image?url=%2Fimages%2Favatar-thumbnail.webp&w=96&q=75 2x"
-                  style="color: transparent; object-fit: cover;"
+                  style="color: transparent; object-fit: cover; background-size: cover; background-position: 50% 50%; background-repeat: no-repeat;"
                   width="48"
                 />
               </span>
@@ -248,7 +251,7 @@ exports[`ChemistList should render correctly 1`] = `
               </div>
             </div>
             <button
-              class="z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap subpixel-antialiased overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 h-10 gap-2 rounded-medium [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none data-[hover=true]:opacity-hover border-transparent bg-transparent text-green text-lg font-medium p-0 min-w-10"
+              class="z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap subpixel-antialiased overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 h-10 gap-2 rounded-medium [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none data-[hover=true]:opacity-hover border-transparent bg-transparent text-secondary-500 text-lg font-medium p-0 min-w-10"
               type="button"
             >
               Book
@@ -346,9 +349,10 @@ exports[`ChemistList should render correctly 1`] = `
             class="group"
           >
             <div
-              class="absolute z-10 rounded-large opacity-0 top-0 left-0 right-0 bottom-0 bg-primary-200 group-hover:opacity-70 flex justify-center items-center"
+              class="absolute z-10 rounded-large opacity-0 top-0 left-0 right-0 bottom-0 bg-primary-200 dark:group-hover:opacity-50 group-hover:opacity-70 flex justify-center items-center"
             >
               <button
+                aria-label="edit-btn"
                 class="z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap subpixel-antialiased overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-small gap-2 rounded-medium px-0 !gap-0 transition-transform-colors-opacity motion-reduce:transition-none min-w-10 w-10 h-10 data-[hover=true]:opacity-hover border-transparent font-semibold bg-linear-success text-content1 bg-none"
                 type="button"
               >
@@ -364,6 +368,7 @@ exports[`ChemistList should render correctly 1`] = `
                 </svg>
               </button>
               <button
+                aria-label="delete-btn"
                 class="z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap subpixel-antialiased overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-small gap-2 rounded-medium px-0 !gap-0 transition-transform-colors-opacity motion-reduce:transition-none min-w-10 w-10 h-10 data-[hover=true]:opacity-hover border-transparent font-semibold bg-linear-success text-content1 bg-none"
                 type="button"
               >
@@ -388,10 +393,11 @@ exports[`ChemistList should render correctly 1`] = `
             >
               <span
                 class="box-border overflow-hidden outline-none rounded-full ring-offset-background dark:ring-offset-background-dark shrink-0 min-w-12 w-12 h-12 bg-undefined ring-offset-0 ring-0 false"
+                data-testid="avatar-container"
                 tabindex="-1"
               >
                 <img
-                  alt="UnavailableImage"
+                  alt=""
                   class="aspect-square"
                   data-nimg="1"
                   decoding="async"
@@ -399,7 +405,7 @@ exports[`ChemistList should render correctly 1`] = `
                   height="48"
                   src="http://localhost/_next/image?url=%2Fimages%2Favatar-thumbnail.webp&w=96&q=75"
                   srcset="/_next/image?url=%2Fimages%2Favatar-thumbnail.webp&w=48&q=75 1x, /_next/image?url=%2Fimages%2Favatar-thumbnail.webp&w=96&q=75 2x"
-                  style="color: transparent; object-fit: cover;"
+                  style="color: transparent; object-fit: cover; background-size: cover; background-position: 50% 50%; background-repeat: no-repeat;"
                   width="48"
                 />
               </span>
@@ -419,7 +425,7 @@ exports[`ChemistList should render correctly 1`] = `
               </div>
             </div>
             <button
-              class="z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap subpixel-antialiased overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 h-10 gap-2 rounded-medium [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none data-[hover=true]:opacity-hover border-transparent bg-transparent text-green text-lg font-medium p-0 min-w-10"
+              class="z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap subpixel-antialiased overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 h-10 gap-2 rounded-medium [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none data-[hover=true]:opacity-hover border-transparent bg-transparent text-secondary-500 text-lg font-medium p-0 min-w-10"
               type="button"
             >
               Book
@@ -517,9 +523,10 @@ exports[`ChemistList should render correctly 1`] = `
             class="group"
           >
             <div
-              class="absolute z-10 rounded-large opacity-0 top-0 left-0 right-0 bottom-0 bg-primary-200 group-hover:opacity-70 flex justify-center items-center"
+              class="absolute z-10 rounded-large opacity-0 top-0 left-0 right-0 bottom-0 bg-primary-200 dark:group-hover:opacity-50 group-hover:opacity-70 flex justify-center items-center"
             >
               <button
+                aria-label="edit-btn"
                 class="z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap subpixel-antialiased overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-small gap-2 rounded-medium px-0 !gap-0 transition-transform-colors-opacity motion-reduce:transition-none min-w-10 w-10 h-10 data-[hover=true]:opacity-hover border-transparent font-semibold bg-linear-success text-content1 bg-none"
                 type="button"
               >
@@ -535,6 +542,7 @@ exports[`ChemistList should render correctly 1`] = `
                 </svg>
               </button>
               <button
+                aria-label="delete-btn"
                 class="z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap subpixel-antialiased overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-small gap-2 rounded-medium px-0 !gap-0 transition-transform-colors-opacity motion-reduce:transition-none min-w-10 w-10 h-10 data-[hover=true]:opacity-hover border-transparent font-semibold bg-linear-success text-content1 bg-none"
                 type="button"
               >
@@ -559,10 +567,11 @@ exports[`ChemistList should render correctly 1`] = `
             >
               <span
                 class="box-border overflow-hidden outline-none rounded-full ring-offset-background dark:ring-offset-background-dark shrink-0 min-w-12 w-12 h-12 bg-undefined ring-offset-0 ring-0 false"
+                data-testid="avatar-container"
                 tabindex="-1"
               >
                 <img
-                  alt="UnavailableImage"
+                  alt=""
                   class="aspect-square"
                   data-nimg="1"
                   decoding="async"
@@ -570,7 +579,7 @@ exports[`ChemistList should render correctly 1`] = `
                   height="48"
                   src="http://localhost/_next/image?url=%2Fimages%2Favatar-thumbnail.webp&w=96&q=75"
                   srcset="/_next/image?url=%2Fimages%2Favatar-thumbnail.webp&w=48&q=75 1x, /_next/image?url=%2Fimages%2Favatar-thumbnail.webp&w=96&q=75 2x"
-                  style="color: transparent; object-fit: cover;"
+                  style="color: transparent; object-fit: cover; background-size: cover; background-position: 50% 50%; background-repeat: no-repeat;"
                   width="48"
                 />
               </span>
@@ -590,7 +599,7 @@ exports[`ChemistList should render correctly 1`] = `
               </div>
             </div>
             <button
-              class="z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap subpixel-antialiased overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 h-10 gap-2 rounded-medium [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none data-[hover=true]:opacity-hover border-transparent bg-transparent text-green text-lg font-medium p-0 min-w-10"
+              class="z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap subpixel-antialiased overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 h-10 gap-2 rounded-medium [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none data-[hover=true]:opacity-hover border-transparent bg-transparent text-secondary-500 text-lg font-medium p-0 min-w-10"
               type="button"
             >
               Book
@@ -688,9 +697,10 @@ exports[`ChemistList should render correctly 1`] = `
             class="group"
           >
             <div
-              class="absolute z-10 rounded-large opacity-0 top-0 left-0 right-0 bottom-0 bg-primary-200 group-hover:opacity-70 flex justify-center items-center"
+              class="absolute z-10 rounded-large opacity-0 top-0 left-0 right-0 bottom-0 bg-primary-200 dark:group-hover:opacity-50 group-hover:opacity-70 flex justify-center items-center"
             >
               <button
+                aria-label="edit-btn"
                 class="z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap subpixel-antialiased overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-small gap-2 rounded-medium px-0 !gap-0 transition-transform-colors-opacity motion-reduce:transition-none min-w-10 w-10 h-10 data-[hover=true]:opacity-hover border-transparent font-semibold bg-linear-success text-content1 bg-none"
                 type="button"
               >
@@ -706,6 +716,7 @@ exports[`ChemistList should render correctly 1`] = `
                 </svg>
               </button>
               <button
+                aria-label="delete-btn"
                 class="z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap subpixel-antialiased overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-small gap-2 rounded-medium px-0 !gap-0 transition-transform-colors-opacity motion-reduce:transition-none min-w-10 w-10 h-10 data-[hover=true]:opacity-hover border-transparent font-semibold bg-linear-success text-content1 bg-none"
                 type="button"
               >
@@ -730,10 +741,11 @@ exports[`ChemistList should render correctly 1`] = `
             >
               <span
                 class="box-border overflow-hidden outline-none rounded-full ring-offset-background dark:ring-offset-background-dark shrink-0 min-w-12 w-12 h-12 bg-undefined ring-offset-0 ring-0 false"
+                data-testid="avatar-container"
                 tabindex="-1"
               >
                 <img
-                  alt="UnavailableImage"
+                  alt=""
                   class="aspect-square"
                   data-nimg="1"
                   decoding="async"
@@ -741,7 +753,7 @@ exports[`ChemistList should render correctly 1`] = `
                   height="48"
                   src="http://localhost/_next/image?url=%2Fimages%2Favatar-thumbnail.webp&w=96&q=75"
                   srcset="/_next/image?url=%2Fimages%2Favatar-thumbnail.webp&w=48&q=75 1x, /_next/image?url=%2Fimages%2Favatar-thumbnail.webp&w=96&q=75 2x"
-                  style="color: transparent; object-fit: cover;"
+                  style="color: transparent; object-fit: cover; background-size: cover; background-position: 50% 50%; background-repeat: no-repeat;"
                   width="48"
                 />
               </span>
@@ -761,7 +773,7 @@ exports[`ChemistList should render correctly 1`] = `
               </div>
             </div>
             <button
-              class="z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap subpixel-antialiased overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 h-10 gap-2 rounded-medium [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none data-[hover=true]:opacity-hover border-transparent bg-transparent text-green text-lg font-medium p-0 min-w-10"
+              class="z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap subpixel-antialiased overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 h-10 gap-2 rounded-medium [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none data-[hover=true]:opacity-hover border-transparent bg-transparent text-secondary-500 text-lg font-medium p-0 min-w-10"
               type="button"
             >
               Book
@@ -859,9 +871,10 @@ exports[`ChemistList should render correctly 1`] = `
             class="group"
           >
             <div
-              class="absolute z-10 rounded-large opacity-0 top-0 left-0 right-0 bottom-0 bg-primary-200 group-hover:opacity-70 flex justify-center items-center"
+              class="absolute z-10 rounded-large opacity-0 top-0 left-0 right-0 bottom-0 bg-primary-200 dark:group-hover:opacity-50 group-hover:opacity-70 flex justify-center items-center"
             >
               <button
+                aria-label="edit-btn"
                 class="z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap subpixel-antialiased overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-small gap-2 rounded-medium px-0 !gap-0 transition-transform-colors-opacity motion-reduce:transition-none min-w-10 w-10 h-10 data-[hover=true]:opacity-hover border-transparent font-semibold bg-linear-success text-content1 bg-none"
                 type="button"
               >
@@ -877,6 +890,7 @@ exports[`ChemistList should render correctly 1`] = `
                 </svg>
               </button>
               <button
+                aria-label="delete-btn"
                 class="z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap subpixel-antialiased overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-small gap-2 rounded-medium px-0 !gap-0 transition-transform-colors-opacity motion-reduce:transition-none min-w-10 w-10 h-10 data-[hover=true]:opacity-hover border-transparent font-semibold bg-linear-success text-content1 bg-none"
                 type="button"
               >
@@ -901,10 +915,11 @@ exports[`ChemistList should render correctly 1`] = `
             >
               <span
                 class="box-border overflow-hidden outline-none rounded-full ring-offset-background dark:ring-offset-background-dark shrink-0 min-w-12 w-12 h-12 bg-undefined ring-offset-0 ring-0 false"
+                data-testid="avatar-container"
                 tabindex="-1"
               >
                 <img
-                  alt="UnavailableImage"
+                  alt=""
                   class="aspect-square"
                   data-nimg="1"
                   decoding="async"
@@ -912,7 +927,7 @@ exports[`ChemistList should render correctly 1`] = `
                   height="48"
                   src="http://localhost/_next/image?url=%2Fimages%2Favatar-thumbnail.webp&w=96&q=75"
                   srcset="/_next/image?url=%2Fimages%2Favatar-thumbnail.webp&w=48&q=75 1x, /_next/image?url=%2Fimages%2Favatar-thumbnail.webp&w=96&q=75 2x"
-                  style="color: transparent; object-fit: cover;"
+                  style="color: transparent; object-fit: cover; background-size: cover; background-position: 50% 50%; background-repeat: no-repeat;"
                   width="48"
                 />
               </span>
@@ -932,7 +947,7 @@ exports[`ChemistList should render correctly 1`] = `
               </div>
             </div>
             <button
-              class="z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap subpixel-antialiased overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 h-10 gap-2 rounded-medium [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none data-[hover=true]:opacity-hover border-transparent bg-transparent text-green text-lg font-medium p-0 min-w-10"
+              class="z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap subpixel-antialiased overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 h-10 gap-2 rounded-medium [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none data-[hover=true]:opacity-hover border-transparent bg-transparent text-secondary-500 text-lg font-medium p-0 min-w-10"
               type="button"
             >
               Book
@@ -1046,10 +1061,9 @@ exports[`ChemistList should render correctly 1`] = `
         <li
           aria-disabled="true"
           aria-label="previous page button"
-          class="flex-wrap truncate box-border items-center justify-center outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 data-[disabled=true]:text-default-300 data-[disabled=true]:pointer-events-none shadow-sm [&[data-hover=true]:not([data-active=true])]:bg-default-200 active:bg-default-300 min-w-9 w-9 h-9 text-small rounded-medium text-primary-100 bg-default [&[data-hover=true]:not([data-active=true])]:opacity-70 hidden md:flex data-[disabled=true]:opacity-40"
+          class="flex-wrap truncate box-border items-center justify-center outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 data-[disabled=true]:text-default-300 data-[disabled=true]:pointer-events-none shadow-sm [&[data-hover=true]:not([data-active=true])]:bg-default-200 active:bg-default-300 min-w-9 w-9 h-9 text-small rounded-medium text-primary-100 bg-default [&[data-hover=true]:not([data-active=true])]:opacity-70 hidden md:flex data-[disabled=true]:opacity-40 cursor-pointer"
           data-disabled="true"
           data-slot="prev"
-          role="button"
           tabindex="-1"
         >
           <svg
@@ -1073,28 +1087,25 @@ exports[`ChemistList should render correctly 1`] = `
         <li
           aria-current="true"
           aria-label="pagination item 1 active"
-          class="tap-highlight-transparent select-none touch-none data-[pressed=true]:scale-[0.97] transition-transform-background flex flex-wrap truncate box-border items-center justify-center outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 data-[disabled=true]:text-default-300 data-[disabled=true]:pointer-events-none shadow-sm [&[data-hover=true]:not([data-active=true])]:bg-default-200 active:bg-default-300 min-w-9 w-9 h-9 text-small rounded-medium data-[active=true]:bg-linear-success data-[active=true]:text-white text-primary-100 bg-default [&[data-hover=true]:not([data-active=true])]:opacity-70"
+          class="tap-highlight-transparent select-none touch-none data-[pressed=true]:scale-[0.97] transition-transform-background flex flex-wrap truncate box-border items-center justify-center outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 data-[disabled=true]:text-default-300 data-[disabled=true]:pointer-events-none shadow-sm [&[data-hover=true]:not([data-active=true])]:bg-default-200 active:bg-default-300 min-w-9 w-9 h-9 text-small rounded-medium data-[active=true]:bg-linear-success data-[active=true]:text-white cursor-pointer text-primary-100 bg-default [&[data-hover=true]:not([data-active=true])]:opacity-70"
           data-active="true"
           data-slot="item"
-          role="button"
           tabindex="0"
         >
           1
         </li>
         <li
           aria-label="pagination item 2"
-          class="tap-highlight-transparent select-none touch-none data-[pressed=true]:scale-[0.97] transition-transform-background flex flex-wrap truncate box-border items-center justify-center outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 data-[disabled=true]:text-default-300 data-[disabled=true]:pointer-events-none shadow-sm [&[data-hover=true]:not([data-active=true])]:bg-default-200 active:bg-default-300 min-w-9 w-9 h-9 text-small rounded-medium data-[active=true]:bg-linear-success data-[active=true]:text-white text-primary-100 bg-default [&[data-hover=true]:not([data-active=true])]:opacity-70"
+          class="tap-highlight-transparent select-none touch-none data-[pressed=true]:scale-[0.97] transition-transform-background flex flex-wrap truncate box-border items-center justify-center outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 data-[disabled=true]:text-default-300 data-[disabled=true]:pointer-events-none shadow-sm [&[data-hover=true]:not([data-active=true])]:bg-default-200 active:bg-default-300 min-w-9 w-9 h-9 text-small rounded-medium data-[active=true]:bg-linear-success data-[active=true]:text-white cursor-pointer text-primary-100 bg-default [&[data-hover=true]:not([data-active=true])]:opacity-70"
           data-slot="item"
-          role="button"
           tabindex="0"
         >
           2
         </li>
         <li
           aria-label="next page button"
-          class="flex-wrap truncate box-border items-center justify-center outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 data-[disabled=true]:text-default-300 data-[disabled=true]:pointer-events-none shadow-sm [&[data-hover=true]:not([data-active=true])]:bg-default-200 active:bg-default-300 min-w-9 w-9 h-9 text-small rounded-medium text-primary-100 bg-default [&[data-hover=true]:not([data-active=true])]:opacity-70 hidden md:flex data-[disabled=true]:opacity-40"
+          class="flex-wrap truncate box-border items-center justify-center outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 data-[disabled=true]:text-default-300 data-[disabled=true]:pointer-events-none shadow-sm [&[data-hover=true]:not([data-active=true])]:bg-default-200 active:bg-default-300 min-w-9 w-9 h-9 text-small rounded-medium text-primary-100 bg-default [&[data-hover=true]:not([data-active=true])]:opacity-70 hidden md:flex data-[disabled=true]:opacity-40 cursor-pointer"
           data-slot="next"
-          role="button"
           tabindex="0"
         >
           <svg

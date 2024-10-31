@@ -203,54 +203,50 @@ const AppointmentsUpcomingList = memo(
     ]);
 
     return (
-      <>
-        <Card className="w-full xl:max-w-[320px] 2xl:max-w-[550px] h-fit p-4 pl-5 bg-background-200 mb-10">
-          <div className="flex justify-between items-center">
-            <Text customClass="text-lg font-bold text-primary-100">
-              Appointments
-            </Text>
-            <div>
-              <Select
-                aria-label="appointment status"
-                options={APPOINTMENT_STATUS_OPTIONS}
-                defaultSelectedKeys={status}
-                disabledKeys={status}
-                selectedKeys={status}
-                placeholder="Status"
-                classNames={{
-                  base: 'max-w-[102px] max-h-[36px]',
-                  mainWrapper: 'max-w-[102px] max-h-[36px]',
-                  innerWrapper: 'w-[80px]',
-                  trigger: 'min-h-[36px]',
-                }}
-                onChange={handleSelectStatus}
-              />
-            </div>
-          </div>
-          {isPending ? (
-            <AppointmentsUpcomingListSkeleton />
-          ) : (
-            <DataGrid
-              data={appointments}
-              columns={columns as ColumnType<unknown>[]}
-              classWrapper="pt-4"
-              classCell="pb-4"
-              id="appointment-upcoming"
+      <Card className="w-full xl:max-w-[320px] 2xl:max-w-[550px] h-fit p-4 pl-5 bg-background-200">
+        <div className="flex justify-between items-center">
+          <Text customClass="text-lg font-bold text-primary-100">
+            Appointments
+          </Text>
+          <div>
+            <Select
+              aria-label="appointment status"
+              options={APPOINTMENT_STATUS_OPTIONS}
+              defaultSelectedKeys={APPOINTMENT_STATUS_OPTIONS[0].key}
+              disabledKeys={status}
+              selectedKeys={status}
+              placeholder="Status"
+              classNames={{
+                base: 'max-w-[102px] max-h-[36px]',
+                mainWrapper: 'max-w-[102px] max-h-[36px]',
+                innerWrapper: 'w-[80px]',
+                trigger: 'min-h-[36px]',
+              }}
+              onChange={handleSelectStatus}
             />
-          )}
-
-          <ConfirmModal
-            title="Confirmation"
-            subTitle={`Do you want to ${isAdmin ? 'delete' : 'cancel'} this appointment?`}
-            isOpen={isOpenConfirm}
-            isLoading={isLoading}
-            onClose={onClosConfirm}
-            onAction={
-              isAdmin ? handleDeleteAppointment : handleCancelAppointment
-            }
+          </div>
+        </div>
+        {isPending ? (
+          <AppointmentsUpcomingListSkeleton />
+        ) : (
+          <DataGrid
+            data={appointments}
+            columns={columns as ColumnType<unknown>[]}
+            classWrapper="pt-4"
+            classCell="pb-4"
+            id="appointment-upcoming"
           />
-        </Card>
-      </>
+        )}
+
+        <ConfirmModal
+          title="Confirmation"
+          subTitle={`Do you want to ${isAdmin ? 'delete' : 'cancel'} this appointment?`}
+          isOpen={isOpenConfirm}
+          isLoading={isLoading}
+          onClose={onClosConfirm}
+          onAction={isAdmin ? handleDeleteAppointment : handleCancelAppointment}
+        />
+      </Card>
     );
   },
 );

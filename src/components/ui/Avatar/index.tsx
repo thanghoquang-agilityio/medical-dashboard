@@ -8,7 +8,7 @@ import { AVATAR_THUMBNAIL } from '@/constants';
 
 interface AvatarProps extends AvatarNextUIProps {
   size?: 'sm' | 'md' | 'lg';
-  customClass?: string;
+  avatarContainerClass?: string;
   isCustomBordered?: boolean;
   isShowFallback?: boolean;
   width?: number;
@@ -24,7 +24,7 @@ const SIZE_CLASSES = {
 export const Avatar = ({
   color,
   isCustomBordered = false,
-  customClass = '',
+  avatarContainerClass = '',
   size = 'md',
   src = '',
   alt = '',
@@ -44,10 +44,11 @@ export const Avatar = ({
   const backgroundClass = `bg-${color}`;
 
   const baseClass =
-    `${sizeClass} ${backgroundClass} ${borderClass} ${customBorderedClass} ${customClass}`.trim();
+    `${sizeClass} ${backgroundClass} ${borderClass} ${customBorderedClass} ${avatarContainerClass}`.trim();
 
   return (
     <span
+      data-testid="avatar-container"
       tabIndex={-1}
       className={`box-border overflow-hidden outline-none rounded-full ring-offset-background dark:ring-offset-background-dark shrink-0 ${baseClass}`}
     >
@@ -56,9 +57,8 @@ export const Avatar = ({
         height={height}
         src={src || AVATAR_THUMBNAIL}
         alt={alt}
-        blurDataURL={AVATAR_THUMBNAIL}
-        fallbackImg={AVATAR_THUMBNAIL}
         className={className}
+        fallbackSrc={AVATAR_THUMBNAIL}
       />
     </span>
   );

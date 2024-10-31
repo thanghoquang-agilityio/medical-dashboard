@@ -53,13 +53,13 @@ describe('Image Component', () => {
     const setState = jest.fn();
     const useStateSpy = jest.spyOn(React, 'useState');
 
-    useStateSpy.mockReturnValue([false, setState]);
+    useStateSpy.mockReturnValue([SRC_IMAGE_NOT_AVAILABLE, setState]);
 
     const { getByAltText } = ImageComponent();
     const image = getByAltText(props.alt);
 
     fireEvent.error(image);
 
-    expect(setState).toHaveBeenCalledWith(true);
+    expect(setState).toHaveBeenCalledWith(SRC_IMAGE_NOT_AVAILABLE);
   });
 });
