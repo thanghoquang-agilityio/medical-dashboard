@@ -20,7 +20,7 @@ interface NotificationListProps {
 
 const NotificationList = ({
   searchParams,
-  id,
+  id = '',
   initialNotifications = [],
 }: NotificationListProps) => {
   const [notifications, setNotifications] =

@@ -1,4 +1,5 @@
-import { AppointmentStatusOption } from '@/types';
+import { AppointmentModel, AppointmentStatusOption } from '@/types';
+import { DEFAULT_CHEMIST_DATA } from './chemist';
 
 export const APPOINTMENT_STATUS_OPTIONS: AppointmentStatusOption[] = [
   {
@@ -55,3 +56,21 @@ export const DURATION_TIME_OPTIONS = [
     label: '5 hours',
   },
 ];
+
+export const DEFAULT_APPOINTMENT_DATA: AppointmentModel = {
+  startTime: '',
+  durationTime: '',
+  status: 0,
+  receiverId: {
+    data: {
+      id: '',
+      attributes: DEFAULT_CHEMIST_DATA,
+    },
+  },
+  senderId: {
+    data: {
+      id: '',
+      attributes: DEFAULT_CHEMIST_DATA,
+    },
+  },
+};

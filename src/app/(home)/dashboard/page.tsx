@@ -42,7 +42,7 @@ const DashboardPage = async ({
   searchParams?: DashboardPageSearchParamsProps;
 }) => {
   const { page = PAGE_DEFAULT, status = APPOINTMENT_STATUS_OPTIONS[0].key } =
-    searchParams as DashboardPageSearchParamsProps;
+    searchParams || {};
 
   const { token = '' } = (await auth())?.user || {};
   const { user: userLogged } = await getUserLogged(token);

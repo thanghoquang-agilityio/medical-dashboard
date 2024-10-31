@@ -27,6 +27,7 @@ import {
 } from '@/types';
 import {
   AVATAR_THUMBNAIL,
+  DEFAULT_CHEMIST_DATA,
   ERROR_MESSAGE,
   FORM_VALIDATION_MESSAGE,
   MAX_IMAGE_SIZE,
@@ -57,7 +58,12 @@ export type ChemistFormProps = {
 };
 
 const ChemistForm = memo(
-  ({ id = '', data, specialtyOptions, onClose }: ChemistFormProps) => {
+  ({
+    id = '',
+    data = DEFAULT_CHEMIST_DATA,
+    specialtyOptions,
+    onClose,
+  }: ChemistFormProps) => {
     const {
       username = '',
       email = '',
@@ -114,7 +120,7 @@ const ChemistForm = memo(
       fetchUserRoles();
     }, []);
 
-    const isEdit = !!data;
+    const isEdit = !!data.id;
 
     // Handle show hide password
     const [isShowPassword, setIsShowPassword] = useState<boolean>(false);

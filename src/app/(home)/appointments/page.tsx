@@ -37,11 +37,7 @@ const AppointmentPage = async ({
 }: {
   searchParams?: AppointmentPageSearchParamsProps;
 }) => {
-  const {
-    page = PAGE_DEFAULT,
-    search = '',
-    status = '',
-  } = searchParams as AppointmentPageSearchParamsProps;
+  const { page = PAGE_DEFAULT, search = '', status = '' } = searchParams || {};
 
   const { token = '' } = (await auth())?.user || {};
 
