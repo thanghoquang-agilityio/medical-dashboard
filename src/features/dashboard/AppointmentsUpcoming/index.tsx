@@ -1,4 +1,4 @@
-import { Suspense, lazy, useMemo } from 'react';
+import { lazy, useMemo } from 'react';
 
 // Constants
 import {
@@ -11,11 +11,12 @@ import {
 import { getAppointments } from '@/actions/appointment';
 
 // Components
-import { AppointmentsUpcomingSkeleton } from './AppointmentsUpcomingSkeleton';
-import { UserLogged } from '@/types';
 const AppointmentsUpcomingList = lazy(
   () => import('./AppointmentsUpcomingList'),
 );
+
+// Types
+import { UserLogged } from '@/types';
 
 export interface AppointmentsUpcomingProps {
   userLogged: UserLogged | null;
@@ -56,15 +57,11 @@ const AppointmentsUpcoming = async ({
   if (error) throw error;
 
   return (
-    <Suspense
-      fallback={<AppointmentsUpcomingSkeleton defaultStatus={status} />}
-    >
-      <AppointmentsUpcomingList
-        appointments={appointments || []}
-        defaultStatus={status}
-        userLogged={userLogged}
-      />
-    </Suspense>
+    <AppointmentsUpcomingList
+      appointments={appointments || []}
+      defaultStatus={status}
+      userLogged={userLogged}
+    />
   );
 };
 

@@ -3,7 +3,7 @@
 exports[`ActivityFeedList test cases should render correctly 1`] = `
 <DocumentFragment>
   <div
-    class="flex flex-col relative overflow-hidden text-foreground box-border outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 shadow-medium rounded-large transition-transform-background motion-reduce:transition-none bg-background-200 h-fit w-full p-4 md:pl-7"
+    class="flex flex-col relative overflow-hidden text-foreground box-border outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 shadow-medium rounded-large transition-transform-background motion-reduce:transition-none bg-background-200 h-fit w-full p-4 md:py-5"
     tabindex="-1"
   >
     <p
@@ -124,7 +124,7 @@ exports[`ActivityFeedList test cases should render correctly 1`] = `
                   tabindex="-1"
                 >
                   <div
-                    class="bg-success text-white dark:text-success dark:bg-opacity-20 w-fit max-w-20 px-2 rounded-md text-center leading-[27px]"
+                    class="bg-success text-white dark:text-success dark:bg-opacity-20 w-fit px-2 rounded-md text-center leading-[27px] max-w-[64px]"
                   >
                     <p
                       class="text-2xs font-semibold capitalize"
@@ -194,7 +194,7 @@ exports[`ActivityFeedList test cases should render correctly 1`] = `
                   tabindex="-1"
                 >
                   <div
-                    class="bg-success text-white dark:text-success dark:bg-opacity-20 w-fit max-w-20 px-2 rounded-md text-center leading-[27px]"
+                    class="bg-success text-white dark:text-success dark:bg-opacity-20 w-fit px-2 rounded-md text-center leading-[27px] max-w-[64px]"
                   >
                     <p
                       class="text-2xs font-semibold capitalize"
