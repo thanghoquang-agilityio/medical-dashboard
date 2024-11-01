@@ -719,7 +719,7 @@ exports[`AppointmentsHistory Component should render correctly with admin role w
                   tabindex="-1"
                 >
                   <div
-                    class="bg-danger-100 text-danger-100 bg-opacity-20 w-fit max-w-20 px-2 rounded-md text-center hidden sm:block"
+                    class="bg-danger-100 text-white dark:text-danger-100 dark:bg-opacity-20 w-fit max-w-20 px-2 rounded-md text-center hidden sm:block"
                   >
                     <p
                       class="text-2xs font-semibold capitalize"
@@ -888,7 +888,7 @@ exports[`AppointmentsHistory Component should render correctly with admin role w
                   tabindex="-1"
                 >
                   <div
-                    class="bg-success text-success bg-opacity-20 w-fit max-w-20 px-2 rounded-md text-center hidden sm:block"
+                    class="bg-success text-white dark:text-success dark:bg-opacity-20 w-fit max-w-20 px-2 rounded-md text-center hidden sm:block"
                   >
                     <p
                       class="text-2xs font-semibold capitalize"
@@ -1056,7 +1056,7 @@ exports[`AppointmentsHistory Component should render correctly with admin role w
                   tabindex="-1"
                 >
                   <div
-                    class="bg-warning text-warning bg-opacity-20 w-fit max-w-20 px-2 rounded-md text-center hidden sm:block"
+                    class="bg-warning text-white dark:text-warning dark:bg-opacity-20 w-fit max-w-20 px-2 rounded-md text-center hidden sm:block"
                   >
                     <p
                       class="text-2xs font-semibold capitalize"
@@ -1486,7 +1486,7 @@ exports[`AppointmentsHistory Component should render correctly with user role wh
                   tabindex="-1"
                 >
                   <div
-                    class="bg-danger-100 text-danger-100 bg-opacity-20 w-fit max-w-20 px-2 rounded-md text-center hidden sm:block"
+                    class="bg-danger-100 text-white dark:text-danger-100 dark:bg-opacity-20 w-fit max-w-20 px-2 rounded-md text-center hidden sm:block"
                   >
                     <p
                       class="text-2xs font-semibold capitalize"
@@ -1620,7 +1620,7 @@ exports[`AppointmentsHistory Component should render correctly with user role wh
                   tabindex="-1"
                 >
                   <div
-                    class="bg-success text-success bg-opacity-20 w-fit max-w-20 px-2 rounded-md text-center hidden sm:block"
+                    class="bg-success text-white dark:text-success dark:bg-opacity-20 w-fit max-w-20 px-2 rounded-md text-center hidden sm:block"
                   >
                     <p
                       class="text-2xs font-semibold capitalize"
@@ -1753,7 +1753,7 @@ exports[`AppointmentsHistory Component should render correctly with user role wh
                   tabindex="-1"
                 >
                   <div
-                    class="bg-warning text-warning bg-opacity-20 w-fit max-w-20 px-2 rounded-md text-center hidden sm:block"
+                    class="bg-warning text-white dark:text-warning dark:bg-opacity-20 w-fit max-w-20 px-2 rounded-md text-center hidden sm:block"
                   >
                     <p
                       class="text-2xs font-semibold capitalize"
