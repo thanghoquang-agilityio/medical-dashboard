@@ -18,6 +18,6 @@ type Story = StoryObj<typeof Popover>;
 export const PopoverDefault: Story = {
   args: {
     popoverTrigger: <Button>Trigger</Button>,
-    popoverContent: <p className="text-red">This is content</p>,
+    popoverContent: <p className="text-danger-100">This is content</p>,
   },
 };

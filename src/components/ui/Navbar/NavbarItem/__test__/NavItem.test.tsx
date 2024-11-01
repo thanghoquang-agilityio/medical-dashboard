@@ -33,7 +33,9 @@ describe('NavItem Component', () => {
     setup();
 
     const link = screen.getByRole('link');
-    expect(link).toHaveClass('bg-linear-sidebar text-sky font-semibold');
+    expect(link).toHaveClass(
+      'bg-linear-sidebar text-primary-100 font-semibold',
+    );
   });
 
   it('should disable the link when isEnable is false', () => {

@@ -51,7 +51,7 @@ const DashboardPage = async ({
     <div className="mt-7">
       <Text customClass="text-xl lg:text-2xl lg:leading-9 mb-2">
         {getGreeting()}&nbsp;
-        <span className="text-sky font-bold text-2xl lg:text-3xl">
+        <span className="text-secondary-100 font-bold text-2xl lg:text-3xl">
           {username}
         </span>
       </Text>

@@ -17,7 +17,7 @@ export const NavItem = memo(
     const isActive = pathname.includes(href);
 
     const activeClass = isActive
-      ? 'bg-linear-sidebar text-sky font-semibold'
+      ? 'bg-linear-sidebar text-secondary-100 font-semibold'
       : 'hover:bg-linear-sidebar';
 
     return (

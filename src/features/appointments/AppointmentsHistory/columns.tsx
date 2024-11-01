@@ -177,7 +177,7 @@ export const createColumns = ({
             key: 'edit',
             label: 'Edit',
             startContent: (
-              <EditIcon customClass={`text-green ${iconClasses}`} />
+              <EditIcon customClass={`text-success ${iconClasses}`} />
             ),
             isDisabled: isDisabled,
             onAction: () => onEdit(id),
@@ -186,9 +186,9 @@ export const createColumns = ({
             key: isAdmin ? 'delete' : 'cancel',
             label: isAdmin ? 'Delete' : 'Cancel',
             startContent: isAdmin ? (
-              <DeleteIcon customClass={`text-red ${iconClasses}`} />
+              <DeleteIcon customClass={`text-danger-100 ${iconClasses}`} />
             ) : (
-              <XmarkIcon customClass={`text-red ${iconClasses}`} />
+              <XmarkIcon customClass={`text-danger-100 ${iconClasses}`} />
             ),
             isDisabled: !isAdmin && status !== getStatusKey('new'),
             onAction: () => onRemoveOrCancel(id),

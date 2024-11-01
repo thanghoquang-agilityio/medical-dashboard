@@ -31,7 +31,7 @@ export const NotFoundFallback = ({
       or&nbsp;
       <Link
         href={PRIVATE_ROUTES.DASHBOARD}
-        className="text-sky hover:underline"
+        className="text-secondary-100 hover:underline"
       >
         back to home
       </Link>
