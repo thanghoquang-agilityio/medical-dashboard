@@ -1,4 +1,4 @@
-import { Suspense, lazy, useMemo } from 'react';
+import { lazy, useMemo } from 'react';
 
 // Types
 import { ROLE, UserLogged } from '@/types';
@@ -8,7 +8,7 @@ import { API_ENDPOINT, PAGE_SIZE_DEFAULT, PRIVATE_ROUTES } from '@/constants';
 
 // Actions
 import { getNotifications } from '@/actions/notification';
-import { ActivityFeedSkeleton } from './ActivityFeedSkeleton';
+
 const ActivityFeedList = lazy(() => import('./ActivityFeedList'));
 
 export interface ActivityFeedProps {
@@ -48,15 +48,11 @@ const ActivityFeed = async ({ page, userLogged }: ActivityFeedProps) => {
   if (error) throw error;
 
   return (
-    <Suspense fallback={<ActivityFeedSkeleton />}>
-      <ActivityFeedList
-        userId={userId}
-        notifications={notifications || []}
-        pagination={
-          meta.pagination && { ...meta.pagination, page: Number(page) }
-        }
-      />
-    </Suspense>
+    <ActivityFeedList
+      userId={userId}
+      notifications={notifications || []}
+      pagination={meta.pagination && { ...meta.pagination, page: Number(page) }}
+    />
   );
 };
 

@@ -203,7 +203,7 @@ const AppointmentsUpcomingList = memo(
     ]);
 
     return (
-      <Card className="w-full xl:max-w-[320px] 2xl:max-w-[550px] h-fit p-4 pl-5 bg-background-200">
+      <Card className="w-full xl:max-w-[320px] 2xl:max-w-[550px] h-fit py-4 px-5 bg-background-200">
         <div className="flex justify-between items-center">
           <Text customClass="text-lg font-bold text-primary-100">
             Appointments
@@ -233,8 +233,8 @@ const AppointmentsUpcomingList = memo(
             data={appointments}
             columns={columns as ColumnType<unknown>[]}
             classWrapper="pt-4"
-            classCell="pb-4"
             id="appointment-upcoming"
+            classCell="pb-4"
           />
         )}
 

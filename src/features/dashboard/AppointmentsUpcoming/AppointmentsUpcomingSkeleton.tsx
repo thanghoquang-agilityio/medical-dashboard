@@ -36,7 +36,7 @@ AppointmentsUpcomingListSkeleton.displayName =
 
 export const AppointmentsUpcomingSkeleton = memo(
   ({ defaultStatus }: { defaultStatus: string }) => (
-    <Card className="w-full lg:max-w-[320px] 2xl:max-w-[550px] h-fit p-4 pl-5 bg-background-200">
+    <Card className="w-full xl:max-w-[320px] 2xl:max-w-[550px] h-fit p-4 pl-5 bg-background-200">
       <div className="flex justify-between items-center">
         <Text customClass="text-lg font-bold text-primary-100">
           Appointments

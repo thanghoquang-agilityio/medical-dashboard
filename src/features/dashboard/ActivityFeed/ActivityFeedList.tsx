@@ -77,7 +77,7 @@ export const COLUMNS_ACTIVITY_FEED: ColumnType<NotificationModel>[] = [
       const { info } = item || {};
       const { status = 0 } = info || {};
 
-      return <Status status={status} className="leading-[27px]" />;
+      return <Status status={status} className="leading-[27px] max-w-[64px]" />;
     },
   },
 ];
@@ -91,7 +91,7 @@ const ActivityFeedList = memo(
     const [isPending, startTransition] = useTransition();
 
     return (
-      <Card className="bg-background-200 h-fit w-full p-4 md:pl-7">
+      <Card className="bg-background-200 h-fit w-full p-4 md:py-5">
         <Text variant="title" size="lg" customClass="leading-9">
           Activity Feed
         </Text>
