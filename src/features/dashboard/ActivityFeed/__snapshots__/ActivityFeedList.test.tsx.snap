@@ -124,7 +124,7 @@ exports[`ActivityFeedList test cases should render correctly 1`] = `
                   tabindex="-1"
                 >
                   <div
-                    class="bg-success text-success bg-opacity-20 w-fit max-w-20 px-2 rounded-md text-center leading-[27px]"
+                    class="bg-success text-white dark:text-success dark:bg-opacity-20 w-fit max-w-20 px-2 rounded-md text-center leading-[27px]"
                   >
                     <p
                       class="text-2xs font-semibold capitalize"
@@ -194,7 +194,7 @@ exports[`ActivityFeedList test cases should render correctly 1`] = `
                   tabindex="-1"
                 >
                   <div
-                    class="bg-success text-success bg-opacity-20 w-fit max-w-20 px-2 rounded-md text-center leading-[27px]"
+                    class="bg-success text-white dark:text-success dark:bg-opacity-20 w-fit max-w-20 px-2 rounded-md text-center leading-[27px]"
                   >
                     <p
                       class="text-2xs font-semibold capitalize"
