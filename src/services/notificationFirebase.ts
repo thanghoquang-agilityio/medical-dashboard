@@ -25,7 +25,7 @@ export const sendNotification = async ({ message }: { message: string }) => {
 
     const payload: MulticastMessage = {
       tokens: [...adminTokens, ...userTokens],
-      notification: {
+      data: {
         body: message,
       },
     };

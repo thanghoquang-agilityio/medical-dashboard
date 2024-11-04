@@ -114,8 +114,7 @@ export const useFcmToken = () => {
         if (Notification.permission !== 'granted') return;
         // console.log('Foreground push notification received:', payload);
 
-        const { body = 'You have a new notification' } =
-          payload.notification || {};
+        const { body = 'You have a new notification' } = payload.data || {};
 
         openToast({ message: body });
 
