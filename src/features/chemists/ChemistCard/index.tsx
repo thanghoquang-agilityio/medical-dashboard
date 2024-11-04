@@ -96,7 +96,7 @@ const ChemistCard = ({ id, data, isAdmin, onEdit }: ChemistCardProps) => {
 
   return (
     <>
-      <div className="min-w-[300px] w-full h-[228px] relative">
+      <div className="min-w-[300px] w-full h-[232px] relative">
         <Card
           className={cn(
             'bg-background-200 w-full h-full p-6 gap-6 overflow-visible',
@@ -154,19 +154,36 @@ const ChemistCard = ({ id, data, isAdmin, onEdit }: ChemistCardProps) => {
               {description || 'No description'}
             </Text>
           </CardBody>
-          <CardFooter className="p-0 flex justify-between">
-            <div className="flex items-center gap-1 sm:gap-2">
-              <NoteIcon customClass="w-6 h-6" />
-              <Text size="sm" variant="title" customClass="font-medium">
-                {formatNumberWithUnit(tasks, 'Task')}
-              </Text>
-            </div>
+          <CardFooter className="p-0 inline-block rounded-none">
+            <div className="flex flex-col gap-1">
+              <div className="flex justify-between">
+                <div className="flex items-center gap-1 sm:gap-2">
+                  <NoteIcon customClass="w-6 h-6" />
+                  <Text size="sm" variant="title" customClass="font-medium">
+                    {formatNumberWithUnit(tasks, 'Task')}
+                  </Text>
+                </div>
 
-            <div className="flex items-center gap-1 sm:gap-2">
-              <StarIcon customClass="w-6 h-6 text-light-orange" />
-              <Text size="sm" variant="title" customClass="font-medium">
-                {rating} ({formatNumberWithUnit(reviews, 'Review')})
-              </Text>
+                <div className="flex items-center gap-1 sm:gap-2">
+                  <Text size="sm" variant="title" customClass="font-medium">
+                    ({formatNumberWithUnit(reviews, 'Review')})
+                  </Text>
+                </div>
+              </div>
+
+              <div className="flex justify-between items-center gap-1 sm:gap-2">
+                <Text size="sm" variant="title" customClass="font-medium">
+                  Rating: {rating}
+                </Text>
+                <div className="flex">
+                  {new Array(rating).fill(0).map((_, index) => (
+                    <StarIcon
+                      key={index}
+                      customClass="w-6 h-6 text-light-orange"
+                    />
+                  ))}
+                </div>
+              </div>
             </div>
           </CardFooter>
         </Card>
