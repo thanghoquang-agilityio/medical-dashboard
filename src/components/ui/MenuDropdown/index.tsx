@@ -59,13 +59,10 @@ export const MenuDropdown = memo(
         }}
       >
         <DropdownTrigger>
-          <Button
-            aria-label="Dropdown button"
-            className="flex gap-3 items-center"
-          >
+          <Button aria-label="Dropdown button" className="flex justify-start">
             <div className="text-primary-100 max-h-6 max-w-6">{icon}</div>
             {label && (
-              <Text variant="title" size="xs">
+              <Text variant="title" size="xs" customClass="mx-auto">
                 {label}
               </Text>
             )}

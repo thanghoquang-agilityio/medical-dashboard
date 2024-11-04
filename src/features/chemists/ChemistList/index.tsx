@@ -31,7 +31,11 @@ import ChemistModal from '../ChemistModal';
 import { ChemistListSkeleton } from './ChemistSkeleton';
 
 // Utils
-import { formatString, transformSpecialties } from '@/utils';
+import {
+  formatSpecialtyString,
+  formatString,
+  transformSpecialties,
+} from '@/utils';
 
 // Constants
 import { PAGE_DEFAULT, RESULT_NOT_FOUND } from '@/constants';
@@ -162,10 +166,10 @@ const ChemistList = memo(
           <div className="flex justify-between md:gap-4 mb-10 md:mb-0 ">
             <MenuDropdown
               icon={<CategoryIcon customClass="w-4 h-4 md:w-6 md:h-6" />}
-              label="Specialty"
+              label={formatSpecialtyString(defaultSpecialty || 'All')}
               options={specialtyOptions}
               classNames={{
-                trigger: 'w-[120px] md:w-[170px] h-[52px]',
+                trigger: 'w-[200px] sm:w-[214px] h-[52px]',
               }}
               selectionMode="multiple"
               selectedKeys={specialtyOptions[0].key}
