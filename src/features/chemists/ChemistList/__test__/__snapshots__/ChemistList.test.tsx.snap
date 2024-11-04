@@ -3,7 +3,7 @@
 exports[`ChemistList should render correctly 1`] = `
 <DocumentFragment>
   <div
-    class="flex flex-col mt-3 md:flex-row gap-4 md:mb-8"
+    class="flex flex-col mt-8 md:flex-row gap-4 md:mb-8"
   >
     <div
       class="group flex flex-col data-[hidden=true]:hidden w-full relative justify-end data-[has-label=true]:mt-[calc(theme(fontSize.small)_+_10px)]"

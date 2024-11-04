@@ -3,7 +3,7 @@
 exports[`AppointmentsHistory Component should render correctly when appointments value is empty 1`] = `
 <div>
   <div
-    class="flex mt-3 justify-between gap-10 mb-8"
+    class="flex justify-between gap-10 my-8"
   >
     <div
       class="group flex flex-col data-[hidden=true]:hidden w-full relative justify-end data-[has-label=true]:mt-[calc(theme(fontSize.small)_+_10px)]"
@@ -312,7 +312,7 @@ exports[`AppointmentsHistory Component should render correctly when appointments
 exports[`AppointmentsHistory Component should render correctly with admin role when have appointments value 1`] = `
 <div>
   <div
-    class="flex mt-3 justify-between gap-10 mb-8"
+    class="flex justify-between gap-10 my-8"
   >
     <div
       class="group flex flex-col data-[hidden=true]:hidden w-full relative justify-end data-[has-label=true]:mt-[calc(theme(fontSize.small)_+_10px)]"
@@ -1123,7 +1123,7 @@ exports[`AppointmentsHistory Component should render correctly with admin role w
 exports[`AppointmentsHistory Component should render correctly with user role when have appointments value 1`] = `
 <div>
   <div
-    class="flex mt-3 justify-between gap-10 mb-8"
+    class="flex justify-between gap-10 my-8"
   >
     <div
       class="group flex flex-col data-[hidden=true]:hidden w-full relative justify-end data-[has-label=true]:mt-[calc(theme(fontSize.small)_+_10px)]"

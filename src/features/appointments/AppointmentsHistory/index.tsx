@@ -219,7 +219,7 @@ const AppointmentsHistory = ({
 
   return (
     <>
-      <div className="flex mt-3 justify-between gap-10 mb-8">
+      <div className="flex justify-between gap-10 my-8">
         <InputSearch placeholder="Search Appointments" value={search} />
         <Button
           onClick={handleOpenCreateModal}
