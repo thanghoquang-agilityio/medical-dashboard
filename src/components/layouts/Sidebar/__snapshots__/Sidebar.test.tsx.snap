@@ -365,7 +365,7 @@ exports[`Sidebar test cases should render correctly 1`] = `
           </a>
         </div>
         <p
-          class="text-ellipsis whitespace-nowrap overflow-hidden uppercase px-8 text-primary-100 mt-8 opacity-60"
+          class="text-sm text-ellipsis whitespace-nowrap overflow-hidden uppercase px-8 lg:px-10 text-primary-100 mt-8 opacity-60"
         >
           support
         </p>
