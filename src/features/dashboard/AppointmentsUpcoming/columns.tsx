@@ -19,6 +19,7 @@ export const createColumns = ({
     {
       key: 'startTime',
       title: 'Start time',
+      additionalClassName: 'w-10 md:w-16',
       customNode: ({ item }) => {
         const { startTime = '' } = item || {};
         const date = formatDate(startTime);

@@ -3,6 +3,7 @@ import { ReactNode } from 'react';
 export interface ColumnType<T> {
   key: string;
   title: string;
+  additionalClassName?: string;
   customNode?: ({
     column,
     item,

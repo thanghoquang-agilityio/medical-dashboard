@@ -128,6 +128,7 @@ const DataGrid = memo(
                           className={cn(
                             `p-0 ${!isLastItem ? classCell ?? '' : ''}`,
                             `${hasDivider ? (!isLastItem ? `py-3 ${classDivider}` : 'pt-3') : ''}`,
+                            column.additionalClassName,
                           )}
                           role="cell"
                           headers={`${props.id}-${column.key}`}
