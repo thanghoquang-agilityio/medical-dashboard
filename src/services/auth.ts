@@ -13,6 +13,7 @@ import { API_ENDPOINT, AVATAR_THUMBNAIL } from '@/constants';
 import { signOut } from '@/config/auth';
 import { cookies } from 'next/headers';
 import { unregisterFCM } from './notificationFirebase';
+import { decrypt } from '@/utils/encode';
 
 export const login = async (
   body: LoginFormData,
@@ -111,9 +112,17 @@ export const signup = async (
 };
 
 export const logout = async () => {
-  const token = cookies().get('fcm_token')?.value;
+  const encryptedValue = cookies().get('fcm_token')?.value;
 
-  token && (await unregisterFCM({ token }), cookies().delete('fcm_token'));
+  if (encryptedValue) {
+    const token = await decrypt(encryptedValue);
+
+    if (token) {
+      await unregisterFCM({ token });
+
+      cookies().delete('fcm_token');
+    }
+  }
 
   await signOut();
 };

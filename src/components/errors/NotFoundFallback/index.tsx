@@ -25,7 +25,10 @@ export const NotFoundFallback = ({
     )}
     <p className="text-foreground text-lg text-center">
       Please&nbsp;
-      <span onClick={reset} className="text-sky hover:underline cursor-pointer">
+      <span
+        onClick={reset}
+        className="text-secondary-100 hover:underline cursor-pointer"
+      >
         reset the page&nbsp;
       </span>
       or&nbsp;

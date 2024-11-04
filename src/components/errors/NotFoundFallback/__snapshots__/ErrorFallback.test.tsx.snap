@@ -31,7 +31,7 @@ exports[`NotFoundFallback test cases should render correctly with message 1`] = 
     >
       Please 
       <span
-        class="text-sky hover:underline cursor-pointer"
+        class="text-secondary-100 hover:underline cursor-pointer"
       >
         reset the page 
       </span>
