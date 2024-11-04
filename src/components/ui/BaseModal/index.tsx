@@ -25,6 +25,7 @@ export const BaseModal = memo(
       size={size}
       placement={placement}
       classNames={{
+        wrapper: 'sm:items-center md:items-center',
         closeButton: 'text-primary-100',
         base: 'bg-background-100 p-4',
       }}
