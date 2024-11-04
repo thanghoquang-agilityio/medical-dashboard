@@ -28,6 +28,7 @@ export const BaseModal = memo(
         closeButton: 'text-primary-100',
         base: 'bg-background-100 p-4',
       }}
+      scrollBehavior="outside"
     >
       <ModalContent>{children}</ModalContent>
     </Modal>
