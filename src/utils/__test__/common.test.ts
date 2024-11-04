@@ -1,4 +1,5 @@
 import {
+  formatSpecialtyString,
   formatString,
   getDescriptionNotification,
   getGreeting,
@@ -276,5 +277,32 @@ describe('getRoleIdByName function', () => {
 
   it('should return undefined when role name is empty', () => {
     expect(getRoleIdByName(MOCK_USER_ROLE, '')).toBeUndefined();
+  });
+});
+
+describe('formatSpecialtyString test cases', () => {
+  test('should return an empty string when input is undefined', () => {
+    const result = formatSpecialtyString(undefined);
+    expect(result).toBe(''); // Expect an empty string for undefined input
+  });
+
+  test('should return an empty string when input is an empty string', () => {
+    const result = formatSpecialtyString('');
+    expect(result).toBe(''); // Expect an empty string for empty string input
+  });
+
+  test('should replace underscore with space and convert to uppercase', () => {
+    const result = formatSpecialtyString('cardiology_specialty');
+    expect(result).toBe('CARDIOLOGY SPECIALTY'); // Expect formatted string
+  });
+
+  test('should return the same string in uppercase when no underscore is present', () => {
+    const result = formatSpecialtyString('orthopedics');
+    expect(result).toBe('ORTHOPEDICS'); // Expect the string to be uppercase
+  });
+
+  test('should handle input with multiple underscores', () => {
+    const result = formatSpecialtyString('internal_medicine_specialty');
+    expect(result).toBe('INTERNAL MEDICINE SPECIALTY'); // Expect multiple underscores replaced with spaces
   });
 });
