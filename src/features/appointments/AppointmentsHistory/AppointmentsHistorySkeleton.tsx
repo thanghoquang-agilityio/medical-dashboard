@@ -17,18 +17,20 @@ export const AppointmentsHistoryListSkeleton = memo(
           >
             {isAdmin && (
               <div className="flex flex-row gap-1 items-center">
-                <Skeleton className="min-w-10 w-10 h-10 rounded-full" />
+                <Skeleton className="min-w-10 w-10 h-10 rounded-full hidden sm:block" />
                 <Skeleton className="w-20 h-5 rounded-large" />
               </div>
             )}
             <div className="flex flex-row gap-1 items-center">
-              <Skeleton className="min-w-10 w-10 h-10 rounded-full" />
+              <Skeleton
+                className={`min-w-10 w-10 h-10 rounded-full ${isAdmin && `hidden sm:block`}`}
+              />
               <Skeleton className="w-20 h-5 rounded-large" />
             </div>
             <Skeleton className="w-32 h-5 rounded-large" />
-            <Skeleton className="w-20 h-5 rounded-large" />
+            <Skeleton className="w-20 h-5 rounded-large hidden sm:block" />
             <Skeleton className="w-12 h-5 rounded-small" />
-            <Skeleton className="w-7 h-7 rounded-small" />
+            <Skeleton className="w-7 h-7 rounded-small hidden sm:block" />
           </div>
         ))}
       <Skeleton className="w-[160px] h-8 rounded-medium mt-6" />
