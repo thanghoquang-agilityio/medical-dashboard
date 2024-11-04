@@ -2,7 +2,7 @@ import { Metadata } from 'next';
 import dynamic from 'next/dynamic';
 
 // Constants
-import { SRC_LOGO } from '@/constants';
+import { PREVIEW_IMAGE } from '@/constants';
 
 const LoginForm = dynamic(() => import('@/features/auth/LoginForm'));
 
@@ -14,7 +14,7 @@ export const metadata: Metadata = {
     description: 'Login page for Medical Dashboard',
     images: [
       {
-        url: SRC_LOGO,
+        url: PREVIEW_IMAGE,
         alt: 'preview image',
       },
     ],
