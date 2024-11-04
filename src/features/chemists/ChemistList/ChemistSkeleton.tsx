@@ -39,18 +39,21 @@ export const ChemistListSkeleton = memo(() => {
                 <Skeleton className="w-full h-10 rounded-small" />
               </div>
 
-              <div className="flex justify-between mt-auto">
-                <div className="flex items-center gap-1 sm:gap-2">
-                  <NoteIcon customClass="w-6 h-6" />
+              <div className="flex flex-col gap-2">
+                <div className="flex justify-between mt-auto">
+                  <div className="flex items-center gap-1 sm:gap-2">
+                    <NoteIcon customClass="w-6 h-6" />
 
-                  <Skeleton className="w-12 h-5 rounded-small" />
+                    <Skeleton className="w-12 h-5 rounded-small" />
+                  </div>
+
+                  <div className="flex items-center gap-1 sm:gap-2">
+                    <StarIcon customClass="w-6 h-6 text-light-orange" />
+
+                    <Skeleton className="w-24 h-5 rounded-small" />
+                  </div>
                 </div>
-
-                <div className="flex items-center gap-1 sm:gap-2">
-                  <StarIcon customClass="w-6 h-6 text-light-orange" />
-
-                  <Skeleton className="w-24 h-5 rounded-small" />
-                </div>
+                <Skeleton className="w-full h-6 rounded-small" />
               </div>
             </div>
           ))}
