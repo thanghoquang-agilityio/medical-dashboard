@@ -28,7 +28,7 @@ export const Navbar = memo(({ isExpandSidebar = false }: NavbarProps) => (
 
     {isExpandSidebar ? (
       <Text
-        customClass="uppercase  px-8 lg:px-10 text-primary-100 my-8 opacity-60"
+        customClass="uppercase  px-8 lg:px-10 text-primary-100 mt-8 opacity-60"
         size="sm"
       >
         support
