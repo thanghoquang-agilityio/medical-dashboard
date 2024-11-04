@@ -32,13 +32,16 @@ export const ErrorFallback = ({ message = '', reset }: ErrorFallbackProps) => (
 
     <p className="text-foreground text-lg text-center">
       Please&nbsp;
-      <span onClick={reset} className="text-sky hover:underline cursor-pointer">
+      <span
+        onClick={reset}
+        className="text-secondary-100 hover:underline cursor-pointer"
+      >
         reset the page&nbsp;
       </span>
       or&nbsp;
       <Link
         href={PRIVATE_ROUTES.DASHBOARD}
-        className="text-sky hover:underline"
+        className="text-secondary-100 hover:underline"
       >
         back to home
       </Link>

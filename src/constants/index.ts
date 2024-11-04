@@ -10,3 +10,4 @@ export * from './regex';
 export * from './router';
 export * from './timing';
 export * from './chemist';
+export * from './encode';
