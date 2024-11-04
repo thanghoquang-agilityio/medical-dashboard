@@ -168,6 +168,7 @@ const ChemistList = memo(
                 trigger: 'w-[120px] md:w-[170px] h-[52px]',
               }}
               selectionMode="multiple"
+              selectedKeys={specialtyOptions[0].key}
               onAction={handleSelectSpecialty}
             />
             {isAdmin && (

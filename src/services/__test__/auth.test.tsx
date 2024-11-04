@@ -1,3 +1,5 @@
+import { cookies } from 'next/headers';
+
 import { MOCK_USER_SESSION } from '@/mocks';
 import { apiClient } from '../api';
 import { login, signup, logout } from '../auth';
@@ -162,6 +164,12 @@ describe('Authorize tests', () => {
   });
 
   it('logout will return value correctly', async () => {
+    const mockCookies = {
+      get: jest.fn().mockReturnValue(undefined),
+      delete: jest.fn(),
+    };
+    (cookies as jest.Mock).mockReturnValue(mockCookies);
+
     const result = await logout();
 
     expect(result);
