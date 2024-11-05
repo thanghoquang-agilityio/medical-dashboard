@@ -77,7 +77,7 @@ export const COLUMNS_ACTIVITY_FEED: ColumnType<NotificationModel>[] = [
       const { info } = item || {};
       const { status = 0 } = info || {};
 
-      return <Status status={status} className="leading-[27px] max-w-[64px]" />;
+      return <Status status={status} className="leading-[27px] max-w-[70px]" />;
     },
   },
 ];
