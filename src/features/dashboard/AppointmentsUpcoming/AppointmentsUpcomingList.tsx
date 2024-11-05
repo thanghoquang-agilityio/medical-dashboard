@@ -180,11 +180,6 @@ const AppointmentsUpcomingList = memo(
       }
 
       if (appointment) {
-        openToast({
-          message: SUCCESS_MESSAGE.CANCEL('appointment'),
-          type: STATUS_TYPE.SUCCESS,
-        });
-
         handleCreateNotification(appointment, 'cancelled');
       }
 
