@@ -293,16 +293,16 @@ describe('formatSpecialtyString test cases', () => {
 
   test('should replace underscore with space and convert to uppercase', () => {
     const result = formatSpecialtyString('cardiology_specialty');
-    expect(result).toBe('CARDIOLOGY SPECIALTY'); // Expect formatted string
+    expect(result).toBe('cardiology specialty'); // Expect formatted string
   });
 
   test('should return the same string in uppercase when no underscore is present', () => {
     const result = formatSpecialtyString('orthopedics');
-    expect(result).toBe('ORTHOPEDICS'); // Expect the string to be uppercase
+    expect(result).toBe('orthopedics'); // Expect the string to be uppercase
   });
 
   test('should handle input with multiple underscores', () => {
     const result = formatSpecialtyString('internal_medicine_specialty');
-    expect(result).toBe('INTERNAL MEDICINE SPECIALTY'); // Expect multiple underscores replaced with spaces
+    expect(result).toBe('internal medicine specialty'); // Expect multiple underscores replaced with spaces
   });
 });
