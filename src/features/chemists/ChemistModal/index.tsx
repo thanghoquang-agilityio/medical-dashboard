@@ -25,6 +25,9 @@ const ChemistModal = memo(
         onClose={onClose}
         placement="center"
         size="2xl"
+        classNames={{
+          wrapper: 'sm:items-center',
+        }}
       >
         <ChemistForm
           data={data}

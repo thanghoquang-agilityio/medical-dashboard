@@ -72,7 +72,7 @@ const ChemistList = memo(
     const specialtyOptions = transformSpecialties(specialties);
     const specialtyOptionsForm = specialtyOptions.slice(1);
 
-    const [_, setSpecialty] = useState(new Set([defaultSpecialty]));
+    const [specialty, setSpecialty] = useState(new Set([defaultSpecialty]));
 
     const params = useMemo(
       () => new URLSearchParams(searchParams),
@@ -120,6 +120,8 @@ const ChemistList = memo(
 
     const handleSelectSpecialty = useCallback(
       (key: Key) => {
+        if (key !== specialty.values().next().value) params.delete('page');
+
         setSpecialty(new Set([key as string]));
 
         // Find the selected specialty from specialtyOptions
@@ -137,7 +139,13 @@ const ChemistList = memo(
         const { label = '' } = selectedSpecialty || {};
         updateSearchParams(formatString(label));
       },
-      [handleReplaceURL, params, specialtyOptions, updateSearchParams],
+      [
+        handleReplaceURL,
+        params,
+        specialty,
+        specialtyOptions,
+        updateSearchParams,
+      ],
     );
 
     const isAdmin = role === ROLE.ADMIN;
