@@ -86,9 +86,9 @@ const NotificationList = ({
     <div className="h-80 flex flex-col pl-4 overflow-y-scroll">
       {notifications.length ? (
         <>
-          {notifications.map(({ attributes, id }, index) => (
+          {notifications.map(({ attributes, id: notificationId }, index) => (
             <div
-              key={`${id}-${index}`}
+              key={`${notificationId}-${index}`}
               className="w-full relative flex justify-start my-2"
             >
               <Avatar
@@ -103,7 +103,10 @@ const NotificationList = ({
                   variant="description"
                   customClass={TYPE_CLASSES.wrap}
                 >
-                  You {attributes.info.content} at&nbsp;
+                  {attributes.senderId?.data.id.toString() === id
+                    ? 'You'
+                    : attributes.senderName}{' '}
+                  {attributes.info.content} at&nbsp;
                   {formatDateTime(attributes.info.startTime)}
                 </Text>
                 <Text variant="subTitle" size="2xs">

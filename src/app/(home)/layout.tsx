@@ -13,7 +13,7 @@ import { API_ENDPOINT, PRIVATE_ROUTES } from '@/constants';
 import { Sidebar } from '@/components/layouts';
 
 // Types
-import { DIRECTION } from '@/types';
+import { DIRECTION, ROLE } from '@/types';
 
 const HeaderDashboard = dynamic(
   () => import('@/components/layouts/HeaderDashboard'),
@@ -25,13 +25,15 @@ export default async function DashboardLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const { id, token = '' } = (await auth())?.user || {};
+  const { id, token = '', role = '' } = (await auth())?.user || {};
   const { user: userLogged } = await getUserLogged(token);
   const { avatar = '' } = userLogged || {};
   const searchParamsAPI = new URLSearchParams();
 
   searchParamsAPI.set('populate[0]', 'senderId');
-  searchParamsAPI.set('filters[senderId][id][$eq]', `${id}`);
+  if (role === ROLE.NORMAL_USER)
+    searchParamsAPI.set('filters[senderId][id][$eq]', `${id}`);
+
   searchParamsAPI.set('sort[0]', `createdAt:${DIRECTION.DESC}`);
 
   const { notifications, pagination } = await getNotifications({
