@@ -118,7 +118,7 @@ export const updateNotification = async (
     const errorMessage =
       error instanceof Error
         ? error.message
-        : 'An unexpected error occurred in add notification';
+        : 'An unexpected error occurred in update notification';
 
     return { notification: null, error: errorMessage };
   }
