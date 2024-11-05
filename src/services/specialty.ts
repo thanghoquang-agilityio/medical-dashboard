@@ -1,4 +1,4 @@
-import { API_ENDPOINT } from '@/constants';
+import { API_ENDPOINT, EXCEPTION_ERROR_MESSAGE } from '@/constants';
 
 // Types
 import {
@@ -41,7 +41,7 @@ export const getSpecialties = async ({
     const errorMessage =
       error instanceof Error
         ? error.message
-        : 'An unexpected error occurred in the request get specialties';
+        : EXCEPTION_ERROR_MESSAGE.GET('specialties');
 
     return { specialties: [], error: errorMessage };
   }
