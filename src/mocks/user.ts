@@ -4,6 +4,7 @@ import {
   RolePermission,
   UserLogged,
   UserModel,
+  UserPayload,
   UserSession,
 } from '@/types';
 
@@ -423,6 +424,7 @@ export const MOCK_USER_LIST = {
 
 export const USER_OPTIONS: UserModel[] = [
   {
+    id: '1',
     username: 'Alex Stanton',
     email: 'alexstanton@gmail.com',
     description:
@@ -440,6 +442,7 @@ export const USER_OPTIONS: UserModel[] = [
     },
   },
   {
+    id: '2',
     username: 'Anna White',
     email: 'anna_white@asnet.com.vn',
     description: '',
@@ -457,6 +460,7 @@ export const USER_OPTIONS: UserModel[] = [
   },
 
   {
+    id: '3',
     username: 'Jessica Jane',
     email: 'jessicajane@gmail.com.vn',
     description:
@@ -517,4 +521,11 @@ export const MOCK_USER_SESSION: UserSession = {
   role: '',
   avatar: AVATAR_THUMBNAIL,
   remember: true,
+};
+
+export const MOCK_USER_PAYLOAD: UserPayload = {
+  ...USER_OPTIONS[0],
+  role: 1,
+  password: 'mock',
+  specialtyId: 1,
 };
