@@ -654,7 +654,7 @@ exports[`AppointmentsHistory Component should render correctly with admin role w
                       />
                     </span>
                     <p
-                      class="text-primary-100 font-medium text-sm text-ellipsis whitespace-nowrap overflow-hidden"
+                      class="text-primary-100 font-medium text-sm text-ellipsis whitespace-nowrap overflow-hidden max-w-[65px] md:max-w-[90px] lg:max-w-full"
                     >
                       Alex Stanton
                     </p>
@@ -689,7 +689,7 @@ exports[`AppointmentsHistory Component should render correctly with admin role w
                       />
                     </span>
                     <p
-                      class="text-primary-100 font-medium text-sm text-ellipsis whitespace-nowrap overflow-hidden"
+                      class="text-primary-100 font-medium text-sm text-ellipsis whitespace-nowrap overflow-hidden max-w-[65px] md:max-w-[90px] lg:max-w-full"
                     >
                       Jessica Jane
                     </p>
@@ -715,11 +715,22 @@ exports[`AppointmentsHistory Component should render correctly with admin role w
                   role="cell"
                   tabindex="-1"
                 >
-                  <p
-                    class="text-primary-100 font-medium text-xs text-ellipsis whitespace-nowrap overflow-hidden"
-                  >
-                    11 Sep 2024
-                  </p>
+                  <div>
+                    <div
+                      class="bg-danger-100 text-white dark:text-danger-100 dark:bg-opacity-20 w-fit max-w-20 px-2 rounded-md text-center mb-2 md:hidden"
+                    >
+                      <p
+                        class="text-2xs font-semibold capitalize"
+                      >
+                        cancelled
+                      </p>
+                    </div>
+                    <p
+                      class="text-primary-100 font-medium text-xs text-ellipsis whitespace-nowrap overflow-hidden"
+                    >
+                      11 Sep 2024
+                    </p>
+                  </div>
                 </td>
                 <td
                   class="relative align-middle whitespace-normal text-small font-normal [&>*]:z-1 [&>*]:relative outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 before:content-[''] before:absolute before:z-0 before:inset-0 before:opacity-0 data-[selected=true]:before:opacity-100 group-data-[disabled=true]:text-foreground-300 group-data-[disabled=true]:cursor-not-allowed before:bg-default/60 data-[selected=true]:text-default-foreground first:before:rounded-s-lg last:before:rounded-e-lg text-start p-0 py-3 border-0 border-primary-100 border-b border-opacity-10"
@@ -729,7 +740,7 @@ exports[`AppointmentsHistory Component should render correctly with admin role w
                   tabindex="-1"
                 >
                   <div
-                    class="bg-danger-100 text-white dark:text-danger-100 dark:bg-opacity-20 w-fit max-w-20 px-2 rounded-md text-center hidden sm:block"
+                    class="bg-danger-100 text-white dark:text-danger-100 dark:bg-opacity-20 w-fit max-w-20 px-2 rounded-md text-center hidden md:block"
                   >
                     <p
                       class="text-2xs font-semibold capitalize"
@@ -823,7 +834,7 @@ exports[`AppointmentsHistory Component should render correctly with admin role w
                       />
                     </span>
                     <p
-                      class="text-primary-100 font-medium text-sm text-ellipsis whitespace-nowrap overflow-hidden"
+                      class="text-primary-100 font-medium text-sm text-ellipsis whitespace-nowrap overflow-hidden max-w-[65px] md:max-w-[90px] lg:max-w-full"
                     >
                       Alex Stanton
                     </p>
@@ -858,7 +869,7 @@ exports[`AppointmentsHistory Component should render correctly with admin role w
                       />
                     </span>
                     <p
-                      class="text-primary-100 font-medium text-sm text-ellipsis whitespace-nowrap overflow-hidden"
+                      class="text-primary-100 font-medium text-sm text-ellipsis whitespace-nowrap overflow-hidden max-w-[65px] md:max-w-[90px] lg:max-w-full"
                     >
                       ThangHq
                     </p>
@@ -884,11 +895,22 @@ exports[`AppointmentsHistory Component should render correctly with admin role w
                   role="cell"
                   tabindex="-1"
                 >
-                  <p
-                    class="text-primary-100 font-medium text-xs text-ellipsis whitespace-nowrap overflow-hidden"
-                  >
-                    12 Sep 2024
-                  </p>
+                  <div>
+                    <div
+                      class="bg-success text-white dark:text-success dark:bg-opacity-20 w-fit max-w-20 px-2 rounded-md text-center mb-2 md:hidden"
+                    >
+                      <p
+                        class="text-2xs font-semibold capitalize"
+                      >
+                        new
+                      </p>
+                    </div>
+                    <p
+                      class="text-primary-100 font-medium text-xs text-ellipsis whitespace-nowrap overflow-hidden"
+                    >
+                      12 Sep 2024
+                    </p>
+                  </div>
                 </td>
                 <td
                   class="relative align-middle whitespace-normal text-small font-normal [&>*]:z-1 [&>*]:relative outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 before:content-[''] before:absolute before:z-0 before:inset-0 before:opacity-0 data-[selected=true]:before:opacity-100 group-data-[disabled=true]:text-foreground-300 group-data-[disabled=true]:cursor-not-allowed before:bg-default/60 data-[selected=true]:text-default-foreground first:before:rounded-s-lg last:before:rounded-e-lg text-start p-0 py-3 border-0 border-primary-100 border-b border-opacity-10"
@@ -898,7 +920,7 @@ exports[`AppointmentsHistory Component should render correctly with admin role w
                   tabindex="-1"
                 >
                   <div
-                    class="bg-success text-white dark:text-success dark:bg-opacity-20 w-fit max-w-20 px-2 rounded-md text-center hidden sm:block"
+                    class="bg-success text-white dark:text-success dark:bg-opacity-20 w-fit max-w-20 px-2 rounded-md text-center hidden md:block"
                   >
                     <p
                       class="text-2xs font-semibold capitalize"
@@ -991,7 +1013,7 @@ exports[`AppointmentsHistory Component should render correctly with admin role w
                       />
                     </span>
                     <p
-                      class="text-primary-100 font-medium text-sm text-ellipsis whitespace-nowrap overflow-hidden"
+                      class="text-primary-100 font-medium text-sm text-ellipsis whitespace-nowrap overflow-hidden max-w-[65px] md:max-w-[90px] lg:max-w-full"
                     >
                       ThangHq
                     </p>
@@ -1026,7 +1048,7 @@ exports[`AppointmentsHistory Component should render correctly with admin role w
                       />
                     </span>
                     <p
-                      class="text-primary-100 font-medium text-sm text-ellipsis whitespace-nowrap overflow-hidden"
+                      class="text-primary-100 font-medium text-sm text-ellipsis whitespace-nowrap overflow-hidden max-w-[65px] md:max-w-[90px] lg:max-w-full"
                     >
                       Alex Stanton
                     </p>
@@ -1052,11 +1074,22 @@ exports[`AppointmentsHistory Component should render correctly with admin role w
                   role="cell"
                   tabindex="-1"
                 >
-                  <p
-                    class="text-primary-100 font-medium text-xs text-ellipsis whitespace-nowrap overflow-hidden"
-                  >
-                    13 Sep 2024
-                  </p>
+                  <div>
+                    <div
+                      class="bg-warning text-white dark:text-warning dark:bg-opacity-20 w-fit max-w-20 px-2 rounded-md text-center mb-2 md:hidden"
+                    >
+                      <p
+                        class="text-2xs font-semibold capitalize"
+                      >
+                        meeting
+                      </p>
+                    </div>
+                    <p
+                      class="text-primary-100 font-medium text-xs text-ellipsis whitespace-nowrap overflow-hidden"
+                    >
+                      13 Sep 2024
+                    </p>
+                  </div>
                 </td>
                 <td
                   class="relative align-middle whitespace-normal text-small font-normal [&>*]:z-1 [&>*]:relative outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 before:content-[''] before:absolute before:z-0 before:inset-0 before:opacity-0 data-[selected=true]:before:opacity-100 group-data-[disabled=true]:text-foreground-300 group-data-[disabled=true]:cursor-not-allowed before:bg-default/60 data-[selected=true]:text-default-foreground first:before:rounded-s-lg last:before:rounded-e-lg text-start p-0 pt-3"
@@ -1066,7 +1099,7 @@ exports[`AppointmentsHistory Component should render correctly with admin role w
                   tabindex="-1"
                 >
                   <div
-                    class="bg-warning text-white dark:text-warning dark:bg-opacity-20 w-fit max-w-20 px-2 rounded-md text-center hidden sm:block"
+                    class="bg-warning text-white dark:text-warning dark:bg-opacity-20 w-fit max-w-20 px-2 rounded-md text-center hidden md:block"
                   >
                     <p
                       class="text-2xs font-semibold capitalize"
@@ -1461,7 +1494,7 @@ exports[`AppointmentsHistory Component should render correctly with user role wh
                       />
                     </span>
                     <p
-                      class="text-primary-100 font-medium text-sm text-ellipsis whitespace-nowrap overflow-hidden"
+                      class="text-primary-100 font-medium text-sm text-ellipsis whitespace-nowrap overflow-hidden max-w-[65px] md:max-w-[90px] lg:max-w-full"
                     >
                       Alex Stanton
                     </p>
@@ -1487,11 +1520,22 @@ exports[`AppointmentsHistory Component should render correctly with user role wh
                   role="cell"
                   tabindex="-1"
                 >
-                  <p
-                    class="text-primary-100 font-medium text-xs text-ellipsis whitespace-nowrap overflow-hidden"
-                  >
-                    11 Sep 2024
-                  </p>
+                  <div>
+                    <div
+                      class="bg-danger-100 text-white dark:text-danger-100 dark:bg-opacity-20 w-fit max-w-20 px-2 rounded-md text-center mb-2 md:hidden"
+                    >
+                      <p
+                        class="text-2xs font-semibold capitalize"
+                      >
+                        cancelled
+                      </p>
+                    </div>
+                    <p
+                      class="text-primary-100 font-medium text-xs text-ellipsis whitespace-nowrap overflow-hidden"
+                    >
+                      11 Sep 2024
+                    </p>
+                  </div>
                 </td>
                 <td
                   class="relative align-middle whitespace-normal text-small font-normal [&>*]:z-1 [&>*]:relative outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 before:content-[''] before:absolute before:z-0 before:inset-0 before:opacity-0 data-[selected=true]:before:opacity-100 group-data-[disabled=true]:text-foreground-300 group-data-[disabled=true]:cursor-not-allowed before:bg-default/60 data-[selected=true]:text-default-foreground first:before:rounded-s-lg last:before:rounded-e-lg text-start p-0 py-3 border-0 border-primary-100 border-b border-opacity-10"
@@ -1501,7 +1545,7 @@ exports[`AppointmentsHistory Component should render correctly with user role wh
                   tabindex="-1"
                 >
                   <div
-                    class="bg-danger-100 text-white dark:text-danger-100 dark:bg-opacity-20 w-fit max-w-20 px-2 rounded-md text-center hidden sm:block"
+                    class="bg-danger-100 text-white dark:text-danger-100 dark:bg-opacity-20 w-fit max-w-20 px-2 rounded-md text-center hidden md:block"
                   >
                     <p
                       class="text-2xs font-semibold capitalize"
@@ -1595,7 +1639,7 @@ exports[`AppointmentsHistory Component should render correctly with user role wh
                       />
                     </span>
                     <p
-                      class="text-primary-100 font-medium text-sm text-ellipsis whitespace-nowrap overflow-hidden"
+                      class="text-primary-100 font-medium text-sm text-ellipsis whitespace-nowrap overflow-hidden max-w-[65px] md:max-w-[90px] lg:max-w-full"
                     >
                       Alex Stanton
                     </p>
@@ -1621,11 +1665,22 @@ exports[`AppointmentsHistory Component should render correctly with user role wh
                   role="cell"
                   tabindex="-1"
                 >
-                  <p
-                    class="text-primary-100 font-medium text-xs text-ellipsis whitespace-nowrap overflow-hidden"
-                  >
-                    12 Sep 2024
-                  </p>
+                  <div>
+                    <div
+                      class="bg-success text-white dark:text-success dark:bg-opacity-20 w-fit max-w-20 px-2 rounded-md text-center mb-2 md:hidden"
+                    >
+                      <p
+                        class="text-2xs font-semibold capitalize"
+                      >
+                        new
+                      </p>
+                    </div>
+                    <p
+                      class="text-primary-100 font-medium text-xs text-ellipsis whitespace-nowrap overflow-hidden"
+                    >
+                      12 Sep 2024
+                    </p>
+                  </div>
                 </td>
                 <td
                   class="relative align-middle whitespace-normal text-small font-normal [&>*]:z-1 [&>*]:relative outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 before:content-[''] before:absolute before:z-0 before:inset-0 before:opacity-0 data-[selected=true]:before:opacity-100 group-data-[disabled=true]:text-foreground-300 group-data-[disabled=true]:cursor-not-allowed before:bg-default/60 data-[selected=true]:text-default-foreground first:before:rounded-s-lg last:before:rounded-e-lg text-start p-0 py-3 border-0 border-primary-100 border-b border-opacity-10"
@@ -1635,7 +1690,7 @@ exports[`AppointmentsHistory Component should render correctly with user role wh
                   tabindex="-1"
                 >
                   <div
-                    class="bg-success text-white dark:text-success dark:bg-opacity-20 w-fit max-w-20 px-2 rounded-md text-center hidden sm:block"
+                    class="bg-success text-white dark:text-success dark:bg-opacity-20 w-fit max-w-20 px-2 rounded-md text-center hidden md:block"
                   >
                     <p
                       class="text-2xs font-semibold capitalize"
@@ -1728,7 +1783,7 @@ exports[`AppointmentsHistory Component should render correctly with user role wh
                       />
                     </span>
                     <p
-                      class="text-primary-100 font-medium text-sm text-ellipsis whitespace-nowrap overflow-hidden"
+                      class="text-primary-100 font-medium text-sm text-ellipsis whitespace-nowrap overflow-hidden max-w-[65px] md:max-w-[90px] lg:max-w-full"
                     >
                       ThangHq
                     </p>
@@ -1754,11 +1809,22 @@ exports[`AppointmentsHistory Component should render correctly with user role wh
                   role="cell"
                   tabindex="-1"
                 >
-                  <p
-                    class="text-primary-100 font-medium text-xs text-ellipsis whitespace-nowrap overflow-hidden"
-                  >
-                    13 Sep 2024
-                  </p>
+                  <div>
+                    <div
+                      class="bg-warning text-white dark:text-warning dark:bg-opacity-20 w-fit max-w-20 px-2 rounded-md text-center mb-2 md:hidden"
+                    >
+                      <p
+                        class="text-2xs font-semibold capitalize"
+                      >
+                        meeting
+                      </p>
+                    </div>
+                    <p
+                      class="text-primary-100 font-medium text-xs text-ellipsis whitespace-nowrap overflow-hidden"
+                    >
+                      13 Sep 2024
+                    </p>
+                  </div>
                 </td>
                 <td
                   class="relative align-middle whitespace-normal text-small font-normal [&>*]:z-1 [&>*]:relative outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 before:content-[''] before:absolute before:z-0 before:inset-0 before:opacity-0 data-[selected=true]:before:opacity-100 group-data-[disabled=true]:text-foreground-300 group-data-[disabled=true]:cursor-not-allowed before:bg-default/60 data-[selected=true]:text-default-foreground first:before:rounded-s-lg last:before:rounded-e-lg text-start p-0 pt-3"
@@ -1768,7 +1834,7 @@ exports[`AppointmentsHistory Component should render correctly with user role wh
                   tabindex="-1"
                 >
                   <div
-                    class="bg-warning text-white dark:text-warning dark:bg-opacity-20 w-fit max-w-20 px-2 rounded-md text-center hidden sm:block"
+                    class="bg-warning text-white dark:text-warning dark:bg-opacity-20 w-fit max-w-20 px-2 rounded-md text-center hidden md:block"
                   >
                     <p
                       class="text-2xs font-semibold capitalize"
