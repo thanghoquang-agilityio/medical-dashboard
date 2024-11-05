@@ -2,11 +2,11 @@
 
 const cspHeader = `
     default-src 'self';
-    script-src 'self' 'unsafe-eval' 'unsafe-inline';
+    script-src 'self' 'unsafe-eval' https://www.gstatic.com https://www.googleapis.com;;
     style-src 'self' 'unsafe-inline';
     img-src 'self' blob: data:;
     font-src 'self' https://fonts.gstatic.com;
-    connect-src 'self' https://dev.perlinks.com;
+    connect-src 'self' https://fcmregistrations.googleapis.com https://firebaseinstallations.googleapis.com https://www.googleapis.com https://www.gstatic.com translate.googleapis.com translate.google.com *.google.com *.gstatic.com chrome-extension://bocbaocobfecmglnmeaeppambideimao/ https://dev.perlinks.com;
     object-src 'none';
     base-uri 'self';
     form-action 'self';
