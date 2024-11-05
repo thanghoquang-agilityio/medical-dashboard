@@ -68,7 +68,7 @@ export const transformSpecialties = (
 
 export const formatSpecialtyString = (input: string | undefined) => {
   if (!input) return '';
-  return input.replaceAll('_', ' ').toUpperCase();
+  return input.replaceAll('_', ' ');
 };
 
 export const formatString = (input: string) =>

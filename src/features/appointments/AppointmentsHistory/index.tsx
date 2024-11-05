@@ -112,13 +112,20 @@ const AppointmentsHistory = ({
 
   const handleSelectStatus = useCallback(
     (e: ChangeEvent<HTMLSelectElement>) => {
-      if (e.target.value !== status.values().next().value)
-        params.delete('page');
+      const value = e.target.value;
+      if (value !== status.values().next().value) params.delete('page');
 
-      setStatus(new Set([e.target.value]));
-      updateSearchParams(e.target.value);
+      if (value === 'all') {
+        params.delete('status');
+        handleReplaceURL?.(params);
+
+        return;
+      }
+
+      setStatus(new Set([value]));
+      updateSearchParams(value);
     },
-    [params, status, updateSearchParams],
+    [handleReplaceURL, params, status, updateSearchParams],
   );
 
   const { isOpen, onClose, onOpen } = useDisclosure();
@@ -217,6 +224,8 @@ const AppointmentsHistory = ({
     }
   }, [appointmentId, handleCreateNotification, onClosConfirm, openToast]);
 
+  const options = [{ key: 'all', label: 'All' }, ...APPOINTMENT_STATUS_OPTIONS];
+
   return (
     <>
       <div className="flex justify-between gap-10 my-8">
@@ -234,7 +243,7 @@ const AppointmentsHistory = ({
           <div>
             <Select
               aria-label="Status"
-              options={APPOINTMENT_STATUS_OPTIONS}
+              options={options}
               selectedKeys={status}
               defaultSelectedKeys={APPOINTMENT_STATUS_OPTIONS[0].key}
               placeholder="Status"

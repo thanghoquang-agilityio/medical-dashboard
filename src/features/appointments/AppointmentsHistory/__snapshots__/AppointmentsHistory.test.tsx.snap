@@ -134,11 +134,16 @@ exports[`AppointmentsHistory Component should render correctly when appointments
             />
             <label>
               <select
-                size="3"
+                size="4"
                 tabindex="-1"
                 title=""
               >
                 <option />
+                <option
+                  value="all"
+                >
+                  All
+                </option>
                 <option
                   value="new"
                 >
@@ -443,11 +448,16 @@ exports[`AppointmentsHistory Component should render correctly with admin role w
             />
             <label>
               <select
-                size="3"
+                size="4"
                 tabindex="-1"
                 title=""
               >
                 <option />
+                <option
+                  value="all"
+                >
+                  All
+                </option>
                 <option
                   value="new"
                 >
@@ -742,7 +752,7 @@ exports[`AppointmentsHistory Component should render correctly with admin role w
                       aria-expanded="false"
                       aria-haspopup="true"
                       aria-label="Dropdown button"
-                      class="group relative items-center box-border appearance-none select-none whitespace-nowrap font-normal overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-small gap-2 [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none data-[hover=true]:opacity-hover z-10 aria-expanded:scale-[0.97] aria-expanded:opacity-70 subpixel-antialiased text-primary-100 border-1 data-[focus=true]:border-1 px-[2px] md:px-1 min-w-4 h-4 md:h-[26px] md:min-w-[26px] bg-background-100 rounded md:rounded-md data-[focus=true]:border-transparent data-[focus=true]:border-opacity-20 border-transparent border-opacity-20 flex justify-start"
+                      class="group relative items-center box-border appearance-none select-none whitespace-nowrap font-normal overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-small gap-2 [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none data-[hover=true]:opacity-hover z-10 aria-expanded:scale-[0.97] aria-expanded:opacity-70 subpixel-antialiased text-primary-100 border-1 data-[focus=true]:border-1 px-[2px] md:px-1 min-w-4 h-4 md:h-[26px] md:min-w-[26px] bg-background-100 rounded md:rounded-md data-[focus=true]:border-transparent data-[focus=true]:border-opacity-20 border-transparent border-opacity-20 flex justify-start capitalize"
                       data-slot="trigger"
                       id="react-aria-:r3h:"
                       type="button"
@@ -911,7 +921,7 @@ exports[`AppointmentsHistory Component should render correctly with admin role w
                       aria-expanded="false"
                       aria-haspopup="true"
                       aria-label="Dropdown button"
-                      class="group relative items-center box-border appearance-none select-none whitespace-nowrap font-normal overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-small gap-2 [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none data-[hover=true]:opacity-hover z-10 aria-expanded:scale-[0.97] aria-expanded:opacity-70 subpixel-antialiased text-primary-100 border-1 data-[focus=true]:border-1 px-[2px] md:px-1 min-w-4 h-4 md:h-[26px] md:min-w-[26px] bg-background-100 rounded md:rounded-md data-[focus=true]:border-transparent data-[focus=true]:border-opacity-20 border-transparent border-opacity-20 flex justify-start"
+                      class="group relative items-center box-border appearance-none select-none whitespace-nowrap font-normal overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-small gap-2 [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none data-[hover=true]:opacity-hover z-10 aria-expanded:scale-[0.97] aria-expanded:opacity-70 subpixel-antialiased text-primary-100 border-1 data-[focus=true]:border-1 px-[2px] md:px-1 min-w-4 h-4 md:h-[26px] md:min-w-[26px] bg-background-100 rounded md:rounded-md data-[focus=true]:border-transparent data-[focus=true]:border-opacity-20 border-transparent border-opacity-20 flex justify-start capitalize"
                       data-slot="trigger"
                       id="react-aria-:r3k:"
                       type="button"
@@ -1079,7 +1089,7 @@ exports[`AppointmentsHistory Component should render correctly with admin role w
                       aria-expanded="false"
                       aria-haspopup="true"
                       aria-label="Dropdown button"
-                      class="group relative items-center box-border appearance-none select-none whitespace-nowrap font-normal overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-small gap-2 [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none data-[hover=true]:opacity-hover z-10 aria-expanded:scale-[0.97] aria-expanded:opacity-70 subpixel-antialiased text-primary-100 border-1 data-[focus=true]:border-1 px-[2px] md:px-1 min-w-4 h-4 md:h-[26px] md:min-w-[26px] bg-background-100 rounded md:rounded-md data-[focus=true]:border-transparent data-[focus=true]:border-opacity-20 border-transparent border-opacity-20 flex justify-start"
+                      class="group relative items-center box-border appearance-none select-none whitespace-nowrap font-normal overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-small gap-2 [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none data-[hover=true]:opacity-hover z-10 aria-expanded:scale-[0.97] aria-expanded:opacity-70 subpixel-antialiased text-primary-100 border-1 data-[focus=true]:border-1 px-[2px] md:px-1 min-w-4 h-4 md:h-[26px] md:min-w-[26px] bg-background-100 rounded md:rounded-md data-[focus=true]:border-transparent data-[focus=true]:border-opacity-20 border-transparent border-opacity-20 flex justify-start capitalize"
                       data-slot="trigger"
                       id="react-aria-:r3n:"
                       type="button"
@@ -1254,11 +1264,16 @@ exports[`AppointmentsHistory Component should render correctly with user role wh
             />
             <label>
               <select
-                size="3"
+                size="4"
                 tabindex="-1"
                 title=""
               >
                 <option />
+                <option
+                  value="all"
+                >
+                  All
+                </option>
                 <option
                   value="new"
                 >
@@ -1509,7 +1524,7 @@ exports[`AppointmentsHistory Component should render correctly with user role wh
                       aria-expanded="false"
                       aria-haspopup="true"
                       aria-label="Dropdown button"
-                      class="group relative items-center box-border appearance-none select-none whitespace-nowrap font-normal overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-small gap-2 [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none data-[hover=true]:opacity-hover z-10 aria-expanded:scale-[0.97] aria-expanded:opacity-70 subpixel-antialiased text-primary-100 border-1 data-[focus=true]:border-1 px-[2px] md:px-1 min-w-4 h-4 md:h-[26px] md:min-w-[26px] bg-background-100 rounded md:rounded-md data-[focus=true]:border-transparent data-[focus=true]:border-opacity-20 border-transparent border-opacity-20 flex justify-start"
+                      class="group relative items-center box-border appearance-none select-none whitespace-nowrap font-normal overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-small gap-2 [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none data-[hover=true]:opacity-hover z-10 aria-expanded:scale-[0.97] aria-expanded:opacity-70 subpixel-antialiased text-primary-100 border-1 data-[focus=true]:border-1 px-[2px] md:px-1 min-w-4 h-4 md:h-[26px] md:min-w-[26px] bg-background-100 rounded md:rounded-md data-[focus=true]:border-transparent data-[focus=true]:border-opacity-20 border-transparent border-opacity-20 flex justify-start capitalize"
                       data-slot="trigger"
                       id="react-aria-:r2h:"
                       type="button"
@@ -1643,7 +1658,7 @@ exports[`AppointmentsHistory Component should render correctly with user role wh
                       aria-expanded="false"
                       aria-haspopup="true"
                       aria-label="Dropdown button"
-                      class="group relative items-center box-border appearance-none select-none whitespace-nowrap font-normal overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-small gap-2 [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none data-[hover=true]:opacity-hover z-10 aria-expanded:scale-[0.97] aria-expanded:opacity-70 subpixel-antialiased text-primary-100 border-1 data-[focus=true]:border-1 px-[2px] md:px-1 min-w-4 h-4 md:h-[26px] md:min-w-[26px] bg-background-100 rounded md:rounded-md data-[focus=true]:border-transparent data-[focus=true]:border-opacity-20 border-transparent border-opacity-20 flex justify-start"
+                      class="group relative items-center box-border appearance-none select-none whitespace-nowrap font-normal overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-small gap-2 [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none data-[hover=true]:opacity-hover z-10 aria-expanded:scale-[0.97] aria-expanded:opacity-70 subpixel-antialiased text-primary-100 border-1 data-[focus=true]:border-1 px-[2px] md:px-1 min-w-4 h-4 md:h-[26px] md:min-w-[26px] bg-background-100 rounded md:rounded-md data-[focus=true]:border-transparent data-[focus=true]:border-opacity-20 border-transparent border-opacity-20 flex justify-start capitalize"
                       data-slot="trigger"
                       id="react-aria-:r2k:"
                       type="button"
@@ -1776,7 +1791,7 @@ exports[`AppointmentsHistory Component should render correctly with user role wh
                       aria-expanded="false"
                       aria-haspopup="true"
                       aria-label="Dropdown button"
-                      class="group relative items-center box-border appearance-none select-none whitespace-nowrap font-normal overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-small gap-2 [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none data-[hover=true]:opacity-hover z-10 aria-expanded:scale-[0.97] aria-expanded:opacity-70 subpixel-antialiased text-primary-100 border-1 data-[focus=true]:border-1 px-[2px] md:px-1 min-w-4 h-4 md:h-[26px] md:min-w-[26px] bg-background-100 rounded md:rounded-md data-[focus=true]:border-transparent data-[focus=true]:border-opacity-20 border-transparent border-opacity-20 flex justify-start"
+                      class="group relative items-center box-border appearance-none select-none whitespace-nowrap font-normal overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-small gap-2 [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none data-[hover=true]:opacity-hover z-10 aria-expanded:scale-[0.97] aria-expanded:opacity-70 subpixel-antialiased text-primary-100 border-1 data-[focus=true]:border-1 px-[2px] md:px-1 min-w-4 h-4 md:h-[26px] md:min-w-[26px] bg-background-100 rounded md:rounded-md data-[focus=true]:border-transparent data-[focus=true]:border-opacity-20 border-transparent border-opacity-20 flex justify-start capitalize"
                       data-slot="trigger"
                       id="react-aria-:r2n:"
                       type="button"
