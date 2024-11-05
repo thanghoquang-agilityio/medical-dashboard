@@ -127,12 +127,9 @@ const AppointmentsUpcomingList = memo(
       [appointments, onOpenConfirm],
     );
 
-    const statusArray = Array.from(status);
-
     const columns = createColumns({
       userId,
       isAdmin,
-      status: statusArray[0],
       onRemoveOrCancel: handleOpenConfirmModal,
     });
 

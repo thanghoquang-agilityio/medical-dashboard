@@ -1,18 +1,16 @@
 import { Key } from 'react';
 import { AppointmentModel, ColumnType } from '@/types';
 import { formatDate, formatTimeAppointment } from '@/utils';
-import { MenuAction, OptionMoreAction, STATUS, Text } from '@/components/ui';
+import { MenuAction, OptionMoreAction, Text } from '@/components/ui';
 import { DeleteIcon, XmarkIcon } from '@/icons';
 
 export const createColumns = ({
   userId,
   isAdmin,
-  status,
   onRemoveOrCancel,
 }: {
   userId: string;
   isAdmin: boolean;
-  status: string;
   onRemoveOrCancel: (key?: Key) => void;
 }): ColumnType<AppointmentModel>[] => {
   const baseColumns: ColumnType<AppointmentModel>[] = [
@@ -101,7 +99,6 @@ export const createColumns = ({
             ) : (
               <XmarkIcon customClass={`text-danger-100 ${iconClasses}`} />
             ),
-            isDisabled: status !== STATUS[0], // New
             onAction: () => onRemoveOrCancel(id),
           },
         ];
