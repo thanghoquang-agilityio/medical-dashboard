@@ -12,7 +12,7 @@ exports[`ChemistForm test cases should render correctly 1`] = `
       Update chemist
     </p>
     <div
-      class="flex flex-col justify-center items-center py-3 md:py-0"
+      class="flex flex-col justify-center items-center py-4"
     >
       <div
         class="relative rounded-full"
@@ -99,7 +99,7 @@ exports[`ChemistForm test cases should render correctly 1`] = `
       </div>
     </div>
     <div
-      class="flex justify-between self-center gap-6 my-4 md:mb-0"
+      class="flex justify-between self-center gap-6 my-4"
     >
       <div
         class="flex items-center gap-1 sm:gap-2"
@@ -443,7 +443,7 @@ exports[`ChemistForm test cases should render correctly without data and id 1`] 
       Create chemist
     </p>
     <div
-      class="flex flex-col justify-center items-center py-3 md:py-0"
+      class="flex flex-col justify-center items-center py-4"
     >
       <div
         class="relative rounded-full"

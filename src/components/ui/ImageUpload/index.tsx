@@ -51,7 +51,7 @@ export const ImageUpload = forwardRef<HTMLInputElement, ImageUploadProps>(
     const hasImage = !!srcUpload || (!!src && src !== AVATAR_THUMBNAIL);
 
     return (
-      <div className="flex flex-col justify-center items-center py-3 md:py-0">
+      <div className="flex flex-col justify-center items-center py-4">
         <div className="relative rounded-full" style={{ width, height }}>
           <label htmlFor="avatar" className="group cursor-pointer relative">
             {currentSrc && currentSrc !== AVATAR_THUMBNAIL ? (
