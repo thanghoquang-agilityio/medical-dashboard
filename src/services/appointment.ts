@@ -1,7 +1,7 @@
 import { revalidateTag } from 'next/cache';
 
 // Constants
-import { API_ENDPOINT } from '@/constants';
+import { API_ENDPOINT, EXCEPTION_ERROR_MESSAGE } from '@/constants';
 
 // Types
 import {
@@ -51,7 +51,7 @@ export const getAppointments = async ({
     const errorMessage =
       error instanceof Error
         ? error.message
-        : 'An unexpected error occurred in the request get appointments';
+        : EXCEPTION_ERROR_MESSAGE.GET('appointments');
 
     return { appointments: [], error: errorMessage };
   }
@@ -59,7 +59,6 @@ export const getAppointments = async ({
 
 export const addAppointment = async (
   appointment: AppointmentPayload,
-  signal?: AbortSignal,
 ): Promise<AppointmentDataResponse> => {
   try {
     const api = await apiClient.apiClientSession();
@@ -70,7 +69,6 @@ export const addAppointment = async (
       body: {
         data: appointment,
       },
-      signal,
     });
 
     if (error) {
@@ -86,7 +84,7 @@ export const addAppointment = async (
     const errorMessage =
       error instanceof Error
         ? error.message
-        : 'An unexpected error occurred in add appointment';
+        : EXCEPTION_ERROR_MESSAGE.ADD('appointment');
 
     return { appointment: null, error: errorMessage };
   }
@@ -122,7 +120,7 @@ export const updateAppointment = async (
     const errorMessage =
       error instanceof Error
         ? error.message
-        : 'An unexpected error occurred in update appointment';
+        : EXCEPTION_ERROR_MESSAGE.UPDATE('appointment');
 
     return { appointment: null, error: errorMessage };
   }
@@ -151,7 +149,7 @@ export const deleteAppointment = async (
     const errorMessage =
       error instanceof Error
         ? error.message
-        : 'An unexpected error occurred in delete appointment';
+        : EXCEPTION_ERROR_MESSAGE.DELETE('appointment');
 
     return { appointment: null, error: errorMessage };
   }
