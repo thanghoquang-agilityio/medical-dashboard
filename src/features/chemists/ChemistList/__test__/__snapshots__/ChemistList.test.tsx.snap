@@ -3,7 +3,7 @@
 exports[`ChemistList should render correctly 1`] = `
 <DocumentFragment>
   <div
-    class="flex flex-col mt-8 md:flex-row gap-4 md:mb-8"
+    class="flex flex-col mt-8 md:flex-row gap-4 md:mb-3"
   >
     <div
       class="group flex flex-col data-[hidden=true]:hidden w-full relative justify-end data-[has-label=true]:mt-[calc(theme(fontSize.small)_+_10px)]"
@@ -65,7 +65,7 @@ exports[`ChemistList should render correctly 1`] = `
               class="w-full font-normal !outline-none focus-visible:outline-none data-[has-start-content=true]:ps-1.5 data-[has-end-content=true]:pe-1.5 file:cursor-pointer file:bg-transparent file:border-0 autofill:bg-transparent bg-clip-text peer pr-6 rtl:pr-0 rtl:pl-6 group-data-[has-value=true]:text-default-foreground text-primary-100 placeholder:text-primary-300 bg-transparent text-sm mx-2 group-data-[invalid=true]:!text-danger-100"
               data-has-start-content="true"
               data-slot="input"
-              id="react-aria-:ri:"
+              id="react-aria-:rn:"
               placeholder="Search Chemists"
               type="text"
               value=""
@@ -98,53 +98,111 @@ exports[`ChemistList should render correctly 1`] = `
     <div
       class="flex justify-between md:gap-4 mb-10 md:mb-0 "
     >
-      <button
-        aria-expanded="false"
-        aria-haspopup="true"
-        aria-label="Dropdown button"
-        class="group relative items-center box-border appearance-none select-none whitespace-nowrap font-normal overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 px-4 min-w-20 text-small gap-2 [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none data-[hover=true]:opacity-hover z-10 aria-expanded:scale-[0.97] aria-expanded:opacity-70 subpixel-antialiased text-primary-100 rounded-lg bg-background-100 border-1 data-[focus=true]:border-primary data-[focus=true]:border-1 w-[200px] sm:w-[214px] h-[52px] flex justify-start capitalize"
-        data-slot="trigger"
-        id="react-aria-:rn:"
-        type="button"
+      <div
+        class="group flex flex-col w-full transition-background motion-reduce:transition-none !duration-150 group relative justify-end data-[has-label=true]:mt-[calc(theme(fontSize.small)_+_10px)]"
+        data-filled="true"
+        data-slot="base"
       >
         <div
-          class="text-primary-100 max-h-6 max-w-6"
+          aria-hidden="true"
+          data-a11y-ignore="aria-hidden-focus"
+          data-testid="hidden-select-container"
+          style="border: 0px; clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap;"
         >
-          <svg
-            class="w-4 h-4 md:w-6 md:h-6"
-            fill="none"
-            viewBox="0 0 24 24"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M10.5 19.9V4.1C10.5 2.6 9.86 2 8.27 2H4.23C2.64 2 2 2.6 2 4.1V19.9C2 21.4 2.64 22 4.23 22H8.27C9.86 22 10.5 21.4 10.5 19.9Z"
-              stroke="currentColor"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="1.5"
-            />
-            <path
-              d="M22 10.9V4.1C22 2.6 21.36 2 19.77 2H15.73C14.14 2 13.5 2.6 13.5 4.1V10.9C13.5 12.4 14.14 13 15.73 13H19.77C21.36 13 22 12.4 22 10.9Z"
-              stroke="currentColor"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="1.5"
-            />
-            <path
-              d="M22 19.9V18.1C22 16.6 21.36 16 19.77 16H15.73C14.14 16 13.5 16.6 13.5 18.1V19.9C13.5 21.4 14.14 22 15.73 22H19.77C21.36 22 22 21.4 22 19.9Z"
-              stroke="currentColor"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="1.5"
-            />
-          </svg>
+          <input
+            style="font-size: 16px;"
+            tabindex="-1"
+            type="text"
+            value=""
+          />
+          <label>
+            <select
+              size="6"
+              tabindex="-1"
+              title=""
+            >
+              <option />
+              <option
+                value="all"
+              >
+                All
+              </option>
+              <option
+                value="instrumentation"
+              >
+                Instrumentation
+              </option>
+              <option
+                value="laboratory_chemist"
+              >
+                Laboratory Chemist
+              </option>
+              <option
+                value="organic_chemist"
+              >
+                Organic Chemist
+              </option>
+              <option
+                value="power_plant_chemist"
+              >
+                Power Plant Chemist
+              </option>
+              <option
+                value="qc_chemist"
+              >
+                QC Chemist
+              </option>
+            </select>
+          </label>
         </div>
-        <p
-          class="text-ellipsis whitespace-nowrap overflow-hidden font-medium text-primary-100 text-sm"
+        <div
+          class="w-full flex flex-col"
+          data-slot="mainWrapper"
         >
-          All Chemists
-        </p>
-      </button>
+          <button
+            aria-expanded="false"
+            aria-haspopup="listbox"
+            aria-label="Select Specialty"
+            aria-labelledby="react-aria-:r13: react-aria-:ru:"
+            class="relative gap-3 inline-flex flex-row items-center shadow-sm tap-highlight-transparent group-data-[focus=true]:bg-default-100 min-h-10 outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 px-2.5 py-2 rounded-medium bg-background-100 shadow-stack border-1 outline-offset-0 data-[focus=true]:border-green data-[focus=true]:border-1 data-[focus=true]:bg-background-100 data-[hover=true]:bg-background-100 group-data-[invalid=true]:!border-danger-100 w-[180px] h-[52px]"
+            data-slot="trigger"
+            id="react-aria-:ru:"
+            type="button"
+          >
+            <div
+              class="inline-flex h-full min-h-4 items-center gap-1.5 box-border text-xs leading-[18px] group-data-[invalid=true]:!text-danger-100 w-[180px]"
+              data-slot="innerWrapper"
+            >
+              <span
+                class="w-full text-left rtl:text-right truncate group-data-[has-value=true]:text-default-foreground text-xs group-data-[invalid=true]:!text-danger-100 text-primary-100 font-medium"
+                data-slot="value"
+                id="react-aria-:r13:"
+              >
+                Specialty
+              </span>
+            </div>
+            <svg
+              aria-hidden="true"
+              class="absolute end-3 w-4 h-4 transition-transform duration-150 ease motion-reduce:transition-none data-[open=true]:rotate-180 text-primary-100"
+              data-slot="selectorIcon"
+              fill="none"
+              focusable="false"
+              height="1em"
+              role="presentation"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="1.5"
+              viewBox="0 0 24 24"
+              width="1em"
+            >
+              <path
+                d="m6 9 6 6 6-6"
+              />
+            </svg>
+          </button>
+        </div>
+      </div>
       <button
         class="z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap subpixel-antialiased overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 px-4 min-w-20 text-small gap-2 rounded-medium [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none data-[hover=true]:opacity-hover border-transparent bg-linear-success text-content1 font-medium h-[52px]"
         type="button"

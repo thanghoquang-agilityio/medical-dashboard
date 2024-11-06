@@ -223,23 +223,23 @@ describe('transformSpecialties function', () => {
         label: 'All',
       },
       {
-        key: '1',
+        key: 'instrumentation',
         label: 'Instrumentation',
       },
       {
-        key: '2',
+        key: 'laboratory_chemist',
         label: 'Laboratory Chemist',
       },
       {
-        key: '3',
+        key: 'organic_chemist',
         label: 'Organic Chemist',
       },
       {
-        key: '4',
+        key: 'power_plant_chemist',
         label: 'Power Plant Chemist',
       },
       {
-        key: '5',
+        key: 'qc_chemist',
         label: 'QC Chemist',
       },
     ];

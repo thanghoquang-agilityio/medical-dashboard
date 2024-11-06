@@ -3,7 +3,7 @@
 import { useDisclosure } from '@nextui-org/react';
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 import {
-  Key,
+  ChangeEvent,
   lazy,
   memo,
   Suspense,
@@ -24,18 +24,14 @@ import {
 } from '@/types';
 
 // Components
-import { Button, InputSearch, MenuDropdown, Text } from '@/components/ui';
-import { CategoryIcon } from '@/icons';
+import { Button, InputSearch, Select, Text } from '@/components/ui';
+
 import ChemistCard from '../ChemistCard';
 import ChemistModal from '../ChemistModal';
 import { ChemistListSkeleton } from './ChemistSkeleton';
 
 // Utils
-import {
-  formatSpecialtyString,
-  formatString,
-  transformSpecialties,
-} from '@/utils';
+import { formatString, transformSpecialties } from '@/utils';
 
 // Constants
 import { PAGE_DEFAULT, RESULT_NOT_FOUND } from '@/constants';
@@ -54,7 +50,7 @@ const ChemistList = memo(
     chemists,
     role,
     pagination,
-    defaultSpecialty,
+    defaultSpecialty = '',
     specialties,
   }: ChemistListProps) => {
     const { page = PAGE_DEFAULT, pageCount = PAGE_DEFAULT } = pagination ?? {};
@@ -72,7 +68,9 @@ const ChemistList = memo(
     const specialtyOptions = transformSpecialties(specialties);
     const specialtyOptionsForm = specialtyOptions.slice(1);
 
-    const [specialty, setSpecialty] = useState(new Set([defaultSpecialty]));
+    const [specialty, setSpecialty] = useState(
+      new Set<string>([defaultSpecialty]),
+    );
 
     const params = useMemo(
       () => new URLSearchParams(searchParams),
@@ -119,24 +117,24 @@ const ChemistList = memo(
     );
 
     const handleSelectSpecialty = useCallback(
-      (key: Key) => {
-        if (key !== specialty.values().next().value) params.delete('page');
+      (e: ChangeEvent<HTMLSelectElement>) => {
+        const value = e.target.value;
 
-        setSpecialty(new Set([key as string]));
+        if (value !== specialty?.values().next().value) params.delete('page');
 
-        // Find the selected specialty from specialtyOptions
-        const selectedSpecialty = specialtyOptions.find(
-          (option) => option.key === key,
-        );
-
-        if (key === 'all') {
+        if (value === 'all') {
           params.delete('specialty');
           handleReplaceURL?.(params);
 
           return;
         }
 
+        const selectedSpecialty = specialtyOptions.find(
+          ({ key }) => key === value,
+        );
         const { label = '' } = selectedSpecialty || {};
+        setSpecialty(new Set([value]));
+
         updateSearchParams(formatString(label));
       },
       [
@@ -169,18 +167,21 @@ const ChemistList = memo(
 
     return (
       <>
-        <div className="flex flex-col mt-8 md:flex-row gap-4 md:mb-8">
+        <div className="flex flex-col mt-8 md:flex-row gap-4 md:mb-3">
           <InputSearch placeholder="Search Chemists" value={search} />
           <div className="flex justify-between md:gap-4 mb-10 md:mb-0 ">
-            <MenuDropdown
-              icon={<CategoryIcon customClass="w-4 h-4 md:w-6 md:h-6" />}
-              label={formatSpecialtyString(defaultSpecialty || 'All Chemists')}
+            <Select
+              aria-label="Select Specialty"
               options={specialtyOptions}
+              selectedKeys={specialty}
+              defaultSelectedKeys={specialtyOptions[0].key}
+              placeholder="Specialty"
               classNames={{
-                trigger: 'w-[200px] sm:w-[214px] h-[52px]',
+                innerWrapper: 'w-[180px]',
+                trigger: 'w-[180px] h-[52px]',
+                listbox: 'px-0',
               }}
-              selectedKeys={specialtyOptions[0].key}
-              onAction={handleSelectSpecialty}
+              onChange={handleSelectSpecialty}
             />
             {isAdmin && (
               <Button className="font-medium h-[52px]" onClick={handleCreate}>
