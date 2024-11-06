@@ -16,7 +16,7 @@ import {
 import { apiClient } from './api';
 
 // Constants
-import { API_ENDPOINT } from '@/constants';
+import { API_ENDPOINT, EXCEPTION_ERROR_MESSAGE } from '@/constants';
 
 export const addUserToChemists = async (
   payload: ChemistPayload,
@@ -45,7 +45,7 @@ export const addUserToChemists = async (
     const errorMessage =
       error instanceof Error
         ? error.message
-        : 'An unexpected error occurred when adding user to chemists';
+        : EXCEPTION_ERROR_MESSAGE.ADD('user to chemists');
 
     return { chemist: null, error: errorMessage };
   }
@@ -85,7 +85,7 @@ export const getChemists = async ({
     const errorMessage =
       error instanceof Error
         ? error.message
-        : 'An unexpected error occurred in the request get chemists';
+        : EXCEPTION_ERROR_MESSAGE.GET('chemists');
 
     return { chemists: [], error: errorMessage };
   }

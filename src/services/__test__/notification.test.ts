@@ -7,17 +7,26 @@ import {
   getNotifications,
   updateNotification,
 } from '../notification';
+import { API_ENDPOINT, EXCEPTION_ERROR_MESSAGE } from '@/constants';
 
 jest.mock('next/cache');
 describe('Notification service test cases', () => {
+  afterEach(() => {
+    jest.clearAllMocks();
+  });
+
+  const mockGet = jest.fn();
+  const mockPost = jest.fn();
+  const mockPut = jest.fn();
+  const mockDelete = jest.fn();
   it('should return the list of notifications', async () => {
     jest.spyOn(apiClient, 'apiClientSession').mockResolvedValueOnce({
-      get: jest.fn().mockResolvedValueOnce({
+      get: mockGet.mockResolvedValueOnce({
         data: MOCK_NOTIFICATION_LIST,
         meta: {},
         error: null,
       }),
-    } as unknown as ApiClient);
+    } as Partial<ApiClient> as ApiClient);
 
     const result = await getNotifications({});
 
@@ -25,11 +34,16 @@ describe('Notification service test cases', () => {
       notifications: MOCK_NOTIFICATION_LIST,
       error: null,
     });
+
+    expect(mockGet).toHaveBeenCalledWith(
+      `${API_ENDPOINT.NOTIFICATIONS}?`,
+      expect.anything(),
+    );
   });
 
   it('should return error message when there are errors during getting notification list', async () => {
     jest.spyOn(apiClient, 'apiClientSession').mockResolvedValueOnce({
-      get: jest.fn().mockResolvedValueOnce({
+      get: mockGet.mockResolvedValueOnce({
         data: [],
         meta: {},
         error: JSON.stringify({
@@ -38,7 +52,7 @@ describe('Notification service test cases', () => {
           },
         }),
       }),
-    } as unknown as ApiClient);
+    } as Partial<ApiClient> as ApiClient);
 
     const result = await getNotifications({});
 
@@ -46,14 +60,19 @@ describe('Notification service test cases', () => {
       notifications: [],
       error: 'Something went wrong',
     });
+
+    expect(mockGet).toHaveBeenCalledWith(
+      `${API_ENDPOINT.NOTIFICATIONS}?`,
+      expect.anything(),
+    );
   });
 
   it('should handle error exception when getting notification list', async () => {
     const api = jest.spyOn(apiClient, 'apiClientSession');
 
     api.mockResolvedValueOnce({
-      get: jest.fn().mockRejectedValueOnce(new Error('Mock error exception')),
-    } as unknown as ApiClient);
+      get: mockGet.mockRejectedValueOnce(new Error('Mock error exception')),
+    } as Partial<ApiClient> as ApiClient);
 
     let result = await getNotifications({});
 
@@ -63,24 +82,24 @@ describe('Notification service test cases', () => {
     });
 
     api.mockResolvedValueOnce({
-      get: jest.fn().mockRejectedValueOnce({}),
-    } as unknown as ApiClient);
+      get: mockGet.mockRejectedValueOnce({}),
+    } as Partial<ApiClient> as ApiClient);
 
     result = await getNotifications({});
 
     expect(result).toEqual({
       notifications: [],
-      error: 'An unexpected error occurred in the request get notifications',
+      error: EXCEPTION_ERROR_MESSAGE.GET('notifications'),
     });
   });
 
   it('should return the notification when adding', async () => {
     jest.spyOn(apiClient, 'apiClientSession').mockResolvedValueOnce({
-      post: jest.fn().mockResolvedValueOnce({
+      post: mockPost.mockResolvedValueOnce({
         data: MOCK_NOTIFICATION_LIST[0],
         error: null,
       }),
-    } as unknown as ApiClient);
+    } as Partial<ApiClient> as ApiClient);
 
     const result = await addNotification({
       ...MOCK_NOTIFICATION_LIST[0].attributes,
@@ -91,11 +110,20 @@ describe('Notification service test cases', () => {
       notification: MOCK_NOTIFICATION_LIST[0],
       error: null,
     });
+
+    expect(mockPost).toHaveBeenCalledWith(`${API_ENDPOINT.NOTIFICATIONS}`, {
+      body: {
+        data: {
+          ...MOCK_NOTIFICATION_LIST[0].attributes,
+          senderId: '1',
+        },
+      },
+    });
   });
 
   it('should return error message when there are errors during adding notification', async () => {
     jest.spyOn(apiClient, 'apiClientSession').mockResolvedValueOnce({
-      post: jest.fn().mockResolvedValueOnce({
+      post: mockPost.mockResolvedValueOnce({
         data: null,
         error: JSON.stringify({
           error: {
@@ -103,7 +131,7 @@ describe('Notification service test cases', () => {
           },
         }),
       }),
-    } as unknown as ApiClient);
+    } as Partial<ApiClient> as ApiClient);
 
     const result = await addNotification({
       ...MOCK_NOTIFICATION_LIST[0].attributes,
@@ -114,14 +142,23 @@ describe('Notification service test cases', () => {
       notification: null,
       error: 'Something went wrong',
     });
+
+    expect(mockPost).toHaveBeenCalledWith(`${API_ENDPOINT.NOTIFICATIONS}`, {
+      body: {
+        data: {
+          ...MOCK_NOTIFICATION_LIST[0].attributes,
+          senderId: '1',
+        },
+      },
+    });
   });
 
   it('should handle error exception when adding notification list', async () => {
     const api = jest.spyOn(apiClient, 'apiClientSession');
 
     api.mockResolvedValueOnce({
-      post: jest.fn().mockRejectedValueOnce(new Error('Mock error exception')),
-    } as unknown as ApiClient);
+      post: mockPost.mockRejectedValueOnce(new Error('Mock error exception')),
+    } as Partial<ApiClient> as ApiClient);
 
     let result = await addNotification({
       ...MOCK_NOTIFICATION_LIST[0].attributes,
@@ -134,8 +171,8 @@ describe('Notification service test cases', () => {
     });
 
     api.mockResolvedValueOnce({
-      post: jest.fn().mockRejectedValueOnce({}),
-    } as unknown as ApiClient);
+      post: mockPost.mockRejectedValueOnce({}),
+    } as Partial<ApiClient> as ApiClient);
 
     result = await addNotification({
       ...MOCK_NOTIFICATION_LIST[0].attributes,
@@ -144,17 +181,26 @@ describe('Notification service test cases', () => {
 
     expect(result).toEqual({
       notification: null,
-      error: 'An unexpected error occurred in add notification',
+      error: EXCEPTION_ERROR_MESSAGE.ADD('notification'),
+    });
+
+    expect(mockPost).toHaveBeenCalledWith(`${API_ENDPOINT.NOTIFICATIONS}`, {
+      body: {
+        data: {
+          ...MOCK_NOTIFICATION_LIST[0].attributes,
+          senderId: '1',
+        },
+      },
     });
   });
 
   it('should return the notification when updating', async () => {
     jest.spyOn(apiClient, 'apiClientSession').mockResolvedValueOnce({
-      put: jest.fn().mockResolvedValueOnce({
+      put: mockPut.mockResolvedValueOnce({
         data: MOCK_NOTIFICATION_LIST[0],
         error: null,
       }),
-    } as unknown as ApiClient);
+    } as Partial<ApiClient> as ApiClient);
 
     const result = await updateNotification('1', {
       ...MOCK_NOTIFICATION_LIST[0].attributes,
@@ -165,11 +211,20 @@ describe('Notification service test cases', () => {
       notification: MOCK_NOTIFICATION_LIST[0],
       error: null,
     });
+
+    expect(mockPut).toHaveBeenCalledWith(`${API_ENDPOINT.NOTIFICATIONS}/1`, {
+      body: {
+        data: {
+          ...MOCK_NOTIFICATION_LIST[0].attributes,
+          senderId: '1',
+        },
+      },
+    });
   });
 
   it('should return error message when there are errors during updating notification', async () => {
     jest.spyOn(apiClient, 'apiClientSession').mockResolvedValueOnce({
-      put: jest.fn().mockResolvedValueOnce({
+      put: mockPut.mockResolvedValueOnce({
         data: null,
         error: JSON.stringify({
           error: {
@@ -177,7 +232,7 @@ describe('Notification service test cases', () => {
           },
         }),
       }),
-    } as unknown as ApiClient);
+    } as Partial<ApiClient> as ApiClient);
 
     const result = await updateNotification('1', {
       ...MOCK_NOTIFICATION_LIST[0].attributes,
@@ -188,14 +243,23 @@ describe('Notification service test cases', () => {
       notification: null,
       error: 'Something went wrong',
     });
+
+    expect(mockPut).toHaveBeenCalledWith(`${API_ENDPOINT.NOTIFICATIONS}/1`, {
+      body: {
+        data: {
+          ...MOCK_NOTIFICATION_LIST[0].attributes,
+          senderId: '1',
+        },
+      },
+    });
   });
 
   it('should handle error exception when updating notification list', async () => {
     const api = jest.spyOn(apiClient, 'apiClientSession');
 
     api.mockResolvedValueOnce({
-      put: jest.fn().mockRejectedValueOnce(new Error('Mock error exception')),
-    } as unknown as ApiClient);
+      put: mockPut.mockRejectedValueOnce(new Error('Mock error exception')),
+    } as Partial<ApiClient> as ApiClient);
 
     let result = await updateNotification('1', {
       ...MOCK_NOTIFICATION_LIST[0].attributes,
@@ -208,8 +272,8 @@ describe('Notification service test cases', () => {
     });
 
     api.mockResolvedValueOnce({
-      put: jest.fn().mockRejectedValueOnce({}),
-    } as unknown as ApiClient);
+      put: mockPut.mockRejectedValueOnce({}),
+    } as Partial<ApiClient> as ApiClient);
 
     result = await updateNotification('1', {
       ...MOCK_NOTIFICATION_LIST[0].attributes,
@@ -218,17 +282,26 @@ describe('Notification service test cases', () => {
 
     expect(result).toEqual({
       notification: null,
-      error: 'An unexpected error occurred in update notification',
+      error: EXCEPTION_ERROR_MESSAGE.UPDATE('notification'),
+    });
+
+    expect(mockPut).toHaveBeenCalledWith(`${API_ENDPOINT.NOTIFICATIONS}/1`, {
+      body: {
+        data: {
+          ...MOCK_NOTIFICATION_LIST[0].attributes,
+          senderId: '1',
+        },
+      },
     });
   });
 
   it('should return the notification when deleting', async () => {
     jest.spyOn(apiClient, 'apiClientSession').mockResolvedValueOnce({
-      delete: jest.fn().mockResolvedValueOnce({
+      delete: mockDelete.mockResolvedValueOnce({
         data: MOCK_NOTIFICATION_LIST[0],
         error: null,
       }),
-    } as unknown as ApiClient);
+    } as Partial<ApiClient> as ApiClient);
 
     const result = await deleteNotification('1');
 
@@ -236,11 +309,13 @@ describe('Notification service test cases', () => {
       notification: MOCK_NOTIFICATION_LIST[0],
       error: null,
     });
+
+    expect(mockDelete).toHaveBeenCalledWith(`${API_ENDPOINT.NOTIFICATIONS}/1`);
   });
 
   it('should return error message when there are errors during deleting notification', async () => {
     jest.spyOn(apiClient, 'apiClientSession').mockResolvedValueOnce({
-      delete: jest.fn().mockResolvedValueOnce({
+      delete: mockDelete.mockResolvedValueOnce({
         data: null,
         error: JSON.stringify({
           error: {
@@ -248,7 +323,7 @@ describe('Notification service test cases', () => {
           },
         }),
       }),
-    } as unknown as ApiClient);
+    } as Partial<ApiClient> as ApiClient);
 
     const result = await deleteNotification('1');
 
@@ -256,16 +331,18 @@ describe('Notification service test cases', () => {
       notification: null,
       error: 'Something went wrong',
     });
+
+    expect(mockDelete).toHaveBeenCalledWith(`${API_ENDPOINT.NOTIFICATIONS}/1`);
   });
 
   it('should handle error exception when deleting notification', async () => {
     const api = jest.spyOn(apiClient, 'apiClientSession');
 
     api.mockResolvedValueOnce({
-      delete: jest
-        .fn()
-        .mockRejectedValueOnce(new Error('Mock error exception')),
-    } as unknown as ApiClient);
+      delete: mockDelete.mockRejectedValueOnce(
+        new Error('Mock error exception'),
+      ),
+    } as Partial<ApiClient> as ApiClient);
 
     let result = await deleteNotification('1');
 
@@ -276,13 +353,15 @@ describe('Notification service test cases', () => {
 
     api.mockResolvedValueOnce({
       delete: jest.fn().mockRejectedValueOnce({}),
-    } as unknown as ApiClient);
+    } as Partial<ApiClient> as ApiClient);
 
     result = await deleteNotification('1');
 
     expect(result).toEqual({
       notification: null,
-      error: 'An unexpected error occurred in delete notification',
+      error: EXCEPTION_ERROR_MESSAGE.DELETE('notification'),
     });
+
+    expect(mockDelete).toHaveBeenCalledWith(`${API_ENDPOINT.NOTIFICATIONS}/1`);
   });
 });
