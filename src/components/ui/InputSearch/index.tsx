@@ -1,7 +1,8 @@
 'use client';
 
-import { memo, useCallback, useMemo } from 'react';
+import { ChangeEvent, memo, useCallback, useMemo } from 'react';
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
+import { useDebouncedCallback } from 'use-debounce';
 
 // Utils
 import { cn } from '@/utils';
@@ -44,16 +45,24 @@ export const InputSearch = memo(
       updateSearchParams(value);
     });
 
-    // Handle input changes
-    const handleChange = useCallback(
-      (event: React.ChangeEvent<HTMLInputElement>) => {
+    const handleChangeInput = useDebouncedCallback(
+      (event: ChangeEvent<HTMLInputElement>) => {
         const { value } = event.target;
-        params.delete('page');
-        debouncedSearchTerm(value);
+        updateSearchParams(value);
       },
-
-      [params, debouncedSearchTerm],
+      500,
     );
+
+    // Handle input changes
+    // const handleChange = useCallback(
+    //   (event: React.ChangeEvent<HTMLInputElement>) => {
+    //     const { value } = event.target;
+    //     params.delete('page');
+    //     debouncedSearchTerm(value);
+    //   },
+
+    //   [params, debouncedSearchTerm],
+    // );
 
     // Handle clear input
     const handleClear = () => {
@@ -78,7 +87,7 @@ export const InputSearch = memo(
         isClearable
         autoFocus={!!value}
         onClear={handleClear}
-        onChange={handleChange}
+        onChange={handleChangeInput}
         defaultValue={searchParams.get('search')?.toString()}
         {...props}
       />
