@@ -25,6 +25,9 @@ jest.mock('next/navigation', () => ({
 
 jest.mock('@/utils', () => ({
   cn: jest.fn(() => 'mocked-class'),
+  getObjectValue: jest.fn(),
+  formatTimeAppointment: jest.fn(),
+  formatNewDate: jest.fn(),
 }));
 
 describe('DataGrid', () => {
@@ -45,8 +48,7 @@ describe('DataGrid', () => {
     jest.clearAllMocks();
   });
 
-  // TODO: will update test in another MR
-  it.skip('Should matches snapshot', async () => {
+  it('Should matches snapshot', async () => {
     jest.spyOn(URLSearchParams.prototype, 'get').mockReturnValue('1');
 
     const { container } = renderResult;
@@ -54,8 +56,7 @@ describe('DataGrid', () => {
     expect(container).toMatchSnapshot();
   });
 
-  // TODO: will update test in another MR
-  it.skip('Should show empty result', async () => {
+  it('Should show empty result', async () => {
     jest.spyOn(URLSearchParams.prototype, 'get').mockReturnValue('1');
 
     const { getByText } = await act(() =>

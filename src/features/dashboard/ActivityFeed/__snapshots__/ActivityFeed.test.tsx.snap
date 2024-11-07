@@ -3,7 +3,7 @@
 exports[`ActivityFeed test cases should render correctly with props 1`] = `
 <DocumentFragment>
   <div
-    class="flex flex-col relative overflow-hidden text-foreground box-border outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 shadow-medium rounded-large transition-transform-background motion-reduce:transition-none bg-background-200 h-fit w-full p-4 md:pl-7"
+    class="flex flex-col relative overflow-hidden text-foreground box-border outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 shadow-medium rounded-large transition-transform-background motion-reduce:transition-none bg-background-200 h-fit w-full p-4 md:py-5"
     tabindex="-1"
   >
     <p
@@ -24,7 +24,7 @@ exports[`ActivityFeed test cases should render correctly with props 1`] = `
             aria-describedby=""
             aria-label="Table"
             class="min-w-full h-auto table-auto w-full"
-            id="table"
+            id="activity-feed"
             role="grid"
             tabindex="0"
           >
@@ -39,7 +39,7 @@ exports[`ActivityFeed test cases should render correctly with props 1`] = `
                 <th
                   class="group px-3 h-10 align-middle bg-default-100 whitespace-nowrap text-foreground-500 text-tiny font-semibold first:rounded-s-lg last:rounded-e-lg data-[sortable=true]:cursor-pointer data-[hover=true]:text-foreground-400 outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-start"
                   data-key="sender"
-                  id="table-sender"
+                  id="activity-feed-sender"
                   role="columnheader"
                   tabindex="-1"
                 >
@@ -48,7 +48,7 @@ exports[`ActivityFeed test cases should render correctly with props 1`] = `
                 <th
                   class="group px-3 h-10 align-middle bg-default-100 whitespace-nowrap text-foreground-500 text-tiny font-semibold first:rounded-s-lg last:rounded-e-lg data-[sortable=true]:cursor-pointer data-[hover=true]:text-foreground-400 outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-start"
                   data-key="status"
-                  id="table-status"
+                  id="activity-feed-status"
                   role="columnheader"
                   tabindex="-1"
                 >
@@ -70,7 +70,7 @@ exports[`ActivityFeed test cases should render correctly with props 1`] = `
                 role="row"
               >
                 <td
-                  class="align-middle text-center h-40 text-primary-100 text-xl font-medium"
+                  class="align-middle text-center text-primary-100 text-xl font-medium h-[152px] pb-4"
                   colspan="2"
                   role="gridcell"
                 >
@@ -89,7 +89,7 @@ exports[`ActivityFeed test cases should render correctly with props 1`] = `
 exports[`ActivityFeed test cases should render correctly without empty role 1`] = `
 <DocumentFragment>
   <div
-    class="flex flex-col relative overflow-hidden text-foreground box-border outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 shadow-medium rounded-large transition-transform-background motion-reduce:transition-none bg-background-200 h-fit w-full p-4 md:pl-7"
+    class="flex flex-col relative overflow-hidden text-foreground box-border outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 shadow-medium rounded-large transition-transform-background motion-reduce:transition-none bg-background-200 h-fit w-full p-4 md:py-5"
     tabindex="-1"
   >
     <p
@@ -110,7 +110,7 @@ exports[`ActivityFeed test cases should render correctly without empty role 1`] 
             aria-describedby=""
             aria-label="Table"
             class="min-w-full h-auto table-auto w-full"
-            id="table"
+            id="activity-feed"
             role="grid"
             tabindex="0"
           >
@@ -125,7 +125,7 @@ exports[`ActivityFeed test cases should render correctly without empty role 1`] 
                 <th
                   class="group px-3 h-10 align-middle bg-default-100 whitespace-nowrap text-foreground-500 text-tiny font-semibold first:rounded-s-lg last:rounded-e-lg data-[sortable=true]:cursor-pointer data-[hover=true]:text-foreground-400 outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-start"
                   data-key="sender"
-                  id="table-sender"
+                  id="activity-feed-sender"
                   role="columnheader"
                   tabindex="-1"
                 >
@@ -134,7 +134,7 @@ exports[`ActivityFeed test cases should render correctly without empty role 1`] 
                 <th
                   class="group px-3 h-10 align-middle bg-default-100 whitespace-nowrap text-foreground-500 text-tiny font-semibold first:rounded-s-lg last:rounded-e-lg data-[sortable=true]:cursor-pointer data-[hover=true]:text-foreground-400 outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-start"
                   data-key="status"
-                  id="table-status"
+                  id="activity-feed-status"
                   role="columnheader"
                   tabindex="-1"
                 >
@@ -156,7 +156,7 @@ exports[`ActivityFeed test cases should render correctly without empty role 1`] 
                 role="row"
               >
                 <td
-                  class="align-middle text-center h-40 text-primary-100 text-xl font-medium"
+                  class="align-middle text-center text-primary-100 text-xl font-medium h-[152px] pb-4"
                   colspan="2"
                   role="gridcell"
                 >

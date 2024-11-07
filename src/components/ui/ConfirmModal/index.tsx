@@ -22,6 +22,7 @@ const ConfirmModal = ({
   onAction,
 }: ConfirmModalProps) => (
   <BaseModal
+    aria-label="confirm-modal"
     isOpen={isOpen}
     onClose={onClose}
     placement="center"

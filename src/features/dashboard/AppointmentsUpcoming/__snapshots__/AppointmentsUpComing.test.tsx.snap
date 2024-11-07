@@ -3,14 +3,14 @@
 exports[`AppointmentsUpComing test cases should render correctly 1`] = `
 <DocumentFragment>
   <div
-    class="flex flex-col relative overflow-hidden text-foreground box-border outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 shadow-medium rounded-large transition-transform-background motion-reduce:transition-none w-full lg:max-w-[320px] 2xl:max-w-[550px] h-fit p-4 pl-5 bg-background-200"
+    class="flex flex-col relative overflow-hidden text-foreground box-border outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 shadow-medium rounded-large transition-transform-background motion-reduce:transition-none w-full xl:max-w-[320px] 2xl:max-w-[550px] h-fit py-4 px-5 bg-background-200"
     tabindex="-1"
   >
     <div
       class="flex justify-between items-center"
     >
       <p
-        class="text-ellipsis whitespace-nowrap overflow-hidden text-lg font-bold text-primary-100"
+        class="mocked-class"
       >
         Appointments
       </p>
@@ -51,9 +51,9 @@ exports[`AppointmentsUpComing test cases should render correctly 1`] = `
                   Meeting
                 </option>
                 <option
-                  value="canceled"
+                  value="cancelled"
                 >
-                  Canceled
+                  Cancelled
                 </option>
               </select>
             </label>
@@ -66,20 +66,20 @@ exports[`AppointmentsUpComing test cases should render correctly 1`] = `
               aria-expanded="false"
               aria-haspopup="listbox"
               aria-label="appointment status"
-              aria-labelledby="react-aria-:r7: react-aria-:r2:"
-              class="relative gap-3 w-full inline-flex flex-row items-center shadow-sm tap-highlight-transparent group-data-[focus=true]:bg-default-100 outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 px-2.5 py-2 h-[46px] rounded-medium bg-background-100 shadow-stack border-1 outline-offset-0 data-[focus=true]:border-green data-[focus=true]:border-1 data-[focus=true]:bg-background-100 data-[hover=true]:bg-background-100 group-data-[invalid=true]:border-red min-h-[36px]"
+              aria-labelledby="react-aria-:rh: react-aria-:rc:"
+              class="relative gap-3 w-full inline-flex flex-row items-center shadow-sm tap-highlight-transparent group-data-[focus=true]:bg-default-100 outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 px-2.5 py-2 h-[46px] rounded-medium bg-background-100 shadow-stack border-1 outline-offset-0 data-[focus=true]:border-green data-[focus=true]:border-1 data-[focus=true]:bg-background-100 data-[hover=true]:bg-background-100 group-data-[invalid=true]:!border-danger-100 min-h-[36px]"
               data-slot="trigger"
-              id="react-aria-:r2:"
+              id="react-aria-:rc:"
               type="button"
             >
               <div
-                class="inline-flex h-full min-h-4 items-center gap-1.5 box-border text-xs leading-[18px] w-[80px]"
+                class="inline-flex h-full min-h-4 items-center gap-1.5 box-border text-xs leading-[18px] group-data-[invalid=true]:!text-danger-100 w-[80px]"
                 data-slot="innerWrapper"
               >
                 <span
-                  class="w-full text-left rtl:text-right truncate group-data-[has-value=true]:text-default-foreground text-xs text-primary-100 font-medium"
+                  class="w-full text-left rtl:text-right truncate group-data-[has-value=true]:text-default-foreground text-xs group-data-[invalid=true]:!text-danger-100 text-primary-100 font-medium"
                   data-slot="value"
-                  id="react-aria-:r7:"
+                  id="react-aria-:rh:"
                 >
                   New
                 </span>
@@ -112,13 +112,13 @@ exports[`AppointmentsUpComing test cases should render correctly 1`] = `
       class="flex flex-col relative gap-4 w-full"
     >
       <div
-        class="z-0 flex flex-col relative justify-between gap-4 overflow-auto rounded-large w-full bg-transparent-200 shadow-none p-0 pt-4"
+        class="p-4 z-0 flex flex-col relative justify-between gap-4 bg-content1 overflow-auto rounded-large shadow-small w-full mocked-class"
       >
         <table
           aria-describedby=""
           aria-label="Table"
           class="min-w-full h-auto table-auto w-full"
-          id="table"
+          id="appointment-upcoming"
           role="grid"
           tabindex="0"
         >
@@ -133,7 +133,7 @@ exports[`AppointmentsUpComing test cases should render correctly 1`] = `
               <th
                 class="group px-3 h-10 align-middle bg-default-100 whitespace-nowrap text-foreground-500 text-tiny font-semibold first:rounded-s-lg last:rounded-e-lg data-[sortable=true]:cursor-pointer data-[hover=true]:text-foreground-400 outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-start"
                 data-key="startTime"
-                id="table-startTime"
+                id="appointment-upcoming-startTime"
                 role="columnheader"
                 tabindex="-1"
               >
@@ -141,17 +141,17 @@ exports[`AppointmentsUpComing test cases should render correctly 1`] = `
               </th>
               <th
                 class="group px-3 h-10 align-middle bg-default-100 whitespace-nowrap text-foreground-500 text-tiny font-semibold first:rounded-s-lg last:rounded-e-lg data-[sortable=true]:cursor-pointer data-[hover=true]:text-foreground-400 outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-start"
-                data-key="receiverId"
-                id="table-receiverId"
+                data-key="senderId"
+                id="appointment-upcoming-senderId"
                 role="columnheader"
                 tabindex="-1"
               >
-                Receiver
+                Sender
               </th>
               <th
                 class="group px-3 h-10 align-middle bg-default-100 whitespace-nowrap text-foreground-500 text-tiny font-semibold first:rounded-s-lg last:rounded-e-lg data-[sortable=true]:cursor-pointer data-[hover=true]:text-foreground-400 outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-start"
                 data-key="durationTime"
-                id="table-durationTime"
+                id="appointment-upcoming-durationTime"
                 role="columnheader"
                 tabindex="-1"
               >
@@ -160,7 +160,7 @@ exports[`AppointmentsUpComing test cases should render correctly 1`] = `
               <th
                 class="group px-3 h-10 align-middle bg-default-100 whitespace-nowrap text-foreground-500 text-tiny font-semibold first:rounded-s-lg last:rounded-e-lg data-[sortable=true]:cursor-pointer data-[hover=true]:text-foreground-400 outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-start"
                 data-key="actions"
-                id="table-actions"
+                id="appointment-upcoming-actions"
                 role="columnheader"
                 tabindex="-1"
               >
@@ -178,7 +178,7 @@ exports[`AppointmentsUpComing test cases should render correctly 1`] = `
             role="rowgroup"
           >
             <tr
-              aria-labelledby="table-1-startTime"
+              aria-labelledby="appointment-upcoming-1-startTime"
               class="group outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2"
               data-first="true"
               data-key="1"
@@ -186,77 +186,107 @@ exports[`AppointmentsUpComing test cases should render correctly 1`] = `
               tabindex="-1"
             >
               <td
-                class="relative align-middle whitespace-normal text-small font-normal [&>*]:z-1 [&>*]:relative outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 before:content-[''] before:absolute before:z-0 before:inset-0 before:opacity-0 data-[selected=true]:before:opacity-100 group-data-[disabled=true]:text-foreground-300 group-data-[disabled=true]:cursor-not-allowed before:bg-default/60 data-[selected=true]:text-default-foreground first:before:rounded-s-lg last:before:rounded-e-lg text-start p-0 pb-4"
+                class="py-2 px-3 relative align-middle whitespace-normal text-small font-normal [&>*]:z-1 [&>*]:relative outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 before:content-[''] before:absolute before:z-0 before:inset-0 before:opacity-0 data-[selected=true]:before:opacity-100 group-data-[disabled=true]:text-foreground-300 group-data-[disabled=true]:cursor-not-allowed before:bg-default/60 data-[selected=true]:text-default-foreground first:before:rounded-s-lg last:before:rounded-e-lg text-start mocked-class"
                 data-key="table-row-cell-startTime"
-                id="table-1-startTime"
-                role="rowheader"
+                headers="appointment-upcoming-startTime"
+                id="appointment-upcoming-1-startTime"
+                role="cell"
                 tabindex="-1"
               >
                 <div
                   class="rounded-md w-[30px] md:w-[37px] h-10 bg-background-100 text-center pt-1"
                 >
                   <p
-                    class="text-ellipsis whitespace-nowrap overflow-hidden text-xs text-yellow font-bold"
+                    class="mocked-class"
                   >
                     Wed
                   </p>
                   <p
-                    class="text-primary-100 font-medium text-ellipsis whitespace-nowrap overflow-hidden text-xs"
+                    class="mocked-class"
                   >
                     11
                   </p>
                 </div>
               </td>
               <td
-                class="relative align-middle whitespace-normal text-small font-normal [&>*]:z-1 [&>*]:relative outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 before:content-[''] before:absolute before:z-0 before:inset-0 before:opacity-0 data-[selected=true]:before:opacity-100 group-data-[disabled=true]:text-foreground-300 group-data-[disabled=true]:cursor-not-allowed before:bg-default/60 data-[selected=true]:text-default-foreground first:before:rounded-s-lg last:before:rounded-e-lg text-start p-0 pb-4"
-                data-key="table-row-cell-receiverId"
-                role="gridcell"
+                class="py-2 px-3 relative align-middle whitespace-normal text-small font-normal [&>*]:z-1 [&>*]:relative outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 before:content-[''] before:absolute before:z-0 before:inset-0 before:opacity-0 data-[selected=true]:before:opacity-100 group-data-[disabled=true]:text-foreground-300 group-data-[disabled=true]:cursor-not-allowed before:bg-default/60 data-[selected=true]:text-default-foreground first:before:rounded-s-lg last:before:rounded-e-lg text-start mocked-class"
+                data-key="table-row-cell-senderId"
+                headers="appointment-upcoming-senderId"
+                role="cell"
                 tabindex="-1"
               >
                 <p
-                  class="text-primary-100 font-medium text-ellipsis whitespace-nowrap overflow-hidden text-xs md:text-sm"
+                  class="mocked-class"
                 >
-                  Jessica Jane
+                  Alex Stanton
                 </p>
                 <p
-                  class="text-xs text-ellipsis whitespace-nowrap overflow-hidden text-primary-300 font-light hidden lg:block"
+                  class="mocked-class"
                 >
-                  1:30 PM to 3:00 PM
+                  1:30 pm to 3:00 pm
                 </p>
               </td>
               <td
-                class="relative align-middle whitespace-normal text-small font-normal [&>*]:z-1 [&>*]:relative outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 before:content-[''] before:absolute before:z-0 before:inset-0 before:opacity-0 data-[selected=true]:before:opacity-100 group-data-[disabled=true]:text-foreground-300 group-data-[disabled=true]:cursor-not-allowed before:bg-default/60 data-[selected=true]:text-default-foreground first:before:rounded-s-lg last:before:rounded-e-lg text-start p-0 pb-4"
+                class="py-2 px-3 relative align-middle whitespace-normal text-small font-normal [&>*]:z-1 [&>*]:relative outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 before:content-[''] before:absolute before:z-0 before:inset-0 before:opacity-0 data-[selected=true]:before:opacity-100 group-data-[disabled=true]:text-foreground-300 group-data-[disabled=true]:cursor-not-allowed before:bg-default/60 data-[selected=true]:text-default-foreground first:before:rounded-s-lg last:before:rounded-e-lg text-start mocked-class"
                 data-key="table-row-cell-durationTime"
-                role="gridcell"
+                headers="appointment-upcoming-durationTime"
+                role="cell"
                 tabindex="-1"
               >
                 <p
-                  class="text-xs text-ellipsis whitespace-nowrap overflow-hidden text-primary-300 font-light lg:hidden"
+                  class="mocked-class"
                 >
-                  1:30 PM to 3:00 PM
+                  1:30 pm to 3:00 pm
                 </p>
               </td>
               <td
-                class="relative align-middle whitespace-normal text-small font-normal [&>*]:z-1 [&>*]:relative outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 before:content-[''] before:absolute before:z-0 before:inset-0 before:opacity-0 data-[selected=true]:before:opacity-100 group-data-[disabled=true]:text-foreground-300 group-data-[disabled=true]:cursor-not-allowed before:bg-default/60 data-[selected=true]:text-default-foreground first:before:rounded-s-lg last:before:rounded-e-lg text-start p-0 pb-4"
+                class="py-2 px-3 relative align-middle whitespace-normal text-small font-normal [&>*]:z-1 [&>*]:relative outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 before:content-[''] before:absolute before:z-0 before:inset-0 before:opacity-0 data-[selected=true]:before:opacity-100 group-data-[disabled=true]:text-foreground-300 group-data-[disabled=true]:cursor-not-allowed before:bg-default/60 data-[selected=true]:text-default-foreground first:before:rounded-s-lg last:before:rounded-e-lg text-start mocked-class"
                 data-key="table-row-cell-actions"
-                role="gridcell"
+                headers="appointment-upcoming-actions"
+                role="cell"
                 tabindex="-1"
               >
                 <div
                   class="flex justify-end"
                 >
                   <button
-                    aria-label="actions"
-                    class="z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap subpixel-antialiased overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-small gap-2 [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none data-[hover=true]:opacity-hover border-transparent font-semibold text-primary-200 p-0 min-w-4 h-4 md:h-[26px] md:min-w-[26px] bg-background-100 rounded-md"
+                    aria-expanded="false"
+                    aria-haspopup="true"
+                    aria-label="Dropdown button"
+                    class="group relative items-center box-border appearance-none select-none whitespace-nowrap font-normal overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 px-4 min-w-20 h-10 text-small gap-2 rounded-medium [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-default text-default-foreground data-[hover=true]:opacity-hover z-10 aria-expanded:scale-[0.97] aria-expanded:opacity-70 subpixel-antialiased mocked-class flex justify-start capitalize"
+                    data-slot="trigger"
+                    id="react-aria-:rk:"
                     type="button"
                   >
-                    1
+                    <div
+                      class="text-primary-100 max-h-6 max-w-6"
+                    >
+                      <svg
+                        class="w-[11px] h-[11px] md:w-4 md:h-4"
+                        fill="none"
+                        viewBox="0 0 16 16"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M8 6C6.90076 6 6 6.90076 6 8C6 9.09924 6.90076 10 8 10C9.09924 10 10 9.09924 10 8C10 6.90076 9.09924 6 8 6Z"
+                          fill="currentColor"
+                        />
+                        <path
+                          d="M8 0C6.90076 0 6 0.900764 6 2C6 3.09924 6.90076 4 8 4C9.09924 4 10 3.09924 10 2C10 0.900764 9.09924 0 8 0Z"
+                          fill="currentColor"
+                        />
+                        <path
+                          d="M8 12C6.90076 12 6 12.9008 6 14C6 15.0992 6.90076 16 8 16C9.09924 16 10 15.0992 10 14C10 12.9008 9.09924 12 8 12Z"
+                          fill="currentColor"
+                        />
+                      </svg>
+                    </div>
                   </button>
                 </div>
               </td>
             </tr>
             <tr
-              aria-labelledby="table-2-startTime"
+              aria-labelledby="appointment-upcoming-2-startTime"
               class="group outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2"
               data-key="2"
               data-middle="true"
@@ -265,77 +295,107 @@ exports[`AppointmentsUpComing test cases should render correctly 1`] = `
               tabindex="-1"
             >
               <td
-                class="relative align-middle whitespace-normal text-small font-normal [&>*]:z-1 [&>*]:relative outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 before:content-[''] before:absolute before:z-0 before:inset-0 before:opacity-0 data-[selected=true]:before:opacity-100 group-data-[disabled=true]:text-foreground-300 group-data-[disabled=true]:cursor-not-allowed before:bg-default/60 data-[selected=true]:text-default-foreground first:before:rounded-s-lg last:before:rounded-e-lg text-start p-0 pb-4"
+                class="py-2 px-3 relative align-middle whitespace-normal text-small font-normal [&>*]:z-1 [&>*]:relative outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 before:content-[''] before:absolute before:z-0 before:inset-0 before:opacity-0 data-[selected=true]:before:opacity-100 group-data-[disabled=true]:text-foreground-300 group-data-[disabled=true]:cursor-not-allowed before:bg-default/60 data-[selected=true]:text-default-foreground first:before:rounded-s-lg last:before:rounded-e-lg text-start mocked-class"
                 data-key="table-row-cell-startTime"
-                id="table-2-startTime"
-                role="rowheader"
+                headers="appointment-upcoming-startTime"
+                id="appointment-upcoming-2-startTime"
+                role="cell"
                 tabindex="-1"
               >
                 <div
                   class="rounded-md w-[30px] md:w-[37px] h-10 bg-background-100 text-center pt-1"
                 >
                   <p
-                    class="text-ellipsis whitespace-nowrap overflow-hidden text-xs text-yellow font-bold"
+                    class="mocked-class"
                   >
                     Thu
                   </p>
                   <p
-                    class="text-primary-100 font-medium text-ellipsis whitespace-nowrap overflow-hidden text-xs"
+                    class="mocked-class"
                   >
                     12
                   </p>
                 </div>
               </td>
               <td
-                class="relative align-middle whitespace-normal text-small font-normal [&>*]:z-1 [&>*]:relative outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 before:content-[''] before:absolute before:z-0 before:inset-0 before:opacity-0 data-[selected=true]:before:opacity-100 group-data-[disabled=true]:text-foreground-300 group-data-[disabled=true]:cursor-not-allowed before:bg-default/60 data-[selected=true]:text-default-foreground first:before:rounded-s-lg last:before:rounded-e-lg text-start p-0 pb-4"
-                data-key="table-row-cell-receiverId"
-                role="gridcell"
+                class="py-2 px-3 relative align-middle whitespace-normal text-small font-normal [&>*]:z-1 [&>*]:relative outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 before:content-[''] before:absolute before:z-0 before:inset-0 before:opacity-0 data-[selected=true]:before:opacity-100 group-data-[disabled=true]:text-foreground-300 group-data-[disabled=true]:cursor-not-allowed before:bg-default/60 data-[selected=true]:text-default-foreground first:before:rounded-s-lg last:before:rounded-e-lg text-start mocked-class"
+                data-key="table-row-cell-senderId"
+                headers="appointment-upcoming-senderId"
+                role="cell"
                 tabindex="-1"
               >
                 <p
-                  class="text-primary-100 font-medium text-ellipsis whitespace-nowrap overflow-hidden text-xs md:text-sm"
+                  class="mocked-class"
                 >
-                  ThangHq
+                  Alex Stanton
                 </p>
                 <p
-                  class="text-xs text-ellipsis whitespace-nowrap overflow-hidden text-primary-300 font-light hidden lg:block"
+                  class="mocked-class"
                 >
-                  9:00 AM to 10:00 AM
+                  9:00 am to 10:00 am
                 </p>
               </td>
               <td
-                class="relative align-middle whitespace-normal text-small font-normal [&>*]:z-1 [&>*]:relative outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 before:content-[''] before:absolute before:z-0 before:inset-0 before:opacity-0 data-[selected=true]:before:opacity-100 group-data-[disabled=true]:text-foreground-300 group-data-[disabled=true]:cursor-not-allowed before:bg-default/60 data-[selected=true]:text-default-foreground first:before:rounded-s-lg last:before:rounded-e-lg text-start p-0 pb-4"
+                class="py-2 px-3 relative align-middle whitespace-normal text-small font-normal [&>*]:z-1 [&>*]:relative outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 before:content-[''] before:absolute before:z-0 before:inset-0 before:opacity-0 data-[selected=true]:before:opacity-100 group-data-[disabled=true]:text-foreground-300 group-data-[disabled=true]:cursor-not-allowed before:bg-default/60 data-[selected=true]:text-default-foreground first:before:rounded-s-lg last:before:rounded-e-lg text-start mocked-class"
                 data-key="table-row-cell-durationTime"
-                role="gridcell"
+                headers="appointment-upcoming-durationTime"
+                role="cell"
                 tabindex="-1"
               >
                 <p
-                  class="text-xs text-ellipsis whitespace-nowrap overflow-hidden text-primary-300 font-light lg:hidden"
+                  class="mocked-class"
                 >
-                  9:00 AM to 10:00 AM
+                  9:00 am to 10:00 am
                 </p>
               </td>
               <td
-                class="relative align-middle whitespace-normal text-small font-normal [&>*]:z-1 [&>*]:relative outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 before:content-[''] before:absolute before:z-0 before:inset-0 before:opacity-0 data-[selected=true]:before:opacity-100 group-data-[disabled=true]:text-foreground-300 group-data-[disabled=true]:cursor-not-allowed before:bg-default/60 data-[selected=true]:text-default-foreground first:before:rounded-s-lg last:before:rounded-e-lg text-start p-0 pb-4"
+                class="py-2 px-3 relative align-middle whitespace-normal text-small font-normal [&>*]:z-1 [&>*]:relative outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 before:content-[''] before:absolute before:z-0 before:inset-0 before:opacity-0 data-[selected=true]:before:opacity-100 group-data-[disabled=true]:text-foreground-300 group-data-[disabled=true]:cursor-not-allowed before:bg-default/60 data-[selected=true]:text-default-foreground first:before:rounded-s-lg last:before:rounded-e-lg text-start mocked-class"
                 data-key="table-row-cell-actions"
-                role="gridcell"
+                headers="appointment-upcoming-actions"
+                role="cell"
                 tabindex="-1"
               >
                 <div
                   class="flex justify-end"
                 >
                   <button
-                    aria-label="actions"
-                    class="z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap subpixel-antialiased overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-small gap-2 [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none data-[hover=true]:opacity-hover border-transparent font-semibold text-primary-200 p-0 min-w-4 h-4 md:h-[26px] md:min-w-[26px] bg-background-100 rounded-md"
+                    aria-expanded="false"
+                    aria-haspopup="true"
+                    aria-label="Dropdown button"
+                    class="group relative items-center box-border appearance-none select-none whitespace-nowrap font-normal overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 px-4 min-w-20 h-10 text-small gap-2 rounded-medium [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-default text-default-foreground data-[hover=true]:opacity-hover z-10 aria-expanded:scale-[0.97] aria-expanded:opacity-70 subpixel-antialiased mocked-class flex justify-start capitalize"
+                    data-slot="trigger"
+                    id="react-aria-:rn:"
                     type="button"
                   >
-                    2
+                    <div
+                      class="text-primary-100 max-h-6 max-w-6"
+                    >
+                      <svg
+                        class="w-[11px] h-[11px] md:w-4 md:h-4"
+                        fill="none"
+                        viewBox="0 0 16 16"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M8 6C6.90076 6 6 6.90076 6 8C6 9.09924 6.90076 10 8 10C9.09924 10 10 9.09924 10 8C10 6.90076 9.09924 6 8 6Z"
+                          fill="currentColor"
+                        />
+                        <path
+                          d="M8 0C6.90076 0 6 0.900764 6 2C6 3.09924 6.90076 4 8 4C9.09924 4 10 3.09924 10 2C10 0.900764 9.09924 0 8 0Z"
+                          fill="currentColor"
+                        />
+                        <path
+                          d="M8 12C6.90076 12 6 12.9008 6 14C6 15.0992 6.90076 16 8 16C9.09924 16 10 15.0992 10 14C10 12.9008 9.09924 12 8 12Z"
+                          fill="currentColor"
+                        />
+                      </svg>
+                    </div>
                   </button>
                 </div>
               </td>
             </tr>
             <tr
-              aria-labelledby="table-3-startTime"
+              aria-labelledby="appointment-upcoming-3-startTime"
               class="group outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2"
               data-key="3"
               data-last="true"
@@ -343,71 +403,101 @@ exports[`AppointmentsUpComing test cases should render correctly 1`] = `
               tabindex="-1"
             >
               <td
-                class="relative align-middle whitespace-normal text-small font-normal [&>*]:z-1 [&>*]:relative outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 before:content-[''] before:absolute before:z-0 before:inset-0 before:opacity-0 data-[selected=true]:before:opacity-100 group-data-[disabled=true]:text-foreground-300 group-data-[disabled=true]:cursor-not-allowed before:bg-default/60 data-[selected=true]:text-default-foreground first:before:rounded-s-lg last:before:rounded-e-lg text-start p-0"
+                class="py-2 px-3 relative align-middle whitespace-normal text-small font-normal [&>*]:z-1 [&>*]:relative outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 before:content-[''] before:absolute before:z-0 before:inset-0 before:opacity-0 data-[selected=true]:before:opacity-100 group-data-[disabled=true]:text-foreground-300 group-data-[disabled=true]:cursor-not-allowed before:bg-default/60 data-[selected=true]:text-default-foreground first:before:rounded-s-lg last:before:rounded-e-lg text-start mocked-class"
                 data-key="table-row-cell-startTime"
-                id="table-3-startTime"
-                role="rowheader"
+                headers="appointment-upcoming-startTime"
+                id="appointment-upcoming-3-startTime"
+                role="cell"
                 tabindex="-1"
               >
                 <div
                   class="rounded-md w-[30px] md:w-[37px] h-10 bg-background-100 text-center pt-1"
                 >
                   <p
-                    class="text-ellipsis whitespace-nowrap overflow-hidden text-xs text-yellow font-bold"
+                    class="mocked-class"
                   >
                     Fri
                   </p>
                   <p
-                    class="text-primary-100 font-medium text-ellipsis whitespace-nowrap overflow-hidden text-xs"
+                    class="mocked-class"
                   >
                     13
                   </p>
                 </div>
               </td>
               <td
-                class="relative align-middle whitespace-normal text-small font-normal [&>*]:z-1 [&>*]:relative outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 before:content-[''] before:absolute before:z-0 before:inset-0 before:opacity-0 data-[selected=true]:before:opacity-100 group-data-[disabled=true]:text-foreground-300 group-data-[disabled=true]:cursor-not-allowed before:bg-default/60 data-[selected=true]:text-default-foreground first:before:rounded-s-lg last:before:rounded-e-lg text-start p-0"
-                data-key="table-row-cell-receiverId"
-                role="gridcell"
+                class="py-2 px-3 relative align-middle whitespace-normal text-small font-normal [&>*]:z-1 [&>*]:relative outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 before:content-[''] before:absolute before:z-0 before:inset-0 before:opacity-0 data-[selected=true]:before:opacity-100 group-data-[disabled=true]:text-foreground-300 group-data-[disabled=true]:cursor-not-allowed before:bg-default/60 data-[selected=true]:text-default-foreground first:before:rounded-s-lg last:before:rounded-e-lg text-start mocked-class"
+                data-key="table-row-cell-senderId"
+                headers="appointment-upcoming-senderId"
+                role="cell"
                 tabindex="-1"
               >
                 <p
-                  class="text-primary-100 font-medium text-ellipsis whitespace-nowrap overflow-hidden text-xs md:text-sm"
+                  class="mocked-class"
                 >
-                  Alex Stanton
+                  ThangHq
                 </p>
                 <p
-                  class="text-xs text-ellipsis whitespace-nowrap overflow-hidden text-primary-300 font-light hidden lg:block"
+                  class="mocked-class"
                 >
-                  10:00 AM to 11:00 AM
+                  10:00 am to 11:00 am
                 </p>
               </td>
               <td
-                class="relative align-middle whitespace-normal text-small font-normal [&>*]:z-1 [&>*]:relative outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 before:content-[''] before:absolute before:z-0 before:inset-0 before:opacity-0 data-[selected=true]:before:opacity-100 group-data-[disabled=true]:text-foreground-300 group-data-[disabled=true]:cursor-not-allowed before:bg-default/60 data-[selected=true]:text-default-foreground first:before:rounded-s-lg last:before:rounded-e-lg text-start p-0"
+                class="py-2 px-3 relative align-middle whitespace-normal text-small font-normal [&>*]:z-1 [&>*]:relative outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 before:content-[''] before:absolute before:z-0 before:inset-0 before:opacity-0 data-[selected=true]:before:opacity-100 group-data-[disabled=true]:text-foreground-300 group-data-[disabled=true]:cursor-not-allowed before:bg-default/60 data-[selected=true]:text-default-foreground first:before:rounded-s-lg last:before:rounded-e-lg text-start mocked-class"
                 data-key="table-row-cell-durationTime"
-                role="gridcell"
+                headers="appointment-upcoming-durationTime"
+                role="cell"
                 tabindex="-1"
               >
                 <p
-                  class="text-xs text-ellipsis whitespace-nowrap overflow-hidden text-primary-300 font-light lg:hidden"
+                  class="mocked-class"
                 >
-                  10:00 AM to 11:00 AM
+                  10:00 am to 11:00 am
                 </p>
               </td>
               <td
-                class="relative align-middle whitespace-normal text-small font-normal [&>*]:z-1 [&>*]:relative outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 before:content-[''] before:absolute before:z-0 before:inset-0 before:opacity-0 data-[selected=true]:before:opacity-100 group-data-[disabled=true]:text-foreground-300 group-data-[disabled=true]:cursor-not-allowed before:bg-default/60 data-[selected=true]:text-default-foreground first:before:rounded-s-lg last:before:rounded-e-lg text-start p-0"
+                class="py-2 px-3 relative align-middle whitespace-normal text-small font-normal [&>*]:z-1 [&>*]:relative outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 before:content-[''] before:absolute before:z-0 before:inset-0 before:opacity-0 data-[selected=true]:before:opacity-100 group-data-[disabled=true]:text-foreground-300 group-data-[disabled=true]:cursor-not-allowed before:bg-default/60 data-[selected=true]:text-default-foreground first:before:rounded-s-lg last:before:rounded-e-lg text-start mocked-class"
                 data-key="table-row-cell-actions"
-                role="gridcell"
+                headers="appointment-upcoming-actions"
+                role="cell"
                 tabindex="-1"
               >
                 <div
                   class="flex justify-end"
                 >
                   <button
-                    aria-label="actions"
-                    class="z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap subpixel-antialiased overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-small gap-2 [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none data-[hover=true]:opacity-hover border-transparent font-semibold text-primary-200 p-0 min-w-4 h-4 md:h-[26px] md:min-w-[26px] bg-background-100 rounded-md"
+                    aria-expanded="false"
+                    aria-haspopup="true"
+                    aria-label="Dropdown button"
+                    class="group relative items-center box-border appearance-none select-none whitespace-nowrap font-normal overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 px-4 min-w-20 h-10 text-small gap-2 rounded-medium [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-default text-default-foreground data-[hover=true]:opacity-hover z-10 aria-expanded:scale-[0.97] aria-expanded:opacity-70 subpixel-antialiased mocked-class flex justify-start capitalize"
+                    data-slot="trigger"
+                    id="react-aria-:rq:"
                     type="button"
                   >
-                    3
+                    <div
+                      class="text-primary-100 max-h-6 max-w-6"
+                    >
+                      <svg
+                        class="w-[11px] h-[11px] md:w-4 md:h-4"
+                        fill="none"
+                        viewBox="0 0 16 16"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M8 6C6.90076 6 6 6.90076 6 8C6 9.09924 6.90076 10 8 10C9.09924 10 10 9.09924 10 8C10 6.90076 9.09924 6 8 6Z"
+                          fill="currentColor"
+                        />
+                        <path
+                          d="M8 0C6.90076 0 6 0.900764 6 2C6 3.09924 6.90076 4 8 4C9.09924 4 10 3.09924 10 2C10 0.900764 9.09924 0 8 0Z"
+                          fill="currentColor"
+                        />
+                        <path
+                          d="M8 12C6.90076 12 6 12.9008 6 14C6 15.0992 6.90076 16 8 16C9.09924 16 10 15.0992 10 14C10 12.9008 9.09924 12 8 12Z"
+                          fill="currentColor"
+                        />
+                      </svg>
+                    </div>
                   </button>
                 </div>
               </td>
