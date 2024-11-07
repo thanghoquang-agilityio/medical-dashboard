@@ -29,11 +29,6 @@ const nextConfig = {
         port: '',
         pathname: '/**',
       },
-      // TODO: this code to run in local, will remove later
-      {
-        protocol: 'http',
-        hostname: '**',
-      },
       {
         protocol: 'https',
         hostname: 'i.ibb.co',
