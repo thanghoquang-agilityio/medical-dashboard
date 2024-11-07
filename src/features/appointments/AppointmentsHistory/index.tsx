@@ -268,6 +268,7 @@ const AppointmentsHistory = ({
               pagination={pagination}
               hasDivider
               classWrapper="p-1"
+              id="appointments-history"
             />
           )}
         </div>
