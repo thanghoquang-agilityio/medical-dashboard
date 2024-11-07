@@ -15,6 +15,7 @@ import { MOCK_APPOINTMENTS, MOCK_USERS_LOGGED } from '@/mocks';
 
 // Components
 import AppointmentsUpcoming, { AppointmentsUpcomingProps } from '.';
+import React from 'react';
 
 jest.mock('../../../services/appointment.ts', () => ({
   getAppointments: jest.fn(),
@@ -27,6 +28,7 @@ jest.mock('next/navigation', () => ({
 }));
 
 jest.mock('@/utils', () => ({
+  ...jest.requireActual('@/utils'),
   cn: jest.fn(() => 'mocked-class'),
 }));
 describe('AppointmentsUpComing test cases', () => {
@@ -49,6 +51,7 @@ describe('AppointmentsUpComing test cases', () => {
   };
 
   beforeEach(() => {
+    jest.spyOn(React, 'useMemo').mockReturnValueOnce({});
     mockGetAppointments.mockReturnValue({ appointments: MOCK_APPOINTMENTS });
     mockUsePathname.mockReturnValue(PRIVATE_ROUTES.DASHBOARD);
     mockUseRouter.mockReturnValue({ replace: mockReplace });
@@ -59,15 +62,13 @@ describe('AppointmentsUpComing test cases', () => {
     jest.clearAllMocks();
   });
 
-  // TODO: will update test in another MR
-  it.skip('should render correctly', async () => {
+  it('should render correctly', async () => {
     const { asFragment } = await setup(mockProps);
 
     expect(asFragment()).toMatchSnapshot();
   });
 
-  // TODO: will update test in another MR
-  it.skip('should render correctly without props and role', async () => {
+  it('should render correctly without props and role', async () => {
     mockGetAppointments.mockReturnValue({ appointments: undefined });
 
     await setup({ ...mockProps, userLogged: null });

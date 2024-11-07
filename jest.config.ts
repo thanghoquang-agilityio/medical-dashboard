@@ -19,7 +19,6 @@ const config: Config = {
     '!**/themes/**',
     '!<rootDir>/src/config/**/*.{js,jsx,ts,tsx}',
     '!<rootDir>/src/components/errors/index.ts',
-    '!<rootDir>/src/actions/**/*.{js,jsx,ts,tsx}',
     '!<rootDir>/src/components/layout/index.ts',
   ],
   setupFilesAfterEnv: ['<rootDir>/jest.setup.ts'],

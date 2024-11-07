@@ -98,6 +98,7 @@ const ChemistCard = ({ id, data, isAdmin, onEdit }: ChemistCardProps) => {
     <>
       <div className="min-w-[300px] w-full h-[232px] relative">
         <Card
+          aria-label="chemist-card"
           className={cn(
             'bg-background-200 w-full h-full p-6 gap-6 overflow-visible',
             isAdmin ? 'pt-0' : '',
