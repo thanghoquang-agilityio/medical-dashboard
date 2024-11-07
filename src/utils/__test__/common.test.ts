@@ -6,8 +6,9 @@ import {
   getObjectValue,
   getRoleIdByName,
   getStatusKey,
-  transformSpecialties,
+  transformSpecialtiesByName,
   transformUsers,
+  transformSpecialtiesById,
 } from '../common';
 import { APIRelatedResponse, APIResponse, ROLE, UserModel } from '@/types';
 import { MOCK_USER_ROLE, MOCK_USERS_LOGGED, MOCK_SPECIALTIES } from '@/mocks';
@@ -205,7 +206,7 @@ describe('transformUsers function', () => {
   });
 });
 
-describe('transformSpecialties function', () => {
+describe('transformSpecialtiesByName function', () => {
   it('should return default All option when specialties is empty', () => {
     const expected = [
       {
@@ -213,7 +214,7 @@ describe('transformSpecialties function', () => {
         label: 'All',
       },
     ];
-    expect(transformSpecialties([])).toEqual(expected);
+    expect(transformSpecialtiesByName([])).toEqual(expected);
   });
 
   it('should return array of options when specialties is has data', () => {
@@ -244,7 +245,7 @@ describe('transformSpecialties function', () => {
       },
     ];
 
-    expect(transformSpecialties(MOCK_SPECIALTIES)).toEqual(expected);
+    expect(transformSpecialtiesByName(MOCK_SPECIALTIES)).toEqual(expected);
   });
 });
 
@@ -304,5 +305,34 @@ describe('formatSpecialtyString test cases', () => {
   test('should handle input with multiple underscores', () => {
     const result = formatSpecialtyString('internal_medicine_specialty');
     expect(result).toBe('internal medicine specialty'); // Expect multiple underscores replaced with spaces
+  });
+});
+
+describe('transformSpecialtiesById function', () => {
+  it('should return array of options when specialties is has data', () => {
+    const expected = [
+      {
+        key: '1',
+        label: 'Instrumentation',
+      },
+      {
+        key: '2',
+        label: 'Laboratory Chemist',
+      },
+      {
+        key: '3',
+        label: 'Organic Chemist',
+      },
+      {
+        key: '4',
+        label: 'Power Plant Chemist',
+      },
+      {
+        key: '5',
+        label: 'QC Chemist',
+      },
+    ];
+
+    expect(transformSpecialtiesById(MOCK_SPECIALTIES)).toEqual(expected);
   });
 });

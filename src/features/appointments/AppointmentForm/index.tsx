@@ -212,6 +212,8 @@ const AppointmentForm = memo(
       if (watch('startDate') && dirtyFields.startTime) {
         trigger('startTime');
       }
+
+      // Only trigger when startDate is changed
       // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [watch('startDate')]);
 

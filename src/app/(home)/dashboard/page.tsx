@@ -1,5 +1,4 @@
 import { Suspense } from 'react';
-import dynamic from 'next/dynamic';
 import { Metadata } from 'next';
 import { auth } from '@/config/auth';
 
@@ -20,11 +19,11 @@ import { getGreeting } from '@/utils';
 import { Text, Image } from '@/components/ui';
 import { ActivityFeedSkeleton } from '@/features/dashboard/ActivityFeed/ActivityFeedSkeleton';
 import { AppointmentsUpcomingSkeleton } from '@/features/dashboard/AppointmentsUpcoming/AppointmentsUpcomingSkeleton';
+import ActivityFeed from '@/features/dashboard/ActivityFeed';
+import AppointmentsUpcoming from '@/features/dashboard/AppointmentsUpcoming';
+
+// Services
 import { getUserLogged } from '@/services';
-const AppointmentsUpcoming = dynamic(
-  () => import('@/features/dashboard/AppointmentsUpcoming'),
-);
-const ActivityFeed = dynamic(() => import('@/features/dashboard/ActivityFeed'));
 
 export const metadata: Metadata = {
   title: 'Dashboard',
