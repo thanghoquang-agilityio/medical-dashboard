@@ -1,6 +1,11 @@
 import { Key } from 'react';
 import { AppointmentModel, ColumnType } from '@/types';
-import { formatDate, formatTimeAppointment } from '@/utils';
+import {
+  formatDate,
+  formatTimeAppointment,
+  getStatusKey,
+  isLaterThanCurrentTime,
+} from '@/utils';
 import { MenuAction, OptionMoreAction, Text } from '@/components/ui';
 import { DeleteIcon, XmarkIcon } from '@/icons';
 
@@ -87,8 +92,14 @@ export const createColumns = ({
     {
       key: 'actions',
       title: 'Actions',
-      customNode: ({ id = '' }) => {
+      customNode: ({ id = '', item }) => {
         const iconClasses = 'mr-2 flex-shrink-0 w-4 h-4';
+        const { startTime = '', status = 0 } = item || {};
+
+        const isDisabled =
+          !isAdmin &&
+          !isLaterThanCurrentTime(startTime) &&
+          status !== getStatusKey('new');
 
         const options: OptionMoreAction[] = [
           {
@@ -99,6 +110,7 @@ export const createColumns = ({
             ) : (
               <XmarkIcon customClass={`text-danger-100 ${iconClasses}`} />
             ),
+            isDisabled: isDisabled,
             onAction: () => onRemoveOrCancel(id),
           },
         ];
