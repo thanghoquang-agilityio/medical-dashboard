@@ -3,7 +3,7 @@
 // Components
 import { ErrorFallback } from '@/components/errors';
 
-export default function Error({
+export default function ErrorPage({
   error,
   reset,
 }: {
