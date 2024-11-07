@@ -59,7 +59,7 @@ export const transformUsers = (users: UserLogged[]): Option[] =>
 export const formatString = (input: string) =>
   input.toLowerCase().replace(/\s+/g, '_');
 
-export const transformSpecialties = (
+export const transformSpecialtiesByName = (
   specialties: SpecialtyResponse[],
 ): Option[] => [
   { key: 'all', label: 'All' },
@@ -76,3 +76,11 @@ export const formatSpecialtyString = (input: string | undefined) => {
 
 export const getRoleIdByName = (roles: RolePermission[], roleName: string) =>
   roles.find((role) => role.name === roleName)?.id;
+
+export const transformSpecialtiesById = (
+  specialties: SpecialtyResponse[],
+): Option[] =>
+  specialties.map((specialty) => ({
+    key: specialty.id,
+    label: specialty.attributes.name,
+  }));

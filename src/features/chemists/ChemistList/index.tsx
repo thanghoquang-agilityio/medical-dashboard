@@ -31,7 +31,11 @@ import ChemistModal from '../ChemistModal';
 import { ChemistListSkeleton } from './ChemistSkeleton';
 
 // Utils
-import { formatString, transformSpecialties } from '@/utils';
+import {
+  formatString,
+  transformSpecialtiesById,
+  transformSpecialtiesByName,
+} from '@/utils';
 
 // Constants
 import { PAGE_DEFAULT, RESULT_NOT_FOUND } from '@/constants';
@@ -65,8 +69,8 @@ const ChemistList = memo(
     const pathname = usePathname() ?? '';
     const { replace } = useRouter();
 
-    const specialtyOptions = transformSpecialties(specialties);
-    const specialtyOptionsForm = specialtyOptions.slice(1);
+    const specialtyOptionsById = transformSpecialtiesById(specialties);
+    const specialtyOptionsByName = transformSpecialtiesByName(specialties);
 
     const [specialty, setSpecialty] = useState(
       new Set<string>([defaultSpecialty]),
@@ -129,7 +133,7 @@ const ChemistList = memo(
           return;
         }
 
-        const selectedSpecialty = specialtyOptions.find(
+        const selectedSpecialty = specialtyOptionsByName.find(
           ({ key }) => key === value,
         );
         const { label = '' } = selectedSpecialty || {};
@@ -141,7 +145,7 @@ const ChemistList = memo(
         handleReplaceURL,
         params,
         specialty,
-        specialtyOptions,
+        specialtyOptionsByName,
         updateSearchParams,
       ],
     );
@@ -172,9 +176,9 @@ const ChemistList = memo(
           <div className="flex justify-between md:gap-4 mb-10 md:mb-0 ">
             <Select
               aria-label="Select Specialty"
-              options={specialtyOptions}
+              options={specialtyOptionsByName}
               selectedKeys={specialty}
-              defaultSelectedKeys={specialtyOptions[0].key}
+              defaultSelectedKeys={specialtyOptionsByName[0].key}
               placeholder="Specialty"
               classNames={{
                 innerWrapper: 'w-[180px]',
@@ -239,7 +243,7 @@ const ChemistList = memo(
             id={chemistId}
             data={chemist}
             onClose={onClose}
-            specialtyOptions={specialtyOptionsForm}
+            specialtyOptions={specialtyOptionsById}
           />
         )}
       </>
