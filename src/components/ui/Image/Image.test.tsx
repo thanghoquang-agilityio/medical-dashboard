@@ -7,13 +7,6 @@ import { Image } from '.';
 // Constants
 import { SRC_IMAGE_NOT_AVAILABLE } from '@/constants';
 
-// Mock next/image component
-jest.mock('next/image', () => {
-  return jest.fn((props) => {
-    return <img src={props.src} alt={props.alt} onError={props.onError} />;
-  });
-});
-
 // Mock useState
 jest.mock('react', () => ({
   ...jest.requireActual('react'),
@@ -30,7 +23,7 @@ describe('Image Component', () => {
   };
 
   const ImageComponent = () => {
-    return render(<Image {...props} />);
+    return render(<Image {...props} alt="Mock Alt" />);
   };
 
   beforeEach(() => {
@@ -43,7 +36,7 @@ describe('Image Component', () => {
     useStateSpy.mockReturnValue([true, jest.fn()]);
 
     const { container } = render(
-      <Image {...props} src={SRC_IMAGE_NOT_AVAILABLE} />,
+      <Image {...props} src={SRC_IMAGE_NOT_AVAILABLE} alt="Mock Alt" />,
     );
 
     expect(container).toMatchSnapshot();
