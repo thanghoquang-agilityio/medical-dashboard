@@ -636,7 +636,7 @@ exports[`AppointmentsHistory Component should render correctly with admin role w
                     class="flex gap-2 items-center"
                   >
                     <span
-                      class="box-border overflow-hidden outline-none rounded-full ring-offset-background dark:ring-offset-background-dark shrink-0 min-w-8 w-8 h-8 bg-undefined ring-offset-2 ring-1 ring-green false shrink-0 hidden sm:block"
+                      class="overflow-hidden outline-none rounded-full ring-offset-background dark:ring-offset-background-dark shrink-0 min-w-8 w-8 h-8 bg-undefined ring-offset-2 ring-1 ring-green false shrink-0 hidden sm:block"
                       data-testid="avatar-container"
                       tabindex="-1"
                     >
@@ -671,7 +671,7 @@ exports[`AppointmentsHistory Component should render correctly with admin role w
                     class="flex gap-2 items-center"
                   >
                     <span
-                      class="box-border overflow-hidden outline-none rounded-full ring-offset-background dark:ring-offset-background-dark shrink-0 min-w-8 w-8 h-8 bg-undefined ring-offset-2 ring-1 ring-green false shrink-0 hidden sm:block"
+                      class="overflow-hidden outline-none rounded-full ring-offset-background dark:ring-offset-background-dark shrink-0 min-w-8 w-8 h-8 bg-undefined ring-offset-2 ring-1 ring-green false shrink-0 hidden sm:block"
                       data-testid="avatar-container"
                       tabindex="-1"
                     >
@@ -816,7 +816,7 @@ exports[`AppointmentsHistory Component should render correctly with admin role w
                     class="flex gap-2 items-center"
                   >
                     <span
-                      class="box-border overflow-hidden outline-none rounded-full ring-offset-background dark:ring-offset-background-dark shrink-0 min-w-8 w-8 h-8 bg-undefined ring-offset-2 ring-1 ring-green false shrink-0 hidden sm:block"
+                      class="overflow-hidden outline-none rounded-full ring-offset-background dark:ring-offset-background-dark shrink-0 min-w-8 w-8 h-8 bg-undefined ring-offset-2 ring-1 ring-green false shrink-0 hidden sm:block"
                       data-testid="avatar-container"
                       tabindex="-1"
                     >
@@ -851,7 +851,7 @@ exports[`AppointmentsHistory Component should render correctly with admin role w
                     class="flex gap-2 items-center"
                   >
                     <span
-                      class="box-border overflow-hidden outline-none rounded-full ring-offset-background dark:ring-offset-background-dark shrink-0 min-w-8 w-8 h-8 bg-undefined ring-offset-2 ring-1 ring-green false shrink-0 hidden sm:block"
+                      class="overflow-hidden outline-none rounded-full ring-offset-background dark:ring-offset-background-dark shrink-0 min-w-8 w-8 h-8 bg-undefined ring-offset-2 ring-1 ring-green false shrink-0 hidden sm:block"
                       data-testid="avatar-container"
                       tabindex="-1"
                     >
@@ -995,7 +995,7 @@ exports[`AppointmentsHistory Component should render correctly with admin role w
                     class="flex gap-2 items-center"
                   >
                     <span
-                      class="box-border overflow-hidden outline-none rounded-full ring-offset-background dark:ring-offset-background-dark shrink-0 min-w-8 w-8 h-8 bg-undefined ring-offset-2 ring-1 ring-green false shrink-0 hidden sm:block"
+                      class="overflow-hidden outline-none rounded-full ring-offset-background dark:ring-offset-background-dark shrink-0 min-w-8 w-8 h-8 bg-undefined ring-offset-2 ring-1 ring-green false shrink-0 hidden sm:block"
                       data-testid="avatar-container"
                       tabindex="-1"
                     >
@@ -1030,7 +1030,7 @@ exports[`AppointmentsHistory Component should render correctly with admin role w
                     class="flex gap-2 items-center"
                   >
                     <span
-                      class="box-border overflow-hidden outline-none rounded-full ring-offset-background dark:ring-offset-background-dark shrink-0 min-w-8 w-8 h-8 bg-undefined ring-offset-2 ring-1 ring-green false shrink-0 hidden sm:block"
+                      class="overflow-hidden outline-none rounded-full ring-offset-background dark:ring-offset-background-dark shrink-0 min-w-8 w-8 h-8 bg-undefined ring-offset-2 ring-1 ring-green false shrink-0 hidden sm:block"
                       data-testid="avatar-container"
                       tabindex="-1"
                     >
@@ -1476,7 +1476,7 @@ exports[`AppointmentsHistory Component should render correctly with user role wh
                     class="flex gap-2 items-center"
                   >
                     <span
-                      class="box-border overflow-hidden outline-none rounded-full ring-offset-background dark:ring-offset-background-dark shrink-0 min-w-8 w-8 h-8 bg-undefined ring-offset-2 ring-1 ring-green false"
+                      class="overflow-hidden outline-none rounded-full ring-offset-background dark:ring-offset-background-dark shrink-0 min-w-8 w-8 h-8 bg-undefined ring-offset-2 ring-1 ring-green false"
                       data-testid="avatar-container"
                       tabindex="-1"
                     >
@@ -1621,7 +1621,7 @@ exports[`AppointmentsHistory Component should render correctly with user role wh
                     class="flex gap-2 items-center"
                   >
                     <span
-                      class="box-border overflow-hidden outline-none rounded-full ring-offset-background dark:ring-offset-background-dark shrink-0 min-w-8 w-8 h-8 bg-undefined ring-offset-2 ring-1 ring-green false"
+                      class="overflow-hidden outline-none rounded-full ring-offset-background dark:ring-offset-background-dark shrink-0 min-w-8 w-8 h-8 bg-undefined ring-offset-2 ring-1 ring-green false"
                       data-testid="avatar-container"
                       tabindex="-1"
                     >
@@ -1765,7 +1765,7 @@ exports[`AppointmentsHistory Component should render correctly with user role wh
                     class="flex gap-2 items-center"
                   >
                     <span
-                      class="box-border overflow-hidden outline-none rounded-full ring-offset-background dark:ring-offset-background-dark shrink-0 min-w-8 w-8 h-8 bg-undefined ring-offset-2 ring-1 ring-green false"
+                      class="overflow-hidden outline-none rounded-full ring-offset-background dark:ring-offset-background-dark shrink-0 min-w-8 w-8 h-8 bg-undefined ring-offset-2 ring-1 ring-green false"
                       data-testid="avatar-container"
                       tabindex="-1"
                     >

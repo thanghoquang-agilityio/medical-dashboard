@@ -52,8 +52,7 @@ const HeaderDashboard = ({
         name={userName}
         size="md"
         color="warning"
-        isCustomBordered
-        className="aspect-square"
+        className="aspect-square border-4 border-soft-grey dark:border-rock rounded-full"
       />
     </header>
   );

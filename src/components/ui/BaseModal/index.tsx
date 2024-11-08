@@ -18,16 +18,15 @@ interface Props extends ModalProps {
 }
 
 export const BaseModal = memo(
-  ({ isOpen, children, onClose, size, placement, classNames }: Props) => (
+  ({ isOpen, children, onClose, size, placement }: Props) => (
     <Modal
       isOpen={isOpen}
       onClose={onClose}
       size={size}
       placement={placement}
       classNames={{
-        wrapper: classNames?.wrapper,
         closeButton: 'text-primary-100',
-        base: 'bg-background-100 p-4',
+        base: 'bg-background-100 p-4 !my-auto',
       }}
       scrollBehavior="outside"
     >

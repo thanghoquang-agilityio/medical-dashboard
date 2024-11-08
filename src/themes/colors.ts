@@ -40,6 +40,8 @@ export const colors = {
     light: '#573800',
     dark: '#FFA600',
   },
+  rock: '#543f2f',
+  'soft-grey': '#d5c9bd',
   link: {
     light: '#00615A',
     dark: '#38CB89',

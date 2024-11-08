@@ -57,7 +57,7 @@ exports[`ChemistCard test cases should render correctly 1`] = `
           class="flex items-center gap-2"
         >
           <span
-            class="box-border overflow-hidden outline-none rounded-full ring-offset-background dark:ring-offset-background-dark shrink-0 min-w-12 w-12 h-12 bg-undefined ring-offset-0 ring-0 false"
+            class="overflow-hidden outline-none rounded-full ring-offset-background dark:ring-offset-background-dark shrink-0 min-w-12 w-12 h-12 bg-undefined ring-offset-0 ring-0 false"
             data-testid="avatar-container"
             tabindex="-1"
           >
@@ -302,7 +302,7 @@ exports[`ChemistCard test cases should render correctly without data 1`] = `
           class="flex items-center gap-2"
         >
           <span
-            class="box-border overflow-hidden outline-none rounded-full ring-offset-background dark:ring-offset-background-dark shrink-0 min-w-12 w-12 h-12 bg-undefined ring-offset-0 ring-0 false"
+            class="overflow-hidden outline-none rounded-full ring-offset-background dark:ring-offset-background-dark shrink-0 min-w-12 w-12 h-12 bg-undefined ring-offset-0 ring-0 false"
             data-testid="avatar-container"
             tabindex="-1"
           >
