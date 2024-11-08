@@ -89,8 +89,6 @@ export const registerFCM = async ({ token }: { token: string }) => {
       role === ROLE.ADMIN ? 'admin' : email,
     );
 
-    if (role === ROLE.NORMAL_USER) console.log('register as normal user');
-
     await setDoc(docRef, {
       tokens: registrationTokens,
     });

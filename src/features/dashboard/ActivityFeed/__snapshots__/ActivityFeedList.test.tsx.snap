@@ -91,12 +91,14 @@ exports[`ActivityFeedList test cases should render correctly 1`] = `
                     >
                       <img
                         alt=""
-                        blurdataurl="data:image/octet-stream;base64,AAAAHGZ0eXBhdmlmAAAAAGF2aWZtaWYxbWlhZgAAAOptZXRhAAAAAAAAACFoZGxyAAAAAAAAAABwaWN0AAAAAAAAAAAAAAAAAAAAAA5waXRtAAAAAAABAAAAImlsb2MAAAAAREAAAQABAAAAAAEOAAEAAAAAAAAB8gAAACNpaW5mAAAAAAABAAAAFWluZmUCAAAAAAEAAGF2MDEAAAAAamlwcnAAAABLaXBjbwAAABNjb2xybmNseAACAAIABoAAAAAMYXYxQ4EBDAAAAAAUaXNwZQAAAAAAAAJyAAABYAAAABBwaXhpAAAAAAMICAgAAAAXaXBtYQAAAAAAAAABAAEEgYIDhAAAAfptZGF0EgAKChhmJxr7BAgIGhAy4QNEUABBBBBAtLdxO+ufZDT62N1xD2v0qMPB0fecvDtq5TRdEoiJ2xJNRFuw19s7jJWfC+XU+oju2qfjk8P5K3Zww+cW4ah57MD8awXAZFVE32xazLhll23JlrWpU+aR8InUqbZsDnfUX22pBVMDuUpBd2ZT8MP2VocS/LfuXUO1Gu2adQ2P9Smvn3C44ughHli56cU9DwBvrUjhOoT/kw0XMNtYzYBLeVrlerEXVoeGUA6MKX1VCWu1WjmlKgUneMH5FuOhxSmmU/fQO8LAp+iwid2kiSxSCqTNl+wUwSTpWscSd4CCvLMzSUnBAf6WamY7VpStVsLXsss/JP+P9K444jQW7r6A5zTVG1Zg0B5MQ4RhgY75ImP2Kx44jRwBoGKXaWWWGHw++/N6C9HvGM62w+xOr9fbZbSB+x4BQWtLmtphY1slIQA65DjIdQMj5aBM+24r+OMMEpjCJ+rCQwDaFvyvOIF0rOrFaLrCXOcXtkLeGjvufwiTL2gdBYrWWqNssLjDtLMh8SLNlh/jxdT8j2J7WpGOwz76k1O68tboiEJ0uELTYCm1s6ucsIrFaMv5Au3x2aksuQS8BSlWDSfd1jGstA7GRvkIPtiCitMHoQiTK4yrTtS4W3+sYt56O8TZ"
                         class="aspect-square"
+                        data-nimg="1"
+                        decoding="async"
+                        fetchpriority="high"
                         height="48"
-                        placeholder="blur"
-                        src="/upload/300"
-                        style="object-fit: cover;"
+                        src="http://localhost/_next/image?url=%2Fupload%2F300&w=96&q=75"
+                        srcset="/_next/image?url=%2Fupload%2F300&w=48&q=75 1x, /_next/image?url=%2Fupload%2F300&w=96&q=75 2x"
+                        style="color: transparent; object-fit: cover; background-size: cover; background-position: 50% 50%; background-repeat: no-repeat;"
                         width="48"
                       />
                     </span>
@@ -161,12 +163,14 @@ exports[`ActivityFeedList test cases should render correctly 1`] = `
                     >
                       <img
                         alt=""
-                        blurdataurl="data:image/octet-stream;base64,AAAAHGZ0eXBhdmlmAAAAAGF2aWZtaWYxbWlhZgAAAOptZXRhAAAAAAAAACFoZGxyAAAAAAAAAABwaWN0AAAAAAAAAAAAAAAAAAAAAA5waXRtAAAAAAABAAAAImlsb2MAAAAAREAAAQABAAAAAAEOAAEAAAAAAAAB8gAAACNpaW5mAAAAAAABAAAAFWluZmUCAAAAAAEAAGF2MDEAAAAAamlwcnAAAABLaXBjbwAAABNjb2xybmNseAACAAIABoAAAAAMYXYxQ4EBDAAAAAAUaXNwZQAAAAAAAAJyAAABYAAAABBwaXhpAAAAAAMICAgAAAAXaXBtYQAAAAAAAAABAAEEgYIDhAAAAfptZGF0EgAKChhmJxr7BAgIGhAy4QNEUABBBBBAtLdxO+ufZDT62N1xD2v0qMPB0fecvDtq5TRdEoiJ2xJNRFuw19s7jJWfC+XU+oju2qfjk8P5K3Zww+cW4ah57MD8awXAZFVE32xazLhll23JlrWpU+aR8InUqbZsDnfUX22pBVMDuUpBd2ZT8MP2VocS/LfuXUO1Gu2adQ2P9Smvn3C44ughHli56cU9DwBvrUjhOoT/kw0XMNtYzYBLeVrlerEXVoeGUA6MKX1VCWu1WjmlKgUneMH5FuOhxSmmU/fQO8LAp+iwid2kiSxSCqTNl+wUwSTpWscSd4CCvLMzSUnBAf6WamY7VpStVsLXsss/JP+P9K444jQW7r6A5zTVG1Zg0B5MQ4RhgY75ImP2Kx44jRwBoGKXaWWWGHw++/N6C9HvGM62w+xOr9fbZbSB+x4BQWtLmtphY1slIQA65DjIdQMj5aBM+24r+OMMEpjCJ+rCQwDaFvyvOIF0rOrFaLrCXOcXtkLeGjvufwiTL2gdBYrWWqNssLjDtLMh8SLNlh/jxdT8j2J7WpGOwz76k1O68tboiEJ0uELTYCm1s6ucsIrFaMv5Au3x2aksuQS8BSlWDSfd1jGstA7GRvkIPtiCitMHoQiTK4yrTtS4W3+sYt56O8TZ"
                         class="aspect-square"
+                        data-nimg="1"
+                        decoding="async"
+                        fetchpriority="high"
                         height="48"
-                        placeholder="blur"
-                        src="/upload/300"
-                        style="object-fit: cover;"
+                        src="http://localhost/_next/image?url=%2Fupload%2F300&w=96&q=75"
+                        srcset="/_next/image?url=%2Fupload%2F300&w=48&q=75 1x, /_next/image?url=%2Fupload%2F300&w=96&q=75 2x"
+                        style="color: transparent; object-fit: cover; background-size: cover; background-position: 50% 50%; background-repeat: no-repeat;"
                         width="48"
                       />
                     </span>

@@ -1,5 +1,5 @@
 import { render, screen } from '@testing-library/react';
-import React, { act, JSX, ClassAttributes, ImgHTMLAttributes } from 'react';
+import React, { act } from 'react';
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 
 // Mocks
@@ -15,17 +15,6 @@ jest.mock('next/navigation', () => ({
   usePathname: jest.fn(),
   useSearchParams: jest.fn(),
   useRouter: jest.fn(),
-}));
-
-jest.mock('next/image', () => ({
-  __esModule: true,
-  default: (
-    props: JSX.IntrinsicAttributes &
-      ClassAttributes<HTMLImageElement> &
-      ImgHTMLAttributes<HTMLImageElement>,
-  ) => {
-    return <img {...props} />;
-  },
 }));
 
 describe('ActivityFeedList test cases', () => {
