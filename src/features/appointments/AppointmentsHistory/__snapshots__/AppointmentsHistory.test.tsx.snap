@@ -128,7 +128,7 @@ exports[`AppointmentsHistory Component should render correctly when appointments
           >
             <input
               style="font-size: 16px;"
-              tabindex="-1"
+              tabindex="0"
               type="text"
               value=""
             />
@@ -442,7 +442,7 @@ exports[`AppointmentsHistory Component should render correctly with admin role w
           >
             <input
               style="font-size: 16px;"
-              tabindex="-1"
+              tabindex="0"
               type="text"
               value=""
             />
@@ -1291,7 +1291,7 @@ exports[`AppointmentsHistory Component should render correctly with user role wh
           >
             <input
               style="font-size: 16px;"
-              tabindex="-1"
+              tabindex="0"
               type="text"
               value=""
             />

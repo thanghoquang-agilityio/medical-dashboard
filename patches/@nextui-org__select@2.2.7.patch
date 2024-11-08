@@ -1,0 +1,52 @@
+diff --git a/dist/chunk-B7FBUABT.mjs b/dist/chunk-B7FBUABT.mjs
+index 2b8c21209fee3dd4d49ce7b2293ada6f04e2f422..6c0e5aa100ff685b32a3fb38d45d4cd3fa4e2822 100644
+--- a/dist/chunk-B7FBUABT.mjs
++++ b/dist/chunk-B7FBUABT.mjs
+@@ -42,7 +42,7 @@ function useHiddenSelect(props, state, triggerRef) {
+     },
+     inputProps: {
+       type: "text",
+-      tabIndex: modality == null || state.isFocused || state.isOpen ? -1 : 0,
++      tabIndex: modality == null || state.isFocused || state.isOpen ? 0 : -1,
+       autoComplete,
+       value: (_a = [...state.selectedKeys].join(",")) != null ? _a : "",
+       required: isRequired,
+diff --git a/dist/hidden-select.js b/dist/hidden-select.js
+index 9cec3b0b862d2ce86955266b06203079e7d527a8..b96f6fed36d115edf466aaa44be10b33c4798486 100644
+--- a/dist/hidden-select.js
++++ b/dist/hidden-select.js
+@@ -80,7 +80,7 @@ function useHiddenSelect(props, state, triggerRef) {
+     },
+     inputProps: {
+       type: "text",
+-      tabIndex: modality == null || state.isFocused || state.isOpen ? -1 : 0,
++      tabIndex: modality == null || state.isFocused || state.isOpen ? 0 : -1,
+       autoComplete,
+       value: (_a = [...state.selectedKeys].join(",")) != null ? _a : "",
+       required: isRequired,
+diff --git a/dist/index.js b/dist/index.js
+index 37b8140a98a9c251166456c4c9271f6fe0e55bc9..2f5390f80ad354018c66fcc4fd5d8e9c47375327 100644
+--- a/dist/index.js
++++ b/dist/index.js
+@@ -554,7 +554,7 @@ function useHiddenSelect(props, state, triggerRef) {
+     },
+     inputProps: {
+       type: "text",
+-      tabIndex: modality == null || state.isFocused || state.isOpen ? -1 : 0,
++      tabIndex: modality == null || state.isFocused || state.isOpen ? 0 : -1,
+       autoComplete,
+       value: (_a = [...state.selectedKeys].join(",")) != null ? _a : "",
+       required: isRequired,
+diff --git a/dist/select.js b/dist/select.js
+index e76e8d5bdbdb4db90acabb77897daef19653aa07..ab12f2f9b7e872b755f880458deaec9cd3b95fa5 100644
+--- a/dist/select.js
++++ b/dist/select.js
+@@ -547,7 +547,7 @@ function useHiddenSelect(props, state, triggerRef) {
+     },
+     inputProps: {
+       type: "text",
+-      tabIndex: modality == null || state.isFocused || state.isOpen ? -1 : 0,
++      tabIndex: modality == null || state.isFocused || state.isOpen ? 0 : -1,
+       autoComplete,
+       value: (_a = [...state.selectedKeys].join(",")) != null ? _a : "",
+       required: isRequired,

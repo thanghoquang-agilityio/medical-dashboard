@@ -8,6 +8,9 @@ patchedDependencies:
   '@nextui-org/pagination@2.0.36':
     hash: 57232wbvmwkq7pmsgkc2xqzxea
     path: patches/@nextui-org__pagination@2.0.36.patch
+  '@nextui-org/select@2.2.7':
+    hash: el6sdgwtyhhc5juujs3g56hcvu
+    path: patches/@nextui-org__select@2.2.7.patch
 
 dependencies:
   '@nextui-org/react':
@@ -3954,7 +3957,7 @@ packages:
       '@nextui-org/radio': 2.1.5(@nextui-org/system@2.2.6)(@nextui-org/theme@2.2.11)(react-dom@18.3.1)(react@18.3.1)
       '@nextui-org/ripple': 2.0.33(@nextui-org/system@2.2.6)(@nextui-org/theme@2.2.11)(framer-motion@11.3.23-alpha.2)(react-dom@18.3.1)(react@18.3.1)
       '@nextui-org/scroll-shadow': 2.1.20(@nextui-org/system@2.2.6)(@nextui-org/theme@2.2.11)(react-dom@18.3.1)(react@18.3.1)
-      '@nextui-org/select': 2.2.7(@nextui-org/system@2.2.6)(@nextui-org/theme@2.2.11)(@types/react@18.3.12)(framer-motion@11.3.23-alpha.2)(react-dom@18.3.1)(react@18.3.1)
+      '@nextui-org/select': 2.2.7(patch_hash=el6sdgwtyhhc5juujs3g56hcvu)(@nextui-org/system@2.2.6)(@nextui-org/theme@2.2.11)(@types/react@18.3.12)(framer-motion@11.3.23-alpha.2)(react-dom@18.3.1)(react@18.3.1)
       '@nextui-org/skeleton': 2.0.32(@nextui-org/system@2.2.6)(@nextui-org/theme@2.2.11)(react-dom@18.3.1)(react@18.3.1)
       '@nextui-org/slider': 2.2.17(@nextui-org/system@2.2.6)(@nextui-org/theme@2.2.11)(framer-motion@11.3.23-alpha.2)(react-dom@18.3.1)(react@18.3.1)
       '@nextui-org/snippet': 2.0.43(@nextui-org/system@2.2.6)(@nextui-org/theme@2.2.11)(framer-motion@11.3.23-alpha.2)(react-dom@18.3.1)(react@18.3.1)
@@ -4011,7 +4014,7 @@ packages:
       react-dom: 18.3.1(react@18.3.1)
     dev: false
 
-  /@nextui-org/select@2.2.7(@nextui-org/system@2.2.6)(@nextui-org/theme@2.2.11)(@types/react@18.3.12)(framer-motion@11.3.23-alpha.2)(react-dom@18.3.1)(react@18.3.1):
+  /@nextui-org/select@2.2.7(patch_hash=el6sdgwtyhhc5juujs3g56hcvu)(@nextui-org/system@2.2.6)(@nextui-org/theme@2.2.11)(@types/react@18.3.12)(framer-motion@11.3.23-alpha.2)(react-dom@18.3.1)(react@18.3.1):
     resolution: {integrity: sha512-lA2EOjquhiHmLSInHFEarq64ZOQV37+ry1d8kvsqJ7R9dsqw1QEuMzH2Kk8/NqwrYMccHh5iAZ7PaLp90NSSxg==}
     peerDependencies:
       '@nextui-org/system': '>=2.0.0'
@@ -4045,6 +4048,7 @@ packages:
     transitivePeerDependencies:
       - '@types/react'
     dev: false
+    patched: true
 
   /@nextui-org/shared-icons@2.0.9(react@18.3.1):
     resolution: {integrity: sha512-WG3yinVY7Tk9VqJgcdF4V8Ok9+fcm5ey7S1els7kujrfqLYxtqoKywgiY/7QHwZlfQkzpykAfy+NAlHkTP5hMg==}
