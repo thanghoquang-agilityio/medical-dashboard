@@ -1,5 +1,3 @@
-import { lazy, useMemo } from 'react';
-
 // Constants
 import {
   API_ENDPOINT,
@@ -10,13 +8,11 @@ import {
 // Actions
 import { getAppointments } from '@/actions/appointment';
 
-// Components
-const AppointmentsUpcomingList = lazy(
-  () => import('./AppointmentsUpcomingList'),
-);
-
 // Types
 import { UserLogged } from '@/types';
+
+// Components
+import AppointmentsUpcomingList from './AppointmentsUpcomingList';
 
 export interface AppointmentsUpcomingProps {
   userLogged: UserLogged | null;
@@ -29,7 +25,7 @@ const AppointmentsUpcoming = async ({
 }: AppointmentsUpcomingProps) => {
   const { id: userId = '' } = userLogged || {};
 
-  const searchParamsAPI = useMemo(() => {
+  const searchParamsAPI = () => {
     const params = new URLSearchParams();
     params.set('populate[0]', 'receiverId');
     params.set('populate[1]', 'senderId');
@@ -43,10 +39,10 @@ const AppointmentsUpcoming = async ({
     )?.value;
     params.set('filters[status][$eq]', `${valueStatus}`);
     return params;
-  }, [userId, status]);
+  };
 
   const { appointments, error } = await getAppointments({
-    searchParams: searchParamsAPI,
+    searchParams: searchParamsAPI(),
     options: {
       next: {
         tags: [`${API_ENDPOINT.APPOINTMENTS}/dashboard`],

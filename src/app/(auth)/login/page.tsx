@@ -1,10 +1,10 @@
 import { Metadata } from 'next';
-import dynamic from 'next/dynamic';
 
 // Constants
 import { PREVIEW_IMAGE } from '@/constants';
 
-const LoginForm = dynamic(() => import('@/features/auth/LoginForm'));
+// Components
+import LoginForm from '@/features/auth/LoginForm';
 
 export const metadata: Metadata = {
   title: 'Login',
