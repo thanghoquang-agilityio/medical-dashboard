@@ -10,7 +10,7 @@ exports[`InputSearch Should render SearchInput Component correctly 1`] = `
     data-slot="base"
   >
     <div
-      class="flex flex-col h-fit lg:max-w-[400px] text-xs"
+      class="flex flex-col h-fit lg:max-w-[400px] text-xs mock"
       data-slot="main-wrapper"
     >
       <div

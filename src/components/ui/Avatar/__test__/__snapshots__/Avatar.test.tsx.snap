@@ -21,3 +21,26 @@ exports[`Avatar Component renders with default size (md) and without border 1`] 
   </span>
 </div>
 `;
+
+exports[`Avatar Component should render correctly with provided props 1`] = `
+<DocumentFragment>
+  <span
+    class="overflow-hidden outline-none rounded-full ring-offset-background dark:ring-offset-background-dark shrink-0 min-w-12 w-12 h-12 bg-undefined ring-offset-2 ring-1 ring-green false"
+    data-testid="avatar-container"
+    tabindex="-1"
+  >
+    <img
+      alt=""
+      class="custom-class"
+      data-nimg="1"
+      decoding="async"
+      fetchpriority="high"
+      height="48"
+      src="http://localhost/_next/image?url=%2Fimages%2Favatar-thumbnail.webp&w=96&q=75"
+      srcset="/_next/image?url=%2Fimages%2Favatar-thumbnail.webp&w=48&q=75 1x, /_next/image?url=%2Fimages%2Favatar-thumbnail.webp&w=96&q=75 2x"
+      style="color: transparent; object-fit: cover; background-size: cover; background-position: 50% 50%; background-repeat: no-repeat;"
+      width="48"
+    />
+  </span>
+</DocumentFragment>
+`;
