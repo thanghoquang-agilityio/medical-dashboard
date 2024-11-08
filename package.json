@@ -70,7 +70,8 @@
   },
   "pnpm": {
     "patchedDependencies": {
-      "@nextui-org/pagination@2.0.36": "patches/@nextui-org__pagination@2.0.36.patch"
+      "@nextui-org/pagination@2.0.36": "patches/@nextui-org__pagination@2.0.36.patch",
+      "@nextui-org/select@2.2.7": "patches/@nextui-org__select@2.2.7.patch"
     }
   }
 }
