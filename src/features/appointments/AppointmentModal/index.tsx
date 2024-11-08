@@ -24,9 +24,6 @@ const AppointmentModal = memo(
         onClose={onClose}
         placement="center"
         size="2xl"
-        classNames={{
-          wrapper: 'sm:items-center',
-        }}
       >
         <Suspense fallback={<AppointmentFormSkeleton data={data} />}>
           <AppointmentForm

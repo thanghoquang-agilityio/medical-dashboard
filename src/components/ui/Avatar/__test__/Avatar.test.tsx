@@ -21,11 +21,11 @@ describe('Avatar Component', () => {
   it('renders with border when isCustomBordered is true', () => {
     render(<Avatar isCustomBordered />);
 
-    const spanElement = screen.getByTestId('avatar-container');
+    const spanElement: HTMLSpanElement = screen.getByTestId('avatar-container');
 
     // Check for bordered class
     expect(spanElement).toHaveClass(
-      'ring-offset-0 ring-yellow ring-opacity-25 ring-4',
+      'ring-offset-0 ring-warning ring-opacity-25 ring-4',
     );
   });
 });

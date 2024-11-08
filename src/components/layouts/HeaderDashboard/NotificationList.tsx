@@ -83,7 +83,7 @@ const NotificationList = ({
   }, [handleObserver]);
 
   return (
-    <div className="h-80 flex flex-col pl-4 overflow-y-scroll">
+    <div className="h-80 flex flex-col pl-4 overflow-y-scroll scrollbar-hide">
       {notifications.length ? (
         <>
           {notifications.map(({ attributes, id: notificationId }, index) => (

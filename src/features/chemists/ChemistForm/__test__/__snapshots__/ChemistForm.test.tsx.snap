@@ -23,7 +23,7 @@ exports[`ChemistForm test cases should render correctly 1`] = `
           for="avatar"
         >
           <span
-            class="box-border overflow-hidden outline-none rounded-full ring-offset-background dark:ring-offset-background-dark shrink-0 min-w-8 w-8 h-8 bg-undefined ring-offset-0 ring-0 false"
+            class="overflow-hidden outline-none rounded-full ring-offset-background dark:ring-offset-background-dark shrink-0 min-w-8 w-8 h-8 bg-undefined ring-offset-0 ring-0 false"
             data-testid="avatar-container"
             tabindex="-1"
           >

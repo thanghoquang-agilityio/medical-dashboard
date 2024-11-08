@@ -26,9 +26,6 @@ const ConfirmModal = ({
     isOpen={isOpen}
     onClose={onClose}
     placement="center"
-    classNames={{
-      wrapper: 'sm:items-center items-center',
-    }}
   >
     <div className="flex flex-col items-center">
       <Text variant="title" size="2xl">
