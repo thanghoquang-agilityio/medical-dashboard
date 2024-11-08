@@ -1,5 +1,3 @@
-import { lazy, useMemo } from 'react';
-
 // Types
 import { ROLE, UserLogged } from '@/types';
 
@@ -9,7 +7,8 @@ import { API_ENDPOINT, PAGE_SIZE_DEFAULT, PRIVATE_ROUTES } from '@/constants';
 // Actions
 import { getNotifications } from '@/actions/notification';
 
-const ActivityFeedList = lazy(() => import('./ActivityFeedList'));
+// Components
+import ActivityFeedList from './ActivityFeedList';
 
 export interface ActivityFeedProps {
   page: number;
@@ -20,7 +19,7 @@ const ActivityFeed = async ({ page, userLogged }: ActivityFeedProps) => {
   const { id: userId = '', role: roleModel } = userLogged || {};
   const { name: role = ROLE.NORMAL_USER } = roleModel || {};
 
-  const searchParamsAPI = useMemo(() => {
+  const searchParamsAPI = () => {
     const params = new URLSearchParams();
     params.set('populate[0]', 'senderId');
     params.set('pagination[page]', page.toString());
@@ -31,10 +30,10 @@ const ActivityFeed = async ({ page, userLogged }: ActivityFeedProps) => {
       params.set('filters[senderId][id][$eq]', `${userId}`);
     }
     return params;
-  }, [page, userId, role]);
+  };
 
   const { notifications, error, ...meta } = await getNotifications({
-    searchParams: searchParamsAPI,
+    searchParams: searchParamsAPI(),
     options: {
       next: {
         tags: [
