@@ -25,6 +25,9 @@ export const InputSearch = memo(
     // Update the URL with the debounced search term
     const updateSearchParams = useDebouncedCallback((search: string) => {
       const params = new URLSearchParams(searchParams);
+      const page = searchParams.get('page')?.toString();
+
+      if (page) params.delete('page');
 
       if (search) {
         params.set('search', search.trim());
