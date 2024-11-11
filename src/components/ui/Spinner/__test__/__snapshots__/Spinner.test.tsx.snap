@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Spinner Component should render Spinner component correctly 1`] = `
-<div>
+exports[`Spinner Component should render Spinner component correctly with props 1`] = `
+<DocumentFragment>
   <div
     class="inset-0 z-50 "
   >
@@ -21,5 +21,29 @@ exports[`Spinner Component should render Spinner component correctly 1`] = `
       </div>
     </div>
   </div>
-</div>
+</DocumentFragment>
+`;
+
+exports[`Spinner Component should render Spinner component correctly without props 1`] = `
+<DocumentFragment>
+  <div
+    class="inset-0 z-50 "
+  >
+    <div
+      aria-label="Loading"
+      class="inline-flex flex-col gap-2 items-center justify-center absolute inset-0 m-auto z-60"
+    >
+      <div
+        class="relative flex w-10 h-10"
+      >
+        <i
+          class="absolute w-full h-full rounded-full animate-spinner-ease-spin border-solid border-t-transparent border-r-transparent border-[5px] border-b-primary-100 border-l-primary-100"
+        />
+        <i
+          class="absolute w-full h-full rounded-full opacity-75 animate-spinner-linear-spin border-dotted border-t-transparent border-r-transparent border-[5px] border-b-primary-100 border-l-primary-100"
+        />
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
 `;

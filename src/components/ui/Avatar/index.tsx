@@ -6,7 +6,7 @@ import { Image } from '../Image';
 // Constants
 import { AVATAR_THUMBNAIL } from '@/constants';
 
-interface AvatarProps extends AvatarNextUIProps {
+export interface AvatarProps extends AvatarNextUIProps {
   size?: 'sm' | 'md' | 'lg';
   avatarContainerClass?: string;
   isCustomBordered?: boolean;

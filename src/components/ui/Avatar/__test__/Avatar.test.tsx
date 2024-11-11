@@ -1,6 +1,6 @@
 import { render, screen } from '@testing-library/react';
 
-import { Avatar } from '..';
+import { Avatar, AvatarProps } from '..';
 
 describe('Avatar Component', () => {
   it('renders with default size (md) and without border', () => {
@@ -27,5 +27,19 @@ describe('Avatar Component', () => {
     expect(spanElement).toHaveClass(
       'ring-offset-0 ring-warning ring-opacity-25 ring-4',
     );
+  });
+
+  it('should render correctly with provided props', () => {
+    const mockProps: AvatarProps = {
+      size: 'lg',
+      isBordered: true,
+      isCustomBordered: false,
+      className: 'custom-class',
+      src: '',
+    };
+
+    const { asFragment } = render(<Avatar {...mockProps} />);
+
+    expect(asFragment()).toMatchSnapshot();
   });
 });

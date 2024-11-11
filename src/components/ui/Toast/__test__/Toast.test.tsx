@@ -27,7 +27,7 @@ describe('Toast component', () => {
   });
 
   it('renders the error toast correctly', () => {
-    render(
+    const { container } = render(
       <Toast
         message="Item has been deleted."
         status={STATUS_TYPE.ERROR}
@@ -36,10 +36,11 @@ describe('Toast component', () => {
     );
 
     expect(screen.getByText('Item has been deleted.')).toBeInTheDocument();
+    expect(container).toMatchSnapshot();
   });
 
   it('renders the warning toast correctly', () => {
-    render(
+    const { container } = render(
       <Toast
         message="Improve password difficulty."
         status={STATUS_TYPE.WARNING}
@@ -50,6 +51,7 @@ describe('Toast component', () => {
     expect(
       screen.getByText('Improve password difficulty.'),
     ).toBeInTheDocument();
+    expect(container).toMatchSnapshot();
   });
 
   it('calls onClose when close button is clicked', () => {

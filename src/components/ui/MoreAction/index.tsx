@@ -9,7 +9,7 @@ export interface OptionMoreAction extends MenuOption {
   onAction: () => void;
 }
 
-interface MoreActionProps {
+export interface MoreActionProps {
   options: OptionMoreAction[];
 }
 

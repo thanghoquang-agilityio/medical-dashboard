@@ -16,22 +16,19 @@ export const STATUS = {
   3: 'done',
 };
 
-export const Status = memo(
-  ({
-    status,
-    className = '',
-  }: {
-    status: AppointmentStatus;
-    className?: string;
-  }) => (
-    <div
-      className={cn(
-        `${COLOR_STATUS[status]} dark:bg-opacity-20 w-fit max-w-20 px-2 rounded-md text-center ${className ?? ''}`,
-      )}
-    >
-      <p className="text-2xs font-semibold capitalize">{STATUS[status]}</p>
-    </div>
-  ),
-);
+export interface StatusProps {
+  status: AppointmentStatus;
+  className?: string;
+}
+
+export const Status = memo(({ status, className = '' }: StatusProps) => (
+  <div
+    className={cn(
+      `${COLOR_STATUS[status]} dark:bg-opacity-20 w-fit max-w-20 px-2 rounded-md text-center ${className}`,
+    )}
+  >
+    <p className="text-2xs font-semibold capitalize">{STATUS[status]}</p>
+  </div>
+));
 
 Status.displayName = 'Status';

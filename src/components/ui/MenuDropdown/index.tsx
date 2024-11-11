@@ -25,7 +25,7 @@ export interface MenuOption extends Option {
   isDisabled?: boolean;
 }
 
-interface MenuDropdownProps
+export interface MenuDropdownProps
   extends Omit<DropdownProps & DropdownMenuProps, 'children'> {
   label?: string;
   options: MenuOption[];
