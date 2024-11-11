@@ -26,11 +26,7 @@ import {
 } from '@/types';
 
 // Constants
-import {
-  APPOINTMENT_STATUS_OPTIONS,
-  ERROR_MESSAGE,
-  SUCCESS_MESSAGE,
-} from '@/constants';
+import { APPOINTMENT_STATUS_OPTIONS, ERROR_MESSAGE } from '@/constants';
 
 // Helper
 import { useToast } from '@/context/toast';
@@ -208,11 +204,6 @@ const AppointmentsHistory = ({
     }
 
     if (appointment) {
-      openToast({
-        message: SUCCESS_MESSAGE.CANCEL('appointment'),
-        type: STATUS_TYPE.SUCCESS,
-      });
-
       handleCreateNotification(appointment, 'cancelled');
       onClosConfirm();
     }
