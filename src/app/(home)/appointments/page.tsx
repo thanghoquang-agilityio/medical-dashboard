@@ -1,4 +1,4 @@
-import { Suspense, lazy } from 'react';
+import { Suspense } from 'react';
 import { Metadata } from 'next';
 
 // Constants
@@ -19,9 +19,9 @@ import { getAppointments, getUserLogged } from '@/services';
 
 // Components
 import { AppointmentsHistorySkeleton } from '@/features/appointments/AppointmentsHistory/AppointmentsHistorySkeleton';
-const AppointmentsHistory = lazy(
-  () => import('@/features/appointments/AppointmentsHistory'),
-);
+import { InputSearch } from '@/components/ui';
+import { AppointmentCreate } from '@/features/appointments/AppointmentCreate';
+import AppointmentsHistory from '@/features/appointments/AppointmentsHistory';
 
 export const metadata: Metadata = {
   title: 'Appointments',
@@ -99,14 +99,20 @@ const AppointmentPage = async ({
   });
 
   return (
-    <Suspense fallback={<AppointmentsHistorySkeleton />}>
-      <AppointmentsHistory
-        appointments={appointments || []}
-        pagination={meta?.pagination}
-        userLogged={userLogged}
-        defaultStatus={status}
-      />
-    </Suspense>
+    <>
+      <div className="flex justify-between gap-10 my-8">
+        <InputSearch placeholder="Search Appointments" />
+        <AppointmentCreate userLogged={userLogged} />
+      </div>
+      <Suspense fallback={<AppointmentsHistorySkeleton />}>
+        <AppointmentsHistory
+          appointments={appointments || []}
+          pagination={meta?.pagination}
+          userLogged={userLogged}
+          defaultStatus={status}
+        />
+      </Suspense>
+    </>
   );
 };
 

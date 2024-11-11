@@ -188,6 +188,9 @@ const AppointmentForm = memo(
           isEdit ? 'updated' : 'created',
         );
       }
+
+      setIsPending(false);
+      onClose();
     };
 
     const durationTimeOptions = generateTimeOptions();
