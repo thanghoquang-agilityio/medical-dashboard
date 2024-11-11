@@ -2,7 +2,11 @@ import { Suspense, lazy } from 'react';
 import { Metadata } from 'next';
 
 // Constants
-import { PAGE_DEFAULT, PAGE_SIZE_DEFAULT } from '@/constants';
+import {
+  APPOINTMENT_STATUS_OPTIONS,
+  PAGE_DEFAULT,
+  PAGE_SIZE_DEFAULT,
+} from '@/constants';
 
 // Types
 import { DIRECTION, ROLE, SearchParams } from '@/types';
@@ -24,7 +28,7 @@ export const metadata: Metadata = {
   description: 'Appointments page for Medical Dashboard',
 };
 
-export interface AppointmentPageSearchParamsProps extends SearchParams {
+interface AppointmentPageSearchParamsProps extends SearchParams {
   status?: string;
 }
 
@@ -43,42 +47,51 @@ const AppointmentPage = async ({
 
   const searchParamsAPI = new URLSearchParams();
   const APPOINTMENT_SEARCH_PARAMS = ['receiverId', 'senderId'];
-  APPOINTMENT_SEARCH_PARAMS.forEach((param, index) => {
-    searchParamsAPI.set(`populate[${index}]`, param);
-  });
 
+  const setPopulates = () => {
+    APPOINTMENT_SEARCH_PARAMS.forEach((param, index) => {
+      searchParamsAPI.set(`populate[${index}]`, param);
+      searchParamsAPI.set(`populate[${param}][populate][avatar]`, '*');
+    });
+  };
+
+  const setSearchFilters = () => {
+    APPOINTMENT_SEARCH_PARAMS.forEach((param, index) => {
+      searchParamsAPI.set(
+        `filters[$or][${index}][${param}][username][$containsi]`,
+        search,
+      );
+      if (role === ROLE.NORMAL_USER) {
+        searchParamsAPI.set(`filters[$or][${index}][${param}][id][$eq]`, id);
+      }
+    });
+  };
+
+  const setRoleFilters = () => {
+    if (role === ROLE.NORMAL_USER) {
+      APPOINTMENT_SEARCH_PARAMS.forEach((param, index) =>
+        searchParamsAPI.set(`filters[$or][${index}][${param}][id][$eq]`, id),
+      );
+      searchParamsAPI.set('populate[senderId][populate][avatar]', '*');
+    }
+  };
+
+  // Set parameters
+  setPopulates();
   searchParamsAPI.set('pagination[page]', page.toString());
   searchParamsAPI.set('pagination[pageSize]', PAGE_SIZE_DEFAULT.toString());
   searchParamsAPI.set('sort[0]', `createdAt:${DIRECTION.DESC}`);
 
-  // Search params by role
-  if (search) {
-    if (role === ROLE.NORMAL_USER || !role) {
-      APPOINTMENT_SEARCH_PARAMS.forEach((param, index) =>
-        searchParamsAPI.set(
-          `filters[$or][${index}][$and][0][${param}][username][$containsi]`,
-          search,
-        ),
-      );
-      APPOINTMENT_SEARCH_PARAMS.toReversed().forEach((param, index) =>
-        searchParamsAPI.set(
-          `filters[$or][${index}][$and][1][${param}][id][$eq]`,
-          id,
-        ),
-      );
-    } else {
-      APPOINTMENT_SEARCH_PARAMS.forEach((param, index) =>
-        searchParamsAPI.set(
-          `filters[$or][${index}][${param}][username][$containsi]`,
-          search,
-        ),
-      );
-    }
-  } else if (role === ROLE.NORMAL_USER || !role) {
-    APPOINTMENT_SEARCH_PARAMS.forEach((param, index) =>
-      searchParamsAPI.set(`filters[$or][${index}][${param}][id][$eq]`, id),
-    );
-    searchParamsAPI.set('populate[senderId][populate][avatar]', '*');
+  // Apply search and role filters
+  if (search) setSearchFilters();
+  else setRoleFilters();
+
+  const valueStatus = APPOINTMENT_STATUS_OPTIONS.find(
+    (option) => option.key === status,
+  )?.value;
+
+  if (status) {
+    searchParamsAPI.set('filters[status][$eq]', `${valueStatus}`);
   }
 
   const { appointments, ...meta } = await getAppointments({
