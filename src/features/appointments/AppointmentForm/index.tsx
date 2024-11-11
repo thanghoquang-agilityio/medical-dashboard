@@ -15,7 +15,6 @@ import {
 
 // Utils
 import {
-  getCurrentDate,
   convertToTimeObject,
   transformUsers,
   generateISODate,
@@ -23,6 +22,7 @@ import {
   convertTimeToMinutes,
   generateTimeOptions,
   clearErrorOnChange,
+  formatStartDate,
 } from '@/utils';
 
 // Components
@@ -109,7 +109,7 @@ const AppointmentForm = memo(
       mode: 'onBlur',
       reValidateMode: 'onBlur',
       defaultValues: {
-        startDate: startTime && getCurrentDate(startTime),
+        startDate: startTime && formatStartDate(startTime),
         startTime: startTime && convertToTimeObject(startTime),
         durationTime:
           durationTime && convertTimeToMinutes(durationTime).toString(),
