@@ -38,7 +38,7 @@ exports[`NotFound page test case should render correctly 1`] = `
         type="button"
       >
         <svg
-          class="w-auto"
+          class="w-full h-full"
           fill="none"
           viewBox="0 0 17 16"
           xmlns="http://www.w3.org/2000/svg"
