@@ -224,7 +224,7 @@ const AppointmentsUpcomingList = memo(
           <DataGrid
             data={appointments}
             columns={columns as ColumnType<unknown>[]}
-            classWrapper="pt-4"
+            classWrapper="pt-4 rounded-none"
             id="appointment-upcoming"
             classCell="pb-4"
           />
