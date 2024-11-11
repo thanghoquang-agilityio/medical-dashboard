@@ -40,7 +40,7 @@ import { getStatusKey } from '@/utils';
 import { deleteAppointment, updateAppointment } from '@/actions/appointment';
 
 // Components
-import { Button, InputSearch, Select, Text } from '@/components/ui';
+import { Select, Text } from '@/components/ui';
 import { AppointmentsHistoryListSkeleton } from './AppointmentsHistorySkeleton';
 import AppointmentModal from '../AppointmentModal';
 import { createColumns } from './columns';
@@ -128,11 +128,6 @@ const AppointmentsHistory = ({
   );
 
   const { isOpen, onClose, onOpen } = useDisclosure();
-
-  const handleOpenCreateModal = useCallback(() => {
-    setAppointment(undefined);
-    onOpen();
-  }, [onOpen]);
 
   const handleOpenEditModal = useCallback(
     (key?: Key) => {
@@ -227,15 +222,6 @@ const AppointmentsHistory = ({
 
   return (
     <>
-      <div className="flex justify-between gap-10 my-8">
-        <InputSearch placeholder="Search Appointments" />
-        <Button
-          onClick={handleOpenCreateModal}
-          className="h-[52px] font-medium"
-        >
-          Create
-        </Button>
-      </div>
       <Card className="w-full px-4 py-6 bg-background-200">
         <div className="flex justify-between items-center">
           <Text customClass="text-xl font-bold text-primary-100">History</Text>

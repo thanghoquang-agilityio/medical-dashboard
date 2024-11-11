@@ -3,106 +3,6 @@
 exports[`AppointmentsHistory Component should render correctly when appointments value is empty 1`] = `
 <div>
   <div
-    class="flex justify-between gap-10 my-8"
-  >
-    <div
-      class="group flex flex-col data-[hidden=true]:hidden w-full relative justify-end data-[has-label=true]:mt-[calc(theme(fontSize.small)_+_10px)]"
-      data-filled="true"
-      data-filled-within="true"
-      data-slot="base"
-    >
-      <div
-        class="flex flex-col h-fit lg:max-w-[400px] text-xs"
-        data-slot="main-wrapper"
-      >
-        <div
-          class="relative w-full inline-flex tap-highlight-transparent flex-row items-center shadow-sm px-3 gap-3 data-[hover=true]:bg-default-200 group-data-[focus=true]:bg-default-100 min-h-10 rounded-medium transition-background motion-reduce:transition-none !duration-150 outline-none group-data-[focus-visible=true]:z-10 group-data-[focus-visible=true]:ring-2 group-data-[focus-visible=true]:ring-focus group-data-[focus-visible=true]:ring-offset-2 group-data-[focus-visible=true]:ring-offset-background bg-transparent border-text-foreground !bg-transparent data-[hover=true]:!bg-transparent group-data-[focus=true]:ring-0 group-data-[focus=true]:ring-offset-0 group-data-[focus=true]:!bg-transparent data-[focus=true]:border-secondary-300 group-data-[invalid=true]:border-danger-100 py-4 border h-[52px]"
-          data-slot="input-wrapper"
-          style="cursor: text;"
-        >
-          <div
-            class="inline-flex w-full items-center h-full box-border"
-            data-slot="inner-wrapper"
-          >
-            <svg
-              class="w-5 h-5 ml-4 text-primary-200"
-              fill="none"
-              viewBox="0 0 20 20"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <g
-                clip-path="url(#clip0_1_18701)"
-              >
-                <path
-                  d="M9.58341 17.5C13.9557 17.5 17.5001 13.9556 17.5001 9.58335C17.5001 5.2111 13.9557 1.66669 9.58341 1.66669C5.21116 1.66669 1.66675 5.2111 1.66675 9.58335C1.66675 13.9556 5.21116 17.5 9.58341 17.5Z"
-                  stroke="currentColor"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="1.5"
-                />
-                <path
-                  d="M18.3334 18.3334L16.6667 16.6667"
-                  stroke="currentColor"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="1.5"
-                />
-              </g>
-              <defs>
-                <clippath
-                  id="clip0_1_18701"
-                >
-                  <rect
-                    fill="white"
-                    height="20"
-                    width="20"
-                  />
-                </clippath>
-              </defs>
-            </svg>
-            <input
-              aria-label="Search Appointments"
-              class="w-full font-normal !outline-none focus-visible:outline-none data-[has-start-content=true]:ps-1.5 data-[has-end-content=true]:pe-1.5 file:cursor-pointer file:bg-transparent file:border-0 autofill:bg-transparent bg-clip-text peer pr-6 rtl:pr-0 rtl:pl-6 group-data-[has-value=true]:text-default-foreground text-primary-100 placeholder:text-primary-300 bg-transparent text-sm mx-2 group-data-[invalid=true]:!text-danger-100"
-              data-has-start-content="true"
-              data-slot="input"
-              id="react-aria-:r42:"
-              placeholder="Search Appointments"
-              type="text"
-              value=""
-            />
-            <span
-              aria-label="clear input"
-              class="p-2 -m-2 z-10 hidden absolute end-3 start-auto appearance-none select-none opacity-0 hover:!opacity-100 cursor-pointer active:!opacity-70 rounded-full outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-large peer-data-[filled=true]:opacity-70 peer-data-[filled=true]:block transition-opacity motion-reduce:transition-none"
-              data-slot="clear-button"
-              role="button"
-              tabindex="0"
-            >
-              <svg
-                aria-hidden="true"
-                focusable="false"
-                height="1em"
-                role="presentation"
-                viewBox="0 0 24 24"
-                width="1em"
-              >
-                <path
-                  d="M12 2a10 10 0 1010 10A10.016 10.016 0 0012 2zm3.36 12.3a.754.754 0 010 1.06.748.748 0 01-1.06 0l-2.3-2.3-2.3 2.3a.748.748 0 01-1.06 0 .754.754 0 010-1.06l2.3-2.3-2.3-2.3A.75.75 0 019.7 8.64l2.3 2.3 2.3-2.3a.75.75 0 011.06 1.06l-2.3 2.3z"
-                  fill="currentColor"
-                />
-              </svg>
-            </span>
-          </div>
-        </div>
-      </div>
-    </div>
-    <button
-      class="z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap subpixel-antialiased overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 px-4 min-w-20 text-small gap-2 rounded-medium [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none data-[hover=true]:opacity-hover border-transparent bg-linear-success text-content1 h-[52px] font-medium"
-      type="button"
-    >
-      Create
-    </button>
-  </div>
-  <div
     class="flex flex-col relative overflow-hidden h-auto text-foreground box-border outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 shadow-medium rounded-large transition-transform-background motion-reduce:transition-none w-full px-4 py-6 bg-background-200"
     tabindex="-1"
   >
@@ -170,10 +70,10 @@ exports[`AppointmentsHistory Component should render correctly when appointments
               aria-expanded="false"
               aria-haspopup="listbox"
               aria-label="Status"
-              aria-labelledby="react-aria-:r4e: react-aria-:r49:"
+              aria-labelledby="react-aria-:r3g: react-aria-:r3b:"
               class="relative gap-3 w-full inline-flex flex-row items-center shadow-sm tap-highlight-transparent group-data-[focus=true]:bg-default-100 outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 px-2.5 py-2 h-[46px] rounded-medium bg-background-100 shadow-stack border-1 outline-offset-0 data-[focus=true]:border-green data-[focus=true]:border-1 data-[focus=true]:bg-background-100 data-[hover=true]:bg-background-100 group-data-[invalid=true]:!border-danger-100 min-h-[36px]"
               data-slot="trigger"
-              id="react-aria-:r49:"
+              id="react-aria-:r3b:"
               type="button"
             >
               <div
@@ -183,7 +83,7 @@ exports[`AppointmentsHistory Component should render correctly when appointments
                 <span
                   class="w-full text-left rtl:text-right truncate group-data-[has-value=true]:text-default-foreground text-xs group-data-[invalid=true]:!text-danger-100 text-primary-100 font-medium"
                   data-slot="value"
-                  id="react-aria-:r4e:"
+                  id="react-aria-:r3g:"
                 >
                   Status
                 </span>
@@ -317,106 +217,6 @@ exports[`AppointmentsHistory Component should render correctly when appointments
 exports[`AppointmentsHistory Component should render correctly with admin role when have appointments value 1`] = `
 <div>
   <div
-    class="flex justify-between gap-10 my-8"
-  >
-    <div
-      class="group flex flex-col data-[hidden=true]:hidden w-full relative justify-end data-[has-label=true]:mt-[calc(theme(fontSize.small)_+_10px)]"
-      data-filled="true"
-      data-filled-within="true"
-      data-slot="base"
-    >
-      <div
-        class="flex flex-col h-fit lg:max-w-[400px] text-xs"
-        data-slot="main-wrapper"
-      >
-        <div
-          class="relative w-full inline-flex tap-highlight-transparent flex-row items-center shadow-sm px-3 gap-3 data-[hover=true]:bg-default-200 group-data-[focus=true]:bg-default-100 min-h-10 rounded-medium transition-background motion-reduce:transition-none !duration-150 outline-none group-data-[focus-visible=true]:z-10 group-data-[focus-visible=true]:ring-2 group-data-[focus-visible=true]:ring-focus group-data-[focus-visible=true]:ring-offset-2 group-data-[focus-visible=true]:ring-offset-background bg-transparent border-text-foreground !bg-transparent data-[hover=true]:!bg-transparent group-data-[focus=true]:ring-0 group-data-[focus=true]:ring-offset-0 group-data-[focus=true]:!bg-transparent data-[focus=true]:border-secondary-300 group-data-[invalid=true]:border-danger-100 py-4 border h-[52px]"
-          data-slot="input-wrapper"
-          style="cursor: text;"
-        >
-          <div
-            class="inline-flex w-full items-center h-full box-border"
-            data-slot="inner-wrapper"
-          >
-            <svg
-              class="w-5 h-5 ml-4 text-primary-200"
-              fill="none"
-              viewBox="0 0 20 20"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <g
-                clip-path="url(#clip0_1_18701)"
-              >
-                <path
-                  d="M9.58341 17.5C13.9557 17.5 17.5001 13.9556 17.5001 9.58335C17.5001 5.2111 13.9557 1.66669 9.58341 1.66669C5.21116 1.66669 1.66675 5.2111 1.66675 9.58335C1.66675 13.9556 5.21116 17.5 9.58341 17.5Z"
-                  stroke="currentColor"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="1.5"
-                />
-                <path
-                  d="M18.3334 18.3334L16.6667 16.6667"
-                  stroke="currentColor"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="1.5"
-                />
-              </g>
-              <defs>
-                <clippath
-                  id="clip0_1_18701"
-                >
-                  <rect
-                    fill="white"
-                    height="20"
-                    width="20"
-                  />
-                </clippath>
-              </defs>
-            </svg>
-            <input
-              aria-label="Search Appointments"
-              class="w-full font-normal !outline-none focus-visible:outline-none data-[has-start-content=true]:ps-1.5 data-[has-end-content=true]:pe-1.5 file:cursor-pointer file:bg-transparent file:border-0 autofill:bg-transparent bg-clip-text peer pr-6 rtl:pr-0 rtl:pl-6 group-data-[has-value=true]:text-default-foreground text-primary-100 placeholder:text-primary-300 bg-transparent text-sm mx-2 group-data-[invalid=true]:!text-danger-100"
-              data-has-start-content="true"
-              data-slot="input"
-              id="react-aria-:r32:"
-              placeholder="Search Appointments"
-              type="text"
-              value=""
-            />
-            <span
-              aria-label="clear input"
-              class="p-2 -m-2 z-10 hidden absolute end-3 start-auto appearance-none select-none opacity-0 hover:!opacity-100 cursor-pointer active:!opacity-70 rounded-full outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-large peer-data-[filled=true]:opacity-70 peer-data-[filled=true]:block transition-opacity motion-reduce:transition-none"
-              data-slot="clear-button"
-              role="button"
-              tabindex="0"
-            >
-              <svg
-                aria-hidden="true"
-                focusable="false"
-                height="1em"
-                role="presentation"
-                viewBox="0 0 24 24"
-                width="1em"
-              >
-                <path
-                  d="M12 2a10 10 0 1010 10A10.016 10.016 0 0012 2zm3.36 12.3a.754.754 0 010 1.06.748.748 0 01-1.06 0l-2.3-2.3-2.3 2.3a.748.748 0 01-1.06 0 .754.754 0 010-1.06l2.3-2.3-2.3-2.3A.75.75 0 019.7 8.64l2.3 2.3 2.3-2.3a.75.75 0 011.06 1.06l-2.3 2.3z"
-                  fill="currentColor"
-                />
-              </svg>
-            </span>
-          </div>
-        </div>
-      </div>
-    </div>
-    <button
-      class="z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap subpixel-antialiased overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 px-4 min-w-20 text-small gap-2 rounded-medium [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none data-[hover=true]:opacity-hover border-transparent bg-linear-success text-content1 h-[52px] font-medium"
-      type="button"
-    >
-      Create
-    </button>
-  </div>
-  <div
     class="flex flex-col relative overflow-hidden h-auto text-foreground box-border outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 shadow-medium rounded-large transition-transform-background motion-reduce:transition-none w-full px-4 py-6 bg-background-200"
     tabindex="-1"
   >
@@ -484,10 +284,10 @@ exports[`AppointmentsHistory Component should render correctly with admin role w
               aria-expanded="false"
               aria-haspopup="listbox"
               aria-label="Status"
-              aria-labelledby="react-aria-:r3e: react-aria-:r39:"
+              aria-labelledby="react-aria-:r2l: react-aria-:r2g:"
               class="relative gap-3 w-full inline-flex flex-row items-center shadow-sm tap-highlight-transparent group-data-[focus=true]:bg-default-100 outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 px-2.5 py-2 h-[46px] rounded-medium bg-background-100 shadow-stack border-1 outline-offset-0 data-[focus=true]:border-green data-[focus=true]:border-1 data-[focus=true]:bg-background-100 data-[hover=true]:bg-background-100 group-data-[invalid=true]:!border-danger-100 min-h-[36px]"
               data-slot="trigger"
-              id="react-aria-:r39:"
+              id="react-aria-:r2g:"
               type="button"
             >
               <div
@@ -497,7 +297,7 @@ exports[`AppointmentsHistory Component should render correctly with admin role w
                 <span
                   class="w-full text-left rtl:text-right truncate group-data-[has-value=true]:text-default-foreground text-xs group-data-[invalid=true]:!text-danger-100 text-primary-100 font-medium"
                   data-slot="value"
-                  id="react-aria-:r3e:"
+                  id="react-aria-:r2l:"
                 >
                   Status
                 </span>
@@ -765,7 +565,7 @@ exports[`AppointmentsHistory Component should render correctly with admin role w
                       aria-label="Dropdown button"
                       class="group relative items-center box-border appearance-none select-none whitespace-nowrap font-normal overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-small gap-2 [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none data-[hover=true]:opacity-hover z-10 aria-expanded:scale-[0.97] aria-expanded:opacity-70 subpixel-antialiased text-primary-100 border-1 data-[focus=true]:border-1 px-[2px] md:px-1 min-w-4 h-4 md:h-[26px] md:min-w-[26px] bg-background-100 rounded md:rounded-md data-[focus=true]:border-transparent data-[focus=true]:border-opacity-20 border-transparent border-opacity-20 flex justify-start capitalize"
                       data-slot="trigger"
-                      id="react-aria-:r3h:"
+                      id="react-aria-:r2o:"
                       type="button"
                     >
                       <div
@@ -945,7 +745,7 @@ exports[`AppointmentsHistory Component should render correctly with admin role w
                       aria-label="Dropdown button"
                       class="group relative items-center box-border appearance-none select-none whitespace-nowrap font-normal overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-small gap-2 [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none data-[hover=true]:opacity-hover z-10 aria-expanded:scale-[0.97] aria-expanded:opacity-70 subpixel-antialiased text-primary-100 border-1 data-[focus=true]:border-1 px-[2px] md:px-1 min-w-4 h-4 md:h-[26px] md:min-w-[26px] bg-background-100 rounded md:rounded-md data-[focus=true]:border-transparent data-[focus=true]:border-opacity-20 border-transparent border-opacity-20 flex justify-start capitalize"
                       data-slot="trigger"
-                      id="react-aria-:r3k:"
+                      id="react-aria-:r2r:"
                       type="button"
                     >
                       <div
@@ -1124,7 +924,7 @@ exports[`AppointmentsHistory Component should render correctly with admin role w
                       aria-label="Dropdown button"
                       class="group relative items-center box-border appearance-none select-none whitespace-nowrap font-normal overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-small gap-2 [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none data-[hover=true]:opacity-hover z-10 aria-expanded:scale-[0.97] aria-expanded:opacity-70 subpixel-antialiased text-primary-100 border-1 data-[focus=true]:border-1 px-[2px] md:px-1 min-w-4 h-4 md:h-[26px] md:min-w-[26px] bg-background-100 rounded md:rounded-md data-[focus=true]:border-transparent data-[focus=true]:border-opacity-20 border-transparent border-opacity-20 flex justify-start capitalize"
                       data-slot="trigger"
-                      id="react-aria-:r3n:"
+                      id="react-aria-:r2u:"
                       type="button"
                     >
                       <div
@@ -1165,106 +965,6 @@ exports[`AppointmentsHistory Component should render correctly with admin role w
 
 exports[`AppointmentsHistory Component should render correctly with user role when have appointments value 1`] = `
 <div>
-  <div
-    class="flex justify-between gap-10 my-8"
-  >
-    <div
-      class="group flex flex-col data-[hidden=true]:hidden w-full relative justify-end data-[has-label=true]:mt-[calc(theme(fontSize.small)_+_10px)]"
-      data-filled="true"
-      data-filled-within="true"
-      data-slot="base"
-    >
-      <div
-        class="flex flex-col h-fit lg:max-w-[400px] text-xs"
-        data-slot="main-wrapper"
-      >
-        <div
-          class="relative w-full inline-flex tap-highlight-transparent flex-row items-center shadow-sm px-3 gap-3 data-[hover=true]:bg-default-200 group-data-[focus=true]:bg-default-100 min-h-10 rounded-medium transition-background motion-reduce:transition-none !duration-150 outline-none group-data-[focus-visible=true]:z-10 group-data-[focus-visible=true]:ring-2 group-data-[focus-visible=true]:ring-focus group-data-[focus-visible=true]:ring-offset-2 group-data-[focus-visible=true]:ring-offset-background bg-transparent border-text-foreground !bg-transparent data-[hover=true]:!bg-transparent group-data-[focus=true]:ring-0 group-data-[focus=true]:ring-offset-0 group-data-[focus=true]:!bg-transparent data-[focus=true]:border-secondary-300 group-data-[invalid=true]:border-danger-100 py-4 border h-[52px]"
-          data-slot="input-wrapper"
-          style="cursor: text;"
-        >
-          <div
-            class="inline-flex w-full items-center h-full box-border"
-            data-slot="inner-wrapper"
-          >
-            <svg
-              class="w-5 h-5 ml-4 text-primary-200"
-              fill="none"
-              viewBox="0 0 20 20"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <g
-                clip-path="url(#clip0_1_18701)"
-              >
-                <path
-                  d="M9.58341 17.5C13.9557 17.5 17.5001 13.9556 17.5001 9.58335C17.5001 5.2111 13.9557 1.66669 9.58341 1.66669C5.21116 1.66669 1.66675 5.2111 1.66675 9.58335C1.66675 13.9556 5.21116 17.5 9.58341 17.5Z"
-                  stroke="currentColor"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="1.5"
-                />
-                <path
-                  d="M18.3334 18.3334L16.6667 16.6667"
-                  stroke="currentColor"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="1.5"
-                />
-              </g>
-              <defs>
-                <clippath
-                  id="clip0_1_18701"
-                >
-                  <rect
-                    fill="white"
-                    height="20"
-                    width="20"
-                  />
-                </clippath>
-              </defs>
-            </svg>
-            <input
-              aria-label="Search Appointments"
-              class="w-full font-normal !outline-none focus-visible:outline-none data-[has-start-content=true]:ps-1.5 data-[has-end-content=true]:pe-1.5 file:cursor-pointer file:bg-transparent file:border-0 autofill:bg-transparent bg-clip-text peer pr-6 rtl:pr-0 rtl:pl-6 group-data-[has-value=true]:text-default-foreground text-primary-100 placeholder:text-primary-300 bg-transparent text-sm mx-2 group-data-[invalid=true]:!text-danger-100"
-              data-has-start-content="true"
-              data-slot="input"
-              id="react-aria-:r22:"
-              placeholder="Search Appointments"
-              type="text"
-              value=""
-            />
-            <span
-              aria-label="clear input"
-              class="p-2 -m-2 z-10 hidden absolute end-3 start-auto appearance-none select-none opacity-0 hover:!opacity-100 cursor-pointer active:!opacity-70 rounded-full outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-large peer-data-[filled=true]:opacity-70 peer-data-[filled=true]:block transition-opacity motion-reduce:transition-none"
-              data-slot="clear-button"
-              role="button"
-              tabindex="0"
-            >
-              <svg
-                aria-hidden="true"
-                focusable="false"
-                height="1em"
-                role="presentation"
-                viewBox="0 0 24 24"
-                width="1em"
-              >
-                <path
-                  d="M12 2a10 10 0 1010 10A10.016 10.016 0 0012 2zm3.36 12.3a.754.754 0 010 1.06.748.748 0 01-1.06 0l-2.3-2.3-2.3 2.3a.748.748 0 01-1.06 0 .754.754 0 010-1.06l2.3-2.3-2.3-2.3A.75.75 0 019.7 8.64l2.3 2.3 2.3-2.3a.75.75 0 011.06 1.06l-2.3 2.3z"
-                  fill="currentColor"
-                />
-              </svg>
-            </span>
-          </div>
-        </div>
-      </div>
-    </div>
-    <button
-      class="z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap subpixel-antialiased overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 px-4 min-w-20 text-small gap-2 rounded-medium [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none data-[hover=true]:opacity-hover border-transparent bg-linear-success text-content1 h-[52px] font-medium"
-      type="button"
-    >
-      Create
-    </button>
-  </div>
   <div
     class="flex flex-col relative overflow-hidden h-auto text-foreground box-border outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 shadow-medium rounded-large transition-transform-background motion-reduce:transition-none w-full px-4 py-6 bg-background-200"
     tabindex="-1"
@@ -1333,10 +1033,10 @@ exports[`AppointmentsHistory Component should render correctly with user role wh
               aria-expanded="false"
               aria-haspopup="listbox"
               aria-label="Status"
-              aria-labelledby="react-aria-:r2e: react-aria-:r29:"
+              aria-labelledby="react-aria-:r1q: react-aria-:r1l:"
               class="relative gap-3 w-full inline-flex flex-row items-center shadow-sm tap-highlight-transparent group-data-[focus=true]:bg-default-100 outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 px-2.5 py-2 h-[46px] rounded-medium bg-background-100 shadow-stack border-1 outline-offset-0 data-[focus=true]:border-green data-[focus=true]:border-1 data-[focus=true]:bg-background-100 data-[hover=true]:bg-background-100 group-data-[invalid=true]:!border-danger-100 min-h-[36px]"
               data-slot="trigger"
-              id="react-aria-:r29:"
+              id="react-aria-:r1l:"
               type="button"
             >
               <div
@@ -1346,7 +1046,7 @@ exports[`AppointmentsHistory Component should render correctly with user role wh
                 <span
                   class="w-full text-left rtl:text-right truncate group-data-[has-value=true]:text-default-foreground text-xs group-data-[invalid=true]:!text-danger-100 text-primary-100 font-medium"
                   data-slot="value"
-                  id="react-aria-:r2e:"
+                  id="react-aria-:r1q:"
                 >
                   Status
                 </span>
@@ -1570,7 +1270,7 @@ exports[`AppointmentsHistory Component should render correctly with user role wh
                       aria-label="Dropdown button"
                       class="group relative items-center box-border appearance-none select-none whitespace-nowrap font-normal overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-small gap-2 [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none data-[hover=true]:opacity-hover z-10 aria-expanded:scale-[0.97] aria-expanded:opacity-70 subpixel-antialiased text-primary-100 border-1 data-[focus=true]:border-1 px-[2px] md:px-1 min-w-4 h-4 md:h-[26px] md:min-w-[26px] bg-background-100 rounded md:rounded-md data-[focus=true]:border-transparent data-[focus=true]:border-opacity-20 border-transparent border-opacity-20 flex justify-start capitalize"
                       data-slot="trigger"
-                      id="react-aria-:r2h:"
+                      id="react-aria-:r1t:"
                       type="button"
                     >
                       <div
@@ -1715,7 +1415,7 @@ exports[`AppointmentsHistory Component should render correctly with user role wh
                       aria-label="Dropdown button"
                       class="group relative items-center box-border appearance-none select-none whitespace-nowrap font-normal overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-small gap-2 [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none data-[hover=true]:opacity-hover z-10 aria-expanded:scale-[0.97] aria-expanded:opacity-70 subpixel-antialiased text-primary-100 border-1 data-[focus=true]:border-1 px-[2px] md:px-1 min-w-4 h-4 md:h-[26px] md:min-w-[26px] bg-background-100 rounded md:rounded-md data-[focus=true]:border-transparent data-[focus=true]:border-opacity-20 border-transparent border-opacity-20 flex justify-start capitalize"
                       data-slot="trigger"
-                      id="react-aria-:r2k:"
+                      id="react-aria-:r20:"
                       type="button"
                     >
                       <div
@@ -1859,7 +1559,7 @@ exports[`AppointmentsHistory Component should render correctly with user role wh
                       aria-label="Dropdown button"
                       class="group relative items-center box-border appearance-none select-none whitespace-nowrap font-normal overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-small gap-2 [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none data-[hover=true]:opacity-hover z-10 aria-expanded:scale-[0.97] aria-expanded:opacity-70 subpixel-antialiased text-primary-100 border-1 data-[focus=true]:border-1 px-[2px] md:px-1 min-w-4 h-4 md:h-[26px] md:min-w-[26px] bg-background-100 rounded md:rounded-md data-[focus=true]:border-transparent data-[focus=true]:border-opacity-20 border-transparent border-opacity-20 flex justify-start capitalize"
                       data-slot="trigger"
-                      id="react-aria-:r2n:"
+                      id="react-aria-:r23:"
                       type="button"
                     >
                       <div
