@@ -20,8 +20,8 @@ import { getAppointments, getUserLogged } from '@/services';
 // Components
 import { AppointmentsHistorySkeleton } from '@/features/appointments/AppointmentsHistory/AppointmentsHistorySkeleton';
 import { InputSearch } from '@/components/ui';
-import { AppointmentCreate } from '@/features/appointments/AppointmentCreate';
 import AppointmentsHistory from '@/features/appointments/AppointmentsHistory';
+import AppointmentCreate from '@/features/appointments/AppointmentCreate';
 
 export const metadata: Metadata = {
   title: 'Appointments',

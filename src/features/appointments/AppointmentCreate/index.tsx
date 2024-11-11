@@ -1,15 +1,19 @@
 'use client';
 
-import { Button } from '@/components/ui';
+import { memo, useCallback } from 'react';
 import { useDisclosure } from '@nextui-org/react';
-import { useCallback } from 'react';
+
+// Components
+import { Button } from '@/components/ui';
 import AppointmentModal from '../AppointmentModal';
+
+// Types
 import { UserLogged } from '@/types';
 
 export interface AppointmentCreateProps {
   userLogged: UserLogged | null;
 }
-export const AppointmentCreate = ({ userLogged }: AppointmentCreateProps) => {
+const AppointmentCreate = ({ userLogged }: AppointmentCreateProps) => {
   const { onClose, onOpen, isOpen } = useDisclosure();
   const handleOpenCreateModal = useCallback(() => {
     onOpen();
@@ -28,3 +32,5 @@ export const AppointmentCreate = ({ userLogged }: AppointmentCreateProps) => {
     </>
   );
 };
+
+export default memo(AppointmentCreate);

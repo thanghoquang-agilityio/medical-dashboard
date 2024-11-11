@@ -1,4 +1,4 @@
-import { lazy, Suspense } from 'react';
+import { Suspense } from 'react';
 import { Metadata } from 'next';
 
 // Services
@@ -13,8 +13,9 @@ import { PAGE_DEFAULT, PAGE_SIZE_CHEMISTS_DEFAULT } from '@/constants';
 
 // Component
 import { ChemistSkeleton } from '@/features/chemists/ChemistList/ChemistSkeleton';
-
-const ChemistList = lazy(() => import('@/features/chemists/ChemistList'));
+import ChemistList from '@/features/chemists/ChemistList';
+import { InputSearch } from '@/components/ui';
+import ChemistActions from '@/features/chemists/ChemistActions/ChemistActions';
 
 export interface ChemistPageSearchParamsProps extends SearchParams {}
 
@@ -75,15 +76,25 @@ const ChemistPage = async ({
   const { specialties } = await getSpecialties({});
 
   return (
-    <Suspense fallback={<ChemistSkeleton />}>
-      <ChemistList
-        chemists={chemists}
-        pagination={pagination}
-        defaultSpecialty={specialty}
-        role={role}
-        specialties={specialties}
-      />
-    </Suspense>
+    <>
+      <div className="flex flex-col mt-8 md:flex-row gap-4 md:mb-3">
+        <InputSearch placeholder="Search Chemists" />
+        <ChemistActions
+          specialties={specialties}
+          role={role}
+          defaultSpecialty={specialty}
+        />
+      </div>
+      <Suspense fallback={<ChemistSkeleton />}>
+        <ChemistList
+          chemists={chemists}
+          pagination={pagination}
+          defaultSpecialty={specialty}
+          role={role}
+          specialties={specialties}
+        />
+      </Suspense>
+    </>
   );
 };
 

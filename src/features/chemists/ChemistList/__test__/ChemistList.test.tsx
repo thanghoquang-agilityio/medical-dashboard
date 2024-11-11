@@ -80,20 +80,4 @@ describe('ChemistList', () => {
 
     expect(location.pathname.includes('page')).toBe(false);
   });
-
-  it('should be able to filter by specialty', async () => {
-    await setup(mockProps);
-
-    const specialtyDropdown: HTMLSpanElement = screen.getByText('Specialty');
-
-    fireEvent.click(specialtyDropdown);
-
-    const specialtyOption: HTMLLIElement = screen.getByRole('option', {
-      name: /organic chemist/i,
-    });
-
-    fireEvent.click(specialtyOption);
-
-    expect(specialtyOption.getAttribute('data-focus')).toBe('true');
-  });
 });
