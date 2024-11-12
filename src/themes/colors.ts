@@ -47,6 +47,7 @@ export const colors = {
     dark: '#38CB89',
   },
   everglade: '#134931',
+  'bubble-gum': '#FFC2CD',
 };
 
 export const backgroundImage = {
