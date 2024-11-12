@@ -24,11 +24,13 @@ const AppointmentCreate = ({ userLogged }: AppointmentCreateProps) => {
       <Button onClick={handleOpenCreateModal} className="h-[52px] font-medium">
         Create
       </Button>
-      <AppointmentModal
-        userLogged={userLogged}
-        onClose={onClose}
-        isOpen={isOpen}
-      />
+      {isOpen && (
+        <AppointmentModal
+          userLogged={userLogged}
+          onClose={onClose}
+          isOpen={isOpen}
+        />
+      )}
     </>
   );
 };

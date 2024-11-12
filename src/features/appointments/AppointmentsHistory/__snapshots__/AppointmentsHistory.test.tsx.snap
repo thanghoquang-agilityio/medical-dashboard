@@ -70,10 +70,10 @@ exports[`AppointmentsHistory Component should render correctly when appointments
               aria-expanded="false"
               aria-haspopup="listbox"
               aria-label="Status"
-              aria-labelledby="react-aria-:r3g: react-aria-:r3b:"
+              aria-labelledby="react-aria-:r31: react-aria-:r2s:"
               class="relative gap-3 w-full inline-flex flex-row items-center shadow-sm tap-highlight-transparent group-data-[focus=true]:bg-default-100 outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 px-2.5 py-2 h-[46px] rounded-medium bg-background-100 shadow-stack border-1 outline-offset-0 data-[focus=true]:border-green data-[focus=true]:border-1 data-[focus=true]:bg-background-100 data-[hover=true]:bg-background-100 group-data-[invalid=true]:!border-danger-100 min-h-[36px]"
               data-slot="trigger"
-              id="react-aria-:r3b:"
+              id="react-aria-:r2s:"
               type="button"
             >
               <div
@@ -83,7 +83,7 @@ exports[`AppointmentsHistory Component should render correctly when appointments
                 <span
                   class="w-full text-left rtl:text-right truncate group-data-[has-value=true]:text-default-foreground text-xs group-data-[invalid=true]:!text-danger-100 text-primary-100 font-medium"
                   data-slot="value"
-                  id="react-aria-:r3g:"
+                  id="react-aria-:r31:"
                 >
                   Status
                 </span>
@@ -284,10 +284,10 @@ exports[`AppointmentsHistory Component should render correctly with admin role w
               aria-expanded="false"
               aria-haspopup="listbox"
               aria-label="Status"
-              aria-labelledby="react-aria-:r2l: react-aria-:r2g:"
+              aria-labelledby="react-aria-:r29: react-aria-:r24:"
               class="relative gap-3 w-full inline-flex flex-row items-center shadow-sm tap-highlight-transparent group-data-[focus=true]:bg-default-100 outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 px-2.5 py-2 h-[46px] rounded-medium bg-background-100 shadow-stack border-1 outline-offset-0 data-[focus=true]:border-green data-[focus=true]:border-1 data-[focus=true]:bg-background-100 data-[hover=true]:bg-background-100 group-data-[invalid=true]:!border-danger-100 min-h-[36px]"
               data-slot="trigger"
-              id="react-aria-:r2g:"
+              id="react-aria-:r24:"
               type="button"
             >
               <div
@@ -297,7 +297,7 @@ exports[`AppointmentsHistory Component should render correctly with admin role w
                 <span
                   class="w-full text-left rtl:text-right truncate group-data-[has-value=true]:text-default-foreground text-xs group-data-[invalid=true]:!text-danger-100 text-primary-100 font-medium"
                   data-slot="value"
-                  id="react-aria-:r2l:"
+                  id="react-aria-:r29:"
                 >
                   Status
                 </span>
@@ -565,7 +565,7 @@ exports[`AppointmentsHistory Component should render correctly with admin role w
                       aria-label="Dropdown button"
                       class="group relative items-center box-border appearance-none select-none whitespace-nowrap font-normal overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-small gap-2 [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none data-[hover=true]:opacity-hover z-10 aria-expanded:scale-[0.97] aria-expanded:opacity-70 subpixel-antialiased text-primary-100 border-1 data-[focus=true]:border-1 px-[2px] md:px-1 min-w-4 h-4 md:h-[26px] md:min-w-[26px] bg-background-100 rounded md:rounded-md data-[focus=true]:border-transparent data-[focus=true]:border-opacity-20 border-transparent border-opacity-20 flex justify-start capitalize"
                       data-slot="trigger"
-                      id="react-aria-:r2o:"
+                      id="react-aria-:r2c:"
                       type="button"
                     >
                       <div
@@ -745,7 +745,7 @@ exports[`AppointmentsHistory Component should render correctly with admin role w
                       aria-label="Dropdown button"
                       class="group relative items-center box-border appearance-none select-none whitespace-nowrap font-normal overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-small gap-2 [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none data-[hover=true]:opacity-hover z-10 aria-expanded:scale-[0.97] aria-expanded:opacity-70 subpixel-antialiased text-primary-100 border-1 data-[focus=true]:border-1 px-[2px] md:px-1 min-w-4 h-4 md:h-[26px] md:min-w-[26px] bg-background-100 rounded md:rounded-md data-[focus=true]:border-transparent data-[focus=true]:border-opacity-20 border-transparent border-opacity-20 flex justify-start capitalize"
                       data-slot="trigger"
-                      id="react-aria-:r2r:"
+                      id="react-aria-:r2f:"
                       type="button"
                     >
                       <div
@@ -924,7 +924,7 @@ exports[`AppointmentsHistory Component should render correctly with admin role w
                       aria-label="Dropdown button"
                       class="group relative items-center box-border appearance-none select-none whitespace-nowrap font-normal overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-small gap-2 [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none data-[hover=true]:opacity-hover z-10 aria-expanded:scale-[0.97] aria-expanded:opacity-70 subpixel-antialiased text-primary-100 border-1 data-[focus=true]:border-1 px-[2px] md:px-1 min-w-4 h-4 md:h-[26px] md:min-w-[26px] bg-background-100 rounded md:rounded-md data-[focus=true]:border-transparent data-[focus=true]:border-opacity-20 border-transparent border-opacity-20 flex justify-start capitalize"
                       data-slot="trigger"
-                      id="react-aria-:r2u:"
+                      id="react-aria-:r2i:"
                       type="button"
                     >
                       <div
@@ -1033,10 +1033,10 @@ exports[`AppointmentsHistory Component should render correctly with user role wh
               aria-expanded="false"
               aria-haspopup="listbox"
               aria-label="Status"
-              aria-labelledby="react-aria-:r1q: react-aria-:r1l:"
+              aria-labelledby="react-aria-:r1h: react-aria-:r1c:"
               class="relative gap-3 w-full inline-flex flex-row items-center shadow-sm tap-highlight-transparent group-data-[focus=true]:bg-default-100 outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 px-2.5 py-2 h-[46px] rounded-medium bg-background-100 shadow-stack border-1 outline-offset-0 data-[focus=true]:border-green data-[focus=true]:border-1 data-[focus=true]:bg-background-100 data-[hover=true]:bg-background-100 group-data-[invalid=true]:!border-danger-100 min-h-[36px]"
               data-slot="trigger"
-              id="react-aria-:r1l:"
+              id="react-aria-:r1c:"
               type="button"
             >
               <div
@@ -1046,7 +1046,7 @@ exports[`AppointmentsHistory Component should render correctly with user role wh
                 <span
                   class="w-full text-left rtl:text-right truncate group-data-[has-value=true]:text-default-foreground text-xs group-data-[invalid=true]:!text-danger-100 text-primary-100 font-medium"
                   data-slot="value"
-                  id="react-aria-:r1q:"
+                  id="react-aria-:r1h:"
                 >
                   Status
                 </span>
@@ -1270,7 +1270,7 @@ exports[`AppointmentsHistory Component should render correctly with user role wh
                       aria-label="Dropdown button"
                       class="group relative items-center box-border appearance-none select-none whitespace-nowrap font-normal overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-small gap-2 [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none data-[hover=true]:opacity-hover z-10 aria-expanded:scale-[0.97] aria-expanded:opacity-70 subpixel-antialiased text-primary-100 border-1 data-[focus=true]:border-1 px-[2px] md:px-1 min-w-4 h-4 md:h-[26px] md:min-w-[26px] bg-background-100 rounded md:rounded-md data-[focus=true]:border-transparent data-[focus=true]:border-opacity-20 border-transparent border-opacity-20 flex justify-start capitalize"
                       data-slot="trigger"
-                      id="react-aria-:r1t:"
+                      id="react-aria-:r1k:"
                       type="button"
                     >
                       <div
@@ -1415,7 +1415,7 @@ exports[`AppointmentsHistory Component should render correctly with user role wh
                       aria-label="Dropdown button"
                       class="group relative items-center box-border appearance-none select-none whitespace-nowrap font-normal overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-small gap-2 [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none data-[hover=true]:opacity-hover z-10 aria-expanded:scale-[0.97] aria-expanded:opacity-70 subpixel-antialiased text-primary-100 border-1 data-[focus=true]:border-1 px-[2px] md:px-1 min-w-4 h-4 md:h-[26px] md:min-w-[26px] bg-background-100 rounded md:rounded-md data-[focus=true]:border-transparent data-[focus=true]:border-opacity-20 border-transparent border-opacity-20 flex justify-start capitalize"
                       data-slot="trigger"
-                      id="react-aria-:r20:"
+                      id="react-aria-:r1n:"
                       type="button"
                     >
                       <div
@@ -1559,7 +1559,7 @@ exports[`AppointmentsHistory Component should render correctly with user role wh
                       aria-label="Dropdown button"
                       class="group relative items-center box-border appearance-none select-none whitespace-nowrap font-normal overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-small gap-2 [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none data-[hover=true]:opacity-hover z-10 aria-expanded:scale-[0.97] aria-expanded:opacity-70 subpixel-antialiased text-primary-100 border-1 data-[focus=true]:border-1 px-[2px] md:px-1 min-w-4 h-4 md:h-[26px] md:min-w-[26px] bg-background-100 rounded md:rounded-md data-[focus=true]:border-transparent data-[focus=true]:border-opacity-20 border-transparent border-opacity-20 flex justify-start capitalize"
                       data-slot="trigger"
-                      id="react-aria-:r23:"
+                      id="react-aria-:r1q:"
                       type="button"
                     >
                       <div

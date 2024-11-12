@@ -683,6 +683,7 @@ exports[`AppointmentForm test cases should render correctly with providing data 
         class="group flex flex-col w-full opacity-disabled pointer-events-none transition-background motion-reduce:transition-none !duration-150 group relative justify-end data-[has-label=true]:mt-[calc(theme(fontSize.small)_+_10px)]"
         data-filled="true"
         data-has-label="true"
+        data-has-value="true"
         data-slot="base"
       >
         <div
@@ -703,10 +704,16 @@ exports[`AppointmentForm test cases should render correctly with providing data 
             <select
               disabled=""
               name="senderId"
+              size="1"
               tabindex="-1"
               title=""
             >
               <option />
+              <option
+                value="3"
+              >
+                alexstanton@gmail.com
+              </option>
             </select>
           </label>
         </div>
@@ -741,7 +748,7 @@ exports[`AppointmentForm test cases should render correctly with providing data 
                 data-slot="value"
                 id="react-aria-:r1r:"
               >
-                Select sender
+                alexstanton@gmail.com
               </span>
             </div>
             <svg
@@ -770,6 +777,7 @@ exports[`AppointmentForm test cases should render correctly with providing data 
         class="group flex flex-col w-full opacity-disabled pointer-events-none transition-background motion-reduce:transition-none !duration-150 group relative justify-end data-[has-label=true]:mt-[calc(theme(fontSize.small)_+_10px)]"
         data-filled="true"
         data-has-label="true"
+        data-has-value="true"
         data-slot="base"
       >
         <div
@@ -790,10 +798,16 @@ exports[`AppointmentForm test cases should render correctly with providing data 
             <select
               disabled=""
               name="receiverId"
+              size="1"
               tabindex="-1"
               title=""
             >
               <option />
+              <option
+                value="6"
+              >
+                thang.hoquang@asnet.com.vn
+              </option>
             </select>
           </label>
         </div>
@@ -829,7 +843,7 @@ exports[`AppointmentForm test cases should render correctly with providing data 
                 data-slot="value"
                 id="react-aria-:r23:"
               >
-                Select receiver
+                thang.hoquang@asnet.com.vn
               </span>
             </div>
             <svg

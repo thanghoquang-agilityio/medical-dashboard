@@ -251,13 +251,15 @@ const AppointmentsHistory = ({
         </div>
       </Card>
 
-      <AppointmentModal
-        data={appointment}
-        id={appointmentId}
-        userLogged={userLogged}
-        onClose={onClose}
-        isOpen={isOpen}
-      />
+      {isOpen && (
+        <AppointmentModal
+          data={appointment}
+          id={appointmentId}
+          userLogged={userLogged}
+          onClose={onClose}
+          isOpen={isOpen}
+        />
+      )}
 
       <ConfirmModal
         title="Confirmation"
