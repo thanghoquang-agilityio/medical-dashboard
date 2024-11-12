@@ -121,24 +121,27 @@ describe('formatDateTime', () => {
   });
 
   describe('formatDayMonthYear function', () => {
-    const expectedInvalid = 'NaN undefined NaN';
-    it('should return formatted date string when input is valid', () => {
-      const input = MOCK_DATE.FUTURE;
-      const expected = '17 Sep 2024';
+    it('should format ISO string to "D MMM YYYY"', () => {
+      const isoString = '2024-11-13T15:20:30Z';
+      const expectedOutput = '13 Nov 2024';
 
-      expect(formatDayMonthYear(input)).toBe(expected);
+      const result = formatDayMonthYear(isoString);
+      expect(result).toBe(expectedOutput);
     });
 
-    it('should return empty string when input is empty', () => {
-      const input = '';
+    it('should handle a different month and day correctly', () => {
+      const isoString = '2024-04-05T08:45:00Z';
+      const expectedOutput = '5 Apr 2024';
 
-      expect(formatDayMonthYear(input)).toBe(expectedInvalid);
+      const result = formatDayMonthYear(isoString);
+      expect(result).toBe(expectedOutput);
     });
 
-    it('should return empty string when input is invalid', () => {
-      const input = MOCK_DATE.INVALID;
+    it('should return "Invalid Date" if input is not a valid ISO string', () => {
+      const invalidString = 'invalid-date';
 
-      expect(formatDayMonthYear(input)).toBe(expectedInvalid);
+      const result = formatDayMonthYear(invalidString);
+      expect(result).toBe('Invalid Date');
     });
   });
 

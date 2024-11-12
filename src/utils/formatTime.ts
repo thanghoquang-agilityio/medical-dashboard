@@ -6,8 +6,9 @@ import timezone from 'dayjs/plugin/timezone';
 dayjs.extend(timezone);
 dayjs.extend(utc);
 
-export const getCurrentDate = (timestamp?: string) =>
-  new Date(timestamp ?? new Date()).toISOString().split('T')[0];
+export const formatStartDate = (isoString: string) => {
+  return dayjs(isoString).format('YYYY-MM-DD');
+};
 
 export const convertToTimeObject = (isoString: string) => {
   if (!isoString) return undefined;

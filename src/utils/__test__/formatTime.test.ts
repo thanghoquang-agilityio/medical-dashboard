@@ -6,31 +6,27 @@ import {
   convertTimeToMinutes,
   convertToTimeObject,
   generateISODate,
-  getCurrentDate,
+  formatStartDate,
   isFutureDate,
 } from '../formatTime';
 import { MOCK_DATE } from '@/mocks';
 import { TimeInputValue } from '@nextui-org/react';
 
-describe('getCurrentDate function', () => {
-  it('should return current date in ISO format', () => {
-    const currentDate = new Date().toISOString().split('T')[0];
+describe('formatStartDate function', () => {
+  it('should format ISO string to "YYYY-MM-DD"', () => {
+    const isoString = '2024-11-13T15:20:30Z';
+    const expectedOutput = '2024-11-13';
 
-    expect(getCurrentDate()).toBe(currentDate);
+    const result = formatStartDate(isoString);
+    expect(result).toBe(expectedOutput);
   });
 
-  it('should return the passed date in ISO format', () => {
-    const passedDate = 'Thu Oct 10 2023 14:41:18 GMT+0700 (Indochina Time)';
-    const expected = '2023-10-10';
+  it('should handle different times in the ISO string', () => {
+    const isoString = '2024-11-13T08:45:00Z';
+    const expectedOutput = '2024-11-13';
 
-    expect(getCurrentDate(passedDate)).toBe(expected);
-  });
-
-  it('should return the passed date in ISO format', () => {
-    const passedDate = MOCK_DATE.NOW;
-    const expected = '2024-02-11';
-
-    expect(getCurrentDate(passedDate)).toBe(expected);
+    const result = formatStartDate(isoString);
+    expect(result).toBe(expectedOutput);
   });
 });
 

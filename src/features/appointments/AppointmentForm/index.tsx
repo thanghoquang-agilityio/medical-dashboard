@@ -15,7 +15,6 @@ import {
 
 // Utils
 import {
-  getCurrentDate,
   convertToTimeObject,
   transformUsers,
   generateISODate,
@@ -23,6 +22,7 @@ import {
   convertTimeToMinutes,
   generateTimeOptions,
   clearErrorOnChange,
+  formatStartDate,
 } from '@/utils';
 
 // Components
@@ -109,7 +109,7 @@ const AppointmentForm = memo(
       mode: 'onBlur',
       reValidateMode: 'onBlur',
       defaultValues: {
-        startDate: startTime && getCurrentDate(startTime),
+        startDate: startTime && formatStartDate(startTime),
         startTime: startTime && convertToTimeObject(startTime),
         durationTime:
           durationTime && convertTimeToMinutes(durationTime).toString(),
@@ -245,7 +245,7 @@ const AppointmentForm = memo(
                 variant="bordered"
                 classNames={selectCustomStyle}
                 defaultSelectedKeys={!isAdmin ? [userId.toString()] : [value]}
-                isDisabled={isEdit || !isAdmin || isPending}
+                isDisabled={isEdit || !isAdmin || isPending || !users.length}
                 options={OPTION_USERS}
                 isInvalid={!!error?.message}
                 errorMessage={error?.message}
@@ -276,7 +276,7 @@ const AppointmentForm = memo(
                 defaultSelectedKeys={[value]}
                 options={OPTION_USERS}
                 isInvalid={!!error?.message}
-                isDisabled={isEdit || isPending}
+                isDisabled={isEdit || isPending || !users.length}
                 errorMessage={error?.message}
                 onChange={onChange}
                 onClose={handleCloseSelect(name)}
