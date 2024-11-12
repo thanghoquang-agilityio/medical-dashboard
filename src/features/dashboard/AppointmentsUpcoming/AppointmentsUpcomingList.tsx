@@ -127,12 +127,9 @@ const AppointmentsUpcomingList = memo(
       [appointments, onOpenConfirm],
     );
 
-    const statusArray = Array.from(status);
-
     const columns = createColumns({
       userId,
       isAdmin,
-      status: statusArray[0],
       onRemoveOrCancel: handleOpenConfirmModal,
     });
 
@@ -183,11 +180,6 @@ const AppointmentsUpcomingList = memo(
       }
 
       if (appointment) {
-        openToast({
-          message: SUCCESS_MESSAGE.CANCEL('appointment'),
-          type: STATUS_TYPE.SUCCESS,
-        });
-
         handleCreateNotification(appointment, 'cancelled');
       }
 
@@ -203,7 +195,7 @@ const AppointmentsUpcomingList = memo(
     ]);
 
     return (
-      <Card className="w-full xl:max-w-[320px] 2xl:max-w-[550px] h-fit p-4 pl-5 bg-background-200">
+      <Card className="w-full xl:max-w-[320px] 2xl:max-w-[550px] h-fit py-4 px-5 bg-background-200">
         <div className="flex justify-between items-center">
           <Text customClass="text-lg font-bold text-primary-100">
             Appointments
@@ -232,9 +224,9 @@ const AppointmentsUpcomingList = memo(
           <DataGrid
             data={appointments}
             columns={columns as ColumnType<unknown>[]}
-            classWrapper="pt-4"
-            classCell="pb-4"
+            classWrapper="pt-4 rounded-none"
             id="appointment-upcoming"
+            classCell="pb-4"
           />
         )}
 

@@ -1,5 +1,4 @@
 import { Suspense } from 'react';
-import dynamic from 'next/dynamic';
 import { Metadata } from 'next';
 import { auth } from '@/config/auth';
 
@@ -20,11 +19,11 @@ import { getGreeting } from '@/utils';
 import { Text, Image } from '@/components/ui';
 import { ActivityFeedSkeleton } from '@/features/dashboard/ActivityFeed/ActivityFeedSkeleton';
 import { AppointmentsUpcomingSkeleton } from '@/features/dashboard/AppointmentsUpcoming/AppointmentsUpcomingSkeleton';
+import ActivityFeed from '@/features/dashboard/ActivityFeed';
+import AppointmentsUpcoming from '@/features/dashboard/AppointmentsUpcoming';
+
+// Services
 import { getUserLogged } from '@/services';
-const AppointmentsUpcoming = dynamic(
-  () => import('@/features/dashboard/AppointmentsUpcoming'),
-);
-const ActivityFeed = dynamic(() => import('@/features/dashboard/ActivityFeed'));
 
 export const metadata: Metadata = {
   title: 'Dashboard',
@@ -51,12 +50,12 @@ const DashboardPage = async ({
     <div className="mt-7">
       <Text customClass="text-xl lg:text-2xl lg:leading-9 mb-2">
         {getGreeting()}&nbsp;
-        <span className="text-sky font-bold text-2xl lg:text-3xl">
+        <span className="text-secondary-100 font-bold text-2xl lg:text-3xl">
           {username}
         </span>
       </Text>
       <div className="bg-linear-banner rounded-medium relative h-fit py-3 sm:py-0 sm:h-[132px] flex flex-col-reverse sm:flex-row gap-3 items-center">
-        <Text customClass="text-wrap text-lg lg:text-xl font-bold px-5 sm:w-[75%] text-center sm:text-left">
+        <Text customClass="text-wrap text-lg lg:text-xl font-bold px-5 text-center max-w-[341px] max-w-full">
           WELCOME TO YOUR PERSONAL VIRTUAL HEALTH ASSISTANT
         </Text>
         <Image

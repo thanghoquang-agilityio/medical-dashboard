@@ -1,12 +1,12 @@
 import { Skeleton } from '@nextui-org/react';
+import { memo } from 'react';
 
 // Constants
 import { PAGE_SIZE_CHEMISTS_DEFAULT } from '@/constants';
 
 // Components
-import { Button, InputSearch, MenuDropdown } from '@/components/ui';
-import { CategoryIcon, NoteIcon, StarIcon } from '@/icons';
-import { memo } from 'react';
+import { Button, Text } from '@/components/ui';
+import { NoteIcon, StarIcon } from '@/icons';
 
 export const ChemistListSkeleton = memo(() => {
   return (
@@ -39,18 +39,21 @@ export const ChemistListSkeleton = memo(() => {
                 <Skeleton className="w-full h-10 rounded-small" />
               </div>
 
-              <div className="flex justify-between mt-auto">
-                <div className="flex items-center gap-1 sm:gap-2">
-                  <NoteIcon customClass="w-6 h-6" />
+              <div className="flex flex-col gap-2">
+                <div className="flex justify-between mt-auto">
+                  <div className="flex items-center gap-1 sm:gap-2">
+                    <NoteIcon customClass="w-6 h-6" />
 
-                  <Skeleton className="w-12 h-5 rounded-small" />
+                    <Skeleton className="w-12 h-5 rounded-small" />
+                  </div>
+
+                  <div className="flex items-center gap-1 sm:gap-2">
+                    <StarIcon customClass="w-6 h-6 text-light-orange" />
+
+                    <Skeleton className="w-24 h-5 rounded-small" />
+                  </div>
                 </div>
-
-                <div className="flex items-center gap-1 sm:gap-2">
-                  <StarIcon customClass="w-6 h-6 text-light-orange" />
-
-                  <Skeleton className="w-24 h-5 rounded-small" />
-                </div>
+                <Skeleton className="w-full h-6 rounded-small" />
               </div>
             </div>
           ))}
@@ -63,28 +66,12 @@ export const ChemistListSkeleton = memo(() => {
 });
 ChemistListSkeleton.displayName = 'ChemistListSkeleton';
 
-export const ChemistSkeleton = memo(() => {
-  return (
-    <>
-      <div className="flex flex-col mt-3 md:flex-row gap-4 md:mb-8">
-        <InputSearch placeholder="Search Appointments" isDisabled={true} />
-        <div className="flex justify-between md:gap-4 mb-10 md:mb-0 ">
-          <MenuDropdown
-            icon={<CategoryIcon customClass="w-4 h-4 md:w-6 md:h-6" />}
-            label="Specialty"
-            options={[]}
-            isDisabled={true}
-            classNames={{
-              trigger: 'w-[120px] md:w-[170px] h-[52px]',
-            }}
-          />
-          <Button className="h-[52px] font-medium" isDisabled={true}>
-            Create
-          </Button>
-        </div>
-      </div>
-      <ChemistListSkeleton />
-    </>
-  );
-});
+export const ChemistSkeleton = memo(() => (
+  <>
+    <Text variant="primary" size="2xl" customClass="my-5">
+      All Chemists
+    </Text>
+    <ChemistListSkeleton />
+  </>
+));
 ChemistSkeleton.displayName = 'ChemistSkeleton';

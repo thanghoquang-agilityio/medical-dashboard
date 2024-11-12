@@ -71,19 +71,9 @@ export const useFcmToken = () => {
       return;
     }
 
-    // Step 7: Set the fetched token and save to cookie, then mark as fetched.
+    // Step 7: Set the fetched token then mark as fetched.
     setNotificationPermissionStatus(Notification.permission);
     setToken(token);
-
-    const cookiePayload = {
-      key: 'fcm_token',
-      value: token,
-    };
-
-    await fetch('/api/save-to-cookie', {
-      body: JSON.stringify(cookiePayload),
-      method: 'POST',
-    });
 
     isLoading.current = false;
 
@@ -98,6 +88,7 @@ export const useFcmToken = () => {
     if ('Notification' in window) {
       loadToken();
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(() => {
@@ -114,8 +105,7 @@ export const useFcmToken = () => {
         if (Notification.permission !== 'granted') return;
         // console.log('Foreground push notification received:', payload);
 
-        const { body = 'You have a new notification' } =
-          payload.notification || {};
+        const { body = 'You have a new notification' } = payload.data || {};
 
         openToast({ message: body });
 

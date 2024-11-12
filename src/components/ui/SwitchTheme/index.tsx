@@ -42,11 +42,7 @@ const SwitchTheme = ({ customClass = '' }: { customClass?: string }) => {
       onClick={handleSwitchTheme}
       className={cn('p-0 min-w-6 w-6 h-6 text-primary-300 mb-0.5', customClass)}
     >
-      {theme === THEME_MODE_TYPE.LIGHT ? (
-        <MoonIcon customClass="w-auto" />
-      ) : (
-        <BrightnessIcon customClass="w-auto" />
-      )}
+      {theme === THEME_MODE_TYPE.LIGHT ? <MoonIcon /> : <BrightnessIcon />}
     </Button>
   );
 };

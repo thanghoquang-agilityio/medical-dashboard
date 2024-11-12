@@ -4,7 +4,14 @@ exports[`Image Component Match snapshot 1`] = `
 <div>
   <img
     alt="Mock Alt"
-    src="true"
+    class="mock-class"
+    data-nimg="1"
+    decoding="async"
+    fetchpriority="high"
+    height="100"
+    src="http://localhost/"
+    style="object-fit: cover;"
+    width="100"
   />
 </div>
 `;

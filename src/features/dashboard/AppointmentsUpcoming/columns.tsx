@@ -1,31 +1,35 @@
 import { Key } from 'react';
 import { AppointmentModel, ColumnType } from '@/types';
-import { formatDate, formatTimeAppointment } from '@/utils';
-import { MenuAction, OptionMoreAction, STATUS, Text } from '@/components/ui';
+import {
+  formatDate,
+  formatTimeAppointment,
+  getStatusKey,
+  isLaterThanCurrentTime,
+} from '@/utils';
+import { MenuAction, OptionMoreAction, Text } from '@/components/ui';
 import { DeleteIcon, XmarkIcon } from '@/icons';
 
 export const createColumns = ({
   userId,
   isAdmin,
-  status,
   onRemoveOrCancel,
 }: {
   userId: string;
   isAdmin: boolean;
-  status: string;
   onRemoveOrCancel: (key?: Key) => void;
 }): ColumnType<AppointmentModel>[] => {
   const baseColumns: ColumnType<AppointmentModel>[] = [
     {
       key: 'startTime',
       title: 'Start time',
+      additionalClassName: 'w-10 md:w-16',
       customNode: ({ item }) => {
         const { startTime = '' } = item || {};
         const date = formatDate(startTime);
 
         return (
           <div className="rounded-md w-[30px] md:w-[37px] h-10 bg-background-100 text-center pt-1">
-            <Text customClass="text-xs text-yellow font-bold">
+            <Text customClass="text-xs text-warning font-bold">
               {date.dayOfWeek}
             </Text>
             <Text variant="primary" customClass="text-xs">
@@ -88,19 +92,25 @@ export const createColumns = ({
     {
       key: 'actions',
       title: 'Actions',
-      customNode: ({ id = '' }) => {
+      customNode: ({ id = '', item }) => {
         const iconClasses = 'mr-2 flex-shrink-0 w-4 h-4';
+        const { startTime = '', status = 0 } = item || {};
+
+        const isDisabled =
+          !isAdmin &&
+          (!isLaterThanCurrentTime(startTime) ||
+            status !== getStatusKey('new'));
 
         const options: OptionMoreAction[] = [
           {
             key: isAdmin ? 'delete' : 'cancel',
             label: isAdmin ? 'Delete' : 'Cancel',
             startContent: isAdmin ? (
-              <DeleteIcon customClass={`text-red ${iconClasses}`} />
+              <DeleteIcon customClass={`text-danger-100 ${iconClasses}`} />
             ) : (
-              <XmarkIcon customClass={`text-red ${iconClasses}`} />
+              <XmarkIcon customClass={`text-danger-100 ${iconClasses}`} />
             ),
-            isDisabled: status !== STATUS[0], // New
+            isDisabled: isDisabled,
             onAction: () => onRemoveOrCancel(id),
           },
         ];

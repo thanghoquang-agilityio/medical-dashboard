@@ -3,7 +3,6 @@
 import { useDisclosure } from '@nextui-org/react';
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 import {
-  Key,
   lazy,
   memo,
   Suspense,
@@ -24,14 +23,14 @@ import {
 } from '@/types';
 
 // Components
-import { Button, InputSearch, MenuDropdown, Text } from '@/components/ui';
-import { CategoryIcon } from '@/icons';
+import { Text } from '@/components/ui';
+
 import ChemistCard from '../ChemistCard';
 import ChemistModal from '../ChemistModal';
 import { ChemistListSkeleton } from './ChemistSkeleton';
 
 // Utils
-import { formatString, transformSpecialties } from '@/utils';
+import { transformSpecialtiesById } from '@/utils';
 
 // Constants
 import { PAGE_DEFAULT, RESULT_NOT_FOUND } from '@/constants';
@@ -46,13 +45,7 @@ export type ChemistListProps = {
 } & MetaResponse;
 
 const ChemistList = memo(
-  ({
-    chemists,
-    role,
-    pagination,
-    defaultSpecialty,
-    specialties,
-  }: ChemistListProps) => {
+  ({ chemists, role, pagination, specialties }: ChemistListProps) => {
     const { page = PAGE_DEFAULT, pageCount = PAGE_DEFAULT } = pagination ?? {};
 
     const [chemist, setChemist] = useState<UserModel>();
@@ -65,17 +58,12 @@ const ChemistList = memo(
     const pathname = usePathname() ?? '';
     const { replace } = useRouter();
 
-    const specialtyOptions = transformSpecialties(specialties);
-    const specialtyOptionsForm = specialtyOptions.slice(1);
-
-    const [_, setSpecialty] = useState(new Set([defaultSpecialty]));
+    const specialtyOptionsById = transformSpecialtiesById(specialties);
 
     const params = useMemo(
       () => new URLSearchParams(searchParams),
       [searchParams],
     );
-
-    const search = searchParams.get('search') ?? '';
 
     const handleReplaceURL = useCallback(
       (params: URLSearchParams) => {
@@ -97,52 +85,7 @@ const ChemistList = memo(
       [handleReplaceURL, params],
     );
 
-    const updateSearchParams = useCallback(
-      (value: string) => {
-        const specialty = searchParams.get('specialty');
-
-        if (!specialty) {
-          params.append('specialty', value);
-        } else if (value) {
-          params.set('specialty', value);
-        } else {
-          params.delete('specialty');
-        }
-
-        handleReplaceURL?.(params);
-      },
-      [handleReplaceURL, params, searchParams],
-    );
-
-    const handleSelectSpecialty = useCallback(
-      (key: Key) => {
-        setSpecialty(new Set([key as string]));
-
-        // Find the selected specialty from specialtyOptions
-        const selectedSpecialty = specialtyOptions.find(
-          (option) => option.key === key,
-        );
-
-        if (key === 'all') {
-          params.delete('specialty');
-          handleReplaceURL?.(params);
-
-          return;
-        }
-
-        const { label = '' } = selectedSpecialty || {};
-        updateSearchParams(formatString(label));
-      },
-      [handleReplaceURL, params, specialtyOptions, updateSearchParams],
-    );
-
     const isAdmin = role === ROLE.ADMIN;
-    // Handle create
-    const handleCreate = useCallback(() => {
-      setChemist(undefined);
-      setChemistId('');
-      onOpen();
-    }, [onOpen]);
 
     // Handle edit
     const handleEdit = useCallback(
@@ -157,26 +100,6 @@ const ChemistList = memo(
 
     return (
       <>
-        <div className="flex flex-col mt-3 md:flex-row gap-4 md:mb-8">
-          <InputSearch placeholder="Search Chemists" value={search} />
-          <div className="flex justify-between md:gap-4 mb-10 md:mb-0 ">
-            <MenuDropdown
-              icon={<CategoryIcon customClass="w-4 h-4 md:w-6 md:h-6" />}
-              label="Specialty"
-              options={specialtyOptions}
-              classNames={{
-                trigger: 'w-[120px] md:w-[170px] h-[52px]',
-              }}
-              selectionMode="multiple"
-              onAction={handleSelectSpecialty}
-            />
-            {isAdmin && (
-              <Button className="font-medium h-[52px]" onClick={handleCreate}>
-                Create
-              </Button>
-            )}
-          </div>
-        </div>
         <Text variant="primary" size="2xl" customClass="my-5">
           {params.size ? 'Chemist Results' : 'All Chemists'}
         </Text>
@@ -226,7 +149,7 @@ const ChemistList = memo(
             id={chemistId}
             data={chemist}
             onClose={onClose}
-            specialtyOptions={specialtyOptionsForm}
+            specialtyOptions={specialtyOptionsById}
           />
         )}
       </>

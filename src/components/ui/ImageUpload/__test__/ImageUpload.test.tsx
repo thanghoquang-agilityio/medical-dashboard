@@ -1,18 +1,6 @@
 import { render, screen } from '@testing-library/react';
-import { JSX, ClassAttributes, ImgHTMLAttributes } from 'react';
 
 import { ImageUpload } from '..';
-
-jest.mock('next/image', () => ({
-  __esModule: true,
-  default: (
-    props: JSX.IntrinsicAttributes &
-      ClassAttributes<HTMLImageElement> &
-      ImgHTMLAttributes<HTMLImageElement>,
-  ) => {
-    return <img {...props} />;
-  },
-}));
 
 describe('ImageUpload Component', () => {
   const mockOnRemoveImage = jest.fn();

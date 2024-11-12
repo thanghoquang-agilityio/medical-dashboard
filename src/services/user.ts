@@ -8,7 +8,7 @@ import {
   UserModel,
   UserPayload,
 } from '@/types';
-import { API_ENDPOINT } from '@/constants';
+import { API_ENDPOINT, EXCEPTION_ERROR_MESSAGE } from '@/constants';
 import { revalidateTag } from 'next/cache';
 
 export const getUserLogged = async (
@@ -28,7 +28,7 @@ export const getUserLogged = async (
     const errorMessage =
       error instanceof Error
         ? error.message
-        : 'An unexpected error occurred in the request get user logged';
+        : EXCEPTION_ERROR_MESSAGE.GET('user logged');
     return { user: null, error: errorMessage };
   }
 };
@@ -58,7 +58,7 @@ export const getUsers = async (): Promise<{
     const errorMessage =
       error instanceof Error
         ? error.message
-        : 'An unexpected error occurred in the request get users';
+        : EXCEPTION_ERROR_MESSAGE.GET('users');
 
     return { users: [], error: errorMessage };
   }
@@ -80,7 +80,7 @@ export const getUserRoles = async (): Promise<RolesResponse> => {
     const errorMessage =
       error instanceof Error
         ? error.message
-        : 'An unexpected error occurred in the request get user roles';
+        : EXCEPTION_ERROR_MESSAGE.GET('user roles');
 
     return { roles: [], error: errorMessage };
   }
@@ -112,7 +112,7 @@ export const addUser = async (
     const errorMessage =
       error instanceof Error
         ? error.message
-        : 'An unexpected error occurred in the request add user';
+        : EXCEPTION_ERROR_MESSAGE.ADD('user');
     return { user: null, error: errorMessage };
   }
 };
@@ -144,7 +144,7 @@ export const updateUser = async (
     const errorMessage =
       error instanceof Error
         ? error.message
-        : 'An unexpected error occurred in the request update user';
+        : EXCEPTION_ERROR_MESSAGE.UPDATE('user');
     return { user: null, error: errorMessage };
   }
 };
@@ -178,12 +178,12 @@ export const updatePublishUser = async (
     const errorMessage =
       error instanceof Error
         ? error.message
-        : 'An unexpected error occurred in the request update user';
+        : EXCEPTION_ERROR_MESSAGE.UPDATE('user');
     return { user: null, error: errorMessage };
   }
 };
 
-const updateUnpublishChemist = async (
+export const updateUnpublishChemist = async (
   id: string,
 ): Promise<{ error: string | null }> => {
   try {
@@ -206,7 +206,7 @@ const updateUnpublishChemist = async (
     const errorMessage =
       error instanceof Error
         ? error.message
-        : 'An unexpected error occurred in the request update user';
+        : EXCEPTION_ERROR_MESSAGE.UPDATE('user');
     return { error: errorMessage };
   }
 };
@@ -241,7 +241,7 @@ export const updateUnpublishUser = async (
     const errorMessage =
       error instanceof Error
         ? error.message
-        : 'An unexpected error occurred in the request update user';
+        : EXCEPTION_ERROR_MESSAGE.UPDATE('user');
     return { user: null, error: errorMessage };
   }
 };
@@ -269,7 +269,7 @@ export const updateUnpublishNotification = async (
     const errorMessage =
       error instanceof Error
         ? error.message
-        : 'An unexpected error occurred in the request update user';
+        : EXCEPTION_ERROR_MESSAGE.UPDATE('user');
     return { error: errorMessage };
   }
 };
@@ -297,7 +297,7 @@ export const updateUnpublishAppointment = async (
     const errorMessage =
       error instanceof Error
         ? error.message
-        : 'An unexpected error occurred in the request update user';
+        : EXCEPTION_ERROR_MESSAGE.UPDATE('user');
     return { error: errorMessage };
   }
 };

@@ -1,12 +1,14 @@
 import {
+  formatSpecialtyString,
   formatString,
   getDescriptionNotification,
   getGreeting,
   getObjectValue,
   getRoleIdByName,
   getStatusKey,
-  transformSpecialties,
+  transformSpecialtiesByName,
   transformUsers,
+  transformSpecialtiesById,
 } from '../common';
 import { APIRelatedResponse, APIResponse, ROLE, UserModel } from '@/types';
 import { MOCK_USER_ROLE, MOCK_USERS_LOGGED, MOCK_SPECIALTIES } from '@/mocks';
@@ -204,7 +206,7 @@ describe('transformUsers function', () => {
   });
 });
 
-describe('transformSpecialties function', () => {
+describe('transformSpecialtiesByName function', () => {
   it('should return default All option when specialties is empty', () => {
     const expected = [
       {
@@ -212,7 +214,7 @@ describe('transformSpecialties function', () => {
         label: 'All',
       },
     ];
-    expect(transformSpecialties([])).toEqual(expected);
+    expect(transformSpecialtiesByName([])).toEqual(expected);
   });
 
   it('should return array of options when specialties is has data', () => {
@@ -222,28 +224,28 @@ describe('transformSpecialties function', () => {
         label: 'All',
       },
       {
-        key: '1',
+        key: 'instrumentation',
         label: 'Instrumentation',
       },
       {
-        key: '2',
+        key: 'laboratory_chemist',
         label: 'Laboratory Chemist',
       },
       {
-        key: '3',
+        key: 'organic_chemist',
         label: 'Organic Chemist',
       },
       {
-        key: '4',
+        key: 'power_plant_chemist',
         label: 'Power Plant Chemist',
       },
       {
-        key: '5',
+        key: 'qc_chemist',
         label: 'QC Chemist',
       },
     ];
 
-    expect(transformSpecialties(MOCK_SPECIALTIES)).toEqual(expected);
+    expect(transformSpecialtiesByName(MOCK_SPECIALTIES)).toEqual(expected);
   });
 });
 
@@ -276,5 +278,61 @@ describe('getRoleIdByName function', () => {
 
   it('should return undefined when role name is empty', () => {
     expect(getRoleIdByName(MOCK_USER_ROLE, '')).toBeUndefined();
+  });
+});
+
+describe('formatSpecialtyString test cases', () => {
+  test('should return an empty string when input is undefined', () => {
+    const result = formatSpecialtyString(undefined);
+    expect(result).toBe(''); // Expect an empty string for undefined input
+  });
+
+  test('should return an empty string when input is an empty string', () => {
+    const result = formatSpecialtyString('');
+    expect(result).toBe(''); // Expect an empty string for empty string input
+  });
+
+  test('should replace underscore with space and convert to uppercase', () => {
+    const result = formatSpecialtyString('cardiology_specialty');
+    expect(result).toBe('cardiology specialty'); // Expect formatted string
+  });
+
+  test('should return the same string in uppercase when no underscore is present', () => {
+    const result = formatSpecialtyString('orthopedics');
+    expect(result).toBe('orthopedics'); // Expect the string to be uppercase
+  });
+
+  test('should handle input with multiple underscores', () => {
+    const result = formatSpecialtyString('internal_medicine_specialty');
+    expect(result).toBe('internal medicine specialty'); // Expect multiple underscores replaced with spaces
+  });
+});
+
+describe('transformSpecialtiesById function', () => {
+  it('should return array of options when specialties is has data', () => {
+    const expected = [
+      {
+        key: '1',
+        label: 'Instrumentation',
+      },
+      {
+        key: '2',
+        label: 'Laboratory Chemist',
+      },
+      {
+        key: '3',
+        label: 'Organic Chemist',
+      },
+      {
+        key: '4',
+        label: 'Power Plant Chemist',
+      },
+      {
+        key: '5',
+        label: 'QC Chemist',
+      },
+    ];
+
+    expect(transformSpecialtiesById(MOCK_SPECIALTIES)).toEqual(expected);
   });
 });

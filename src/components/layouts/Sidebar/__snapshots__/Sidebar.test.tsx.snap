@@ -86,8 +86,8 @@ exports[`Sidebar test cases should render correctly 1`] = `
           class=""
         >
           <a
-            aria-label="Appointment"
-            class="text-primary-100 text-sm flex h-[60px] gap-5 mb-[1px] py-5 px-8 lg:px-10 bg-linear-sidebar text-sky font-semibold"
+            aria-label="Appointments"
+            class="text-primary-100 text-sm flex h-[60px] gap-5 mb-[1px] py-5 px-8 lg:px-10 bg-linear-sidebar text-secondary-100 font-semibold"
             href="/appointments"
           >
             <div
@@ -123,7 +123,7 @@ exports[`Sidebar test cases should render correctly 1`] = `
               </svg>
             </div>
             <p>
-              Appointment
+              Appointments
             </p>
           </a>
         </div>
@@ -365,7 +365,7 @@ exports[`Sidebar test cases should render correctly 1`] = `
           </a>
         </div>
         <p
-          class="text-ellipsis whitespace-nowrap overflow-hidden uppercase px-8 text-primary-100 mt-8 opacity-60"
+          class="text-sm text-ellipsis whitespace-nowrap overflow-hidden uppercase px-8 lg:px-10 text-primary-100 mt-8 opacity-60"
         >
           support
         </p>
@@ -591,8 +591,8 @@ exports[`Sidebar test cases should render correctly 1`] = `
             class=""
           >
             <a
-              aria-label="Appointment"
-              class="text-primary-100 text-sm flex h-[60px] gap-5 mb-[1px] py-5 px-8 lg:px-10 justify-center bg-linear-sidebar text-sky font-semibold"
+              aria-label="Appointments"
+              class="text-primary-100 text-sm flex h-[60px] gap-5 mb-[1px] py-5 px-8 lg:px-10 justify-center bg-linear-sidebar text-secondary-100 font-semibold"
               href="/appointments"
             >
               <div

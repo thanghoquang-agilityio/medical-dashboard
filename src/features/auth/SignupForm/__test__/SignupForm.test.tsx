@@ -120,11 +120,23 @@ describe('SignupForm Component', () => {
   it('should show validation error when name is wrong format', async () => {
     const { usernameInput } = setup();
 
-    await act(() => fillInput(usernameInput, '@'));
+    await act(() => fillInput(usernameInput, '@12'));
 
     await waitFor(() => {
       expect(
         screen.getByText(FORM_VALIDATION_MESSAGE.ONLY_TEXT),
+      ).toBeInTheDocument();
+    });
+  });
+
+  it('should show validation error when username is least 3 characters', async () => {
+    const { usernameInput } = setup();
+
+    await act(() => fillInput(usernameInput, 'hi'));
+
+    await waitFor(() => {
+      expect(
+        screen.getByText(FORM_VALIDATION_MESSAGE.MIN_LENGTH('Username', 3)),
       ).toBeInTheDocument();
     });
   });

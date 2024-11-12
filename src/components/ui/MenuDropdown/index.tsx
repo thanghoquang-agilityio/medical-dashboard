@@ -25,7 +25,7 @@ export interface MenuOption extends Option {
   isDisabled?: boolean;
 }
 
-interface MenuDropdownProps
+export interface MenuDropdownProps
   extends Omit<DropdownProps & DropdownMenuProps, 'children'> {
   label?: string;
   options: MenuOption[];
@@ -61,11 +61,11 @@ export const MenuDropdown = memo(
         <DropdownTrigger>
           <Button
             aria-label="Dropdown button"
-            className="flex gap-3 items-center"
+            className="flex justify-start capitalize"
           >
             <div className="text-primary-100 max-h-6 max-w-6">{icon}</div>
             {label && (
-              <Text variant="title" size="xs">
+              <Text customClass="font-medium text-primary-100 text-sm">
                 {label}
               </Text>
             )}

@@ -1,89 +1,77 @@
 'use client';
 
-import { memo, useCallback, useMemo } from 'react';
+import { ChangeEvent, useCallback } from 'react';
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
+import { useDebouncedCallback } from 'use-debounce';
 
 // Utils
 import { cn } from '@/utils';
-
-// Hooks
-import { useDebounce } from '@/hooks';
 
 // Components
 import { InputProps } from '@nextui-org/react';
 import { Input } from '@/components/ui';
 import { SearchIcon } from '@/icons';
 
-export const InputSearch = memo(
-  ({ placeholder = '', classNames, value, ...props }: InputProps) => {
-    const { replace } = useRouter();
-    const pathname = usePathname();
-    const searchParams = useSearchParams();
+export const InputSearch = ({
+  placeholder = '',
+  classNames,
+  ...props
+}: InputProps) => {
+  const { replace } = useRouter();
+  const pathname = usePathname();
+  const searchParams = useSearchParams();
 
-    const params = useMemo(
-      () => new URLSearchParams(searchParams),
-      [searchParams],
-    );
+  const defaultValue = searchParams.get('search')?.toString();
 
-    // Update the URL with the debounced search term
-    const updateSearchParams = useCallback(
-      (search: string) => {
-        if (search) {
-          params.set('search', search.trim());
-        } else {
-          params.delete('search');
-        }
+  // Update the URL with the debounced search term
+  const updateSearchParams = useDebouncedCallback((search: string) => {
+    const params = new URLSearchParams(searchParams);
+    const page = searchParams.get('page')?.toString();
 
-        replace(`${pathname}?${params.toString()}`);
-      },
-      [params, pathname, replace],
-    );
+    if (page) params.delete('page');
 
-    // Call updateSearchParams whenever the debounced value changes
-    const debouncedSearchTerm = useDebounce((value: string) => {
+    if (search) {
+      params.set('search', search.trim());
+    } else {
+      params.delete('search');
+    }
+
+    replace(`${pathname}?${params.toString()}`);
+  }, 600);
+
+  const handleChangeInput = useCallback(
+    (event: ChangeEvent<HTMLInputElement>) => {
+      const { value } = event.target;
       updateSearchParams(value);
-    });
+    },
+    [updateSearchParams],
+  );
 
-    // Handle input changes
-    const handleChange = useCallback(
-      (event: React.ChangeEvent<HTMLInputElement>) => {
-        const { value } = event.target;
-        params.delete('page');
-        debouncedSearchTerm(value);
-      },
+  // Handle clear input
+  const handleClear = () => {
+    updateSearchParams('');
+  };
 
-      [params, debouncedSearchTerm],
-    );
-
-    // Handle clear input
-    const handleClear = () => {
-      debouncedSearchTerm('');
-    };
-
-    return (
-      <Input
-        classNames={{
-          ...classNames,
-          mainWrapper: cn(
-            'h-fit lg:max-w-[400px] text-xs',
-            classNames?.mainWrapper ?? '',
-          ),
-          inputWrapper: 'h-[52px]',
-        }}
-        border="default"
-        placeholder={placeholder}
-        startContent={
-          <SearchIcon customClass="w-5 h-5 ml-4 text-primary-200" />
-        }
-        isClearable
-        autoFocus={!!value}
-        onClear={handleClear}
-        onChange={handleChange}
-        defaultValue={searchParams.get('search')?.toString()}
-        {...props}
-      />
-    );
-  },
-);
+  return (
+    <Input
+      classNames={{
+        ...classNames,
+        mainWrapper: cn(
+          'h-fit lg:max-w-[400px] text-xs',
+          classNames?.mainWrapper,
+        ),
+        inputWrapper: 'h-[52px]',
+      }}
+      border="default"
+      placeholder={placeholder}
+      startContent={<SearchIcon customClass="w-5 h-5 ml-4 text-primary-200" />}
+      isClearable
+      onClear={handleClear}
+      onChange={handleChangeInput}
+      defaultValue={defaultValue}
+      {...props}
+    />
+  );
+};
 
 InputSearch.displayName = 'InputSearch';

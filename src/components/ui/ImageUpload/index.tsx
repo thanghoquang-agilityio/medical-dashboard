@@ -12,7 +12,9 @@ interface ImageUploadProps extends React.HTMLAttributes<HTMLDivElement> {
   src?: string;
   srcUpload?: string;
   onRemoveImage?: () => void;
-  onUploadImage?: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  onUploadImage?: (
+    event: React.ChangeEvent<HTMLInputElement>,
+  ) => boolean | undefined;
   altText?: string;
   width?: number;
   height?: number;
@@ -35,7 +37,9 @@ export const ImageUpload = forwardRef<HTMLInputElement, ImageUploadProps>(
     const [currentSrc, setCurrentSrc] = useState(srcUpload || src);
 
     const handleChangeImage = (event: React.ChangeEvent<HTMLInputElement>) => {
-      onUploadImage?.(event);
+      const isUploaded = onUploadImage?.(event);
+
+      if (!isUploaded) return;
 
       if (event.target.files && event.target.files[0]) {
         const newImageURL = URL.createObjectURL(event.target.files[0]);
@@ -51,7 +55,7 @@ export const ImageUpload = forwardRef<HTMLInputElement, ImageUploadProps>(
     const hasImage = !!srcUpload || (!!src && src !== AVATAR_THUMBNAIL);
 
     return (
-      <div className="flex flex-col justify-center items-center">
+      <div className="flex flex-col justify-center items-center py-4">
         <div className="relative rounded-full" style={{ width, height }}>
           <label htmlFor="avatar" className="group cursor-pointer relative">
             {currentSrc && currentSrc !== AVATAR_THUMBNAIL ? (

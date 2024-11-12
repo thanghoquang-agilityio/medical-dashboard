@@ -56,18 +56,31 @@ export const transformUsers = (users: UserLogged[]): Option[] =>
     label: email,
   }));
 
-export const transformSpecialties = (
+export const formatString = (input: string) =>
+  input.toLowerCase().replace(/\s+/g, '_');
+
+export const transformSpecialtiesByName = (
   specialties: SpecialtyResponse[],
 ): Option[] => [
   { key: 'all', label: 'All' },
   ...specialties.map((specialty) => ({
-    key: specialty.id.toString(),
+    key: formatString(specialty.attributes.name),
     label: specialty.attributes.name,
   })),
 ];
 
-export const formatString = (input: string) =>
-  input.toLowerCase().replace(/\s+/g, '_');
+export const formatSpecialtyString = (input: string | undefined) => {
+  if (!input) return '';
+  return input.replaceAll('_', ' ');
+};
 
 export const getRoleIdByName = (roles: RolePermission[], roleName: string) =>
   roles.find((role) => role.name === roleName)?.id;
+
+export const transformSpecialtiesById = (
+  specialties: SpecialtyResponse[],
+): Option[] =>
+  specialties.map((specialty) => ({
+    key: specialty.id,
+    label: specialty.attributes.name,
+  }));

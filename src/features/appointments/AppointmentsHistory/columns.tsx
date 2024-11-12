@@ -53,7 +53,11 @@ export const createColumns = ({
               avatarContainerClass="shrink-0 hidden sm:block"
               className="aspect-square"
             />
-            <Text variant="primary" size="sm">
+            <Text
+              variant="primary"
+              size="sm"
+              customClass="overflow-hidden max-w-[65px] md:max-w-[90px] lg:max-w-full"
+            >
               {username}
             </Text>
           </div>
@@ -78,7 +82,11 @@ export const createColumns = ({
               avatarContainerClass="shrink-0 hidden sm:block"
               className="aspect-square"
             />
-            <Text variant="primary" size="sm">
+            <Text
+              variant="primary"
+              size="sm"
+              customClass="overflow-hidden max-w-[65px] md:max-w-[90px] lg:max-w-full"
+            >
               {username}
             </Text>
           </div>
@@ -113,7 +121,11 @@ export const createColumns = ({
               isBordered
               className="shrink-0 aspect-square"
             />
-            <Text variant="primary" size="sm">
+            <Text
+              variant="primary"
+              size="sm"
+              customClass="overflow-hidden max-w-[65px] md:max-w-[90px] lg:max-w-full"
+            >
               {userId == idSender ? usernameReceiver : usernameSender}
             </Text>
           </div>
@@ -142,13 +154,16 @@ export const createColumns = ({
       key: 'startTime',
       title: 'Start time',
       customNode: ({ item }) => {
-        const { startTime = '' } = item || {};
+        const { startTime = '', status = 0 } = item || {};
         const date = formatDayMonthYear(startTime);
 
         return (
-          <Text variant="primary" size="xs">
-            {date}
-          </Text>
+          <div>
+            <Status status={status} className="mb-2 md:hidden" />
+            <Text variant="primary" size="xs">
+              {date}
+            </Text>
+          </div>
         );
       },
     },
@@ -157,7 +172,7 @@ export const createColumns = ({
       title: 'Status',
       customNode: ({ item }) => {
         const { status = 0 } = item || {};
-        return <Status status={status} className="hidden sm:block" />;
+        return <Status status={status} className="hidden md:block" />;
       },
     },
     {
@@ -170,6 +185,11 @@ export const createColumns = ({
           (!isAdmin && status !== getStatusKey('new')) ||
           (isAdmin && status === getStatusKey('cancelled'));
 
+        const isDisabledCancel =
+          !isAdmin &&
+          (!isLaterThanCurrentTime(startTime) ||
+            status !== getStatusKey('new'));
+
         const iconClasses = 'mr-2 flex-shrink-0 w-4 h-4';
 
         const options: OptionMoreAction[] = [
@@ -177,7 +197,7 @@ export const createColumns = ({
             key: 'edit',
             label: 'Edit',
             startContent: (
-              <EditIcon customClass={`text-green ${iconClasses}`} />
+              <EditIcon customClass={`text-success ${iconClasses}`} />
             ),
             isDisabled: isDisabled,
             onAction: () => onEdit(id),
@@ -186,11 +206,11 @@ export const createColumns = ({
             key: isAdmin ? 'delete' : 'cancel',
             label: isAdmin ? 'Delete' : 'Cancel',
             startContent: isAdmin ? (
-              <DeleteIcon customClass={`text-red ${iconClasses}`} />
+              <DeleteIcon customClass={`text-danger-100 ${iconClasses}`} />
             ) : (
-              <XmarkIcon customClass={`text-red ${iconClasses}`} />
+              <XmarkIcon customClass={`text-danger-100 ${iconClasses}`} />
             ),
-            isDisabled: !isAdmin && status !== getStatusKey('new'),
+            isDisabled: isDisabledCancel,
             onAction: () => onRemoveOrCancel(id),
           },
         ];

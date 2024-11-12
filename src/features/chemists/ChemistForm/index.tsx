@@ -155,7 +155,7 @@ const ChemistForm = memo(
                 unit: 'MB',
               }),
             });
-            return;
+            return false;
           }
 
           const hasValidFormat = VALID_IMAGE_FORMAT.includes(image.type);
@@ -164,7 +164,7 @@ const ChemistForm = memo(
             setFormError('avatar', {
               message: FORM_VALIDATION_MESSAGE.ACCEPTED_FORMATS,
             });
-            return;
+            return false;
           }
 
           const formData = new FormData();
@@ -173,6 +173,8 @@ const ChemistForm = memo(
           setFormImage(formData);
           setImageUpload(URL.createObjectURL(image));
           callback(URL.createObjectURL(image));
+
+          return true;
         }
       };
 
@@ -332,7 +334,7 @@ const ChemistForm = memo(
 
         {/* Info section */}
         {isEdit && (
-          <div className="flex justify-between self-center gap-6 mt-4">
+          <div className="flex justify-between self-center gap-6 my-4">
             <div className="flex items-center gap-1 sm:gap-2">
               <NoteIcon customClass="w-6 h-6" />
               <Text size="sm" variant="title" customClass="font-medium">

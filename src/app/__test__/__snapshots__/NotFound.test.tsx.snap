@@ -1,0 +1,47 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`NotFound page test case should render correctly 1`] = `
+<DocumentFragment>
+  <main
+    class="min-h-screen flex flex-col h-full gap-4 items-center justify-center"
+  >
+    <div
+      class="flex flex-col h-full gap-4 items-center justify-center"
+    >
+      <img
+        alt=""
+        data-nimg="1"
+        decoding="async"
+        fetchpriority="high"
+        height="160"
+        src="http://localhost/_next/image?url=%2Fimages%2Fnot-found.webp&w=384&q=75"
+        srcset="/_next/image?url=%2Fimages%2Fnot-found.webp&w=256&q=75 1x, /_next/image?url=%2Fimages%2Fnot-found.webp&w=384&q=75 2x"
+        style="color: transparent; object-fit: cover; background-size: cover; background-position: 50% 50%; background-repeat: no-repeat;"
+        width="160"
+      />
+      <h2
+        class="text-2xl"
+      >
+        404 - Page not found
+      </h2>
+      <p
+        class="text-foreground text-lg text-center"
+      >
+        Please 
+        <span
+          class="text-secondary-100 hover:underline cursor-pointer"
+        >
+          reset the page 
+        </span>
+        or 
+        <a
+          class="text-secondary-100 hover:underline"
+          href="/dashboard"
+        >
+          back to home
+        </a>
+      </p>
+    </div>
+  </main>
+</DocumentFragment>
+`;

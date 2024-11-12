@@ -12,7 +12,7 @@ exports[`ChemistForm test cases should render correctly 1`] = `
       Update chemist
     </p>
     <div
-      class="flex flex-col justify-center items-center"
+      class="flex flex-col justify-center items-center py-4"
     >
       <div
         class="relative rounded-full"
@@ -23,7 +23,7 @@ exports[`ChemistForm test cases should render correctly 1`] = `
           for="avatar"
         >
           <span
-            class="box-border overflow-hidden outline-none rounded-full ring-offset-background dark:ring-offset-background-dark shrink-0 min-w-8 w-8 h-8 bg-undefined ring-offset-0 ring-0 false"
+            class="overflow-hidden outline-none rounded-full ring-offset-background dark:ring-offset-background-dark shrink-0 min-w-8 w-8 h-8 bg-undefined ring-offset-0 ring-0 false"
             data-testid="avatar-container"
             tabindex="-1"
           >
@@ -99,7 +99,7 @@ exports[`ChemistForm test cases should render correctly 1`] = `
       </div>
     </div>
     <div
-      class="flex justify-between self-center gap-6 mt-4"
+      class="flex justify-between self-center gap-6 my-4"
     >
       <div
         class="flex items-center gap-1 sm:gap-2"
@@ -284,7 +284,7 @@ exports[`ChemistForm test cases should render correctly 1`] = `
       >
         <input
           style="font-size: 16px;"
-          tabindex="-1"
+          tabindex="0"
           type="text"
           value=""
         />
@@ -443,7 +443,7 @@ exports[`ChemistForm test cases should render correctly without data and id 1`] 
       Create chemist
     </p>
     <div
-      class="flex flex-col justify-center items-center"
+      class="flex flex-col justify-center items-center py-4"
     >
       <div
         class="relative rounded-full"
@@ -754,7 +754,7 @@ exports[`ChemistForm test cases should render correctly without data and id 1`] 
       >
         <input
           style="font-size: 16px;"
-          tabindex="-1"
+          tabindex="0"
           type="text"
           value=""
         />

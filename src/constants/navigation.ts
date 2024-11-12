@@ -20,7 +20,7 @@ export const NAVBAR_LINKS = [
     isEnable: true,
   },
   {
-    name: 'Appointment',
+    name: 'Appointments',
     href: PRIVATE_ROUTES.APPOINTMENTS,
     icon: AppointmentIcon,
     isEnable: true,

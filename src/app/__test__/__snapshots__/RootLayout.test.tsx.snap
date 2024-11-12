@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`NotFound page test case should render correctly 1`] = `
+<DocumentFragment>
+  <div
+    data-overlay-container="true"
+  />
+</DocumentFragment>
+`;

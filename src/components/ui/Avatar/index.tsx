@@ -6,7 +6,7 @@ import { Image } from '../Image';
 // Constants
 import { AVATAR_THUMBNAIL } from '@/constants';
 
-interface AvatarProps extends AvatarNextUIProps {
+export interface AvatarProps extends AvatarNextUIProps {
   size?: 'sm' | 'md' | 'lg';
   avatarContainerClass?: string;
   isCustomBordered?: boolean;
@@ -39,7 +39,7 @@ export const Avatar = ({
     : 'ring-offset-0 ring-0';
 
   const customBorderedClass =
-    isCustomBordered && 'ring-offset-0 ring-yellow ring-opacity-25 ring-4';
+    isCustomBordered && 'ring-offset-0 ring-warning ring-opacity-25 ring-4';
 
   const backgroundClass = `bg-${color}`;
 
@@ -50,7 +50,7 @@ export const Avatar = ({
     <span
       data-testid="avatar-container"
       tabIndex={-1}
-      className={`box-border overflow-hidden outline-none rounded-full ring-offset-background dark:ring-offset-background-dark shrink-0 ${baseClass}`}
+      className={`overflow-hidden outline-none rounded-full ring-offset-background dark:ring-offset-background-dark shrink-0 ${baseClass}`}
     >
       <Image
         width={width}

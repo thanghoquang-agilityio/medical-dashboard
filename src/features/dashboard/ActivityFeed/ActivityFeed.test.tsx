@@ -1,4 +1,4 @@
-import { act } from 'react';
+import React, { act } from 'react';
 import { render } from '@testing-library/react';
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 import ActivityFeed, { ActivityFeedProps } from '.';
@@ -37,6 +37,7 @@ describe('ActivityFeed test cases', () => {
   };
 
   beforeEach(() => {
+    jest.spyOn(React, 'useMemo').mockReturnValueOnce({});
     mockUsePathname.mockReturnValue(PRIVATE_ROUTES.DASHBOARD);
     mockUseRouter.mockReturnValue({ replace: mockReplace });
     mockUseSearchParams.mockReturnValue(new URLSearchParams());
@@ -46,8 +47,7 @@ describe('ActivityFeed test cases', () => {
     jest.clearAllMocks();
   });
 
-  // TODO: will update test in another MR
-  it.skip('should render correctly with props', async () => {
+  it('should render correctly with props', async () => {
     mockGetNotifications.mockResolvedValueOnce(MOCK_NOTIFICATION_LIST);
 
     const { asFragment } = await setup(mockProps);
@@ -55,8 +55,7 @@ describe('ActivityFeed test cases', () => {
     expect(asFragment()).toMatchSnapshot();
   });
 
-  // TODO: will update test another MR
-  it.skip('should render correctly without empty role', async () => {
+  it('should render correctly without empty role', async () => {
     mockGetNotifications.mockResolvedValueOnce(MOCK_NOTIFICATION_LIST);
 
     const { asFragment } = await setup({ ...mockProps, userLogged: null });

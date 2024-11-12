@@ -21,7 +21,12 @@ const ConfirmModal = ({
   onClose,
   onAction,
 }: ConfirmModalProps) => (
-  <BaseModal isOpen={isOpen} onClose={onClose} placement="center">
+  <BaseModal
+    aria-label="confirm-modal"
+    isOpen={isOpen}
+    onClose={onClose}
+    placement="center"
+  >
     <div className="flex flex-col items-center">
       <Text variant="title" size="2xl">
         {title}

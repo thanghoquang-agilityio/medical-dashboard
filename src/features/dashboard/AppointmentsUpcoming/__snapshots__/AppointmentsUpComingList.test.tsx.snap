@@ -3,7 +3,7 @@
 exports[`AppointmentsUpComingList test cases should render correctly 1`] = `
 <DocumentFragment>
   <div
-    class="flex flex-col relative overflow-hidden text-foreground box-border outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 shadow-medium rounded-large transition-transform-background motion-reduce:transition-none w-full xl:max-w-[320px] 2xl:max-w-[550px] h-fit p-4 pl-5 bg-background-200"
+    class="flex flex-col relative overflow-hidden text-foreground box-border outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 shadow-medium rounded-large transition-transform-background motion-reduce:transition-none w-full xl:max-w-[320px] 2xl:max-w-[550px] h-fit py-4 px-5 bg-background-200"
     tabindex="-1"
   >
     <div
@@ -29,7 +29,7 @@ exports[`AppointmentsUpComingList test cases should render correctly 1`] = `
           >
             <input
               style="font-size: 16px;"
-              tabindex="-1"
+              tabindex="0"
               type="text"
               value="new"
             />
@@ -199,7 +199,7 @@ exports[`AppointmentsUpComingList test cases should render correctly 1`] = `
                   <p
                     class="mocked-class"
                   >
-                    Wed
+                    Fri
                   </p>
                   <p
                     class="mocked-class"
@@ -253,7 +253,7 @@ exports[`AppointmentsUpComingList test cases should render correctly 1`] = `
                     aria-expanded="false"
                     aria-haspopup="true"
                     aria-label="Dropdown button"
-                    class="group relative justify-center box-border appearance-none select-none whitespace-nowrap font-normal overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 px-4 min-w-20 h-10 text-small rounded-medium [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-default text-default-foreground data-[hover=true]:opacity-hover z-10 aria-expanded:scale-[0.97] aria-expanded:opacity-70 subpixel-antialiased mocked-class flex gap-3 items-center"
+                    class="group relative items-center box-border appearance-none select-none whitespace-nowrap font-normal overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 px-4 min-w-20 h-10 text-small gap-2 rounded-medium [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-default text-default-foreground data-[hover=true]:opacity-hover z-10 aria-expanded:scale-[0.97] aria-expanded:opacity-70 subpixel-antialiased mocked-class flex justify-start capitalize"
                     data-slot="trigger"
                     id="react-aria-:rk:"
                     type="button"
@@ -308,7 +308,7 @@ exports[`AppointmentsUpComingList test cases should render correctly 1`] = `
                   <p
                     class="mocked-class"
                   >
-                    Thu
+                    Sat
                   </p>
                   <p
                     class="mocked-class"
@@ -362,7 +362,7 @@ exports[`AppointmentsUpComingList test cases should render correctly 1`] = `
                     aria-expanded="false"
                     aria-haspopup="true"
                     aria-label="Dropdown button"
-                    class="group relative justify-center box-border appearance-none select-none whitespace-nowrap font-normal overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 px-4 min-w-20 h-10 text-small rounded-medium [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-default text-default-foreground data-[hover=true]:opacity-hover z-10 aria-expanded:scale-[0.97] aria-expanded:opacity-70 subpixel-antialiased mocked-class flex gap-3 items-center"
+                    class="group relative items-center box-border appearance-none select-none whitespace-nowrap font-normal overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 px-4 min-w-20 h-10 text-small gap-2 rounded-medium [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-default text-default-foreground data-[hover=true]:opacity-hover z-10 aria-expanded:scale-[0.97] aria-expanded:opacity-70 subpixel-antialiased mocked-class flex justify-start capitalize"
                     data-slot="trigger"
                     id="react-aria-:rn:"
                     type="button"
@@ -470,7 +470,7 @@ exports[`AppointmentsUpComingList test cases should render correctly 1`] = `
                     aria-expanded="false"
                     aria-haspopup="true"
                     aria-label="Dropdown button"
-                    class="group relative justify-center box-border appearance-none select-none whitespace-nowrap font-normal overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 px-4 min-w-20 h-10 text-small rounded-medium [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-default text-default-foreground data-[hover=true]:opacity-hover z-10 aria-expanded:scale-[0.97] aria-expanded:opacity-70 subpixel-antialiased mocked-class flex gap-3 items-center"
+                    class="group relative items-center box-border appearance-none select-none whitespace-nowrap font-normal overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 px-4 min-w-20 h-10 text-small gap-2 rounded-medium [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-default text-default-foreground data-[hover=true]:opacity-hover z-10 aria-expanded:scale-[0.97] aria-expanded:opacity-70 subpixel-antialiased mocked-class flex justify-start capitalize"
                     data-slot="trigger"
                     id="react-aria-:rq:"
                     type="button"

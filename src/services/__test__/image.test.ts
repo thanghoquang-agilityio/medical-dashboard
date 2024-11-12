@@ -54,12 +54,6 @@ describe('Image service test cases', () => {
   });
 
   mockFormData.append('image', mockImageFile);
-  // global.fetch = jest.fn(() =>
-  //   Promise.resolve({
-  //     ok: true,
-  //     json: () => Promise.resolve({ test: 100 }),
-  //   }),
-  // ) as jest.Mock;
 
   it('should return the image url', async () => {
     global.fetch = jest.fn(() =>

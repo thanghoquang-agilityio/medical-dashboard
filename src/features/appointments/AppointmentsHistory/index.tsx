@@ -26,11 +26,7 @@ import {
 } from '@/types';
 
 // Constants
-import {
-  APPOINTMENT_STATUS_OPTIONS,
-  ERROR_MESSAGE,
-  SUCCESS_MESSAGE,
-} from '@/constants';
+import { APPOINTMENT_STATUS_OPTIONS, ERROR_MESSAGE } from '@/constants';
 
 // Helper
 import { useToast } from '@/context/toast';
@@ -40,7 +36,7 @@ import { getStatusKey } from '@/utils';
 import { deleteAppointment, updateAppointment } from '@/actions/appointment';
 
 // Components
-import { Button, InputSearch, Select, Text } from '@/components/ui';
+import { Select, Text } from '@/components/ui';
 import { AppointmentsHistoryListSkeleton } from './AppointmentsHistorySkeleton';
 import AppointmentModal from '../AppointmentModal';
 import { createColumns } from './columns';
@@ -82,7 +78,6 @@ const AppointmentsHistory = ({
     () => new URLSearchParams(searchParams),
     [searchParams],
   );
-  const search = searchParams.get('search') ?? '';
 
   const handleReplaceURL = useCallback(
     (params: URLSearchParams) => {
@@ -112,21 +107,23 @@ const AppointmentsHistory = ({
 
   const handleSelectStatus = useCallback(
     (e: ChangeEvent<HTMLSelectElement>) => {
-      if (e.target.value !== status.values().next().value)
-        params.delete('page');
+      const value = e.target.value;
+      if (value !== status.values().next().value) params.delete('page');
 
-      setStatus(new Set([e.target.value]));
-      updateSearchParams(e.target.value);
+      if (value === 'all') {
+        params.delete('status');
+        handleReplaceURL?.(params);
+
+        return;
+      }
+
+      setStatus(new Set([value]));
+      updateSearchParams(value);
     },
-    [params, status, updateSearchParams],
+    [handleReplaceURL, params, status, updateSearchParams],
   );
 
   const { isOpen, onClose, onOpen } = useDisclosure();
-
-  const handleOpenCreateModal = useCallback(() => {
-    setAppointment(undefined);
-    onOpen();
-  }, [onOpen]);
 
   const handleOpenEditModal = useCallback(
     (key?: Key) => {
@@ -207,34 +204,22 @@ const AppointmentsHistory = ({
     }
 
     if (appointment) {
-      openToast({
-        message: SUCCESS_MESSAGE.CANCEL('appointment'),
-        type: STATUS_TYPE.SUCCESS,
-      });
-
       handleCreateNotification(appointment, 'cancelled');
       onClosConfirm();
     }
   }, [appointmentId, handleCreateNotification, onClosConfirm, openToast]);
 
+  const options = [{ key: 'all', label: 'All' }, ...APPOINTMENT_STATUS_OPTIONS];
+
   return (
     <>
-      <div className="flex mt-3 justify-between gap-10 mb-8">
-        <InputSearch placeholder="Search Appointments" value={search} />
-        <Button
-          onClick={handleOpenCreateModal}
-          className="h-[52px] font-medium"
-        >
-          Create
-        </Button>
-      </div>
       <Card className="w-full px-4 py-6 bg-background-200">
         <div className="flex justify-between items-center">
           <Text customClass="text-xl font-bold text-primary-100">History</Text>
           <div>
             <Select
               aria-label="Status"
-              options={APPOINTMENT_STATUS_OPTIONS}
+              options={options}
               selectedKeys={status}
               defaultSelectedKeys={APPOINTMENT_STATUS_OPTIONS[0].key}
               placeholder="Status"
@@ -260,18 +245,21 @@ const AppointmentsHistory = ({
               pagination={pagination}
               hasDivider
               classWrapper="p-1"
+              id="appointments-history"
             />
           )}
         </div>
       </Card>
 
-      <AppointmentModal
-        data={appointment}
-        id={appointmentId}
-        userLogged={userLogged}
-        onClose={onClose}
-        isOpen={isOpen}
-      />
+      {isOpen && (
+        <AppointmentModal
+          data={appointment}
+          id={appointmentId}
+          userLogged={userLogged}
+          onClose={onClose}
+          isOpen={isOpen}
+        />
+      )}
 
       <ConfirmModal
         title="Confirmation"

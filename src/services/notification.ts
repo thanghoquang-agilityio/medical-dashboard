@@ -1,7 +1,7 @@
 import { revalidateTag } from 'next/cache';
 
 // Constants
-import { API_ENDPOINT } from '@/constants';
+import { API_ENDPOINT, EXCEPTION_ERROR_MESSAGE } from '@/constants';
 
 // Types
 import {
@@ -51,7 +51,7 @@ export const getNotifications = async ({
     const errorMessage =
       error instanceof Error
         ? error.message
-        : 'An unexpected error occurred in the request get notifications';
+        : EXCEPTION_ERROR_MESSAGE.GET('notifications');
 
     return { notifications: [], error: errorMessage };
   }
@@ -83,7 +83,7 @@ export const addNotification = async (
     const errorMessage =
       error instanceof Error
         ? error.message
-        : 'An unexpected error occurred in add notification';
+        : EXCEPTION_ERROR_MESSAGE.ADD('notification');
 
     return { notification: null, error: errorMessage };
   }
@@ -118,7 +118,7 @@ export const updateNotification = async (
     const errorMessage =
       error instanceof Error
         ? error.message
-        : 'An unexpected error occurred in add notification';
+        : EXCEPTION_ERROR_MESSAGE.UPDATE('notification');
 
     return { notification: null, error: errorMessage };
   }
@@ -132,7 +132,7 @@ export const deleteNotification = async (
     const { data, error } = await api.delete<{
       data: NotificationResponse;
       error?: string;
-    }>(`/${API_ENDPOINT.NOTIFICATIONS}/${id}`);
+    }>(`${API_ENDPOINT.NOTIFICATIONS}/${id}`);
 
     if (error) {
       const errorResponse = JSON.parse(error) as ErrorResponse;
@@ -146,7 +146,7 @@ export const deleteNotification = async (
     const errorMessage =
       error instanceof Error
         ? error.message
-        : 'An unexpected error occurred in delete notification';
+        : EXCEPTION_ERROR_MESSAGE.DELETE('notification');
 
     return { notification: null, error: errorMessage };
   }

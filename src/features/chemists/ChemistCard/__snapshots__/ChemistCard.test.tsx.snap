@@ -1,3 +1,428 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`ChemistCard test cases should render correctly 1`] = `<DocumentFragment />`;
+exports[`ChemistCard test cases should render correctly 1`] = `
+<DocumentFragment>
+  <div
+    class="min-w-[300px] w-full h-[232px] relative"
+  >
+    <div
+      aria-label="chemist-card"
+      class="flex flex-col relative text-foreground box-border outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 shadow-medium rounded-large transition-transform-background motion-reduce:transition-none bg-background-200 w-full h-full p-6 gap-6 overflow-visible pt-0"
+      tabindex="-1"
+    >
+      <div
+        class="group"
+      >
+        <div
+          class="absolute z-20 inset-0 rounded-large opacity-0 top-0 left-0 right-0 bottom-0 bg-primary-200 dark:group-hover:opacity-50 group-hover:opacity-70 flex justify-center items-center"
+        >
+          <button
+            aria-label="edit-btn"
+            class="z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap subpixel-antialiased overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-small gap-2 rounded-medium px-0 !gap-0 transition-transform-colors-opacity motion-reduce:transition-none min-w-10 w-10 h-10 data-[hover=true]:opacity-hover border-transparent font-semibold bg-linear-success text-content1 bg-none"
+            type="button"
+          >
+            <svg
+              class="text-background-100 flex-shrink-0 w-4 h-4"
+              fill="currentColor"
+              viewBox="0 0 512 512"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M441 58.9L453.1 71c9.4 9.4 9.4 24.6 0 33.9L424 134.1 377.9 88 407 58.9c9.4-9.4 24.6-9.4 33.9 0zM209.8 256.2L344 121.9 390.1 168 255.8 302.2c-2.9 2.9-6.5 5-10.4 6.1l-58.5 16.7 16.7-58.5c1.1-3.9 3.2-7.5 6.1-10.4zM373.1 25L175.8 222.2c-8.7 8.7-15 19.4-18.3 31.1l-28.6 100c-2.4 8.4-.1 17.4 6.1 23.6s15.2 8.5 23.6 6.1l100-28.6c11.8-3.4 22.5-9.7 31.1-18.3L487 138.9c28.1-28.1 28.1-73.7 0-101.8L474.9 25C446.8-3.1 401.2-3.1 373.1 25zM88 64C39.4 64 0 103.4 0 152L0 424c0 48.6 39.4 88 88 88l272 0c48.6 0 88-39.4 88-88l0-112c0-13.3-10.7-24-24-24s-24 10.7-24 24l0 112c0 22.1-17.9 40-40 40L88 464c-22.1 0-40-17.9-40-40l0-272c0-22.1 17.9-40 40-40l112 0c13.3 0 24-10.7 24-24s-10.7-24-24-24L88 64z"
+              />
+            </svg>
+          </button>
+          <button
+            aria-label="delete-btn"
+            class="z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap subpixel-antialiased overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-small gap-2 rounded-medium px-0 !gap-0 transition-transform-colors-opacity motion-reduce:transition-none min-w-10 w-10 h-10 data-[hover=true]:opacity-hover border-transparent font-semibold bg-linear-success text-content1 bg-none"
+            type="button"
+          >
+            <svg
+              class="text-background-100 flex-shrink-0 w-4 h-4"
+              fill="currentColor"
+              viewBox="0 0 448 512"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M135.2 17.7L128 32 32 32C14.3 32 0 46.3 0 64S14.3 96 32 96l384 0c17.7 0 32-14.3 32-32s-14.3-32-32-32l-96 0-7.2-14.3C307.4 6.8 296.3 0 284.2 0L163.8 0c-12.1 0-23.2 6.8-28.6 17.7zM416 128L32 128 53.2 467c1.6 25.3 22.6 45 47.9 45l245.8 0c25.3 0 46.3-19.7 47.9-45L416 128z"
+              />
+            </svg>
+          </button>
+        </div>
+      </div>
+      <div
+        class="z-10 w-full items-center shrink-0 overflow-inherit color-inherit subpixel-antialiased rounded-t-large flex justify-between p-0"
+      >
+        <div
+          class="flex items-center gap-2"
+        >
+          <span
+            class="overflow-hidden outline-none rounded-full ring-offset-background dark:ring-offset-background-dark shrink-0 min-w-12 w-12 h-12 bg-undefined ring-offset-0 ring-0 false"
+            data-testid="avatar-container"
+            tabindex="-1"
+          >
+            <img
+              alt=""
+              class="aspect-square"
+              data-nimg="1"
+              decoding="async"
+              fetchpriority="high"
+              height="48"
+              src="http://localhost/_next/image?url=%2Fimages%2Favatar-thumbnail.webp&w=96&q=75"
+              srcset="/_next/image?url=%2Fimages%2Favatar-thumbnail.webp&w=48&q=75 1x, /_next/image?url=%2Fimages%2Favatar-thumbnail.webp&w=96&q=75 2x"
+              style="color: transparent; object-fit: cover; background-size: cover; background-position: 50% 50%; background-repeat: no-repeat;"
+              width="48"
+            />
+          </span>
+          <div
+            class="flex flex-col gap-1"
+          >
+            <p
+              class="text-primary-100 font-semibold text-base text-ellipsis whitespace-nowrap overflow-hidden"
+            >
+              Alex Stanton
+            </p>
+            <p
+              class="text-primary-200 text-xs text-ellipsis whitespace-nowrap overflow-hidden font-normal"
+            >
+              Laboratory Chemist
+            </p>
+          </div>
+        </div>
+        <button
+          class="z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap subpixel-antialiased overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 h-10 gap-2 rounded-medium [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none data-[hover=true]:opacity-hover border-transparent bg-transparent text-secondary-500 text-lg font-medium p-0 min-w-10"
+          type="button"
+        >
+          Book
+        </button>
+      </div>
+      <div
+        class="relative flex w-full flex-auto flex-col place-content-inherit align-items-inherit h-auto break-words text-left overflow-y-auto subpixel-antialiased p-0"
+      >
+        <p
+          class="text-primary-200 font-medium text-sm whitespace-pre-wrap line-clamp-2"
+        >
+          Hi, I'm Alex Stanton. Happy for all problem happen with me. Let's smile.
+        </p>
+      </div>
+      <div
+        class="h-auto w-full items-center overflow-hidden color-inherit subpixel-antialiased p-0 inline-block rounded-none"
+      >
+        <div
+          class="flex flex-col gap-1"
+        >
+          <div
+            class="flex justify-between"
+          >
+            <div
+              class="flex items-center gap-1 sm:gap-2"
+            >
+              <svg
+                class="w-6 h-6"
+                fill="none"
+                height="24"
+                viewBox="0 0 24 24"
+                width="24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M21.6599 10.44L20.6799 14.62C19.8399 18.23 18.1799 19.69 15.0599 19.39C14.5599 19.35 14.0199 19.26 13.4399 19.12L11.7599 18.72C7.58994 17.73 6.29994 15.67 7.27994 11.49L8.25994 7.3C8.45994 6.45 8.69994 5.71 8.99994 5.1C10.1699 2.68 12.1599 2.03 15.4999 2.82L17.1699 3.21C21.3599 4.19 22.6399 6.26 21.6599 10.44Z"
+                  stroke="#54577A"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="1.5"
+                />
+                <path
+                  d="M15.0601 19.39C14.4401 19.81 13.6601 20.16 12.7101 20.47L11.1301 20.99C7.1601 22.27 5.0701 21.2 3.7801 17.23L2.5001 13.28C1.2201 9.31 2.2801 7.21 6.2501 5.93L7.8301 5.41C8.2401 5.28 8.6301 5.17 9.0001 5.1C8.7001 5.71 8.4601 6.45 8.2601 7.3L7.2801 11.49C6.3001 15.67 7.5901 17.73 11.7601 18.72L13.4401 19.12C14.0201 19.26 14.5601 19.35 15.0601 19.39Z"
+                  stroke="#54577A"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="1.5"
+                />
+                <path
+                  d="M12.6399 8.53L17.4899 9.76"
+                  stroke="#54577A"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="1.5"
+                />
+                <path
+                  d="M11.6599 12.4L14.5599 13.14"
+                  stroke="#54577A"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="1.5"
+                />
+              </svg>
+              <p
+                class="text-primary-100 text-sm text-ellipsis whitespace-nowrap overflow-hidden font-medium"
+              >
+                22 Tasks
+              </p>
+            </div>
+            <div
+              class="flex items-center gap-1 sm:gap-2"
+            >
+              <p
+                class="text-primary-100 text-sm text-ellipsis whitespace-nowrap overflow-hidden font-medium"
+              >
+                (321 Reviews)
+              </p>
+            </div>
+          </div>
+          <div
+            class="flex justify-between items-center gap-1 sm:gap-2"
+          >
+            <p
+              class="text-primary-100 text-sm text-ellipsis whitespace-nowrap overflow-hidden font-medium"
+            >
+              Rating: 5
+            </p>
+            <div
+              class="flex"
+            >
+              <svg
+                class="w-6 h-6 text-light-orange"
+                fill="none"
+                viewBox="0 0 20 20"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M9.04894 0.927052C9.3483 0.00574112 10.6517 0.00573993 10.9511 0.927051L12.4697 5.60081C12.6035 6.01284 12.9875 6.2918 13.4207 6.2918H18.335C19.3037 6.2918 19.7065 7.53141 18.9228 8.10081L14.947 10.9894C14.5966 11.244 14.4499 11.6954 14.5838 12.1074L16.1024 16.7812C16.4017 17.7025 15.3472 18.4686 14.5635 17.8992L10.5878 15.0106C10.2373 14.756 9.7627 14.756 9.41221 15.0106L5.43648 17.8992C4.65276 18.4686 3.59828 17.7025 3.89763 16.7812L5.41623 12.1074C5.55011 11.6954 5.40345 11.244 5.05296 10.9894L1.07722 8.10081C0.293507 7.53141 0.696283 6.2918 1.66501 6.2918H6.57929C7.01252 6.2918 7.39647 6.01284 7.53035 5.60081L9.04894 0.927052Z"
+                  fill="currentColor"
+                />
+              </svg>
+              <svg
+                class="w-6 h-6 text-light-orange"
+                fill="none"
+                viewBox="0 0 20 20"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M9.04894 0.927052C9.3483 0.00574112 10.6517 0.00573993 10.9511 0.927051L12.4697 5.60081C12.6035 6.01284 12.9875 6.2918 13.4207 6.2918H18.335C19.3037 6.2918 19.7065 7.53141 18.9228 8.10081L14.947 10.9894C14.5966 11.244 14.4499 11.6954 14.5838 12.1074L16.1024 16.7812C16.4017 17.7025 15.3472 18.4686 14.5635 17.8992L10.5878 15.0106C10.2373 14.756 9.7627 14.756 9.41221 15.0106L5.43648 17.8992C4.65276 18.4686 3.59828 17.7025 3.89763 16.7812L5.41623 12.1074C5.55011 11.6954 5.40345 11.244 5.05296 10.9894L1.07722 8.10081C0.293507 7.53141 0.696283 6.2918 1.66501 6.2918H6.57929C7.01252 6.2918 7.39647 6.01284 7.53035 5.60081L9.04894 0.927052Z"
+                  fill="currentColor"
+                />
+              </svg>
+              <svg
+                class="w-6 h-6 text-light-orange"
+                fill="none"
+                viewBox="0 0 20 20"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M9.04894 0.927052C9.3483 0.00574112 10.6517 0.00573993 10.9511 0.927051L12.4697 5.60081C12.6035 6.01284 12.9875 6.2918 13.4207 6.2918H18.335C19.3037 6.2918 19.7065 7.53141 18.9228 8.10081L14.947 10.9894C14.5966 11.244 14.4499 11.6954 14.5838 12.1074L16.1024 16.7812C16.4017 17.7025 15.3472 18.4686 14.5635 17.8992L10.5878 15.0106C10.2373 14.756 9.7627 14.756 9.41221 15.0106L5.43648 17.8992C4.65276 18.4686 3.59828 17.7025 3.89763 16.7812L5.41623 12.1074C5.55011 11.6954 5.40345 11.244 5.05296 10.9894L1.07722 8.10081C0.293507 7.53141 0.696283 6.2918 1.66501 6.2918H6.57929C7.01252 6.2918 7.39647 6.01284 7.53035 5.60081L9.04894 0.927052Z"
+                  fill="currentColor"
+                />
+              </svg>
+              <svg
+                class="w-6 h-6 text-light-orange"
+                fill="none"
+                viewBox="0 0 20 20"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M9.04894 0.927052C9.3483 0.00574112 10.6517 0.00573993 10.9511 0.927051L12.4697 5.60081C12.6035 6.01284 12.9875 6.2918 13.4207 6.2918H18.335C19.3037 6.2918 19.7065 7.53141 18.9228 8.10081L14.947 10.9894C14.5966 11.244 14.4499 11.6954 14.5838 12.1074L16.1024 16.7812C16.4017 17.7025 15.3472 18.4686 14.5635 17.8992L10.5878 15.0106C10.2373 14.756 9.7627 14.756 9.41221 15.0106L5.43648 17.8992C4.65276 18.4686 3.59828 17.7025 3.89763 16.7812L5.41623 12.1074C5.55011 11.6954 5.40345 11.244 5.05296 10.9894L1.07722 8.10081C0.293507 7.53141 0.696283 6.2918 1.66501 6.2918H6.57929C7.01252 6.2918 7.39647 6.01284 7.53035 5.60081L9.04894 0.927052Z"
+                  fill="currentColor"
+                />
+              </svg>
+              <svg
+                class="w-6 h-6 text-light-orange"
+                fill="none"
+                viewBox="0 0 20 20"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M9.04894 0.927052C9.3483 0.00574112 10.6517 0.00573993 10.9511 0.927051L12.4697 5.60081C12.6035 6.01284 12.9875 6.2918 13.4207 6.2918H18.335C19.3037 6.2918 19.7065 7.53141 18.9228 8.10081L14.947 10.9894C14.5966 11.244 14.4499 11.6954 14.5838 12.1074L16.1024 16.7812C16.4017 17.7025 15.3472 18.4686 14.5635 17.8992L10.5878 15.0106C10.2373 14.756 9.7627 14.756 9.41221 15.0106L5.43648 17.8992C4.65276 18.4686 3.59828 17.7025 3.89763 16.7812L5.41623 12.1074C5.55011 11.6954 5.40345 11.244 5.05296 10.9894L1.07722 8.10081C0.293507 7.53141 0.696283 6.2918 1.66501 6.2918H6.57929C7.01252 6.2918 7.39647 6.01284 7.53035 5.60081L9.04894 0.927052Z"
+                  fill="currentColor"
+                />
+              </svg>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`ChemistCard test cases should render correctly without data 1`] = `
+<DocumentFragment>
+  <div
+    class="min-w-[300px] w-full h-[232px] relative"
+  >
+    <div
+      aria-label="chemist-card"
+      class="flex flex-col relative text-foreground box-border outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 shadow-medium rounded-large transition-transform-background motion-reduce:transition-none bg-background-200 w-full h-full p-6 gap-6 overflow-visible pt-0"
+      tabindex="-1"
+    >
+      <div
+        class="group"
+      >
+        <div
+          class="absolute z-20 inset-0 rounded-large opacity-0 top-0 left-0 right-0 bottom-0 bg-primary-200 dark:group-hover:opacity-50 group-hover:opacity-70 flex justify-center items-center"
+        >
+          <button
+            aria-label="edit-btn"
+            class="z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap subpixel-antialiased overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-small gap-2 rounded-medium px-0 !gap-0 transition-transform-colors-opacity motion-reduce:transition-none min-w-10 w-10 h-10 data-[hover=true]:opacity-hover border-transparent font-semibold bg-linear-success text-content1 bg-none"
+            type="button"
+          >
+            <svg
+              class="text-background-100 flex-shrink-0 w-4 h-4"
+              fill="currentColor"
+              viewBox="0 0 512 512"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M441 58.9L453.1 71c9.4 9.4 9.4 24.6 0 33.9L424 134.1 377.9 88 407 58.9c9.4-9.4 24.6-9.4 33.9 0zM209.8 256.2L344 121.9 390.1 168 255.8 302.2c-2.9 2.9-6.5 5-10.4 6.1l-58.5 16.7 16.7-58.5c1.1-3.9 3.2-7.5 6.1-10.4zM373.1 25L175.8 222.2c-8.7 8.7-15 19.4-18.3 31.1l-28.6 100c-2.4 8.4-.1 17.4 6.1 23.6s15.2 8.5 23.6 6.1l100-28.6c11.8-3.4 22.5-9.7 31.1-18.3L487 138.9c28.1-28.1 28.1-73.7 0-101.8L474.9 25C446.8-3.1 401.2-3.1 373.1 25zM88 64C39.4 64 0 103.4 0 152L0 424c0 48.6 39.4 88 88 88l272 0c48.6 0 88-39.4 88-88l0-112c0-13.3-10.7-24-24-24s-24 10.7-24 24l0 112c0 22.1-17.9 40-40 40L88 464c-22.1 0-40-17.9-40-40l0-272c0-22.1 17.9-40 40-40l112 0c13.3 0 24-10.7 24-24s-10.7-24-24-24L88 64z"
+              />
+            </svg>
+          </button>
+          <button
+            aria-label="delete-btn"
+            class="z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap subpixel-antialiased overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-small gap-2 rounded-medium px-0 !gap-0 transition-transform-colors-opacity motion-reduce:transition-none min-w-10 w-10 h-10 data-[hover=true]:opacity-hover border-transparent font-semibold bg-linear-success text-content1 bg-none"
+            type="button"
+          >
+            <svg
+              class="text-background-100 flex-shrink-0 w-4 h-4"
+              fill="currentColor"
+              viewBox="0 0 448 512"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M135.2 17.7L128 32 32 32C14.3 32 0 46.3 0 64S14.3 96 32 96l384 0c17.7 0 32-14.3 32-32s-14.3-32-32-32l-96 0-7.2-14.3C307.4 6.8 296.3 0 284.2 0L163.8 0c-12.1 0-23.2 6.8-28.6 17.7zM416 128L32 128 53.2 467c1.6 25.3 22.6 45 47.9 45l245.8 0c25.3 0 46.3-19.7 47.9-45L416 128z"
+              />
+            </svg>
+          </button>
+        </div>
+      </div>
+      <div
+        class="z-10 w-full items-center shrink-0 overflow-inherit color-inherit subpixel-antialiased rounded-t-large flex justify-between p-0"
+      >
+        <div
+          class="flex items-center gap-2"
+        >
+          <span
+            class="overflow-hidden outline-none rounded-full ring-offset-background dark:ring-offset-background-dark shrink-0 min-w-12 w-12 h-12 bg-undefined ring-offset-0 ring-0 false"
+            data-testid="avatar-container"
+            tabindex="-1"
+          >
+            <img
+              alt=""
+              class="aspect-square"
+              data-nimg="1"
+              decoding="async"
+              fetchpriority="high"
+              height="48"
+              src="http://localhost/_next/image?url=%2Fimages%2Favatar-thumbnail.webp&w=96&q=75"
+              srcset="/_next/image?url=%2Fimages%2Favatar-thumbnail.webp&w=48&q=75 1x, /_next/image?url=%2Fimages%2Favatar-thumbnail.webp&w=96&q=75 2x"
+              style="color: transparent; object-fit: cover; background-size: cover; background-position: 50% 50%; background-repeat: no-repeat;"
+              width="48"
+            />
+          </span>
+          <div
+            class="flex flex-col gap-1"
+          >
+            <p
+              class="text-primary-100 font-semibold text-base text-ellipsis whitespace-nowrap overflow-hidden"
+            />
+          </div>
+        </div>
+        <button
+          class="z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap subpixel-antialiased overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 h-10 gap-2 rounded-medium [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none data-[hover=true]:opacity-hover border-transparent bg-transparent text-secondary-500 text-lg font-medium p-0 min-w-10"
+          type="button"
+        >
+          Book
+        </button>
+      </div>
+      <div
+        class="relative flex w-full flex-auto flex-col place-content-inherit align-items-inherit h-auto break-words text-left overflow-y-auto subpixel-antialiased p-0"
+      >
+        <p
+          class="text-primary-200 font-medium text-sm whitespace-pre-wrap line-clamp-2"
+        >
+          No description
+        </p>
+      </div>
+      <div
+        class="h-auto w-full items-center overflow-hidden color-inherit subpixel-antialiased p-0 inline-block rounded-none"
+      >
+        <div
+          class="flex flex-col gap-1"
+        >
+          <div
+            class="flex justify-between"
+          >
+            <div
+              class="flex items-center gap-1 sm:gap-2"
+            >
+              <svg
+                class="w-6 h-6"
+                fill="none"
+                height="24"
+                viewBox="0 0 24 24"
+                width="24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M21.6599 10.44L20.6799 14.62C19.8399 18.23 18.1799 19.69 15.0599 19.39C14.5599 19.35 14.0199 19.26 13.4399 19.12L11.7599 18.72C7.58994 17.73 6.29994 15.67 7.27994 11.49L8.25994 7.3C8.45994 6.45 8.69994 5.71 8.99994 5.1C10.1699 2.68 12.1599 2.03 15.4999 2.82L17.1699 3.21C21.3599 4.19 22.6399 6.26 21.6599 10.44Z"
+                  stroke="#54577A"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="1.5"
+                />
+                <path
+                  d="M15.0601 19.39C14.4401 19.81 13.6601 20.16 12.7101 20.47L11.1301 20.99C7.1601 22.27 5.0701 21.2 3.7801 17.23L2.5001 13.28C1.2201 9.31 2.2801 7.21 6.2501 5.93L7.8301 5.41C8.2401 5.28 8.6301 5.17 9.0001 5.1C8.7001 5.71 8.4601 6.45 8.2601 7.3L7.2801 11.49C6.3001 15.67 7.5901 17.73 11.7601 18.72L13.4401 19.12C14.0201 19.26 14.5601 19.35 15.0601 19.39Z"
+                  stroke="#54577A"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="1.5"
+                />
+                <path
+                  d="M12.6399 8.53L17.4899 9.76"
+                  stroke="#54577A"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="1.5"
+                />
+                <path
+                  d="M11.6599 12.4L14.5599 13.14"
+                  stroke="#54577A"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="1.5"
+                />
+              </svg>
+              <p
+                class="text-primary-100 text-sm text-ellipsis whitespace-nowrap overflow-hidden font-medium"
+              >
+                0 Task
+              </p>
+            </div>
+            <div
+              class="flex items-center gap-1 sm:gap-2"
+            >
+              <p
+                class="text-primary-100 text-sm text-ellipsis whitespace-nowrap overflow-hidden font-medium"
+              >
+                (0 Review)
+              </p>
+            </div>
+          </div>
+          <div
+            class="flex justify-between items-center gap-1 sm:gap-2"
+          >
+            <p
+              class="text-primary-100 text-sm text-ellipsis whitespace-nowrap overflow-hidden font-medium"
+            >
+              Rating: 0
+            </p>
+            <div
+              class="flex"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;

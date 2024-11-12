@@ -1,4 +1,4 @@
-import { Suspense, lazy } from 'react';
+import { Suspense } from 'react';
 import { Metadata } from 'next';
 
 // Constants
@@ -19,9 +19,9 @@ import { getAppointments, getUserLogged } from '@/services';
 
 // Components
 import { AppointmentsHistorySkeleton } from '@/features/appointments/AppointmentsHistory/AppointmentsHistorySkeleton';
-const AppointmentsHistory = lazy(
-  () => import('@/features/appointments/AppointmentsHistory'),
-);
+import { InputSearch } from '@/components/ui';
+import AppointmentsHistory from '@/features/appointments/AppointmentsHistory';
+import AppointmentCreate from '@/features/appointments/AppointmentCreate';
 
 export const metadata: Metadata = {
   title: 'Appointments',
@@ -48,43 +48,46 @@ const AppointmentPage = async ({
   const searchParamsAPI = new URLSearchParams();
   const APPOINTMENT_SEARCH_PARAMS = ['receiverId', 'senderId'];
 
-  const setPopulates = () => {
-    APPOINTMENT_SEARCH_PARAMS.forEach((param, index) => {
-      searchParamsAPI.set(`populate[${index}]`, param);
-      searchParamsAPI.set(`populate[${param}][populate][avatar]`, '*');
-    });
-  };
+  APPOINTMENT_SEARCH_PARAMS.forEach((param, index) => {
+    searchParamsAPI.set(`populate[${index}]`, param);
+    searchParamsAPI.set(`populate[${param}][populate][avatar]`, '*');
+  });
 
-  const setSearchFilters = () => {
-    APPOINTMENT_SEARCH_PARAMS.forEach((param, index) => {
-      searchParamsAPI.set(
-        `filters[$or][${index}][${param}][username][$containsi]`,
-        search,
-      );
-      if (role === ROLE.NORMAL_USER) {
-        searchParamsAPI.set(`filters[$or][${index}][${param}][id][$eq]`, id);
-      }
-    });
-  };
-
-  const setRoleFilters = () => {
-    if (role === ROLE.NORMAL_USER) {
-      APPOINTMENT_SEARCH_PARAMS.forEach((param, index) =>
-        searchParamsAPI.set(`filters[$or][${index}][${param}][id][$eq]`, id),
-      );
-      searchParamsAPI.set('populate[senderId][populate][avatar]', '*');
-    }
-  };
-
-  // Set parameters
-  setPopulates();
   searchParamsAPI.set('pagination[page]', page.toString());
   searchParamsAPI.set('pagination[pageSize]', PAGE_SIZE_DEFAULT.toString());
   searchParamsAPI.set('sort[0]', `createdAt:${DIRECTION.DESC}`);
 
-  // Apply search and role filters
-  if (search) setSearchFilters();
-  else setRoleFilters();
+  if (search) {
+    if (role === ROLE.NORMAL_USER || !role) {
+      APPOINTMENT_SEARCH_PARAMS.forEach((param, index) =>
+        searchParamsAPI.set(
+          `filters[$or][${index}][$and][0][${param}][username][$containsi]`,
+          search,
+        ),
+      );
+      APPOINTMENT_SEARCH_PARAMS.reverse().forEach((param, index) =>
+        searchParamsAPI.set(
+          `filters[$or][${index}][$and][1][${param}][id][$eq]`,
+          id,
+        ),
+      );
+    } else {
+      APPOINTMENT_SEARCH_PARAMS.forEach((param, index) =>
+        searchParamsAPI.set(
+          `filters[$or][${index}][${param}][username][$containsi]`,
+          search,
+        ),
+      );
+    }
+  }
+
+  // Fetch all appointments associated with user
+  if (role === ROLE.NORMAL_USER || !role) {
+    APPOINTMENT_SEARCH_PARAMS.forEach((param, index) =>
+      searchParamsAPI.set(`filters[$or][${index}][${param}][id][$eq]`, id),
+    );
+    searchParamsAPI.set('populate[senderId][populate][avatar]', '*');
+  }
 
   const valueStatus = APPOINTMENT_STATUS_OPTIONS.find(
     (option) => option.key === status,
@@ -99,14 +102,20 @@ const AppointmentPage = async ({
   });
 
   return (
-    <Suspense fallback={<AppointmentsHistorySkeleton />}>
-      <AppointmentsHistory
-        appointments={appointments || []}
-        pagination={meta?.pagination}
-        userLogged={userLogged}
-        defaultStatus={status}
-      />
-    </Suspense>
+    <>
+      <div className="flex justify-between gap-10 my-8">
+        <InputSearch placeholder="Search Appointments" />
+        <AppointmentCreate userLogged={userLogged} />
+      </div>
+      <Suspense fallback={<AppointmentsHistorySkeleton />}>
+        <AppointmentsHistory
+          appointments={appointments || []}
+          pagination={meta?.pagination}
+          userLogged={userLogged}
+          defaultStatus={status}
+        />
+      </Suspense>
+    </>
   );
 };
 

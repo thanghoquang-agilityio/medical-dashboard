@@ -26,8 +26,9 @@ export const BaseModal = memo(
       placement={placement}
       classNames={{
         closeButton: 'text-primary-100',
-        base: 'bg-background-100 p-4',
+        base: 'bg-background-100 p-4 !my-auto',
       }}
+      scrollBehavior="outside"
     >
       <ModalContent>{children}</ModalContent>
     </Modal>

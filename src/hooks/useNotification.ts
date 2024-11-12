@@ -11,7 +11,6 @@ import { ERROR_MESSAGE, NOTIFICATION_CONTENT } from '@/constants';
 import { addNotification } from '@/actions/notification';
 
 // Hooks
-import { useFcmToken } from '@/hooks';
 import { useToast } from '@/context/toast';
 
 // Services
@@ -23,7 +22,6 @@ export const useNotification = ({
   userLogged: UserLogged | null;
 }) => {
   const openToast = useToast();
-  const { token } = useFcmToken();
 
   const handleCreateNotification = useCallback(
     async (appointment: AppointmentResponse, action: string) => {
@@ -61,12 +59,11 @@ export const useNotification = ({
         return;
       }
 
-      token &&
-        (await sendNotification({
-          message: 'You have new notification',
-        }));
+      await sendNotification({
+        message: 'You have new notification',
+      });
     },
-    [openToast, token, userLogged],
+    [openToast, userLogged],
   );
 
   return {

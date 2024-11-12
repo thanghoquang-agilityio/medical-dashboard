@@ -15,6 +15,11 @@ const config: Config = {
     '!**/*.d.ts',
     '!<rootDir>/src/**/*.stories.{js,jsx,ts,tsx}',
     '!<rootDir>/node_modules/',
+    '!<rootDir>/jest.config.ts',
+    '!**/themes/**',
+    '!<rootDir>/src/config/**/*.{js,jsx,ts,tsx}',
+    '!<rootDir>/src/components/errors/index.ts',
+    '!<rootDir>/src/components/layout/index.ts',
   ],
   setupFilesAfterEnv: ['<rootDir>/jest.setup.ts'],
   moduleNameMapper: {
@@ -24,6 +29,7 @@ const config: Config = {
     'next-auth': '<rootDir>/__test__/mocks/next-auth.ts',
     '@/services': '<rootDir>/src/services',
     '@/utils': '<rootDir>/src/utils',
+    '@/actions/user': '<rootDir>/src/actions/user',
   },
 };
 

@@ -1,6 +1,9 @@
+import { cookies } from 'next/headers';
+
 import { MOCK_USER_SESSION } from '@/mocks';
 import { apiClient } from '../api';
 import { login, signup, logout } from '../auth';
+import { EXCEPTION_ERROR_MESSAGE } from '@/constants';
 
 const { token, email } = MOCK_USER_SESSION;
 
@@ -36,7 +39,7 @@ jest.mock('../notificationFirebase.ts', () => ({
 }));
 
 describe('Authorize tests', () => {
-  it('login will return value correctly', async () => {
+  it('should return user information when login successfully', async () => {
     jest.spyOn(apiClient, 'post').mockResolvedValue({
       error: null,
       jwt: token,
@@ -52,12 +55,13 @@ describe('Authorize tests', () => {
     expect(result).toStrictEqual({ error: null, user: MOCK_USER_SESSION });
   });
 
-  it('login will return value correctly', async () => {
+  it('should return error message when there is no information of login user', async () => {
     jest.spyOn(apiClient, 'post').mockResolvedValue({
       error: null,
       jwt: token,
       user: MOCK_USER_SESSION,
     });
+
     jest
       .spyOn(apiClient, 'get')
       .mockResolvedValue({ error: 'Login Failed', user: null });
@@ -67,13 +71,14 @@ describe('Authorize tests', () => {
       password: 'password',
       remember: true,
     });
+
     expect(result).toStrictEqual({
       error: 'Login Failed',
       user: null,
     });
   });
 
-  it('login will return value correctly', async () => {
+  it('should return error message when login failed', async () => {
     jest.spyOn(apiClient, 'post').mockResolvedValue({
       error: JSON.stringify({
         error: {
@@ -87,17 +92,15 @@ describe('Authorize tests', () => {
       password: 'password',
       remember: true,
     });
+
     expect(result).toStrictEqual({
       error: 'Login Failed',
       user: null,
     });
   });
 
-  it('login will return value correctly', async () => {
-    jest.spyOn(apiClient, 'post').mockRejectedValue({
-      error: 'Login Failed',
-      user: null,
-    });
+  it('should handle error exception when login', async () => {
+    jest.spyOn(apiClient, 'post').mockRejectedValue({});
 
     const result = await login({
       identifier: email!,
@@ -105,12 +108,12 @@ describe('Authorize tests', () => {
       remember: true,
     });
     expect(result).toStrictEqual({
-      error: 'An unexpected error occurred in the request login',
+      error: EXCEPTION_ERROR_MESSAGE.LOGIN,
       user: null,
     });
   });
 
-  it('signup will return value correctly', async () => {
+  it('should return user information when signup successfully', async () => {
     jest.spyOn(apiClient, 'post').mockResolvedValue({
       error: null,
     });
@@ -120,10 +123,11 @@ describe('Authorize tests', () => {
       username: email!,
       password: 'password',
     });
+
     expect(result).toBeTruthy();
   });
 
-  it('login will return value correctly', async () => {
+  it('should return error message when login failed', async () => {
     jest.spyOn(apiClient, 'post').mockResolvedValue({
       error: JSON.stringify({
         error: {
@@ -137,6 +141,7 @@ describe('Authorize tests', () => {
       username: email!,
       password: 'password',
     });
+
     expect(result).toStrictEqual({
       error: 'Signup Failed',
       jwt: '',
@@ -144,10 +149,8 @@ describe('Authorize tests', () => {
     });
   });
 
-  it('signup will return value correctly', async () => {
-    jest.spyOn(apiClient, 'post').mockRejectedValue({
-      error: 'Signup Failed',
-    });
+  it('should handle error exception when singup', async () => {
+    jest.spyOn(apiClient, 'post').mockRejectedValue({});
 
     const result = await signup({
       email: email!,
@@ -155,13 +158,19 @@ describe('Authorize tests', () => {
       password: 'password',
     });
     expect(result).toStrictEqual({
-      error: 'An unexpected error occurred in the request register',
+      error: EXCEPTION_ERROR_MESSAGE.REGISTER,
       jwt: '',
       user: null,
     });
   });
 
   it('logout will return value correctly', async () => {
+    const mockCookies = {
+      get: jest.fn().mockReturnValue(undefined),
+      delete: jest.fn(),
+    };
+    (cookies as jest.Mock).mockReturnValue(mockCookies);
+
     const result = await logout();
 
     expect(result);

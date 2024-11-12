@@ -80,24 +80,4 @@ describe('ChemistList', () => {
 
     expect(location.pathname.includes('page')).toBe(false);
   });
-
-  // TODO: will update test in another MR
-  it.skip('should be able to filter by specialty', async () => {
-    await setup(mockProps);
-
-    const specialtyDropdown = screen.getByRole('button', {
-      name: /specialty/i,
-      hidden: true,
-    });
-
-    fireEvent.click(specialtyDropdown);
-
-    const menuitem = screen.getByRole('menuitem', {
-      name: /all/i,
-    });
-
-    fireEvent.click(menuitem);
-
-    expect(menuitem.getAttribute('data-focus')).toBe('true');
-  });
 });
