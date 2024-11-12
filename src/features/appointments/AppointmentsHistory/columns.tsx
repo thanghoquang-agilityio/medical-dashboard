@@ -185,6 +185,11 @@ export const createColumns = ({
           (!isAdmin && status !== getStatusKey('new')) ||
           (isAdmin && status === getStatusKey('cancelled'));
 
+        const isDisabledCancel =
+          !isAdmin &&
+          (!isLaterThanCurrentTime(startTime) ||
+            status !== getStatusKey('new'));
+
         const iconClasses = 'mr-2 flex-shrink-0 w-4 h-4';
 
         const options: OptionMoreAction[] = [
@@ -205,7 +210,7 @@ export const createColumns = ({
             ) : (
               <XmarkIcon customClass={`text-danger-100 ${iconClasses}`} />
             ),
-            isDisabled: !isAdmin && status !== getStatusKey('new'),
+            isDisabled: isDisabledCancel,
             onAction: () => onRemoveOrCancel(id),
           },
         ];

@@ -98,8 +98,8 @@ export const createColumns = ({
 
         const isDisabled =
           !isAdmin &&
-          !isLaterThanCurrentTime(startTime) &&
-          status !== getStatusKey('new');
+          (!isLaterThanCurrentTime(startTime) ||
+            status !== getStatusKey('new'));
 
         const options: OptionMoreAction[] = [
           {
