@@ -6,7 +6,6 @@ export const ChemistActionsSkeleton = () => (
     <div className="flex justify-between md:gap-4 mb-10 md:mb-0 ">
       <Select
         aria-label="Select Specialty"
-        label="Specialty"
         options={[]}
         isDisabled={true}
         placeholder="Specialty"
