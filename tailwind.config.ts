@@ -78,6 +78,7 @@ const config: Config = {
             danger: {
               100: colors.red.light,
               200: colors.orange,
+              300: colors.red.light,
             },
             content1: colors.white,
             default: colors.white,
@@ -109,6 +110,7 @@ const config: Config = {
             danger: {
               100: colors.red.dark,
               200: colors.orange,
+              300: colors['bubble-gum'],
             },
             content1: colors.white,
             default: colors.black,
