@@ -1,7 +1,13 @@
-import { ChemistSkeleton } from '@/features/chemists/ChemistList/ChemistSkeleton';
+import { ChemistActionsSkeleton } from '@/features/chemists/ChemistActions/ChemistActionsSkeleton';
+import { ChemistListSkeleton } from '@/features/chemists/ChemistList/ChemistSkeleton';
 
 const Loading = () => {
-  return <ChemistSkeleton />;
+  return (
+    <>
+      <ChemistActionsSkeleton />
+      <ChemistListSkeleton />
+    </>
+  );
 };
 
 export default Loading;
