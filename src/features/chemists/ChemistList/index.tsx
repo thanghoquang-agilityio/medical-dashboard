@@ -27,7 +27,6 @@ import { Text } from '@/components/ui';
 
 import ChemistCard from '../ChemistCard';
 import ChemistModal from '../ChemistModal';
-import { ChemistListSkeleton } from './ChemistSkeleton';
 
 // Utils
 import { transformSpecialtiesById } from '@/utils';
@@ -51,7 +50,7 @@ const ChemistList = memo(
     const [chemist, setChemist] = useState<UserModel>();
     const [chemistId, setChemistId] = useState<string>('');
 
-    const [isPending, startTransition] = useTransition();
+    const [_, startTransition] = useTransition();
     const { isOpen, onOpen, onClose } = useDisclosure();
 
     const searchParams = useSearchParams() ?? '';
@@ -103,46 +102,44 @@ const ChemistList = memo(
         <Text variant="primary" size="2xl" customClass="my-5">
           {params.size ? 'Chemist Results' : 'All Chemists'}
         </Text>
-        {isPending ? (
-          <ChemistListSkeleton />
-        ) : (
-          <div className="flex flex-col items-center min-h-[40vh] sm:min-h-[60vh]">
-            {chemists.length > 0 ? (
-              <div className="w-full grid gap-8 grid-cols-1 md:grid-cols-2 2xl:grid-cols-3 min-[2048px]:grid-cols-4 justify-evenly justify-items-center">
-                {chemists.map((chemist) => {
-                  const { attributes } = chemist;
-                  const { users_permissions_user } = attributes || {};
-                  const { id = '', attributes: data } =
-                    users_permissions_user?.data || {};
 
-                  return (
-                    <ChemistCard
-                      id={id}
-                      key={id}
-                      isAdmin={isAdmin}
-                      data={data}
-                      onEdit={handleEdit}
-                    />
-                  );
-                })}
-              </div>
-            ) : (
-              <Text size="lg" variant="description" customClass="my-auto">
-                {RESULT_NOT_FOUND}
-              </Text>
-            )}
-            {!!pagination && pagination.pageCount > 1 && (
-              <Suspense fallback={null}>
-                <Pagination
-                  classNames={{ base: 'mt-4' }}
-                  initialPage={page}
-                  total={pageCount}
-                  onChange={handlePageChange}
-                />
-              </Suspense>
-            )}
-          </div>
-        )}
+        <div className="flex flex-col items-center min-h-[40vh] sm:min-h-[60vh]">
+          {chemists.length > 0 ? (
+            <div className="w-full grid gap-8 grid-cols-1 md:grid-cols-2 2xl:grid-cols-3 min-[2048px]:grid-cols-4 justify-evenly justify-items-center">
+              {chemists.map((chemist) => {
+                const { attributes } = chemist;
+                const { users_permissions_user } = attributes || {};
+                const { id = '', attributes: data } =
+                  users_permissions_user?.data || {};
+
+                return (
+                  <ChemistCard
+                    id={id}
+                    key={id}
+                    isAdmin={isAdmin}
+                    data={data}
+                    onEdit={handleEdit}
+                  />
+                );
+              })}
+            </div>
+          ) : (
+            <Text size="lg" variant="description" customClass="my-auto">
+              {RESULT_NOT_FOUND}
+            </Text>
+          )}
+          {!!pagination && pagination.pageCount > 1 && (
+            <Suspense fallback={null}>
+              <Pagination
+                classNames={{ base: 'mt-4' }}
+                initialPage={page}
+                total={pageCount}
+                onChange={handlePageChange}
+              />
+            </Suspense>
+          )}
+        </div>
+
         {isAdmin && (
           <ChemistModal
             isOpen={isOpen}
