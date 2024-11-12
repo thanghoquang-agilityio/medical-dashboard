@@ -155,7 +155,7 @@ const ChemistForm = memo(
                 unit: 'MB',
               }),
             });
-            return;
+            return false;
           }
 
           const hasValidFormat = VALID_IMAGE_FORMAT.includes(image.type);
@@ -164,7 +164,7 @@ const ChemistForm = memo(
             setFormError('avatar', {
               message: FORM_VALIDATION_MESSAGE.ACCEPTED_FORMATS,
             });
-            return;
+            return false;
           }
 
           const formData = new FormData();
@@ -173,6 +173,8 @@ const ChemistForm = memo(
           setFormImage(formData);
           setImageUpload(URL.createObjectURL(image));
           callback(URL.createObjectURL(image));
+
+          return true;
         }
       };
 

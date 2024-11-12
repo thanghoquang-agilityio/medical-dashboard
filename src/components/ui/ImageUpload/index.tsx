@@ -12,7 +12,9 @@ interface ImageUploadProps extends React.HTMLAttributes<HTMLDivElement> {
   src?: string;
   srcUpload?: string;
   onRemoveImage?: () => void;
-  onUploadImage?: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  onUploadImage?: (
+    event: React.ChangeEvent<HTMLInputElement>,
+  ) => boolean | undefined;
   altText?: string;
   width?: number;
   height?: number;
@@ -35,7 +37,9 @@ export const ImageUpload = forwardRef<HTMLInputElement, ImageUploadProps>(
     const [currentSrc, setCurrentSrc] = useState(srcUpload || src);
 
     const handleChangeImage = (event: React.ChangeEvent<HTMLInputElement>) => {
-      onUploadImage?.(event);
+      const isUploaded = onUploadImage?.(event);
+
+      if (!isUploaded) return;
 
       if (event.target.files && event.target.files[0]) {
         const newImageURL = URL.createObjectURL(event.target.files[0]);
