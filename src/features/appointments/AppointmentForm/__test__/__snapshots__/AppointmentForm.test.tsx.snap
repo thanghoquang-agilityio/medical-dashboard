@@ -28,7 +28,7 @@ exports[`AppointmentForm test cases should render correctly 1`] = `
           <input
             disabled=""
             style="font-size: 16px;"
-            tabindex="-1"
+            tabindex="0"
             type="text"
             value=""
           />
@@ -115,7 +115,7 @@ exports[`AppointmentForm test cases should render correctly 1`] = `
           <input
             disabled=""
             style="font-size: 16px;"
-            tabindex="-1"
+            tabindex="0"
             type="text"
             value=""
           />
@@ -366,7 +366,7 @@ exports[`AppointmentForm test cases should render correctly 1`] = `
       >
         <input
           style="font-size: 16px;"
-          tabindex="-1"
+          tabindex="0"
           type="text"
           value=""
         />
@@ -553,7 +553,7 @@ exports[`AppointmentForm test cases should render correctly 1`] = `
       >
         <input
           style="font-size: 16px;"
-          tabindex="-1"
+          tabindex="0"
           type="text"
           value="0"
         />
@@ -695,7 +695,7 @@ exports[`AppointmentForm test cases should render correctly with providing data 
           <input
             disabled=""
             style="font-size: 16px;"
-            tabindex="-1"
+            tabindex="0"
             type="text"
             value="3"
           />
@@ -789,7 +789,7 @@ exports[`AppointmentForm test cases should render correctly with providing data 
           <input
             disabled=""
             style="font-size: 16px;"
-            tabindex="-1"
+            tabindex="0"
             type="text"
             value="6"
           />
@@ -1055,7 +1055,7 @@ exports[`AppointmentForm test cases should render correctly with providing data 
       >
         <input
           style="font-size: 16px;"
-          tabindex="-1"
+          tabindex="0"
           type="text"
           value="60"
         />
@@ -1242,7 +1242,7 @@ exports[`AppointmentForm test cases should render correctly with providing data 
       >
         <input
           style="font-size: 16px;"
-          tabindex="-1"
+          tabindex="0"
           type="text"
           value="1"
         />
