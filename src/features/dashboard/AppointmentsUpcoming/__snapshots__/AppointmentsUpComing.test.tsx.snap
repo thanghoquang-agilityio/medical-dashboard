@@ -29,7 +29,7 @@ exports[`AppointmentsUpComing test cases should render correctly 1`] = `
           >
             <input
               style="font-size: 16px;"
-              tabindex="0"
+              tabindex="-1"
               type="text"
               value="new"
             />
@@ -199,7 +199,7 @@ exports[`AppointmentsUpComing test cases should render correctly 1`] = `
                   <p
                     class="mocked-class"
                   >
-                    Wed
+                    Fri
                   </p>
                   <p
                     class="mocked-class"
@@ -308,7 +308,7 @@ exports[`AppointmentsUpComing test cases should render correctly 1`] = `
                   <p
                     class="mocked-class"
                   >
-                    Thu
+                    Sat
                   </p>
                   <p
                     class="mocked-class"

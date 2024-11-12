@@ -28,7 +28,7 @@ exports[`AppointmentsHistory Component should render correctly when appointments
           >
             <input
               style="font-size: 16px;"
-              tabindex="0"
+              tabindex="-1"
               type="text"
               value=""
             />
@@ -242,7 +242,7 @@ exports[`AppointmentsHistory Component should render correctly with admin role w
           >
             <input
               style="font-size: 16px;"
-              tabindex="0"
+              tabindex="-1"
               type="text"
               value=""
             />
@@ -517,18 +517,18 @@ exports[`AppointmentsHistory Component should render correctly with admin role w
                 >
                   <div>
                     <div
-                      class="bg-danger-100 text-white dark:text-danger-100 dark:bg-opacity-20 w-fit max-w-20 px-2 rounded-md text-center mb-2 md:hidden"
+                      class="bg-success text-white dark:text-success dark:bg-opacity-20 w-fit max-w-20 px-2 rounded-md text-center mb-2 md:hidden"
                     >
                       <p
                         class="text-2xs font-semibold capitalize"
                       >
-                        cancelled
+                        new
                       </p>
                     </div>
                     <p
                       class="text-primary-100 font-medium text-xs text-ellipsis whitespace-nowrap overflow-hidden"
                     >
-                      11 Sep 2024
+                      11 Sep 2026
                     </p>
                   </div>
                 </td>
@@ -540,12 +540,12 @@ exports[`AppointmentsHistory Component should render correctly with admin role w
                   tabindex="-1"
                 >
                   <div
-                    class="bg-danger-100 text-white dark:text-danger-100 dark:bg-opacity-20 w-fit max-w-20 px-2 rounded-md text-center hidden md:block"
+                    class="bg-success text-white dark:text-success dark:bg-opacity-20 w-fit max-w-20 px-2 rounded-md text-center hidden md:block"
                   >
                     <p
                       class="text-2xs font-semibold capitalize"
                     >
-                      cancelled
+                      new
                     </p>
                   </div>
                 </td>
@@ -708,7 +708,7 @@ exports[`AppointmentsHistory Component should render correctly with admin role w
                     <p
                       class="text-primary-100 font-medium text-xs text-ellipsis whitespace-nowrap overflow-hidden"
                     >
-                      12 Sep 2024
+                      12 Sep 2026
                     </p>
                   </div>
                 </td>
@@ -991,7 +991,7 @@ exports[`AppointmentsHistory Component should render correctly with user role wh
           >
             <input
               style="font-size: 16px;"
-              tabindex="0"
+              tabindex="-1"
               type="text"
               value=""
             />
@@ -1222,18 +1222,18 @@ exports[`AppointmentsHistory Component should render correctly with user role wh
                 >
                   <div>
                     <div
-                      class="bg-danger-100 text-white dark:text-danger-100 dark:bg-opacity-20 w-fit max-w-20 px-2 rounded-md text-center mb-2 md:hidden"
+                      class="bg-success text-white dark:text-success dark:bg-opacity-20 w-fit max-w-20 px-2 rounded-md text-center mb-2 md:hidden"
                     >
                       <p
                         class="text-2xs font-semibold capitalize"
                       >
-                        cancelled
+                        new
                       </p>
                     </div>
                     <p
                       class="text-primary-100 font-medium text-xs text-ellipsis whitespace-nowrap overflow-hidden"
                     >
-                      11 Sep 2024
+                      11 Sep 2026
                     </p>
                   </div>
                 </td>
@@ -1245,12 +1245,12 @@ exports[`AppointmentsHistory Component should render correctly with user role wh
                   tabindex="-1"
                 >
                   <div
-                    class="bg-danger-100 text-white dark:text-danger-100 dark:bg-opacity-20 w-fit max-w-20 px-2 rounded-md text-center hidden md:block"
+                    class="bg-success text-white dark:text-success dark:bg-opacity-20 w-fit max-w-20 px-2 rounded-md text-center hidden md:block"
                   >
                     <p
                       class="text-2xs font-semibold capitalize"
                     >
-                      cancelled
+                      new
                     </p>
                   </div>
                 </td>
@@ -1378,7 +1378,7 @@ exports[`AppointmentsHistory Component should render correctly with user role wh
                     <p
                       class="text-primary-100 font-medium text-xs text-ellipsis whitespace-nowrap overflow-hidden"
                     >
-                      12 Sep 2024
+                      12 Sep 2026
                     </p>
                   </div>
                 </td>
