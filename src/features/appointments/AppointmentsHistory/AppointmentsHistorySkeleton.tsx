@@ -1,7 +1,7 @@
 import { memo } from 'react';
 import { APPOINTMENT_STATUS_OPTIONS, PAGE_SIZE_DEFAULT } from '@/constants';
 import { Card, Skeleton } from '@nextui-org/react';
-import { Button, InputSearch, Select, Text } from '@/components/ui';
+import { Select, Text } from '@/components/ui';
 import { ROLE } from '@/types';
 import { auth } from '@/config/auth';
 
@@ -45,35 +45,27 @@ export const AppointmentsHistorySkeleton = memo(async () => {
   const isAdmin = role === ROLE.ADMIN;
 
   return (
-    <>
-      <div className="flex mt-3 justify-between gap-10 mb-8">
-        <InputSearch placeholder="Search Appointments" isDisabled={true} />
-        <Button className="h-[52px] font-medium" isDisabled={true}>
-          Create
-        </Button>
-      </div>
-      <Card className="w-full px-4 py-6 bg-background-200">
-        <div className="flex justify-between items-center">
-          <Text customClass="text-xl font-bold text-primary-100">History</Text>
-          <div>
-            <Select
-              aria-label="Status"
-              options={APPOINTMENT_STATUS_OPTIONS}
-              placeholder="Status"
-              classNames={{
-                base: 'max-w-[102px] max-h-[36px]',
-                mainWrapper: 'max-w-[102px] max-h-[36px]',
-                innerWrapper: 'w-[80px]',
-                trigger: 'min-h-[36px]',
-              }}
-              isDisabled={true}
-            />
-          </div>
+    <Card className="w-full px-4 py-6 bg-background-200">
+      <div className="flex justify-between items-center">
+        <Text customClass="text-xl font-bold text-primary-100">History</Text>
+        <div>
+          <Select
+            aria-label="Status"
+            options={APPOINTMENT_STATUS_OPTIONS}
+            placeholder="Status"
+            classNames={{
+              base: 'max-w-[102px] max-h-[36px]',
+              mainWrapper: 'max-w-[102px] max-h-[36px]',
+              innerWrapper: 'w-[80px]',
+              trigger: 'min-h-[36px]',
+            }}
+            isDisabled={true}
+          />
         </div>
+      </div>
 
-        <AppointmentsHistoryListSkeleton isAdmin={isAdmin} />
-      </Card>
-    </>
+      <AppointmentsHistoryListSkeleton isAdmin={isAdmin} />
+    </Card>
   );
 });
 
