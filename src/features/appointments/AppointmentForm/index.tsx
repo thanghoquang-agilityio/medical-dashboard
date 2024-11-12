@@ -78,7 +78,7 @@ const AppointmentForm = memo(
     onClose,
     id = '',
   }: AppointmentModalProps) => {
-    const { id: userId = '', role: roleModel } = userLogged || {};
+    const { id: userId = '', role: roleModel, email = '' } = userLogged || {};
     const { name: role = ROLE.NORMAL_USER } = roleModel || {};
 
     const {
@@ -91,8 +91,14 @@ const AppointmentForm = memo(
 
     const { data: sender } = senderResponse || {};
     const { data: receiver } = receiverResponse || {};
-    const { id: senderId = '' } = sender || {};
-    const { id: receiverId = '' } = receiver || {};
+    const {
+      id: senderId = '',
+      attributes: { email: senderEmail = '' },
+    } = sender || {};
+    const {
+      id: receiverId = '',
+      attributes: { email: receiverEmail = '' },
+    } = receiver || {};
 
     const openToast = useToast();
     const isAdmin = role === ROLE.ADMIN;
@@ -134,7 +140,7 @@ const AppointmentForm = memo(
 
     const OPTION_USERS = transformUsers(users);
 
-    const isEdit = !!senderId;
+    const isEdit = !!receiverId;
 
     const { handleCreateNotification } = useNotification({
       userLogged,
@@ -244,9 +250,15 @@ const AppointmentForm = memo(
                 labelPlacement="outside"
                 variant="bordered"
                 classNames={selectCustomStyle}
-                defaultSelectedKeys={!isAdmin ? [userId.toString()] : [value]}
+                selectedKeys={!isAdmin ? [userId.toString()] : [value]}
                 isDisabled={isEdit || !isAdmin || isPending || !users.length}
-                options={OPTION_USERS}
+                options={
+                  isEdit
+                    ? [{ key: value, label: senderEmail }]
+                    : !isAdmin
+                      ? [{ key: userId.toString(), label: email }]
+                      : OPTION_USERS
+                }
                 isInvalid={!!error?.message}
                 errorMessage={error?.message}
                 onChange={onChange}
@@ -273,8 +285,10 @@ const AppointmentForm = memo(
                 variant="bordered"
                 aria-label="Receiver"
                 classNames={selectCustomStyle}
-                defaultSelectedKeys={[value]}
-                options={OPTION_USERS}
+                selectedKeys={[value]}
+                options={
+                  isEdit ? [{ key: value, label: receiverEmail }] : OPTION_USERS
+                }
                 isInvalid={!!error?.message}
                 isDisabled={isEdit || isPending || !users.length}
                 errorMessage={error?.message}
