@@ -5,9 +5,9 @@ export const MOCK_APPOINTMENTS: APIResponse<AppointmentModel>[] = [
   {
     id: '1',
     attributes: {
-      startTime: '2024-09-11T06:30:00.000Z',
+      startTime: '2026-09-11T06:30:00.000Z',
       durationTime: '01:30:00',
-      status: 2,
+      status: 0,
       receiverId: {
         data: {
           id: '2',
@@ -43,7 +43,7 @@ export const MOCK_APPOINTMENTS: APIResponse<AppointmentModel>[] = [
   {
     id: '2',
     attributes: {
-      startTime: '2024-09-12T02:00:00.000Z',
+      startTime: '2026-09-12T02:00:00.000Z',
       durationTime: '01:00:00',
       status: 0,
       receiverId: {
