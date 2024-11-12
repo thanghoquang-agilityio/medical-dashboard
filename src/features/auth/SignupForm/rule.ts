@@ -15,6 +15,10 @@ export const SIGN_UP_FORM_VALIDATION = {
       value: REGEX.NAME,
       message: FORM_VALIDATION_MESSAGE.ONLY_TEXT,
     },
+    minLength: {
+      value: 3,
+      message: FORM_VALIDATION_MESSAGE.MIN_LENGTH('Username', 3),
+    },
   },
   PASSWORD: (
     getValues: UseFormGetValues<SignupFormData>,
