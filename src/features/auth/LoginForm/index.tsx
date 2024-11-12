@@ -24,6 +24,7 @@ import { clearErrorOnChange, isEnableSubmit } from '@/utils';
 
 // Contexts
 import { useToast } from '@/context/toast';
+import { fetchToken } from '@/config/firebase.config';
 
 const DEFAULT_VALUE: LoginFormData = {
   identifier: '',
@@ -69,6 +70,18 @@ const LoginForm = () => {
 
   const handleLogin = useCallback(
     async (data: LoginFormData) => {
+      const firebaseToken = await fetchToken();
+
+      const cookiePayload = {
+        key: 'fcm_token',
+        value: firebaseToken,
+      };
+
+      await fetch('/api/save-to-cookie', {
+        body: JSON.stringify(cookiePayload),
+        method: 'POST',
+      });
+
       setError('');
       setIsPending(true);
       const response = await login(data);
