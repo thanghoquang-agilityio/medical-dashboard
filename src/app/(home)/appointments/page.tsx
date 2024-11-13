@@ -62,7 +62,7 @@ const AppointmentPage = async ({
       APPOINTMENT_SEARCH_PARAMS.forEach((param, index) =>
         searchParamsAPI.set(
           `filters[$or][${index}][$and][0][${param}][username][$containsi]`,
-          search,
+          encodeURIComponent(search),
         ),
       );
       APPOINTMENT_SEARCH_PARAMS.reverse().forEach((param, index) =>
@@ -75,7 +75,7 @@ const AppointmentPage = async ({
       APPOINTMENT_SEARCH_PARAMS.forEach((param, index) =>
         searchParamsAPI.set(
           `filters[$or][${index}][${param}][username][$containsi]`,
-          search,
+          encodeURIComponent(search),
         ),
       );
     }

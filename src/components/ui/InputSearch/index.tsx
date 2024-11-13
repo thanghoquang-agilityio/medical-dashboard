@@ -31,7 +31,7 @@ export const InputSearch = ({
     if (page) params.delete('page');
 
     if (search) {
-      params.set('search', search.trim());
+      params.set('search', encodeURIComponent(search.trim()));
     } else {
       params.delete('search');
     }
