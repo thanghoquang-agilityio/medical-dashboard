@@ -7,7 +7,9 @@ import {
 } from '@testing-library/react';
 
 // Components
-import AppointmentsHistory, { AppointmentsHistoryProps } from '.';
+import AppointmentsHistory, {
+  AppointmentsHistoryProps,
+} from './AppointmentsHistory';
 
 // Mocks
 import { MOCK_APPOINTMENTS, MOCK_USERS_LOGGED } from '@/mocks';

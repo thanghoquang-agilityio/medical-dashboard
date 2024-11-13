@@ -3,7 +3,7 @@ import { Metadata } from 'next';
 
 // Services
 import { auth } from '@/config/auth';
-import { getChemists, getSpecialties } from '@/services';
+import { getSpecialties } from '@/services';
 
 // Types
 import { DIRECTION, ROLE, SearchParams } from '@/types';
@@ -13,9 +13,9 @@ import { PAGE_DEFAULT, PAGE_SIZE_CHEMISTS_DEFAULT } from '@/constants';
 
 // Component
 import { ChemistSkeleton } from '@/features/chemists/ChemistList/ChemistSkeleton';
-import ChemistList from '@/features/chemists/ChemistList';
 import { InputSearch } from '@/components/ui';
 import ChemistActions from '@/features/chemists/ChemistActions/ChemistActions';
+import Chemists from '@/features/chemists/ChemistList';
 
 export interface ChemistPageSearchParamsProps extends SearchParams {}
 
@@ -69,10 +69,6 @@ const ChemistPage = async ({
     if (value) searchParamsAPI.set(key, value);
   });
 
-  const { chemists, pagination } = await getChemists({
-    searchParams: searchParamsAPI,
-  });
-
   const { specialties } = await getSpecialties({});
 
   return (
@@ -85,13 +81,11 @@ const ChemistPage = async ({
           defaultSpecialty={specialty}
         />
       </div>
-      <Suspense fallback={<ChemistSkeleton />}>
-        <ChemistList
-          chemists={chemists}
-          pagination={pagination}
+      <Suspense fallback={<ChemistSkeleton />} key={page + search + specialty}>
+        <Chemists
           defaultSpecialty={specialty}
           role={role}
-          specialties={specialties}
+          searchParamsAPI={searchParamsAPI}
         />
       </Suspense>
     </>

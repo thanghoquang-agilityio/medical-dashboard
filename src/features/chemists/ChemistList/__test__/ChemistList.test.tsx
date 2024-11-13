@@ -1,5 +1,5 @@
 import { act, fireEvent, render, screen } from '@testing-library/react';
-import ChemistList, { ChemistListProps } from '..';
+import ChemistList, { ChemistListProps } from '../ChemistList';
 import { MOCK_CHEMISTS_LIST, MOCK_SPECIALTIES } from '@/mocks/chemists';
 
 const mockReplace = jest.fn();
@@ -54,7 +54,7 @@ describe('ChemistList', () => {
       ...mockProps,
       pagination: {
         ...mockProps.pagination!,
-        page: 2,
+        page: 3,
       },
     });
 
