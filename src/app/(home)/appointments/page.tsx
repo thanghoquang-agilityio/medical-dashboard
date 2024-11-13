@@ -21,7 +21,7 @@ import { getUserLogged } from '@/services';
 import { AppointmentsHistorySkeleton } from '@/features/appointments/AppointmentsHistory/AppointmentsHistorySkeleton';
 import { InputSearch } from '@/components/ui';
 import AppointmentCreate from '@/features/appointments/AppointmentCreate';
-import Appointments from '../../../features/appointments/AppointmentsHistory';
+import Appointments from '@/features/appointments/AppointmentsHistory';
 
 export const metadata: Metadata = {
   title: 'Appointments',
