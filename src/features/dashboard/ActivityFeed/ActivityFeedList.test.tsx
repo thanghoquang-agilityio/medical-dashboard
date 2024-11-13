@@ -1,4 +1,4 @@
-import { render, screen } from '@testing-library/react';
+import { render } from '@testing-library/react';
 import React, { act } from 'react';
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 
@@ -50,15 +50,5 @@ describe('ActivityFeedList test cases', () => {
     const { asFragment } = await setup(mockProps);
 
     expect(asFragment()).toMatchSnapshot();
-  });
-
-  it('should render ActivityFeedListSkeleton when pending', async () => {
-    jest.spyOn(React, 'useTransition').mockReturnValue([true, jest.fn()]);
-
-    await setup(mockProps);
-
-    expect(
-      screen.getByTestId('activity-feed-list-skeleton'),
-    ).toBeInTheDocument();
   });
 });

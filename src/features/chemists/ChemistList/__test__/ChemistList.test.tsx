@@ -43,7 +43,7 @@ describe('ChemistList', () => {
     expect(emptyMessage).toBeInTheDocument();
   });
 
-  it.skip('should be able to navigate between pages', async () => {
+  it('should be able to navigate between pages', async () => {
     await setup(mockProps);
 
     const secondPageBtn = screen.getByLabelText('pagination item 2');
@@ -54,7 +54,7 @@ describe('ChemistList', () => {
       ...mockProps,
       pagination: {
         ...mockProps.pagination!,
-        page: 2,
+        page: 3,
       },
     });
 

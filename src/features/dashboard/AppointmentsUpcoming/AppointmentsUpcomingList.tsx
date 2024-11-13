@@ -8,7 +8,6 @@ import {
   useCallback,
   useMemo,
   useState,
-  useTransition,
 } from 'react';
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 import { Card, useDisclosure } from '@nextui-org/react';
@@ -39,7 +38,6 @@ import { useToast } from '@/context/toast';
 // Components
 import { Select, Text } from '@/components/ui';
 import { createColumns } from './columns';
-import { AppointmentsUpcomingListSkeleton } from './AppointmentsUpcomingSkeleton';
 
 // Hooks
 import { useNotification } from '@/hooks';
@@ -64,7 +62,6 @@ const AppointmentsUpcomingList = memo(
 
     const isAdmin = role === ROLE.ADMIN;
 
-    const [isPending, startTransition] = useTransition();
     const [status, setStatus] = useState(new Set<string>([defaultStatus]));
 
     const [appointmentId, setAppointmentId] = useState<string>('');
@@ -80,9 +77,7 @@ const AppointmentsUpcomingList = memo(
 
     const handleReplaceURL = useCallback(
       (params: URLSearchParams) => {
-        startTransition(() => {
-          router.replace(`${pathname}?${params.toString()}`);
-        });
+        router.replace(`${pathname}?${params.toString()}`);
       },
       [pathname, router],
     );
@@ -218,17 +213,14 @@ const AppointmentsUpcomingList = memo(
             />
           </div>
         </div>
-        {isPending ? (
-          <AppointmentsUpcomingListSkeleton />
-        ) : (
-          <DataGrid
-            data={appointments}
-            columns={columns as ColumnType<unknown>[]}
-            classWrapper="pt-4 rounded-none"
-            id="appointment-upcoming"
-            classCell="pb-4"
-          />
-        )}
+
+        <DataGrid
+          data={appointments}
+          columns={columns as ColumnType<unknown>[]}
+          classWrapper="pt-4 rounded-none"
+          id="appointment-upcoming"
+          classCell="pb-4"
+        />
 
         <ConfirmModal
           title="Confirmation"

@@ -49,7 +49,6 @@ const DataGrid = memo(
     columns,
     pagination,
     hasDivider = false,
-    startTransition,
     classWrapper = '',
     classRow = '',
     classCell = '',
@@ -66,11 +65,9 @@ const DataGrid = memo(
 
     const handleReplaceURL = useCallback(
       (params: URLSearchParams) => {
-        startTransition?.(() => {
-          replace(`${pathname}?${params.toString()}`);
-        });
+        replace(`${pathname}?${params.toString()}`);
       },
-      [pathname, replace, startTransition],
+      [pathname, replace],
     );
 
     const handlePageChange = useCallback(

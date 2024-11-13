@@ -69,10 +69,11 @@ const DashboardPage = async ({
       </div>
 
       <div className="flex flex-col-reverse xl:flex-row justify-between mt-8 gap-8 w-full">
-        <Suspense fallback={<ActivityFeedSkeleton />}>
+        <Suspense key={page} fallback={<ActivityFeedSkeleton />}>
           <ActivityFeed page={page} userLogged={userLogged} />
         </Suspense>
         <Suspense
+          key={status}
           fallback={<AppointmentsUpcomingSkeleton defaultStatus={status} />}
         >
           <AppointmentsUpcoming userLogged={userLogged} status={status} />

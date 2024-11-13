@@ -8,7 +8,6 @@ import {
   useCallback,
   useMemo,
   useState,
-  useTransition,
 } from 'react';
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 import { Card, useDisclosure } from '@nextui-org/react';
@@ -37,7 +36,6 @@ import { deleteAppointment, updateAppointment } from '@/actions/appointment';
 
 // Components
 import { Select, Text } from '@/components/ui';
-import { AppointmentsHistoryListSkeleton } from './AppointmentsHistorySkeleton';
 import AppointmentModal from '../AppointmentModal';
 import { createColumns } from './columns';
 
@@ -65,7 +63,6 @@ const AppointmentsHistory = ({
 
   const isAdmin = role === ROLE.ADMIN;
 
-  const [isPending, startTransition] = useTransition();
   const [status, setStatus] = useState(new Set<string>([defaultStatus]));
   const [appointment, setAppointment] = useState<AppointmentModel>();
   const [appointmentId, setAppointmentId] = useState<string>('');
@@ -81,9 +78,7 @@ const AppointmentsHistory = ({
 
   const handleReplaceURL = useCallback(
     (params: URLSearchParams) => {
-      startTransition(() => {
-        router.replace(`${pathname}?${params.toString()}`);
-      });
+      router.replace(`${pathname}?${params.toString()}`);
     },
     [pathname, router],
   );
@@ -235,19 +230,14 @@ const AppointmentsHistory = ({
           </div>
         </div>
         <div className="flex flex-col items-center">
-          {isPending ? (
-            <AppointmentsHistoryListSkeleton isAdmin={isAdmin} />
-          ) : (
-            <DataGrid
-              data={appointments}
-              startTransition={startTransition}
-              columns={columns as ColumnType<unknown>[]}
-              pagination={pagination}
-              hasDivider
-              classWrapper="p-1"
-              id="appointments-history"
-            />
-          )}
+          <DataGrid
+            data={appointments}
+            columns={columns as ColumnType<unknown>[]}
+            pagination={pagination}
+            hasDivider
+            classWrapper="p-1"
+            id="appointments-history"
+          />
         </div>
       </Card>
 

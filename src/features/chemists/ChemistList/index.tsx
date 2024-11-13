@@ -2,15 +2,7 @@
 
 import { useDisclosure } from '@nextui-org/react';
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
-import {
-  lazy,
-  memo,
-  Suspense,
-  useCallback,
-  useMemo,
-  useState,
-  useTransition,
-} from 'react';
+import { lazy, memo, Suspense, useCallback, useMemo, useState } from 'react';
 
 // Types
 import {
@@ -50,7 +42,6 @@ const ChemistList = memo(
     const [chemist, setChemist] = useState<UserModel>();
     const [chemistId, setChemistId] = useState<string>('');
 
-    const [_, startTransition] = useTransition();
     const { isOpen, onOpen, onClose } = useDisclosure();
 
     const searchParams = useSearchParams() ?? '';
@@ -66,11 +57,9 @@ const ChemistList = memo(
 
     const handleReplaceURL = useCallback(
       (params: URLSearchParams) => {
-        startTransition?.(() => {
-          replace(`${pathname}?${params}`);
-        });
+        replace(`${pathname}?${params}`);
       },
-      [pathname, replace, startTransition],
+      [pathname, replace],
     );
 
     const handlePageChange = useCallback(
