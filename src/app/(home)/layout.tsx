@@ -31,7 +31,8 @@ export default async function DashboardLayout({
   const searchParamsAPI = new URLSearchParams();
 
   searchParamsAPI.set('populate[0]', 'senderId');
-  if (role === ROLE.NORMAL_USER)
+
+  if (role !== ROLE.ADMIN)
     searchParamsAPI.set('filters[senderId][id][$eq]', `${id}`);
 
   searchParamsAPI.set('sort[0]', `createdAt:${DIRECTION.DESC}`);
