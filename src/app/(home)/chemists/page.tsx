@@ -15,7 +15,7 @@ import { PAGE_DEFAULT, PAGE_SIZE_CHEMISTS_DEFAULT } from '@/constants';
 import { ChemistSkeleton } from '@/features/chemists/ChemistList/ChemistSkeleton';
 import { InputSearch } from '@/components/ui';
 import ChemistActions from '@/features/chemists/ChemistActions/ChemistActions';
-import Chemists from './Chemists';
+import Chemists from '../../../features/chemists/ChemistList';
 
 export interface ChemistPageSearchParamsProps extends SearchParams {}
 
