@@ -46,7 +46,6 @@ const LoginForm = () => {
 
   const [isPending, setIsPending] = useState(false);
   const [isShowPassword, setIsShowPassword] = useState<boolean>(false);
-  const [error, setError] = useState('');
 
   const openToast = useToast();
 
@@ -60,8 +59,6 @@ const LoginForm = () => {
       return (e: ChangeEvent<HTMLInputElement>) => {
         onChange(e.target.value);
 
-        // Clear error message on change
-        setError('');
         clearErrorOnChange(name, errors, clearErrors);
       };
     },
@@ -82,7 +79,6 @@ const LoginForm = () => {
         method: 'POST',
       });
 
-      setError('');
       setIsPending(true);
       const response = await login(data);
       const { user, error } = response;
@@ -96,8 +92,12 @@ const LoginForm = () => {
       }
 
       if (error) {
-        setError(error.replace('identifier', 'username') || '');
-        openToast({ message: ERROR_MESSAGE.LOGIN, type: STATUS_TYPE.ERROR });
+        openToast({
+          message:
+            error.replace('identifier', 'username') || ERROR_MESSAGE.LOGIN,
+          type: STATUS_TYPE.ERROR,
+        });
+
         setIsPending(false);
       }
     },
@@ -203,11 +203,6 @@ const LoginForm = () => {
           </NextUILink>
         </div>
         <div className="h-[78px] flex flex-col justify-end">
-          {error && (
-            <Text variant="error" size="sm" customClass="pb-2">
-              {error}
-            </Text>
-          )}
           <Button
             type="submit"
             size="lg"
