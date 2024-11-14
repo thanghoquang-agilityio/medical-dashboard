@@ -2,14 +2,7 @@
 
 import { useDisclosure } from '@nextui-org/react';
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
-import {
-  ChangeEvent,
-  memo,
-  useCallback,
-  useMemo,
-  useState,
-  useTransition,
-} from 'react';
+import { ChangeEvent, memo, useCallback, useMemo, useState } from 'react';
 
 // Components
 import { Button, Select } from '@/components/ui';
@@ -35,7 +28,6 @@ const ChemistActions = ({
   const pathname = usePathname() ?? '';
   const { replace } = useRouter();
 
-  const [_, startTransition] = useTransition();
   const { isOpen, onOpen, onClose } = useDisclosure();
 
   const params = useMemo(
@@ -50,11 +42,9 @@ const ChemistActions = ({
 
   const handleReplaceURL = useCallback(
     (params: URLSearchParams) => {
-      startTransition?.(() => {
-        replace(`${pathname}?${params}`);
-      });
+      replace(`${pathname}?${params}`);
     },
-    [pathname, replace, startTransition],
+    [pathname, replace],
   );
 
   const updateSearchParams = useCallback(
@@ -104,10 +94,6 @@ const ChemistActions = ({
     ],
   );
 
-  const handleCreateChemist = useCallback(() => {
-    onOpen();
-  }, [onOpen]);
-
   const isAdmin = role === ROLE.ADMIN;
 
   return (
@@ -126,7 +112,7 @@ const ChemistActions = ({
         onChange={handleSelectSpecialty}
       />
       {isAdmin && (
-        <Button className="font-medium h-[52px]" onClick={handleCreateChemist}>
+        <Button className="font-medium h-[52px]" onClick={onOpen}>
           Create
         </Button>
       )}
