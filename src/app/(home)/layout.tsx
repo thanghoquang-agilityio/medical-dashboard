@@ -49,7 +49,7 @@ export default async function DashboardLayout({
   return (
     <main>
       <Sidebar />
-      <div className="flex flex-col min-h-[100vh] max-h-fit w-full relative bg-background-100 md:pl-[81px] lg:pl-[277px] max-w-[2560px] m-auto">
+      <section className="flex flex-col min-h-[100vh] max-h-fit w-full relative bg-background-100 md:pl-[81px] lg:pl-[277px] max-w-[2560px] m-auto">
         <HeaderDashboard
           id={id}
           avatar={avatar}
@@ -58,11 +58,11 @@ export default async function DashboardLayout({
           totalNotifications={pagination?.total || 0}
           searchParams={searchParamsAPI.toString()}
         />
-        <div className="relative min-h-fit h-full px-[17px] md:px-8">
+        <section className="relative min-h-fit h-full px-[17px] md:px-8">
           {children}
-        </div>
+        </section>
         <Footer />
-      </div>
+      </section>
     </main>
   );
 }

@@ -2,30 +2,32 @@
 
 exports[`SidebarMobile test cases should render correctly 1`] = `
 <DocumentFragment>
-  <div
-    class="flex absolute left-0"
-  >
-    <button
-      aria-label="open sidebar"
-      class="z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap subpixel-antialiased overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-small gap-2 [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none data-[hover=true]:opacity-hover border-transparent font-semibold text-content1 p-0 min-w-4 h-7 bg-linear-success rounded-none rounded-r-lg lg:hidden"
-      data-testid="open-sidebar-mobile"
-      type="button"
+  <aside>
+    <div
+      class="flex absolute left-0"
     >
-      <svg
-        class="w-4 h-4"
-        fill="none"
-        viewBox="0 0 24 24"
-        xmlns="http://www.w3.org/2000/svg"
+      <button
+        aria-label="open sidebar"
+        class="z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap subpixel-antialiased overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-small gap-2 [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none data-[hover=true]:opacity-hover border-transparent font-semibold text-content1 p-0 min-w-4 h-7 bg-linear-success rounded-none rounded-r-lg lg:hidden"
+        data-testid="open-sidebar-mobile"
+        type="button"
       >
-        <path
-          d="M8.25 4.5L15.75 12L8.25 19.5"
-          stroke="currentColor"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          stroke-width="1.5"
-        />
-      </svg>
-    </button>
-  </div>
+        <svg
+          class="w-4 h-4"
+          fill="none"
+          viewBox="0 0 24 24"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M8.25 4.5L15.75 12L8.25 19.5"
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="1.5"
+          />
+        </svg>
+      </button>
+    </div>
+  </aside>
 </DocumentFragment>
 `;

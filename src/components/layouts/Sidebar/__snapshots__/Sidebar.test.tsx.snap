@@ -2,481 +2,496 @@
 
 exports[`Sidebar test cases should render correctly 1`] = `
 <DocumentFragment>
-  <div
+  <aside
     class="fixed z-10 max-h-screen overflow-y-scroll"
   >
-    <div
+    <section
       class="hidden lg:flex flex-col min-w-[277px] min-h-screen shadow-md font-semibold bg-background-200"
     >
-      <a
+      <h1
         class="py-8 m-auto text-center"
-        href="/dashboard"
       >
-        <img
-          alt="logo"
-          class="w-full h-auto"
-          data-nimg="1"
-          decoding="async"
-          fetchpriority="high"
-          height="50"
-          src="http://localhost/_next/image?url=%2Fimages%2Flogo.webp&w=128&q=75"
-          srcset="/_next/image?url=%2Fimages%2Flogo.webp&w=64&q=75 1x, /_next/image?url=%2Fimages%2Flogo.webp&w=128&q=75 2x"
-          style="color: transparent; object-fit: cover;"
-          width="50"
-        />
-      </a>
+        <a
+          href="/dashboard"
+        >
+          <img
+            alt="logo"
+            class="w-full h-auto"
+            data-nimg="1"
+            decoding="async"
+            fetchpriority="high"
+            height="50"
+            src="http://localhost/_next/image?url=%2Fimages%2Flogo.webp&w=128&q=75"
+            srcset="/_next/image?url=%2Fimages%2Flogo.webp&w=64&q=75 1x, /_next/image?url=%2Fimages%2Flogo.webp&w=128&q=75 2x"
+            style="color: transparent; object-fit: cover;"
+            width="50"
+          />
+        </a>
+      </h1>
       <div
         class="flex-1"
       >
-        <div
-          class="cursor-not-allowed"
-        >
-          <a
-            aria-label="Dashboard"
-            class="text-primary-100 text-sm flex h-[60px] gap-5 mb-[1px] py-5 px-8 lg:px-10 hover:bg-linear-sidebar"
-            href="/dashboard"
+        <nav>
+          <ul
+            class="list-none"
           >
-            <div
-              class="w-[17px] h-[17px]"
+            <li
+              class="cursor-not-allowed"
             >
-              <svg
-                class="w-full h-full"
-                fill="none"
-                viewBox="0 0 18 18"
-                xmlns="http://www.w3.org/2000/svg"
+              <a
+                aria-label="Dashboard"
+                class="text-primary-100 text-sm flex h-[60px] gap-5 mb-[1px] py-5 px-8 lg:px-10 hover:bg-linear-sidebar"
+                href="/dashboard"
               >
-                <path
-                  d="M7.44204 2.27356H2.46606V7.24953H7.44204V2.27356Z"
-                  fill-opacity="0.1"
-                  stroke="currentColor"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="1.59942"
-                />
-                <path
-                  d="M15.2616 2.27356H10.2856V7.24953H15.2616V2.27356Z"
-                  stroke="currentColor"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="1.59942"
-                />
-                <path
-                  d="M15.2616 10.0928H10.2856V15.0688H15.2616V10.0928Z"
-                  fill-opacity="0.1"
-                  stroke="currentColor"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="1.59942"
-                />
-                <path
-                  d="M7.44204 10.0928H2.46606V15.0688H7.44204V10.0928Z"
-                  stroke="currentColor"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="1.59942"
-                />
-              </svg>
-            </div>
-            <p>
-              Dashboard
-            </p>
-          </a>
-        </div>
-        <div
-          class=""
-        >
-          <a
-            aria-label="Appointments"
-            class="text-primary-100 text-sm flex h-[60px] gap-5 mb-[1px] py-5 px-8 lg:px-10 bg-linear-sidebar text-secondary-100 font-semibold"
-            href="/appointments"
-          >
-            <div
-              class="w-[17px] h-[17px]"
-            >
-              <svg
-                class="w-full h-full"
-                fill="none"
-                viewBox="0 0 18 18"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M13.1288 15.0697V7.96121"
-                  stroke="currentColor"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="1.59942"
-                />
-                <path
-                  d="M8.86353 15.0696V3.69598"
-                  stroke="currentColor"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="1.59942"
-                />
-                <path
-                  d="M4.59894 15.0695V10.8044"
-                  stroke="currentColor"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="1.59942"
-                />
-              </svg>
-            </div>
-            <p>
-              Appointments
-            </p>
-          </a>
-        </div>
-        <div
-          class="cursor-not-allowed"
-        >
-          <a
-            aria-label="Chemists"
-            class="text-primary-100 text-sm flex h-[60px] gap-5 mb-[1px] py-5 px-8 lg:px-10 hover:bg-linear-sidebar"
-            href="/chemists"
-          >
-            <div
-              class="w-[17px] h-[17px]"
-            >
-              <svg
-                class="w-full h-full"
-                fill="none"
-                viewBox="0 0 18 18"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <g
-                  clip-path="url(#clip0_1_17961)"
+                <div
+                  class="w-[17px] h-[17px]"
                 >
-                  <path
-                    d="M10.3507 11.0566V3.05237C10.3507 2.58105 10.1635 2.12903 9.83022 1.79575C9.49694 1.46247 9.04492 1.27524 8.5736 1.27524C8.10227 1.27524 7.65025 1.46247 7.31697 1.79575C6.9837 2.12903 6.79646 2.58105 6.79646 3.05237V11.0566C6.22584 11.4378 5.79297 11.9925 5.56176 12.6387C5.33056 13.2848 5.31328 13.9882 5.51249 14.6449C5.7117 15.3016 6.11682 15.8769 6.66804 16.2857C7.21925 16.6945 7.88733 16.9152 8.5736 16.9152C9.25986 16.9152 9.92794 16.6945 10.4792 16.2857C11.0304 15.8769 11.4355 15.3016 11.6347 14.6449C11.8339 13.9882 11.8166 13.2848 11.5854 12.6387C11.3542 11.9925 10.9213 11.4378 10.3507 11.0566Z"
-                    stroke="currentColor"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="1.59942"
-                  />
-                </g>
-                <defs>
-                  <clippath
-                    id="clip0_1_17961"
+                  <svg
+                    class="w-full h-full"
+                    fill="none"
+                    viewBox="0 0 18 18"
+                    xmlns="http://www.w3.org/2000/svg"
                   >
-                    <rect
-                      fill="currentColor"
-                      height="17.0605"
-                      transform="translate(0.399292 0.564117)"
-                      width="17.0605"
+                    <path
+                      d="M7.44204 2.27356H2.46606V7.24953H7.44204V2.27356Z"
+                      fill-opacity="0.1"
+                      stroke="currentColor"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="1.59942"
                     />
-                  </clippath>
-                </defs>
-              </svg>
-            </div>
-            <p>
-              Chemists
-            </p>
-          </a>
-        </div>
-        <div
-          class="cursor-not-allowed"
-        >
-          <a
-            aria-label="Hospitals"
-            class="text-primary-100 text-sm flex h-[60px] gap-5 mb-[1px] py-5 px-8 lg:px-10 pointer-events-none hover:bg-linear-sidebar"
-            href="#"
-          >
-            <div
-              class="w-[17px] h-[17px]"
+                    <path
+                      d="M15.2616 2.27356H10.2856V7.24953H15.2616V2.27356Z"
+                      stroke="currentColor"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="1.59942"
+                    />
+                    <path
+                      d="M15.2616 10.0928H10.2856V15.0688H15.2616V10.0928Z"
+                      fill-opacity="0.1"
+                      stroke="currentColor"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="1.59942"
+                    />
+                    <path
+                      d="M7.44204 10.0928H2.46606V15.0688H7.44204V10.0928Z"
+                      stroke="currentColor"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="1.59942"
+                    />
+                  </svg>
+                </div>
+                <p>
+                  Dashboard
+                </p>
+              </a>
+            </li>
+            <li
+              class=""
             >
-              <svg
-                class="w-full h-full"
-                fill="none"
-                viewBox="0 0 18 18"
-                xmlns="http://www.w3.org/2000/svg"
+              <a
+                aria-label="Appointments"
+                class="text-primary-100 text-sm flex h-[60px] gap-5 mb-[1px] py-5 px-8 lg:px-10 bg-linear-sidebar text-secondary-100 font-semibold"
+                href="/appointments"
               >
-                <g
-                  clip-path="url(#clip0_1_17966)"
+                <div
+                  class="w-[17px] h-[17px]"
                 >
-                  <path
-                    d="M11.7072 3.11911H13.1289C13.5059 3.11911 13.8676 3.2689 14.1342 3.53552C14.4008 3.80214 14.5506 4.16376 14.5506 4.54082V14.4928C14.5506 14.8698 14.4008 15.2314 14.1342 15.4981C13.8676 15.7647 13.5059 15.9145 13.1289 15.9145H4.59865C4.22159 15.9145 3.85997 15.7647 3.59335 15.4981C3.32673 15.2314 3.17694 14.8698 3.17694 14.4928V4.54082C3.17694 4.16376 3.32673 3.80214 3.59335 3.53552C3.85997 3.2689 4.22159 3.11911 4.59865 3.11911H6.02035"
-                    stroke="currentColor"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="1.59942"
-                  />
-                  <path
-                    d="M10.997 1.69724H6.73185C6.33926 1.69724 6.021 2.01549 6.021 2.40809V3.8298C6.021 4.22239 6.33926 4.54065 6.73185 4.54065H10.997C11.3896 4.54065 11.7078 4.22239 11.7078 3.8298V2.40809C11.7078 2.01549 11.3896 1.69724 10.997 1.69724Z"
-                    stroke="currentColor"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="1.59942"
-                  />
-                </g>
-                <defs>
-                  <clippath
-                    id="clip0_1_17966"
+                  <svg
+                    class="w-full h-full"
+                    fill="none"
+                    viewBox="0 0 18 18"
+                    xmlns="http://www.w3.org/2000/svg"
                   >
-                    <rect
-                      fill="currentColor"
-                      height="17.0605"
-                      transform="translate(0.333496 0.275665)"
-                      width="17.0605"
+                    <path
+                      d="M13.1288 15.0697V7.96121"
+                      stroke="currentColor"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="1.59942"
                     />
-                  </clippath>
-                </defs>
-              </svg>
-            </div>
-            <p>
-              Hospitals
-            </p>
-          </a>
-        </div>
-        <div
-          class="cursor-not-allowed"
-        >
-          <a
-            aria-label="Doctors"
-            class="text-primary-100 text-sm flex h-[60px] gap-5 mb-[1px] py-5 px-8 lg:px-10 pointer-events-none hover:bg-linear-sidebar"
-            href="#"
-          >
-            <div
-              class="w-[17px] h-[17px]"
+                    <path
+                      d="M8.86353 15.0696V3.69598"
+                      stroke="currentColor"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="1.59942"
+                    />
+                    <path
+                      d="M4.59894 15.0695V10.8044"
+                      stroke="currentColor"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="1.59942"
+                    />
+                  </svg>
+                </div>
+                <p>
+                  Appointments
+                </p>
+              </a>
+            </li>
+            <li
+              class="cursor-not-allowed"
             >
-              <svg
-                class="w-full h-full"
-                fill="none"
-                viewBox="0 0 18 18"
-                xmlns="http://www.w3.org/2000/svg"
+              <a
+                aria-label="Chemists"
+                class="text-primary-100 text-sm flex h-[60px] gap-5 mb-[1px] py-5 px-8 lg:px-10 hover:bg-linear-sidebar"
+                href="/chemists"
               >
-                <g
-                  clip-path="url(#clip0_1_17993)"
+                <div
+                  class="w-[17px] h-[17px]"
                 >
-                  <path
-                    d="M12.4183 15.9156V14.4939C12.4183 13.7398 12.1188 13.0166 11.5855 12.4833C11.0523 11.9501 10.329 11.6505 9.57492 11.6505H3.88809C3.13397 11.6505 2.41074 11.9501 1.87749 12.4833C1.34425 13.0166 1.04468 13.7398 1.04468 14.4939V15.9156"
-                    stroke="currentColor"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="1.59942"
-                  />
-                  <path
-                    d="M6.73135 8.80716C8.30173 8.80716 9.57477 7.53412 9.57477 5.96374C9.57477 4.39337 8.30173 3.12033 6.73135 3.12033C5.16098 3.12033 3.88794 4.39337 3.88794 5.96374C3.88794 7.53412 5.16098 8.80716 6.73135 8.80716Z"
-                    stroke="currentColor"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="1.59942"
-                  />
-                  <path
-                    d="M16.6833 15.9158V14.4941C16.6829 13.8641 16.4732 13.2521 16.0872 12.7542C15.7012 12.2562 15.1608 11.9006 14.5508 11.7431"
-                    stroke="currentColor"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="1.59942"
-                  />
-                  <path
-                    d="M11.7068 3.21268C12.3184 3.36928 12.8605 3.72499 13.2477 4.22373C13.6348 4.72247 13.8449 5.33587 13.8449 5.96723C13.8449 6.59859 13.6348 7.21199 13.2477 7.71074C12.8605 8.20948 12.3184 8.56519 11.7068 8.72179"
-                    stroke="currentColor"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="1.59942"
-                  />
-                </g>
-                <defs>
-                  <clippath
-                    id="clip0_1_17993"
+                  <svg
+                    class="w-full h-full"
+                    fill="none"
+                    viewBox="0 0 18 18"
+                    xmlns="http://www.w3.org/2000/svg"
                   >
-                    <rect
-                      fill="currentColor"
-                      height="17.0605"
-                      transform="translate(0.333496 0.98764)"
-                      width="17.0605"
-                    />
-                  </clippath>
-                </defs>
-              </svg>
-            </div>
-            <p>
-              Doctors
-            </p>
-          </a>
-        </div>
-        <div
-          class="cursor-not-allowed"
-        >
-          <a
-            aria-label="Medicines"
-            class="text-primary-100 text-sm flex h-[60px] gap-5 mb-[1px] py-5 px-8 lg:px-10 pointer-events-none hover:bg-linear-sidebar"
-            href="#"
-          >
-            <div
-              class="w-[17px] h-[17px]"
+                    <g
+                      clip-path="url(#clip0_1_17961)"
+                    >
+                      <path
+                        d="M10.3507 11.0566V3.05237C10.3507 2.58105 10.1635 2.12903 9.83022 1.79575C9.49694 1.46247 9.04492 1.27524 8.5736 1.27524C8.10227 1.27524 7.65025 1.46247 7.31697 1.79575C6.9837 2.12903 6.79646 2.58105 6.79646 3.05237V11.0566C6.22584 11.4378 5.79297 11.9925 5.56176 12.6387C5.33056 13.2848 5.31328 13.9882 5.51249 14.6449C5.7117 15.3016 6.11682 15.8769 6.66804 16.2857C7.21925 16.6945 7.88733 16.9152 8.5736 16.9152C9.25986 16.9152 9.92794 16.6945 10.4792 16.2857C11.0304 15.8769 11.4355 15.3016 11.6347 14.6449C11.8339 13.9882 11.8166 13.2848 11.5854 12.6387C11.3542 11.9925 10.9213 11.4378 10.3507 11.0566Z"
+                        stroke="currentColor"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="1.59942"
+                      />
+                    </g>
+                    <defs>
+                      <clippath
+                        id="clip0_1_17961"
+                      >
+                        <rect
+                          fill="currentColor"
+                          height="17.0605"
+                          transform="translate(0.399292 0.564117)"
+                          width="17.0605"
+                        />
+                      </clippath>
+                    </defs>
+                  </svg>
+                </div>
+                <p>
+                  Chemists
+                </p>
+              </a>
+            </li>
+            <li
+              class="cursor-not-allowed"
             >
-              <svg
-                class="w-full h-full"
-                fill="none"
-                viewBox="0 0 18 18"
-                xmlns="http://www.w3.org/2000/svg"
+              <a
+                aria-label="Hospitals"
+                class="text-primary-100 text-sm flex h-[60px] gap-5 mb-[1px] py-5 px-8 lg:px-10 pointer-events-none hover:bg-linear-sidebar"
+                href="#"
               >
-                <g
-                  clip-path="url(#clip0_1_17953)"
+                <div
+                  class="w-[17px] h-[17px]"
                 >
-                  <path
-                    d="M12.0628 7.38141L5.6651 3.69208"
-                    stroke="currentColor"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="1.59942"
-                  />
-                  <path
-                    d="M15.2613 12.0731V6.38625C15.261 6.13694 15.1952 5.89207 15.0705 5.67622C14.9457 5.46038 14.7664 5.28113 14.5505 5.15648L9.57448 2.31306C9.35835 2.18828 9.11318 2.12259 8.86362 2.12259C8.61406 2.12259 8.3689 2.18828 8.15277 2.31306L3.1768 5.15648C2.96088 5.28113 2.78155 5.46038 2.65678 5.67622C2.53201 5.89207 2.4662 6.13694 2.46594 6.38625V12.0731C2.4662 12.3224 2.53201 12.5673 2.65678 12.7831C2.78155 12.999 2.96088 13.1782 3.1768 13.3029L8.15277 16.1463C8.3689 16.271 8.61406 16.3367 8.86362 16.3367C9.11318 16.3367 9.35835 16.271 9.57448 16.1463L14.5505 13.3029C14.7664 13.1782 14.9457 12.999 15.0705 12.7831C15.1952 12.5673 15.261 12.3224 15.2613 12.0731Z"
-                    stroke="currentColor"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="1.59942"
-                  />
-                  <path
-                    d="M2.65814 5.6469L8.86389 9.23671L15.0696 5.6469"
-                    stroke="currentColor"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="1.59942"
-                  />
-                  <path
-                    d="M8.86353 16.3952V9.22975"
-                    stroke="currentColor"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="1.59942"
-                  />
-                </g>
-                <defs>
-                  <clippath
-                    id="clip0_1_17953"
+                  <svg
+                    class="w-full h-full"
+                    fill="none"
+                    viewBox="0 0 18 18"
+                    xmlns="http://www.w3.org/2000/svg"
                   >
-                    <rect
-                      fill="white"
-                      height="17.0605"
-                      transform="translate(0.333496 0.69931)"
-                      width="17.0605"
-                    />
-                  </clippath>
-                </defs>
-              </svg>
-            </div>
-            <p>
-              Medicines
-            </p>
-          </a>
-        </div>
+                    <g
+                      clip-path="url(#clip0_1_17966)"
+                    >
+                      <path
+                        d="M11.7072 3.11911H13.1289C13.5059 3.11911 13.8676 3.2689 14.1342 3.53552C14.4008 3.80214 14.5506 4.16376 14.5506 4.54082V14.4928C14.5506 14.8698 14.4008 15.2314 14.1342 15.4981C13.8676 15.7647 13.5059 15.9145 13.1289 15.9145H4.59865C4.22159 15.9145 3.85997 15.7647 3.59335 15.4981C3.32673 15.2314 3.17694 14.8698 3.17694 14.4928V4.54082C3.17694 4.16376 3.32673 3.80214 3.59335 3.53552C3.85997 3.2689 4.22159 3.11911 4.59865 3.11911H6.02035"
+                        stroke="currentColor"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="1.59942"
+                      />
+                      <path
+                        d="M10.997 1.69724H6.73185C6.33926 1.69724 6.021 2.01549 6.021 2.40809V3.8298C6.021 4.22239 6.33926 4.54065 6.73185 4.54065H10.997C11.3896 4.54065 11.7078 4.22239 11.7078 3.8298V2.40809C11.7078 2.01549 11.3896 1.69724 10.997 1.69724Z"
+                        stroke="currentColor"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="1.59942"
+                      />
+                    </g>
+                    <defs>
+                      <clippath
+                        id="clip0_1_17966"
+                      >
+                        <rect
+                          fill="currentColor"
+                          height="17.0605"
+                          transform="translate(0.333496 0.275665)"
+                          width="17.0605"
+                        />
+                      </clippath>
+                    </defs>
+                  </svg>
+                </div>
+                <p>
+                  Hospitals
+                </p>
+              </a>
+            </li>
+            <li
+              class="cursor-not-allowed"
+            >
+              <a
+                aria-label="Doctors"
+                class="text-primary-100 text-sm flex h-[60px] gap-5 mb-[1px] py-5 px-8 lg:px-10 pointer-events-none hover:bg-linear-sidebar"
+                href="#"
+              >
+                <div
+                  class="w-[17px] h-[17px]"
+                >
+                  <svg
+                    class="w-full h-full"
+                    fill="none"
+                    viewBox="0 0 18 18"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <g
+                      clip-path="url(#clip0_1_17993)"
+                    >
+                      <path
+                        d="M12.4183 15.9156V14.4939C12.4183 13.7398 12.1188 13.0166 11.5855 12.4833C11.0523 11.9501 10.329 11.6505 9.57492 11.6505H3.88809C3.13397 11.6505 2.41074 11.9501 1.87749 12.4833C1.34425 13.0166 1.04468 13.7398 1.04468 14.4939V15.9156"
+                        stroke="currentColor"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="1.59942"
+                      />
+                      <path
+                        d="M6.73135 8.80716C8.30173 8.80716 9.57477 7.53412 9.57477 5.96374C9.57477 4.39337 8.30173 3.12033 6.73135 3.12033C5.16098 3.12033 3.88794 4.39337 3.88794 5.96374C3.88794 7.53412 5.16098 8.80716 6.73135 8.80716Z"
+                        stroke="currentColor"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="1.59942"
+                      />
+                      <path
+                        d="M16.6833 15.9158V14.4941C16.6829 13.8641 16.4732 13.2521 16.0872 12.7542C15.7012 12.2562 15.1608 11.9006 14.5508 11.7431"
+                        stroke="currentColor"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="1.59942"
+                      />
+                      <path
+                        d="M11.7068 3.21268C12.3184 3.36928 12.8605 3.72499 13.2477 4.22373C13.6348 4.72247 13.8449 5.33587 13.8449 5.96723C13.8449 6.59859 13.6348 7.21199 13.2477 7.71074C12.8605 8.20948 12.3184 8.56519 11.7068 8.72179"
+                        stroke="currentColor"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="1.59942"
+                      />
+                    </g>
+                    <defs>
+                      <clippath
+                        id="clip0_1_17993"
+                      >
+                        <rect
+                          fill="currentColor"
+                          height="17.0605"
+                          transform="translate(0.333496 0.98764)"
+                          width="17.0605"
+                        />
+                      </clippath>
+                    </defs>
+                  </svg>
+                </div>
+                <p>
+                  Doctors
+                </p>
+              </a>
+            </li>
+            <li
+              class="cursor-not-allowed"
+            >
+              <a
+                aria-label="Medicines"
+                class="text-primary-100 text-sm flex h-[60px] gap-5 mb-[1px] py-5 px-8 lg:px-10 pointer-events-none hover:bg-linear-sidebar"
+                href="#"
+              >
+                <div
+                  class="w-[17px] h-[17px]"
+                >
+                  <svg
+                    class="w-full h-full"
+                    fill="none"
+                    viewBox="0 0 18 18"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <g
+                      clip-path="url(#clip0_1_17953)"
+                    >
+                      <path
+                        d="M12.0628 7.38141L5.6651 3.69208"
+                        stroke="currentColor"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="1.59942"
+                      />
+                      <path
+                        d="M15.2613 12.0731V6.38625C15.261 6.13694 15.1952 5.89207 15.0705 5.67622C14.9457 5.46038 14.7664 5.28113 14.5505 5.15648L9.57448 2.31306C9.35835 2.18828 9.11318 2.12259 8.86362 2.12259C8.61406 2.12259 8.3689 2.18828 8.15277 2.31306L3.1768 5.15648C2.96088 5.28113 2.78155 5.46038 2.65678 5.67622C2.53201 5.89207 2.4662 6.13694 2.46594 6.38625V12.0731C2.4662 12.3224 2.53201 12.5673 2.65678 12.7831C2.78155 12.999 2.96088 13.1782 3.1768 13.3029L8.15277 16.1463C8.3689 16.271 8.61406 16.3367 8.86362 16.3367C9.11318 16.3367 9.35835 16.271 9.57448 16.1463L14.5505 13.3029C14.7664 13.1782 14.9457 12.999 15.0705 12.7831C15.1952 12.5673 15.261 12.3224 15.2613 12.0731Z"
+                        stroke="currentColor"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="1.59942"
+                      />
+                      <path
+                        d="M2.65814 5.6469L8.86389 9.23671L15.0696 5.6469"
+                        stroke="currentColor"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="1.59942"
+                      />
+                      <path
+                        d="M8.86353 16.3952V9.22975"
+                        stroke="currentColor"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="1.59942"
+                      />
+                    </g>
+                    <defs>
+                      <clippath
+                        id="clip0_1_17953"
+                      >
+                        <rect
+                          fill="white"
+                          height="17.0605"
+                          transform="translate(0.333496 0.69931)"
+                          width="17.0605"
+                        />
+                      </clippath>
+                    </defs>
+                  </svg>
+                </div>
+                <p>
+                  Medicines
+                </p>
+              </a>
+            </li>
+          </ul>
+        </nav>
         <p
           class="text-sm text-ellipsis whitespace-nowrap overflow-hidden uppercase px-8 lg:px-10 text-primary-100 mt-8 opacity-60"
         >
           support
         </p>
-        <div
-          class="cursor-not-allowed"
-        >
-          <a
-            aria-label="Messages"
-            class="text-primary-100 text-sm flex h-[60px] gap-5 mb-[1px] py-5 px-8 lg:px-10 pointer-events-none hover:bg-linear-sidebar"
-            href="#"
+        <nav>
+          <ul
+            class="list-none"
           >
-            <div
-              class="w-[17px] h-[17px]"
+            <li
+              class="cursor-not-allowed"
             >
-              <svg
-                class="w-full h-full"
-                fill="none"
-                viewBox="0 0 18 18"
-                xmlns="http://www.w3.org/2000/svg"
+              <a
+                aria-label="Messages"
+                class="text-primary-100 text-sm flex h-[60px] gap-5 mb-[1px] py-5 px-8 lg:px-10 pointer-events-none hover:bg-linear-sidebar"
+                href="#"
               >
-                <g
-                  clip-path="url(#clip0_1_17978)"
+                <div
+                  class="w-[17px] h-[17px]"
                 >
-                  <path
-                    d="M3.1772 3.30327H14.5509C15.3328 3.30327 15.9726 3.94304 15.9726 4.72498V13.2552C15.9726 14.0372 15.3328 14.6769 14.5509 14.6769H3.1772C2.39526 14.6769 1.75549 14.0372 1.75549 13.2552V4.72498C1.75549 3.94304 2.39526 3.30327 3.1772 3.30327Z"
-                    stroke="currentColor"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="1.59942"
-                  />
-                  <path
-                    d="M15.9726 4.72495L8.86403 9.70093L1.75549 4.72495"
-                    stroke="currentColor"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="1.59942"
-                  />
-                </g>
-                <defs>
-                  <clippath
-                    id="clip0_1_17978"
+                  <svg
+                    class="w-full h-full"
+                    fill="none"
+                    viewBox="0 0 18 18"
+                    xmlns="http://www.w3.org/2000/svg"
                   >
-                    <rect
-                      fill="currentColor"
-                      height="17.0605"
-                      transform="translate(0.333313 0.459717)"
-                      width="17.0605"
-                    />
-                  </clippath>
-                </defs>
-              </svg>
-            </div>
-            <p>
-              Messages
-            </p>
-          </a>
-        </div>
-        <div
-          class="cursor-not-allowed"
-        >
-          <a
-            aria-label="Settings"
-            class="text-primary-100 text-sm flex h-[60px] gap-5 mb-[1px] py-5 px-8 lg:px-10 pointer-events-none hover:bg-linear-sidebar"
-            href="#"
-          >
-            <div
-              class="w-[17px] h-[17px]"
+                    <g
+                      clip-path="url(#clip0_1_17978)"
+                    >
+                      <path
+                        d="M3.1772 3.30327H14.5509C15.3328 3.30327 15.9726 3.94304 15.9726 4.72498V13.2552C15.9726 14.0372 15.3328 14.6769 14.5509 14.6769H3.1772C2.39526 14.6769 1.75549 14.0372 1.75549 13.2552V4.72498C1.75549 3.94304 2.39526 3.30327 3.1772 3.30327Z"
+                        stroke="currentColor"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="1.59942"
+                      />
+                      <path
+                        d="M15.9726 4.72495L8.86403 9.70093L1.75549 4.72495"
+                        stroke="currentColor"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="1.59942"
+                      />
+                    </g>
+                    <defs>
+                      <clippath
+                        id="clip0_1_17978"
+                      >
+                        <rect
+                          fill="currentColor"
+                          height="17.0605"
+                          transform="translate(0.333313 0.459717)"
+                          width="17.0605"
+                        />
+                      </clippath>
+                    </defs>
+                  </svg>
+                </div>
+                <p>
+                  Messages
+                </p>
+              </a>
+            </li>
+            <li
+              class="cursor-not-allowed"
             >
-              <svg
-                class="w-full h-full"
-                fill="none"
-                viewBox="0 0 18 18"
-                xmlns="http://www.w3.org/2000/svg"
+              <a
+                aria-label="Settings"
+                class="text-primary-100 text-sm flex h-[60px] gap-5 mb-[1px] py-5 px-8 lg:px-10 pointer-events-none hover:bg-linear-sidebar"
+                href="#"
               >
-                <g
-                  clip-path="url(#clip0_1_17973)"
+                <div
+                  class="w-[17px] h-[17px]"
                 >
-                  <path
-                    d="M8.53057 10.8343C9.70835 10.8343 10.6631 9.87952 10.6631 8.70174C10.6631 7.52396 9.70835 6.56918 8.53057 6.56918C7.35279 6.56918 6.39801 7.52396 6.39801 8.70174C6.39801 9.87952 7.35279 10.8343 8.53057 10.8343Z"
-                    stroke="currentColor"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="1.59942"
-                  />
-                  <path
-                    d="M13.7912 10.8343C13.6966 11.0487 13.6683 11.2865 13.7101 11.5171C13.752 11.7477 13.8619 11.9605 14.0258 12.128L14.0684 12.1707C14.2006 12.3027 14.3055 12.4595 14.377 12.6321C14.4486 12.8047 14.4854 12.9897 14.4854 13.1765C14.4854 13.3634 14.4486 13.5484 14.377 13.7209C14.3055 13.8935 14.2006 14.0503 14.0684 14.1824C13.9364 14.3146 13.7796 14.4194 13.607 14.491C13.4344 14.5625 13.2494 14.5993 13.0626 14.5993C12.8757 14.5993 12.6907 14.5625 12.5181 14.491C12.3455 14.4194 12.1887 14.3146 12.0567 14.1824L12.0141 14.1397C11.8465 13.9758 11.6337 13.8659 11.4031 13.8241C11.1725 13.7823 10.9347 13.8105 10.7203 13.9051C10.5101 13.9953 10.3307 14.1449 10.2044 14.3356C10.0781 14.5263 10.0104 14.7498 10.0094 14.9785V15.0994C10.0094 15.4764 9.85966 15.8381 9.59304 16.1047C9.32642 16.3713 8.9648 16.5211 8.58774 16.5211C8.21068 16.5211 7.84907 16.3713 7.58244 16.1047C7.31582 15.8381 7.16604 15.4764 7.16604 15.0994V15.0354C7.16053 14.8001 7.08437 14.5719 6.94746 14.3805C6.81054 14.1891 6.6192 14.0432 6.39831 13.962C6.18391 13.8674 5.94607 13.8392 5.71548 13.881C5.48488 13.9228 5.27209 14.0327 5.10456 14.1966L5.06191 14.2392C4.92987 14.3714 4.77307 14.4763 4.60048 14.5478C4.42789 14.6194 4.24289 14.6562 4.05605 14.6562C3.86922 14.6562 3.68422 14.6194 3.51162 14.5478C3.33903 14.4763 3.18223 14.3714 3.05019 14.2392C2.91801 14.1072 2.81315 13.9504 2.7416 13.7778C2.67005 13.6052 2.63323 13.4202 2.63323 13.2334C2.63323 13.0466 2.67005 12.8615 2.7416 12.689C2.81315 12.5164 2.91801 12.3596 3.05019 12.2275L3.09285 12.1849C3.25672 12.0173 3.36666 11.8046 3.40847 11.574C3.45028 11.3434 3.42205 11.1055 3.32743 10.8911C3.23732 10.6809 3.0877 10.5016 2.89698 10.3753C2.70627 10.249 2.48278 10.1812 2.25404 10.1803H2.13319C1.75613 10.1803 1.39452 10.0305 1.1279 9.76386C0.861273 9.49724 0.711487 9.13562 0.711487 8.75856C0.711487 8.3815 0.861273 8.01989 1.1279 7.75327C1.39452 7.48664 1.75613 7.33686 2.13319 7.33686H2.19717C2.43246 7.33135 2.66065 7.25519 2.85208 7.11828C3.04351 6.98136 3.18932 6.79002 3.27056 6.56914C3.36518 6.35473 3.39341 6.1169 3.3516 5.8863C3.30979 5.6557 3.19986 5.44292 3.03598 5.27538L2.99333 5.23273C2.86114 5.10069 2.75628 4.9439 2.68473 4.7713C2.61318 4.59871 2.57636 4.41371 2.57636 4.22687C2.57636 4.04004 2.61318 3.85504 2.68473 3.68245C2.75628 3.50985 2.86114 3.35305 2.99333 3.22102C3.12536 3.08883 3.28216 2.98397 3.45475 2.91242C3.62735 2.84087 3.81235 2.80405 3.99918 2.80405C4.18602 2.80405 4.37102 2.84087 4.54361 2.91242C4.7162 2.98397 4.873 3.08883 5.00504 3.22102L5.04769 3.26367C5.21523 3.42755 5.42801 3.53748 5.65861 3.57929C5.8892 3.6211 6.12704 3.59287 6.34145 3.49825H6.39831C6.60856 3.40814 6.78787 3.25852 6.91417 3.0678C7.04048 2.87709 7.10825 2.6536 7.10917 2.42486V2.30402C7.10917 1.92696 7.25895 1.56534 7.52558 1.29872C7.7922 1.0321 8.15381 0.882309 8.53087 0.882309C8.90793 0.882309 9.26955 1.0321 9.53617 1.29872C9.80279 1.56534 9.95258 1.92696 9.95258 2.30402V2.36799C9.95349 2.59674 10.0213 2.82022 10.1476 3.01093C10.2739 3.20165 10.4532 3.35127 10.6634 3.44138C10.8778 3.53601 11.1157 3.56423 11.3463 3.52242C11.5769 3.48061 11.7897 3.37068 11.9572 3.2068L11.9998 3.16415C12.1319 3.03196 12.2887 2.9271 12.4613 2.85555C12.6339 2.78401 12.8189 2.74718 13.0057 2.74718C13.1925 2.74718 13.3775 2.78401 13.5501 2.85555C13.7227 2.9271 13.8795 3.03196 14.0116 3.16415C14.1437 3.29619 14.2486 3.45298 14.3201 3.62558C14.3917 3.79817 14.4285 3.98317 14.4285 4.17001C14.4285 4.35684 14.3917 4.54184 14.3201 4.71443C14.2486 4.88703 14.1437 5.04382 14.0116 5.17586L13.9689 5.21851C13.805 5.38605 13.6951 5.59883 13.6533 5.82943C13.6115 6.06003 13.6397 6.29786 13.7343 6.51227V6.56914C13.8244 6.77938 13.9741 6.9587 14.1648 7.085C14.3555 7.2113 14.579 7.27908 14.8077 7.27999H14.9286C15.3056 7.27999 15.6672 7.42978 15.9339 7.6964C16.2005 7.96302 16.3503 8.32464 16.3503 8.7017C16.3503 9.07876 16.2005 9.44037 15.9339 9.70699C15.6672 9.97362 15.3056 10.1234 14.9286 10.1234H14.8646C14.6358 10.1243 14.4123 10.1921 14.2216 10.3184C14.0309 10.4447 13.8813 10.624 13.7912 10.8343V10.8343Z"
-                    stroke="currentColor"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="1.59942"
-                  />
-                </g>
-                <defs>
-                  <clippath
-                    id="clip0_1_17973"
+                  <svg
+                    class="w-full h-full"
+                    fill="none"
+                    viewBox="0 0 18 18"
+                    xmlns="http://www.w3.org/2000/svg"
                   >
-                    <rect
-                      fill="currentColor"
-                      height="17.0605"
-                      transform="translate(0.000305176 0.171402)"
-                      width="17.0605"
-                    />
-                  </clippath>
-                </defs>
-              </svg>
-            </div>
-            <p>
-              Settings
-            </p>
-          </a>
-        </div>
+                    <g
+                      clip-path="url(#clip0_1_17973)"
+                    >
+                      <path
+                        d="M8.53057 10.8343C9.70835 10.8343 10.6631 9.87952 10.6631 8.70174C10.6631 7.52396 9.70835 6.56918 8.53057 6.56918C7.35279 6.56918 6.39801 7.52396 6.39801 8.70174C6.39801 9.87952 7.35279 10.8343 8.53057 10.8343Z"
+                        stroke="currentColor"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="1.59942"
+                      />
+                      <path
+                        d="M13.7912 10.8343C13.6966 11.0487 13.6683 11.2865 13.7101 11.5171C13.752 11.7477 13.8619 11.9605 14.0258 12.128L14.0684 12.1707C14.2006 12.3027 14.3055 12.4595 14.377 12.6321C14.4486 12.8047 14.4854 12.9897 14.4854 13.1765C14.4854 13.3634 14.4486 13.5484 14.377 13.7209C14.3055 13.8935 14.2006 14.0503 14.0684 14.1824C13.9364 14.3146 13.7796 14.4194 13.607 14.491C13.4344 14.5625 13.2494 14.5993 13.0626 14.5993C12.8757 14.5993 12.6907 14.5625 12.5181 14.491C12.3455 14.4194 12.1887 14.3146 12.0567 14.1824L12.0141 14.1397C11.8465 13.9758 11.6337 13.8659 11.4031 13.8241C11.1725 13.7823 10.9347 13.8105 10.7203 13.9051C10.5101 13.9953 10.3307 14.1449 10.2044 14.3356C10.0781 14.5263 10.0104 14.7498 10.0094 14.9785V15.0994C10.0094 15.4764 9.85966 15.8381 9.59304 16.1047C9.32642 16.3713 8.9648 16.5211 8.58774 16.5211C8.21068 16.5211 7.84907 16.3713 7.58244 16.1047C7.31582 15.8381 7.16604 15.4764 7.16604 15.0994V15.0354C7.16053 14.8001 7.08437 14.5719 6.94746 14.3805C6.81054 14.1891 6.6192 14.0432 6.39831 13.962C6.18391 13.8674 5.94607 13.8392 5.71548 13.881C5.48488 13.9228 5.27209 14.0327 5.10456 14.1966L5.06191 14.2392C4.92987 14.3714 4.77307 14.4763 4.60048 14.5478C4.42789 14.6194 4.24289 14.6562 4.05605 14.6562C3.86922 14.6562 3.68422 14.6194 3.51162 14.5478C3.33903 14.4763 3.18223 14.3714 3.05019 14.2392C2.91801 14.1072 2.81315 13.9504 2.7416 13.7778C2.67005 13.6052 2.63323 13.4202 2.63323 13.2334C2.63323 13.0466 2.67005 12.8615 2.7416 12.689C2.81315 12.5164 2.91801 12.3596 3.05019 12.2275L3.09285 12.1849C3.25672 12.0173 3.36666 11.8046 3.40847 11.574C3.45028 11.3434 3.42205 11.1055 3.32743 10.8911C3.23732 10.6809 3.0877 10.5016 2.89698 10.3753C2.70627 10.249 2.48278 10.1812 2.25404 10.1803H2.13319C1.75613 10.1803 1.39452 10.0305 1.1279 9.76386C0.861273 9.49724 0.711487 9.13562 0.711487 8.75856C0.711487 8.3815 0.861273 8.01989 1.1279 7.75327C1.39452 7.48664 1.75613 7.33686 2.13319 7.33686H2.19717C2.43246 7.33135 2.66065 7.25519 2.85208 7.11828C3.04351 6.98136 3.18932 6.79002 3.27056 6.56914C3.36518 6.35473 3.39341 6.1169 3.3516 5.8863C3.30979 5.6557 3.19986 5.44292 3.03598 5.27538L2.99333 5.23273C2.86114 5.10069 2.75628 4.9439 2.68473 4.7713C2.61318 4.59871 2.57636 4.41371 2.57636 4.22687C2.57636 4.04004 2.61318 3.85504 2.68473 3.68245C2.75628 3.50985 2.86114 3.35305 2.99333 3.22102C3.12536 3.08883 3.28216 2.98397 3.45475 2.91242C3.62735 2.84087 3.81235 2.80405 3.99918 2.80405C4.18602 2.80405 4.37102 2.84087 4.54361 2.91242C4.7162 2.98397 4.873 3.08883 5.00504 3.22102L5.04769 3.26367C5.21523 3.42755 5.42801 3.53748 5.65861 3.57929C5.8892 3.6211 6.12704 3.59287 6.34145 3.49825H6.39831C6.60856 3.40814 6.78787 3.25852 6.91417 3.0678C7.04048 2.87709 7.10825 2.6536 7.10917 2.42486V2.30402C7.10917 1.92696 7.25895 1.56534 7.52558 1.29872C7.7922 1.0321 8.15381 0.882309 8.53087 0.882309C8.90793 0.882309 9.26955 1.0321 9.53617 1.29872C9.80279 1.56534 9.95258 1.92696 9.95258 2.30402V2.36799C9.95349 2.59674 10.0213 2.82022 10.1476 3.01093C10.2739 3.20165 10.4532 3.35127 10.6634 3.44138C10.8778 3.53601 11.1157 3.56423 11.3463 3.52242C11.5769 3.48061 11.7897 3.37068 11.9572 3.2068L11.9998 3.16415C12.1319 3.03196 12.2887 2.9271 12.4613 2.85555C12.6339 2.78401 12.8189 2.74718 13.0057 2.74718C13.1925 2.74718 13.3775 2.78401 13.5501 2.85555C13.7227 2.9271 13.8795 3.03196 14.0116 3.16415C14.1437 3.29619 14.2486 3.45298 14.3201 3.62558C14.3917 3.79817 14.4285 3.98317 14.4285 4.17001C14.4285 4.35684 14.3917 4.54184 14.3201 4.71443C14.2486 4.88703 14.1437 5.04382 14.0116 5.17586L13.9689 5.21851C13.805 5.38605 13.6951 5.59883 13.6533 5.82943C13.6115 6.06003 13.6397 6.29786 13.7343 6.51227V6.56914C13.8244 6.77938 13.9741 6.9587 14.1648 7.085C14.3555 7.2113 14.579 7.27908 14.8077 7.27999H14.9286C15.3056 7.27999 15.6672 7.42978 15.9339 7.6964C16.2005 7.96302 16.3503 8.32464 16.3503 8.7017C16.3503 9.07876 16.2005 9.44037 15.9339 9.70699C15.6672 9.97362 15.3056 10.1234 14.9286 10.1234H14.8646C14.6358 10.1243 14.4123 10.1921 14.2216 10.3184C14.0309 10.4447 13.8813 10.624 13.7912 10.8343V10.8343Z"
+                        stroke="currentColor"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="1.59942"
+                      />
+                    </g>
+                    <defs>
+                      <clippath
+                        id="clip0_1_17973"
+                      >
+                        <rect
+                          fill="currentColor"
+                          height="17.0605"
+                          transform="translate(0.000305176 0.171402)"
+                          width="17.0605"
+                        />
+                      </clippath>
+                    </defs>
+                  </svg>
+                </div>
+                <p>
+                  Settings
+                </p>
+              </a>
+            </li>
+          </ul>
+        </nav>
       </div>
       <hr
         class="shrink-0 border-none w-full bg-primary-100 h-[2px] mt-8 opacity-80"
@@ -507,487 +522,495 @@ exports[`Sidebar test cases should render correctly 1`] = `
           Logout
         </button>
       </div>
-    </div>
-    <div
-      class="flex"
+    </section>
+    <section
+      class="flex-col min-h-screen hidden md:flex lg:hidden shadow-lg bg-background-200"
     >
-      <div
-        class="flex-col min-h-screen hidden md:flex lg:hidden shadow-lg bg-background-200"
+      <h1
+        class="m-auto py-6 text-center"
       >
-        <div
-          class="m-auto py-6"
+        <a
+          href="/dashboard"
         >
-          <a
-            href="/dashboard"
-          >
-            <img
-              alt="logo"
-              data-nimg="1"
-              decoding="async"
-              fetchpriority="high"
-              height="35"
-              src="http://localhost/_next/image?url=%2Fimages%2Flogo.webp&w=96&q=75"
-              srcset="/_next/image?url=%2Fimages%2Flogo.webp&w=48&q=75 1x, /_next/image?url=%2Fimages%2Flogo.webp&w=96&q=75 2x"
-              style="color: transparent; object-fit: cover;"
-              width="35"
-            />
-          </a>
-        </div>
-        <div
-          class="flex-1"
-        >
-          <div
-            class="cursor-not-allowed"
-          >
-            <a
-              aria-label="Dashboard"
-              class="text-primary-100 text-sm flex h-[60px] gap-5 mb-[1px] py-5 px-8 lg:px-10 justify-center hover:bg-linear-sidebar"
-              href="/dashboard"
-            >
-              <div
-                class="w-[17px] h-[17px]"
-              >
-                <svg
-                  class="w-full h-full"
-                  fill="none"
-                  viewBox="0 0 18 18"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M7.44204 2.27356H2.46606V7.24953H7.44204V2.27356Z"
-                    fill-opacity="0.1"
-                    stroke="currentColor"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="1.59942"
-                  />
-                  <path
-                    d="M15.2616 2.27356H10.2856V7.24953H15.2616V2.27356Z"
-                    stroke="currentColor"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="1.59942"
-                  />
-                  <path
-                    d="M15.2616 10.0928H10.2856V15.0688H15.2616V10.0928Z"
-                    fill-opacity="0.1"
-                    stroke="currentColor"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="1.59942"
-                  />
-                  <path
-                    d="M7.44204 10.0928H2.46606V15.0688H7.44204V10.0928Z"
-                    stroke="currentColor"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="1.59942"
-                  />
-                </svg>
-              </div>
-            </a>
-          </div>
-          <div
-            class=""
-          >
-            <a
-              aria-label="Appointments"
-              class="text-primary-100 text-sm flex h-[60px] gap-5 mb-[1px] py-5 px-8 lg:px-10 justify-center bg-linear-sidebar text-secondary-100 font-semibold"
-              href="/appointments"
-            >
-              <div
-                class="w-[17px] h-[17px]"
-              >
-                <svg
-                  class="w-full h-full"
-                  fill="none"
-                  viewBox="0 0 18 18"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M13.1288 15.0697V7.96121"
-                    stroke="currentColor"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="1.59942"
-                  />
-                  <path
-                    d="M8.86353 15.0696V3.69598"
-                    stroke="currentColor"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="1.59942"
-                  />
-                  <path
-                    d="M4.59894 15.0695V10.8044"
-                    stroke="currentColor"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="1.59942"
-                  />
-                </svg>
-              </div>
-            </a>
-          </div>
-          <div
-            class="cursor-not-allowed"
-          >
-            <a
-              aria-label="Chemists"
-              class="text-primary-100 text-sm flex h-[60px] gap-5 mb-[1px] py-5 px-8 lg:px-10 justify-center hover:bg-linear-sidebar"
-              href="/chemists"
-            >
-              <div
-                class="w-[17px] h-[17px]"
-              >
-                <svg
-                  class="w-full h-full"
-                  fill="none"
-                  viewBox="0 0 18 18"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <g
-                    clip-path="url(#clip0_1_17961)"
-                  >
-                    <path
-                      d="M10.3507 11.0566V3.05237C10.3507 2.58105 10.1635 2.12903 9.83022 1.79575C9.49694 1.46247 9.04492 1.27524 8.5736 1.27524C8.10227 1.27524 7.65025 1.46247 7.31697 1.79575C6.9837 2.12903 6.79646 2.58105 6.79646 3.05237V11.0566C6.22584 11.4378 5.79297 11.9925 5.56176 12.6387C5.33056 13.2848 5.31328 13.9882 5.51249 14.6449C5.7117 15.3016 6.11682 15.8769 6.66804 16.2857C7.21925 16.6945 7.88733 16.9152 8.5736 16.9152C9.25986 16.9152 9.92794 16.6945 10.4792 16.2857C11.0304 15.8769 11.4355 15.3016 11.6347 14.6449C11.8339 13.9882 11.8166 13.2848 11.5854 12.6387C11.3542 11.9925 10.9213 11.4378 10.3507 11.0566Z"
-                      stroke="currentColor"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="1.59942"
-                    />
-                  </g>
-                  <defs>
-                    <clippath
-                      id="clip0_1_17961"
-                    >
-                      <rect
-                        fill="currentColor"
-                        height="17.0605"
-                        transform="translate(0.399292 0.564117)"
-                        width="17.0605"
-                      />
-                    </clippath>
-                  </defs>
-                </svg>
-              </div>
-            </a>
-          </div>
-          <div
-            class="cursor-not-allowed"
-          >
-            <a
-              aria-label="Hospitals"
-              class="text-primary-100 text-sm flex h-[60px] gap-5 mb-[1px] py-5 px-8 lg:px-10 pointer-events-none justify-center hover:bg-linear-sidebar"
-              href="#"
-            >
-              <div
-                class="w-[17px] h-[17px]"
-              >
-                <svg
-                  class="w-full h-full"
-                  fill="none"
-                  viewBox="0 0 18 18"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <g
-                    clip-path="url(#clip0_1_17966)"
-                  >
-                    <path
-                      d="M11.7072 3.11911H13.1289C13.5059 3.11911 13.8676 3.2689 14.1342 3.53552C14.4008 3.80214 14.5506 4.16376 14.5506 4.54082V14.4928C14.5506 14.8698 14.4008 15.2314 14.1342 15.4981C13.8676 15.7647 13.5059 15.9145 13.1289 15.9145H4.59865C4.22159 15.9145 3.85997 15.7647 3.59335 15.4981C3.32673 15.2314 3.17694 14.8698 3.17694 14.4928V4.54082C3.17694 4.16376 3.32673 3.80214 3.59335 3.53552C3.85997 3.2689 4.22159 3.11911 4.59865 3.11911H6.02035"
-                      stroke="currentColor"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="1.59942"
-                    />
-                    <path
-                      d="M10.997 1.69724H6.73185C6.33926 1.69724 6.021 2.01549 6.021 2.40809V3.8298C6.021 4.22239 6.33926 4.54065 6.73185 4.54065H10.997C11.3896 4.54065 11.7078 4.22239 11.7078 3.8298V2.40809C11.7078 2.01549 11.3896 1.69724 10.997 1.69724Z"
-                      stroke="currentColor"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="1.59942"
-                    />
-                  </g>
-                  <defs>
-                    <clippath
-                      id="clip0_1_17966"
-                    >
-                      <rect
-                        fill="currentColor"
-                        height="17.0605"
-                        transform="translate(0.333496 0.275665)"
-                        width="17.0605"
-                      />
-                    </clippath>
-                  </defs>
-                </svg>
-              </div>
-            </a>
-          </div>
-          <div
-            class="cursor-not-allowed"
-          >
-            <a
-              aria-label="Doctors"
-              class="text-primary-100 text-sm flex h-[60px] gap-5 mb-[1px] py-5 px-8 lg:px-10 pointer-events-none justify-center hover:bg-linear-sidebar"
-              href="#"
-            >
-              <div
-                class="w-[17px] h-[17px]"
-              >
-                <svg
-                  class="w-full h-full"
-                  fill="none"
-                  viewBox="0 0 18 18"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <g
-                    clip-path="url(#clip0_1_17993)"
-                  >
-                    <path
-                      d="M12.4183 15.9156V14.4939C12.4183 13.7398 12.1188 13.0166 11.5855 12.4833C11.0523 11.9501 10.329 11.6505 9.57492 11.6505H3.88809C3.13397 11.6505 2.41074 11.9501 1.87749 12.4833C1.34425 13.0166 1.04468 13.7398 1.04468 14.4939V15.9156"
-                      stroke="currentColor"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="1.59942"
-                    />
-                    <path
-                      d="M6.73135 8.80716C8.30173 8.80716 9.57477 7.53412 9.57477 5.96374C9.57477 4.39337 8.30173 3.12033 6.73135 3.12033C5.16098 3.12033 3.88794 4.39337 3.88794 5.96374C3.88794 7.53412 5.16098 8.80716 6.73135 8.80716Z"
-                      stroke="currentColor"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="1.59942"
-                    />
-                    <path
-                      d="M16.6833 15.9158V14.4941C16.6829 13.8641 16.4732 13.2521 16.0872 12.7542C15.7012 12.2562 15.1608 11.9006 14.5508 11.7431"
-                      stroke="currentColor"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="1.59942"
-                    />
-                    <path
-                      d="M11.7068 3.21268C12.3184 3.36928 12.8605 3.72499 13.2477 4.22373C13.6348 4.72247 13.8449 5.33587 13.8449 5.96723C13.8449 6.59859 13.6348 7.21199 13.2477 7.71074C12.8605 8.20948 12.3184 8.56519 11.7068 8.72179"
-                      stroke="currentColor"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="1.59942"
-                    />
-                  </g>
-                  <defs>
-                    <clippath
-                      id="clip0_1_17993"
-                    >
-                      <rect
-                        fill="currentColor"
-                        height="17.0605"
-                        transform="translate(0.333496 0.98764)"
-                        width="17.0605"
-                      />
-                    </clippath>
-                  </defs>
-                </svg>
-              </div>
-            </a>
-          </div>
-          <div
-            class="cursor-not-allowed"
-          >
-            <a
-              aria-label="Medicines"
-              class="text-primary-100 text-sm flex h-[60px] gap-5 mb-[1px] py-5 px-8 lg:px-10 pointer-events-none justify-center hover:bg-linear-sidebar"
-              href="#"
-            >
-              <div
-                class="w-[17px] h-[17px]"
-              >
-                <svg
-                  class="w-full h-full"
-                  fill="none"
-                  viewBox="0 0 18 18"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <g
-                    clip-path="url(#clip0_1_17953)"
-                  >
-                    <path
-                      d="M12.0628 7.38141L5.6651 3.69208"
-                      stroke="currentColor"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="1.59942"
-                    />
-                    <path
-                      d="M15.2613 12.0731V6.38625C15.261 6.13694 15.1952 5.89207 15.0705 5.67622C14.9457 5.46038 14.7664 5.28113 14.5505 5.15648L9.57448 2.31306C9.35835 2.18828 9.11318 2.12259 8.86362 2.12259C8.61406 2.12259 8.3689 2.18828 8.15277 2.31306L3.1768 5.15648C2.96088 5.28113 2.78155 5.46038 2.65678 5.67622C2.53201 5.89207 2.4662 6.13694 2.46594 6.38625V12.0731C2.4662 12.3224 2.53201 12.5673 2.65678 12.7831C2.78155 12.999 2.96088 13.1782 3.1768 13.3029L8.15277 16.1463C8.3689 16.271 8.61406 16.3367 8.86362 16.3367C9.11318 16.3367 9.35835 16.271 9.57448 16.1463L14.5505 13.3029C14.7664 13.1782 14.9457 12.999 15.0705 12.7831C15.1952 12.5673 15.261 12.3224 15.2613 12.0731Z"
-                      stroke="currentColor"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="1.59942"
-                    />
-                    <path
-                      d="M2.65814 5.6469L8.86389 9.23671L15.0696 5.6469"
-                      stroke="currentColor"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="1.59942"
-                    />
-                    <path
-                      d="M8.86353 16.3952V9.22975"
-                      stroke="currentColor"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="1.59942"
-                    />
-                  </g>
-                  <defs>
-                    <clippath
-                      id="clip0_1_17953"
-                    >
-                      <rect
-                        fill="white"
-                        height="17.0605"
-                        transform="translate(0.333496 0.69931)"
-                        width="17.0605"
-                      />
-                    </clippath>
-                  </defs>
-                </svg>
-              </div>
-            </a>
-          </div>
-          <hr
-            class="shrink-0 bg-divider border-none w-full h-divider"
-            role="separator"
+          <img
+            alt="logo"
+            data-nimg="1"
+            decoding="async"
+            fetchpriority="high"
+            height="35"
+            src="http://localhost/_next/image?url=%2Fimages%2Flogo.webp&w=96&q=75"
+            srcset="/_next/image?url=%2Fimages%2Flogo.webp&w=48&q=75 1x, /_next/image?url=%2Fimages%2Flogo.webp&w=96&q=75 2x"
+            style="color: transparent; object-fit: cover;"
+            width="35"
           />
-          <div
-            class="cursor-not-allowed"
+        </a>
+      </h1>
+      <div
+        class="flex-1"
+      >
+        <nav>
+          <ul
+            class="list-none"
           >
-            <a
-              aria-label="Messages"
-              class="text-primary-100 text-sm flex h-[60px] gap-5 mb-[1px] py-5 px-8 lg:px-10 pointer-events-none justify-center hover:bg-linear-sidebar"
-              href="#"
+            <li
+              class="cursor-not-allowed"
             >
-              <div
-                class="w-[17px] h-[17px]"
+              <a
+                aria-label="Dashboard"
+                class="text-primary-100 text-sm flex h-[60px] gap-5 mb-[1px] py-5 px-8 lg:px-10 justify-center hover:bg-linear-sidebar"
+                href="/dashboard"
               >
-                <svg
-                  class="w-full h-full"
-                  fill="none"
-                  viewBox="0 0 18 18"
-                  xmlns="http://www.w3.org/2000/svg"
+                <div
+                  class="w-[17px] h-[17px]"
                 >
-                  <g
-                    clip-path="url(#clip0_1_17978)"
+                  <svg
+                    class="w-full h-full"
+                    fill="none"
+                    viewBox="0 0 18 18"
+                    xmlns="http://www.w3.org/2000/svg"
                   >
                     <path
-                      d="M3.1772 3.30327H14.5509C15.3328 3.30327 15.9726 3.94304 15.9726 4.72498V13.2552C15.9726 14.0372 15.3328 14.6769 14.5509 14.6769H3.1772C2.39526 14.6769 1.75549 14.0372 1.75549 13.2552V4.72498C1.75549 3.94304 2.39526 3.30327 3.1772 3.30327Z"
+                      d="M7.44204 2.27356H2.46606V7.24953H7.44204V2.27356Z"
+                      fill-opacity="0.1"
                       stroke="currentColor"
                       stroke-linecap="round"
                       stroke-linejoin="round"
                       stroke-width="1.59942"
                     />
                     <path
-                      d="M15.9726 4.72495L8.86403 9.70093L1.75549 4.72495"
+                      d="M15.2616 2.27356H10.2856V7.24953H15.2616V2.27356Z"
                       stroke="currentColor"
                       stroke-linecap="round"
                       stroke-linejoin="round"
                       stroke-width="1.59942"
                     />
-                  </g>
-                  <defs>
-                    <clippath
-                      id="clip0_1_17978"
-                    >
-                      <rect
-                        fill="currentColor"
-                        height="17.0605"
-                        transform="translate(0.333313 0.459717)"
-                        width="17.0605"
-                      />
-                    </clippath>
-                  </defs>
-                </svg>
-              </div>
-            </a>
-          </div>
-          <div
-            class="cursor-not-allowed"
-          >
-            <a
-              aria-label="Settings"
-              class="text-primary-100 text-sm flex h-[60px] gap-5 mb-[1px] py-5 px-8 lg:px-10 pointer-events-none justify-center hover:bg-linear-sidebar"
-              href="#"
+                    <path
+                      d="M15.2616 10.0928H10.2856V15.0688H15.2616V10.0928Z"
+                      fill-opacity="0.1"
+                      stroke="currentColor"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="1.59942"
+                    />
+                    <path
+                      d="M7.44204 10.0928H2.46606V15.0688H7.44204V10.0928Z"
+                      stroke="currentColor"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="1.59942"
+                    />
+                  </svg>
+                </div>
+              </a>
+            </li>
+            <li
+              class=""
             >
-              <div
-                class="w-[17px] h-[17px]"
+              <a
+                aria-label="Appointments"
+                class="text-primary-100 text-sm flex h-[60px] gap-5 mb-[1px] py-5 px-8 lg:px-10 justify-center bg-linear-sidebar text-secondary-100 font-semibold"
+                href="/appointments"
               >
-                <svg
-                  class="w-full h-full"
-                  fill="none"
-                  viewBox="0 0 18 18"
-                  xmlns="http://www.w3.org/2000/svg"
+                <div
+                  class="w-[17px] h-[17px]"
                 >
-                  <g
-                    clip-path="url(#clip0_1_17973)"
+                  <svg
+                    class="w-full h-full"
+                    fill="none"
+                    viewBox="0 0 18 18"
+                    xmlns="http://www.w3.org/2000/svg"
                   >
                     <path
-                      d="M8.53057 10.8343C9.70835 10.8343 10.6631 9.87952 10.6631 8.70174C10.6631 7.52396 9.70835 6.56918 8.53057 6.56918C7.35279 6.56918 6.39801 7.52396 6.39801 8.70174C6.39801 9.87952 7.35279 10.8343 8.53057 10.8343Z"
+                      d="M13.1288 15.0697V7.96121"
                       stroke="currentColor"
                       stroke-linecap="round"
                       stroke-linejoin="round"
                       stroke-width="1.59942"
                     />
                     <path
-                      d="M13.7912 10.8343C13.6966 11.0487 13.6683 11.2865 13.7101 11.5171C13.752 11.7477 13.8619 11.9605 14.0258 12.128L14.0684 12.1707C14.2006 12.3027 14.3055 12.4595 14.377 12.6321C14.4486 12.8047 14.4854 12.9897 14.4854 13.1765C14.4854 13.3634 14.4486 13.5484 14.377 13.7209C14.3055 13.8935 14.2006 14.0503 14.0684 14.1824C13.9364 14.3146 13.7796 14.4194 13.607 14.491C13.4344 14.5625 13.2494 14.5993 13.0626 14.5993C12.8757 14.5993 12.6907 14.5625 12.5181 14.491C12.3455 14.4194 12.1887 14.3146 12.0567 14.1824L12.0141 14.1397C11.8465 13.9758 11.6337 13.8659 11.4031 13.8241C11.1725 13.7823 10.9347 13.8105 10.7203 13.9051C10.5101 13.9953 10.3307 14.1449 10.2044 14.3356C10.0781 14.5263 10.0104 14.7498 10.0094 14.9785V15.0994C10.0094 15.4764 9.85966 15.8381 9.59304 16.1047C9.32642 16.3713 8.9648 16.5211 8.58774 16.5211C8.21068 16.5211 7.84907 16.3713 7.58244 16.1047C7.31582 15.8381 7.16604 15.4764 7.16604 15.0994V15.0354C7.16053 14.8001 7.08437 14.5719 6.94746 14.3805C6.81054 14.1891 6.6192 14.0432 6.39831 13.962C6.18391 13.8674 5.94607 13.8392 5.71548 13.881C5.48488 13.9228 5.27209 14.0327 5.10456 14.1966L5.06191 14.2392C4.92987 14.3714 4.77307 14.4763 4.60048 14.5478C4.42789 14.6194 4.24289 14.6562 4.05605 14.6562C3.86922 14.6562 3.68422 14.6194 3.51162 14.5478C3.33903 14.4763 3.18223 14.3714 3.05019 14.2392C2.91801 14.1072 2.81315 13.9504 2.7416 13.7778C2.67005 13.6052 2.63323 13.4202 2.63323 13.2334C2.63323 13.0466 2.67005 12.8615 2.7416 12.689C2.81315 12.5164 2.91801 12.3596 3.05019 12.2275L3.09285 12.1849C3.25672 12.0173 3.36666 11.8046 3.40847 11.574C3.45028 11.3434 3.42205 11.1055 3.32743 10.8911C3.23732 10.6809 3.0877 10.5016 2.89698 10.3753C2.70627 10.249 2.48278 10.1812 2.25404 10.1803H2.13319C1.75613 10.1803 1.39452 10.0305 1.1279 9.76386C0.861273 9.49724 0.711487 9.13562 0.711487 8.75856C0.711487 8.3815 0.861273 8.01989 1.1279 7.75327C1.39452 7.48664 1.75613 7.33686 2.13319 7.33686H2.19717C2.43246 7.33135 2.66065 7.25519 2.85208 7.11828C3.04351 6.98136 3.18932 6.79002 3.27056 6.56914C3.36518 6.35473 3.39341 6.1169 3.3516 5.8863C3.30979 5.6557 3.19986 5.44292 3.03598 5.27538L2.99333 5.23273C2.86114 5.10069 2.75628 4.9439 2.68473 4.7713C2.61318 4.59871 2.57636 4.41371 2.57636 4.22687C2.57636 4.04004 2.61318 3.85504 2.68473 3.68245C2.75628 3.50985 2.86114 3.35305 2.99333 3.22102C3.12536 3.08883 3.28216 2.98397 3.45475 2.91242C3.62735 2.84087 3.81235 2.80405 3.99918 2.80405C4.18602 2.80405 4.37102 2.84087 4.54361 2.91242C4.7162 2.98397 4.873 3.08883 5.00504 3.22102L5.04769 3.26367C5.21523 3.42755 5.42801 3.53748 5.65861 3.57929C5.8892 3.6211 6.12704 3.59287 6.34145 3.49825H6.39831C6.60856 3.40814 6.78787 3.25852 6.91417 3.0678C7.04048 2.87709 7.10825 2.6536 7.10917 2.42486V2.30402C7.10917 1.92696 7.25895 1.56534 7.52558 1.29872C7.7922 1.0321 8.15381 0.882309 8.53087 0.882309C8.90793 0.882309 9.26955 1.0321 9.53617 1.29872C9.80279 1.56534 9.95258 1.92696 9.95258 2.30402V2.36799C9.95349 2.59674 10.0213 2.82022 10.1476 3.01093C10.2739 3.20165 10.4532 3.35127 10.6634 3.44138C10.8778 3.53601 11.1157 3.56423 11.3463 3.52242C11.5769 3.48061 11.7897 3.37068 11.9572 3.2068L11.9998 3.16415C12.1319 3.03196 12.2887 2.9271 12.4613 2.85555C12.6339 2.78401 12.8189 2.74718 13.0057 2.74718C13.1925 2.74718 13.3775 2.78401 13.5501 2.85555C13.7227 2.9271 13.8795 3.03196 14.0116 3.16415C14.1437 3.29619 14.2486 3.45298 14.3201 3.62558C14.3917 3.79817 14.4285 3.98317 14.4285 4.17001C14.4285 4.35684 14.3917 4.54184 14.3201 4.71443C14.2486 4.88703 14.1437 5.04382 14.0116 5.17586L13.9689 5.21851C13.805 5.38605 13.6951 5.59883 13.6533 5.82943C13.6115 6.06003 13.6397 6.29786 13.7343 6.51227V6.56914C13.8244 6.77938 13.9741 6.9587 14.1648 7.085C14.3555 7.2113 14.579 7.27908 14.8077 7.27999H14.9286C15.3056 7.27999 15.6672 7.42978 15.9339 7.6964C16.2005 7.96302 16.3503 8.32464 16.3503 8.7017C16.3503 9.07876 16.2005 9.44037 15.9339 9.70699C15.6672 9.97362 15.3056 10.1234 14.9286 10.1234H14.8646C14.6358 10.1243 14.4123 10.1921 14.2216 10.3184C14.0309 10.4447 13.8813 10.624 13.7912 10.8343V10.8343Z"
+                      d="M8.86353 15.0696V3.69598"
                       stroke="currentColor"
                       stroke-linecap="round"
                       stroke-linejoin="round"
                       stroke-width="1.59942"
                     />
-                  </g>
-                  <defs>
-                    <clippath
-                      id="clip0_1_17973"
-                    >
-                      <rect
-                        fill="currentColor"
-                        height="17.0605"
-                        transform="translate(0.000305176 0.171402)"
-                        width="17.0605"
-                      />
-                    </clippath>
-                  </defs>
-                </svg>
-              </div>
-            </a>
-          </div>
-        </div>
-        <div
-          class="py-5 flex justify-center"
-        >
-          <button
-            aria-label="logout button"
-            class="z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap subpixel-antialiased overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-small gap-2 rounded-medium px-0 !gap-0 transition-transform-colors-opacity motion-reduce:transition-none min-w-10 data-[hover=true]:opacity-hover border-transparent font-semibold text-primary-200 bg-none w-6 h-6"
-            type="button"
-          >
-            <svg
-              class="w-full h-full"
-              fill="none"
-              viewBox="0 0 44 44"
-              xmlns="http://www.w3.org/2000/svg"
+                    <path
+                      d="M4.59894 15.0695V10.8044"
+                      stroke="currentColor"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="1.59942"
+                    />
+                  </svg>
+                </div>
+              </a>
+            </li>
+            <li
+              class="cursor-not-allowed"
             >
-              <path
-                d="M14.1567 21.6842C14.1567 20.9476 14.7675 20.3368 15.5041 20.3368H25.3491V5.1381C25.3311 4.27576 24.6485 3.59308 23.7861 3.59308C13.2045 3.59308 5.82074 10.9768 5.82074 21.5585C5.82074 32.1401 13.2045 39.5238 23.7861 39.5238C24.6305 39.5238 25.3311 38.8411 25.3311 37.9788V23.0136H15.5041C14.7495 23.0316 14.1567 22.4208 14.1567 21.6842Z"
-                fill="currentColor"
-              />
-              <path
-                d="M36.9008 20.732L31.7987 15.6119C31.2777 15.0909 30.4153 15.0909 29.8943 15.6119C29.3733 16.1329 29.3733 16.9952 29.8943 17.5162L32.6969 20.3188H25.3311V23.0136H32.679L29.8764 25.8162C29.3554 26.3372 29.3554 27.1995 29.8764 27.7205C30.1458 27.99 30.4872 28.1158 30.8285 28.1158C31.1699 28.1158 31.5112 27.99 31.7807 27.7205L36.8829 22.6004C37.4218 22.0974 37.4218 21.253 36.9008 20.732Z"
-                fill="currentColor"
-              />
-            </svg>
-          </button>
-        </div>
+              <a
+                aria-label="Chemists"
+                class="text-primary-100 text-sm flex h-[60px] gap-5 mb-[1px] py-5 px-8 lg:px-10 justify-center hover:bg-linear-sidebar"
+                href="/chemists"
+              >
+                <div
+                  class="w-[17px] h-[17px]"
+                >
+                  <svg
+                    class="w-full h-full"
+                    fill="none"
+                    viewBox="0 0 18 18"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <g
+                      clip-path="url(#clip0_1_17961)"
+                    >
+                      <path
+                        d="M10.3507 11.0566V3.05237C10.3507 2.58105 10.1635 2.12903 9.83022 1.79575C9.49694 1.46247 9.04492 1.27524 8.5736 1.27524C8.10227 1.27524 7.65025 1.46247 7.31697 1.79575C6.9837 2.12903 6.79646 2.58105 6.79646 3.05237V11.0566C6.22584 11.4378 5.79297 11.9925 5.56176 12.6387C5.33056 13.2848 5.31328 13.9882 5.51249 14.6449C5.7117 15.3016 6.11682 15.8769 6.66804 16.2857C7.21925 16.6945 7.88733 16.9152 8.5736 16.9152C9.25986 16.9152 9.92794 16.6945 10.4792 16.2857C11.0304 15.8769 11.4355 15.3016 11.6347 14.6449C11.8339 13.9882 11.8166 13.2848 11.5854 12.6387C11.3542 11.9925 10.9213 11.4378 10.3507 11.0566Z"
+                        stroke="currentColor"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="1.59942"
+                      />
+                    </g>
+                    <defs>
+                      <clippath
+                        id="clip0_1_17961"
+                      >
+                        <rect
+                          fill="currentColor"
+                          height="17.0605"
+                          transform="translate(0.399292 0.564117)"
+                          width="17.0605"
+                        />
+                      </clippath>
+                    </defs>
+                  </svg>
+                </div>
+              </a>
+            </li>
+            <li
+              class="cursor-not-allowed"
+            >
+              <a
+                aria-label="Hospitals"
+                class="text-primary-100 text-sm flex h-[60px] gap-5 mb-[1px] py-5 px-8 lg:px-10 pointer-events-none justify-center hover:bg-linear-sidebar"
+                href="#"
+              >
+                <div
+                  class="w-[17px] h-[17px]"
+                >
+                  <svg
+                    class="w-full h-full"
+                    fill="none"
+                    viewBox="0 0 18 18"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <g
+                      clip-path="url(#clip0_1_17966)"
+                    >
+                      <path
+                        d="M11.7072 3.11911H13.1289C13.5059 3.11911 13.8676 3.2689 14.1342 3.53552C14.4008 3.80214 14.5506 4.16376 14.5506 4.54082V14.4928C14.5506 14.8698 14.4008 15.2314 14.1342 15.4981C13.8676 15.7647 13.5059 15.9145 13.1289 15.9145H4.59865C4.22159 15.9145 3.85997 15.7647 3.59335 15.4981C3.32673 15.2314 3.17694 14.8698 3.17694 14.4928V4.54082C3.17694 4.16376 3.32673 3.80214 3.59335 3.53552C3.85997 3.2689 4.22159 3.11911 4.59865 3.11911H6.02035"
+                        stroke="currentColor"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="1.59942"
+                      />
+                      <path
+                        d="M10.997 1.69724H6.73185C6.33926 1.69724 6.021 2.01549 6.021 2.40809V3.8298C6.021 4.22239 6.33926 4.54065 6.73185 4.54065H10.997C11.3896 4.54065 11.7078 4.22239 11.7078 3.8298V2.40809C11.7078 2.01549 11.3896 1.69724 10.997 1.69724Z"
+                        stroke="currentColor"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="1.59942"
+                      />
+                    </g>
+                    <defs>
+                      <clippath
+                        id="clip0_1_17966"
+                      >
+                        <rect
+                          fill="currentColor"
+                          height="17.0605"
+                          transform="translate(0.333496 0.275665)"
+                          width="17.0605"
+                        />
+                      </clippath>
+                    </defs>
+                  </svg>
+                </div>
+              </a>
+            </li>
+            <li
+              class="cursor-not-allowed"
+            >
+              <a
+                aria-label="Doctors"
+                class="text-primary-100 text-sm flex h-[60px] gap-5 mb-[1px] py-5 px-8 lg:px-10 pointer-events-none justify-center hover:bg-linear-sidebar"
+                href="#"
+              >
+                <div
+                  class="w-[17px] h-[17px]"
+                >
+                  <svg
+                    class="w-full h-full"
+                    fill="none"
+                    viewBox="0 0 18 18"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <g
+                      clip-path="url(#clip0_1_17993)"
+                    >
+                      <path
+                        d="M12.4183 15.9156V14.4939C12.4183 13.7398 12.1188 13.0166 11.5855 12.4833C11.0523 11.9501 10.329 11.6505 9.57492 11.6505H3.88809C3.13397 11.6505 2.41074 11.9501 1.87749 12.4833C1.34425 13.0166 1.04468 13.7398 1.04468 14.4939V15.9156"
+                        stroke="currentColor"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="1.59942"
+                      />
+                      <path
+                        d="M6.73135 8.80716C8.30173 8.80716 9.57477 7.53412 9.57477 5.96374C9.57477 4.39337 8.30173 3.12033 6.73135 3.12033C5.16098 3.12033 3.88794 4.39337 3.88794 5.96374C3.88794 7.53412 5.16098 8.80716 6.73135 8.80716Z"
+                        stroke="currentColor"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="1.59942"
+                      />
+                      <path
+                        d="M16.6833 15.9158V14.4941C16.6829 13.8641 16.4732 13.2521 16.0872 12.7542C15.7012 12.2562 15.1608 11.9006 14.5508 11.7431"
+                        stroke="currentColor"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="1.59942"
+                      />
+                      <path
+                        d="M11.7068 3.21268C12.3184 3.36928 12.8605 3.72499 13.2477 4.22373C13.6348 4.72247 13.8449 5.33587 13.8449 5.96723C13.8449 6.59859 13.6348 7.21199 13.2477 7.71074C12.8605 8.20948 12.3184 8.56519 11.7068 8.72179"
+                        stroke="currentColor"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="1.59942"
+                      />
+                    </g>
+                    <defs>
+                      <clippath
+                        id="clip0_1_17993"
+                      >
+                        <rect
+                          fill="currentColor"
+                          height="17.0605"
+                          transform="translate(0.333496 0.98764)"
+                          width="17.0605"
+                        />
+                      </clippath>
+                    </defs>
+                  </svg>
+                </div>
+              </a>
+            </li>
+            <li
+              class="cursor-not-allowed"
+            >
+              <a
+                aria-label="Medicines"
+                class="text-primary-100 text-sm flex h-[60px] gap-5 mb-[1px] py-5 px-8 lg:px-10 pointer-events-none justify-center hover:bg-linear-sidebar"
+                href="#"
+              >
+                <div
+                  class="w-[17px] h-[17px]"
+                >
+                  <svg
+                    class="w-full h-full"
+                    fill="none"
+                    viewBox="0 0 18 18"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <g
+                      clip-path="url(#clip0_1_17953)"
+                    >
+                      <path
+                        d="M12.0628 7.38141L5.6651 3.69208"
+                        stroke="currentColor"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="1.59942"
+                      />
+                      <path
+                        d="M15.2613 12.0731V6.38625C15.261 6.13694 15.1952 5.89207 15.0705 5.67622C14.9457 5.46038 14.7664 5.28113 14.5505 5.15648L9.57448 2.31306C9.35835 2.18828 9.11318 2.12259 8.86362 2.12259C8.61406 2.12259 8.3689 2.18828 8.15277 2.31306L3.1768 5.15648C2.96088 5.28113 2.78155 5.46038 2.65678 5.67622C2.53201 5.89207 2.4662 6.13694 2.46594 6.38625V12.0731C2.4662 12.3224 2.53201 12.5673 2.65678 12.7831C2.78155 12.999 2.96088 13.1782 3.1768 13.3029L8.15277 16.1463C8.3689 16.271 8.61406 16.3367 8.86362 16.3367C9.11318 16.3367 9.35835 16.271 9.57448 16.1463L14.5505 13.3029C14.7664 13.1782 14.9457 12.999 15.0705 12.7831C15.1952 12.5673 15.261 12.3224 15.2613 12.0731Z"
+                        stroke="currentColor"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="1.59942"
+                      />
+                      <path
+                        d="M2.65814 5.6469L8.86389 9.23671L15.0696 5.6469"
+                        stroke="currentColor"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="1.59942"
+                      />
+                      <path
+                        d="M8.86353 16.3952V9.22975"
+                        stroke="currentColor"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="1.59942"
+                      />
+                    </g>
+                    <defs>
+                      <clippath
+                        id="clip0_1_17953"
+                      >
+                        <rect
+                          fill="white"
+                          height="17.0605"
+                          transform="translate(0.333496 0.69931)"
+                          width="17.0605"
+                        />
+                      </clippath>
+                    </defs>
+                  </svg>
+                </div>
+              </a>
+            </li>
+          </ul>
+        </nav>
+        <hr
+          class="shrink-0 bg-divider border-none w-full h-divider"
+          role="separator"
+        />
+        <nav>
+          <ul
+            class="list-none"
+          >
+            <li
+              class="cursor-not-allowed"
+            >
+              <a
+                aria-label="Messages"
+                class="text-primary-100 text-sm flex h-[60px] gap-5 mb-[1px] py-5 px-8 lg:px-10 pointer-events-none justify-center hover:bg-linear-sidebar"
+                href="#"
+              >
+                <div
+                  class="w-[17px] h-[17px]"
+                >
+                  <svg
+                    class="w-full h-full"
+                    fill="none"
+                    viewBox="0 0 18 18"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <g
+                      clip-path="url(#clip0_1_17978)"
+                    >
+                      <path
+                        d="M3.1772 3.30327H14.5509C15.3328 3.30327 15.9726 3.94304 15.9726 4.72498V13.2552C15.9726 14.0372 15.3328 14.6769 14.5509 14.6769H3.1772C2.39526 14.6769 1.75549 14.0372 1.75549 13.2552V4.72498C1.75549 3.94304 2.39526 3.30327 3.1772 3.30327Z"
+                        stroke="currentColor"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="1.59942"
+                      />
+                      <path
+                        d="M15.9726 4.72495L8.86403 9.70093L1.75549 4.72495"
+                        stroke="currentColor"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="1.59942"
+                      />
+                    </g>
+                    <defs>
+                      <clippath
+                        id="clip0_1_17978"
+                      >
+                        <rect
+                          fill="currentColor"
+                          height="17.0605"
+                          transform="translate(0.333313 0.459717)"
+                          width="17.0605"
+                        />
+                      </clippath>
+                    </defs>
+                  </svg>
+                </div>
+              </a>
+            </li>
+            <li
+              class="cursor-not-allowed"
+            >
+              <a
+                aria-label="Settings"
+                class="text-primary-100 text-sm flex h-[60px] gap-5 mb-[1px] py-5 px-8 lg:px-10 pointer-events-none justify-center hover:bg-linear-sidebar"
+                href="#"
+              >
+                <div
+                  class="w-[17px] h-[17px]"
+                >
+                  <svg
+                    class="w-full h-full"
+                    fill="none"
+                    viewBox="0 0 18 18"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <g
+                      clip-path="url(#clip0_1_17973)"
+                    >
+                      <path
+                        d="M8.53057 10.8343C9.70835 10.8343 10.6631 9.87952 10.6631 8.70174C10.6631 7.52396 9.70835 6.56918 8.53057 6.56918C7.35279 6.56918 6.39801 7.52396 6.39801 8.70174C6.39801 9.87952 7.35279 10.8343 8.53057 10.8343Z"
+                        stroke="currentColor"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="1.59942"
+                      />
+                      <path
+                        d="M13.7912 10.8343C13.6966 11.0487 13.6683 11.2865 13.7101 11.5171C13.752 11.7477 13.8619 11.9605 14.0258 12.128L14.0684 12.1707C14.2006 12.3027 14.3055 12.4595 14.377 12.6321C14.4486 12.8047 14.4854 12.9897 14.4854 13.1765C14.4854 13.3634 14.4486 13.5484 14.377 13.7209C14.3055 13.8935 14.2006 14.0503 14.0684 14.1824C13.9364 14.3146 13.7796 14.4194 13.607 14.491C13.4344 14.5625 13.2494 14.5993 13.0626 14.5993C12.8757 14.5993 12.6907 14.5625 12.5181 14.491C12.3455 14.4194 12.1887 14.3146 12.0567 14.1824L12.0141 14.1397C11.8465 13.9758 11.6337 13.8659 11.4031 13.8241C11.1725 13.7823 10.9347 13.8105 10.7203 13.9051C10.5101 13.9953 10.3307 14.1449 10.2044 14.3356C10.0781 14.5263 10.0104 14.7498 10.0094 14.9785V15.0994C10.0094 15.4764 9.85966 15.8381 9.59304 16.1047C9.32642 16.3713 8.9648 16.5211 8.58774 16.5211C8.21068 16.5211 7.84907 16.3713 7.58244 16.1047C7.31582 15.8381 7.16604 15.4764 7.16604 15.0994V15.0354C7.16053 14.8001 7.08437 14.5719 6.94746 14.3805C6.81054 14.1891 6.6192 14.0432 6.39831 13.962C6.18391 13.8674 5.94607 13.8392 5.71548 13.881C5.48488 13.9228 5.27209 14.0327 5.10456 14.1966L5.06191 14.2392C4.92987 14.3714 4.77307 14.4763 4.60048 14.5478C4.42789 14.6194 4.24289 14.6562 4.05605 14.6562C3.86922 14.6562 3.68422 14.6194 3.51162 14.5478C3.33903 14.4763 3.18223 14.3714 3.05019 14.2392C2.91801 14.1072 2.81315 13.9504 2.7416 13.7778C2.67005 13.6052 2.63323 13.4202 2.63323 13.2334C2.63323 13.0466 2.67005 12.8615 2.7416 12.689C2.81315 12.5164 2.91801 12.3596 3.05019 12.2275L3.09285 12.1849C3.25672 12.0173 3.36666 11.8046 3.40847 11.574C3.45028 11.3434 3.42205 11.1055 3.32743 10.8911C3.23732 10.6809 3.0877 10.5016 2.89698 10.3753C2.70627 10.249 2.48278 10.1812 2.25404 10.1803H2.13319C1.75613 10.1803 1.39452 10.0305 1.1279 9.76386C0.861273 9.49724 0.711487 9.13562 0.711487 8.75856C0.711487 8.3815 0.861273 8.01989 1.1279 7.75327C1.39452 7.48664 1.75613 7.33686 2.13319 7.33686H2.19717C2.43246 7.33135 2.66065 7.25519 2.85208 7.11828C3.04351 6.98136 3.18932 6.79002 3.27056 6.56914C3.36518 6.35473 3.39341 6.1169 3.3516 5.8863C3.30979 5.6557 3.19986 5.44292 3.03598 5.27538L2.99333 5.23273C2.86114 5.10069 2.75628 4.9439 2.68473 4.7713C2.61318 4.59871 2.57636 4.41371 2.57636 4.22687C2.57636 4.04004 2.61318 3.85504 2.68473 3.68245C2.75628 3.50985 2.86114 3.35305 2.99333 3.22102C3.12536 3.08883 3.28216 2.98397 3.45475 2.91242C3.62735 2.84087 3.81235 2.80405 3.99918 2.80405C4.18602 2.80405 4.37102 2.84087 4.54361 2.91242C4.7162 2.98397 4.873 3.08883 5.00504 3.22102L5.04769 3.26367C5.21523 3.42755 5.42801 3.53748 5.65861 3.57929C5.8892 3.6211 6.12704 3.59287 6.34145 3.49825H6.39831C6.60856 3.40814 6.78787 3.25852 6.91417 3.0678C7.04048 2.87709 7.10825 2.6536 7.10917 2.42486V2.30402C7.10917 1.92696 7.25895 1.56534 7.52558 1.29872C7.7922 1.0321 8.15381 0.882309 8.53087 0.882309C8.90793 0.882309 9.26955 1.0321 9.53617 1.29872C9.80279 1.56534 9.95258 1.92696 9.95258 2.30402V2.36799C9.95349 2.59674 10.0213 2.82022 10.1476 3.01093C10.2739 3.20165 10.4532 3.35127 10.6634 3.44138C10.8778 3.53601 11.1157 3.56423 11.3463 3.52242C11.5769 3.48061 11.7897 3.37068 11.9572 3.2068L11.9998 3.16415C12.1319 3.03196 12.2887 2.9271 12.4613 2.85555C12.6339 2.78401 12.8189 2.74718 13.0057 2.74718C13.1925 2.74718 13.3775 2.78401 13.5501 2.85555C13.7227 2.9271 13.8795 3.03196 14.0116 3.16415C14.1437 3.29619 14.2486 3.45298 14.3201 3.62558C14.3917 3.79817 14.4285 3.98317 14.4285 4.17001C14.4285 4.35684 14.3917 4.54184 14.3201 4.71443C14.2486 4.88703 14.1437 5.04382 14.0116 5.17586L13.9689 5.21851C13.805 5.38605 13.6951 5.59883 13.6533 5.82943C13.6115 6.06003 13.6397 6.29786 13.7343 6.51227V6.56914C13.8244 6.77938 13.9741 6.9587 14.1648 7.085C14.3555 7.2113 14.579 7.27908 14.8077 7.27999H14.9286C15.3056 7.27999 15.6672 7.42978 15.9339 7.6964C16.2005 7.96302 16.3503 8.32464 16.3503 8.7017C16.3503 9.07876 16.2005 9.44037 15.9339 9.70699C15.6672 9.97362 15.3056 10.1234 14.9286 10.1234H14.8646C14.6358 10.1243 14.4123 10.1921 14.2216 10.3184C14.0309 10.4447 13.8813 10.624 13.7912 10.8343V10.8343Z"
+                        stroke="currentColor"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="1.59942"
+                      />
+                    </g>
+                    <defs>
+                      <clippath
+                        id="clip0_1_17973"
+                      >
+                        <rect
+                          fill="currentColor"
+                          height="17.0605"
+                          transform="translate(0.000305176 0.171402)"
+                          width="17.0605"
+                        />
+                      </clippath>
+                    </defs>
+                  </svg>
+                </div>
+              </a>
+            </li>
+          </ul>
+        </nav>
       </div>
-    </div>
-  </div>
+      <div
+        class="py-5 flex justify-center"
+      >
+        <button
+          aria-label="logout button"
+          class="z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap subpixel-antialiased overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-small gap-2 rounded-medium px-0 !gap-0 transition-transform-colors-opacity motion-reduce:transition-none min-w-10 data-[hover=true]:opacity-hover border-transparent font-semibold text-primary-200 bg-none w-6 h-6"
+          type="button"
+        >
+          <svg
+            class="w-full h-full"
+            fill="none"
+            viewBox="0 0 44 44"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M14.1567 21.6842C14.1567 20.9476 14.7675 20.3368 15.5041 20.3368H25.3491V5.1381C25.3311 4.27576 24.6485 3.59308 23.7861 3.59308C13.2045 3.59308 5.82074 10.9768 5.82074 21.5585C5.82074 32.1401 13.2045 39.5238 23.7861 39.5238C24.6305 39.5238 25.3311 38.8411 25.3311 37.9788V23.0136H15.5041C14.7495 23.0316 14.1567 22.4208 14.1567 21.6842Z"
+              fill="currentColor"
+            />
+            <path
+              d="M36.9008 20.732L31.7987 15.6119C31.2777 15.0909 30.4153 15.0909 29.8943 15.6119C29.3733 16.1329 29.3733 16.9952 29.8943 17.5162L32.6969 20.3188H25.3311V23.0136H32.679L29.8764 25.8162C29.3554 26.3372 29.3554 27.1995 29.8764 27.7205C30.1458 27.99 30.4872 28.1158 30.8285 28.1158C31.1699 28.1158 31.5112 27.99 31.7807 27.7205L36.8829 22.6004C37.4218 22.0974 37.4218 21.253 36.9008 20.732Z"
+              fill="currentColor"
+            />
+          </svg>
+        </button>
+      </div>
+    </section>
+  </aside>
 </DocumentFragment>
 `;

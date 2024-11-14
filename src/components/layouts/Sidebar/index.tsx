@@ -33,27 +33,26 @@ export const Sidebar = () => {
           <Spinner size="lg" className="fixed" />
         </>
       )}
-      <div className="fixed z-10 max-h-screen overflow-y-scroll">
-        <div className="hidden lg:flex flex-col min-w-[277px] min-h-screen shadow-md font-semibold bg-background-200">
-          <Link
-            href={PRIVATE_ROUTES.DASHBOARD}
-            className="py-8 m-auto text-center"
-          >
-            <Image
-              src={SRC_LOGO}
-              alt="logo"
-              width={50}
-              height={50}
-              className="w-full h-auto"
-              placeholder="empty"
-            />
-          </Link>
-
+      <aside className="fixed z-10 max-h-screen overflow-y-scroll">
+        <section className="hidden lg:flex flex-col min-w-[277px] min-h-screen shadow-md font-semibold bg-background-200">
+          <h1 className="py-8 m-auto text-center">
+            <Link href={PRIVATE_ROUTES.DASHBOARD}>
+              <Image
+                src={SRC_LOGO}
+                alt="logo"
+                width={50}
+                height={50}
+                className="w-full h-auto"
+                placeholder="empty"
+              />
+            </Link>
+          </h1>
           <div className="flex-1">
             <Navbar isExpandSidebar />
           </div>
 
           <Divider className="bg-primary-100 h-[2px] mt-8 opacity-80" />
+
           <div className="ml-10 py-[76px]">
             <Button
               color="default"
@@ -64,41 +63,39 @@ export const Sidebar = () => {
               Logout
             </Button>
           </div>
-        </div>
+        </section>
 
         {/* Tablet Sidebar */}
-        <div className="flex">
-          <div className="flex-col min-h-screen hidden md:flex lg:hidden shadow-lg bg-background-200">
-            <div className="m-auto py-6">
-              <Link href={PRIVATE_ROUTES.DASHBOARD}>
-                <Image
-                  src={SRC_LOGO}
-                  alt="logo"
-                  width={35}
-                  height={35}
-                  placeholder="empty"
-                />
-              </Link>
-            </div>
+        <section className="flex-col min-h-screen hidden md:flex lg:hidden shadow-lg bg-background-200">
+          <h1 className="m-auto py-6 text-center">
+            <Link href={PRIVATE_ROUTES.DASHBOARD}>
+              <Image
+                src={SRC_LOGO}
+                alt="logo"
+                width={35}
+                height={35}
+                placeholder="empty"
+              />
+            </Link>
+          </h1>
 
-            <div className="flex-1">
-              <Navbar />
-            </div>
-
-            <div className="py-5 flex justify-center">
-              <Button
-                aria-label="logout button"
-                color="stone"
-                isIconOnly
-                className="w-6 h-6"
-                onClick={handleLogout}
-              >
-                <LogoutIcon />
-              </Button>
-            </div>
+          <div className="flex-1">
+            <Navbar />
           </div>
-        </div>
-      </div>
+
+          <div className="py-5 flex justify-center">
+            <Button
+              aria-label="logout button"
+              color="stone"
+              isIconOnly
+              className="w-6 h-6"
+              onClick={handleLogout}
+            >
+              <LogoutIcon />
+            </Button>
+          </div>
+        </section>
+      </aside>
     </>
   );
 };
