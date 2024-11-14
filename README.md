@@ -9,9 +9,26 @@ This is a [Next.js](https://nextjs.org/) big practice for NextJS built with [`cr
 
 ### Timeline
 
-- 4-5 weeks
+- 8 weeks
 
-### Targets
+### Target
+
+This practice for NextJS includes:
+
+- ⚡ [Next.js](https://nextjs.org/) with App Router support
+- 🔥 Type checking [TypeScript](https://www.typescriptlang.org/)
+- 💎 Integrate with [Tailwind CSS](https://tailwindcss.com/)
+- [tailwind-merge](https://github.com/dcastil/tailwind-merge) for efficiently merge Tailwind CSS classes without style conflicts
+- ✅ Strict Mode for TypeScript and React 18
+- 📏 Linter with [ESLint](https://eslint.org/)
+- 💖 Code Formatter with [Prettier](https://prettier.io/)
+- 🦊 [Husky](https://github.com/typicode/husky) for Git Hooks
+- 🚫 [Lint-staged](https://github.com/lint-staged/lint-staged) for running linters on Git staged files
+- 🦺 Unit Testing with Jest and React Testing Library
+- ☂️ Code coverage with [V8](https://v8.dev/blog/javascript-code-coverage)
+- 🎉 Storybook for UI development
+
+### Features
 
 - Support dark/light mode
 
@@ -52,23 +69,6 @@ This is a [Next.js](https://nextjs.org/) big practice for NextJS built with [`cr
 - [Strapi](https://strapi.io/)
 
 - [NextUI](https://nextui.org/)
-
-### Features
-
-This practice for NextJS includes:
-
-- ⚡ [Next.js](https://nextjs.org/) with App Router support
-- 🔥 Type checking [TypeScript](https://www.typescriptlang.org/)
-- 💎 Integrate with [Tailwind CSS](https://tailwindcss.com/)
-- [tailwind-merge](https://github.com/dcastil/tailwind-merge) for efficiently merge Tailwind CSS classes without style conflicts
-- ✅ Strict Mode for TypeScript and React 18
-- 📏 Linter with [ESLint](https://eslint.org/)
-- 💖 Code Formatter with [Prettier](https://prettier.io/)
-- 🦊 [Husky](https://github.com/typicode/husky) for Git Hooks
-- 🚫 [Lint-staged](https://github.com/lint-staged/lint-staged) for running linters on Git staged files
-- 🦺 Unit Testing with Jest and React Testing Library
-- ☂️ Code coverage with [V8](https://v8.dev/blog/javascript-code-coverage)
-- 🎉 Storybook for UI development
 
 ## How to run
 
@@ -160,9 +160,12 @@ Check and update config image hosting on `next.config.mjs` file follow [Next.js 
 
 ### Team size
 
-- 2 Developer:
+- 4 Developer:
 
-  - [Thang Ho Quang](mailto:thang.hoquang@asnet.com.vn), Slack: thang.hoquang
+  - [Thao Ha](mailto:thao.ha@asnet.com.vn), Slack: thao.ha
+  - [Pham Nhat Huy](mailto:huy.phamnhat@asnet.com.vn), Slack: huy.phamnhat
+  - [Thang Ho Quang](mailto:thang.hoquang@asnet.com.vn), Slack: thang.hoquang (left)
+  - [Hao Le](mailto:hao.le@asnet.com.vn), Slack: hao.le (left)
 
 ### Task Management
 

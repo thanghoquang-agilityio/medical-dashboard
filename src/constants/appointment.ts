@@ -34,29 +34,6 @@ export const APPOINTMENT_STATUS = [
   },
 ];
 
-export const DURATION_TIME_OPTIONS = [
-  {
-    key: '60',
-    label: '1 hours',
-  },
-  {
-    key: '120',
-    label: '2 hours',
-  },
-  {
-    key: '180',
-    label: '3 hours',
-  },
-  {
-    key: '240',
-    label: '4 hours',
-  },
-  {
-    key: '300',
-    label: '5 hours',
-  },
-];
-
 export const DEFAULT_APPOINTMENT_DATA: AppointmentModel = {
   startTime: '',
   durationTime: '',
