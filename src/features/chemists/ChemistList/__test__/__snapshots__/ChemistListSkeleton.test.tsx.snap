@@ -3,7 +3,7 @@
 exports[`ChemistListSkeleton test cases should render correctly 1`] = `
 <DocumentFragment>
   <p
-    class="text-primary-100 font-medium text-2xl text-ellipsis whitespace-nowrap overflow-hidden my-5"
+    class="text-primary-100 font-medium text-2xl my-5"
   >
     All Chemists
   </p>

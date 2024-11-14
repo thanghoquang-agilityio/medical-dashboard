@@ -7,7 +7,7 @@ exports[`ChemistForm test cases should render correctly 1`] = `
     data-testid="chemist-form"
   >
     <p
-      class="text-primary-100 font-semibold text-xl text-ellipsis whitespace-nowrap overflow-hidden"
+      class="text-primary-100 font-semibold text-xl"
     >
       Update chemist
     </p>
@@ -142,7 +142,7 @@ exports[`ChemistForm test cases should render correctly 1`] = `
           />
         </svg>
         <p
-          class="text-primary-100 text-sm text-ellipsis whitespace-nowrap overflow-hidden font-medium"
+          class="text-primary-100 text-sm font-medium"
         >
           0 Tasks
         </p>
@@ -162,7 +162,7 @@ exports[`ChemistForm test cases should render correctly 1`] = `
           />
         </svg>
         <p
-          class="text-primary-100 text-sm text-ellipsis whitespace-nowrap overflow-hidden font-medium"
+          class="text-primary-100 text-sm font-medium"
         >
           0 (0 Reviews)
         </p>
@@ -284,7 +284,7 @@ exports[`ChemistForm test cases should render correctly 1`] = `
       >
         <input
           style="font-size: 16px;"
-          tabindex="-1"
+          tabindex="0"
           type="text"
           value=""
         />
@@ -438,7 +438,7 @@ exports[`ChemistForm test cases should render correctly without data and id 1`] 
     data-testid="chemist-form"
   >
     <p
-      class="text-primary-100 font-semibold text-xl text-ellipsis whitespace-nowrap overflow-hidden"
+      class="text-primary-100 font-semibold text-xl"
     >
       Create chemist
     </p>
@@ -754,7 +754,7 @@ exports[`ChemistForm test cases should render correctly without data and id 1`] 
       >
         <input
           style="font-size: 16px;"
-          tabindex="-1"
+          tabindex="0"
           type="text"
           value=""
         />

@@ -78,12 +78,12 @@ exports[`ChemistCard test cases should render correctly 1`] = `
             class="flex flex-col gap-1"
           >
             <p
-              class="text-primary-100 font-semibold text-base text-ellipsis whitespace-nowrap overflow-hidden"
+              class="text-primary-100 font-semibold text-base"
             >
               Alex Stanton
             </p>
             <p
-              class="text-primary-200 text-xs text-ellipsis whitespace-nowrap overflow-hidden font-normal"
+              class="text-primary-200 text-xs font-normal"
             >
               Laboratory Chemist
             </p>
@@ -94,7 +94,7 @@ exports[`ChemistCard test cases should render correctly 1`] = `
         class="relative flex w-full flex-auto flex-col place-content-inherit align-items-inherit h-auto break-words text-left overflow-y-auto subpixel-antialiased p-0"
       >
         <p
-          class="text-primary-200 font-medium text-sm whitespace-pre-wrap line-clamp-2"
+          class="text-primary-200 font-medium text-sm line-clamp-2"
         >
           Hi, I'm Alex Stanton. Happy for all problem happen with me. Let's smile.
         </p>
@@ -149,7 +149,7 @@ exports[`ChemistCard test cases should render correctly 1`] = `
                 />
               </svg>
               <p
-                class="text-primary-100 text-sm text-ellipsis whitespace-nowrap overflow-hidden font-medium"
+                class="text-primary-100 text-sm font-medium"
               >
                 22 Tasks
               </p>
@@ -158,7 +158,7 @@ exports[`ChemistCard test cases should render correctly 1`] = `
               class="flex items-center gap-1 sm:gap-2"
             >
               <p
-                class="text-primary-100 text-sm text-ellipsis whitespace-nowrap overflow-hidden font-medium"
+                class="text-primary-100 text-sm font-medium"
               >
                 (321 Reviews)
               </p>
@@ -168,7 +168,7 @@ exports[`ChemistCard test cases should render correctly 1`] = `
             class="flex justify-between items-center gap-1 sm:gap-2"
           >
             <p
-              class="text-primary-100 text-sm text-ellipsis whitespace-nowrap overflow-hidden font-medium"
+              class="text-primary-100 text-sm font-medium"
             >
               Rating: 5
             </p>
@@ -317,7 +317,7 @@ exports[`ChemistCard test cases should render correctly without data 1`] = `
             class="flex flex-col gap-1"
           >
             <p
-              class="text-primary-100 font-semibold text-base text-ellipsis whitespace-nowrap overflow-hidden"
+              class="text-primary-100 font-semibold text-base"
             />
           </div>
         </div>
@@ -326,7 +326,7 @@ exports[`ChemistCard test cases should render correctly without data 1`] = `
         class="relative flex w-full flex-auto flex-col place-content-inherit align-items-inherit h-auto break-words text-left overflow-y-auto subpixel-antialiased p-0"
       >
         <p
-          class="text-primary-200 font-medium text-sm whitespace-pre-wrap line-clamp-2"
+          class="text-primary-200 font-medium text-sm line-clamp-2"
         >
           No description
         </p>
@@ -381,7 +381,7 @@ exports[`ChemistCard test cases should render correctly without data 1`] = `
                 />
               </svg>
               <p
-                class="text-primary-100 text-sm text-ellipsis whitespace-nowrap overflow-hidden font-medium"
+                class="text-primary-100 text-sm font-medium"
               >
                 0 Task
               </p>
@@ -390,7 +390,7 @@ exports[`ChemistCard test cases should render correctly without data 1`] = `
               class="flex items-center gap-1 sm:gap-2"
             >
               <p
-                class="text-primary-100 text-sm text-ellipsis whitespace-nowrap overflow-hidden font-medium"
+                class="text-primary-100 text-sm font-medium"
               >
                 (0 Review)
               </p>
@@ -400,7 +400,7 @@ exports[`ChemistCard test cases should render correctly without data 1`] = `
             class="flex justify-between items-center gap-1 sm:gap-2"
           >
             <p
-              class="text-primary-100 text-sm text-ellipsis whitespace-nowrap overflow-hidden font-medium"
+              class="text-primary-100 text-sm font-medium"
             >
               Rating: 0
             </p>

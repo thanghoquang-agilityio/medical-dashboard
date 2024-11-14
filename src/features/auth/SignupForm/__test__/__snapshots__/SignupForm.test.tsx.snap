@@ -7,7 +7,7 @@ exports[`SignupForm Component should renders correctly form 1`] = `
     tabindex="-1"
   >
     <p
-      class="text-secondary-300 text-4xl text-ellipsis whitespace-nowrap overflow-hidden font-semibold"
+      class="text-secondary-300 text-4xl font-semibold"
     >
       Signup
     </p>
@@ -321,7 +321,7 @@ exports[`SignupForm Component should renders correctly form 1`] = `
         class="flex justify-center w-full gap-6 pt-10 pb-3"
       >
         <p
-          class="text-foreground text-ellipsis whitespace-nowrap overflow-hidden"
+          class="text-foreground"
         >
           Already have account?
         </p>

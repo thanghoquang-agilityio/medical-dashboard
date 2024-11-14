@@ -7,7 +7,7 @@ exports[`ActivityFeedList test cases should render correctly 1`] = `
     tabindex="-1"
   >
     <p
-      class="text-primary-100 font-semibold text-lg text-ellipsis whitespace-nowrap overflow-hidden leading-9"
+      class="text-primary-100 font-semibold text-lg leading-9"
     >
       Activity Feed
     </p>
@@ -106,12 +106,12 @@ exports[`ActivityFeedList test cases should render correctly 1`] = `
                       class="flex flex-col mr-8"
                     >
                       <p
-                        class="text-primary-200 font-medium text-ellipsis whitespace-nowrap overflow-hidden text-2xs md:text-xs text-wrap"
+                        class="text-primary-200 font-medium text-2xs md:text-xs text-wrap"
                       >
                          updated at Sep 12, 2024 9:00 am
                       </p>
                       <p
-                        class="text-primary-300 font-normal text-2xs text-ellipsis whitespace-nowrap overflow-hidden"
+                        class="text-primary-300 font-normal text-2xs"
                       >
                         a month ago
                       </p>
@@ -178,12 +178,12 @@ exports[`ActivityFeedList test cases should render correctly 1`] = `
                       class="flex flex-col mr-8"
                     >
                       <p
-                        class="text-primary-200 font-medium text-ellipsis whitespace-nowrap overflow-hidden text-2xs md:text-xs text-wrap"
+                        class="text-primary-200 font-medium text-2xs md:text-xs text-wrap"
                       >
                          deleted at Sep 12, 2024 9:00 am
                       </p>
                       <p
-                        class="text-primary-300 font-normal text-2xs text-ellipsis whitespace-nowrap overflow-hidden"
+                        class="text-primary-300 font-normal text-2xs"
                       >
                         a month ago
                       </p>
