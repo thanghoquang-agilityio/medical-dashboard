@@ -16,7 +16,8 @@ import { Button, Image, Navbar } from '@/components/ui';
 import { ArrowRightIcon, LogoutIcon } from '@/icons';
 
 // Constants
-import { AUTH_ROUTES, SRC_LOGO } from '@/constants';
+import { AUTH_ROUTES, PRIVATE_ROUTES, SRC_LOGO } from '@/constants';
+import Link from 'next/link';
 
 export const SidebarMobile = () => {
   const { isOpen, onOpen, onOpenChange, onClose } = useDisclosure();
@@ -27,7 +28,7 @@ export const SidebarMobile = () => {
   };
 
   return (
-    <>
+    <aside>
       <div className="flex absolute left-0">
         <Button
           className="p-0 min-w-4 h-7 bg-linear-success rounded-none rounded-r-lg lg:hidden"
@@ -62,16 +63,18 @@ export const SidebarMobile = () => {
       >
         <ModalContent>
           <ModalBody className="min-h-screen p-0 bg-background-200">
-            <div className="m-auto py-5">
-              <Image
-                src={SRC_LOGO}
-                alt="logo"
-                width={40}
-                height={40}
-                placeholder="empty"
-                className="w-full h-auto"
-              />
-            </div>
+            <h1 className="m-auto py-5">
+              <Link href={PRIVATE_ROUTES.DASHBOARD}>
+                <Image
+                  src={SRC_LOGO}
+                  alt="logo"
+                  width={40}
+                  height={40}
+                  placeholder="empty"
+                  className="w-full h-auto"
+                />
+              </Link>
+            </h1>
             <div className="flex-1">
               <Navbar isExpandSidebar />
             </div>
@@ -88,6 +91,6 @@ export const SidebarMobile = () => {
           </ModalBody>
         </ModalContent>
       </Modal>
-    </>
+    </aside>
   );
 };

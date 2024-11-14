@@ -2,7 +2,7 @@
 
 exports[`NavItem Component should render the NavItem with correct name and icon 1`] = `
 <div>
-  <div
+  <li
     class="cursor-not-allowed"
   >
     <a
@@ -55,6 +55,6 @@ exports[`NavItem Component should render the NavItem with correct name and icon 
         Dashboard
       </p>
     </a>
-  </div>
+  </li>
 </div>
 `;
