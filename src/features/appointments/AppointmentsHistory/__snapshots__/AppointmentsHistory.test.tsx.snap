@@ -10,7 +10,7 @@ exports[`AppointmentsHistory Component should render correctly when appointments
       class="flex justify-between items-center"
     >
       <p
-        class="text-ellipsis whitespace-nowrap overflow-hidden text-xl font-bold text-primary-100"
+        class="text-xl font-bold text-primary-100"
       >
         History
       </p>
@@ -28,7 +28,7 @@ exports[`AppointmentsHistory Component should render correctly when appointments
           >
             <input
               style="font-size: 16px;"
-              tabindex="-1"
+              tabindex="0"
               type="text"
               value=""
             />
@@ -224,7 +224,7 @@ exports[`AppointmentsHistory Component should render correctly with admin role w
       class="flex justify-between items-center"
     >
       <p
-        class="text-ellipsis whitespace-nowrap overflow-hidden text-xl font-bold text-primary-100"
+        class="text-xl font-bold text-primary-100"
       >
         History
       </p>
@@ -242,7 +242,7 @@ exports[`AppointmentsHistory Component should render correctly with admin role w
           >
             <input
               style="font-size: 16px;"
-              tabindex="-1"
+              tabindex="0"
               type="text"
               value=""
             />
@@ -454,7 +454,7 @@ exports[`AppointmentsHistory Component should render correctly with admin role w
                       />
                     </span>
                     <p
-                      class="text-primary-100 font-medium text-sm text-ellipsis whitespace-nowrap overflow-hidden max-w-[65px] md:max-w-[90px] lg:max-w-full"
+                      class="text-primary-100 font-medium text-sm overflow-hidden max-w-[65px] md:max-w-[90px] lg:max-w-full"
                     >
                       Alex Stanton
                     </p>
@@ -489,7 +489,7 @@ exports[`AppointmentsHistory Component should render correctly with admin role w
                       />
                     </span>
                     <p
-                      class="text-primary-100 font-medium text-sm text-ellipsis whitespace-nowrap overflow-hidden max-w-[65px] md:max-w-[90px] lg:max-w-full"
+                      class="text-primary-100 font-medium text-sm overflow-hidden max-w-[65px] md:max-w-[90px] lg:max-w-full"
                     >
                       Jessica Jane
                     </p>
@@ -503,7 +503,7 @@ exports[`AppointmentsHistory Component should render correctly with admin role w
                   tabindex="-1"
                 >
                   <p
-                    class="text-primary-100 font-medium text-xs text-ellipsis whitespace-nowrap overflow-hidden hidden sm:block"
+                    class="text-primary-100 font-medium text-xs hidden sm:block"
                   >
                     1:30 pm to 3:00 pm
                   </p>
@@ -526,7 +526,7 @@ exports[`AppointmentsHistory Component should render correctly with admin role w
                       </p>
                     </div>
                     <p
-                      class="text-primary-100 font-medium text-xs text-ellipsis whitespace-nowrap overflow-hidden"
+                      class="text-primary-100 font-medium text-xs"
                     >
                       11 Sep 2026
                     </p>
@@ -634,7 +634,7 @@ exports[`AppointmentsHistory Component should render correctly with admin role w
                       />
                     </span>
                     <p
-                      class="text-primary-100 font-medium text-sm text-ellipsis whitespace-nowrap overflow-hidden max-w-[65px] md:max-w-[90px] lg:max-w-full"
+                      class="text-primary-100 font-medium text-sm overflow-hidden max-w-[65px] md:max-w-[90px] lg:max-w-full"
                     >
                       Alex Stanton
                     </p>
@@ -669,7 +669,7 @@ exports[`AppointmentsHistory Component should render correctly with admin role w
                       />
                     </span>
                     <p
-                      class="text-primary-100 font-medium text-sm text-ellipsis whitespace-nowrap overflow-hidden max-w-[65px] md:max-w-[90px] lg:max-w-full"
+                      class="text-primary-100 font-medium text-sm overflow-hidden max-w-[65px] md:max-w-[90px] lg:max-w-full"
                     >
                       ThangHq
                     </p>
@@ -683,7 +683,7 @@ exports[`AppointmentsHistory Component should render correctly with admin role w
                   tabindex="-1"
                 >
                   <p
-                    class="text-primary-100 font-medium text-xs text-ellipsis whitespace-nowrap overflow-hidden hidden sm:block"
+                    class="text-primary-100 font-medium text-xs hidden sm:block"
                   >
                     9:00 am to 10:00 am
                   </p>
@@ -706,7 +706,7 @@ exports[`AppointmentsHistory Component should render correctly with admin role w
                       </p>
                     </div>
                     <p
-                      class="text-primary-100 font-medium text-xs text-ellipsis whitespace-nowrap overflow-hidden"
+                      class="text-primary-100 font-medium text-xs"
                     >
                       12 Sep 2026
                     </p>
@@ -813,7 +813,7 @@ exports[`AppointmentsHistory Component should render correctly with admin role w
                       />
                     </span>
                     <p
-                      class="text-primary-100 font-medium text-sm text-ellipsis whitespace-nowrap overflow-hidden max-w-[65px] md:max-w-[90px] lg:max-w-full"
+                      class="text-primary-100 font-medium text-sm overflow-hidden max-w-[65px] md:max-w-[90px] lg:max-w-full"
                     >
                       ThangHq
                     </p>
@@ -848,7 +848,7 @@ exports[`AppointmentsHistory Component should render correctly with admin role w
                       />
                     </span>
                     <p
-                      class="text-primary-100 font-medium text-sm text-ellipsis whitespace-nowrap overflow-hidden max-w-[65px] md:max-w-[90px] lg:max-w-full"
+                      class="text-primary-100 font-medium text-sm overflow-hidden max-w-[65px] md:max-w-[90px] lg:max-w-full"
                     >
                       Alex Stanton
                     </p>
@@ -862,7 +862,7 @@ exports[`AppointmentsHistory Component should render correctly with admin role w
                   tabindex="-1"
                 >
                   <p
-                    class="text-primary-100 font-medium text-xs text-ellipsis whitespace-nowrap overflow-hidden hidden sm:block"
+                    class="text-primary-100 font-medium text-xs hidden sm:block"
                   >
                     10:00 am to 11:00 am
                   </p>
@@ -885,7 +885,7 @@ exports[`AppointmentsHistory Component should render correctly with admin role w
                       </p>
                     </div>
                     <p
-                      class="text-primary-100 font-medium text-xs text-ellipsis whitespace-nowrap overflow-hidden"
+                      class="text-primary-100 font-medium text-xs"
                     >
                       13 Sep 2024
                     </p>
@@ -973,7 +973,7 @@ exports[`AppointmentsHistory Component should render correctly with user role wh
       class="flex justify-between items-center"
     >
       <p
-        class="text-ellipsis whitespace-nowrap overflow-hidden text-xl font-bold text-primary-100"
+        class="text-xl font-bold text-primary-100"
       >
         History
       </p>
@@ -991,7 +991,7 @@ exports[`AppointmentsHistory Component should render correctly with user role wh
           >
             <input
               style="font-size: 16px;"
-              tabindex="-1"
+              tabindex="0"
               type="text"
               value=""
             />
@@ -1194,7 +1194,7 @@ exports[`AppointmentsHistory Component should render correctly with user role wh
                       />
                     </span>
                     <p
-                      class="text-primary-100 font-medium text-sm text-ellipsis whitespace-nowrap overflow-hidden max-w-[65px] md:max-w-[90px] lg:max-w-full"
+                      class="text-primary-100 font-medium text-sm overflow-hidden max-w-[65px] md:max-w-[90px] lg:max-w-full"
                     >
                       Alex Stanton
                     </p>
@@ -1208,7 +1208,7 @@ exports[`AppointmentsHistory Component should render correctly with user role wh
                   tabindex="-1"
                 >
                   <p
-                    class="text-primary-100 font-medium text-xs text-ellipsis whitespace-nowrap overflow-hidden hidden sm:block"
+                    class="text-primary-100 font-medium text-xs hidden sm:block"
                   >
                     1:30 pm to 3:00 pm
                   </p>
@@ -1231,7 +1231,7 @@ exports[`AppointmentsHistory Component should render correctly with user role wh
                       </p>
                     </div>
                     <p
-                      class="text-primary-100 font-medium text-xs text-ellipsis whitespace-nowrap overflow-hidden"
+                      class="text-primary-100 font-medium text-xs"
                     >
                       11 Sep 2026
                     </p>
@@ -1339,7 +1339,7 @@ exports[`AppointmentsHistory Component should render correctly with user role wh
                       />
                     </span>
                     <p
-                      class="text-primary-100 font-medium text-sm text-ellipsis whitespace-nowrap overflow-hidden max-w-[65px] md:max-w-[90px] lg:max-w-full"
+                      class="text-primary-100 font-medium text-sm overflow-hidden max-w-[65px] md:max-w-[90px] lg:max-w-full"
                     >
                       Alex Stanton
                     </p>
@@ -1353,7 +1353,7 @@ exports[`AppointmentsHistory Component should render correctly with user role wh
                   tabindex="-1"
                 >
                   <p
-                    class="text-primary-100 font-medium text-xs text-ellipsis whitespace-nowrap overflow-hidden hidden sm:block"
+                    class="text-primary-100 font-medium text-xs hidden sm:block"
                   >
                     9:00 am to 10:00 am
                   </p>
@@ -1376,7 +1376,7 @@ exports[`AppointmentsHistory Component should render correctly with user role wh
                       </p>
                     </div>
                     <p
-                      class="text-primary-100 font-medium text-xs text-ellipsis whitespace-nowrap overflow-hidden"
+                      class="text-primary-100 font-medium text-xs"
                     >
                       12 Sep 2026
                     </p>
@@ -1483,7 +1483,7 @@ exports[`AppointmentsHistory Component should render correctly with user role wh
                       />
                     </span>
                     <p
-                      class="text-primary-100 font-medium text-sm text-ellipsis whitespace-nowrap overflow-hidden max-w-[65px] md:max-w-[90px] lg:max-w-full"
+                      class="text-primary-100 font-medium text-sm overflow-hidden max-w-[65px] md:max-w-[90px] lg:max-w-full"
                     >
                       ThangHq
                     </p>
@@ -1497,7 +1497,7 @@ exports[`AppointmentsHistory Component should render correctly with user role wh
                   tabindex="-1"
                 >
                   <p
-                    class="text-primary-100 font-medium text-xs text-ellipsis whitespace-nowrap overflow-hidden hidden sm:block"
+                    class="text-primary-100 font-medium text-xs hidden sm:block"
                   >
                     10:00 am to 11:00 am
                   </p>
@@ -1520,7 +1520,7 @@ exports[`AppointmentsHistory Component should render correctly with user role wh
                       </p>
                     </div>
                     <p
-                      class="text-primary-100 font-medium text-xs text-ellipsis whitespace-nowrap overflow-hidden"
+                      class="text-primary-100 font-medium text-xs"
                     >
                       13 Sep 2024
                     </p>

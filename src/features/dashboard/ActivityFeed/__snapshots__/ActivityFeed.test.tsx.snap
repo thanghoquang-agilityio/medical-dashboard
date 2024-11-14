@@ -7,7 +7,7 @@ exports[`ActivityFeed test cases should render correctly with props 1`] = `
     tabindex="-1"
   >
     <p
-      class="text-primary-100 font-semibold text-lg text-ellipsis whitespace-nowrap overflow-hidden leading-9"
+      class="text-primary-100 font-semibold text-lg leading-9"
     >
       Activity Feed
     </p>
@@ -93,7 +93,7 @@ exports[`ActivityFeed test cases should render correctly without empty role 1`] 
     tabindex="-1"
   >
     <p
-      class="text-primary-100 font-semibold text-lg text-ellipsis whitespace-nowrap overflow-hidden leading-9"
+      class="text-primary-100 font-semibold text-lg leading-9"
     >
       Activity Feed
     </p>

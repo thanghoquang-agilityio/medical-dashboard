@@ -1,5 +1,4 @@
 import { memo, type ReactNode } from 'react';
-import { TYPE_CLASSES } from '@/constants';
 import { cn } from '@/utils';
 
 interface TextProps {
@@ -48,16 +47,10 @@ const SIZE_CLASSES = {
 };
 
 export const Text = memo(
-  ({
-    variant = 'default',
-    size,
-    type = 'nowrap',
-    customClass,
-    children,
-  }: TextProps) => (
+  ({ variant = 'default', size, customClass, children }: TextProps) => (
     <p
       className={cn(
-        `${VARIANT_CLASSES[variant]} ${size ? SIZE_CLASSES[size] : ''} ${TYPE_CLASSES[type]} ${customClass || ''}`,
+        `${VARIANT_CLASSES[variant]} ${size ? SIZE_CLASSES[size] : ''} ${customClass || ''}`,
       )}
     >
       {children}

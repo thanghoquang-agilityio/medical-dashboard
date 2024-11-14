@@ -3,7 +3,7 @@
 exports[`ChemistList should render correctly 1`] = `
 <DocumentFragment>
   <p
-    class="text-primary-100 font-medium text-2xl text-ellipsis whitespace-nowrap overflow-hidden my-5"
+    class="text-primary-100 font-medium text-2xl my-5"
   >
     All Chemists
   </p>
@@ -89,12 +89,12 @@ exports[`ChemistList should render correctly 1`] = `
                 class="flex flex-col gap-1"
               >
                 <p
-                  class="text-primary-100 font-semibold text-base text-ellipsis whitespace-nowrap overflow-hidden"
+                  class="text-primary-100 font-semibold text-base"
                 >
                   Alex Stanton
                 </p>
                 <p
-                  class="text-primary-200 text-xs text-ellipsis whitespace-nowrap overflow-hidden font-normal"
+                  class="text-primary-200 text-xs font-normal"
                 >
                   Laboratory Chemist
                 </p>
@@ -105,7 +105,7 @@ exports[`ChemistList should render correctly 1`] = `
             class="relative flex w-full flex-auto flex-col place-content-inherit align-items-inherit h-auto break-words text-left overflow-y-auto subpixel-antialiased p-0"
           >
             <p
-              class="text-primary-200 font-medium text-sm whitespace-pre-wrap line-clamp-2"
+              class="text-primary-200 font-medium text-sm line-clamp-2"
             >
               Hi, I'm Alex Stanton. Happy for all problem happen with me. Let's smile.
             </p>
@@ -160,7 +160,7 @@ exports[`ChemistList should render correctly 1`] = `
                     />
                   </svg>
                   <p
-                    class="text-primary-100 text-sm text-ellipsis whitespace-nowrap overflow-hidden font-medium"
+                    class="text-primary-100 text-sm font-medium"
                   >
                     22 Tasks
                   </p>
@@ -169,7 +169,7 @@ exports[`ChemistList should render correctly 1`] = `
                   class="flex items-center gap-1 sm:gap-2"
                 >
                   <p
-                    class="text-primary-100 text-sm text-ellipsis whitespace-nowrap overflow-hidden font-medium"
+                    class="text-primary-100 text-sm font-medium"
                   >
                     (321 Reviews)
                   </p>
@@ -179,7 +179,7 @@ exports[`ChemistList should render correctly 1`] = `
                 class="flex justify-between items-center gap-1 sm:gap-2"
               >
                 <p
-                  class="text-primary-100 text-sm text-ellipsis whitespace-nowrap overflow-hidden font-medium"
+                  class="text-primary-100 text-sm font-medium"
                 >
                   Rating: 5
                 </p>
@@ -323,12 +323,12 @@ exports[`ChemistList should render correctly 1`] = `
                 class="flex flex-col gap-1"
               >
                 <p
-                  class="text-primary-100 font-semibold text-base text-ellipsis whitespace-nowrap overflow-hidden"
+                  class="text-primary-100 font-semibold text-base"
                 >
                   Anna White
                 </p>
                 <p
-                  class="text-primary-200 text-xs text-ellipsis whitespace-nowrap overflow-hidden font-normal"
+                  class="text-primary-200 text-xs font-normal"
                 >
                   Power Plant Chemist
                 </p>
@@ -339,7 +339,7 @@ exports[`ChemistList should render correctly 1`] = `
             class="relative flex w-full flex-auto flex-col place-content-inherit align-items-inherit h-auto break-words text-left overflow-y-auto subpixel-antialiased p-0"
           >
             <p
-              class="text-primary-200 font-medium text-sm whitespace-pre-wrap line-clamp-2"
+              class="text-primary-200 font-medium text-sm line-clamp-2"
             >
               No description
             </p>
@@ -394,7 +394,7 @@ exports[`ChemistList should render correctly 1`] = `
                     />
                   </svg>
                   <p
-                    class="text-primary-100 text-sm text-ellipsis whitespace-nowrap overflow-hidden font-medium"
+                    class="text-primary-100 text-sm font-medium"
                   >
                     40 Tasks
                   </p>
@@ -403,7 +403,7 @@ exports[`ChemistList should render correctly 1`] = `
                   class="flex items-center gap-1 sm:gap-2"
                 >
                   <p
-                    class="text-primary-100 text-sm text-ellipsis whitespace-nowrap overflow-hidden font-medium"
+                    class="text-primary-100 text-sm font-medium"
                   >
                     (600 Reviews)
                   </p>
@@ -413,7 +413,7 @@ exports[`ChemistList should render correctly 1`] = `
                 class="flex justify-between items-center gap-1 sm:gap-2"
               >
                 <p
-                  class="text-primary-100 text-sm text-ellipsis whitespace-nowrap overflow-hidden font-medium"
+                  class="text-primary-100 text-sm font-medium"
                 >
                   Rating: 5
                 </p>
@@ -557,12 +557,12 @@ exports[`ChemistList should render correctly 1`] = `
                 class="flex flex-col gap-1"
               >
                 <p
-                  class="text-primary-100 font-semibold text-base text-ellipsis whitespace-nowrap overflow-hidden"
+                  class="text-primary-100 font-semibold text-base"
                 >
                   Jessica Jane
                 </p>
                 <p
-                  class="text-primary-200 text-xs text-ellipsis whitespace-nowrap overflow-hidden font-normal"
+                  class="text-primary-200 text-xs font-normal"
                 >
                   Instrumentation
                 </p>
@@ -573,7 +573,7 @@ exports[`ChemistList should render correctly 1`] = `
             class="relative flex w-full flex-auto flex-col place-content-inherit align-items-inherit h-auto break-words text-left overflow-y-auto subpixel-antialiased p-0"
           >
             <p
-              class="text-primary-200 font-medium text-sm whitespace-pre-wrap line-clamp-2"
+              class="text-primary-200 font-medium text-sm line-clamp-2"
             >
               Hi, I'm Jessica Jane. Lorem Ipsum is simply dummy text of the printing and typesetting for it.
             </p>
@@ -628,7 +628,7 @@ exports[`ChemistList should render correctly 1`] = `
                     />
                   </svg>
                   <p
-                    class="text-primary-100 text-sm text-ellipsis whitespace-nowrap overflow-hidden font-medium"
+                    class="text-primary-100 text-sm font-medium"
                   >
                     23 Tasks
                   </p>
@@ -637,7 +637,7 @@ exports[`ChemistList should render correctly 1`] = `
                   class="flex items-center gap-1 sm:gap-2"
                 >
                   <p
-                    class="text-primary-100 text-sm text-ellipsis whitespace-nowrap overflow-hidden font-medium"
+                    class="text-primary-100 text-sm font-medium"
                   >
                     (123 Reviews)
                   </p>
@@ -647,7 +647,7 @@ exports[`ChemistList should render correctly 1`] = `
                 class="flex justify-between items-center gap-1 sm:gap-2"
               >
                 <p
-                  class="text-primary-100 text-sm text-ellipsis whitespace-nowrap overflow-hidden font-medium"
+                  class="text-primary-100 text-sm font-medium"
                 >
                   Rating: 4
                 </p>
@@ -780,12 +780,12 @@ exports[`ChemistList should render correctly 1`] = `
                 class="flex flex-col gap-1"
               >
                 <p
-                  class="text-primary-100 font-semibold text-base text-ellipsis whitespace-nowrap overflow-hidden"
+                  class="text-primary-100 font-semibold text-base"
                 >
                   John Smith
                 </p>
                 <p
-                  class="text-primary-200 text-xs text-ellipsis whitespace-nowrap overflow-hidden font-normal"
+                  class="text-primary-200 text-xs font-normal"
                 >
                   QC Chemist
                 </p>
@@ -796,7 +796,7 @@ exports[`ChemistList should render correctly 1`] = `
             class="relative flex w-full flex-auto flex-col place-content-inherit align-items-inherit h-auto break-words text-left overflow-y-auto subpixel-antialiased p-0"
           >
             <p
-              class="text-primary-200 font-medium text-sm whitespace-pre-wrap line-clamp-2"
+              class="text-primary-200 font-medium text-sm line-clamp-2"
             >
               I'm John Smith from VHA with love.
             </p>
@@ -851,7 +851,7 @@ exports[`ChemistList should render correctly 1`] = `
                     />
                   </svg>
                   <p
-                    class="text-primary-100 text-sm text-ellipsis whitespace-nowrap overflow-hidden font-medium"
+                    class="text-primary-100 text-sm font-medium"
                   >
                     12 Tasks
                   </p>
@@ -860,7 +860,7 @@ exports[`ChemistList should render correctly 1`] = `
                   class="flex items-center gap-1 sm:gap-2"
                 >
                   <p
-                    class="text-primary-100 text-sm text-ellipsis whitespace-nowrap overflow-hidden font-medium"
+                    class="text-primary-100 text-sm font-medium"
                   >
                     (333 Reviews)
                   </p>
@@ -870,7 +870,7 @@ exports[`ChemistList should render correctly 1`] = `
                 class="flex justify-between items-center gap-1 sm:gap-2"
               >
                 <p
-                  class="text-primary-100 text-sm text-ellipsis whitespace-nowrap overflow-hidden font-medium"
+                  class="text-primary-100 text-sm font-medium"
                 >
                   Rating: 3
                 </p>
@@ -992,12 +992,12 @@ exports[`ChemistList should render correctly 1`] = `
                 class="flex flex-col gap-1"
               >
                 <p
-                  class="text-primary-100 font-semibold text-base text-ellipsis whitespace-nowrap overflow-hidden"
+                  class="text-primary-100 font-semibold text-base"
                 >
                   ThangHq
                 </p>
                 <p
-                  class="text-primary-200 text-xs text-ellipsis whitespace-nowrap overflow-hidden font-normal"
+                  class="text-primary-200 text-xs font-normal"
                 >
                   Organic Chemist
                 </p>
@@ -1008,7 +1008,7 @@ exports[`ChemistList should render correctly 1`] = `
             class="relative flex w-full flex-auto flex-col place-content-inherit align-items-inherit h-auto break-words text-left overflow-y-auto subpixel-antialiased p-0"
           >
             <p
-              class="text-primary-200 font-medium text-sm whitespace-pre-wrap line-clamp-2"
+              class="text-primary-200 font-medium text-sm line-clamp-2"
             >
               Hi, I'm Thang Ho Quang. I'm a software developer in AgilityIO. I'm so happy my job.
             </p>
@@ -1063,7 +1063,7 @@ exports[`ChemistList should render correctly 1`] = `
                     />
                   </svg>
                   <p
-                    class="text-primary-100 text-sm text-ellipsis whitespace-nowrap overflow-hidden font-medium"
+                    class="text-primary-100 text-sm font-medium"
                   >
                     40 Tasks
                   </p>
@@ -1072,7 +1072,7 @@ exports[`ChemistList should render correctly 1`] = `
                   class="flex items-center gap-1 sm:gap-2"
                 >
                   <p
-                    class="text-primary-100 text-sm text-ellipsis whitespace-nowrap overflow-hidden font-medium"
+                    class="text-primary-100 text-sm font-medium"
                   >
                     (600 Reviews)
                   </p>
@@ -1082,7 +1082,7 @@ exports[`ChemistList should render correctly 1`] = `
                 class="flex justify-between items-center gap-1 sm:gap-2"
               >
                 <p
-                  class="text-primary-100 text-sm text-ellipsis whitespace-nowrap overflow-hidden font-medium"
+                  class="text-primary-100 text-sm font-medium"
                 >
                   Rating: 5
                 </p>
