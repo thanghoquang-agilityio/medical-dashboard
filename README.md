@@ -37,15 +37,11 @@ This is a [Next.js](https://nextjs.org/) big practice for NextJS built with [`cr
 
 - React [v18.3.1]
 
-- Node [v20.12.1]
-
-- Pnpm [v8.8.0]
-
 - Typescript [v5.5.4]
 
-- Storybook [v8.2.7]
+- Storybook [v8.1.2]
 
-- TailwindCss [v3.4.7]
+- TailwindCss [v3.4.10]
 
 - [React Hook Form](https://react-hook-form.com/)
 
@@ -116,30 +112,48 @@ Check and update config image hosting on `next.config.mjs` file follow [Next.js 
 ```shell
 .
 ├── README.md                       # README file
+├── .github                         # Github action configuration
+├── .gitlab                         # Gitlab merge request configuration
 ├── .husky                          # Husky configuration
 ├── .storybook                      # Storybook folder
 ├── .vscode                         # VSCode configuration
+├── patches                         # Patch package file
 ├── public                          # Public assets folder
 ├── src
+│   ├── actions                     # Next.js actions
 │   ├── app                         # Next.js App (App Router)
 │   ├── components                  # React components
+│   ├── config                      # Configuration of libraries
 │   ├── constants                   # App constants
+│   ├── context                     # App context
+│   ├── features                    # Feature components
+│   ├── hocs                        # Higher order components
+│   ├── hooks                       # Custom hooks
 │   ├── icons                       # Icons folder
-│   ├── layouts                     # React components for app layout
-│   ├── models                      # Model type definitions
-│   ├── services                         # Handle data with API: GET, POST, PUT, DELETE
+│   ├── mocks                       # App mock data
+│   ├── types                       # Model type definitions
+│   ├── services                    # Handle data with API: GET, POST, PUT, DELETE
 │   ├── types                       # Type definitions
-│   ├── ui                          # React components by feature
+│   ├── themes                      # Custom tailwindCSS styles
 │   ├── utils                       # Utilities folder
+├── .editorconfig                   # Editor configuration
+├── .env.sample                     # Env sample
+├── .env.test                       # Env using for testing
 ├── .eslintrc.json                  # ESLint configuration
+├── .gitignore                      # git ignore file
 ├── .lintstagedrc                   # Lint-stage
 ├── .prettierrc                     # Prettier configuration
+├── commitlint.config.js            # Commitlint configuration
 ├── jest.config.ts                  # Jest configuration
+├── jest.setup.ts                   # Jest setup
 ├── next.config.mjs                 # Next.js configuration
 ├── next.config.mjs                 # Next.js configuration
 ├── postcss.config.mjs              # Post CSS configuration
 ├── tailwind.config.ts              # Tailwind CSS configuration
-└── tsconfig.json                   # TypeScript configuration
+├── tsconfig.json                   # TypeScript configuration
+├── tailwind.config.ts              # Tailwind CSS configuration
+├── pnpm-lock.yaml
+└── package.json
 ```
 
 ## Maintainers
@@ -172,21 +186,22 @@ Thang is typically available during weekdays and aims to respond to issues and p
 
 - Clone this repo: https://github.com/thanghoquang-agilityio/medical-dashboard-api
 - Run command pnpm i
-- Create an .env and paste following:
+- Create an .env file with following sample:
 
 ```
-  HOST=0.0.0.0
-  PORT=1341
-  APP_KEYS=dkS4WZEr18vHuQ/JWFkTvQ==,zEiumqMpvu8X0/i3eULdBA==,EzYg6KZ4f2rH7t7HC9JWGg==,+0TetkwFGgkMnIfb6waR4A==
-  API_TOKEN_SALT=I9KwAX7y0FMJ674ocFAklw==
-  ADMIN_JWT_SECRET=HvPZPD1T0YkCG+byUB8kNQ==
-  TRANSFER_TOKEN_SALT=Nqk0hJcp7C21EFLZY9nuEg==
+  HOST=
+  PORT=
+  APP_KEYS=
+  API_TOKEN_SALT=
+  ADMIN_JWT_SECRET=
+  TRANSFER_TOKEN_SALT=
   # Database
-  DATABASE_CLIENT=sqlite
-  DATABASE_FILENAME=.tmp/data.db
-  JWT_SECRET=6b5O8gJWggCzxzDYIXygCw==
+  DATABASE_CLIENT=
+  DATABASE_FILENAME=
+  JWT_SECRET=
 ```
 
+- Get the env value in [here](https://drive.google.com/file/d/152oDSQ9kp8BUxj7w--5x2oADeR6MY9Uh/view?usp=sharing).
 - Run pnpm develop
 - Open admin panel and register an admin account
 - Create an API token and replace it with the NEXT_PUBLIC_AUTH_TOKEN in web app
@@ -197,3 +212,4 @@ Thang is typically available during weekdays and aims to respond to issues and p
     - Can not _delete_ and _updateUnpublished_ for **Appointment**
     - Can not _delete_, _update_, _create_ and _updateUnpublished_ for **Chemist**
     - Can only _find_ and _findOne_ for **Specialty**
+- Go to **Settings** -> **Users & Permissions plugin** -> **Advanced settings** and set default role for authenticated users to **Normal User**
