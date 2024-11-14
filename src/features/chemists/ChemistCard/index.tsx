@@ -62,10 +62,6 @@ const ChemistCard = ({ id, data, isAdmin, onEdit }: ChemistCardProps) => {
 
   const [isLoading, setIsLoading] = useState(false);
 
-  const handleOpenConfirmModal = useCallback(() => {
-    onOpenConfirm();
-  }, [onOpenConfirm]);
-
   const handleDelete = useCallback(async () => {
     setIsLoading(true);
     const { error: errorUser } = await updateUnpublishUser(id);
@@ -112,7 +108,7 @@ const ChemistCard = ({ id, data, isAdmin, onEdit }: ChemistCardProps) => {
                 </Button>
                 <Button
                   isIconOnly
-                  onClick={handleOpenConfirmModal}
+                  onClick={onOpenConfirm}
                   aria-label="delete-btn"
                 >
                   <DeleteIcon customClass="text-background-100 flex-shrink-0 w-4 h-4" />
