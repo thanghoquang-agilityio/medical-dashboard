@@ -135,14 +135,6 @@ const ChemistCard = ({ id, data, isAdmin, onEdit }: ChemistCardProps) => {
                 )}
               </div>
             </div>
-            {!isAdmin && (
-              <Button
-                color="default"
-                className="text-secondary-500 text-lg font-medium p-0 min-w-10"
-              >
-                Book
-              </Button>
-            )}
           </CardHeader>
           <CardBody className="p-0">
             <Text
