@@ -17,7 +17,12 @@ import {
 } from '@/icons';
 
 // Constants
-import { AUTH_ROUTES, ERROR_MESSAGE, SUCCESS_MESSAGE } from '@/constants';
+import {
+  AUTH_ROUTES,
+  DEFAULT_REGISTER_SPECIALTY_ID,
+  ERROR_MESSAGE,
+  SUCCESS_MESSAGE,
+} from '@/constants';
 import { SIGN_UP_FORM_VALIDATION } from './rule';
 
 // Types
@@ -38,6 +43,8 @@ const DEFAULT_VALUE: SignupFormData = {
   email: '',
   password: '',
   confirmPassWord: '',
+  // Default specialty is: Organic Chemist
+  specialtyId: DEFAULT_REGISTER_SPECIALTY_ID,
 };
 
 const SignupForm = () => {
@@ -120,6 +127,7 @@ const SignupForm = () => {
         const addUserError = await addUserToChemists({
           users_permissions_user: id,
         });
+
         if (addUserError.error) {
           handleError(addUserError.error);
           return;
