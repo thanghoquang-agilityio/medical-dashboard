@@ -77,9 +77,6 @@ export const CHEMIST_FORM_VALIDATION = {
       },
     };
   },
-  SPECIALTY: {
-    required: FORM_VALIDATION_MESSAGE.REQUIRED('Specialty'),
-  },
   DESCRIPTION: {
     pattern: {
       value: REGEX.ALL_WHITE_SPACE,

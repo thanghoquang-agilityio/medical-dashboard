@@ -40,28 +40,17 @@ const ChemistActions = ({
     new Set<string>([defaultSpecialty]),
   );
 
-  const handleReplaceURL = useCallback(
-    (params: URLSearchParams) => {
-      replace(`${pathname}?${params}`);
-    },
-    [pathname, replace],
-  );
-
   const updateSearchParams = useCallback(
-    (value: string) => {
-      const specialty = searchParams.get('specialty');
-
-      if (!specialty) {
-        params.append('specialty', value);
-      } else if (value) {
-        params.set('specialty', value);
+    (key: string, value: string) => {
+      if (value) {
+        params.set(key, value); // Update or add the key
       } else {
-        params.delete('specialty');
+        params.delete(key); // Remove the key
       }
 
-      handleReplaceURL?.(params);
+      replace(`${pathname}?${params}`);
     },
-    [handleReplaceURL, params, searchParams],
+    [params, pathname, replace],
   );
 
   const handleSelectSpecialty = useCallback(
@@ -72,7 +61,7 @@ const ChemistActions = ({
 
       if (value === 'all') {
         params.delete('specialty');
-        handleReplaceURL?.(params);
+        replace(`${pathname}?${params}`);
 
         return;
       }
@@ -81,13 +70,14 @@ const ChemistActions = ({
         ({ key }) => key === value,
       );
       const { key = '' } = selectedSpecialty || {};
-      setSpecialty(new Set([value]));
 
-      updateSearchParams(key);
+      setSpecialty(new Set([value]));
+      updateSearchParams('specialty', key);
     },
     [
-      handleReplaceURL,
       params,
+      pathname,
+      replace,
       specialty,
       specialtyOptionsByName,
       updateSearchParams,
