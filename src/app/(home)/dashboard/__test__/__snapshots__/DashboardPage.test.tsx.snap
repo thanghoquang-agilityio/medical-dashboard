@@ -278,7 +278,7 @@ exports[`Dashboard page should render correctly 1`] = `
               >
                 <input
                   style="font-size: 16px;"
-                  tabindex="-1"
+                  tabindex="0"
                   type="text"
                   value="new"
                 />
