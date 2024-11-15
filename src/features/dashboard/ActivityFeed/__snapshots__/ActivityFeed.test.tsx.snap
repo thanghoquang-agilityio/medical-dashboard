@@ -2,7 +2,7 @@
 
 exports[`ActivityFeed test cases should render correctly with props 1`] = `
 <DocumentFragment>
-  <div
+  <section
     class="flex flex-col relative overflow-hidden text-foreground box-border outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 shadow-medium rounded-large transition-transform-background motion-reduce:transition-none bg-background-200 h-fit w-full p-4 md:py-5"
     tabindex="-1"
   >
@@ -82,13 +82,13 @@ exports[`ActivityFeed test cases should render correctly with props 1`] = `
         </div>
       </div>
     </div>
-  </div>
+  </section>
 </DocumentFragment>
 `;
 
 exports[`ActivityFeed test cases should render correctly without empty role 1`] = `
 <DocumentFragment>
-  <div
+  <section
     class="flex flex-col relative overflow-hidden text-foreground box-border outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 shadow-medium rounded-large transition-transform-background motion-reduce:transition-none bg-background-200 h-fit w-full p-4 md:py-5"
     tabindex="-1"
   >
@@ -168,6 +168,6 @@ exports[`ActivityFeed test cases should render correctly without empty role 1`] 
         </div>
       </div>
     </div>
-  </div>
+  </section>
 </DocumentFragment>
 `;
