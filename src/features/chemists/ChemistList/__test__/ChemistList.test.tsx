@@ -54,7 +54,7 @@ describe('ChemistList', () => {
       ...mockProps,
       pagination: {
         ...mockProps.pagination!,
-        page: 3,
+        page: 2,
       },
     });
 
