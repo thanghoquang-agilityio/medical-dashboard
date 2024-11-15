@@ -28,7 +28,7 @@ export const metadata: Metadata = {
   description: 'Appointments page for Medical Dashboard',
 };
 
-interface AppointmentPageSearchParamsProps extends SearchParams {
+export interface AppointmentPageSearchParamsProps extends SearchParams {
   status?: string;
 }
 
