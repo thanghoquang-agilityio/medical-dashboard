@@ -11,6 +11,7 @@ export interface SignupFormData {
   email: string;
   password: string;
   confirmPassWord: string;
+  specialtyId: string;
 }
 
 export type AuthResponse = {
