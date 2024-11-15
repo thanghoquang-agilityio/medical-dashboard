@@ -210,7 +210,6 @@ const ChemistForm = memo(
           type: STATUS_TYPE.ERROR,
         });
         setIsPending(false);
-        return;
       },
       [openToast],
     );
@@ -237,7 +236,12 @@ const ChemistForm = memo(
         };
 
         if (isEdit) {
-          const { error } = await updateUser(id, payload);
+          const data = {
+            ...payload,
+            specialtyId: payload.specialtyId ? payload.specialtyId : null,
+          };
+
+          const { error } = await updateUser(id, data);
 
           if (error) {
             handleError(error);
@@ -488,7 +492,6 @@ const ChemistForm = memo(
         <Controller
           control={control}
           name="specialtyId"
-          rules={CHEMIST_FORM_VALIDATION.SPECIALTY}
           render={({
             field: { name, value, onChange, onBlur: _onBlur, ...rest },
             fieldState: { error },

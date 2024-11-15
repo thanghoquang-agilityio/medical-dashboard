@@ -11,5 +11,3 @@ export const DEFAULT_CHEMIST_DATA: UserModel = {
   specialtyId: undefined,
   avatar: undefined,
 };
-
-export const DEFAULT_REGISTER_SPECIALTY_ID = '6';

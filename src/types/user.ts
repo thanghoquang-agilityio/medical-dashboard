@@ -85,6 +85,6 @@ export type UserPayload = Omit<
 > & {
   role: number;
   password?: string;
-  specialtyId: number;
+  specialtyId?: number | null;
   avatar?: string;
 };
