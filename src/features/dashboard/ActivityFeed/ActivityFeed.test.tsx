@@ -1,13 +1,11 @@
 import React, { act } from 'react';
-import { render } from '@testing-library/react';
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 import ActivityFeed, { ActivityFeedProps } from '.';
 import { getNotifications } from '@/services';
-import { resolvedComponent } from '@/utils';
-
 import { MOCK_NOTIFICATION_LIST } from '@/mocks';
 import { PRIVATE_ROUTES } from '@/constants';
 import { MOCK_USERS_LOGGED } from '@/mocks/user';
+import { renderServerComponent } from '@/utils/test-util';
 
 jest.mock('@/services/notification.ts', () => ({
   getNotifications: jest.fn(),
@@ -30,11 +28,8 @@ describe('ActivityFeed test cases', () => {
   const mockUseRouter = useRouter as jest.Mock;
   const mockUseSearchParams = useSearchParams as jest.Mock;
 
-  const setup = async (props: ActivityFeedProps) => {
-    const ResolvedActivityFeed = await resolvedComponent(ActivityFeed, props);
-
-    return act(() => render(<ResolvedActivityFeed />));
-  };
+  const setup = async (props: ActivityFeedProps) =>
+    act(() => renderServerComponent(<ActivityFeed {...props} />));
 
   beforeEach(() => {
     jest.spyOn(React, 'useMemo').mockReturnValueOnce({});

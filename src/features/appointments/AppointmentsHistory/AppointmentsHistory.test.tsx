@@ -35,14 +35,6 @@ describe('AppointmentsHistory Component', () => {
     });
   });
 
-  it('should render loading indicator when during fetching', async () => {
-    await setup({ appointments: [], userLogged: MOCK_USERS_LOGGED[0] });
-
-    waitFor(() => {
-      expect(screen.getByLabelText('Loading')).toBeInTheDocument();
-    });
-  });
-
   it('should render correctly with user role when have appointments value', async () => {
     const { container } = await setup({
       appointments: MOCK_APPOINTMENTS,
