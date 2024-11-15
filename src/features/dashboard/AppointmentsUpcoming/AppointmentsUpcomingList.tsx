@@ -8,6 +8,7 @@ import {
   useCallback,
   useMemo,
   useState,
+  useTransition,
 } from 'react';
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 import { Card, useDisclosure } from '@nextui-org/react';
@@ -41,6 +42,7 @@ import { createColumns } from './columns';
 
 // Hooks
 import { useNotification } from '@/hooks';
+import { AppointmentsUpcomingListSkeleton } from './AppointmentsUpcomingSkeleton';
 const DataGrid = lazy(() => import('@/components/ui/DataGrid'));
 const ConfirmModal = lazy(() => import('@/components/ui/ConfirmModal'));
 
@@ -69,6 +71,7 @@ const AppointmentsUpcomingList = memo(
     const searchParams = useSearchParams() ?? '';
     const pathname = usePathname() ?? '';
     const router = useRouter();
+    const [isPending, startTransition] = useTransition();
 
     const params = useMemo(
       () => new URLSearchParams(searchParams),
@@ -77,7 +80,9 @@ const AppointmentsUpcomingList = memo(
 
     const handleReplaceURL = useCallback(
       (params: URLSearchParams) => {
-        router.replace(`${pathname}?${params.toString()}`);
+        startTransition(() => {
+          router.replace(`${pathname}?${params.toString()}`);
+        });
       },
       [pathname, router],
     );
@@ -214,13 +219,17 @@ const AppointmentsUpcomingList = memo(
           </div>
         </div>
 
-        <DataGrid
-          data={appointments}
-          columns={columns as ColumnType<unknown>[]}
-          classWrapper="pt-4 rounded-none"
-          id="appointment-upcoming"
-          classCell="pb-4"
-        />
+        {isPending ? (
+          <AppointmentsUpcomingListSkeleton />
+        ) : (
+          <DataGrid
+            data={appointments}
+            columns={columns as ColumnType<unknown>[]}
+            classWrapper="pt-4 rounded-none"
+            id="appointment-upcoming"
+            classCell="pb-4"
+          />
+        )}
 
         <ConfirmModal
           title="Confirmation"

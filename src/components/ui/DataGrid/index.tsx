@@ -52,6 +52,7 @@ const DataGrid = memo(
     classWrapper = '',
     classRow = '',
     classCell = '',
+    startTransition,
     ...props
   }: DataTableProps<T>) => {
     const { page = PAGE_DEFAULT, pageCount = PAGE_DEFAULT } = pagination ?? {};
@@ -65,9 +66,11 @@ const DataGrid = memo(
 
     const handleReplaceURL = useCallback(
       (params: URLSearchParams) => {
-        replace(`${pathname}?${params.toString()}`);
+        startTransition?.(() => {
+          replace(`${pathname}?${params.toString()}`);
+        });
       },
-      [pathname, replace],
+      [pathname, replace, startTransition],
     );
 
     const handlePageChange = useCallback(

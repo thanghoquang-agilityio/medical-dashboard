@@ -8,6 +8,7 @@ import {
   useCallback,
   useMemo,
   useState,
+  useTransition,
 } from 'react';
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 import { Card, useDisclosure } from '@nextui-org/react';
@@ -41,6 +42,7 @@ import { createColumns } from './columns';
 
 // Hooks
 import { useNotification } from '@/hooks';
+import { AppointmentsHistoryListSkeleton } from './AppointmentsHistorySkeleton';
 
 const DataGrid = lazy(() => import('@/components/ui/DataGrid'));
 const ConfirmModal = lazy(() => import('@/components/ui/ConfirmModal'));
@@ -75,10 +77,13 @@ const AppointmentsHistory = ({
     () => new URLSearchParams(searchParams),
     [searchParams],
   );
+  const [isPending, startTransition] = useTransition();
 
   const handleReplaceURL = useCallback(
     (params: URLSearchParams) => {
-      router.replace(`${pathname}?${params.toString()}`);
+      startTransition(() => {
+        router.replace(`${pathname}?${params.toString()}`);
+      });
     },
     [pathname, router],
   );
@@ -227,15 +232,21 @@ const AppointmentsHistory = ({
             onChange={handleSelectStatus}
           />
         </div>
+
         <div className="flex flex-col items-center">
-          <DataGrid
-            data={appointments}
-            columns={columns as ColumnType<unknown>[]}
-            pagination={pagination}
-            hasDivider
-            classWrapper="p-1"
-            id="appointments-history"
-          />
+          {isPending ? (
+            <AppointmentsHistoryListSkeleton isAdmin={isAdmin} />
+          ) : (
+            <DataGrid
+              data={appointments}
+              columns={columns as ColumnType<unknown>[]}
+              pagination={pagination}
+              hasDivider
+              classWrapper="p-1"
+              id="appointments-history"
+              startTransition={startTransition}
+            />
+          )}
         </div>
       </Card>
 
