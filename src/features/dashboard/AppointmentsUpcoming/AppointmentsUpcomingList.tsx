@@ -195,7 +195,10 @@ const AppointmentsUpcomingList = memo(
     ]);
 
     return (
-      <Card className="w-full xl:max-w-[320px] 2xl:max-w-[550px] h-fit py-4 px-5 bg-background-200">
+      <Card
+        as="section"
+        className="w-full xl:max-w-[320px] 2xl:max-w-[550px] h-fit py-4 px-5 bg-background-200"
+      >
         <div className="flex justify-between items-center">
           <Text customClass="text-lg font-bold text-primary-100">
             Appointments

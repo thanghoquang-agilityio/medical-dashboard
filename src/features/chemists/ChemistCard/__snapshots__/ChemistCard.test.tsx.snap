@@ -5,7 +5,7 @@ exports[`ChemistCard test cases should render correctly 1`] = `
   <div
     class="min-w-[300px] w-full h-[232px] relative"
   >
-    <div
+    <article
       aria-label="chemist-card"
       class="flex flex-col relative text-foreground box-border outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 shadow-medium rounded-large transition-transform-background motion-reduce:transition-none bg-background-200 w-full h-full p-6 gap-6 overflow-visible pt-0"
       tabindex="-1"
@@ -234,7 +234,7 @@ exports[`ChemistCard test cases should render correctly 1`] = `
           </div>
         </div>
       </div>
-    </div>
+    </article>
   </div>
 </DocumentFragment>
 `;
@@ -244,7 +244,7 @@ exports[`ChemistCard test cases should render correctly without data 1`] = `
   <div
     class="min-w-[300px] w-full h-[232px] relative"
   >
-    <div
+    <article
       aria-label="chemist-card"
       class="flex flex-col relative text-foreground box-border outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 shadow-medium rounded-large transition-transform-background motion-reduce:transition-none bg-background-200 w-full h-full p-6 gap-6 overflow-visible pt-0"
       tabindex="-1"
@@ -410,7 +410,7 @@ exports[`ChemistCard test cases should render correctly without data 1`] = `
           </div>
         </div>
       </div>
-    </div>
+    </article>
   </div>
 </DocumentFragment>
 `;
