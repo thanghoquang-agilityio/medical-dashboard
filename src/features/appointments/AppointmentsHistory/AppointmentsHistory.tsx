@@ -211,23 +211,21 @@ const AppointmentsHistory = ({
       <Card className="w-full px-4 py-6 bg-background-200">
         <div className="flex justify-between items-center">
           <Text customClass="text-xl font-bold text-primary-100">History</Text>
-          <div>
-            <Select
-              aria-label="Status"
-              options={options}
-              selectedKeys={status}
-              defaultSelectedKeys={APPOINTMENT_STATUS_OPTIONS[0].key}
-              placeholder="Status"
-              classNames={{
-                base: 'max-w-[102px] max-h-[36px]',
-                mainWrapper: 'max-w-[102px] max-h-[36px]',
-                innerWrapper: 'w-[80px]',
-                trigger: 'min-h-[36px]',
-                listbox: 'px-0',
-              }}
-              onChange={handleSelectStatus}
-            />
-          </div>
+          <Select
+            aria-label="Status"
+            options={options}
+            selectedKeys={status}
+            defaultSelectedKeys={APPOINTMENT_STATUS_OPTIONS[0].key}
+            placeholder="Status"
+            classNames={{
+              base: 'max-w-[102px] max-h-[36px]',
+              mainWrapper: 'max-w-[102px] max-h-[36px]',
+              innerWrapper: 'w-[80px]',
+              trigger: 'min-h-[36px]',
+              listbox: 'px-0',
+            }}
+            onChange={handleSelectStatus}
+          />
         </div>
         <div className="flex flex-col items-center">
           <DataGrid
