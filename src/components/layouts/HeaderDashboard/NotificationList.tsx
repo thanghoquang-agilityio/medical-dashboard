@@ -1,12 +1,7 @@
 'use client';
 import { getNotifications } from '@/actions/notification';
 import { Avatar, Spinner, Text } from '@/components/ui';
-import {
-  API_ENDPOINT,
-  PAGE_DEFAULT,
-  PRIVATE_ROUTES,
-  TYPE_CLASSES,
-} from '@/constants';
+import { API_ENDPOINT, PAGE_DEFAULT, PRIVATE_ROUTES } from '@/constants';
 import { SingleDotIcon } from '@/icons';
 import { NotificationResponse } from '@/types';
 import { formatDateTime, fromDateToNow } from '@/utils';
@@ -101,7 +96,7 @@ const NotificationList = ({
                 <Text
                   size="xs"
                   variant="description"
-                  customClass={TYPE_CLASSES.wrap}
+                  customClass="whitespace-pre-wrap overflow-visible"
                 >
                   {attributes.senderId?.data.id.toString() === id
                     ? 'You'

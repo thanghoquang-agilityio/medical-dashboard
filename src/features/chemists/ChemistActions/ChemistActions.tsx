@@ -2,14 +2,7 @@
 
 import { useDisclosure } from '@nextui-org/react';
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
-import {
-  ChangeEvent,
-  memo,
-  useCallback,
-  useMemo,
-  useState,
-  useTransition,
-} from 'react';
+import { ChangeEvent, memo, useCallback, useMemo, useState } from 'react';
 
 // Components
 import { Button, Select } from '@/components/ui';
@@ -35,7 +28,6 @@ const ChemistActions = ({
   const pathname = usePathname() ?? '';
   const { replace } = useRouter();
 
-  const [_, startTransition] = useTransition();
   const { isOpen, onOpen, onClose } = useDisclosure();
 
   const params = useMemo(
@@ -48,30 +40,17 @@ const ChemistActions = ({
     new Set<string>([defaultSpecialty]),
   );
 
-  const handleReplaceURL = useCallback(
-    (params: URLSearchParams) => {
-      startTransition?.(() => {
-        replace(`${pathname}?${params}`);
-      });
-    },
-    [pathname, replace, startTransition],
-  );
-
   const updateSearchParams = useCallback(
-    (value: string) => {
-      const specialty = searchParams.get('specialty');
-
-      if (!specialty) {
-        params.append('specialty', value);
-      } else if (value) {
-        params.set('specialty', value);
+    (key: string, value: string) => {
+      if (value) {
+        params.set(key, value); // Update or add the key
       } else {
-        params.delete('specialty');
+        params.delete(key); // Remove the key
       }
 
-      handleReplaceURL?.(params);
+      replace(`${pathname}?${params}`);
     },
-    [handleReplaceURL, params, searchParams],
+    [params, pathname, replace],
   );
 
   const handleSelectSpecialty = useCallback(
@@ -82,7 +61,7 @@ const ChemistActions = ({
 
       if (value === 'all') {
         params.delete('specialty');
-        handleReplaceURL?.(params);
+        replace(`${pathname}?${params}`);
 
         return;
       }
@@ -91,22 +70,19 @@ const ChemistActions = ({
         ({ key }) => key === value,
       );
       const { key = '' } = selectedSpecialty || {};
-      setSpecialty(new Set([value]));
 
-      updateSearchParams(key);
+      setSpecialty(new Set([value]));
+      updateSearchParams('specialty', key);
     },
     [
-      handleReplaceURL,
       params,
+      pathname,
+      replace,
       specialty,
       specialtyOptionsByName,
       updateSearchParams,
     ],
   );
-
-  const handleCreateChemist = useCallback(() => {
-    onOpen();
-  }, [onOpen]);
 
   const isAdmin = role === ROLE.ADMIN;
 
@@ -126,7 +102,7 @@ const ChemistActions = ({
         onChange={handleSelectSpecialty}
       />
       {isAdmin && (
-        <Button className="font-medium h-[52px]" onClick={handleCreateChemist}>
+        <Button className="font-medium h-[52px]" onClick={onOpen}>
           Create
         </Button>
       )}

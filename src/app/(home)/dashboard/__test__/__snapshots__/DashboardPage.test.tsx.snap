@@ -1,0 +1,762 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Dashboard page should render correctly 1`] = `
+<DocumentFragment>
+  <section
+    class="mt-7"
+  >
+    <p
+      class="text-foreground text-xl lg:text-2xl lg:leading-9 mb-2"
+    >
+      Good Afternoon 
+      <span
+        class="text-secondary-100 font-bold text-2xl lg:text-3xl"
+      >
+        John Smith
+      </span>
+    </p>
+    <div
+      class="bg-linear-banner rounded-medium relative h-fit py-3 sm:py-0 sm:h-[132px] flex flex-col-reverse sm:flex-row gap-3 items-center"
+    >
+      <p
+        class="text-foreground text-wrap text-lg lg:text-xl font-bold px-5 text-center max-w-full"
+      >
+        WELCOME TO YOUR PERSONAL VIRTUAL HEALTH ASSISTANT
+      </p>
+      <img
+        alt="banner"
+        class="sm:absolute sm:bottom-[-1px] sm:right-[1px]"
+        data-nimg="1"
+        decoding="async"
+        fetchpriority="high"
+        height="200"
+        src="http://localhost/_next/image?url=%2Fimages%2Fdashboard%2Fbanner-avatar.webp&w=384&q=75"
+        srcset="/_next/image?url=%2Fimages%2Fdashboard%2Fbanner-avatar.webp&w=256&q=75 1x, /_next/image?url=%2Fimages%2Fdashboard%2Fbanner-avatar.webp&w=384&q=75 2x"
+        style="color: transparent; object-fit: cover;"
+        width="172"
+      />
+    </div>
+    <div
+      class="flex flex-col-reverse xl:flex-row justify-between mt-8 gap-8 w-full"
+    >
+      <section
+        class="flex flex-col relative overflow-hidden text-foreground box-border outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 shadow-medium rounded-large transition-transform-background motion-reduce:transition-none bg-background-200 h-fit w-full p-4 md:py-5"
+        tabindex="-1"
+      >
+        <p
+          class="text-primary-100 font-semibold text-lg leading-9"
+        >
+          Activity Feed
+        </p>
+        <div
+          class="flex flex-col items-center"
+        >
+          <div
+            class="flex flex-col relative gap-4 w-full"
+          >
+            <div
+              class="z-0 flex flex-col relative justify-between gap-4 overflow-auto rounded-large w-full bg-transparent-200 shadow-none p-0 pt-4"
+            >
+              <table
+                aria-describedby=""
+                aria-label="Table"
+                class="min-w-full h-auto table-auto w-full"
+                id="activity-feed"
+                role="grid"
+                tabindex="0"
+              >
+                <thead
+                  class="[&>tr]:first:rounded-lg hidden"
+                  role="rowgroup"
+                >
+                  <tr
+                    class="group outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2"
+                    role="row"
+                  >
+                    <th
+                      class="group px-3 h-10 align-middle bg-default-100 whitespace-nowrap text-foreground-500 text-tiny font-semibold first:rounded-s-lg last:rounded-e-lg data-[sortable=true]:cursor-pointer data-[hover=true]:text-foreground-400 outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-start"
+                      data-key="sender"
+                      id="activity-feed-sender"
+                      role="columnheader"
+                      tabindex="-1"
+                    >
+                      Sender
+                    </th>
+                    <th
+                      class="group px-3 h-10 align-middle bg-default-100 whitespace-nowrap text-foreground-500 text-tiny font-semibold first:rounded-s-lg last:rounded-e-lg data-[sortable=true]:cursor-pointer data-[hover=true]:text-foreground-400 outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-start"
+                      data-key="status"
+                      id="activity-feed-status"
+                      role="columnheader"
+                      tabindex="-1"
+                    >
+                      Status
+                    </th>
+                  </tr>
+                  <tr
+                    aria-hidden="true"
+                    class="w-px h-px block"
+                    style="margin-left: 0.25rem; margin-top: 0.25rem;"
+                    tabindex="-1"
+                  />
+                </thead>
+                <tbody
+                  role="rowgroup"
+                >
+                  <tr
+                    aria-labelledby="activity-feed-1-sender"
+                    class="group outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2"
+                    data-first="true"
+                    data-key="1"
+                    role="row"
+                    tabindex="-1"
+                  >
+                    <td
+                      class="relative align-middle whitespace-normal text-small font-normal [&>*]:z-1 [&>*]:relative outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 before:content-[''] before:absolute before:z-0 before:inset-0 before:opacity-0 data-[selected=true]:before:opacity-100 group-data-[disabled=true]:text-foreground-300 group-data-[disabled=true]:cursor-not-allowed before:bg-default/60 data-[selected=true]:text-default-foreground first:before:rounded-s-lg last:before:rounded-e-lg text-start p-0 pb-6"
+                      data-key="table-row-cell-sender"
+                      headers="activity-feed-sender"
+                      id="activity-feed-1-sender"
+                      role="cell"
+                      tabindex="-1"
+                    >
+                      <div
+                        class="flex gap-3 justify-items-start ml-1"
+                      >
+                        <span
+                          class="overflow-hidden outline-none rounded-full ring-offset-background dark:ring-offset-background-dark shrink-0 min-w-8 w-8 h-8 bg-undefined ring-offset-2 ring-1 ring-green false"
+                          data-testid="avatar-container"
+                          tabindex="-1"
+                        >
+                          <img
+                            alt=""
+                            class="aspect-square"
+                            data-nimg="1"
+                            decoding="async"
+                            fetchpriority="high"
+                            height="48"
+                            src="/_next/image?url=%2Fupload%2F300&w=96&q=75"
+                            srcset="/_next/image?url=%2Fupload%2F300&w=48&q=75 1x, /_next/image?url=%2Fupload%2F300&w=96&q=75 2x"
+                            style="color: transparent; object-fit: cover; background-size: cover; background-position: 50% 50%; background-repeat: no-repeat;"
+                            width="48"
+                          />
+                        </span>
+                        <div
+                          class="flex flex-col mr-8"
+                        >
+                          <p
+                            class="text-primary-200 font-medium text-2xs md:text-xs text-wrap"
+                          >
+                             updated at Sep 12, 2024 9:00 am
+                          </p>
+                          <p
+                            class="text-primary-300 font-normal text-2xs"
+                          >
+                            a month ago
+                          </p>
+                        </div>
+                      </div>
+                    </td>
+                    <td
+                      class="relative align-middle whitespace-normal text-small font-normal [&>*]:z-1 [&>*]:relative outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 before:content-[''] before:absolute before:z-0 before:inset-0 before:opacity-0 data-[selected=true]:before:opacity-100 group-data-[disabled=true]:text-foreground-300 group-data-[disabled=true]:cursor-not-allowed before:bg-default/60 data-[selected=true]:text-default-foreground first:before:rounded-s-lg last:before:rounded-e-lg text-start p-0 pb-6"
+                      data-key="table-row-cell-status"
+                      headers="activity-feed-status"
+                      role="cell"
+                      tabindex="-1"
+                    >
+                      <div
+                        class="bg-success text-white dark:text-success dark:bg-opacity-20 w-[68px] px-2 rounded-md text-center leading-[27px] max-w-[70px]"
+                      >
+                        <p
+                          class="text-2xs font-semibold capitalize"
+                        >
+                          new
+                        </p>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr
+                    aria-labelledby="activity-feed-2-sender"
+                    class="group outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2"
+                    data-key="2"
+                    data-last="true"
+                    data-odd="true"
+                    role="row"
+                    tabindex="-1"
+                  >
+                    <td
+                      class="relative align-middle whitespace-normal text-small font-normal [&>*]:z-1 [&>*]:relative outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 before:content-[''] before:absolute before:z-0 before:inset-0 before:opacity-0 data-[selected=true]:before:opacity-100 group-data-[disabled=true]:text-foreground-300 group-data-[disabled=true]:cursor-not-allowed before:bg-default/60 data-[selected=true]:text-default-foreground first:before:rounded-s-lg last:before:rounded-e-lg text-start p-0"
+                      data-key="table-row-cell-sender"
+                      headers="activity-feed-sender"
+                      id="activity-feed-2-sender"
+                      role="cell"
+                      tabindex="-1"
+                    >
+                      <div
+                        class="flex gap-3 justify-items-start ml-1"
+                      >
+                        <span
+                          class="overflow-hidden outline-none rounded-full ring-offset-background dark:ring-offset-background-dark shrink-0 min-w-8 w-8 h-8 bg-undefined ring-offset-2 ring-1 ring-green false"
+                          data-testid="avatar-container"
+                          tabindex="-1"
+                        >
+                          <img
+                            alt=""
+                            class="aspect-square"
+                            data-nimg="1"
+                            decoding="async"
+                            fetchpriority="high"
+                            height="48"
+                            src="/_next/image?url=%2Fupload%2F300&w=96&q=75"
+                            srcset="/_next/image?url=%2Fupload%2F300&w=48&q=75 1x, /_next/image?url=%2Fupload%2F300&w=96&q=75 2x"
+                            style="color: transparent; object-fit: cover; background-size: cover; background-position: 50% 50%; background-repeat: no-repeat;"
+                            width="48"
+                          />
+                        </span>
+                        <div
+                          class="flex flex-col mr-8"
+                        >
+                          <p
+                            class="text-primary-200 font-medium text-2xs md:text-xs text-wrap"
+                          >
+                             deleted at Sep 12, 2024 9:00 am
+                          </p>
+                          <p
+                            class="text-primary-300 font-normal text-2xs"
+                          >
+                            a month ago
+                          </p>
+                        </div>
+                      </div>
+                    </td>
+                    <td
+                      class="relative align-middle whitespace-normal text-small font-normal [&>*]:z-1 [&>*]:relative outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 before:content-[''] before:absolute before:z-0 before:inset-0 before:opacity-0 data-[selected=true]:before:opacity-100 group-data-[disabled=true]:text-foreground-300 group-data-[disabled=true]:cursor-not-allowed before:bg-default/60 data-[selected=true]:text-default-foreground first:before:rounded-s-lg last:before:rounded-e-lg text-start p-0"
+                      data-key="table-row-cell-status"
+                      headers="activity-feed-status"
+                      role="cell"
+                      tabindex="-1"
+                    >
+                      <div
+                        class="bg-success text-white dark:text-success dark:bg-opacity-20 w-[68px] px-2 rounded-md text-center leading-[27px] max-w-[70px]"
+                      >
+                        <p
+                          class="text-2xs font-semibold capitalize"
+                        >
+                          new
+                        </p>
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section
+        class="flex flex-col relative overflow-hidden text-foreground box-border outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 shadow-medium rounded-large transition-transform-background motion-reduce:transition-none w-full xl:max-w-[320px] 2xl:max-w-[550px] h-fit py-4 px-5 bg-background-200"
+        tabindex="-1"
+      >
+        <div
+          class="flex justify-between items-center"
+        >
+          <p
+            class="text-lg font-bold text-primary-100"
+          >
+            Appointments
+          </p>
+          <div>
+            <div
+              class="group flex flex-col w-full transition-background motion-reduce:transition-none !duration-150 group relative justify-end data-[has-label=true]:mt-[calc(theme(fontSize.small)_+_10px)] max-w-[102px] max-h-[36px]"
+              data-filled="true"
+              data-has-value="true"
+              data-slot="base"
+            >
+              <div
+                aria-hidden="true"
+                data-a11y-ignore="aria-hidden-focus"
+                data-testid="hidden-select-container"
+                style="border: 0px; clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap;"
+              >
+                <input
+                  style="font-size: 16px;"
+                  tabindex="0"
+                  type="text"
+                  value="new"
+                />
+                <label>
+                  <select
+                    size="3"
+                    tabindex="-1"
+                    title=""
+                  >
+                    <option />
+                    <option
+                      value="new"
+                    >
+                      New
+                    </option>
+                    <option
+                      value="meeting"
+                    >
+                      Meeting
+                    </option>
+                    <option
+                      value="cancelled"
+                    >
+                      Cancelled
+                    </option>
+                  </select>
+                </label>
+              </div>
+              <div
+                class="w-full flex flex-col max-w-[102px] max-h-[36px]"
+                data-slot="mainWrapper"
+              >
+                <button
+                  aria-expanded="false"
+                  aria-haspopup="listbox"
+                  aria-label="appointment status"
+                  aria-labelledby="react-aria-:rr: react-aria-:rm:"
+                  class="relative gap-3 w-full inline-flex flex-row items-center shadow-sm tap-highlight-transparent group-data-[focus=true]:bg-default-100 outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 px-2.5 py-2 h-[46px] rounded-medium bg-background-100 shadow-stack border-1 outline-offset-0 data-[focus=true]:border-green data-[focus=true]:border-1 data-[focus=true]:bg-background-100 data-[hover=true]:bg-background-100 group-data-[invalid=true]:!border-danger-100 min-h-[36px]"
+                  data-slot="trigger"
+                  id="react-aria-:rm:"
+                  type="button"
+                >
+                  <div
+                    class="inline-flex h-full min-h-4 items-center gap-1.5 box-border text-xs leading-[18px] group-data-[invalid=true]:!text-danger-100 w-[80px]"
+                    data-slot="innerWrapper"
+                  >
+                    <span
+                      class="w-full text-left rtl:text-right truncate group-data-[has-value=true]:text-default-foreground text-xs group-data-[invalid=true]:!text-danger-100 text-primary-100 font-medium"
+                      data-slot="value"
+                      id="react-aria-:rr:"
+                    >
+                      New
+                    </span>
+                  </div>
+                  <svg
+                    aria-hidden="true"
+                    class="absolute end-3 w-4 h-4 transition-transform duration-150 ease motion-reduce:transition-none data-[open=true]:rotate-180 text-primary-100"
+                    data-slot="selectorIcon"
+                    fill="none"
+                    focusable="false"
+                    height="1em"
+                    role="presentation"
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="1.5"
+                    viewBox="0 0 24 24"
+                    width="1em"
+                  >
+                    <path
+                      d="m6 9 6 6 6-6"
+                    />
+                  </svg>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="flex flex-col relative gap-4 w-full"
+        >
+          <div
+            class="z-0 flex flex-col relative justify-between gap-4 overflow-auto w-full bg-transparent-200 shadow-none p-0 pt-4 rounded-none"
+          >
+            <table
+              aria-describedby=""
+              aria-label="Table"
+              class="min-w-full h-auto table-auto w-full"
+              id="appointment-upcoming"
+              role="grid"
+              tabindex="0"
+            >
+              <thead
+                class="[&>tr]:first:rounded-lg hidden"
+                role="rowgroup"
+              >
+                <tr
+                  class="group outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2"
+                  role="row"
+                >
+                  <th
+                    class="group px-3 h-10 align-middle bg-default-100 whitespace-nowrap text-foreground-500 text-tiny font-semibold first:rounded-s-lg last:rounded-e-lg data-[sortable=true]:cursor-pointer data-[hover=true]:text-foreground-400 outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-start"
+                    data-key="startTime"
+                    id="appointment-upcoming-startTime"
+                    role="columnheader"
+                    tabindex="-1"
+                  >
+                    Start time
+                  </th>
+                  <th
+                    class="group px-3 h-10 align-middle bg-default-100 whitespace-nowrap text-foreground-500 text-tiny font-semibold first:rounded-s-lg last:rounded-e-lg data-[sortable=true]:cursor-pointer data-[hover=true]:text-foreground-400 outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-start"
+                    data-key="senderId"
+                    id="appointment-upcoming-senderId"
+                    role="columnheader"
+                    tabindex="-1"
+                  >
+                    Sender
+                  </th>
+                  <th
+                    class="group px-3 h-10 align-middle bg-default-100 whitespace-nowrap text-foreground-500 text-tiny font-semibold first:rounded-s-lg last:rounded-e-lg data-[sortable=true]:cursor-pointer data-[hover=true]:text-foreground-400 outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-start"
+                    data-key="durationTime"
+                    id="appointment-upcoming-durationTime"
+                    role="columnheader"
+                    tabindex="-1"
+                  >
+                    Duration time
+                  </th>
+                  <th
+                    class="group px-3 h-10 align-middle bg-default-100 whitespace-nowrap text-foreground-500 text-tiny font-semibold first:rounded-s-lg last:rounded-e-lg data-[sortable=true]:cursor-pointer data-[hover=true]:text-foreground-400 outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-start"
+                    data-key="actions"
+                    id="appointment-upcoming-actions"
+                    role="columnheader"
+                    tabindex="-1"
+                  >
+                    Actions
+                  </th>
+                </tr>
+                <tr
+                  aria-hidden="true"
+                  class="w-px h-px block"
+                  style="margin-left: 0.25rem; margin-top: 0.25rem;"
+                  tabindex="-1"
+                />
+              </thead>
+              <tbody
+                role="rowgroup"
+              >
+                <tr
+                  aria-labelledby="appointment-upcoming-1-startTime"
+                  class="group outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2"
+                  data-first="true"
+                  data-key="1"
+                  role="row"
+                  tabindex="-1"
+                >
+                  <td
+                    class="relative align-middle whitespace-normal text-small font-normal [&>*]:z-1 [&>*]:relative outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 before:content-[''] before:absolute before:z-0 before:inset-0 before:opacity-0 data-[selected=true]:before:opacity-100 group-data-[disabled=true]:text-foreground-300 group-data-[disabled=true]:cursor-not-allowed before:bg-default/60 data-[selected=true]:text-default-foreground first:before:rounded-s-lg last:before:rounded-e-lg text-start p-0 pb-4 w-10 md:w-16"
+                    data-key="table-row-cell-startTime"
+                    headers="appointment-upcoming-startTime"
+                    id="appointment-upcoming-1-startTime"
+                    role="cell"
+                    tabindex="-1"
+                  >
+                    <div
+                      class="rounded-md w-[30px] md:w-[37px] h-10 bg-background-100 text-center pt-1"
+                    >
+                      <p
+                        class="text-xs text-warning font-bold"
+                      >
+                        Fri
+                      </p>
+                      <p
+                        class="text-primary-100 font-medium text-xs"
+                      >
+                        11
+                      </p>
+                    </div>
+                  </td>
+                  <td
+                    class="relative align-middle whitespace-normal text-small font-normal [&>*]:z-1 [&>*]:relative outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 before:content-[''] before:absolute before:z-0 before:inset-0 before:opacity-0 data-[selected=true]:before:opacity-100 group-data-[disabled=true]:text-foreground-300 group-data-[disabled=true]:cursor-not-allowed before:bg-default/60 data-[selected=true]:text-default-foreground first:before:rounded-s-lg last:before:rounded-e-lg text-start p-0 pb-4"
+                    data-key="table-row-cell-senderId"
+                    headers="appointment-upcoming-senderId"
+                    role="cell"
+                    tabindex="-1"
+                  >
+                    <p
+                      class="text-primary-100 font-medium text-xs md:text-sm"
+                    >
+                      Alex Stanton
+                    </p>
+                    <p
+                      class="text-xs text-primary-300 font-light lg:block hidden"
+                    >
+                      1:30 pm to 3:00 pm
+                    </p>
+                  </td>
+                  <td
+                    class="relative align-middle whitespace-normal text-small font-normal [&>*]:z-1 [&>*]:relative outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 before:content-[''] before:absolute before:z-0 before:inset-0 before:opacity-0 data-[selected=true]:before:opacity-100 group-data-[disabled=true]:text-foreground-300 group-data-[disabled=true]:cursor-not-allowed before:bg-default/60 data-[selected=true]:text-default-foreground first:before:rounded-s-lg last:before:rounded-e-lg text-start p-0 pb-4"
+                    data-key="table-row-cell-durationTime"
+                    headers="appointment-upcoming-durationTime"
+                    role="cell"
+                    tabindex="-1"
+                  >
+                    <p
+                      class="text-xs text-primary-300 font-light lg:hidden"
+                    >
+                      1:30 pm to 3:00 pm
+                    </p>
+                  </td>
+                  <td
+                    class="relative align-middle whitespace-normal text-small font-normal [&>*]:z-1 [&>*]:relative outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 before:content-[''] before:absolute before:z-0 before:inset-0 before:opacity-0 data-[selected=true]:before:opacity-100 group-data-[disabled=true]:text-foreground-300 group-data-[disabled=true]:cursor-not-allowed before:bg-default/60 data-[selected=true]:text-default-foreground first:before:rounded-s-lg last:before:rounded-e-lg text-start p-0 pb-4"
+                    data-key="table-row-cell-actions"
+                    headers="appointment-upcoming-actions"
+                    role="cell"
+                    tabindex="-1"
+                  >
+                    <div
+                      class="flex justify-end"
+                    >
+                      <button
+                        aria-expanded="false"
+                        aria-haspopup="true"
+                        aria-label="Dropdown button"
+                        class="group relative items-center box-border appearance-none select-none whitespace-nowrap font-normal overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-small gap-2 [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none data-[hover=true]:opacity-hover z-10 aria-expanded:scale-[0.97] aria-expanded:opacity-70 subpixel-antialiased text-primary-100 border-1 data-[focus=true]:border-1 px-[2px] md:px-1 min-w-4 h-4 md:h-[26px] md:min-w-[26px] bg-background-100 rounded md:rounded-md data-[focus=true]:border-transparent data-[focus=true]:border-opacity-20 border-transparent border-opacity-20 flex justify-start capitalize"
+                        data-slot="trigger"
+                        id="react-aria-:ru:"
+                        type="button"
+                      >
+                        <div
+                          class="text-primary-100 max-h-6 max-w-6"
+                        >
+                          <svg
+                            class="w-[11px] h-[11px] md:w-4 md:h-4"
+                            fill="none"
+                            viewBox="0 0 16 16"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              d="M8 6C6.90076 6 6 6.90076 6 8C6 9.09924 6.90076 10 8 10C9.09924 10 10 9.09924 10 8C10 6.90076 9.09924 6 8 6Z"
+                              fill="currentColor"
+                            />
+                            <path
+                              d="M8 0C6.90076 0 6 0.900764 6 2C6 3.09924 6.90076 4 8 4C9.09924 4 10 3.09924 10 2C10 0.900764 9.09924 0 8 0Z"
+                              fill="currentColor"
+                            />
+                            <path
+                              d="M8 12C6.90076 12 6 12.9008 6 14C6 15.0992 6.90076 16 8 16C9.09924 16 10 15.0992 10 14C10 12.9008 9.09924 12 8 12Z"
+                              fill="currentColor"
+                            />
+                          </svg>
+                        </div>
+                      </button>
+                    </div>
+                  </td>
+                </tr>
+                <tr
+                  aria-labelledby="appointment-upcoming-2-startTime"
+                  class="group outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2"
+                  data-key="2"
+                  data-middle="true"
+                  data-odd="true"
+                  role="row"
+                  tabindex="-1"
+                >
+                  <td
+                    class="relative align-middle whitespace-normal text-small font-normal [&>*]:z-1 [&>*]:relative outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 before:content-[''] before:absolute before:z-0 before:inset-0 before:opacity-0 data-[selected=true]:before:opacity-100 group-data-[disabled=true]:text-foreground-300 group-data-[disabled=true]:cursor-not-allowed before:bg-default/60 data-[selected=true]:text-default-foreground first:before:rounded-s-lg last:before:rounded-e-lg text-start p-0 pb-4 w-10 md:w-16"
+                    data-key="table-row-cell-startTime"
+                    headers="appointment-upcoming-startTime"
+                    id="appointment-upcoming-2-startTime"
+                    role="cell"
+                    tabindex="-1"
+                  >
+                    <div
+                      class="rounded-md w-[30px] md:w-[37px] h-10 bg-background-100 text-center pt-1"
+                    >
+                      <p
+                        class="text-xs text-warning font-bold"
+                      >
+                        Sat
+                      </p>
+                      <p
+                        class="text-primary-100 font-medium text-xs"
+                      >
+                        12
+                      </p>
+                    </div>
+                  </td>
+                  <td
+                    class="relative align-middle whitespace-normal text-small font-normal [&>*]:z-1 [&>*]:relative outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 before:content-[''] before:absolute before:z-0 before:inset-0 before:opacity-0 data-[selected=true]:before:opacity-100 group-data-[disabled=true]:text-foreground-300 group-data-[disabled=true]:cursor-not-allowed before:bg-default/60 data-[selected=true]:text-default-foreground first:before:rounded-s-lg last:before:rounded-e-lg text-start p-0 pb-4"
+                    data-key="table-row-cell-senderId"
+                    headers="appointment-upcoming-senderId"
+                    role="cell"
+                    tabindex="-1"
+                  >
+                    <p
+                      class="text-primary-100 font-medium text-xs md:text-sm"
+                    >
+                      Alex Stanton
+                    </p>
+                    <p
+                      class="text-xs text-primary-300 font-light lg:block hidden"
+                    >
+                      9:00 am to 10:00 am
+                    </p>
+                  </td>
+                  <td
+                    class="relative align-middle whitespace-normal text-small font-normal [&>*]:z-1 [&>*]:relative outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 before:content-[''] before:absolute before:z-0 before:inset-0 before:opacity-0 data-[selected=true]:before:opacity-100 group-data-[disabled=true]:text-foreground-300 group-data-[disabled=true]:cursor-not-allowed before:bg-default/60 data-[selected=true]:text-default-foreground first:before:rounded-s-lg last:before:rounded-e-lg text-start p-0 pb-4"
+                    data-key="table-row-cell-durationTime"
+                    headers="appointment-upcoming-durationTime"
+                    role="cell"
+                    tabindex="-1"
+                  >
+                    <p
+                      class="text-xs text-primary-300 font-light lg:hidden"
+                    >
+                      9:00 am to 10:00 am
+                    </p>
+                  </td>
+                  <td
+                    class="relative align-middle whitespace-normal text-small font-normal [&>*]:z-1 [&>*]:relative outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 before:content-[''] before:absolute before:z-0 before:inset-0 before:opacity-0 data-[selected=true]:before:opacity-100 group-data-[disabled=true]:text-foreground-300 group-data-[disabled=true]:cursor-not-allowed before:bg-default/60 data-[selected=true]:text-default-foreground first:before:rounded-s-lg last:before:rounded-e-lg text-start p-0 pb-4"
+                    data-key="table-row-cell-actions"
+                    headers="appointment-upcoming-actions"
+                    role="cell"
+                    tabindex="-1"
+                  >
+                    <div
+                      class="flex justify-end"
+                    >
+                      <button
+                        aria-expanded="false"
+                        aria-haspopup="true"
+                        aria-label="Dropdown button"
+                        class="group relative items-center box-border appearance-none select-none whitespace-nowrap font-normal overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-small gap-2 [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none data-[hover=true]:opacity-hover z-10 aria-expanded:scale-[0.97] aria-expanded:opacity-70 subpixel-antialiased text-primary-100 border-1 data-[focus=true]:border-1 px-[2px] md:px-1 min-w-4 h-4 md:h-[26px] md:min-w-[26px] bg-background-100 rounded md:rounded-md data-[focus=true]:border-transparent data-[focus=true]:border-opacity-20 border-transparent border-opacity-20 flex justify-start capitalize"
+                        data-slot="trigger"
+                        id="react-aria-:r11:"
+                        type="button"
+                      >
+                        <div
+                          class="text-primary-100 max-h-6 max-w-6"
+                        >
+                          <svg
+                            class="w-[11px] h-[11px] md:w-4 md:h-4"
+                            fill="none"
+                            viewBox="0 0 16 16"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              d="M8 6C6.90076 6 6 6.90076 6 8C6 9.09924 6.90076 10 8 10C9.09924 10 10 9.09924 10 8C10 6.90076 9.09924 6 8 6Z"
+                              fill="currentColor"
+                            />
+                            <path
+                              d="M8 0C6.90076 0 6 0.900764 6 2C6 3.09924 6.90076 4 8 4C9.09924 4 10 3.09924 10 2C10 0.900764 9.09924 0 8 0Z"
+                              fill="currentColor"
+                            />
+                            <path
+                              d="M8 12C6.90076 12 6 12.9008 6 14C6 15.0992 6.90076 16 8 16C9.09924 16 10 15.0992 10 14C10 12.9008 9.09924 12 8 12Z"
+                              fill="currentColor"
+                            />
+                          </svg>
+                        </div>
+                      </button>
+                    </div>
+                  </td>
+                </tr>
+                <tr
+                  aria-labelledby="appointment-upcoming-3-startTime"
+                  class="group outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2"
+                  data-key="3"
+                  data-last="true"
+                  role="row"
+                  tabindex="-1"
+                >
+                  <td
+                    class="relative align-middle whitespace-normal text-small font-normal [&>*]:z-1 [&>*]:relative outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 before:content-[''] before:absolute before:z-0 before:inset-0 before:opacity-0 data-[selected=true]:before:opacity-100 group-data-[disabled=true]:text-foreground-300 group-data-[disabled=true]:cursor-not-allowed before:bg-default/60 data-[selected=true]:text-default-foreground first:before:rounded-s-lg last:before:rounded-e-lg text-start p-0 w-10 md:w-16"
+                    data-key="table-row-cell-startTime"
+                    headers="appointment-upcoming-startTime"
+                    id="appointment-upcoming-3-startTime"
+                    role="cell"
+                    tabindex="-1"
+                  >
+                    <div
+                      class="rounded-md w-[30px] md:w-[37px] h-10 bg-background-100 text-center pt-1"
+                    >
+                      <p
+                        class="text-xs text-warning font-bold"
+                      >
+                        Fri
+                      </p>
+                      <p
+                        class="text-primary-100 font-medium text-xs"
+                      >
+                        13
+                      </p>
+                    </div>
+                  </td>
+                  <td
+                    class="relative align-middle whitespace-normal text-small font-normal [&>*]:z-1 [&>*]:relative outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 before:content-[''] before:absolute before:z-0 before:inset-0 before:opacity-0 data-[selected=true]:before:opacity-100 group-data-[disabled=true]:text-foreground-300 group-data-[disabled=true]:cursor-not-allowed before:bg-default/60 data-[selected=true]:text-default-foreground first:before:rounded-s-lg last:before:rounded-e-lg text-start p-0"
+                    data-key="table-row-cell-senderId"
+                    headers="appointment-upcoming-senderId"
+                    role="cell"
+                    tabindex="-1"
+                  >
+                    <p
+                      class="text-primary-100 font-medium text-xs md:text-sm"
+                    >
+                      ThangHq
+                    </p>
+                    <p
+                      class="text-xs text-primary-300 font-light lg:block hidden"
+                    >
+                      10:00 am to 11:00 am
+                    </p>
+                  </td>
+                  <td
+                    class="relative align-middle whitespace-normal text-small font-normal [&>*]:z-1 [&>*]:relative outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 before:content-[''] before:absolute before:z-0 before:inset-0 before:opacity-0 data-[selected=true]:before:opacity-100 group-data-[disabled=true]:text-foreground-300 group-data-[disabled=true]:cursor-not-allowed before:bg-default/60 data-[selected=true]:text-default-foreground first:before:rounded-s-lg last:before:rounded-e-lg text-start p-0"
+                    data-key="table-row-cell-durationTime"
+                    headers="appointment-upcoming-durationTime"
+                    role="cell"
+                    tabindex="-1"
+                  >
+                    <p
+                      class="text-xs text-primary-300 font-light lg:hidden"
+                    >
+                      10:00 am to 11:00 am
+                    </p>
+                  </td>
+                  <td
+                    class="relative align-middle whitespace-normal text-small font-normal [&>*]:z-1 [&>*]:relative outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 before:content-[''] before:absolute before:z-0 before:inset-0 before:opacity-0 data-[selected=true]:before:opacity-100 group-data-[disabled=true]:text-foreground-300 group-data-[disabled=true]:cursor-not-allowed before:bg-default/60 data-[selected=true]:text-default-foreground first:before:rounded-s-lg last:before:rounded-e-lg text-start p-0"
+                    data-key="table-row-cell-actions"
+                    headers="appointment-upcoming-actions"
+                    role="cell"
+                    tabindex="-1"
+                  >
+                    <div
+                      class="flex justify-end"
+                    >
+                      <button
+                        aria-expanded="false"
+                        aria-haspopup="true"
+                        aria-label="Dropdown button"
+                        class="group relative items-center box-border appearance-none select-none whitespace-nowrap font-normal overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-small gap-2 [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none data-[hover=true]:opacity-hover z-10 aria-expanded:scale-[0.97] aria-expanded:opacity-70 subpixel-antialiased text-primary-100 border-1 data-[focus=true]:border-1 px-[2px] md:px-1 min-w-4 h-4 md:h-[26px] md:min-w-[26px] bg-background-100 rounded md:rounded-md data-[focus=true]:border-transparent data-[focus=true]:border-opacity-20 border-transparent border-opacity-20 flex justify-start capitalize"
+                        data-slot="trigger"
+                        id="react-aria-:r14:"
+                        type="button"
+                      >
+                        <div
+                          class="text-primary-100 max-h-6 max-w-6"
+                        >
+                          <svg
+                            class="w-[11px] h-[11px] md:w-4 md:h-4"
+                            fill="none"
+                            viewBox="0 0 16 16"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              d="M8 6C6.90076 6 6 6.90076 6 8C6 9.09924 6.90076 10 8 10C9.09924 10 10 9.09924 10 8C10 6.90076 9.09924 6 8 6Z"
+                              fill="currentColor"
+                            />
+                            <path
+                              d="M8 0C6.90076 0 6 0.900764 6 2C6 3.09924 6.90076 4 8 4C9.09924 4 10 3.09924 10 2C10 0.900764 9.09924 0 8 0Z"
+                              fill="currentColor"
+                            />
+                            <path
+                              d="M8 12C6.90076 12 6 12.9008 6 14C6 15.0992 6.90076 16 8 16C9.09924 16 10 15.0992 10 14C10 12.9008 9.09924 12 8 12Z"
+                              fill="currentColor"
+                            />
+                          </svg>
+                        </div>
+                      </button>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+    </div>
+  </section>
+</DocumentFragment>
+`;

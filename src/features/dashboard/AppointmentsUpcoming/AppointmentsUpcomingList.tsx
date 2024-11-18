@@ -39,10 +39,10 @@ import { useToast } from '@/context/toast';
 // Components
 import { Select, Text } from '@/components/ui';
 import { createColumns } from './columns';
-import { AppointmentsUpcomingListSkeleton } from './AppointmentsUpcomingSkeleton';
 
 // Hooks
 import { useNotification } from '@/hooks';
+import { AppointmentsUpcomingListSkeleton } from './AppointmentsUpcomingSkeleton';
 const DataGrid = lazy(() => import('@/components/ui/DataGrid'));
 const ConfirmModal = lazy(() => import('@/components/ui/ConfirmModal'));
 
@@ -64,7 +64,6 @@ const AppointmentsUpcomingList = memo(
 
     const isAdmin = role === ROLE.ADMIN;
 
-    const [isPending, startTransition] = useTransition();
     const [status, setStatus] = useState(new Set<string>([defaultStatus]));
 
     const [appointmentId, setAppointmentId] = useState<string>('');
@@ -72,6 +71,7 @@ const AppointmentsUpcomingList = memo(
     const searchParams = useSearchParams() ?? '';
     const pathname = usePathname() ?? '';
     const router = useRouter();
+    const [isPending, startTransition] = useTransition();
 
     const params = useMemo(
       () => new URLSearchParams(searchParams),
@@ -195,7 +195,10 @@ const AppointmentsUpcomingList = memo(
     ]);
 
     return (
-      <Card className="w-full xl:max-w-[320px] 2xl:max-w-[550px] h-fit py-4 px-5 bg-background-200">
+      <Card
+        as="section"
+        className="w-full xl:max-w-[320px] 2xl:max-w-[550px] h-fit py-4 px-5 bg-background-200"
+      >
         <div className="flex justify-between items-center">
           <Text customClass="text-lg font-bold text-primary-100">
             Appointments
@@ -218,6 +221,7 @@ const AppointmentsUpcomingList = memo(
             />
           </div>
         </div>
+
         {isPending ? (
           <AppointmentsUpcomingListSkeleton />
         ) : (

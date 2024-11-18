@@ -15,20 +15,20 @@ import { DIRECTION, ROLE, SearchParams } from '@/types';
 import { auth } from '@/config/auth';
 
 // Services
-import { getAppointments, getUserLogged } from '@/services';
+import { getUserLogged } from '@/services';
 
 // Components
 import { AppointmentsHistorySkeleton } from '@/features/appointments/AppointmentsHistory/AppointmentsHistorySkeleton';
 import { InputSearch } from '@/components/ui';
-import AppointmentsHistory from '@/features/appointments/AppointmentsHistory';
 import AppointmentCreate from '@/features/appointments/AppointmentCreate';
+import Appointments from '@/features/appointments/AppointmentsHistory';
 
 export const metadata: Metadata = {
   title: 'Appointments',
   description: 'Appointments page for Medical Dashboard',
 };
 
-interface AppointmentPageSearchParamsProps extends SearchParams {
+export interface AppointmentPageSearchParamsProps extends SearchParams {
   status?: string;
 }
 
@@ -62,7 +62,7 @@ const AppointmentPage = async ({
       APPOINTMENT_SEARCH_PARAMS.forEach((param, index) =>
         searchParamsAPI.set(
           `filters[$or][${index}][$and][0][${param}][username][$containsi]`,
-          search,
+          encodeURIComponent(search),
         ),
       );
       APPOINTMENT_SEARCH_PARAMS.reverse().forEach((param, index) =>
@@ -75,7 +75,7 @@ const AppointmentPage = async ({
       APPOINTMENT_SEARCH_PARAMS.forEach((param, index) =>
         searchParamsAPI.set(
           `filters[$or][${index}][${param}][username][$containsi]`,
-          search,
+          encodeURIComponent(search),
         ),
       );
     }
@@ -97,20 +97,15 @@ const AppointmentPage = async ({
     searchParamsAPI.set('filters[status][$eq]', `${valueStatus}`);
   }
 
-  const { appointments, ...meta } = await getAppointments({
-    searchParams: searchParamsAPI,
-  });
-
   return (
     <>
       <div className="flex justify-between gap-10 my-8">
         <InputSearch placeholder="Search Appointments" />
         <AppointmentCreate userLogged={userLogged} />
       </div>
-      <Suspense fallback={<AppointmentsHistorySkeleton />}>
-        <AppointmentsHistory
-          appointments={appointments || []}
-          pagination={meta?.pagination}
+      <Suspense fallback={<AppointmentsHistorySkeleton />} key={page + search}>
+        <Appointments
+          searchParamsAPI={searchParamsAPI}
           userLogged={userLogged}
           defaultStatus={status}
         />

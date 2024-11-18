@@ -6,7 +6,7 @@ exports[`AppointmentFormSkeleton test case should render correctly 1`] = `
     class="p-4"
   >
     <p
-      class="text-primary-100 font-semibold text-xl text-ellipsis whitespace-nowrap overflow-hidden"
+      class="text-primary-100 font-semibold text-xl"
     >
       Create appointment
     </p>
@@ -17,7 +17,7 @@ exports[`AppointmentFormSkeleton test case should render correctly 1`] = `
         class="w-full text-sm"
       >
         <p
-          class="text-foreground text-ellipsis whitespace-nowrap overflow-hidden mb-1"
+          class="text-foreground mb-1"
         >
           Sender
         </p>
@@ -33,7 +33,7 @@ exports[`AppointmentFormSkeleton test case should render correctly 1`] = `
         class="w-full text-sm"
       >
         <p
-          class="text-foreground text-ellipsis whitespace-nowrap overflow-hidden mb-1"
+          class="text-foreground mb-1"
         >
           Receiver
         </p>
@@ -53,7 +53,7 @@ exports[`AppointmentFormSkeleton test case should render correctly 1`] = `
         class="w-full text-sm"
       >
         <p
-          class="text-foreground text-ellipsis whitespace-nowrap overflow-hidden mb-1"
+          class="text-foreground mb-1"
         >
           Start Date
         </p>
@@ -69,7 +69,7 @@ exports[`AppointmentFormSkeleton test case should render correctly 1`] = `
         class="w-full text-sm"
       >
         <p
-          class="text-foreground text-ellipsis whitespace-nowrap overflow-hidden mb-1"
+          class="text-foreground mb-1"
         >
           Start Time
         </p>
@@ -86,7 +86,7 @@ exports[`AppointmentFormSkeleton test case should render correctly 1`] = `
       class="w-full text-sm"
     >
       <p
-        class="text-foreground text-ellipsis whitespace-nowrap overflow-hidden mb-1"
+        class="text-foreground mb-1"
       >
         Duration Time
       </p>
@@ -102,7 +102,7 @@ exports[`AppointmentFormSkeleton test case should render correctly 1`] = `
       class="w-full text-sm"
     >
       <p
-        class="text-foreground text-ellipsis whitespace-nowrap overflow-hidden mb-1"
+        class="text-foreground mb-1"
       >
         Status
       </p>

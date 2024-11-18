@@ -1,11 +1,11 @@
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
-import { act, render, screen } from '@testing-library/react';
+import { act, screen } from '@testing-library/react';
 
 // Constants
 import { PRIVATE_ROUTES } from '@/constants';
 
 // Utils
-import { resolvedComponent } from '@/utils';
+import { renderServerComponent } from '@/utils/test-util';
 
 // Services
 import { getAppointments } from '@/services';
@@ -42,13 +42,8 @@ describe('AppointmentsUpComing test cases', () => {
   const mockUseRouter = useRouter as jest.Mock;
   const mockUseSearchParams = useSearchParams as jest.Mock;
 
-  const setup = async (props: AppointmentsUpcomingProps) => {
-    const ResolvedAppointmentsUpComing = await resolvedComponent(
-      AppointmentsUpcoming,
-      props,
-    );
-    return act(() => render(<ResolvedAppointmentsUpComing />));
-  };
+  const setup = async (props: AppointmentsUpcomingProps) =>
+    act(() => renderServerComponent(<AppointmentsUpcoming {...props} />));
 
   beforeEach(() => {
     jest.spyOn(React, 'useMemo').mockReturnValueOnce({});

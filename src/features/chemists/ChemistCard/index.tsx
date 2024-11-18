@@ -62,10 +62,6 @@ const ChemistCard = ({ id, data, isAdmin, onEdit }: ChemistCardProps) => {
 
   const [isLoading, setIsLoading] = useState(false);
 
-  const handleOpenConfirmModal = useCallback(() => {
-    onOpenConfirm();
-  }, [onOpenConfirm]);
-
   const handleDelete = useCallback(async () => {
     setIsLoading(true);
     const { error: errorUser } = await updateUnpublishUser(id);
@@ -98,6 +94,7 @@ const ChemistCard = ({ id, data, isAdmin, onEdit }: ChemistCardProps) => {
     <>
       <div className="min-w-[300px] w-full h-[232px] relative">
         <Card
+          as="article"
           aria-label="chemist-card"
           className={cn(
             'bg-background-200 w-full h-full p-6 gap-6 overflow-visible',
@@ -112,7 +109,7 @@ const ChemistCard = ({ id, data, isAdmin, onEdit }: ChemistCardProps) => {
                 </Button>
                 <Button
                   isIconOnly
-                  onClick={handleOpenConfirmModal}
+                  onClick={onOpenConfirm}
                   aria-label="delete-btn"
                 >
                   <DeleteIcon customClass="text-background-100 flex-shrink-0 w-4 h-4" />
@@ -138,12 +135,6 @@ const ChemistCard = ({ id, data, isAdmin, onEdit }: ChemistCardProps) => {
                 )}
               </div>
             </div>
-            <Button
-              color="default"
-              className="text-secondary-500 text-lg font-medium p-0 min-w-10"
-            >
-              Book
-            </Button>
           </CardHeader>
           <CardBody className="p-0">
             <Text

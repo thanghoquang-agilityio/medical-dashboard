@@ -22,8 +22,8 @@ import {
   fromDateToNow,
   getDescriptionNotification,
 } from '@/utils';
-
 import { ActivityFeedListSkeleton } from './ActivityFeedSkeleton';
+
 const DataGrid = lazy(() => import('@/components/ui/DataGrid'));
 
 interface ActivityInfoProps {
@@ -91,7 +91,7 @@ const ActivityFeedList = memo(
     const [isPending, startTransition] = useTransition();
 
     return (
-      <Card className="bg-background-200 h-fit w-full p-4 md:py-5">
+      <Card as="section" className="bg-background-200 h-fit w-full p-4 md:py-5">
         <Text variant="title" size="lg" customClass="leading-9">
           Activity Feed
         </Text>

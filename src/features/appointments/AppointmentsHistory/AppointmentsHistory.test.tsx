@@ -7,7 +7,9 @@ import {
 } from '@testing-library/react';
 
 // Components
-import AppointmentsHistory, { AppointmentsHistoryProps } from '.';
+import AppointmentsHistory, {
+  AppointmentsHistoryProps,
+} from './AppointmentsHistory';
 
 // Mocks
 import { MOCK_APPOINTMENTS, MOCK_USERS_LOGGED } from '@/mocks';
@@ -30,14 +32,6 @@ describe('AppointmentsHistory Component', () => {
 
     await waitFor(() => {
       expect(screen.getByText(/Result Not Found/i)).toBeInTheDocument();
-    });
-  });
-
-  it('should render loading indicator when during fetching', async () => {
-    await setup({ appointments: [], userLogged: MOCK_USERS_LOGGED[0] });
-
-    waitFor(() => {
-      expect(screen.getByLabelText('Loading')).toBeInTheDocument();
     });
   });
 

@@ -21,7 +21,7 @@ export const NavItem = memo(
       : 'hover:bg-linear-sidebar';
 
     return (
-      <div
+      <li
         className={clsx({
           'cursor-not-allowed': !isActive,
         })}
@@ -43,7 +43,7 @@ export const NavItem = memo(
           </div>
           {isExpandSidebar && <p>{name}</p>}
         </Link>
-      </div>
+      </li>
     );
   },
 );

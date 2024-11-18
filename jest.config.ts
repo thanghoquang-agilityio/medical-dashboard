@@ -30,6 +30,12 @@ const config: Config = {
     '@/services': '<rootDir>/src/services',
     '@/utils': '<rootDir>/src/utils',
     '@/actions/user': '<rootDir>/src/actions/user',
+    '@/features/appointments/AppointmentsHistory':
+      '<rootDir>/src/features/appointments/AppointmentsHistory/index.tsx',
+    '@/features/appointments/AppointmentsHistory/AppointmentsHistorySkeleton':
+      '<rootDir>/src/features/appointments/AppointmentsHistory/AppointmentsHistorySkeleton.tsx',
+    '@/features/appointments/AppointmentCreate/AppointmentCreateSkeleton':
+      '<rootDir>/src/features/appointments/AppointmentCreate/AppointmentCreateSkeleton.tsx',
   },
 };
 

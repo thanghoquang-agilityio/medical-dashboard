@@ -47,7 +47,7 @@ const DashboardPage = async ({
   const { username = '' } = userLogged || {};
 
   return (
-    <div className="mt-7">
+    <section className="mt-7">
       <Text customClass="text-xl lg:text-2xl lg:leading-9 mb-2">
         {getGreeting()}&nbsp;
         <span className="text-secondary-100 font-bold text-2xl lg:text-3xl">
@@ -69,16 +69,17 @@ const DashboardPage = async ({
       </div>
 
       <div className="flex flex-col-reverse xl:flex-row justify-between mt-8 gap-8 w-full">
-        <Suspense fallback={<ActivityFeedSkeleton />}>
+        <Suspense key={page} fallback={<ActivityFeedSkeleton />}>
           <ActivityFeed page={page} userLogged={userLogged} />
         </Suspense>
         <Suspense
+          key={status}
           fallback={<AppointmentsUpcomingSkeleton defaultStatus={status} />}
         >
           <AppointmentsUpcoming userLogged={userLogged} status={status} />
         </Suspense>
       </div>
-    </div>
+    </section>
   );
 };
 

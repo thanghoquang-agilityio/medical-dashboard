@@ -49,10 +49,10 @@ const DataGrid = memo(
     columns,
     pagination,
     hasDivider = false,
-    startTransition,
     classWrapper = '',
     classRow = '',
     classCell = '',
+    startTransition,
     ...props
   }: DataTableProps<T>) => {
     const { page = PAGE_DEFAULT, pageCount = PAGE_DEFAULT } = pagination ?? {};

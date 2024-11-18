@@ -58,7 +58,6 @@ const SignupForm = () => {
   const [isShowPassword, setIsShowPassword] = useState<boolean>(false);
   const [isShowConfirmPassword, setIsShowConfirmPassword] =
     useState<boolean>(false);
-  const [error, setError] = useState('');
 
   const openToast = useToast();
   const router = useRouter();
@@ -87,20 +86,17 @@ const SignupForm = () => {
 
   const handleError = useCallback(
     (error: string) => {
-      setError(error);
       openToast({
-        message: ERROR_MESSAGE.SIGNUP,
+        message: error || ERROR_MESSAGE.SIGNUP,
         type: STATUS_TYPE.ERROR,
       });
       setIsPending(false);
-      return;
     },
     [openToast],
   );
 
   const handleSignup: SubmitHandler<SignupFormData> = useCallback(
     async (formData) => {
-      setError('');
       setIsPending(true);
 
       const { confirmPassWord: _, ...signupData } = formData;
@@ -123,6 +119,7 @@ const SignupForm = () => {
         const addUserError = await addUserToChemists({
           users_permissions_user: id,
         });
+
         if (addUserError.error) {
           handleError(addUserError.error);
           return;
@@ -279,11 +276,6 @@ const SignupForm = () => {
           rules={SIGN_UP_FORM_VALIDATION.CONFIRM_PASSWORD(getValues)}
         />
         <div className="h-[78px] flex flex-col justify-end">
-          {error && (
-            <Text variant="error" size="sm" customClass="pb-2">
-              {error}
-            </Text>
-          )}
           <Button
             type="submit"
             size="lg"
