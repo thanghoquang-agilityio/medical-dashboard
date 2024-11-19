@@ -4,11 +4,11 @@ import crypto from 'crypto';
 export const encrypt = async (value: string) => {
   const iv = crypto.randomBytes(16);
 
-  const secreyKeyString = ENCODE_COOKIE.secret || '';
+  const secretKeyString = ENCODE_COOKIE.secret || '';
 
-  if (!secreyKeyString) return;
+  if (!secretKeyString) return;
 
-  const secretKey = Buffer.from(secreyKeyString, 'base64');
+  const secretKey = Buffer.from(secretKeyString, 'base64');
 
   const cipher = crypto.createCipheriv(ENCODE_COOKIE.algorithm, secretKey, iv);
 
@@ -21,11 +21,11 @@ export const encrypt = async (value: string) => {
 export const decrypt = async (encrypted: string) => {
   const [ivHex, encryptedData] = encrypted.split(':');
 
-  const secreyKeyString = ENCODE_COOKIE.secret || '';
+  const secretKeyString = ENCODE_COOKIE.secret || '';
 
-  if (!secreyKeyString) return;
+  if (!secretKeyString) return;
 
-  const secretKey = Buffer.from(secreyKeyString, 'base64');
+  const secretKey = Buffer.from(secretKeyString, 'base64');
 
   const decipher = crypto.createDecipheriv(
     ENCODE_COOKIE.algorithm,
