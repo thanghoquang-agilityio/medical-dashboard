@@ -9,7 +9,11 @@ import { getSpecialties } from '@/services';
 import { DIRECTION, ROLE, SearchParams } from '@/types';
 
 // Constants
-import { PAGE_DEFAULT, PAGE_SIZE_CHEMISTS_DEFAULT } from '@/constants';
+import {
+  PAGE_DEFAULT,
+  PAGE_SIZE_CHEMISTS_DEFAULT,
+  PREVIEW_IMAGE,
+} from '@/constants';
 
 // Component
 import { ChemistSkeleton } from '@/features/chemists/ChemistList/ChemistSkeleton';
@@ -22,6 +26,16 @@ export interface ChemistPageSearchParamsProps extends SearchParams {}
 export const metadata: Metadata = {
   title: 'Chemists',
   description: 'Chemists page for Medical Dashboard',
+  openGraph: {
+    title: 'Chemists',
+    description: 'Chemists page for Medical Dashboard',
+    images: [
+      {
+        url: PREVIEW_IMAGE,
+        alt: 'preview image',
+      },
+    ],
+  },
 };
 
 const ChemistPage = async ({

@@ -6,6 +6,7 @@ import {
   APPOINTMENT_STATUS_OPTIONS,
   PAGE_DEFAULT,
   PAGE_SIZE_DEFAULT,
+  PREVIEW_IMAGE,
 } from '@/constants';
 
 // Types
@@ -26,6 +27,16 @@ import Appointments from '@/features/appointments/AppointmentsHistory';
 export const metadata: Metadata = {
   title: 'Appointments',
   description: 'Appointments page for Medical Dashboard',
+  openGraph: {
+    title: 'Appointments',
+    description: 'Appointments page for Medical Dashboard',
+    images: [
+      {
+        url: PREVIEW_IMAGE,
+        alt: 'preview image',
+      },
+    ],
+  },
 };
 
 export interface AppointmentPageSearchParamsProps extends SearchParams {
