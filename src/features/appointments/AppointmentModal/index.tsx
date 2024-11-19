@@ -1,5 +1,4 @@
-'use client';
-import { Suspense, lazy, memo } from 'react';
+import { Suspense, lazy } from 'react';
 
 // Types
 import { AppointmentModel, UserLogged } from '@/types';
@@ -16,26 +15,23 @@ export type AppointmentModalProps = {
   data?: AppointmentModel;
   id?: string;
 };
-const AppointmentModal = memo(
-  ({ userLogged, data, id, isOpen, onClose }: AppointmentModalProps) => {
-    return (
-      <BaseModal
-        isOpen={isOpen}
+const AppointmentModal = ({
+  userLogged,
+  data,
+  id,
+  isOpen,
+  onClose,
+}: AppointmentModalProps) => (
+  <BaseModal isOpen={isOpen} onClose={onClose} placement="center" size="2xl">
+    <Suspense fallback={<AppointmentFormSkeleton data={data} />}>
+      <AppointmentForm
+        userLogged={userLogged}
+        data={data}
+        id={id}
         onClose={onClose}
-        placement="center"
-        size="2xl"
-      >
-        <Suspense fallback={<AppointmentFormSkeleton data={data} />}>
-          <AppointmentForm
-            userLogged={userLogged}
-            data={data}
-            id={id}
-            onClose={onClose}
-          />
-        </Suspense>
-      </BaseModal>
-    );
-  },
+      />
+    </Suspense>
+  </BaseModal>
 );
 
 export default AppointmentModal;
