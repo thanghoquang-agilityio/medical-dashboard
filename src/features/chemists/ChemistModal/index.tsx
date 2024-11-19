@@ -1,7 +1,3 @@
-'use client';
-
-import { memo } from 'react';
-
 // Types
 import { Option, UserModel } from '@/types';
 
@@ -17,25 +13,24 @@ export type ChemistModalProps = {
   id?: string;
 };
 
-const ChemistModal = memo(
-  ({ isOpen, onClose, specialtyOptions, id, data }: ChemistModalProps) => {
-    return (
-      <BaseModal
-        isOpen={isOpen}
+const ChemistModal = ({
+  isOpen,
+  onClose,
+  specialtyOptions,
+  id,
+  data,
+}: ChemistModalProps) => {
+  return (
+    <BaseModal isOpen={isOpen} onClose={onClose} placement="center" size="2xl">
+      <ChemistForm
+        data={data}
+        id={id}
         onClose={onClose}
-        placement="center"
-        size="2xl"
-      >
-        <ChemistForm
-          data={data}
-          id={id}
-          onClose={onClose}
-          specialtyOptions={specialtyOptions}
-        />
-      </BaseModal>
-    );
-  },
-);
+        specialtyOptions={specialtyOptions}
+      />
+    </BaseModal>
+  );
+};
 
 export default ChemistModal;
 ChemistModal.displayName = 'ChemistModal';

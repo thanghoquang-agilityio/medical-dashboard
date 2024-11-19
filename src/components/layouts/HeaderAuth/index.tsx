@@ -1,5 +1,3 @@
-'use client';
-import { memo } from 'react';
 import dynamic from 'next/dynamic';
 
 // Constants
@@ -10,7 +8,7 @@ import { Image } from '@/components/ui';
 
 const SwitchTheme = dynamic(() => import('@/components/ui/SwitchTheme'));
 
-export const HeaderAuth = memo(() => {
+export const HeaderAuth = () => {
   return (
     <header className="flex justify-between items-center px-5 py-9 relative z-30">
       <Image
@@ -23,6 +21,6 @@ export const HeaderAuth = memo(() => {
       <SwitchTheme customClass="sm:text-white" />
     </header>
   );
-});
+};
 
 HeaderAuth.displayName = 'HeaderAuth';
