@@ -9,7 +9,7 @@ import {
 import { getAppointments } from '@/actions/appointment';
 
 // Types
-import { UserLogged } from '@/types';
+import { DIRECTION, UserLogged } from '@/types';
 
 // Components
 import AppointmentsUpcomingList from './AppointmentsUpcomingList';
@@ -32,7 +32,7 @@ const AppointmentsUpcoming = async ({
     params.set('pagination[limit]', `${PAGE_LIMIT_APPOINTMENTS_UPCOMING}`);
     params.set('filters[$or][0][senderId][id][$eq]', `${userId}`);
     params.set('filters[$or][1][receiverId][id][$eq]', `${userId}`);
-    params.set('sort[0]', 'createdAt:desc');
+    params.set('sort[0]', `createdAt:${DIRECTION.DESC}`);
 
     const valueStatus = APPOINTMENT_STATUS_OPTIONS.find(
       (option) => option.key === status,
