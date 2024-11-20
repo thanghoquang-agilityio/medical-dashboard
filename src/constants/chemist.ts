@@ -11,3 +11,5 @@ export const DEFAULT_CHEMIST_DATA: UserModel = {
   specialtyId: undefined,
   avatar: undefined,
 };
+
+export const CHEMISTS_SEARCH_PARAMS = ['specialtyId'] as const;

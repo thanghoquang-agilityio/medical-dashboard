@@ -11,8 +11,9 @@ import { DIRECTION, ROLE, SearchParams } from '@/types';
 // Constants
 import {
   PAGE_DEFAULT,
-  PAGE_SIZE_CHEMISTS_DEFAULT,
   PREVIEW_IMAGE,
+  CHEMISTS_SEARCH_PARAMS,
+  PAGE_SIZE_CHEMISTS_DEFAULT,
 } from '@/constants';
 
 // Component
@@ -52,8 +53,6 @@ const ChemistPage = async ({
   } = searchParams || {};
 
   const searchParamsAPI = new URLSearchParams();
-
-  const CHEMISTS_SEARCH_PARAMS = ['specialtyId'];
 
   CHEMISTS_SEARCH_PARAMS.forEach((param, index) => {
     searchParamsAPI.set(
