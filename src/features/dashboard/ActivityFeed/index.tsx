@@ -1,5 +1,5 @@
 // Types
-import { ROLE, UserLogged } from '@/types';
+import { DIRECTION, ROLE, UserLogged } from '@/types';
 
 // Constants
 import { API_ENDPOINT, PAGE_SIZE_DEFAULT, PRIVATE_ROUTES } from '@/constants';
@@ -24,7 +24,7 @@ const ActivityFeed = async ({ page, userLogged }: ActivityFeedProps) => {
     params.set('populate[0]', 'senderId');
     params.set('pagination[page]', page.toString());
     params.set('pagination[pageSize]', PAGE_SIZE_DEFAULT.toString());
-    params.set('sort[0]', 'createdAt:desc');
+    params.set('sort[0]', `createdAt:${DIRECTION.DESC}`);
 
     if (role === ROLE.NORMAL_USER || !role) {
       params.set('filters[senderId][id][$eq]', `${userId}`);
