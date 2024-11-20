@@ -3,6 +3,7 @@ import { Metadata } from 'next';
 
 // Constants
 import {
+  APPOINTMENT_SEARCH_PARAMS,
   APPOINTMENT_STATUS_OPTIONS,
   PAGE_DEFAULT,
   PAGE_SIZE_DEFAULT,
@@ -57,7 +58,6 @@ const AppointmentPage = async ({
   const { name: role = ROLE.NORMAL_USER } = roleModel || {};
 
   const searchParamsAPI = new URLSearchParams();
-  const APPOINTMENT_SEARCH_PARAMS = ['receiverId', 'senderId'];
 
   APPOINTMENT_SEARCH_PARAMS.forEach((param, index) => {
     searchParamsAPI.set(`populate[${index}]`, param);
@@ -68,33 +68,27 @@ const AppointmentPage = async ({
   searchParamsAPI.set('pagination[pageSize]', PAGE_SIZE_DEFAULT.toString());
   searchParamsAPI.set('sort[0]', `createdAt:${DIRECTION.DESC}`);
 
+  const isNormalUser = role === ROLE.NORMAL_USER || !role;
   if (search) {
-    if (role === ROLE.NORMAL_USER || !role) {
-      APPOINTMENT_SEARCH_PARAMS.forEach((param, index) =>
-        searchParamsAPI.set(
-          `filters[$or][${index}][$and][0][${param}][username][$containsi]`,
-          encodeURIComponent(search),
-        ),
-      );
-      APPOINTMENT_SEARCH_PARAMS.reverse().forEach((param, index) =>
+    APPOINTMENT_SEARCH_PARAMS.forEach((param, index) =>
+      searchParamsAPI.set(
+        `filters[$or][${index}]${isNormalUser ? '[$and][0]' : ''}[${param}][username][$containsi]`,
+        encodeURIComponent(search),
+      ),
+    );
+
+    isNormalUser &&
+      APPOINTMENT_SEARCH_PARAMS.toReversed().forEach((param, index) =>
         searchParamsAPI.set(
           `filters[$or][${index}][$and][1][${param}][id][$eq]`,
           id,
         ),
       );
-    } else {
-      APPOINTMENT_SEARCH_PARAMS.forEach((param, index) =>
-        searchParamsAPI.set(
-          `filters[$or][${index}][${param}][username][$containsi]`,
-          encodeURIComponent(search),
-        ),
-      );
-    }
   }
 
   // Fetch all appointments associated with user
-  if (role === ROLE.NORMAL_USER || !role) {
-    APPOINTMENT_SEARCH_PARAMS.forEach((param, index) =>
+  if (isNormalUser) {
+    APPOINTMENT_SEARCH_PARAMS.toReversed().forEach((param, index) =>
       searchParamsAPI.set(`filters[$or][${index}][${param}][id][$eq]`, id),
     );
     searchParamsAPI.set('populate[senderId][populate][avatar]', '*');

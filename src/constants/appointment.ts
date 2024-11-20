@@ -51,3 +51,5 @@ export const DEFAULT_APPOINTMENT_DATA: AppointmentModel = {
     },
   },
 };
+
+export const APPOINTMENT_SEARCH_PARAMS = ['receiverId', 'senderId'] as const;
