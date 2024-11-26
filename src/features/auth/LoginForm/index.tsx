@@ -5,19 +5,21 @@ import { Card, Link as NextUILink } from '@nextui-org/react';
 import { ChangeEvent, useCallback, useMemo, useState } from 'react';
 import Link from 'next/link';
 
-// Actions
-import { loginNextAuth, login } from '@/actions/auth';
-
 // Components
 import { Button, Checkbox, Input, Text } from '@/components/ui';
 import { EmailIcon, EyeIcon, EyeSlashIcon, LockIcon } from '@/icons';
 
 // Constants
-import { AUTH_ROUTES, ERROR_MESSAGE, SUCCESS_MESSAGE } from '@/constants';
+import {
+  AUTH_ROUTES,
+  ERROR_MESSAGE,
+  ROUTE_ENDPOINT,
+  SUCCESS_MESSAGE,
+} from '@/constants';
 import { LOGIN_FORM_VALIDATION } from './rule';
 
 // Types
-import { LoginFormData, STATUS_TYPE } from '@/types';
+import { LoginFormData, STATUS_TYPE, UserSession } from '@/types';
 
 // Utils
 import { clearErrorOnChange, isEnableSubmit } from '@/utils';
@@ -25,6 +27,7 @@ import { clearErrorOnChange, isEnableSubmit } from '@/utils';
 // Contexts
 import { useToast } from '@/context/toast';
 import { fetchToken } from '@/config/firebase.config';
+import { useRouter } from 'next/navigation';
 
 const DEFAULT_VALUE: LoginFormData = {
   identifier: '',
@@ -48,6 +51,7 @@ const LoginForm = () => {
   const [isShowPassword, setIsShowPassword] = useState<boolean>(false);
 
   const openToast = useToast();
+  const { replace } = useRouter();
 
   const handleToggleVisiblePassword = useCallback(
     () => setIsShowPassword((prev) => !prev),
@@ -67,28 +71,44 @@ const LoginForm = () => {
 
   const handleLogin = useCallback(
     async (data: LoginFormData) => {
-      const firebaseToken = await fetchToken();
+      setIsPending(true);
 
-      const cookiePayload = {
-        key: 'fcm_token',
-        value: firebaseToken,
-      };
-
-      await fetch('/api/save-to-cookie', {
-        body: JSON.stringify(cookiePayload),
+      const response = await fetch(ROUTE_ENDPOINT.AUTH.LOGIN, {
         method: 'POST',
+        body: JSON.stringify(data),
       });
 
-      setIsPending(true);
-      const response = await login(data);
-      const { user, error } = response;
+      const result: { user: UserSession | null; error: string | null } =
+        await response.json();
+
+      const { user, error } = result;
 
       if (user) {
+        const firebaseToken = await fetchToken();
+
+        const cookiePayload = {
+          key: 'fcm_token',
+          value: firebaseToken,
+        };
+
+        await fetch('/api/save-to-cookie', {
+          body: JSON.stringify(cookiePayload),
+          method: 'POST',
+        });
+
         openToast({
           message: SUCCESS_MESSAGE.LOGIN,
           type: STATUS_TYPE.SUCCESS,
         });
-        loginNextAuth(user);
+
+        const response = await fetch(ROUTE_ENDPOINT.AUTH.LOGIN_NEXT_AUTH, {
+          method: 'POST',
+          body: JSON.stringify(user),
+        });
+
+        const url: string = await response.json();
+
+        url && replace(url);
       }
 
       if (error) {
