@@ -8,23 +8,25 @@ import {
   useDisclosure,
 } from '@nextui-org/react';
 
-// Services
-import { logout } from '@/services';
-
 // Components
 import { Button, Image, Navbar } from '@/components/ui';
 import { ArrowRightIcon, LogoutIcon } from '@/icons';
 
 // Constants
-import { AUTH_ROUTES, PRIVATE_ROUTES, SRC_LOGO } from '@/constants';
+import { PRIVATE_ROUTES, ROUTE_ENDPOINT, SRC_LOGO } from '@/constants';
 import Link from 'next/link';
 
 export const SidebarMobile = () => {
   const { isOpen, onOpen, onOpenChange, onClose } = useDisclosure();
 
   const onLogout = async () => {
-    await logout();
-    location.replace(AUTH_ROUTES.LOGIN);
+    const response = await fetch(ROUTE_ENDPOINT.AUTH.LOGOUT, {
+      method: 'POST',
+    });
+
+    const url: string = await response.json();
+
+    location.replace(url);
   };
 
   return (

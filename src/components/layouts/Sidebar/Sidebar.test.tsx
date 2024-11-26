@@ -3,16 +3,15 @@ import { fireEvent, render, screen } from '@testing-library/react';
 // Components
 import { Sidebar } from '.';
 
-// Services
-import { logout } from '@/services';
-
-jest.mock('@/services/auth.ts', () => ({
-  logout: jest.fn(),
-}));
 describe('Sidebar test cases', () => {
-  const mockLogout = logout as jest.Mock;
-
   const setup = () => render(<Sidebar />);
+
+  const mockFetch = jest.fn().mockResolvedValueOnce({
+    ok: true,
+    json: () => Promise.resolve(''),
+  });
+
+  global.fetch = mockFetch;
 
   afterEach(() => {
     jest.clearAllMocks();
@@ -31,6 +30,6 @@ describe('Sidebar test cases', () => {
 
     fireEvent.click(logoutBtn);
 
-    expect(mockLogout).toHaveBeenCalledTimes(1);
+    expect(mockFetch).toHaveBeenCalledTimes(1);
   });
 });

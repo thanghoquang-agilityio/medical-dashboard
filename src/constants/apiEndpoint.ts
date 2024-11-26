@@ -19,6 +19,7 @@ export const ROUTE_ENDPOINT = {
     LOGIN: 'api/auth/login',
     LOGIN_NEXT_AUTH: 'api/auth/login-next-auth',
     SIGNUP: 'api/auth/signup',
+    LOGOUT: 'api/auth/logout',
   },
   USER: {
     UPDATE_PUBLISH: 'api/user/update-publish',

@@ -9,10 +9,7 @@ import { Button, Image, Navbar, Spinner } from '@/components/ui';
 import { LogoutIcon } from '@/icons';
 
 // Constants
-import { AUTH_ROUTES, PRIVATE_ROUTES, SRC_LOGO } from '@/constants';
-
-// Services
-import { logout } from '@/services';
+import { PRIVATE_ROUTES, ROUTE_ENDPOINT, SRC_LOGO } from '@/constants';
 
 export const Sidebar = () => {
   const [isPending, setIsPending] = useState(false);
@@ -20,9 +17,13 @@ export const Sidebar = () => {
   const handleLogout = async () => {
     setIsPending(true);
 
-    await logout();
+    const response = await fetch(ROUTE_ENDPOINT.AUTH.LOGOUT, {
+      method: 'POST',
+    });
 
-    location.replace(AUTH_ROUTES.LOGIN);
+    const url: string = await response.json();
+
+    location.replace(url);
   };
 
   return (
