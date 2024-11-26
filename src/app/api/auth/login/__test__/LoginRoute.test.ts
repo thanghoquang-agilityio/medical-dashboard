@@ -46,7 +46,7 @@ describe('Login route handler', () => {
     expect(result).toEqual(mockResponse);
   });
 
-  it('should call return the error when there is exception', async () => {
+  it('should return the error when there is an exception', async () => {
     const mockResponse = {
       user: null,
       error: 'mock',
