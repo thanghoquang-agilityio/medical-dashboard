@@ -20,6 +20,12 @@ export const ROUTE_ENDPOINT = {
     LOGIN_NEXT_AUTH: 'api/auth/login-next-auth',
     SIGNUP: 'api/auth/signup',
   },
+  USER: {
+    UPDATE_PUBLISH: 'api/user/update-publish',
+  },
+  CHEMISTS: {
+    ADD_TO_CHEMISTS: 'api/chemists/add-to-chemists',
+  },
 };
 
 export const LOCAL_HOST = 'http://localhost:3000';
