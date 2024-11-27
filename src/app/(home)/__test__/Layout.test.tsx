@@ -20,11 +20,22 @@ jest.mock('next-auth', () => ({
 }));
 
 describe('Dashboard layout test case', () => {
+  const mockFetch = jest.fn().mockResolvedValueOnce({
+    ok: true,
+    json: () => Promise.resolve(''),
+  });
+
+  global.fetch = mockFetch;
+
   const setup = async (
     props: Readonly<{
       children: React.ReactNode;
     }>,
   ) => act(() => renderServerComponent(<DashboardLayout {...props} />));
+
+  afterEach(() => {
+    jest.clearAllMocks();
+  });
 
   it('should render correctly', async () => {
     const { asFragment } = await setup({ children: <div>mock children</div> });

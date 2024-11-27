@@ -23,10 +23,11 @@ export const ROUTE_ENDPOINT = {
   },
   USER: {
     UPDATE_PUBLISH: 'api/user/update-publish',
+    GET_LOGGED: 'api/user/get-logged',
   },
   CHEMISTS: {
     ADD_TO_CHEMISTS: 'api/chemists/add-to-chemists',
   },
 };
 
-export const LOCAL_HOST = 'http://localhost:3000';
+export const HOST_DOMAIN = process.env.SITE_HOST ?? 'http://localhost:3000';

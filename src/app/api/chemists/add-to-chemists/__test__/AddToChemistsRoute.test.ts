@@ -4,7 +4,7 @@
 import { MOCK_CHEMISTS_LIST } from '@/mocks';
 import { POST } from '../route';
 import { ChemistDataResponse, ChemistPayload } from '@/types';
-import { LOCAL_HOST, ROUTE_ENDPOINT } from '@/constants';
+import { HOST_DOMAIN, ROUTE_ENDPOINT } from '@/constants';
 import { addUserToChemists } from '@/services';
 
 jest.mock('@/services', () => ({
@@ -21,7 +21,7 @@ describe('AddToChemists route handler', () => {
 
   beforeEach(() => {
     mockRequest = new Request(
-      `${LOCAL_HOST}/${ROUTE_ENDPOINT.CHEMISTS.ADD_TO_CHEMISTS}`,
+      `${HOST_DOMAIN}/${ROUTE_ENDPOINT.CHEMISTS.ADD_TO_CHEMISTS}`,
       {
         method: 'POST',
         body: JSON.stringify(mockRequestData),

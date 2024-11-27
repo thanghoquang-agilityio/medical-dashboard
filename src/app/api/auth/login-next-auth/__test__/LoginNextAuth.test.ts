@@ -4,7 +4,7 @@
 import { MOCK_USER_SESSION } from '@/mocks';
 import { POST } from '../route';
 import { UserSession } from '@/types';
-import { LOCAL_HOST, PRIVATE_ROUTES, ROUTE_ENDPOINT } from '@/constants';
+import { HOST_DOMAIN, PRIVATE_ROUTES, ROUTE_ENDPOINT } from '@/constants';
 import { loginNextAuth } from '@/actions/auth';
 
 jest.mock('@/actions/auth', () => ({
@@ -19,7 +19,7 @@ describe('LoginNextAuth route handler', () => {
 
   beforeEach(() => {
     mockRequest = new Request(
-      `${LOCAL_HOST}/${ROUTE_ENDPOINT.AUTH.LOGIN_NEXT_AUTH}`,
+      `${HOST_DOMAIN}/${ROUTE_ENDPOINT.AUTH.LOGIN_NEXT_AUTH}`,
       {
         method: 'POST',
         body: JSON.stringify(mockRequestData),
