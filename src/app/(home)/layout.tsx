@@ -4,16 +4,21 @@ import dynamic from 'next/dynamic';
 import { auth } from '@/config/auth';
 
 // Services
-import { getNotifications, getUserLogged } from '@/services';
+import { getNotifications } from '@/services';
 
 // Constants
-import { API_ENDPOINT, PRIVATE_ROUTES } from '@/constants';
+import {
+  API_ENDPOINT,
+  HOST_DOMAIN,
+  PRIVATE_ROUTES,
+  ROUTE_ENDPOINT,
+} from '@/constants';
 
 // Components
 import { Sidebar } from '@/components/layouts';
 
 // Types
-import { DIRECTION, ROLE } from '@/types';
+import { DIRECTION, ROLE, UserLogged } from '@/types';
 
 const HeaderDashboard = dynamic(
   () => import('@/components/layouts/HeaderDashboard'),
@@ -26,7 +31,22 @@ export default async function DashboardLayout({
   children: React.ReactNode;
 }>) {
   const { id, token = '', role = '' } = (await auth())?.user || {};
-  const { user: userLogged } = await getUserLogged(token);
+
+  const response = await fetch(
+    `${HOST_DOMAIN}/${ROUTE_ENDPOINT.USER.GET_LOGGED}`,
+    {
+      method: 'GET',
+      headers: { Authorization: `Bearer ${token}` },
+    },
+  );
+
+  const {
+    user: userLogged,
+  }: {
+    user: UserLogged | null;
+    error: string | null;
+  } = await response.json();
+
   const { avatar = '' } = userLogged || {};
   const searchParamsAPI = new URLSearchParams();
 

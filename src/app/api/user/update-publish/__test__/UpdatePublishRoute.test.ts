@@ -4,7 +4,7 @@
 import { USER_OPTIONS } from '@/mocks';
 import { PUT } from '../route';
 import { UserModel } from '@/types';
-import { LOCAL_HOST, ROUTE_ENDPOINT } from '@/constants';
+import { HOST_DOMAIN, ROUTE_ENDPOINT } from '@/constants';
 import { updatePublishUser } from '@/services';
 
 jest.mock('@/services', () => ({
@@ -19,7 +19,7 @@ describe('UpdatePublish route handler', () => {
 
   beforeEach(() => {
     mockRequest = new Request(
-      `${LOCAL_HOST}/${ROUTE_ENDPOINT.USER.UPDATE_PUBLISH}`,
+      `${HOST_DOMAIN}/${ROUTE_ENDPOINT.USER.UPDATE_PUBLISH}`,
       {
         method: 'PUT',
         body: mockRequestData,

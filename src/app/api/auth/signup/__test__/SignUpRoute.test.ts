@@ -4,7 +4,7 @@
 import { MOCK_SIGN_UP_FORM_DATA, MOCK_USER_SESSION } from '@/mocks';
 import { POST } from '../route';
 import { AuthResponse, SignupFormData } from '@/types';
-import { LOCAL_HOST, ROUTE_ENDPOINT } from '@/constants';
+import { HOST_DOMAIN, ROUTE_ENDPOINT } from '@/constants';
 import { signup } from '@/actions/auth';
 
 jest.mock('@/actions/auth', () => ({
@@ -24,7 +24,7 @@ describe('Signup route handler', () => {
   const mockSignup = signup as jest.Mock;
 
   beforeEach(() => {
-    mockRequest = new Request(`${LOCAL_HOST}/${ROUTE_ENDPOINT.AUTH.SIGNUP}`, {
+    mockRequest = new Request(`${HOST_DOMAIN}/${ROUTE_ENDPOINT.AUTH.SIGNUP}`, {
       method: 'POST',
       body: JSON.stringify(mockRequestData),
     });
