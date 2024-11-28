@@ -3,9 +3,6 @@ import dynamic from 'next/dynamic';
 // Config
 import { auth } from '@/config/auth';
 
-// Services
-import { getNotifications } from '@/services';
-
 // Constants
 import {
   API_ENDPOINT,
@@ -18,7 +15,14 @@ import {
 import { Sidebar } from '@/components/layouts';
 
 // Types
-import { DIRECTION, ROLE, UserLogged } from '@/types';
+import {
+  DIRECTION,
+  MetaResponse,
+  NotificationResponse,
+  ROLE,
+  UserLogged,
+} from '@/types';
+import { headers } from 'next/headers';
 
 const HeaderDashboard = dynamic(
   () => import('@/components/layouts/HeaderDashboard'),
@@ -30,9 +34,10 @@ export default async function DashboardLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const nextHeader = new Headers(headers());
   const { id, token = '', role = '' } = (await auth())?.user || {};
 
-  const response = await fetch(
+  const responseGetUserLogged = await fetch(
     `${HOST_DOMAIN}/${ROUTE_ENDPOINT.USER.GET_LOGGED}`,
     {
       method: 'GET',
@@ -45,7 +50,7 @@ export default async function DashboardLayout({
   }: {
     user: UserLogged | null;
     error: string | null;
-  } = await response.json();
+  } = await responseGetUserLogged.json();
 
   const { avatar = '' } = userLogged || {};
   const searchParamsAPI = new URLSearchParams();
@@ -57,14 +62,27 @@ export default async function DashboardLayout({
 
   searchParamsAPI.set('sort[0]', `createdAt:${DIRECTION.DESC}`);
 
-  const { notifications, pagination } = await getNotifications({
-    searchParams: searchParamsAPI,
-    options: {
-      next: {
-        tags: [API_ENDPOINT.NOTIFICATIONS, `${PRIVATE_ROUTES.DASHBOARD}/${id}`],
-      },
+  nextHeader.set(
+    'tags',
+    [API_ENDPOINT.NOTIFICATIONS, `${PRIVATE_ROUTES.DASHBOARD}/${id}`].join(','),
+  );
+
+  const responseGetNotifications = await fetch(
+    `${HOST_DOMAIN}/${ROUTE_ENDPOINT.NOTIFICATIONS.GET_NOTIFICATIONS}?${decodeURIComponent(searchParamsAPI.toString())}`,
+    {
+      method: 'GET',
+      // reference: https://github.com/nextauthjs/next-auth/issues/7423
+      headers: nextHeader,
     },
-  });
+  );
+
+  const {
+    notifications,
+    pagination,
+  }: {
+    notifications: NotificationResponse[];
+    error: string | null;
+  } & MetaResponse = await responseGetNotifications.json();
 
   return (
     <main>

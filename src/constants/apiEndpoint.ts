@@ -28,6 +28,9 @@ export const ROUTE_ENDPOINT = {
   CHEMISTS: {
     ADD_TO_CHEMISTS: 'api/chemists/add-to-chemists',
   },
+  NOTIFICATIONS: {
+    GET_NOTIFICATIONS: 'api/notifications/get-notifications',
+  },
 };
 
 export const HOST_DOMAIN = process.env.SITE_HOST ?? 'http://localhost:3000';

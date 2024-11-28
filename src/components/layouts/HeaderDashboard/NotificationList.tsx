@@ -1,9 +1,13 @@
 'use client';
-import { getNotifications } from '@/actions/notification';
 import { Avatar, Spinner, Text } from '@/components/ui';
-import { API_ENDPOINT, PAGE_DEFAULT, PRIVATE_ROUTES } from '@/constants';
+import {
+  API_ENDPOINT,
+  PAGE_DEFAULT,
+  PRIVATE_ROUTES,
+  ROUTE_ENDPOINT,
+} from '@/constants';
 import { SingleDotIcon } from '@/icons';
-import { NotificationResponse } from '@/types';
+import { MetaResponse, NotificationResponse } from '@/types';
 import { formatDateTime, fromDateToNow } from '@/utils';
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 
@@ -34,17 +38,26 @@ const NotificationList = ({
     const nextPage = currentPage + 1;
     searchParamsAPI.set('pagination[page]', nextPage.toString());
 
-    const { notifications, pagination } = await getNotifications({
-      searchParams: searchParamsAPI,
-      options: {
-        next: {
+    const responseGetNotifications = await fetch(
+      `/${ROUTE_ENDPOINT.NOTIFICATIONS.GET_NOTIFICATIONS}?${decodeURIComponent(searchParamsAPI.toString())}`,
+      {
+        method: 'GET',
+        headers: {
           tags: [
             API_ENDPOINT.NOTIFICATIONS,
             `${PRIVATE_ROUTES.DASHBOARD}/${id}`,
-          ],
+          ].join(','),
         },
       },
-    });
+    );
+
+    const {
+      notifications,
+      pagination,
+    }: {
+      notifications: NotificationResponse[];
+      error: string | null;
+    } & MetaResponse = await responseGetNotifications.json();
 
     setNotifications((prev) => [...prev, ...notifications]);
     setCurrentPage(nextPage);

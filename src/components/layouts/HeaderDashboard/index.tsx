@@ -10,6 +10,7 @@ import { SidebarMobile } from '../Sidebar/SideBarMobile';
 
 // Hooks
 import { useFcmToken } from '@/hooks';
+
 const SwitchTheme = dynamic(() => import('@/components/ui/SwitchTheme'));
 const Notifications = dynamic(() => import('./Notifications'));
 
