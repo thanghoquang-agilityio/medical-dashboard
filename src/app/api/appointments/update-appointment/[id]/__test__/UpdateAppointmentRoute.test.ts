@@ -2,20 +2,20 @@
  * @jest-environment node
  */
 import { MOCK_APPOINTMENTS } from '@/mocks';
-import { POST } from '../route';
 import { AppointmentPayload, AppointmentResponse } from '@/types';
 import { HOST_DOMAIN, ROUTE_ENDPOINT } from '@/constants';
 import { apiClient } from '@/services';
+import { PUT } from '../route';
 
 jest.mock('@/services/api', () => ({
   __esModule: true,
   ...jest.requireActual('@/services/api'),
   apiClient: {
-    post: jest.fn(),
+    put: jest.fn(),
   },
 }));
 
-describe('AddAppointment route handler', () => {
+describe('UpdateAppointment route handler', () => {
   const mockRequestData: AppointmentPayload = {
     senderId: '1',
     startTime: '',
@@ -28,9 +28,9 @@ describe('AddAppointment route handler', () => {
 
   beforeEach(() => {
     mockRequest = new Request(
-      `${HOST_DOMAIN}/${ROUTE_ENDPOINT.APPOINTMENTS.ADD_APPOINTMENT}`,
+      `${HOST_DOMAIN}/${ROUTE_ENDPOINT.APPOINTMENTS.UPDATE_APPOINTMENT}`,
       {
-        method: 'POST',
+        method: 'PUT',
         body: JSON.stringify(mockRequestData),
       },
     );
@@ -40,7 +40,7 @@ describe('AddAppointment route handler', () => {
     jest.clearAllMocks();
   });
 
-  it('should add appointment and return the response', async () => {
+  it('should update appointment and return the response', async () => {
     const mockResponse: {
       data: AppointmentResponse;
       error?: string;
@@ -49,9 +49,13 @@ describe('AddAppointment route handler', () => {
       error: undefined,
     };
 
-    jest.spyOn(apiClient, 'post').mockResolvedValueOnce(mockResponse);
+    jest.spyOn(apiClient, 'put').mockResolvedValueOnce(mockResponse);
 
-    const response = await POST(mockRequest);
+    const response = await PUT(mockRequest, {
+      params: {
+        id: '1',
+      },
+    });
 
     const result = await response.json();
 
@@ -64,9 +68,13 @@ describe('AddAppointment route handler', () => {
       error: 'mock error',
     };
 
-    jest.spyOn(apiClient, 'post').mockResolvedValueOnce(mockResponse);
+    jest.spyOn(apiClient, 'put').mockResolvedValueOnce(mockResponse);
 
-    const response = await POST(mockRequest);
+    const response = await PUT(mockRequest, {
+      params: {
+        id: '1',
+      },
+    });
 
     const result = await response.json();
 
