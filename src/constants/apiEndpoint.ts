@@ -33,6 +33,9 @@ export const ROUTE_ENDPOINT = {
   },
   APPOINTMENTS: {
     GET_APPOINTMENTS: 'api/appointments/get-appointments',
+    ADD_APPOINTMENT: 'api/appointments/add-appointment',
+    UPDATE_APPOINTMENT: 'api/appointments/update-appointment',
+    DELETE_APPOINTMENT: 'api/appointments/delete-appointment',
   },
 };
 
