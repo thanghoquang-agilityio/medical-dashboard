@@ -3,21 +3,23 @@
  */
 import { HOST_DOMAIN, ROUTE_ENDPOINT } from '@/constants';
 import { MOCK_USERS_LOGGED } from '@/mocks';
-import { getUserLogged } from '@/services';
+import { apiClient } from '@/services';
 import { GET } from '../route';
 import { UserLogged } from '@/types';
-
-jest.mock('@/services', () => ({
-  getUserLogged: jest.fn(),
+import { NextRequest } from 'next/server';
+jest.mock('@/services/api', () => ({
+  __esModule: true,
+  ...jest.requireActual('@/services/api'),
+  apiClient: {
+    get: jest.fn(),
+  },
 }));
 
 describe('GetLogged route handler', () => {
-  const mockGetUserLogged = getUserLogged as jest.Mock;
-
-  let mockDataRequest: Request;
+  let mockRequest: NextRequest;
 
   beforeEach(() => {
-    mockDataRequest = new Request(
+    mockRequest = new NextRequest(
       `${HOST_DOMAIN}/${ROUTE_ENDPOINT.USER.GET_LOGGED}`,
       {
         headers: {
@@ -32,40 +34,45 @@ describe('GetLogged route handler', () => {
   });
 
   it('should get information about the logged in user', async () => {
-    mockGetUserLogged.mockResolvedValueOnce({
+    const mockResponse = {
       user: MOCK_USERS_LOGGED[0],
       error: null,
-    });
+    };
 
-    const response = await GET(mockDataRequest);
+    jest.spyOn(apiClient, 'get').mockResolvedValue(mockResponse);
+
+    const response = await GET(mockRequest);
 
     const result: {
       user: UserLogged | null;
       error: string | null;
     } = await response.json();
 
-    expect(result).toEqual({
-      user: MOCK_USERS_LOGGED[0],
-      error: null,
-    });
+    expect(result).toEqual(mockResponse);
   });
 
   it('should return the error when there is an exception', async () => {
-    mockGetUserLogged.mockResolvedValueOnce({
+    mockRequest = new NextRequest(
+      `${HOST_DOMAIN}/${ROUTE_ENDPOINT.USER.GET_LOGGED}`,
+      {
+        headers: undefined,
+      },
+    );
+
+    const mockResponse = {
       user: null,
       error: 'mock',
-    });
+    };
 
-    const response = await GET(mockDataRequest);
+    jest.spyOn(apiClient, 'get').mockResolvedValue(mockResponse);
+
+    const response = await GET(mockRequest);
 
     const result: {
       user: UserLogged | null;
       error: string | null;
     } = await response.json();
 
-    expect(result).toEqual({
-      user: null,
-      error: 'mock',
-    });
+    expect(result).toEqual(mockResponse);
   });
 });

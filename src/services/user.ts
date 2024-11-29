@@ -8,21 +8,30 @@ import {
   UserModel,
   UserPayload,
 } from '@/types';
-import { API_ENDPOINT, EXCEPTION_ERROR_MESSAGE } from '@/constants';
+import {
+  API_ENDPOINT,
+  EXCEPTION_ERROR_MESSAGE,
+  HOST_DOMAIN,
+  ROUTE_ENDPOINT,
+} from '@/constants';
 import { revalidateTag } from 'next/cache';
 
 export const getUserLogged = async (
   jwt: string,
 ): Promise<{ user: UserLogged | null; error: string | null }> => {
   try {
-    const { error = null, ...user } = await apiClient.get<
-      UserLogged & { error: string | null }
-    >(`${API_ENDPOINT.USERS}/me?populate=*`, {
-      headers: {
-        Authorization: `Bearer ${jwt}`,
+    const response = await fetch(
+      `${HOST_DOMAIN}/${ROUTE_ENDPOINT.USER.GET_LOGGED}`,
+      {
+        headers: {
+          Authorization: `Bearer ${jwt}`,
+        },
       },
-      next: { revalidate: 3600, tags: [API_ENDPOINT.USERS, 'logged'] },
-    });
+    );
+
+    const { error = null, ...user }: UserLogged & { error: string | null } =
+      await response.json();
+
     return { user: user, error };
   } catch (error) {
     const errorMessage =
@@ -153,15 +162,25 @@ export const updatePublishUser = async (
   id: string,
 ): Promise<{ user: UserModel | null; error: string | null }> => {
   try {
-    const now = new Date();
-    const formattedDate = now.toISOString();
-    const { error = null, ...user } = await apiClient.put<
-      UserModel & { error: string | null }
-    >(`${API_ENDPOINT.USERS}/${id}`, {
-      body: {
-        publishedAt: formattedDate,
+    // const now = new Date();
+    // const formattedDate = now.toISOString();
+    const response = await fetch(
+      `${HOST_DOMAIN}/${ROUTE_ENDPOINT.USER.UPDATE_PUBLISH}`,
+      {
+        method: 'PUT',
+        body: id,
       },
-    });
+    );
+
+    const { error = null, ...user }: UserModel & { error: string | null } =
+      await response.json();
+    // const { error = null, ...user } = await apiClient.put<
+    //   UserModel & { error: string | null }
+    // >(`${API_ENDPOINT.USERS}/${id}`, {
+    //   body: {
+    //     publishedAt: formattedDate,
+    //   },
+    // });
 
     if (error) {
       return {

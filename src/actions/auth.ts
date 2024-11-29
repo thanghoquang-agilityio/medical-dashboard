@@ -1,6 +1,7 @@
 'use server';
 
 import { signIn } from '@/config/auth';
+import { PRIVATE_ROUTES } from '@/constants';
 import {
   login as loginService,
   signup as signupService,
@@ -18,7 +19,7 @@ export const login = async (data: LoginFormData) => await loginService(data);
 export const loginNextAuth = async (user: UserSession) => {
   await signIn('credentials', {
     ...user,
-    redirect: false,
+    redirectTo: PRIVATE_ROUTES.DASHBOARD,
   });
 
   return user;

@@ -1,9 +1,9 @@
 import NextAuth from 'next-auth';
 import { authConfig } from '@/config/auth.config';
-import { auth as authSession } from '@/config/auth';
+import { auth as authSession } from './config/auth';
+import { GetServerSidePropsContext } from 'next';
 
 // Types
-import type { GetServerSidePropsContext } from 'next';
 
 export const config = {
   // https://nextjs.org/docs/app/building-your-application/routing/middleware#matcher
@@ -13,8 +13,8 @@ export const config = {
 };
 
 export default async function auth(params: GetServerSidePropsContext) {
+  const session = await authSession();
   if (authConfig.session) {
-    const session = await authSession();
     const remember = String(session?.user?.remember || false);
 
     authConfig.session.maxAge =

@@ -16,20 +16,31 @@ import {
 import { apiClient } from './api';
 
 // Constants
-import { API_ENDPOINT, EXCEPTION_ERROR_MESSAGE } from '@/constants';
+import {
+  API_ENDPOINT,
+  EXCEPTION_ERROR_MESSAGE,
+  HOST_DOMAIN,
+  ROUTE_ENDPOINT,
+} from '@/constants';
 
 export const addUserToChemists = async (
   payload: ChemistPayload,
 ): Promise<ChemistDataResponse> => {
   try {
-    const { data, error } = await apiClient.post<{
+    const response = await fetch(
+      `${HOST_DOMAIN}/${ROUTE_ENDPOINT.CHEMISTS.ADD_TO_CHEMISTS}`,
+      {
+        method: 'POST',
+        body: JSON.stringify(payload),
+      },
+    );
+    const {
+      data,
+      error,
+    }: {
       data: ChemistResponse;
       error?: string;
-    }>(`${API_ENDPOINT.CHEMISTS}`, {
-      body: {
-        data: payload,
-      },
-    });
+    } = await response.json();
 
     if (error) {
       return {

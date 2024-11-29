@@ -1,10 +1,18 @@
-import { addUserToChemists } from '@/services';
-import { ChemistDataResponse, ChemistPayload } from '@/types';
+import { API_ENDPOINT } from '@/constants';
+import { apiClient } from '@/services';
+import { ChemistPayload, ChemistResponse } from '@/types';
 
 export async function POST(req: Request) {
-  const data: ChemistPayload = await req.json();
+  const payload: ChemistPayload = await req.json();
 
-  const result: ChemistDataResponse = await addUserToChemists(data);
+  const result = await apiClient.post<{
+    data: ChemistResponse;
+    error?: string;
+  }>(`${API_ENDPOINT.CHEMISTS}`, {
+    body: {
+      data: payload,
+    },
+  });
 
   return Response.json(result);
 }

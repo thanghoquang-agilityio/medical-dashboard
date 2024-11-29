@@ -17,17 +17,11 @@ import {
 } from '@/icons';
 
 // Constants
-import {
-  AUTH_ROUTES,
-  ERROR_MESSAGE,
-  ROUTE_ENDPOINT,
-  SUCCESS_MESSAGE,
-} from '@/constants';
+import { AUTH_ROUTES, ERROR_MESSAGE, SUCCESS_MESSAGE } from '@/constants';
 import { SIGN_UP_FORM_VALIDATION } from './rule';
 
 // Types
 import {
-  AuthResponse,
   ChemistDataResponse,
   SignupFormData,
   STATUS_TYPE,
@@ -39,6 +33,8 @@ import { clearErrorOnChange, isEnableSubmit } from '@/utils';
 
 // Contexts
 import { useToast } from '@/context/toast';
+import { addUserToChemists, signup } from '@/actions/auth';
+import { updatePublishUser } from '@/services';
 
 const DEFAULT_VALUE: SignupFormData = {
   username: '',
@@ -107,12 +103,8 @@ const SignupForm = () => {
       setIsPending(true);
 
       const { confirmPassWord: _, ...signupData } = formData;
-      const signUpResponse = await fetch(ROUTE_ENDPOINT.AUTH.SIGNUP, {
-        method: 'POST',
-        body: JSON.stringify(signupData),
-      });
 
-      const { user, error }: AuthResponse = await signUpResponse.json();
+      const { user, error } = await signup(signupData);
 
       if (error) {
         handleError(error);
@@ -122,38 +114,22 @@ const SignupForm = () => {
       if (user) {
         const { id } = user;
 
-        const updatePublishUserResponse = await fetch(
-          ROUTE_ENDPOINT.USER.UPDATE_PUBLISH,
-          {
-            method: 'PUT',
-            body: id,
-          },
-        );
-
         const {
           error: updateUserError,
         }: {
           user: UserModel | null;
           error: string | null;
-        } = await updatePublishUserResponse.json();
+        } = await updatePublishUser(id);
 
         if (updateUserError) {
           handleError(updateUserError);
           return;
         }
 
-        const addUserToChemistsResponse = await fetch(
-          ROUTE_ENDPOINT.CHEMISTS.ADD_TO_CHEMISTS,
-          {
-            method: 'POST',
-            body: JSON.stringify({
-              users_permissions_user: id,
-            }),
-          },
-        );
-
         const { error: addUserError }: ChemistDataResponse =
-          await addUserToChemistsResponse.json();
+          await addUserToChemists({
+            users_permissions_user: id,
+          });
 
         if (addUserError) {
           handleError(addUserError);

@@ -1,13 +1,16 @@
-import { signup } from '@/actions/auth';
-import { SignupFormData } from '@/types';
+import { API_ENDPOINT } from '@/constants';
+import { apiClient } from '@/services';
+import { AuthResponse, SignupFormData } from '@/types';
 
 export async function POST(req: Request) {
   const data: SignupFormData = await req.json();
 
-  const { user, error } = await signup(data);
+  const response = await apiClient.post<AuthResponse>(
+    `${API_ENDPOINT.AUTH}/register`,
+    {
+      body: data,
+    },
+  );
 
-  return Response.json({
-    user,
-    error,
-  });
+  return Response.json(response);
 }

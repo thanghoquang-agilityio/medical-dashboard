@@ -1,17 +1,19 @@
-'use server';
-import { getNotifications } from '@/services';
-import { NextResponse } from 'next/server';
+import { API_ENDPOINT } from '@/constants';
+import { apiClient } from '@/services';
+import { NextRequest, NextResponse } from 'next/server';
 
-export async function GET(req: Request) {
+export async function GET(req: NextRequest) {
   const { searchParams } = new URL(req.url);
-  const tagsHeader = req.headers.get('tags');
+  const bearerToken = req.headers.get('Authorization') || '';
 
-  const tags = tagsHeader ? tagsHeader.split(',') : [];
-
-  const result = await getNotifications({
-    searchParams,
-    options: { next: { tags } },
-  });
+  const result = await apiClient.get(
+    `${API_ENDPOINT.NOTIFICATIONS}?${decodeURIComponent(searchParams.toString())}`,
+    {
+      headers: {
+        Authorization: bearerToken,
+      },
+    },
+  );
 
   return NextResponse.json(result);
 }

@@ -5,17 +5,23 @@ import { USER_OPTIONS } from '@/mocks';
 import { PUT } from '../route';
 import { UserModel } from '@/types';
 import { HOST_DOMAIN, ROUTE_ENDPOINT } from '@/constants';
-import { updatePublishUser } from '@/services';
+import { apiClient } from '@/services';
 
 jest.mock('@/services', () => ({
   updatePublishUser: jest.fn(),
+}));
+
+jest.mock('@/services/api', () => ({
+  __esModule: true,
+  ...jest.requireActual('@/services/api'),
+  apiClient: {
+    put: jest.fn(),
+  },
 }));
 describe('UpdatePublish route handler', () => {
   const mockRequestData = '1';
 
   let mockRequest: Request;
-
-  const mockUpdatePublishUser = updatePublishUser as jest.Mock;
 
   beforeEach(() => {
     mockRequest = new Request(
@@ -40,7 +46,7 @@ describe('UpdatePublish route handler', () => {
       error: null,
     };
 
-    mockUpdatePublishUser.mockResolvedValueOnce(mockResponse);
+    jest.spyOn(apiClient, 'put').mockResolvedValueOnce(mockResponse);
 
     const response = await PUT(mockRequest);
 
@@ -58,7 +64,7 @@ describe('UpdatePublish route handler', () => {
       error: 'mock',
     };
 
-    mockUpdatePublishUser.mockResolvedValueOnce(mockResponse);
+    jest.spyOn(apiClient, 'put').mockResolvedValueOnce(mockResponse);
 
     const response = await PUT(mockRequest);
 

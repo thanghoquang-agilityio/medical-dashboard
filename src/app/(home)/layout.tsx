@@ -3,26 +3,17 @@ import dynamic from 'next/dynamic';
 // Config
 import { auth } from '@/config/auth';
 
+// Services
+import { getNotifications, getUserLogged } from '@/services';
+
 // Constants
-import {
-  API_ENDPOINT,
-  HOST_DOMAIN,
-  PRIVATE_ROUTES,
-  ROUTE_ENDPOINT,
-} from '@/constants';
+import { API_ENDPOINT, PRIVATE_ROUTES } from '@/constants';
 
 // Components
 import { Sidebar } from '@/components/layouts';
 
 // Types
-import {
-  DIRECTION,
-  MetaResponse,
-  NotificationResponse,
-  ROLE,
-  UserLogged,
-} from '@/types';
-import { headers } from 'next/headers';
+import { DIRECTION, ROLE, UserLogged } from '@/types';
 
 const HeaderDashboard = dynamic(
   () => import('@/components/layouts/HeaderDashboard'),
@@ -34,23 +25,14 @@ export default async function DashboardLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const nextHeader = new Headers(headers());
   const { id, token = '', role = '' } = (await auth())?.user || {};
-
-  const responseGetUserLogged = await fetch(
-    `${HOST_DOMAIN}/${ROUTE_ENDPOINT.USER.GET_LOGGED}`,
-    {
-      method: 'GET',
-      headers: { Authorization: `Bearer ${token}` },
-    },
-  );
 
   const {
     user: userLogged,
   }: {
     user: UserLogged | null;
     error: string | null;
-  } = await responseGetUserLogged.json();
+  } = await getUserLogged(token);
 
   const { avatar = '' } = userLogged || {};
   const searchParamsAPI = new URLSearchParams();
@@ -62,27 +44,14 @@ export default async function DashboardLayout({
 
   searchParamsAPI.set('sort[0]', `createdAt:${DIRECTION.DESC}`);
 
-  nextHeader.set(
-    'tags',
-    [API_ENDPOINT.NOTIFICATIONS, `${PRIVATE_ROUTES.DASHBOARD}/${id}`].join(','),
-  );
-
-  const responseGetNotifications = await fetch(
-    `${HOST_DOMAIN}/${ROUTE_ENDPOINT.NOTIFICATIONS.GET_NOTIFICATIONS}?${decodeURIComponent(searchParamsAPI.toString())}`,
-    {
-      method: 'GET',
-      // reference: https://github.com/nextauthjs/next-auth/issues/7423
-      headers: nextHeader,
+  const { notifications, pagination } = await getNotifications({
+    searchParams: searchParamsAPI,
+    options: {
+      next: {
+        tags: [API_ENDPOINT.NOTIFICATIONS, `${PRIVATE_ROUTES.DASHBOARD}/${id}`],
+      },
     },
-  );
-
-  const {
-    notifications,
-    pagination,
-  }: {
-    notifications: NotificationResponse[];
-    error: string | null;
-  } & MetaResponse = await responseGetNotifications.json();
+  });
 
   return (
     <main>

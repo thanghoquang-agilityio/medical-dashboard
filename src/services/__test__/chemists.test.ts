@@ -10,7 +10,10 @@ describe('Chemist services test cases', () => {
   });
 
   const mockGet = jest.fn();
-  const mockPost = jest.spyOn(apiClient, 'post');
+
+  const mockFetch = jest.fn();
+
+  global.fetch = mockFetch;
 
   it('should return a list of chemists when getting chemist list', async () => {
     jest.spyOn(apiClient, 'apiClientSession').mockResolvedValueOnce({
@@ -92,9 +95,12 @@ describe('Chemist services test cases', () => {
   });
 
   it('should return chemist when adding user to chemists', async () => {
-    mockPost.mockResolvedValueOnce({
+    const response = {
       data: MOCK_CHEMISTS_LIST[0],
       error: null,
+    };
+    mockFetch.mockResolvedValueOnce({
+      json: () => Promise.resolve(response),
     });
 
     const result = await addUserToChemists({
@@ -105,26 +111,20 @@ describe('Chemist services test cases', () => {
       chemist: MOCK_CHEMISTS_LIST[0],
       error: null,
     });
-
-    expect(mockPost).toHaveBeenCalledWith(`${API_ENDPOINT.CHEMISTS}`, {
-      body: {
-        data: {
-          users_permissions_user:
-            MOCK_CHEMISTS_LIST[0].attributes.users_permissions_user.data
-              .attributes.username,
-        },
-      },
-    });
   });
 
   it('should return error message when there are errors during adding user to chemists', async () => {
-    mockPost.mockResolvedValueOnce({
+    const response = {
       data: null,
       error: JSON.stringify({
         error: {
           message: 'Something went wrong',
         },
       }),
+    };
+
+    mockFetch.mockResolvedValueOnce({
+      json: () => Promise.resolve(response),
     });
 
     const result = await addUserToChemists({
@@ -138,7 +138,9 @@ describe('Chemist services test cases', () => {
   });
 
   it('should handle error exception when adding user to chemist list', async () => {
-    mockPost.mockRejectedValueOnce(new Error('Mock error exception'));
+    mockFetch.mockResolvedValueOnce({
+      json: () => Promise.reject(new Error('Mock error exception')),
+    });
 
     let result = await addUserToChemists({
       users_permissions_user: 'Alex Stanton',
@@ -149,7 +151,9 @@ describe('Chemist services test cases', () => {
       error: 'Mock error exception',
     });
 
-    mockPost.mockRejectedValueOnce({});
+    mockFetch.mockResolvedValueOnce({
+      json: () => Promise.reject({}),
+    });
 
     result = await addUserToChemists({
       users_permissions_user: 'Alex Stanton',
@@ -158,16 +162,6 @@ describe('Chemist services test cases', () => {
     expect(result).toEqual({
       chemist: null,
       error: EXCEPTION_ERROR_MESSAGE.ADD('user to chemists'),
-    });
-
-    expect(mockPost).toHaveBeenCalledWith(`${API_ENDPOINT.CHEMISTS}`, {
-      body: {
-        data: {
-          users_permissions_user:
-            MOCK_CHEMISTS_LIST[0].attributes.users_permissions_user.data
-              .attributes.username,
-        },
-      },
     });
   });
 });

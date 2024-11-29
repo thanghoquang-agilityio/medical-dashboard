@@ -10,16 +10,11 @@ import { Button, Checkbox, Input, Text } from '@/components/ui';
 import { EmailIcon, EyeIcon, EyeSlashIcon, LockIcon } from '@/icons';
 
 // Constants
-import {
-  AUTH_ROUTES,
-  ERROR_MESSAGE,
-  ROUTE_ENDPOINT,
-  SUCCESS_MESSAGE,
-} from '@/constants';
+import { AUTH_ROUTES, ERROR_MESSAGE, SUCCESS_MESSAGE } from '@/constants';
 import { LOGIN_FORM_VALIDATION } from './rule';
 
 // Types
-import { LoginFormData, STATUS_TYPE, UserSession } from '@/types';
+import { LoginFormData, STATUS_TYPE } from '@/types';
 
 // Utils
 import { clearErrorOnChange, isEnableSubmit } from '@/utils';
@@ -27,7 +22,7 @@ import { clearErrorOnChange, isEnableSubmit } from '@/utils';
 // Contexts
 import { useToast } from '@/context/toast';
 import { fetchToken } from '@/config/firebase.config';
-import { useRouter } from 'next/navigation';
+import { login, loginNextAuth } from '@/actions/auth';
 
 const DEFAULT_VALUE: LoginFormData = {
   identifier: '',
@@ -51,7 +46,6 @@ const LoginForm = () => {
   const [isShowPassword, setIsShowPassword] = useState<boolean>(false);
 
   const openToast = useToast();
-  const { replace } = useRouter();
 
   const handleToggleVisiblePassword = useCallback(
     () => setIsShowPassword((prev) => !prev),
@@ -73,15 +67,7 @@ const LoginForm = () => {
     async (data: LoginFormData) => {
       setIsPending(true);
 
-      const response = await fetch(ROUTE_ENDPOINT.AUTH.LOGIN, {
-        method: 'POST',
-        body: JSON.stringify(data),
-      });
-
-      const result: { user: UserSession | null; error: string | null } =
-        await response.json();
-
-      const { user, error } = result;
+      const { user, error } = await login(data);
 
       if (user) {
         const firebaseToken = await fetchToken();
@@ -101,14 +87,7 @@ const LoginForm = () => {
           type: STATUS_TYPE.SUCCESS,
         });
 
-        const response = await fetch(ROUTE_ENDPOINT.AUTH.LOGIN_NEXT_AUTH, {
-          method: 'POST',
-          body: JSON.stringify(user),
-        });
-
-        const url: string = await response.json();
-
-        url && replace(url);
+        loginNextAuth(user);
       }
 
       if (error) {

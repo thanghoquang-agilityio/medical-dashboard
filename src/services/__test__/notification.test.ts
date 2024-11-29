@@ -10,23 +10,35 @@ import {
 import { API_ENDPOINT, EXCEPTION_ERROR_MESSAGE } from '@/constants';
 
 jest.mock('next/cache');
+
+jest.mock('next-auth', () => ({
+  __esModule: true,
+  default: jest.fn().mockReturnValue({
+    auth: jest.fn(),
+  }),
+}));
 describe('Notification service test cases', () => {
+  const mockFetch = jest.fn();
+
+  global.fetch = mockFetch;
+
   afterEach(() => {
     jest.clearAllMocks();
   });
 
-  const mockGet = jest.fn();
   const mockPost = jest.fn();
   const mockPut = jest.fn();
   const mockDelete = jest.fn();
   it('should return the list of notifications', async () => {
-    jest.spyOn(apiClient, 'apiClientSession').mockResolvedValueOnce({
-      get: mockGet.mockResolvedValueOnce({
-        data: MOCK_NOTIFICATION_LIST,
-        meta: {},
-        error: null,
-      }),
-    } as Partial<ApiClient> as ApiClient);
+    const response = {
+      data: MOCK_NOTIFICATION_LIST,
+      meta: {},
+      error: null,
+    };
+
+    mockFetch.mockResolvedValueOnce({
+      json: () => Promise.resolve(response),
+    });
 
     const result = await getNotifications({});
 
@@ -34,25 +46,20 @@ describe('Notification service test cases', () => {
       notifications: MOCK_NOTIFICATION_LIST,
       error: null,
     });
-
-    expect(mockGet).toHaveBeenCalledWith(
-      `${API_ENDPOINT.NOTIFICATIONS}?`,
-      expect.anything(),
-    );
   });
 
   it('should return error message when there are errors during getting notification list', async () => {
-    jest.spyOn(apiClient, 'apiClientSession').mockResolvedValueOnce({
-      get: mockGet.mockResolvedValueOnce({
-        data: [],
-        meta: {},
-        error: JSON.stringify({
-          error: {
-            message: 'Something went wrong',
-          },
-        }),
+    const response = {
+      data: [],
+      meta: {},
+      error: JSON.stringify({
+        error: {
+          message: 'Something went wrong',
+        },
       }),
-    } as Partial<ApiClient> as ApiClient);
+    };
+
+    mockFetch.mockResolvedValueOnce({ json: () => Promise.resolve(response) });
 
     const result = await getNotifications({});
 
@@ -60,19 +67,12 @@ describe('Notification service test cases', () => {
       notifications: [],
       error: 'Something went wrong',
     });
-
-    expect(mockGet).toHaveBeenCalledWith(
-      `${API_ENDPOINT.NOTIFICATIONS}?`,
-      expect.anything(),
-    );
   });
 
   it('should handle error exception when getting notification list', async () => {
-    const api = jest.spyOn(apiClient, 'apiClientSession');
-
-    api.mockResolvedValueOnce({
-      get: mockGet.mockRejectedValueOnce(new Error('Mock error exception')),
-    } as Partial<ApiClient> as ApiClient);
+    mockFetch.mockResolvedValueOnce({
+      json: () => Promise.reject(new Error('Mock error exception')),
+    });
 
     let result = await getNotifications({});
 
@@ -81,9 +81,7 @@ describe('Notification service test cases', () => {
       error: 'Mock error exception',
     });
 
-    api.mockResolvedValueOnce({
-      get: mockGet.mockRejectedValueOnce({}),
-    } as Partial<ApiClient> as ApiClient);
+    mockFetch.mockResolvedValueOnce({ json: () => Promise.reject('') });
 
     result = await getNotifications({});
 
