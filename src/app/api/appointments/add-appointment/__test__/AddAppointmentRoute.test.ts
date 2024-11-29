@@ -1,9 +1,9 @@
 /**
  * @jest-environment node
  */
-import { MOCK_CHEMISTS_LIST } from '@/mocks';
+import { MOCK_APPOINTMENTS } from '@/mocks';
 import { POST } from '../route';
-import { ChemistDataResponse, ChemistPayload } from '@/types';
+import { AppointmentPayload, AppointmentResponse } from '@/types';
 import { HOST_DOMAIN, ROUTE_ENDPOINT } from '@/constants';
 import { apiClient } from '@/services';
 
@@ -15,16 +15,20 @@ jest.mock('@/services/api', () => ({
   },
 }));
 
-describe('AddToChemists route handler', () => {
-  const mockRequestData: ChemistPayload = {
-    users_permissions_user: '8',
+describe('AddAppointments route handler', () => {
+  const mockRequestData: AppointmentPayload = {
+    senderId: '1',
+    startTime: '',
+    durationTime: '',
+    receiverId: '2',
+    status: 0,
   };
 
   let mockRequest: Request;
 
   beforeEach(() => {
     mockRequest = new Request(
-      `${HOST_DOMAIN}/${ROUTE_ENDPOINT.CHEMISTS.ADD_TO_CHEMISTS}`,
+      `${HOST_DOMAIN}/${ROUTE_ENDPOINT.APPOINTMENTS.ADD_APPOINTMENT}`,
       {
         method: 'POST',
         body: JSON.stringify(mockRequestData),
@@ -36,10 +40,13 @@ describe('AddToChemists route handler', () => {
     jest.clearAllMocks();
   });
 
-  it('should add user to the chemists and return the response', async () => {
-    const mockResponse: ChemistDataResponse = {
-      chemist: MOCK_CHEMISTS_LIST[0],
-      error: null,
+  it('should add appointment and return the response', async () => {
+    const mockResponse: {
+      data: AppointmentResponse;
+      error?: string;
+    } = {
+      data: MOCK_APPOINTMENTS[0],
+      error: undefined,
     };
 
     jest.spyOn(apiClient, 'post').mockResolvedValueOnce(mockResponse);
@@ -52,9 +59,9 @@ describe('AddToChemists route handler', () => {
   });
 
   it('should return the error when there is an exception', async () => {
-    const mockResponse: ChemistDataResponse = {
-      chemist: null,
-      error: 'mock',
+    const mockResponse = {
+      data: null,
+      error: 'mock error',
     };
 
     jest.spyOn(apiClient, 'post').mockResolvedValueOnce(mockResponse);

@@ -68,6 +68,7 @@ export class ApiClient {
       body: JSON.stringify(config.body),
       headers: {
         'Content-Type': 'application/json',
+        ...config.headers,
       },
     });
 
