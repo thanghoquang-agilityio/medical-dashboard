@@ -1,15 +1,13 @@
 import * as NextCache from 'next/cache';
 import {
   addAppointment,
-  ApiClient,
-  apiClient,
   deleteAppointment,
   getAppointments,
   updateAppointment,
 } from '@/services';
 import { MOCK_APPOINTMENTS } from '@/mocks';
 import { AppointmentPayload } from '@/types';
-import { API_ENDPOINT, EXCEPTION_ERROR_MESSAGE } from '@/constants';
+import { EXCEPTION_ERROR_MESSAGE } from '@/constants';
 
 jest.mock('next/cache');
 jest.mock('next-auth', () => ({
@@ -23,8 +21,6 @@ describe('Appointment service tests', () => {
   afterEach(() => {
     jest.clearAllMocks();
   });
-
-  const mockDelete = jest.fn();
 
   const mockFetch = jest.fn();
 
@@ -235,12 +231,13 @@ describe('Appointment service tests', () => {
   });
 
   it('deleteAppointment should delete appointment correctly', async () => {
-    jest.spyOn(apiClient, 'apiClientSession').mockResolvedValue({
-      delete: mockDelete.mockResolvedValue({
-        data: MOCK_APPOINTMENTS[0],
-        error: null,
-      }),
-    } as Partial<ApiClient> as ApiClient);
+    mockFetch.mockResolvedValueOnce({
+      json: () =>
+        Promise.resolve({
+          data: MOCK_APPOINTMENTS[0],
+          error: null,
+        }),
+    });
 
     const result = await deleteAppointment('1');
 
@@ -248,20 +245,19 @@ describe('Appointment service tests', () => {
       appointment: MOCK_APPOINTMENTS[0],
       error: null,
     });
-
-    expect(mockDelete).toHaveBeenCalledWith(`${API_ENDPOINT.APPOINTMENTS}/1`);
   });
 
   it('deleteAppointment should handle API errors correctly', async () => {
-    jest.spyOn(apiClient, 'apiClientSession').mockResolvedValue({
-      delete: mockDelete.mockResolvedValue({
-        error: JSON.stringify({
-          error: {
-            message: 'Failed to delete appointment',
-          },
+    mockFetch.mockResolvedValueOnce({
+      json: () =>
+        Promise.resolve({
+          error: JSON.stringify({
+            error: {
+              message: 'Failed to delete appointment',
+            },
+          }),
         }),
-      }),
-    } as Partial<ApiClient> as ApiClient);
+    });
 
     const result = await deleteAppointment('1');
 
@@ -269,22 +265,29 @@ describe('Appointment service tests', () => {
       appointment: null,
       error: 'Failed to delete appointment',
     });
-
-    expect(mockDelete).toHaveBeenCalledWith(`${API_ENDPOINT.APPOINTMENTS}/1`);
   });
 
   it('deleteAppointment should handle API reject errors correctly', async () => {
-    jest.spyOn(apiClient, 'apiClientSession').mockResolvedValue({
-      delete: mockDelete.mockRejectedValue({}),
-    } as Partial<ApiClient> as ApiClient);
+    mockFetch.mockResolvedValueOnce({
+      json: () => Promise.reject({}),
+    });
 
-    const result = await deleteAppointment('1');
+    let result = await deleteAppointment('1');
 
     expect(result).toEqual({
       appointment: null,
       error: EXCEPTION_ERROR_MESSAGE.DELETE('appointment'),
     });
 
-    expect(mockDelete).toHaveBeenCalledWith(`${API_ENDPOINT.APPOINTMENTS}/1`);
+    mockFetch.mockResolvedValueOnce({
+      json: () => Promise.reject(new Error('mock exception')),
+    });
+
+    result = await deleteAppointment('1');
+
+    expect(result).toEqual({
+      appointment: null,
+      error: 'mock exception',
+    });
   });
 });

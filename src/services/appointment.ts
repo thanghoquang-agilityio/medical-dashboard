@@ -20,7 +20,6 @@ import {
 } from '@/types';
 
 // Services
-import { apiClient } from '@/services';
 import { auth } from '@/config/auth';
 
 export const getAppointments = async ({
@@ -159,11 +158,30 @@ export const deleteAppointment = async (
   id: string,
 ): Promise<AppointmentDataResponse> => {
   try {
-    const api = await apiClient.apiClientSession();
-    const { data, error } = await api.delete<{
+    const { token = '' } = (await auth())?.user || {};
+
+    const url = `${HOST_DOMAIN}/${ROUTE_ENDPOINT.APPOINTMENTS.DELETE_APPOINTMENT}/${id}`;
+
+    const response = await fetch(url, {
+      method: 'DELETE',
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
+
+    const {
+      data,
+      error,
+    }: {
       data: AppointmentResponse;
       error?: string;
-    }>(`${API_ENDPOINT.APPOINTMENTS}/${id}`);
+    } = await response.json();
+
+    // const api = await apiClient.apiClientSession();
+    // const { data, error } = await api.delete<{
+    //   data: AppointmentResponse;
+    //   error?: string;
+    // }>(`${API_ENDPOINT.APPOINTMENTS}/${id}`);
 
     if (error) {
       const errorResponse = JSON.parse(error) as ErrorResponse;
