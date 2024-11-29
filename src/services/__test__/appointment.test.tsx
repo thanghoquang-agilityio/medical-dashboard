@@ -24,7 +24,6 @@ describe('Appointment service tests', () => {
     jest.clearAllMocks();
   });
 
-  const mockPut = jest.fn();
   const mockDelete = jest.fn();
 
   const mockFetch = jest.fn();
@@ -164,12 +163,13 @@ describe('Appointment service tests', () => {
   });
 
   it('updateAppointment should update appointment correctly', async () => {
-    jest.spyOn(apiClient, 'apiClientSession').mockResolvedValue({
-      put: mockPut.mockResolvedValue({
-        data: MOCK_APPOINTMENTS[0],
-        error: null,
-      }),
-    } as Partial<ApiClient> as ApiClient);
+    mockFetch.mockResolvedValueOnce({
+      json: () =>
+        Promise.resolve({
+          data: MOCK_APPOINTMENTS[0],
+          error: null,
+        }),
+    });
 
     const result = await updateAppointment(
       '1',
@@ -180,24 +180,19 @@ describe('Appointment service tests', () => {
       appointment: MOCK_APPOINTMENTS[0],
       error: null,
     });
-
-    expect(mockPut).toHaveBeenCalledWith(`${API_ENDPOINT.APPOINTMENTS}/1`, {
-      body: {
-        data: MOCK_APPOINTMENTS[0],
-      },
-    });
   });
 
   it('updateAppointment should handle API errors correctly', async () => {
-    jest.spyOn(apiClient, 'apiClientSession').mockResolvedValue({
-      put: mockPut.mockResolvedValue({
-        error: JSON.stringify({
-          error: {
-            message: 'Failed to update appointment',
-          },
+    mockFetch.mockResolvedValueOnce({
+      json: () =>
+        Promise.resolve({
+          error: JSON.stringify({
+            error: {
+              message: 'Failed to update appointment',
+            },
+          }),
         }),
-      }),
-    } as Partial<ApiClient> as ApiClient);
+    });
 
     const result = await updateAppointment(
       '1',
@@ -208,20 +203,14 @@ describe('Appointment service tests', () => {
       appointment: null,
       error: 'Failed to update appointment',
     });
-
-    expect(mockPut).toHaveBeenCalledWith(`${API_ENDPOINT.APPOINTMENTS}/1`, {
-      body: {
-        data: MOCK_APPOINTMENTS[0],
-      },
-    });
   });
 
   it('updateAppointment should handle API reject errors correctly', async () => {
-    jest.spyOn(apiClient, 'apiClientSession').mockResolvedValue({
-      put: mockPut.mockRejectedValue({}),
-    } as Partial<ApiClient> as ApiClient);
+    mockFetch.mockResolvedValueOnce({
+      json: () => Promise.reject({}),
+    });
 
-    const result = await updateAppointment(
+    let result = await updateAppointment(
       '1',
       MOCK_APPOINTMENTS[0] as AppointmentPayload,
     );
@@ -231,10 +220,17 @@ describe('Appointment service tests', () => {
       error: EXCEPTION_ERROR_MESSAGE.UPDATE('appointment'),
     });
 
-    expect(mockPut).toHaveBeenCalledWith(`${API_ENDPOINT.APPOINTMENTS}/1`, {
-      body: {
-        data: MOCK_APPOINTMENTS[0],
-      },
+    mockFetch.mockResolvedValueOnce({
+      json: () => Promise.reject(new Error('mock exception')),
+    });
+    result = await updateAppointment(
+      '1',
+      MOCK_APPOINTMENTS[0] as AppointmentPayload,
+    );
+
+    expect(result).toEqual({
+      appointment: null,
+      error: 'mock exception',
     });
   });
 

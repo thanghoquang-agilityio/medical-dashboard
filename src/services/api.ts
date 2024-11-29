@@ -67,8 +67,8 @@ export class ApiClient {
       method: 'POST',
       body: JSON.stringify(config.body),
       headers: {
-        'Content-Type': 'application/json',
         ...config.headers,
+        'Content-Type': 'application/json',
       },
     });
 
@@ -109,6 +109,7 @@ export class ApiClient {
       method: 'PUT',
       body: JSON.stringify(config.body),
       headers: {
+        ...config.headers,
         'Content-Type': 'application/json',
       },
     });

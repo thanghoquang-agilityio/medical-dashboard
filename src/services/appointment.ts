@@ -114,17 +114,27 @@ export const updateAppointment = async (
   appointment: AppointmentPayload,
 ): Promise<AppointmentDataResponse> => {
   try {
-    const api = await apiClient.apiClientSession();
-    const { data, error } = await api.put<{
-      data: AppointmentResponse;
-      error?: string;
-    }>(`${API_ENDPOINT.APPOINTMENTS}/${id}`, {
-      body: {
-        data: {
-          ...appointment,
-        },
+    const { token = '' } = (await auth())?.user || {};
+
+    const url = `${HOST_DOMAIN}/${ROUTE_ENDPOINT.APPOINTMENTS.UPDATE_APPOINTMENT}/${id}`;
+
+    const response = await fetch(url, {
+      method: 'PUT',
+      body: JSON.stringify({
+        data: appointment,
+      }),
+      headers: {
+        Authorization: `Bearer ${token}`,
       },
     });
+
+    const {
+      data,
+      error,
+    }: {
+      data: AppointmentResponse;
+      error?: string;
+    } = await response.json();
 
     if (error) {
       const errorResponse = JSON.parse(error) as ErrorResponse;
