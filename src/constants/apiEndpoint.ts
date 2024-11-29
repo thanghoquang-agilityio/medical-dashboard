@@ -31,6 +31,9 @@ export const ROUTE_ENDPOINT = {
   NOTIFICATIONS: {
     GET_NOTIFICATIONS: 'api/notifications/get-notifications',
   },
+  APPOINTMENTS: {
+    GET_APPOINTMENTS: 'api/appointments/get-appointments',
+  },
 };
 
 export const HOST_DOMAIN = process.env.SITE_HOST ?? 'http://localhost:3000';
