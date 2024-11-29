@@ -3,16 +3,19 @@
  */
 import { HOST_DOMAIN, ROUTE_ENDPOINT } from '@/constants';
 import { MOCK_NOTIFICATION_LIST } from '@/mocks';
-import { getNotifications } from '@/services';
 import { GET } from '../route';
 import { MetaResponse, NotificationResponse } from '@/types';
+import { apiClient } from '@/services';
+import { NextRequest } from 'next/server';
 
-jest.mock('@/services', () => ({
-  getNotifications: jest.fn(),
+jest.mock('@/services/api', () => ({
+  __esModule: true,
+  ...jest.requireActual('@/services/api'),
+  apiClient: {
+    get: jest.fn(),
+  },
 }));
-
 describe('GetNotifications route handler', () => {
-  const mockGetNotifications = getNotifications as jest.Mock;
   const mockDataResponse: {
     notifications: NotificationResponse[];
     error: string | null;
@@ -21,10 +24,10 @@ describe('GetNotifications route handler', () => {
     error: null,
   };
 
-  let mockDataRequest: Request;
+  let mockDataRequest: NextRequest;
 
   beforeEach(() => {
-    mockDataRequest = new Request(
+    mockDataRequest = new NextRequest(
       `${HOST_DOMAIN}/${ROUTE_ENDPOINT.USER.GET_LOGGED}`,
       {
         headers: {
@@ -39,7 +42,7 @@ describe('GetNotifications route handler', () => {
   });
 
   it('should return the notification list', async () => {
-    mockGetNotifications.mockResolvedValueOnce(mockDataResponse);
+    jest.spyOn(apiClient, 'get').mockResolvedValueOnce(mockDataResponse);
 
     const response = await GET(mockDataRequest);
 
@@ -52,12 +55,12 @@ describe('GetNotifications route handler', () => {
   });
 
   it('should return the error when there is an exception', async () => {
-    mockGetNotifications.mockResolvedValueOnce({
+    jest.spyOn(apiClient, 'get').mockResolvedValueOnce({
       notifications: null,
       error: 'mock',
     });
 
-    const request = new Request(
+    const request = new NextRequest(
       `${HOST_DOMAIN}/${ROUTE_ENDPOINT.USER.GET_LOGGED}`,
       {
         headers: undefined,

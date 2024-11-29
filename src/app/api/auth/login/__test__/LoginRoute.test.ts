@@ -5,11 +5,16 @@ import { MOCK_USERS_LOGGED } from '@/mocks';
 import { POST } from '../route';
 import { LoginFormData } from '@/types';
 import { HOST_DOMAIN, ROUTE_ENDPOINT } from '@/constants';
-import { login } from '@/actions/auth';
+import { apiClient } from '@/services';
 
-jest.mock('@/actions/auth', () => ({
-  login: jest.fn(),
+jest.mock('@/services/api', () => ({
+  __esModule: true,
+  ...jest.requireActual('@/services/api'),
+  apiClient: {
+    post: jest.fn(),
+  },
 }));
+
 describe('Login route handler', () => {
   const mockRequestData: LoginFormData = {
     identifier: MOCK_USERS_LOGGED[0].email,
@@ -18,8 +23,6 @@ describe('Login route handler', () => {
   };
 
   let mockRequest: Request;
-
-  const mockLogin = login as jest.Mock;
 
   beforeEach(() => {
     mockRequest = new Request(`${HOST_DOMAIN}/${ROUTE_ENDPOINT.AUTH.LOGIN}`, {
@@ -37,7 +40,8 @@ describe('Login route handler', () => {
       user: MOCK_USERS_LOGGED[0],
       error: null,
     };
-    mockLogin.mockResolvedValueOnce(mockResponse);
+
+    jest.spyOn(apiClient, 'post').mockResolvedValue(mockResponse);
 
     const response = await POST(mockRequest);
 
@@ -51,7 +55,8 @@ describe('Login route handler', () => {
       user: null,
       error: 'mock',
     };
-    mockLogin.mockResolvedValueOnce(mockResponse);
+
+    jest.spyOn(apiClient, 'post').mockResolvedValue(mockResponse);
 
     const response = await POST(mockRequest);
 

@@ -5,19 +5,26 @@ import { MOCK_CHEMISTS_LIST } from '@/mocks';
 import { POST } from '../route';
 import { ChemistDataResponse, ChemistPayload } from '@/types';
 import { HOST_DOMAIN, ROUTE_ENDPOINT } from '@/constants';
-import { addUserToChemists } from '@/services';
+import { apiClient } from '@/services';
 
 jest.mock('@/services', () => ({
   addUserToChemists: jest.fn(),
 }));
+
+jest.mock('@/services/api', () => ({
+  __esModule: true,
+  ...jest.requireActual('@/services/api'),
+  apiClient: {
+    post: jest.fn(),
+  },
+}));
+
 describe('AddToChemists route handler', () => {
   const mockRequestData: ChemistPayload = {
     users_permissions_user: '8',
   };
 
   let mockRequest: Request;
-
-  const mockAddUserToChemists = addUserToChemists as jest.Mock;
 
   beforeEach(() => {
     mockRequest = new Request(
@@ -38,7 +45,8 @@ describe('AddToChemists route handler', () => {
       chemist: MOCK_CHEMISTS_LIST[0],
       error: null,
     };
-    mockAddUserToChemists.mockResolvedValueOnce(mockResponse);
+
+    jest.spyOn(apiClient, 'post').mockResolvedValueOnce(mockResponse);
 
     const response = await POST(mockRequest);
 
@@ -53,7 +61,7 @@ describe('AddToChemists route handler', () => {
       error: 'mock',
     };
 
-    mockAddUserToChemists.mockResolvedValueOnce(mockResponse);
+    jest.spyOn(apiClient, 'post').mockResolvedValueOnce(mockResponse);
 
     const response = await POST(mockRequest);
 

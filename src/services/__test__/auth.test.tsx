@@ -1,7 +1,6 @@
 import { cookies } from 'next/headers';
 
 import { MOCK_USER_SESSION } from '@/mocks';
-import { apiClient } from '../api';
 import { login, signup, logout } from '../auth';
 import { EXCEPTION_ERROR_MESSAGE } from '@/constants';
 
@@ -39,35 +38,47 @@ jest.mock('../notificationFirebase.ts', () => ({
 }));
 
 describe('Authorize tests', () => {
+  const mockFetch = jest.fn();
+
+  global.fetch = mockFetch;
   it('should return user information when login successfully', async () => {
-    jest.spyOn(apiClient, 'post').mockResolvedValue({
-      error: null,
-      jwt: token,
-      user: MOCK_USER_SESSION,
+    const response = { error: null, jwt: token, user: MOCK_USER_SESSION };
+
+    mockFetch.mockResolvedValueOnce({
+      ok: true,
+      json: () => Promise.resolve(response),
     });
-    jest.spyOn(apiClient, 'get').mockResolvedValue(MOCK_USER_SESSION);
+
+    mockFetch.mockResolvedValueOnce({
+      ok: true,
+      json: () => Promise.resolve(MOCK_USER_SESSION),
+    });
 
     const result = await login({
-      identifier: email!,
+      identifier: email,
       password: 'password',
       remember: true,
     });
-    expect(result).toStrictEqual({ error: null, user: MOCK_USER_SESSION });
+
+    expect(result).toStrictEqual({
+      error: null,
+      user: MOCK_USER_SESSION,
+    });
   });
 
   it('should return error message when there is no information of login user', async () => {
-    jest.spyOn(apiClient, 'post').mockResolvedValue({
-      error: null,
-      jwt: token,
-      user: MOCK_USER_SESSION,
+    const response = { error: null, jwt: token, user: MOCK_USER_SESSION };
+
+    mockFetch.mockResolvedValueOnce({
+      json: () => Promise.resolve(response),
     });
 
-    jest
-      .spyOn(apiClient, 'get')
-      .mockResolvedValue({ error: 'Login Failed', user: null });
+    mockFetch.mockResolvedValueOnce({
+      json: () => Promise.resolve({ error: 'Login Failed', user: null }),
+    });
 
     const result = await login({
-      identifier: email!,
+      identifier: email,
       password: 'password',
       remember: true,
     });
@@ -79,16 +90,20 @@ describe('Authorize tests', () => {
   });
 
   it('should return error message when login failed', async () => {
-    jest.spyOn(apiClient, 'post').mockResolvedValue({
+    const response = {
       error: JSON.stringify({
         error: {
           message: 'Login Failed',
         },
       }),
+    };
+
+    mockFetch.mockResolvedValueOnce({
+      json: () => Promise.resolve(response),
     });
 
     const result = await login({
-      identifier: email!,
+      identifier: email,
       password: 'password',
       remember: true,
     });
@@ -100,45 +115,69 @@ describe('Authorize tests', () => {
   });
 
   it('should handle error exception when login', async () => {
-    jest.spyOn(apiClient, 'post').mockRejectedValue({});
+    mockFetch.mockResolvedValueOnce({
+      json: () => Promise.reject(''),
+    });
 
-    const result = await login({
-      identifier: email!,
+    let result = await login({
+      identifier: email,
       password: 'password',
       remember: true,
     });
+
     expect(result).toStrictEqual({
       error: EXCEPTION_ERROR_MESSAGE.LOGIN,
+      user: null,
+    });
+
+    mockFetch.mockResolvedValueOnce({
+      json: () => Promise.reject(new Error('Mock exception')),
+    });
+
+    result = await login({
+      identifier: email,
+      password: 'password',
+      remember: true,
+    });
+
+    expect(result).toStrictEqual({
+      error: 'Mock exception',
       user: null,
     });
   });
 
   it('should return user information when signup successfully', async () => {
-    jest.spyOn(apiClient, 'post').mockResolvedValue({
-      error: null,
+    const response = { error: null, jwt: token, user: MOCK_USER_SESSION };
+
+    mockFetch.mockResolvedValueOnce({
+      json: () => Promise.resolve(response),
     });
 
     const result = await signup({
-      email: email!,
-      username: email!,
+      email: email,
+      username: email,
       password: 'password',
     });
 
-    expect(result).toBeTruthy();
+    expect(result).toEqual(response);
   });
 
   it('should return error message when login failed', async () => {
-    jest.spyOn(apiClient, 'post').mockResolvedValue({
+    const response = {
       error: JSON.stringify({
         error: {
           message: 'Signup Failed',
         },
       }),
+    };
+
+    mockFetch.mockResolvedValueOnce({
+      json: () => Promise.resolve(response),
     });
 
     const result = await signup({
-      email: email!,
-      username: email!,
+      email: email,
+      username: email,
       password: 'password',
     });
 
@@ -150,15 +189,34 @@ describe('Authorize tests', () => {
   });
 
   it('should handle error exception when singup', async () => {
-    jest.spyOn(apiClient, 'post').mockRejectedValue({});
+    mockFetch.mockResolvedValueOnce({
+      json: () => Promise.reject({}),
+    });
 
-    const result = await signup({
-      email: email!,
-      username: email!,
+    let result = await signup({
+      email: email,
+      username: email,
       password: 'password',
     });
+
     expect(result).toStrictEqual({
       error: EXCEPTION_ERROR_MESSAGE.REGISTER,
+      jwt: '',
+      user: null,
+    });
+
+    mockFetch.mockResolvedValueOnce({
+      json: () => Promise.reject(new Error('Mock exception')),
+    });
+
+    result = await signup({
+      email: email,
+      username: email,
+      password: 'password',
+    });
+
+    expect(result).toStrictEqual({
+      error: 'Mock exception',
       jwt: '',
       user: null,
     });

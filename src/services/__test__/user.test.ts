@@ -26,46 +26,51 @@ describe('User services test cases', () => {
   });
 
   const apiGet = jest.spyOn(apiClient, 'get');
-  const apiPut = jest.spyOn(apiClient, 'put');
 
   const mockGet = jest.fn();
   const mockPost = jest.fn();
   const mockPut = jest.fn();
 
+  const mockFetch = jest.fn();
+
+  global.fetch = mockFetch;
+
   it('should return the user information', async () => {
-    apiGet.mockResolvedValueOnce({ ...MOCK_USERS_LOGGED[0] });
+    const response = { ...MOCK_USERS_LOGGED[0], error: null };
+
+    mockFetch.mockResolvedValueOnce({
+      json: () => Promise.resolve(response),
+    });
 
     const result = await getUserLogged('');
 
-    expect(result).toEqual({ user: MOCK_USERS_LOGGED[0], error: null });
-
-    expect(apiGet).toHaveBeenCalledWith(
-      `${API_ENDPOINT.USERS}/me?populate=*`,
-      expect.anything(),
-    );
+    expect(result).toStrictEqual({ error: null, user: MOCK_USERS_LOGGED[0] });
   });
 
   it('should return error message if there are errors during getting logged user information', async () => {
-    apiGet.mockResolvedValueOnce({ error: 'Something went wrong' });
+    const response = { error: 'mock' };
+
+    mockFetch.mockResolvedValueOnce({
+      json: () => Promise.resolve(response),
+    });
 
     const result = await getUserLogged('');
 
-    expect(result).toEqual({ user: {}, error: 'Something went wrong' });
-
-    expect(apiGet).toHaveBeenCalledWith(
-      `${API_ENDPOINT.USERS}/me?populate=*`,
-      expect.anything(),
-    );
+    expect(result).toEqual({ user: {}, error: 'mock' });
   });
 
   it('should handle error exception during getting logged user information', async () => {
-    apiGet.mockRejectedValueOnce(new Error('Mock error exception'));
+    mockFetch.mockResolvedValueOnce({
+      json: () => Promise.reject(new Error('Mock error exception')),
+    });
 
     let result = await getUserLogged('');
 
     expect(result).toEqual({ user: null, error: 'Mock error exception' });
 
-    apiGet.mockRejectedValueOnce({});
+    mockFetch.mockResolvedValueOnce({
+      json: () => Promise.reject(''),
+    });
 
     result = await getUserLogged('');
 
@@ -73,11 +78,6 @@ describe('User services test cases', () => {
       user: null,
       error: EXCEPTION_ERROR_MESSAGE.GET('user logged'),
     });
-
-    expect(apiGet).toHaveBeenCalledWith(
-      `${API_ENDPOINT.USERS}/me?populate=*`,
-      expect.anything(),
-    );
   });
 
   it('should return the list of user information', async () => {
@@ -363,9 +363,12 @@ describe('User services test cases', () => {
   });
 
   it('should return user information when updating publish user', async () => {
-    apiPut.mockResolvedValueOnce({
-      ...USER_OPTIONS[0],
-      error: null,
+    mockFetch.mockResolvedValueOnce({
+      json: () =>
+        Promise.resolve({
+          ...USER_OPTIONS[0],
+          error: null,
+        }),
     });
 
     const result = await updatePublishUser(USER_OPTIONS[0].id!);
@@ -374,20 +377,18 @@ describe('User services test cases', () => {
       user: USER_OPTIONS[0],
       error: null,
     });
-
-    expect(apiPut).toHaveBeenCalledWith(
-      `${API_ENDPOINT.USERS}/${USER_OPTIONS[0].id}`,
-      expect.anything(),
-    );
   });
 
   it('should return error message if there are errors during updating publish user', async () => {
-    apiPut.mockResolvedValueOnce({
-      error: JSON.stringify({
-        error: {
-          message: 'Something went wrong',
-        },
-      }),
+    mockFetch.mockResolvedValueOnce({
+      json: () =>
+        Promise.resolve({
+          error: JSON.stringify({
+            error: {
+              message: 'Something went wrong',
+            },
+          }),
+        }),
     });
 
     const result = await updatePublishUser(USER_OPTIONS[0].id!);
@@ -396,15 +397,12 @@ describe('User services test cases', () => {
       user: null,
       error: 'Something went wrong',
     });
-
-    expect(apiPut).toHaveBeenCalledWith(
-      `${API_ENDPOINT.USERS}/${USER_OPTIONS[0].id}`,
-      expect.anything(),
-    );
   });
 
   it('should handle error exception during updating publish user', async () => {
-    apiPut.mockRejectedValueOnce(new Error('Mock error exception'));
+    mockFetch.mockResolvedValueOnce({
+      json: () => Promise.reject(new Error('Mock error exception')),
+    });
 
     let result = await updatePublishUser(USER_OPTIONS[0].id!);
 
@@ -413,7 +411,9 @@ describe('User services test cases', () => {
       error: 'Mock error exception',
     });
 
-    apiPut.mockRejectedValueOnce({});
+    mockFetch.mockResolvedValueOnce({
+      json: () => Promise.reject({}),
+    });
 
     result = await updatePublishUser(USER_OPTIONS[0].id!);
 
@@ -421,11 +421,6 @@ describe('User services test cases', () => {
       user: null,
       error: EXCEPTION_ERROR_MESSAGE.UPDATE('user'),
     });
-
-    expect(apiPut).toHaveBeenCalledWith(
-      `${API_ENDPOINT.USERS}/${USER_OPTIONS[0].id}`,
-      expect.anything(),
-    );
   });
 
   it('should return user information when updating unpublish user', async () => {

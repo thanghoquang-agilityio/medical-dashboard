@@ -1,22 +1,20 @@
-import { getUserLogged } from '@/services';
+import { API_ENDPOINT } from '@/constants';
+import { apiClient } from '@/services';
 import { UserLogged } from '@/types';
-import { NextResponse } from 'next/server';
+import { NextRequest, NextResponse } from 'next/server';
 
-export async function GET(req: Request) {
-  const bearerToken = req.headers.get('Authorization');
+export async function GET(req: NextRequest) {
+  const bearToken = req.headers.get('Authorization') ?? '';
 
-  const token = bearerToken ? bearerToken.split(' ')[1] : '';
+  const response = await apiClient.get<UserLogged & { error: string | null }>(
+    `${API_ENDPOINT.USERS}/me?populate=*`,
+    {
+      headers: {
+        Authorization: bearToken,
+      },
+      next: { revalidate: 3600, tags: [API_ENDPOINT.USERS, 'logged'] },
+    },
+  );
 
-  const {
-    user,
-    error,
-  }: {
-    user: UserLogged | null;
-    error: string | null;
-  } = await getUserLogged(token);
-
-  return NextResponse.json({
-    user,
-    error,
-  });
+  return NextResponse.json(response);
 }

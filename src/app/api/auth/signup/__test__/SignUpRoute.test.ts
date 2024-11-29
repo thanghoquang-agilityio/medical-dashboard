@@ -5,11 +5,16 @@ import { MOCK_SIGN_UP_FORM_DATA, MOCK_USER_SESSION } from '@/mocks';
 import { POST } from '../route';
 import { AuthResponse, SignupFormData } from '@/types';
 import { HOST_DOMAIN, ROUTE_ENDPOINT } from '@/constants';
-import { signup } from '@/actions/auth';
+import { apiClient } from '@/services';
 
-jest.mock('@/actions/auth', () => ({
-  signup: jest.fn(),
+jest.mock('@/services/api', () => ({
+  __esModule: true,
+  ...jest.requireActual('@/services/api'),
+  apiClient: {
+    post: jest.fn(),
+  },
 }));
+
 describe('Signup route handler', () => {
   const mockRequestData: SignupFormData = MOCK_SIGN_UP_FORM_DATA;
 
@@ -20,8 +25,6 @@ describe('Signup route handler', () => {
   };
 
   let mockRequest: Request;
-
-  const mockSignup = signup as jest.Mock;
 
   beforeEach(() => {
     mockRequest = new Request(`${HOST_DOMAIN}/${ROUTE_ENDPOINT.AUTH.SIGNUP}`, {
@@ -35,7 +38,7 @@ describe('Signup route handler', () => {
   });
 
   it('should call sign up with correct data and return the response', async () => {
-    mockSignup.mockResolvedValueOnce(mockResponse);
+    jest.spyOn(apiClient, 'post').mockResolvedValue(mockResponse);
 
     const response = await POST(mockRequest);
 
@@ -45,7 +48,7 @@ describe('Signup route handler', () => {
   });
 
   it('should return error when there is an exception', async () => {
-    mockSignup.mockResolvedValueOnce({
+    jest.spyOn(apiClient, 'post').mockResolvedValue({
       user: null,
       error: 'Mock error exception',
       jwt: '',

@@ -1,6 +1,5 @@
 'use server';
 
-import { apiClient } from './api';
 import { getUserLogged } from './user';
 import {
   UserSession,
@@ -10,9 +9,11 @@ import {
   ErrorResponse,
 } from '@/types';
 import {
-  API_ENDPOINT,
+  AUTH_ROUTES,
   AVATAR_THUMBNAIL,
   EXCEPTION_ERROR_MESSAGE,
+  HOST_DOMAIN,
+  ROUTE_ENDPOINT,
 } from '@/constants';
 import { signOut } from '@/config/auth';
 import { cookies } from 'next/headers';
@@ -23,14 +24,18 @@ export const login = async (
   body: LoginFormData,
 ): Promise<{ user: UserSession | null; error: string | null }> => {
   try {
-    const response = await apiClient.post<AuthResponse>(API_ENDPOINT.AUTH, {
-      body: {
-        identifier: body.identifier,
-        password: body.password,
+    const response = await fetch(
+      `${HOST_DOMAIN}/${ROUTE_ENDPOINT.AUTH.LOGIN}`,
+      {
+        method: 'POST',
+        body: JSON.stringify({
+          identifier: body.identifier,
+          password: body.password,
+        }),
       },
-    });
+    );
 
-    const { error, jwt, user } = response;
+    const { error, jwt, user }: AuthResponse = await response.json();
 
     if (error && !user) {
       return {
@@ -82,13 +87,15 @@ export const signup = async (
   body: Omit<SignupFormData, 'confirmPassWord'>,
 ): Promise<AuthResponse> => {
   try {
-    const {
-      error,
-      user,
-      jwt = '',
-    } = await apiClient.post<AuthResponse>(`${API_ENDPOINT.AUTH}/register`, {
-      body,
-    });
+    const response = await fetch(
+      `${HOST_DOMAIN}/${ROUTE_ENDPOINT.AUTH.SIGNUP}`,
+      {
+        method: 'POST',
+        body: JSON.stringify(body),
+      },
+    );
+
+    const { error, user, jwt = '' }: AuthResponse = await response.json();
 
     if (error && !user) {
       return {
@@ -125,6 +132,6 @@ export const logout = async () => {
   }
 
   await signOut({
-    redirect: false,
+    redirectTo: AUTH_ROUTES.LOGIN,
   });
 };
