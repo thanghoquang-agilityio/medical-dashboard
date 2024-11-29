@@ -1,7 +1,12 @@
 import { revalidateTag } from 'next/cache';
 
 // Constants
-import { API_ENDPOINT, EXCEPTION_ERROR_MESSAGE } from '@/constants';
+import {
+  API_ENDPOINT,
+  EXCEPTION_ERROR_MESSAGE,
+  HOST_DOMAIN,
+  ROUTE_ENDPOINT,
+} from '@/constants';
 
 // Types
 import {
@@ -16,6 +21,7 @@ import {
 
 // Services
 import { apiClient } from '@/services';
+import { auth } from '@/config/auth';
 
 export const getAppointments = async ({
   searchParams = new URLSearchParams(),
@@ -23,19 +29,20 @@ export const getAppointments = async ({
 }: FetchDataProps): AppointmentsDataResponse => {
   try {
     const params = new URLSearchParams(searchParams);
-    const api = await apiClient.apiClientSession();
-    const url = decodeURIComponent(
-      `${API_ENDPOINT.APPOINTMENTS}?${params.toString()}`,
-    );
-    const { data, meta, error } = await api.get<
-      AppointmentsResponse & { error?: string }
-    >(url, {
+
+    const { token = '' } = (await auth())?.user || {};
+
+    const url = `${HOST_DOMAIN}/${ROUTE_ENDPOINT.APPOINTMENTS.GET_APPOINTMENTS}?${params.toString()}`;
+
+    const response = await fetch(url, {
       ...options,
-      next: {
-        ...options.next,
-        revalidate: 3600,
+      headers: {
+        Authorization: `Bearer ${token}`,
       },
     });
+
+    const { data, meta, error }: AppointmentsResponse & { error?: string } =
+      await response.json();
 
     if (error) {
       const errorResponse = JSON.parse(error) as ErrorResponse;

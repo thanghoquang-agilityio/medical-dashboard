@@ -12,25 +12,35 @@ import { AppointmentPayload } from '@/types';
 import { API_ENDPOINT, EXCEPTION_ERROR_MESSAGE } from '@/constants';
 
 jest.mock('next/cache');
+jest.mock('next-auth', () => ({
+  __esModule: true,
+  default: jest.fn().mockReturnValue({
+    auth: jest.fn(),
+  }),
+}));
 
 describe('Appointment service tests', () => {
   afterEach(() => {
     jest.clearAllMocks();
   });
 
-  const mockGet = jest.fn();
   const mockPost = jest.fn();
   const mockPut = jest.fn();
   const mockDelete = jest.fn();
 
+  const mockFetch = jest.fn();
+
+  global.fetch = mockFetch;
+
   it('getAppointments should return value correctly', async () => {
-    jest.spyOn(apiClient, 'apiClientSession').mockResolvedValue({
-      get: mockGet.mockResolvedValue({
-        data: MOCK_APPOINTMENTS,
-        meta: {},
-        error: null,
-      }),
-    } as Partial<ApiClient> as ApiClient);
+    mockFetch.mockResolvedValueOnce({
+      json: () =>
+        Promise.resolve({
+          data: MOCK_APPOINTMENTS,
+          meta: {},
+          error: null,
+        }),
+    });
 
     const result = await getAppointments({});
 
@@ -38,24 +48,20 @@ describe('Appointment service tests', () => {
       appointments: MOCK_APPOINTMENTS,
       error: null,
     });
-
-    expect(mockGet).toHaveBeenCalledWith(
-      `${API_ENDPOINT.APPOINTMENTS}?`,
-      expect.anything(),
-    );
   });
 
   it('getAppointments should handle API errors correctly', async () => {
-    jest.spyOn(apiClient, 'apiClientSession').mockResolvedValue({
-      get: mockGet.mockResolvedValue({
-        data: [],
-        error: JSON.stringify({
-          error: {
-            message: 'Something went wrong',
-          },
+    mockFetch.mockResolvedValueOnce({
+      json: () =>
+        Promise.resolve({
+          data: [],
+          error: JSON.stringify({
+            error: {
+              message: 'Something went wrong',
+            },
+          }),
         }),
-      }),
-    } as Partial<ApiClient> as ApiClient);
+    });
 
     const result = await getAppointments({});
 
@@ -63,29 +69,30 @@ describe('Appointment service tests', () => {
       appointments: [],
       error: 'Something went wrong',
     });
-
-    expect(mockGet).toHaveBeenCalledWith(
-      `${API_ENDPOINT.APPOINTMENTS}?`,
-      expect.anything(),
-    );
   });
 
   it('getAppointments should handle API reject errors correctly', async () => {
-    jest.spyOn(apiClient, 'apiClientSession').mockResolvedValue({
-      get: mockGet.mockRejectedValue({}),
-    } as Partial<ApiClient> as ApiClient);
+    mockFetch.mockResolvedValueOnce({
+      json: () => Promise.reject({}),
+    });
 
-    const result = await getAppointments({});
+    let result = await getAppointments({});
 
     expect(result).toEqual({
       appointments: [],
       error: EXCEPTION_ERROR_MESSAGE.GET('appointments'),
     });
 
-    expect(mockGet).toHaveBeenCalledWith(
-      `${API_ENDPOINT.APPOINTMENTS}?`,
-      expect.anything(),
-    );
+    mockFetch.mockResolvedValueOnce({
+      json: () => Promise.reject(new Error('Mock error')),
+    });
+
+    result = await getAppointments({});
+
+    expect(result).toEqual({
+      appointments: [],
+      error: 'Mock error',
+    });
   });
 
   it('addAppointment should add appointment correctly', async () => {

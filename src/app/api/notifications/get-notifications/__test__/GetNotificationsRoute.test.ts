@@ -28,7 +28,7 @@ describe('GetNotifications route handler', () => {
 
   beforeEach(() => {
     mockDataRequest = new NextRequest(
-      `${HOST_DOMAIN}/${ROUTE_ENDPOINT.USER.GET_LOGGED}`,
+      `${HOST_DOMAIN}/${ROUTE_ENDPOINT.NOTIFICATIONS.GET_NOTIFICATIONS}`,
       {
         headers: {
           tags: 'mock',
@@ -61,7 +61,7 @@ describe('GetNotifications route handler', () => {
     });
 
     const request = new NextRequest(
-      `${HOST_DOMAIN}/${ROUTE_ENDPOINT.USER.GET_LOGGED}`,
+      `${HOST_DOMAIN}/${ROUTE_ENDPOINT.APPOINTMENTS.GET_APPOINTMENTS}`,
       {
         headers: undefined,
       },

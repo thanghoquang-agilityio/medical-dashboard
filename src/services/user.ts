@@ -162,8 +162,6 @@ export const updatePublishUser = async (
   id: string,
 ): Promise<{ user: UserModel | null; error: string | null }> => {
   try {
-    // const now = new Date();
-    // const formattedDate = now.toISOString();
     const response = await fetch(
       `${HOST_DOMAIN}/${ROUTE_ENDPOINT.USER.UPDATE_PUBLISH}`,
       {
@@ -174,13 +172,6 @@ export const updatePublishUser = async (
 
     const { error = null, ...user }: UserModel & { error: string | null } =
       await response.json();
-    // const { error = null, ...user } = await apiClient.put<
-    //   UserModel & { error: string | null }
-    // >(`${API_ENDPOINT.USERS}/${id}`, {
-    //   body: {
-    //     publishedAt: formattedDate,
-    //   },
-    // });
 
     if (error) {
       return {
