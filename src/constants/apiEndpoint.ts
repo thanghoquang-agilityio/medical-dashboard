@@ -15,17 +15,17 @@ export const IMGBB_URL = `${process.env.NEXT_PUBLIC_IMGBB_URL}?key=${process.env
 export const AUTH_TOKEN = process.env.NEXT_PUBLIC_AUTH_TOKEN;
 
 export const ROUTE_ENDPOINT = {
+  APPOINTMENTS: {
+    GET_APPOINTMENTS: 'api/appointments/get-appointments',
+    ADD_APPOINTMENT: 'api/appointments/add-appointment',
+    UPDATE_APPOINTMENT: 'api/appointments/update-appointment',
+    DELETE_APPOINTMENT: 'api/appointments/delete-appointment',
+  },
   AUTH: {
     LOGIN: 'api/auth/login',
     LOGIN_NEXT_AUTH: 'api/auth/login-next-auth',
     SIGNUP: 'api/auth/signup',
     LOGOUT: 'api/auth/logout',
-  },
-  USER: {
-    UPDATE_PUBLISH: 'api/user/update-publish',
-    GET_LOGGED: 'api/user/get-logged',
-    GET_USERS: 'api/user/get-users',
-    GET_USER_ROLES: 'api/user/get-user-roles',
   },
   CHEMISTS: {
     ADD_TO_CHEMISTS: 'api/chemists/add-to-chemists',
@@ -34,11 +34,14 @@ export const ROUTE_ENDPOINT = {
   NOTIFICATIONS: {
     GET_NOTIFICATIONS: 'api/notifications/get-notifications',
   },
-  APPOINTMENTS: {
-    GET_APPOINTMENTS: 'api/appointments/get-appointments',
-    ADD_APPOINTMENT: 'api/appointments/add-appointment',
-    UPDATE_APPOINTMENT: 'api/appointments/update-appointment',
-    DELETE_APPOINTMENT: 'api/appointments/delete-appointment',
+  USER: {
+    UPDATE_PUBLISH: 'api/user/update-publish',
+    GET_LOGGED: 'api/user/get-logged',
+    GET_USERS: 'api/user/get-users',
+    GET_USER_ROLES: 'api/user/get-user-roles',
+  },
+  SPECIALTY: {
+    GET_SPECIALTIES: 'api/specialty/get-specialties',
   },
 };
 

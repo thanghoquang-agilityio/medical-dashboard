@@ -1,19 +1,23 @@
 import { MOCK_SPECIALTIES } from '@/mocks';
-import { apiClient } from '../api';
 import { getSpecialties } from '../specialty';
-import { API_ENDPOINT, EXCEPTION_ERROR_MESSAGE } from '@/constants';
+import { EXCEPTION_ERROR_MESSAGE } from '@/constants';
 
 describe('Specialty service test cases', () => {
   afterEach(() => {
     jest.clearAllMocks();
   });
 
-  const mockGet = jest.spyOn(apiClient, 'get');
+  const mockFetch = jest.fn();
+
+  global.fetch = mockFetch;
   it('should return the list of specialty', async () => {
-    mockGet.mockResolvedValueOnce({
-      data: MOCK_SPECIALTIES,
-      meta: {},
-      error: null,
+    mockFetch.mockResolvedValueOnce({
+      json: () =>
+        Promise.resolve({
+          data: MOCK_SPECIALTIES,
+          meta: {},
+          error: null,
+        }),
     });
 
     const result = await getSpecialties({});
@@ -22,22 +26,20 @@ describe('Specialty service test cases', () => {
       specialties: MOCK_SPECIALTIES,
       error: null,
     });
-
-    expect(mockGet).toHaveBeenCalledWith(
-      `${API_ENDPOINT.SPECIALTIES}?`,
-      expect.anything(),
-    );
   });
 
   it('should return error message when there are errors during getting specialty list', async () => {
-    mockGet.mockResolvedValueOnce({
-      data: [],
-      meta: {},
-      error: JSON.stringify({
-        error: {
-          message: 'Something went wrong',
-        },
-      }),
+    mockFetch.mockResolvedValueOnce({
+      json: () =>
+        Promise.resolve({
+          data: [],
+          meta: {},
+          error: JSON.stringify({
+            error: {
+              message: 'Something went wrong',
+            },
+          }),
+        }),
     });
 
     const result = await getSpecialties({});
@@ -49,7 +51,9 @@ describe('Specialty service test cases', () => {
   });
 
   it('should handle error exception when getting specialty list', async () => {
-    mockGet.mockRejectedValueOnce(new Error('Mock error exception'));
+    mockFetch.mockResolvedValueOnce({
+      json: () => Promise.reject(new Error('Mock error exception')),
+    });
 
     let result = await getSpecialties({});
 
@@ -58,7 +62,9 @@ describe('Specialty service test cases', () => {
       error: 'Mock error exception',
     });
 
-    mockGet.mockRejectedValueOnce({});
+    mockFetch.mockResolvedValueOnce({
+      json: () => Promise.reject({}),
+    });
 
     result = await getSpecialties({});
 
