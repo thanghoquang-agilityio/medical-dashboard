@@ -15,6 +15,7 @@ import {
   ROUTE_ENDPOINT,
 } from '@/constants';
 import { revalidateTag } from 'next/cache';
+import { auth } from '@/config/auth';
 
 export const getUserLogged = async (
   jwt: string,
@@ -26,6 +27,7 @@ export const getUserLogged = async (
         headers: {
           Authorization: `Bearer ${jwt}`,
         },
+        next: { revalidate: 3600, tags: [API_ENDPOINT.USERS, 'logged'] },
       },
     );
 
@@ -47,16 +49,20 @@ export const getUsers = async (): Promise<{
   error: string | null;
 }> => {
   try {
-    const api = await apiClient.apiClientSession();
+    const { token = '' } = (await auth())?.user || {};
 
     const url = decodeURIComponent(
-      `${API_ENDPOINT.USERS}?filters[publishedAt][$notNull]=true`,
+      `${HOST_DOMAIN}/${ROUTE_ENDPOINT.USER.GET_USERS}?filters[publishedAt][$notNull]=true`,
     );
-    const { error = null, ...user } = await api.get<
-      UserLogged[] & { error: string | null }
-    >(url, {
-      next: { revalidate: 3600, tags: [API_ENDPOINT.USERS] },
+
+    const response = await fetch(url, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
     });
+
+    const { error = null, ...user }: UserLogged[] & { error: string | null } =
+      await response.json();
 
     const usersArray = Object.values(user) as UserLogged[];
 
@@ -73,6 +79,7 @@ export const getUsers = async (): Promise<{
   }
 };
 
+// TODO: change to route handler
 export const getUserRoles = async (): Promise<RolesResponse> => {
   try {
     const { roles, error = null } = await apiClient.get<RolesResponse>(

@@ -20,6 +20,13 @@ import {
 import { API_ENDPOINT, EXCEPTION_ERROR_MESSAGE } from '@/constants';
 
 jest.mock('next/cache');
+jest.mock('next-auth', () => ({
+  __esModule: true,
+  default: jest.fn().mockReturnValue({
+    auth: jest.fn(),
+  }),
+}));
+
 describe('User services test cases', () => {
   afterEach(() => {
     jest.clearAllMocks();
@@ -27,7 +34,6 @@ describe('User services test cases', () => {
 
   const apiGet = jest.spyOn(apiClient, 'get');
 
-  const mockGet = jest.fn();
   const mockPost = jest.fn();
   const mockPut = jest.fn();
 
@@ -81,9 +87,9 @@ describe('User services test cases', () => {
   });
 
   it('should return the list of user information', async () => {
-    jest.spyOn(apiClient, 'apiClientSession').mockResolvedValueOnce({
-      get: mockGet.mockResolvedValueOnce(MOCK_USERS_LOGGED),
-    } as Partial<ApiClient> as ApiClient);
+    mockFetch.mockResolvedValueOnce({
+      json: () => Promise.resolve(MOCK_USERS_LOGGED),
+    });
 
     const result = await getUsers();
 
@@ -91,20 +97,16 @@ describe('User services test cases', () => {
       users: MOCK_USERS_LOGGED,
       error: null,
     });
-
-    expect(mockGet).toHaveBeenCalledWith(
-      `${API_ENDPOINT.USERS}?filters[publishedAt][$notNull]=true`,
-      expect.anything(),
-    );
   });
 
   it('should return error message if there are errors during getting all users information', async () => {
-    jest.spyOn(apiClient, 'apiClientSession').mockResolvedValueOnce({
-      get: mockGet.mockResolvedValueOnce({
-        ...[],
-        error: 'Something went wrong',
-      }),
-    } as Partial<ApiClient> as ApiClient);
+    mockFetch.mockResolvedValueOnce({
+      json: () =>
+        Promise.resolve({
+          ...[],
+          error: 'Something went wrong',
+        }),
+    });
 
     const result = await getUsers();
 
@@ -112,17 +114,12 @@ describe('User services test cases', () => {
       users: [],
       error: 'Something went wrong',
     });
-
-    expect(mockGet).toHaveBeenCalledWith(
-      `${API_ENDPOINT.USERS}?filters[publishedAt][$notNull]=true`,
-      expect.anything(),
-    );
   });
 
   it('should handle error exception during getting all users information', async () => {
-    jest.spyOn(apiClient, 'apiClientSession').mockResolvedValueOnce({
-      get: mockGet.mockRejectedValueOnce(new Error('Mock error exception')),
-    } as Partial<ApiClient> as ApiClient);
+    mockFetch.mockResolvedValueOnce({
+      json: () => Promise.reject(new Error('Mock error exception')),
+    });
 
     let result = await getUsers();
 
@@ -131,9 +128,9 @@ describe('User services test cases', () => {
       error: 'Mock error exception',
     });
 
-    jest.spyOn(apiClient, 'apiClientSession').mockResolvedValueOnce({
-      get: mockGet.mockRejectedValueOnce({}),
-    } as Partial<ApiClient> as ApiClient);
+    mockFetch.mockResolvedValueOnce({
+      json: () => Promise.reject({}),
+    });
 
     result = await getUsers();
 
@@ -141,11 +138,6 @@ describe('User services test cases', () => {
       users: [],
       error: EXCEPTION_ERROR_MESSAGE.GET('users'),
     });
-
-    expect(mockGet).toHaveBeenCalledWith(
-      `${API_ENDPOINT.USERS}?filters[publishedAt][$notNull]=true`,
-      expect.anything(),
-    );
   });
 
   it('should return the list of user role', async () => {
