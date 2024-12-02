@@ -1,4 +1,9 @@
-import { API_ENDPOINT, EXCEPTION_ERROR_MESSAGE } from '@/constants';
+import {
+  API_ENDPOINT,
+  EXCEPTION_ERROR_MESSAGE,
+  HOST_DOMAIN,
+  ROUTE_ENDPOINT,
+} from '@/constants';
 
 // Types
 import {
@@ -7,7 +12,6 @@ import {
   SpecialtiesResponse,
   SpecialtiesDataResponse,
 } from '@/types';
-import { apiClient } from './api';
 
 export const getSpecialties = async ({
   searchParams = new URLSearchParams(),
@@ -15,18 +19,32 @@ export const getSpecialties = async ({
 }: FetchDataProps): SpecialtiesDataResponse => {
   try {
     const url = decodeURIComponent(
-      `${API_ENDPOINT.SPECIALTIES}?${searchParams.toString()}`,
+      `${HOST_DOMAIN}/${ROUTE_ENDPOINT.SPECIALTY.GET_SPECIALTIES}?${searchParams.toString()}`,
     );
 
-    const { data, meta, error } = await apiClient.get<
-      SpecialtiesResponse & { error?: string }
-    >(url, {
+    const response = await fetch(url, {
       ...options,
       next: {
         ...options.next,
         revalidate: 3600,
       },
     });
+
+    const { data, meta, error }: SpecialtiesResponse & { error?: string } =
+      await response.json();
+    // const url = decodeURIComponent(
+    //   `${API_ENDPOINT.SPECIALTIES}?${searchParams.toString()}`,
+    // );
+
+    // const { data, meta, error } = await apiClient.get<
+    //   SpecialtiesResponse & { error?: string }
+    // >(url, {
+    //   ...options,
+    //   next: {
+    //     ...options.next,
+    //     revalidate: 3600,
+    //   },
+    // });
 
     if (error) {
       const errorResponse = JSON.parse(error) as ErrorResponse;

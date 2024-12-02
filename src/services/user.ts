@@ -89,13 +89,6 @@ export const getUserRoles = async (): Promise<RolesResponse> => {
 
     const { roles, error = null }: RolesResponse = await response.json();
 
-    // const { roles, error = null } = await apiClient.get<RolesResponse>(
-    //   `${API_ENDPOINT.PERMISSIONS}/roles`,
-    //   {
-    //     next: { revalidate: 3600, tags: [API_ENDPOINT.PERMISSIONS] },
-    //   },
-    // );
-
     if (error) return { roles: [], error };
 
     return { roles: roles, error };
