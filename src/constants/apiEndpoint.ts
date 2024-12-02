@@ -25,6 +25,7 @@ export const ROUTE_ENDPOINT = {
     UPDATE_PUBLISH: 'api/user/update-publish',
     GET_LOGGED: 'api/user/get-logged',
     GET_USERS: 'api/user/get-users',
+    GET_USER_ROLES: 'api/user/get-user-roles',
   },
   CHEMISTS: {
     ADD_TO_CHEMISTS: 'api/chemists/add-to-chemists',

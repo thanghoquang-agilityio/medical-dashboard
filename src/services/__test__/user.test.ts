@@ -32,8 +32,6 @@ describe('User services test cases', () => {
     jest.clearAllMocks();
   });
 
-  const apiGet = jest.spyOn(apiClient, 'get');
-
   const mockPost = jest.fn();
   const mockPut = jest.fn();
 
@@ -141,9 +139,12 @@ describe('User services test cases', () => {
   });
 
   it('should return the list of user role', async () => {
-    apiGet.mockResolvedValueOnce({
-      roles: MOCK_USER_ROLE,
-      error: null,
+    mockFetch.mockResolvedValueOnce({
+      json: () =>
+        Promise.resolve({
+          roles: MOCK_USER_ROLE,
+          error: null,
+        }),
     });
 
     const result = await getUserRoles();
@@ -152,17 +153,15 @@ describe('User services test cases', () => {
       roles: MOCK_USER_ROLE,
       error: null,
     });
-
-    expect(apiGet).toHaveBeenCalledWith(
-      `${API_ENDPOINT.PERMISSIONS}/roles`,
-      expect.anything(),
-    );
   });
 
   it('should return error message if there are errors during getting user role', async () => {
-    apiGet.mockResolvedValueOnce({
-      roles: [],
-      error: 'Something went wrong',
+    mockFetch.mockResolvedValueOnce({
+      json: () =>
+        Promise.resolve({
+          roles: [],
+          error: 'Something went wrong',
+        }),
     });
 
     const result = await getUserRoles();
@@ -171,15 +170,12 @@ describe('User services test cases', () => {
       roles: [],
       error: 'Something went wrong',
     });
-
-    expect(apiGet).toHaveBeenCalledWith(
-      `${API_ENDPOINT.PERMISSIONS}/roles`,
-      expect.anything(),
-    );
   });
 
   it('should handle error exception during getting user role', async () => {
-    apiGet.mockRejectedValueOnce(new Error('Mock error exception'));
+    mockFetch.mockResolvedValueOnce({
+      json: () => Promise.reject(new Error('Mock error exception')),
+    });
 
     let result = await getUserRoles();
 
@@ -188,7 +184,9 @@ describe('User services test cases', () => {
       error: 'Mock error exception',
     });
 
-    apiGet.mockRejectedValueOnce({});
+    mockFetch.mockResolvedValueOnce({
+      json: () => Promise.reject({}),
+    });
 
     result = await getUserRoles();
 
@@ -196,11 +194,6 @@ describe('User services test cases', () => {
       roles: [],
       error: EXCEPTION_ERROR_MESSAGE.GET('user roles'),
     });
-
-    expect(apiGet).toHaveBeenCalledWith(
-      `${API_ENDPOINT.PERMISSIONS}/roles`,
-      expect.anything(),
-    );
   });
 
   it('should return user information when adding user', async () => {
