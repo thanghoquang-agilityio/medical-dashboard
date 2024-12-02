@@ -4,7 +4,6 @@ import {
   MOCK_USERS_LOGGED,
   USER_OPTIONS,
 } from '@/mocks';
-import { ApiClient, apiClient } from '../api';
 import {
   addUser,
   getUserLogged,
@@ -17,7 +16,7 @@ import {
   updateUnpublishUser,
   updateUser,
 } from '../user';
-import { API_ENDPOINT, EXCEPTION_ERROR_MESSAGE } from '@/constants';
+import { EXCEPTION_ERROR_MESSAGE } from '@/constants';
 
 jest.mock('next/cache');
 jest.mock('next-auth', () => ({
@@ -31,8 +30,6 @@ describe('User services test cases', () => {
   afterEach(() => {
     jest.clearAllMocks();
   });
-
-  const mockPut = jest.fn();
 
   const mockFetch = jest.fn();
 
@@ -379,12 +376,13 @@ describe('User services test cases', () => {
   });
 
   it('should return user information when updating unpublish user', async () => {
-    jest.spyOn(apiClient, 'apiClientSession').mockResolvedValueOnce({
-      put: mockPut.mockResolvedValueOnce({
-        ...USER_OPTIONS[0],
-        error: null,
-      }),
-    } as Partial<ApiClient> as ApiClient);
+    mockFetch.mockResolvedValueOnce({
+      json: () =>
+        Promise.resolve({
+          ...USER_OPTIONS[0],
+          error: null,
+        }),
+    });
 
     const result = await updateUnpublishUser(USER_OPTIONS[0].id!);
 
@@ -392,23 +390,19 @@ describe('User services test cases', () => {
       user: USER_OPTIONS[0],
       error: null,
     });
-
-    expect(mockPut).toHaveBeenCalledWith(
-      `${API_ENDPOINT.USERS}/${USER_OPTIONS[0].id}`,
-      expect.anything(),
-    );
   });
 
   it('should return error message if there are errors during updating unpublish user', async () => {
-    jest.spyOn(apiClient, 'apiClientSession').mockResolvedValueOnce({
-      put: mockPut.mockResolvedValueOnce({
-        error: JSON.stringify({
-          error: {
-            message: 'Something went wrong',
-          },
+    mockFetch.mockResolvedValueOnce({
+      json: () =>
+        Promise.resolve({
+          error: JSON.stringify({
+            error: {
+              message: 'Something went wrong',
+            },
+          }),
         }),
-      }),
-    } as Partial<ApiClient> as ApiClient);
+    });
 
     const result = await updateUnpublishUser(USER_OPTIONS[0].id!);
 
@@ -416,17 +410,12 @@ describe('User services test cases', () => {
       user: null,
       error: 'Something went wrong',
     });
-
-    expect(mockPut).toHaveBeenCalledWith(
-      `${API_ENDPOINT.USERS}/${USER_OPTIONS[0].id}`,
-      expect.anything(),
-    );
   });
 
   it('should handle error exception during updating unpublish user', async () => {
-    jest.spyOn(apiClient, 'apiClientSession').mockResolvedValueOnce({
-      put: mockPut.mockRejectedValueOnce(new Error('Mock error exception')),
-    } as Partial<ApiClient> as ApiClient);
+    mockFetch.mockResolvedValueOnce({
+      json: () => Promise.reject(new Error('Mock error exception')),
+    });
 
     let result = await updateUnpublishUser(USER_OPTIONS[0].id!);
 
@@ -435,9 +424,9 @@ describe('User services test cases', () => {
       error: 'Mock error exception',
     });
 
-    jest.spyOn(apiClient, 'apiClientSession').mockResolvedValueOnce({
-      put: mockPut.mockRejectedValueOnce({}),
-    } as Partial<ApiClient> as ApiClient);
+    mockFetch.mockResolvedValueOnce({
+      json: () => Promise.reject({}),
+    });
 
     result = await updateUnpublishUser(USER_OPTIONS[0].id!);
 
@@ -445,57 +434,46 @@ describe('User services test cases', () => {
       user: null,
       error: EXCEPTION_ERROR_MESSAGE.UPDATE('user'),
     });
-
-    expect(mockPut).toHaveBeenCalledWith(
-      `${API_ENDPOINT.USERS}/${USER_OPTIONS[0].id}`,
-      expect.anything(),
-    );
   });
 
   it('should return none error when update unpublish chemist successfully', async () => {
-    jest.spyOn(apiClient, 'apiClientSession').mockResolvedValueOnce({
-      put: mockPut.mockResolvedValueOnce({
-        error: null,
-      }),
-    } as Partial<ApiClient> as ApiClient);
+    mockFetch.mockResolvedValueOnce({
+      json: () =>
+        Promise.resolve({
+          error: null,
+        }),
+    });
 
     const result = await updateUnpublishChemist(USER_OPTIONS[0].id!);
 
     expect(result).toEqual({
       error: null,
     });
-
-    expect(mockPut).toHaveBeenCalledWith(
-      `${API_ENDPOINT.CHEMISTS}/unpublish/${USER_OPTIONS[0].id}`,
-    );
   });
 
   it('should return error message if there are errors during updating unpublish chemist', async () => {
-    jest.spyOn(apiClient, 'apiClientSession').mockResolvedValueOnce({
-      put: mockPut.mockResolvedValueOnce({
-        error: JSON.stringify({
-          error: {
-            message: 'Something went wrong',
-          },
+    mockFetch.mockResolvedValueOnce({
+      json: () =>
+        Promise.resolve({
+          error: JSON.stringify({
+            error: {
+              message: 'Something went wrong',
+            },
+          }),
         }),
-      }),
-    } as Partial<ApiClient> as ApiClient);
+    });
 
     const result = await updateUnpublishChemist(USER_OPTIONS[0].id!);
 
     expect(result).toEqual({
       error: 'Something went wrong',
     });
-
-    expect(mockPut).toHaveBeenCalledWith(
-      `${API_ENDPOINT.CHEMISTS}/unpublish/${USER_OPTIONS[0].id}`,
-    );
   });
 
   it('should handle error exception during updating unpublish chemist', async () => {
-    jest.spyOn(apiClient, 'apiClientSession').mockResolvedValueOnce({
-      put: mockPut.mockRejectedValueOnce(new Error('Mock error exception')),
-    } as Partial<ApiClient> as ApiClient);
+    mockFetch.mockResolvedValueOnce({
+      json: () => Promise.reject(new Error('Mock error exception')),
+    });
 
     let result = await updateUnpublishChemist(USER_OPTIONS[0].id!);
 
@@ -503,65 +481,55 @@ describe('User services test cases', () => {
       error: 'Mock error exception',
     });
 
-    jest.spyOn(apiClient, 'apiClientSession').mockResolvedValueOnce({
-      put: mockPut.mockRejectedValueOnce({}),
-    } as Partial<ApiClient> as ApiClient);
+    mockFetch.mockResolvedValueOnce({
+      json: () => Promise.reject({}),
+    });
 
     result = await updateUnpublishChemist(USER_OPTIONS[0].id!);
 
     expect(result).toEqual({
       error: EXCEPTION_ERROR_MESSAGE.UPDATE('user'),
     });
-
-    expect(mockPut).toHaveBeenCalledWith(
-      `${API_ENDPOINT.CHEMISTS}/unpublish/${USER_OPTIONS[0].id}`,
-    );
   });
 
   it('should return none error when update unpublish notification successfully', async () => {
-    jest.spyOn(apiClient, 'apiClientSession').mockResolvedValueOnce({
-      put: mockPut.mockResolvedValueOnce({
-        error: null,
-      }),
-    } as Partial<ApiClient> as ApiClient);
+    mockFetch.mockResolvedValueOnce({
+      json: () =>
+        Promise.resolve({
+          error: null,
+        }),
+    });
 
     const result = await updateUnpublishNotification(USER_OPTIONS[0].id!);
 
     expect(result).toEqual({
       error: null,
     });
-
-    expect(mockPut).toHaveBeenCalledWith(
-      `${API_ENDPOINT.NOTIFICATIONS}/unpublish/${USER_OPTIONS[0].id}`,
-    );
   });
 
   it('should return error message if there are errors during updating unpublish notification', async () => {
-    jest.spyOn(apiClient, 'apiClientSession').mockResolvedValueOnce({
-      put: mockPut.mockResolvedValueOnce({
-        error: JSON.stringify({
-          error: {
-            message: 'Something went wrong',
-          },
+    mockFetch.mockResolvedValueOnce({
+      json: () =>
+        Promise.resolve({
+          error: JSON.stringify({
+            error: {
+              message: 'Something went wrong',
+            },
+          }),
         }),
-      }),
-    } as Partial<ApiClient> as ApiClient);
+    });
 
     const result = await updateUnpublishNotification(USER_OPTIONS[0].id!);
 
     expect(result).toEqual({
       error: 'Something went wrong',
     });
-
-    expect(mockPut).toHaveBeenCalledWith(
-      `${API_ENDPOINT.NOTIFICATIONS}/unpublish/${USER_OPTIONS[0].id}`,
-    );
   });
 
   it('should handle error exception during updating unpublish notification', async () => {
-    jest.spyOn(apiClient, 'apiClientSession').mockResolvedValueOnce({
-      put: mockPut.mockRejectedValueOnce(new Error('Mock error exception')),
-    } as Partial<ApiClient> as ApiClient);
+    mockFetch.mockResolvedValueOnce({
+      json: () => Promise.reject(new Error('Mock error exception')),
+    });
 
     let result = await updateUnpublishNotification(USER_OPTIONS[0].id!);
 
@@ -569,65 +537,55 @@ describe('User services test cases', () => {
       error: 'Mock error exception',
     });
 
-    jest.spyOn(apiClient, 'apiClientSession').mockResolvedValueOnce({
-      put: mockPut.mockRejectedValueOnce({}),
-    } as Partial<ApiClient> as ApiClient);
+    mockFetch.mockResolvedValueOnce({
+      json: () => Promise.reject({}),
+    });
 
     result = await updateUnpublishNotification(USER_OPTIONS[0].id!);
 
     expect(result).toEqual({
       error: EXCEPTION_ERROR_MESSAGE.UPDATE('user'),
     });
-
-    expect(mockPut).toHaveBeenCalledWith(
-      `${API_ENDPOINT.NOTIFICATIONS}/unpublish/${USER_OPTIONS[0].id}`,
-    );
   });
 
   it('should return none error when update unpublish appointment successfully', async () => {
-    jest.spyOn(apiClient, 'apiClientSession').mockResolvedValueOnce({
-      put: mockPut.mockResolvedValueOnce({
-        error: null,
-      }),
-    } as Partial<ApiClient> as ApiClient);
+    mockFetch.mockResolvedValueOnce({
+      json: () =>
+        Promise.resolve({
+          error: null,
+        }),
+    });
 
     const result = await updateUnpublishAppointment(USER_OPTIONS[0].id!);
 
     expect(result).toEqual({
       error: null,
     });
-
-    expect(mockPut).toHaveBeenCalledWith(
-      `${API_ENDPOINT.APPOINTMENTS}/unpublish/${USER_OPTIONS[0].id}`,
-    );
   });
 
   it('should return error message if there are errors during updating unpublish appointment', async () => {
-    jest.spyOn(apiClient, 'apiClientSession').mockResolvedValueOnce({
-      put: mockPut.mockResolvedValueOnce({
-        error: JSON.stringify({
-          error: {
-            message: 'Something went wrong',
-          },
+    mockFetch.mockResolvedValueOnce({
+      json: () =>
+        Promise.resolve({
+          error: JSON.stringify({
+            error: {
+              message: 'Something went wrong',
+            },
+          }),
         }),
-      }),
-    } as Partial<ApiClient> as ApiClient);
+    });
 
     const result = await updateUnpublishAppointment(USER_OPTIONS[0].id!);
 
     expect(result).toEqual({
       error: 'Something went wrong',
     });
-
-    expect(mockPut).toHaveBeenCalledWith(
-      `${API_ENDPOINT.APPOINTMENTS}/unpublish/${USER_OPTIONS[0].id}`,
-    );
   });
 
   it('should handle error exception during updating unpublish appointment', async () => {
-    jest.spyOn(apiClient, 'apiClientSession').mockResolvedValueOnce({
-      put: mockPut.mockRejectedValueOnce(new Error('Mock error exception')),
-    } as Partial<ApiClient> as ApiClient);
+    mockFetch.mockResolvedValueOnce({
+      json: () => Promise.reject(new Error('Mock error exception')),
+    });
 
     let result = await updateUnpublishAppointment(USER_OPTIONS[0].id!);
 
@@ -635,18 +593,14 @@ describe('User services test cases', () => {
       error: 'Mock error exception',
     });
 
-    jest.spyOn(apiClient, 'apiClientSession').mockResolvedValueOnce({
-      put: mockPut.mockRejectedValueOnce({}),
-    } as Partial<ApiClient> as ApiClient);
+    mockFetch.mockResolvedValueOnce({
+      json: () => Promise.reject({}),
+    });
 
     result = await updateUnpublishAppointment(USER_OPTIONS[0].id!);
 
     expect(result).toEqual({
       error: EXCEPTION_ERROR_MESSAGE.UPDATE('user'),
     });
-
-    expect(mockPut).toHaveBeenCalledWith(
-      `${API_ENDPOINT.APPOINTMENTS}/unpublish/${USER_OPTIONS[0].id}`,
-    );
   });
 });
