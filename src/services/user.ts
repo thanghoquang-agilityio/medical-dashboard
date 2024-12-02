@@ -144,13 +144,20 @@ export const updateUser = async (
   data: UserPayload,
 ): Promise<{ user: UserModel | null; error: string | null }> => {
   try {
-    const api = await apiClient.apiClientSession();
+    const { token = '' } = (await auth())?.user || {};
 
-    const { error = null, ...user } = await api.put<
-      UserModel & { error: string | null }
-    >(`${API_ENDPOINT.USERS}/${id}`, {
-      body: data,
+    const url = `${HOST_DOMAIN}/${ROUTE_ENDPOINT.USER.UPDATE_USER}/${id}`;
+
+    const response = await fetch(url, {
+      method: 'PUT',
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+      body: JSON.stringify(data),
     });
+
+    const { error = null, ...user }: UserModel & { error: string | null } =
+      await response.json();
 
     if (error) {
       return {
