@@ -106,13 +106,19 @@ export const addUser = async (
   data: UserPayload,
 ): Promise<{ user: UserModel | null; error: string | null }> => {
   try {
-    const api = await apiClient.apiClientSession();
+    const { token = '' } = (await auth())?.user || {};
 
-    const { error = null, ...user } = await api.post<
-      UserModel & { error: string | null }
-    >(`${API_ENDPOINT.USERS}`, {
-      body: data,
+    const url = `${HOST_DOMAIN}/${ROUTE_ENDPOINT.USER.ADD_USER}`;
+
+    const response = await fetch(url, {
+      method: 'POST',
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+      body: JSON.stringify(data),
     });
+    const { error = null, ...user }: UserModel & { error: string | null } =
+      await response.json();
 
     if (error) {
       return {
