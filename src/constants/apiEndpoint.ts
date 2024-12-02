@@ -39,6 +39,7 @@ export const ROUTE_ENDPOINT = {
     GET_LOGGED: 'api/user/get-logged',
     GET_USERS: 'api/user/get-users',
     GET_USER_ROLES: 'api/user/get-user-roles',
+    ADD_USER: 'api/user/add-user',
   },
   SPECIALTY: {
     GET_SPECIALTIES: 'api/specialty/get-specialties',

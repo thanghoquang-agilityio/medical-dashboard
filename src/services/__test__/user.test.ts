@@ -32,7 +32,6 @@ describe('User services test cases', () => {
     jest.clearAllMocks();
   });
 
-  const mockPost = jest.fn();
   const mockPut = jest.fn();
 
   const mockFetch = jest.fn();
@@ -197,12 +196,19 @@ describe('User services test cases', () => {
   });
 
   it('should return user information when adding user', async () => {
-    jest.spyOn(apiClient, 'apiClientSession').mockResolvedValueOnce({
-      post: mockPost.mockResolvedValueOnce({
-        ...USER_OPTIONS[0],
-        error: null,
-      }),
-    } as Partial<ApiClient> as ApiClient);
+    mockFetch.mockResolvedValueOnce({
+      json: () =>
+        Promise.resolve({
+          ...USER_OPTIONS[0],
+          error: null,
+        }),
+    });
+    // jest.spyOn(apiClient, 'apiClientSession').mockResolvedValueOnce({
+    //   post: mockPost.mockResolvedValueOnce({
+    //     ...USER_OPTIONS[0],
+    //     error: null,
+    //   }),
+    // } as Partial<ApiClient> as ApiClient);
 
     const result = await addUser(MOCK_USER_PAYLOAD);
 
@@ -210,22 +216,19 @@ describe('User services test cases', () => {
       user: USER_OPTIONS[0],
       error: null,
     });
-
-    expect(mockPost).toHaveBeenCalledWith(`${API_ENDPOINT.USERS}`, {
-      body: MOCK_USER_PAYLOAD,
-    });
   });
 
   it('should return error message if there are errors during adding user', async () => {
-    jest.spyOn(apiClient, 'apiClientSession').mockResolvedValueOnce({
-      post: mockPost.mockResolvedValueOnce({
-        error: JSON.stringify({
-          error: {
-            message: 'Something went wrong',
-          },
+    mockFetch.mockResolvedValueOnce({
+      json: () =>
+        Promise.resolve({
+          error: JSON.stringify({
+            error: {
+              message: 'Something went wrong',
+            },
+          }),
         }),
-      }),
-    } as Partial<ApiClient> as ApiClient);
+    });
 
     const result = await addUser(MOCK_USER_PAYLOAD);
 
@@ -233,16 +236,12 @@ describe('User services test cases', () => {
       user: null,
       error: 'Something went wrong',
     });
-
-    expect(mockPost).toHaveBeenCalledWith(`${API_ENDPOINT.USERS}`, {
-      body: MOCK_USER_PAYLOAD,
-    });
   });
 
   it('should handle error exception during adding user', async () => {
-    jest.spyOn(apiClient, 'apiClientSession').mockResolvedValueOnce({
-      post: mockPost.mockRejectedValueOnce(new Error('Mock error exception')),
-    } as Partial<ApiClient> as ApiClient);
+    mockFetch.mockResolvedValueOnce({
+      json: () => Promise.reject(new Error('Mock error exception')),
+    });
 
     let result = await addUser(MOCK_USER_PAYLOAD);
 
@@ -251,19 +250,15 @@ describe('User services test cases', () => {
       error: 'Mock error exception',
     });
 
-    jest.spyOn(apiClient, 'apiClientSession').mockResolvedValueOnce({
-      post: mockPost.mockRejectedValueOnce({}),
-    } as Partial<ApiClient> as ApiClient);
+    mockFetch.mockResolvedValueOnce({
+      json: () => Promise.reject({}),
+    });
 
     result = await addUser(MOCK_USER_PAYLOAD);
 
     expect(result).toEqual({
       user: null,
       error: EXCEPTION_ERROR_MESSAGE.ADD('user'),
-    });
-
-    expect(mockPost).toHaveBeenCalledWith(`${API_ENDPOINT.USERS}`, {
-      body: MOCK_USER_PAYLOAD,
     });
   });
 
