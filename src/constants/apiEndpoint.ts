@@ -20,6 +20,8 @@ export const ROUTE_ENDPOINT = {
     ADD_APPOINTMENT: 'api/appointments/add-appointment',
     UPDATE_APPOINTMENT: 'api/appointments/update-appointment',
     DELETE_APPOINTMENT: 'api/appointments/delete-appointment',
+    UPDATE_UNPUBLISH_APPOINTMENT:
+      'api/appointments/update-unpublish-appointment',
   },
   AUTH: {
     LOGIN: 'api/auth/login',
@@ -30,12 +32,16 @@ export const ROUTE_ENDPOINT = {
   CHEMISTS: {
     ADD_TO_CHEMISTS: 'api/chemists/add-to-chemists',
     GET_CHEMISTS: 'api/chemists/get-chemists',
+    UPDATE_UNPUBLISH_CHEMISTS: 'api/chemists/update-unpublish-chemist',
   },
   NOTIFICATIONS: {
     GET_NOTIFICATIONS: 'api/notifications/get-notifications',
+    UPDATE_UNPUBLISH_NOTIFICATION:
+      'api/notifications/update-unpublish-notifications',
   },
   USER: {
     UPDATE_PUBLISH: 'api/user/update-publish',
+    UPDATE_UNPUBLISH: 'api/user/update-unpublish',
     GET_LOGGED: 'api/user/get-logged',
     GET_USERS: 'api/user/get-users',
     GET_USER_ROLES: 'api/user/get-user-roles',

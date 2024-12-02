@@ -1,6 +1,4 @@
 'use server';
-
-import { apiClient } from './api';
 import {
   ErrorResponse,
   RolesResponse,
@@ -217,11 +215,18 @@ export const updateUnpublishChemist = async (
   id: string,
 ): Promise<{ error: string | null }> => {
   try {
-    const api = await apiClient.apiClientSession();
+    const { token = '' } = (await auth())?.user || {};
 
-    const { error = null } = await api.put<{ error: string | null }>(
-      `${API_ENDPOINT.CHEMISTS}/unpublish/${id}`,
-    );
+    const url = `${HOST_DOMAIN}/${ROUTE_ENDPOINT.CHEMISTS.UPDATE_UNPUBLISH_CHEMISTS}/${id}`;
+
+    const response = await fetch(url, {
+      method: 'PUT',
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
+
+    const { error = null }: { error: string | null } = await response.json();
 
     if (error) {
       return {
@@ -245,15 +250,22 @@ export const updateUnpublishUser = async (
   id: string,
 ): Promise<{ user: UserModel | null; error: string | null }> => {
   try {
-    const api = await apiClient.apiClientSession();
+    const { token = '' } = (await auth())?.user || {};
 
-    const { error = null, ...user } = await api.put<
-      UserModel & { error: string | null }
-    >(`${API_ENDPOINT.USERS}/${id}`, {
-      body: {
-        publishedAt: null,
+    const url = `${HOST_DOMAIN}/${ROUTE_ENDPOINT.USER.UPDATE_UNPUBLISH}/${id}`;
+
+    const response = await fetch(url, {
+      method: 'PUT',
+      headers: {
+        Authorization: `Bearer ${token}`,
       },
+      body: JSON.stringify({
+        publishedAt: null,
+      }),
     });
+
+    const { error = null, ...user }: UserModel & { error: string | null } =
+      await response.json();
 
     if (error) {
       return {
@@ -280,11 +292,18 @@ export const updateUnpublishNotification = async (
   id: string,
 ): Promise<{ error: string | null }> => {
   try {
-    const api = await apiClient.apiClientSession();
+    const { token = '' } = (await auth())?.user || {};
 
-    const { error = null } = await api.put<{ error: string | null }>(
-      `${API_ENDPOINT.NOTIFICATIONS}/unpublish/${id}`,
-    );
+    const url = `${HOST_DOMAIN}/${ROUTE_ENDPOINT.NOTIFICATIONS.UPDATE_UNPUBLISH_NOTIFICATION}/${id}`;
+
+    const response = await fetch(url, {
+      method: 'PUT',
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
+
+    const { error = null }: { error: string | null } = await response.json();
 
     if (error) {
       return {
@@ -308,11 +327,18 @@ export const updateUnpublishAppointment = async (
   id: string,
 ): Promise<{ error: string | null }> => {
   try {
-    const api = await apiClient.apiClientSession();
+    const { token = '' } = (await auth())?.user || {};
 
-    const { error = null } = await api.put<{ error: string | null }>(
-      `${API_ENDPOINT.APPOINTMENTS}/unpublish/${id}`,
-    );
+    const url = `${HOST_DOMAIN}/${ROUTE_ENDPOINT.APPOINTMENTS.UPDATE_UNPUBLISH_APPOINTMENT}/${id}`;
+
+    const response = await fetch(url, {
+      method: 'PUT',
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
+
+    const { error = null }: { error: string | null } = await response.json();
 
     if (error) {
       return {
