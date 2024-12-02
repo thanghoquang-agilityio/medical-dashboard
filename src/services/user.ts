@@ -79,15 +79,22 @@ export const getUsers = async (): Promise<{
   }
 };
 
-// TODO: change to route handler
 export const getUserRoles = async (): Promise<RolesResponse> => {
   try {
-    const { roles, error = null } = await apiClient.get<RolesResponse>(
-      `${API_ENDPOINT.PERMISSIONS}/roles`,
-      {
-        next: { revalidate: 3600, tags: [API_ENDPOINT.PERMISSIONS] },
-      },
-    );
+    const url = `${HOST_DOMAIN}/${ROUTE_ENDPOINT.USER.GET_USER_ROLES}`;
+
+    const response = await fetch(url, {
+      next: { revalidate: 3600, tags: [API_ENDPOINT.PERMISSIONS] },
+    });
+
+    const { roles, error = null }: RolesResponse = await response.json();
+
+    // const { roles, error = null } = await apiClient.get<RolesResponse>(
+    //   `${API_ENDPOINT.PERMISSIONS}/roles`,
+    //   {
+    //     next: { revalidate: 3600, tags: [API_ENDPOINT.PERMISSIONS] },
+    //   },
+    // );
 
     if (error) return { roles: [], error };
 
