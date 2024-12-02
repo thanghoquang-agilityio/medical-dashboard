@@ -27,6 +27,7 @@ export const ROUTE_ENDPOINT = {
   },
   CHEMISTS: {
     ADD_TO_CHEMISTS: 'api/chemists/add-to-chemists',
+    GET_CHEMISTS: 'api/chemists/get-chemists',
   },
   NOTIFICATIONS: {
     GET_NOTIFICATIONS: 'api/notifications/get-notifications',

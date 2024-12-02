@@ -12,9 +12,6 @@ import {
   FetchDataProps,
 } from '@/types';
 
-// Services
-import { apiClient } from './api';
-
 // Constants
 import {
   API_ENDPOINT,
@@ -22,6 +19,7 @@ import {
   HOST_DOMAIN,
   ROUTE_ENDPOINT,
 } from '@/constants';
+import { auth } from '@/config/auth';
 
 export const addUserToChemists = async (
   payload: ChemistPayload,
@@ -67,20 +65,25 @@ export const getChemists = async ({
   options = { next: { tags: [API_ENDPOINT.CHEMISTS] } },
 }: FetchDataProps): ChemistsDataResponse => {
   try {
-    const api = await apiClient.apiClientSession();
+    const { token = '' } = (await auth())?.user || {};
+
     const url = decodeURIComponent(
-      `${API_ENDPOINT.CHEMISTS}?${searchParams.toString()}`,
+      `${HOST_DOMAIN}/${ROUTE_ENDPOINT.CHEMISTS.GET_CHEMISTS}?${searchParams.toString()}`,
     );
 
-    const { data, meta, error } = await api.get<
-      ChemistsResponse & { error?: string }
-    >(url, {
+    const response = await fetch(url, {
       ...options,
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
       next: {
         ...options.next,
         revalidate: 3600,
       },
     });
+
+    const { data, meta, error }: ChemistsResponse & { error?: string } =
+      await response.json();
 
     if (error) {
       const errorResponse = JSON.parse(error) as ErrorResponse;

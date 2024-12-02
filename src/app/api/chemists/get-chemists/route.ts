@@ -1,13 +1,15 @@
 import { API_ENDPOINT } from '@/constants';
 import { apiClient } from '@/services';
-import { NextRequest, NextResponse } from 'next/server';
+import { ChemistsResponse } from '@/types';
+import { NextRequest } from 'next/server';
 
 export async function GET(req: NextRequest) {
   const { searchParams } = new URL(req.url);
+
   const bearerToken = req.headers.get('Authorization') ?? '';
 
-  const result = await apiClient.get(
-    `${API_ENDPOINT.NOTIFICATIONS}?${decodeURIComponent(searchParams.toString())}`,
+  const result = await apiClient.get<ChemistsResponse & { error?: string }>(
+    `${API_ENDPOINT.CHEMISTS}?${decodeURIComponent(searchParams.toString())}`,
     {
       headers: {
         Authorization: bearerToken,
@@ -15,5 +17,5 @@ export async function GET(req: NextRequest) {
     },
   );
 
-  return NextResponse.json(result);
+  return Response.json(result);
 }

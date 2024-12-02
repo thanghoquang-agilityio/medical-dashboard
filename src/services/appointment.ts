@@ -177,12 +177,6 @@ export const deleteAppointment = async (
       error?: string;
     } = await response.json();
 
-    // const api = await apiClient.apiClientSession();
-    // const { data, error } = await api.delete<{
-    //   data: AppointmentResponse;
-    //   error?: string;
-    // }>(`${API_ENDPOINT.APPOINTMENTS}/${id}`);
-
     if (error) {
       const errorResponse = JSON.parse(error) as ErrorResponse;
       return { appointment: null, error: errorResponse.error.message };
