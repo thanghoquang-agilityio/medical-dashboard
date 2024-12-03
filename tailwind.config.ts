@@ -27,6 +27,7 @@ const config: Config = {
         inter: ['var(--font-inter)'],
         'plus-jakarta-sans': ['var(--font-plus-jakarta-sans)'],
         outfit: ['var(--font-outfit)'],
+        manrope: ['var(--font-manrope)'],
       },
       keyframes: {
         slideInLeft: {
