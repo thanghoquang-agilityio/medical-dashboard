@@ -7,11 +7,11 @@ import {
   MedicineIcon,
   MessageIcon,
   SettingIcon,
+  WalletIcon,
 } from '@/icons';
 
 // Router
 import { PRIVATE_ROUTES } from './router';
-import WalletIcon from '@/icons/WalletIcon';
 
 export const NAVBAR_LINKS = [
   {

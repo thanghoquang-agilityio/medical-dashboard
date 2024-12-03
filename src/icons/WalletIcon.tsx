@@ -1,6 +1,8 @@
 import { CustomClassType } from '@/types';
 
-const WalletIcon = ({ customClass = 'w-full h-full' }: CustomClassType) => {
+export const WalletIcon = ({
+  customClass = 'w-full h-full',
+}: CustomClassType) => {
   return (
     <svg
       width="19"
@@ -17,5 +19,3 @@ const WalletIcon = ({ customClass = 'w-full h-full' }: CustomClassType) => {
     </svg>
   );
 };
-
-export default WalletIcon;

@@ -3,7 +3,7 @@
 exports[`StatisticCard should render correctly 1`] = `
 <DocumentFragment>
   <section
-    class="relative overflow-hidden text-foreground box-border outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 shadow-medium rounded-large transition-transform-background motion-reduce:transition-none bg-background-200 min-w-[236px] w-full py-[14px] h-[140px] px-5 flex flex-col gap-2 font-manrope"
+    class="relative overflow-hidden text-foreground box-border outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 shadow-medium rounded-large transition-transform-background motion-reduce:transition-none bg-background-200 min-w-[236px] w-full py-[14px] h-[140px] px-5 flex flex-col gap-2"
     tabindex="-1"
   >
     <div

@@ -1,0 +1,82 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`WalletBalance should render correctly 1`] = `
+<DocumentFragment>
+  <section
+    class="flex flex-1 flex-col gap-8"
+  >
+    <section
+      class="flex flex-col gap-4 text-center"
+    >
+      <h3
+        class="text-base/8 font-bold text-primary-200"
+      >
+        Total balance
+      </h3>
+      <p
+        class="text-primary-100 text-4xl font-bold leading-8"
+      >
+        $81,9 
+      </p>
+    </section>
+    <div
+      class="flex gap-4 justify-center"
+    >
+      <button
+        class="z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap subpixel-antialiased overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 px-6 min-w-24 [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none data-[hover=true]:opacity-hover border-transparent font-semibold bg-linear-success text-content1 w-full text-small gap-2 rounded-small h-[55px] max-h-[55px] max-w-[144px]"
+        type="button"
+      >
+        Send
+        <svg
+          class="w-4 h-4"
+          fill="none"
+          height="17"
+          viewBox="0 0 16 17"
+          width="16"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M9.62651 5.33333C9.49984 5.33333 9.37318 5.28666 9.27318 5.18666L7.91984 3.83333L6.56651 5.18666C6.37318 5.37999 6.05318 5.37999 5.85984 5.18666C5.66651 4.99333 5.66651 4.67333 5.85984 4.47999L7.56651 2.77333C7.75984 2.57999 8.07984 2.57999 8.27318 2.77333L9.97984 4.47999C10.1732 4.67333 10.1732 4.99333 9.97984 5.18666C9.87984 5.28666 9.75318 5.33333 9.62651 5.33333Z"
+            fill="currentColor"
+          />
+          <path
+            d="M7.91992 10.4533C7.64659 10.4533 7.41992 10.2267 7.41992 9.95334V3.17334C7.41992 2.90001 7.64659 2.67334 7.91992 2.67334C8.19326 2.67334 8.41992 2.90001 8.41992 3.17334V9.95334C8.41992 10.2333 8.19326 10.4533 7.91992 10.4533Z"
+            fill="currentColor"
+          />
+          <path
+            d="M7.99984 14.3333C4.5665 14.3333 2.1665 11.9333 2.1665 8.5C2.1665 8.22667 2.39317 8 2.6665 8C2.93984 8 3.1665 8.22667 3.1665 8.5C3.1665 11.3467 5.15317 13.3333 7.99984 13.3333C10.8465 13.3333 12.8332 11.3467 12.8332 8.5C12.8332 8.22667 13.0598 8 13.3332 8C13.6065 8 13.8332 8.22667 13.8332 8.5C13.8332 11.9333 11.4332 14.3333 7.99984 14.3333Z"
+            fill="currentColor"
+          />
+        </svg>
+      </button>
+      <button
+        class="z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap subpixel-antialiased overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 px-6 min-w-24 [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none data-[hover=true]:opacity-hover border-transparent font-semibold bg-linear-success text-content1 w-full text-small gap-2 rounded-small h-[55px] max-h-[55px] max-w-[144px]"
+        type="button"
+      >
+        Receive
+        <svg
+          class="w-4 h-4"
+          fill="none"
+          height="17"
+          viewBox="0 0 17 17"
+          width="17"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M8.41984 10.4933C8.29318 10.4933 8.16651 10.4467 8.06651 10.3467L6.35984 8.64C6.16651 8.44666 6.16651 8.12666 6.35984 7.93333C6.55318 7.74 6.87318 7.74 7.06651 7.93333L8.41984 9.28666L9.77318 7.93333C9.96651 7.74 10.2865 7.74 10.4798 7.93333C10.6732 8.12666 10.6732 8.44666 10.4798 8.64L8.77318 10.3467C8.67318 10.4467 8.54651 10.4933 8.41984 10.4933Z"
+            fill="currentColor"
+          />
+          <path
+            d="M8.41992 10.4467C8.14659 10.4467 7.91992 10.22 7.91992 9.94666V3.16666C7.91992 2.89332 8.14659 2.66666 8.41992 2.66666C8.69326 2.66666 8.91992 2.89332 8.91992 3.16666V9.94666C8.91992 10.22 8.69326 10.4467 8.41992 10.4467Z"
+            fill="currentColor"
+          />
+          <path
+            d="M8.49984 14.4533C5.0665 14.4533 2.6665 12.0533 2.6665 8.62C2.6665 8.34666 2.89317 8.12 3.1665 8.12C3.43984 8.12 3.6665 8.34666 3.6665 8.62C3.6665 11.4667 5.65317 13.4533 8.49984 13.4533C11.3465 13.4533 13.3332 11.4667 13.3332 8.62C13.3332 8.34666 13.5598 8.12 13.8332 8.12C14.1065 8.12 14.3332 8.34666 14.3332 8.62C14.3332 12.0533 11.9332 14.4533 8.49984 14.4533Z"
+            fill="currentColor"
+          />
+        </svg>
+      </button>
+    </div>
+  </section>
+</DocumentFragment>
+`;
