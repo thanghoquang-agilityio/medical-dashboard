@@ -23,6 +23,7 @@ export const formatNumberWithUnit = (number: number, unit: string = '') => {
     notation: 'compact',
     compactDisplay: 'short',
     maximumFractionDigits: 1,
+    roundingMode: 'floor',
   }).format(
     number,
   )} ${Math.abs(number) > 1 && unit ? `${unit}s` : `${unit}`}`.replace(

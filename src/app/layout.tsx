@@ -1,5 +1,11 @@
 import type { Metadata } from 'next';
-import { Inter, Poppins, Plus_Jakarta_Sans, Outfit } from 'next/font/google';
+import {
+  Inter,
+  Poppins,
+  Plus_Jakarta_Sans,
+  Outfit,
+  Manrope,
+} from 'next/font/google';
 import { ThemeProvider } from 'next-themes';
 import { NextUIProvider } from '@nextui-org/react';
 import { SRC_LOGO } from '@/constants';
@@ -31,6 +37,12 @@ const outfit = Outfit({
   variable: '--font-outfit',
 });
 
+const manrope = Manrope({
+  subsets: ['latin'],
+  variable: '--font-manrope',
+  weight: ['400', '700'],
+});
+
 export const metadata: Metadata = {
   title: 'Medical Dashboard',
   description: 'Medical Dashboard application',
@@ -50,7 +62,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${poppins.className} ${plusJakartaSans.variable} ${inter.variable} ${outfit.variable} bg-background-100`}
+        className={`${poppins.className} ${plusJakartaSans.variable} ${inter.variable} ${outfit.variable} ${manrope.variable} bg-background-100`}
       >
         <NextUIProvider>
           <ThemeProvider attribute="class" defaultTheme="light">
