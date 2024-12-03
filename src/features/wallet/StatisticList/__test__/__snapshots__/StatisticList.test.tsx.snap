@@ -3,10 +3,10 @@
 exports[`StatisticList should render correctly 1`] = `
 <DocumentFragment>
   <div
-    class="flex flex-col md:flex-row gap-4"
+    class="flex flex-1 flex-col md:flex-row gap-4"
   >
     <section
-      class="relative overflow-hidden text-foreground box-border outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 shadow-medium rounded-large transition-transform-background motion-reduce:transition-none bg-background-200 min-w-[236px] w-full py-[14px] h-[140px] px-5 flex flex-col gap-2 font-manrope"
+      class="relative overflow-hidden text-foreground box-border outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 shadow-medium rounded-large transition-transform-background motion-reduce:transition-none bg-background-200 min-w-[236px] w-full py-[14px] h-[140px] px-5 flex flex-col gap-2"
       tabindex="-1"
     >
       <div
@@ -53,7 +53,7 @@ exports[`StatisticList should render correctly 1`] = `
       </div>
     </section>
     <section
-      class="relative overflow-hidden text-foreground box-border outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 shadow-medium rounded-large transition-transform-background motion-reduce:transition-none bg-background-200 min-w-[236px] w-full py-[14px] h-[140px] px-5 flex flex-col gap-2 font-manrope"
+      class="relative overflow-hidden text-foreground box-border outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 shadow-medium rounded-large transition-transform-background motion-reduce:transition-none bg-background-200 min-w-[236px] w-full py-[14px] h-[140px] px-5 flex flex-col gap-2"
       tabindex="-1"
     >
       <div

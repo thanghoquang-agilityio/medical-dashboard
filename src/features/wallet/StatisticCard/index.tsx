@@ -12,7 +12,7 @@ const StatisticCard = ({ title, value }: StatisticCardProps) => {
   return (
     <Card
       as="section"
-      className="bg-background-200 min-w-[236px] w-full py-[14px] h-[140px] px-5 flex flex-col gap-2 font-manrope"
+      className="bg-background-200 min-w-[236px] w-full py-[14px] h-[140px] px-5 flex flex-col gap-2"
     >
       <CardHeader className="p-0 flex justify-between">
         <h3 className="text-[14px]/8 font-bold text-primary-200">{title}</h3>

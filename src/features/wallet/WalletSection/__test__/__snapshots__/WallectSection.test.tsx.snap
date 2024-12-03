@@ -1,0 +1,376 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`WallectSections should render correctly 1`] = `
+<DocumentFragment>
+  <section
+    class="flex-col relative overflow-hidden h-auto text-foreground box-border outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 shadow-medium rounded-large transition-transform-background motion-reduce:transition-none flex flex-1 bg-background-200 min-w-[280px] w-auto p-5 gap-9"
+    tabindex="-1"
+  >
+    <div
+      class="flex z-10 w-full justify-start items-center shrink-0 overflow-inherit color-inherit subpixel-antialiased rounded-t-large p-0"
+    >
+      <section
+        class="flex flex-1 flex-col gap-8"
+      >
+        <section
+          class="flex flex-col gap-4 text-center"
+        >
+          <h3
+            class="text-base/8 font-bold text-primary-200"
+          >
+            Total balance
+          </h3>
+          <p
+            class="text-primary-100 text-4xl font-bold leading-8"
+          >
+            $81,9 
+          </p>
+        </section>
+        <div
+          class="flex gap-4 justify-center"
+        >
+          <button
+            class="z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap subpixel-antialiased overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 px-6 min-w-24 [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none data-[hover=true]:opacity-hover border-transparent font-semibold bg-linear-success text-content1 w-full text-small gap-2 rounded-small h-[55px] max-h-[55px] max-w-[144px]"
+            type="button"
+          >
+            Send
+            <svg
+              class="w-4 h-4"
+              fill="none"
+              height="17"
+              viewBox="0 0 16 17"
+              width="16"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M9.62651 5.33333C9.49984 5.33333 9.37318 5.28666 9.27318 5.18666L7.91984 3.83333L6.56651 5.18666C6.37318 5.37999 6.05318 5.37999 5.85984 5.18666C5.66651 4.99333 5.66651 4.67333 5.85984 4.47999L7.56651 2.77333C7.75984 2.57999 8.07984 2.57999 8.27318 2.77333L9.97984 4.47999C10.1732 4.67333 10.1732 4.99333 9.97984 5.18666C9.87984 5.28666 9.75318 5.33333 9.62651 5.33333Z"
+                fill="currentColor"
+              />
+              <path
+                d="M7.91992 10.4533C7.64659 10.4533 7.41992 10.2267 7.41992 9.95334V3.17334C7.41992 2.90001 7.64659 2.67334 7.91992 2.67334C8.19326 2.67334 8.41992 2.90001 8.41992 3.17334V9.95334C8.41992 10.2333 8.19326 10.4533 7.91992 10.4533Z"
+                fill="currentColor"
+              />
+              <path
+                d="M7.99984 14.3333C4.5665 14.3333 2.1665 11.9333 2.1665 8.5C2.1665 8.22667 2.39317 8 2.6665 8C2.93984 8 3.1665 8.22667 3.1665 8.5C3.1665 11.3467 5.15317 13.3333 7.99984 13.3333C10.8465 13.3333 12.8332 11.3467 12.8332 8.5C12.8332 8.22667 13.0598 8 13.3332 8C13.6065 8 13.8332 8.22667 13.8332 8.5C13.8332 11.9333 11.4332 14.3333 7.99984 14.3333Z"
+                fill="currentColor"
+              />
+            </svg>
+          </button>
+          <button
+            class="z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap subpixel-antialiased overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 px-6 min-w-24 [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none data-[hover=true]:opacity-hover border-transparent font-semibold bg-linear-success text-content1 w-full text-small gap-2 rounded-small h-[55px] max-h-[55px] max-w-[144px]"
+            type="button"
+          >
+            Receive
+            <svg
+              class="w-4 h-4"
+              fill="none"
+              height="17"
+              viewBox="0 0 17 17"
+              width="17"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M8.41984 10.4933C8.29318 10.4933 8.16651 10.4467 8.06651 10.3467L6.35984 8.64C6.16651 8.44666 6.16651 8.12666 6.35984 7.93333C6.55318 7.74 6.87318 7.74 7.06651 7.93333L8.41984 9.28666L9.77318 7.93333C9.96651 7.74 10.2865 7.74 10.4798 7.93333C10.6732 8.12666 10.6732 8.44666 10.4798 8.64L8.77318 10.3467C8.67318 10.4467 8.54651 10.4933 8.41984 10.4933Z"
+                fill="currentColor"
+              />
+              <path
+                d="M8.41992 10.4467C8.14659 10.4467 7.91992 10.22 7.91992 9.94666V3.16666C7.91992 2.89332 8.14659 2.66666 8.41992 2.66666C8.69326 2.66666 8.91992 2.89332 8.91992 3.16666V9.94666C8.91992 10.22 8.69326 10.4467 8.41992 10.4467Z"
+                fill="currentColor"
+              />
+              <path
+                d="M8.49984 14.4533C5.0665 14.4533 2.6665 12.0533 2.6665 8.62C2.6665 8.34666 2.89317 8.12 3.1665 8.12C3.43984 8.12 3.6665 8.34666 3.6665 8.62C3.6665 11.4667 5.65317 13.4533 8.49984 13.4533C11.3465 13.4533 13.3332 11.4667 13.3332 8.62C13.3332 8.34666 13.5598 8.12 13.8332 8.12C14.1065 8.12 14.3332 8.34666 14.3332 8.62C14.3332 12.0533 11.9332 14.4533 8.49984 14.4533Z"
+                fill="currentColor"
+              />
+            </svg>
+          </button>
+        </div>
+      </section>
+    </div>
+    <div
+      class="relative flex w-full flex-auto flex-col place-content-inherit align-items-inherit h-auto break-words text-left overflow-y-auto subpixel-antialiased p-0"
+    >
+      <section
+        class="flex flex-col gap-6 overflow-y-scroll"
+      >
+        <section
+          class="flex justify-between"
+        >
+          <h3
+            class="text-base/6 font-semibold text-primary-200"
+          >
+            Notifications
+          </h3>
+          <svg
+            class="w-6 h-6"
+            fill="none"
+            height="24"
+            viewBox="0 0 24 24"
+            width="24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M2 12.88V11.12C2 10.08 2.85 9.22 3.9 9.22C5.71 9.22 6.45 7.94 5.54 6.37C5.02 5.47 5.33 4.3 6.24 3.78L7.97 2.79C8.76 2.32 9.78 2.6 10.25 3.39L10.36 3.58C11.26 5.15 12.74 5.15 13.65 3.58L13.76 3.39C14.23 2.6 15.25 2.32 16.04 2.79L17.77 3.78C18.68 4.3 18.99 5.47 18.47 6.37C17.56 7.94 18.3 9.22 20.11 9.22C21.15 9.22 22.01 10.07 22.01 11.12V12.88C22.01 13.92 21.16 14.78 20.11 14.78C18.3 14.78 17.56 16.06 18.47 17.63C18.99 18.54 18.68 19.7 17.77 20.22L16.04 21.21C15.25 21.68 14.23 21.4 13.76 20.61L13.65 20.42C12.75 18.85 11.27 18.85 10.36 20.42L10.25 20.61C9.78 21.4 8.76 21.68 7.97 21.21L6.24 20.22C5.33 19.7 5.02 18.53 5.54 17.63C6.45 16.06 5.71 14.78 3.9 14.78C2.85 14.78 2 13.92 2 12.88Z"
+              fill="currentColor"
+              opacity="0.4"
+            />
+            <path
+              d="M12 15.25C13.7949 15.25 15.25 13.7949 15.25 12C15.25 10.2051 13.7949 8.75 12 8.75C10.2051 8.75 8.75 10.2051 8.75 12C8.75 13.7949 10.2051 15.25 12 15.25Z"
+              fill="currentColor"
+            />
+          </svg>
+        </section>
+        <div
+          class="flex flex-col h-[200px] overflow-y-scroll scrollbar-hide justify-start gap-7 "
+        >
+          <div
+            class="flex gap-4"
+          >
+            <span
+              class="overflow-hidden outline-none rounded-full ring-offset-background dark:ring-offset-background-dark shrink-0 min-w-12 w-12 h-12 bg-undefined ring-offset-0 ring-0 false"
+              data-testid="avatar-container"
+              tabindex="-1"
+            >
+              <img
+                alt=""
+                class="aspect-square"
+                data-nimg="1"
+                decoding="async"
+                fetchpriority="high"
+                height="48"
+                src="http://localhost/_next/image?url=%2Fimages%2Favatar-thumbnail.webp&w=96&q=75"
+                srcset="/_next/image?url=%2Fimages%2Favatar-thumbnail.webp&w=48&q=75 1x, /_next/image?url=%2Fimages%2Favatar-thumbnail.webp&w=96&q=75 2x"
+                style="color: transparent; object-fit: cover; background-size: cover; background-position: 50% 50%; background-repeat: no-repeat;"
+                width="48"
+              />
+            </span>
+            <div
+              class="flex flex-1 flex-col gap-2"
+            >
+              <p
+                class="text-[14px]/5 font-bold text-primary-200"
+              >
+                Josep akbar
+              </p>
+              <p
+                class="text-primary-200 font-medium text-xs"
+              >
+                Just sent you $10,000
+              </p>
+            </div>
+            <p
+              class="text-primary-200 text-xs font-bold my-auto"
+            >
+              Just now
+            </p>
+          </div>
+          <div
+            class="flex gap-4"
+          >
+            <span
+              class="overflow-hidden outline-none rounded-full ring-offset-background dark:ring-offset-background-dark shrink-0 min-w-12 w-12 h-12 bg-undefined ring-offset-0 ring-0 false"
+              data-testid="avatar-container"
+              tabindex="-1"
+            >
+              <img
+                alt=""
+                class="aspect-square"
+                data-nimg="1"
+                decoding="async"
+                fetchpriority="high"
+                height="48"
+                src="http://localhost/_next/image?url=%2Fimages%2Favatar-thumbnail.webp&w=96&q=75"
+                srcset="/_next/image?url=%2Fimages%2Favatar-thumbnail.webp&w=48&q=75 1x, /_next/image?url=%2Fimages%2Favatar-thumbnail.webp&w=96&q=75 2x"
+                style="color: transparent; object-fit: cover; background-size: cover; background-position: 50% 50%; background-repeat: no-repeat;"
+                width="48"
+              />
+            </span>
+            <div
+              class="flex flex-1 flex-col gap-2"
+            >
+              <p
+                class="text-[14px]/5 font-bold text-primary-200"
+              >
+                Josep akbar
+              </p>
+              <p
+                class="text-primary-200 font-medium text-xs"
+              >
+                Just sent you $10,000
+              </p>
+            </div>
+            <p
+              class="text-primary-200 text-xs font-bold my-auto"
+            >
+              Just now
+            </p>
+          </div>
+          <div
+            class="flex gap-4"
+          >
+            <span
+              class="overflow-hidden outline-none rounded-full ring-offset-background dark:ring-offset-background-dark shrink-0 min-w-12 w-12 h-12 bg-undefined ring-offset-0 ring-0 false"
+              data-testid="avatar-container"
+              tabindex="-1"
+            >
+              <img
+                alt=""
+                class="aspect-square"
+                data-nimg="1"
+                decoding="async"
+                fetchpriority="high"
+                height="48"
+                src="http://localhost/_next/image?url=%2Fimages%2Favatar-thumbnail.webp&w=96&q=75"
+                srcset="/_next/image?url=%2Fimages%2Favatar-thumbnail.webp&w=48&q=75 1x, /_next/image?url=%2Fimages%2Favatar-thumbnail.webp&w=96&q=75 2x"
+                style="color: transparent; object-fit: cover; background-size: cover; background-position: 50% 50%; background-repeat: no-repeat;"
+                width="48"
+              />
+            </span>
+            <div
+              class="flex flex-1 flex-col gap-2"
+            >
+              <p
+                class="text-[14px]/5 font-bold text-primary-200"
+              >
+                Josep akbar
+              </p>
+              <p
+                class="text-primary-200 font-medium text-xs"
+              >
+                Just sent you $10,000
+              </p>
+            </div>
+            <p
+              class="text-primary-200 text-xs font-bold my-auto"
+            >
+              Just now
+            </p>
+          </div>
+          <div
+            class="flex gap-4"
+          >
+            <span
+              class="overflow-hidden outline-none rounded-full ring-offset-background dark:ring-offset-background-dark shrink-0 min-w-12 w-12 h-12 bg-undefined ring-offset-0 ring-0 false"
+              data-testid="avatar-container"
+              tabindex="-1"
+            >
+              <img
+                alt=""
+                class="aspect-square"
+                data-nimg="1"
+                decoding="async"
+                fetchpriority="high"
+                height="48"
+                src="http://localhost/_next/image?url=%2Fimages%2Favatar-thumbnail.webp&w=96&q=75"
+                srcset="/_next/image?url=%2Fimages%2Favatar-thumbnail.webp&w=48&q=75 1x, /_next/image?url=%2Fimages%2Favatar-thumbnail.webp&w=96&q=75 2x"
+                style="color: transparent; object-fit: cover; background-size: cover; background-position: 50% 50%; background-repeat: no-repeat;"
+                width="48"
+              />
+            </span>
+            <div
+              class="flex flex-1 flex-col gap-2"
+            >
+              <p
+                class="text-[14px]/5 font-bold text-primary-200"
+              >
+                Josep akbar
+              </p>
+              <p
+                class="text-primary-200 font-medium text-xs"
+              >
+                Just sent you $10,000
+              </p>
+            </div>
+            <p
+              class="text-primary-200 text-xs font-bold my-auto"
+            >
+              Just now
+            </p>
+          </div>
+          <div
+            class="flex gap-4"
+          >
+            <span
+              class="overflow-hidden outline-none rounded-full ring-offset-background dark:ring-offset-background-dark shrink-0 min-w-12 w-12 h-12 bg-undefined ring-offset-0 ring-0 false"
+              data-testid="avatar-container"
+              tabindex="-1"
+            >
+              <img
+                alt=""
+                class="aspect-square"
+                data-nimg="1"
+                decoding="async"
+                fetchpriority="high"
+                height="48"
+                src="http://localhost/_next/image?url=%2Fimages%2Favatar-thumbnail.webp&w=96&q=75"
+                srcset="/_next/image?url=%2Fimages%2Favatar-thumbnail.webp&w=48&q=75 1x, /_next/image?url=%2Fimages%2Favatar-thumbnail.webp&w=96&q=75 2x"
+                style="color: transparent; object-fit: cover; background-size: cover; background-position: 50% 50%; background-repeat: no-repeat;"
+                width="48"
+              />
+            </span>
+            <div
+              class="flex flex-1 flex-col gap-2"
+            >
+              <p
+                class="text-[14px]/5 font-bold text-primary-200"
+              >
+                Josep akbar
+              </p>
+              <p
+                class="text-primary-200 font-medium text-xs"
+              >
+                Just sent you $10,000
+              </p>
+            </div>
+            <p
+              class="text-primary-200 text-xs font-bold my-auto"
+            >
+              Just now
+            </p>
+          </div>
+          <div
+            class="flex gap-4"
+          >
+            <span
+              class="overflow-hidden outline-none rounded-full ring-offset-background dark:ring-offset-background-dark shrink-0 min-w-12 w-12 h-12 bg-undefined ring-offset-0 ring-0 false"
+              data-testid="avatar-container"
+              tabindex="-1"
+            >
+              <img
+                alt=""
+                class="aspect-square"
+                data-nimg="1"
+                decoding="async"
+                fetchpriority="high"
+                height="48"
+                src="http://localhost/_next/image?url=%2Fimages%2Favatar-thumbnail.webp&w=96&q=75"
+                srcset="/_next/image?url=%2Fimages%2Favatar-thumbnail.webp&w=48&q=75 1x, /_next/image?url=%2Fimages%2Favatar-thumbnail.webp&w=96&q=75 2x"
+                style="color: transparent; object-fit: cover; background-size: cover; background-position: 50% 50%; background-repeat: no-repeat;"
+                width="48"
+              />
+            </span>
+            <div
+              class="flex flex-1 flex-col gap-2"
+            >
+              <p
+                class="text-[14px]/5 font-bold text-primary-200"
+              >
+                Josep akbar
+              </p>
+              <p
+                class="text-primary-200 font-medium text-xs"
+              >
+                Just sent you $10,000
+              </p>
+            </div>
+            <p
+              class="text-primary-200 text-xs font-bold my-auto"
+            >
+              Just now
+            </p>
+          </div>
+        </div>
+      </section>
+    </div>
+  </section>
+</DocumentFragment>
+`;
