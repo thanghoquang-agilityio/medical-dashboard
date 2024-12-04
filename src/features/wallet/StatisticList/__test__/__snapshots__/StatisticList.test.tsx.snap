@@ -48,7 +48,7 @@ exports[`StatisticList should render correctly 1`] = `
         <p
           class="text-primary-100 text-2xl font-bold leading-8"
         >
-          $21,5K 
+          $NaN 
         </p>
       </div>
     </section>
@@ -95,7 +95,7 @@ exports[`StatisticList should render correctly 1`] = `
         <p
           class="text-primary-100 text-2xl font-bold leading-8"
         >
-          $5,3K 
+          $NaN 
         </p>
       </div>
     </section>

@@ -28,6 +28,8 @@ export interface UserModel {
   rating?: number;
   tasks?: number;
   reviews?: number;
+  balance?: number;
+  spendingMoney?: number;
   specialtyId?: APIRelatedResponse<APIResponse<SpecialtyModel>>;
   notificationsSent?: APIRelatedResponse<APIResponse<NotificationModel>[]>;
   appointmentSent?: APIRelatedResponse<APIResponse<AppointmentModel>[]>;
