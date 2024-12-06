@@ -6,8 +6,9 @@ export async function PUT(
   req: Request,
   { params }: { params: { id: string } },
 ) {
-  const id = params.id;
   const data = await req.json();
+  const id = params.id;
+
   const bearerToken = req.headers.get('Authorization') || '';
 
   const response = await apiClient.put<UserModel & { error: string | null }>(

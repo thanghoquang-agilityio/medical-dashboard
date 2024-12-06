@@ -1,12 +1,8 @@
+import React from 'react';
+import { TransferItemSkeleton } from './TransferItemSkeleton';
 import { ConfigIcon } from '@/icons';
-import TransferList from '../TransferList';
-import { Suspense } from 'react';
-import { TransferListSkeleton } from '../TransferList/TransferListSkeleton';
 
-export type WalletTransferHistoryProps = {
-  id: string;
-};
-export const WalletTransferHistory = ({ id }: WalletTransferHistoryProps) => {
+export const WalletTransferHistorySkeleton = () => {
   return (
     <section className="flex flex-col gap-6 overflow-y-scroll">
       <section className="flex justify-between">
@@ -16,9 +12,9 @@ export const WalletTransferHistory = ({ id }: WalletTransferHistoryProps) => {
         <ConfigIcon customClass="w-6 h-6" />
       </section>
       <div className="flex flex-col h-[200px] overflow-y-scroll scrollbar-hide justify-start gap-7 ">
-        <Suspense fallback={<TransferListSkeleton />}>
-          <TransferList id={id} />
-        </Suspense>
+        <TransferItemSkeleton />
+        <TransferItemSkeleton />
+        <TransferItemSkeleton />
       </div>
     </section>
   );
