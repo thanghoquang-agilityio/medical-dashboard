@@ -23,6 +23,7 @@ export const FORM_VALIDATION_MESSAGE = {
     unit: string;
   }) => `Max ${item} size is ${size}${unit}`,
   ACCEPTED_FORMATS: 'Only .jpg, .jpeg, .png and .webp formats are supported.',
+  MIN_AMOUNT: 'Must be more than $0.00',
 };
 
 export const ERROR_MESSAGE = {
@@ -36,6 +37,9 @@ export const ERROR_MESSAGE = {
   CANCEL: (item: string) => `Cancel ${item} failed. Please try again.`,
   DUPLICATE_FIELD: 'This attribute must be unique',
   USERNAME: 'Username already taken',
+  TRANSFER: (error: string) =>
+    `The transfer has failed. Detail error: ${error}`,
+  INSUFFICIENT_FUND: 'Not enough money.',
 };
 
 export const SUCCESS_MESSAGE = {
@@ -45,6 +49,7 @@ export const SUCCESS_MESSAGE = {
   CREATE: (item: string) => `Create ${item} successfully.`,
   UPDATE: (item: string) => `Update ${item} successfully.`,
   CANCEL: (item: string) => `Cancel ${item} successfully.`,
+  TRANSFER: 'The transfer completed successfully.',
 };
 
 export const NOTIFICATION_CONTENT = (action: string) =>
@@ -61,4 +66,6 @@ export const EXCEPTION_ERROR_MESSAGE = {
     `An unexpected error occurred when canceling ${item}.`,
   LOGIN: 'An unexpected error occurred in the login request',
   REGISTER: 'An unexpected error occurred in the register request.',
+  ADD_MONEY: 'An unexpected error occurred when adding money to the account',
+  SEND_MONEY: 'An unexpected error occurred when sending money',
 };

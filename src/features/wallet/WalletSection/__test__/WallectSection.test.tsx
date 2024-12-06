@@ -1,11 +1,18 @@
-import { render } from '@testing-library/react';
-import WalletSection from '..';
+import { act } from '@testing-library/react';
+import WalletSection, { WalletSectionProps } from '..';
+import { renderServerComponent } from '@/utils/test-util';
 
 describe('WallectSections', () => {
-  const setup = () => render(<WalletSection />);
+  const setup = (props: WalletSectionProps) =>
+    act(() => renderServerComponent(<WalletSection {...props} />));
 
-  it('should render correctly', () => {
-    const { asFragment } = setup();
+  it('should render correctly', async () => {
+    const { asFragment } = await setup({
+      id: '',
+      email: '',
+      totalBalance: 0,
+      totalSpending: 0,
+    });
 
     expect(asFragment()).toMatchSnapshot();
   });

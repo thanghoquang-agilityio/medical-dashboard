@@ -1,7 +1,10 @@
 'use server';
 import {
+  APIRelatedResponse,
   ErrorResponse,
   RolesResponse,
+  SendMoneyPayload,
+  TransferPayload,
   UserLogged,
   UserModel,
   UserPayload,
@@ -77,6 +80,33 @@ export const getUsers = async (): Promise<{
   }
 };
 
+export const getUser = async (
+  id: string,
+): Promise<{ user: UserModel | null; error: string | null }> => {
+  try {
+    const { token = '' } = (await auth())?.user || {};
+
+    const url = `${HOST_DOMAIN}/${ROUTE_ENDPOINT.USER.GET_USER}/${id}`;
+
+    const response = await fetch(url, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+      next: { revalidate: 0, tags: [ROUTE_ENDPOINT.USER.GET_USER] },
+    });
+
+    const { error = null, ...user }: UserModel & { error: string | null } =
+      await response.json();
+
+    return { user: user, error };
+  } catch (error) {
+    const errorMessage =
+      error instanceof Error
+        ? error.message
+        : EXCEPTION_ERROR_MESSAGE.GET('user');
+    return { user: null, error: errorMessage };
+  }
+};
 export const getUserRoles = async (): Promise<RolesResponse> => {
   try {
     const url = `${HOST_DOMAIN}/${ROUTE_ENDPOINT.USER.GET_USER_ROLES}`;
@@ -355,5 +385,150 @@ export const updateUnpublishAppointment = async (
         ? error.message
         : EXCEPTION_ERROR_MESSAGE.UPDATE('user');
     return { error: errorMessage };
+  }
+};
+
+export const addMoneyToUser = async (
+  data: Pick<UserModel, 'balance'>,
+  id: string,
+) => {
+  try {
+    const { token = '' } = (await auth())?.user || {};
+
+    const url = `${HOST_DOMAIN}/${ROUTE_ENDPOINT.USER.ADD_MONEY}/${id}`;
+
+    const response = await fetch(url, {
+      method: 'PUT',
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+      body: JSON.stringify(data),
+    });
+
+    const { error = null, ...user }: UserModel & { error: string | null } =
+      await response.json();
+
+    if (error) {
+      return {
+        user: null,
+        error: (JSON.parse(error) as ErrorResponse).error.message,
+      };
+    }
+
+    revalidateTag(API_ENDPOINT.USERS);
+
+    return { user: user, error };
+  } catch (error) {
+    const errorMessage =
+      error instanceof Error
+        ? error.message
+        : EXCEPTION_ERROR_MESSAGE.ADD_MONEY;
+    return { user: null, error: errorMessage };
+  }
+};
+
+export const sendMoney = async ({
+  senderId,
+  senderBalance,
+  senderSpending,
+  receiverId,
+  receiverBalance,
+  amount,
+}: SendMoneyPayload) => {
+  try {
+    const { token = '' } = (await auth())?.user || {};
+
+    const senderUrl = `${HOST_DOMAIN}/${ROUTE_ENDPOINT.USER.ADD_MONEY}/${senderId}`;
+
+    const receiverUrl = `${HOST_DOMAIN}/${ROUTE_ENDPOINT.USER.ADD_MONEY}/${receiverId}`;
+
+    const transferUrl = `${HOST_DOMAIN}/${ROUTE_ENDPOINT.TRANSFER.ADD_TRANSFER}`;
+
+    const senderPayload: Pick<UserModel, 'balance' | 'spendingMoney'> = {
+      balance: senderBalance,
+      spendingMoney: senderSpending,
+    };
+
+    const receiverPayload: Pick<UserModel, 'balance'> = {
+      balance: receiverBalance,
+    };
+
+    const transferPayload: APIRelatedResponse<TransferPayload> = {
+      data: {
+        senderId,
+        receiverId,
+        amount,
+      },
+    };
+
+    const senderPromise = fetch(senderUrl, {
+      method: 'PUT',
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+      body: JSON.stringify(senderPayload),
+    });
+
+    const receiverPromise = fetch(receiverUrl, {
+      method: 'PUT',
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+      body: JSON.stringify(receiverPayload),
+    });
+
+    const transferPromise = await fetch(transferUrl, {
+      method: 'POST',
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+      body: JSON.stringify(transferPayload),
+    });
+
+    const { error: transferError = null } = await transferPromise.json();
+
+    if (transferError)
+      return {
+        user: null,
+        error: (JSON.parse(transferError) as ErrorResponse).error.message,
+      };
+
+    const [senderResponse, receiverResponse] = await Promise.all([
+      senderPromise,
+      receiverPromise,
+    ]);
+
+    const [
+      { error: senderError = null, ...sender },
+      { error: receiverError = null, ...receiver },
+    ]: Array<UserModel & { error: string | null }> = await Promise.all([
+      senderResponse.json(),
+      receiverResponse.json(),
+    ]);
+
+    if (senderError) {
+      return {
+        user: null,
+        error: (JSON.parse(senderError) as ErrorResponse).error.message,
+      };
+    }
+
+    if (receiverError) {
+      return {
+        user: null,
+        error: (JSON.parse(receiverError) as ErrorResponse).error.message,
+      };
+    }
+
+    revalidateTag(API_ENDPOINT.USERS);
+    revalidateTag(API_ENDPOINT.TRANSFERS);
+
+    return { user: [sender, receiver], error: null };
+  } catch (error) {
+    const errorMessage =
+      error instanceof Error
+        ? error.message
+        : EXCEPTION_ERROR_MESSAGE.SEND_MONEY;
+    return { user: null, error: errorMessage };
   }
 };

@@ -27,5 +27,6 @@ export const isEnableSubmit = (
   const isMatchAllRequiredFields = requiredFields.every((field) =>
     dirtyFields.includes(field),
   );
+
   return isMatchAllRequiredFields && errors && !Object.keys(errors).length;
 };

@@ -7,6 +7,7 @@ export const API_ENDPOINT = {
   UPLOAD: '/upload',
   CHEMISTS: '/chemists',
   PERMISSIONS: '/users-permissions',
+  TRANSFERS: '/transfer-histories',
 };
 
 export const API_URL = `${process.env.NEXT_PUBLIC_API_URL}/api`;
@@ -44,13 +45,19 @@ export const ROUTE_ENDPOINT = {
     UPDATE_UNPUBLISH: 'api/user/update-unpublish',
     GET_LOGGED: 'api/user/get-logged',
     GET_USERS: 'api/user/get-users',
+    GET_USER: 'api/user/get-user',
     GET_USER_ROLES: 'api/user/get-user-roles',
     ADD_USER: 'api/user/add-user',
     UPDATE_USER: 'api/user/update-user',
     DELETE_USER: 'api/user/delete-user',
+    ADD_MONEY: 'api/user/add-money',
   },
   SPECIALTY: {
     GET_SPECIALTIES: 'api/specialty/get-specialties',
+  },
+  TRANSFER: {
+    ADD_TRANSFER: 'api/transfer/add-transfer',
+    GET_TRANSFERS: 'api/transfer/get-transfers',
   },
 };
 

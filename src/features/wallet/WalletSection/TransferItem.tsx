@@ -1,30 +1,35 @@
 import { Avatar, Text } from '@/components/ui';
-import React from 'react';
+import { fromDateToNow } from '@/utils';
 
 export type TransferItemProps = {
   avatar: string;
   username: string;
-  isIncoming: boolean;
-  amount: number;
+  description: string;
+  createdAt: string;
 };
-export const TransferItem = () => {
+export const TransferItem = ({
+  avatar,
+  username,
+  description,
+  createdAt,
+}: TransferItemProps) => {
   return (
     <div className="flex gap-4">
-      <Avatar size="lg" className="aspect-square" />
+      <Avatar src={avatar} size="lg" className="aspect-square" />
       <div className="flex flex-1 flex-col gap-2">
         <Text
           variant="description"
           customClass="text-[14px]/5 font-bold text-primary-200"
         >
-          Josep akbar
+          {username}
         </Text>
 
         <Text size="xs" variant="description">
-          Just sent you $10,000
+          {description}
         </Text>
       </div>
       <Text size="xs" variant="description" customClass="font-bold my-auto">
-        Just now
+        {fromDateToNow(createdAt)}
       </Text>
     </div>
   );

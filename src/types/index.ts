@@ -9,3 +9,4 @@ export * from './searchParams';
 export * from './specialty';
 export * from './table';
 export * from './user';
+export * from './wallet';

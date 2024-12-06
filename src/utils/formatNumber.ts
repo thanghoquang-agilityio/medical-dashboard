@@ -31,3 +31,18 @@ export const formatNumberWithUnit = (number: number, unit: string = '') => {
     ',',
   );
 };
+
+const currencyFormatter = new Intl.NumberFormat('en-US', {
+  style: 'currency',
+  currency: 'USD',
+  minimumFractionDigits: 2,
+});
+
+export const formatCurrency = (val: string) => {
+  const number = parseInt(val.replace(/\D/g, ''), 10);
+
+  return !isNaN(number) ? currencyFormatter.format(number / 100) : ''; // Clear field if input is not a valid number
+};
+
+export const parseCurrency = (val: string) =>
+  parseFloat(val.slice(1).replace(',', ''));
