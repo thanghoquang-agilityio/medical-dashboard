@@ -1,10 +1,18 @@
 /**
  * @jest-environment node
  */
-import { HOST_DOMAIN, ROUTE_ENDPOINT } from '@/constants';
+import {
+  HOST_DOMAIN,
+  ROUTE_ENDPOINT,
+  SERVER_ERROR_MESSAGES,
+} from '@/constants';
 import { MOCK_APPOINTMENTS } from '@/mocks';
 import { GET } from '../route';
-import { AppointmentsResponse } from '@/types';
+import {
+  AppointmentResponse,
+  AppointmentsResponse,
+  MetaResponse,
+} from '@/types';
 import { apiClient } from '@/services';
 import { NextRequest } from 'next/server';
 
@@ -16,8 +24,6 @@ jest.mock('@/services/api', () => ({
   },
 }));
 describe('GetAppointments route handler', () => {
-  beforeEach(() => {});
-
   afterEach(() => {
     jest.clearAllMocks();
   });
@@ -33,7 +39,7 @@ describe('GetAppointments route handler', () => {
       `${HOST_DOMAIN}/${ROUTE_ENDPOINT.APPOINTMENTS.GET_APPOINTMENTS}`,
       {
         headers: {
-          tags: 'mock',
+          Authorization: 'Bearer mock',
         },
       },
     );
@@ -48,8 +54,12 @@ describe('GetAppointments route handler', () => {
   });
 
   it('should return the error when there is an exception', async () => {
-    const mockDataResponse: AppointmentsResponse & { error?: string } = {
-      data: [],
+    const mockDataResponse: {
+      data: AppointmentResponse[] | null;
+      error?: string;
+      meta: MetaResponse;
+    } = {
+      data: null,
       error: 'mock',
       meta: {},
     };
@@ -57,11 +67,36 @@ describe('GetAppointments route handler', () => {
     jest.spyOn(apiClient, 'get').mockResolvedValueOnce(mockDataResponse);
 
     const mockRequest = new NextRequest(
-      `${HOST_DOMAIN}/${ROUTE_ENDPOINT.USER.GET_LOGGED}`,
+      `${HOST_DOMAIN}/${ROUTE_ENDPOINT.APPOINTMENTS.GET_APPOINTMENTS}`,
       {
-        headers: undefined,
+        headers: {
+          Authorization: 'Bearer mock',
+        },
       },
     );
+
+    const response = await GET(mockRequest);
+
+    const result = await response.json();
+
+    expect(result).toEqual(mockDataResponse);
+  });
+
+  it('should return the error if bearer token is empty', async () => {
+    const mockDataResponse: {
+      data: AppointmentResponse[] | null;
+      error?: string;
+    } = {
+      data: null,
+      error: SERVER_ERROR_MESSAGES[403],
+    };
+
+    jest.spyOn(apiClient, 'get').mockResolvedValueOnce(mockDataResponse);
+
+    const mockRequest = new NextRequest(
+      `${HOST_DOMAIN}/${ROUTE_ENDPOINT.APPOINTMENTS.GET_APPOINTMENTS}`,
+    );
+
     const response = await GET(mockRequest);
 
     const result = await response.json();
