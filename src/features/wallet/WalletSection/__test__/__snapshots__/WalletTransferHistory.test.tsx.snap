@@ -39,7 +39,7 @@ exports[`WalletTransferHistory should render correctly 1`] = `
         class="flex flex-col h-[200px] overflow-y-scroll scrollbar-hide justify-start gap-7 "
       >
         <p
-          class="text-primary-100 font-semibold my-auto max-auto"
+          class="text-primary-100 font-semibold my-auto mx-auto"
         >
           No transfer
         </p>

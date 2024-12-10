@@ -56,7 +56,7 @@ const TransferList = async ({ id }: TransferListProps) => {
       })}
 
       {!transfers.length && (
-        <Text variant="title" customClass="my-auto max-auto">
+        <Text variant="title" customClass="my-auto mx-auto">
           No transfer
         </Text>
       )}

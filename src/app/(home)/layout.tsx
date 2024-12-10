@@ -44,7 +44,7 @@ export default async function DashboardLayout({
 
   searchParamsAPI.set('sort[0]', `createdAt:${DIRECTION.DESC}`);
 
-  const { notifications, pagination } = await getNotifications({
+  const { notifications, pagination, error } = await getNotifications({
     searchParams: searchParamsAPI,
     options: {
       next: {
@@ -52,6 +52,8 @@ export default async function DashboardLayout({
       },
     },
   });
+
+  if (error) throw new Error(error);
 
   return (
     <main>

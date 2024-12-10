@@ -18,9 +18,11 @@ const Appointments = async ({
   defaultStatus,
   searchParamsAPI,
 }: AppointmentsProps) => {
-  const { appointments, ...meta } = await getAppointments({
+  const { appointments, error, ...meta } = await getAppointments({
     searchParams: searchParamsAPI,
   });
+
+  if (error) throw new Error(error);
 
   return (
     <AppointmentsHistory
