@@ -1,10 +1,14 @@
 /**
  * @jest-environment node
  */
-import { HOST_DOMAIN, ROUTE_ENDPOINT } from '@/constants';
+import {
+  HOST_DOMAIN,
+  ROUTE_ENDPOINT,
+  SERVER_ERROR_MESSAGES,
+} from '@/constants';
 import { MOCK_CHEMISTS_LIST } from '@/mocks';
 import { GET } from '../route';
-import { ChemistsResponse } from '@/types';
+import { ChemistResponse, ChemistsResponse } from '@/types';
 import { apiClient } from '@/services';
 import { NextRequest } from 'next/server';
 
@@ -29,7 +33,7 @@ describe('GetChemists route handler', () => {
       `${HOST_DOMAIN}/${ROUTE_ENDPOINT.CHEMISTS.GET_CHEMISTS}`,
       {
         headers: {
-          tags: 'mock',
+          Authorization: 'Bearer mock',
         },
       },
     );
@@ -54,6 +58,24 @@ describe('GetChemists route handler', () => {
       data: MOCK_CHEMISTS_LIST,
       meta: {},
       error: 'mock',
+    };
+
+    jest.spyOn(apiClient, 'get').mockResolvedValueOnce(mockDataResponse);
+
+    const response = await GET(mockDataRequest);
+
+    const result: ChemistsResponse & { error?: string } = await response.json();
+
+    expect(result).toEqual(mockDataResponse);
+  });
+
+  it('should return the error if bearer token is empty', async () => {
+    const mockDataResponse: {
+      data: ChemistResponse[] | null;
+      error?: string;
+    } = {
+      data: null,
+      error: SERVER_ERROR_MESSAGES[403],
     };
 
     jest.spyOn(apiClient, 'get').mockResolvedValueOnce(mockDataResponse);
