@@ -1,7 +1,11 @@
 /**
  * @jest-environment node
  */
-import { HOST_DOMAIN, ROUTE_ENDPOINT } from '@/constants';
+import {
+  HOST_DOMAIN,
+  ROUTE_ENDPOINT,
+  SERVER_ERROR_MESSAGES,
+} from '@/constants';
 import { apiClient } from '@/services';
 import { PUT } from '../route';
 
@@ -21,6 +25,9 @@ describe('UpdateUnpublishChemist route handler', () => {
       `${HOST_DOMAIN}/${ROUTE_ENDPOINT.CHEMISTS.UPDATE_UNPUBLISH_CHEMISTS}/1`,
       {
         method: 'PUT',
+        headers: {
+          Authorization: 'Bearer mock',
+        },
       },
     );
   });
@@ -57,6 +64,51 @@ describe('UpdateUnpublishChemist route handler', () => {
     const response = await PUT(mockRequest, {
       params: {
         id: '1',
+      },
+    });
+
+    const result = await response.json();
+
+    expect(result).toEqual(mockResponse);
+  });
+
+  it('should return the error if bearer token is empty', async () => {
+    const mockResponse: { error: string | null; data: null } = {
+      data: null,
+      error: SERVER_ERROR_MESSAGES[403],
+    };
+
+    jest.spyOn(apiClient, 'put').mockResolvedValueOnce(mockResponse);
+
+    mockRequest = new Request(
+      `${HOST_DOMAIN}/${ROUTE_ENDPOINT.CHEMISTS.UPDATE_UNPUBLISH_CHEMISTS}/1`,
+      {
+        method: 'PUT',
+      },
+    );
+
+    const response = await PUT(mockRequest, {
+      params: {
+        id: '1',
+      },
+    });
+
+    const result = await response.json();
+
+    expect(result).toEqual(mockResponse);
+  });
+
+  it('should return the error if id is empty', async () => {
+    const mockResponse: { error: string | null; data: null } = {
+      data: null,
+      error: 'No id provided',
+    };
+
+    jest.spyOn(apiClient, 'put').mockResolvedValueOnce(mockResponse);
+
+    const response = await PUT(mockRequest, {
+      params: {
+        id: '',
       },
     });
 
