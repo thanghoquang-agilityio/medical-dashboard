@@ -69,3 +69,11 @@ export const EXCEPTION_ERROR_MESSAGE = {
   ADD_MONEY: 'An unexpected error occurred when adding money to the account',
   SEND_MONEY: 'An unexpected error occurred when sending money',
 };
+
+export const SERVER_ERROR_MESSAGES = {
+  400: 'Bad Request - The server could not understand the request due to invalid syntax.',
+  401: 'Unauthorized - The client must authenticate itself to get the requested response.',
+  403: 'Forbidden - The client does not have access rights to the content.',
+  404: 'Not Found - The server can not find the requested resource.',
+  500: "Internal Server Error - The server has encountered a situation it doesn't know how to handle.",
+} as const;

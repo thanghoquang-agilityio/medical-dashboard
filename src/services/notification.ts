@@ -51,7 +51,7 @@ export const getNotifications = async ({
       await response.json();
 
     if (error) {
-      const errorResponse = JSON.parse(error) as ErrorResponse;
+      const errorResponse = JSON.parse(error as string) as ErrorResponse;
       return { notifications: [], error: errorResponse.error.message };
     }
 

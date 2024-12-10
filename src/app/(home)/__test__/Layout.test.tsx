@@ -20,9 +20,9 @@ jest.mock('next-auth', () => ({
 }));
 
 describe('Dashboard layout test case', () => {
-  const mockFetch = jest.fn().mockResolvedValueOnce({
+  const mockFetch = jest.fn().mockResolvedValue({
     ok: true,
-    json: () => Promise.resolve(''),
+    json: () => Promise.resolve({ data: {}, error: null }),
   });
 
   global.fetch = mockFetch;

@@ -52,6 +52,7 @@ export const login = async (
         error: errorGetUserLogged,
       };
     }
+
     const {
       id = '',
       role,
