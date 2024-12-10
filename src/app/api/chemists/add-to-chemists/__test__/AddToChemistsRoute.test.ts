@@ -3,7 +3,7 @@
  */
 import { MOCK_CHEMISTS_LIST } from '@/mocks';
 import { POST } from '../route';
-import { ChemistDataResponse, ChemistPayload } from '@/types';
+import { ChemistPayload, ChemistResponse } from '@/types';
 import { HOST_DOMAIN, ROUTE_ENDPOINT } from '@/constants';
 import { apiClient } from '@/services';
 
@@ -37,9 +37,12 @@ describe('AddToChemists route handler', () => {
   });
 
   it('should add user to the chemists and return the response', async () => {
-    const mockResponse: ChemistDataResponse = {
-      chemist: MOCK_CHEMISTS_LIST[0],
-      error: null,
+    const mockResponse: {
+      data: ChemistResponse | null;
+      error?: string;
+    } = {
+      data: MOCK_CHEMISTS_LIST[0],
+      error: undefined,
     };
 
     jest.spyOn(apiClient, 'post').mockResolvedValueOnce(mockResponse);
@@ -52,12 +55,67 @@ describe('AddToChemists route handler', () => {
   });
 
   it('should return the error when there is an exception', async () => {
-    const mockResponse: ChemistDataResponse = {
-      chemist: null,
+    const mockResponse: {
+      data: ChemistResponse | null;
+      error?: string;
+    } = {
+      data: null,
       error: 'mock',
     };
 
     jest.spyOn(apiClient, 'post').mockResolvedValueOnce(mockResponse);
+
+    const response = await POST(mockRequest);
+
+    const result = await response.json();
+
+    expect(result).toEqual(mockResponse);
+  });
+
+  it('should return the error if empty body', async () => {
+    const mockResponse: {
+      data: ChemistResponse | null;
+      error?: string;
+    } = {
+      data: null,
+      error: 'Request body is not found',
+    };
+
+    jest.spyOn(apiClient, 'post').mockResolvedValueOnce(mockResponse);
+
+    mockRequest = new Request(
+      `${HOST_DOMAIN}/${ROUTE_ENDPOINT.CHEMISTS.ADD_TO_CHEMISTS}`,
+      {
+        method: 'POST',
+      },
+    );
+
+    const response = await POST(mockRequest);
+
+    const result = await response.json();
+
+    expect(result).toEqual(mockResponse);
+  });
+  it('should return the error if users_permission_user not provided ', async () => {
+    const mockResponse: {
+      data: ChemistResponse | null;
+      error?: string;
+    } = {
+      data: null,
+      error: 'users_permissions_user not provided',
+    };
+
+    jest.spyOn(apiClient, 'post').mockResolvedValueOnce(mockResponse);
+
+    mockRequest = new Request(
+      `${HOST_DOMAIN}/${ROUTE_ENDPOINT.CHEMISTS.ADD_TO_CHEMISTS}`,
+      {
+        method: 'POST',
+        body: JSON.stringify({
+          users_permission_user: '',
+        }),
+      },
+    );
 
     const response = await POST(mockRequest);
 
