@@ -1,7 +1,11 @@
 /**
  * @jest-environment node
  */
-import { HOST_DOMAIN, ROUTE_ENDPOINT } from '@/constants';
+import {
+  HOST_DOMAIN,
+  ROUTE_ENDPOINT,
+  SERVER_ERROR_MESSAGES,
+} from '@/constants';
 import { apiClient } from '@/services';
 import { PUT } from '../route';
 
@@ -14,17 +18,6 @@ jest.mock('@/services/api', () => ({
 }));
 
 describe('UpdateUnpublishAppointment route handler', () => {
-  let mockRequest: Request;
-
-  beforeEach(() => {
-    mockRequest = new Request(
-      `${HOST_DOMAIN}/${ROUTE_ENDPOINT.APPOINTMENTS.UPDATE_UNPUBLISH_APPOINTMENT}/1`,
-      {
-        method: 'PUT',
-      },
-    );
-  });
-
   afterEach(() => {
     jest.clearAllMocks();
   });
@@ -35,6 +28,16 @@ describe('UpdateUnpublishAppointment route handler', () => {
     };
 
     jest.spyOn(apiClient, 'put').mockResolvedValueOnce(mockResponse);
+
+    const mockRequest = new Request(
+      `${HOST_DOMAIN}/${ROUTE_ENDPOINT.APPOINTMENTS.UPDATE_UNPUBLISH_APPOINTMENT}/1`,
+      {
+        method: 'PUT',
+        headers: {
+          Authorization: `Bearer mock`,
+        },
+      },
+    );
 
     const response = await PUT(mockRequest, {
       params: {
@@ -54,9 +57,74 @@ describe('UpdateUnpublishAppointment route handler', () => {
 
     jest.spyOn(apiClient, 'put').mockResolvedValueOnce(mockResponse);
 
+    const mockRequest = new Request(
+      `${HOST_DOMAIN}/${ROUTE_ENDPOINT.APPOINTMENTS.UPDATE_UNPUBLISH_APPOINTMENT}/1`,
+      {
+        method: 'PUT',
+        headers: {
+          Authorization: `Bearer mock`,
+        },
+      },
+    );
+
     const response = await PUT(mockRequest, {
       params: {
         id: '1',
+      },
+    });
+
+    const result = await response.json();
+
+    expect(result).toEqual(mockResponse);
+  });
+
+  it('should return the error if bearer token is empty', async () => {
+    const mockResponse = {
+      data: null,
+      error: SERVER_ERROR_MESSAGES[403],
+    };
+
+    const mockRequest = new Request(
+      `${HOST_DOMAIN}/${ROUTE_ENDPOINT.APPOINTMENTS.UPDATE_APPOINTMENT}`,
+      {
+        method: 'PUT',
+      },
+    );
+
+    jest.spyOn(apiClient, 'put').mockResolvedValueOnce(mockResponse);
+
+    const response = await PUT(mockRequest, {
+      params: {
+        id: '1',
+      },
+    });
+
+    const result = await response.json();
+
+    expect(result).toEqual(mockResponse);
+  });
+
+  it('should return the error if id is empty', async () => {
+    const mockResponse = {
+      data: null,
+      error: 'No id provided',
+    };
+
+    const mockRequest = new Request(
+      `${HOST_DOMAIN}/${ROUTE_ENDPOINT.APPOINTMENTS.UPDATE_APPOINTMENT}`,
+      {
+        method: 'PUT',
+        headers: {
+          Authorization: `Bearer mock`,
+        },
+      },
+    );
+
+    jest.spyOn(apiClient, 'put').mockResolvedValueOnce(mockResponse);
+
+    const response = await PUT(mockRequest, {
+      params: {
+        id: '',
       },
     });
 
