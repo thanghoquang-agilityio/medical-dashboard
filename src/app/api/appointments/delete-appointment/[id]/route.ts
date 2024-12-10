@@ -13,7 +13,6 @@ export async function DELETE(
   }
 
   const id = params.id;
-
   if (!id) {
     return createErrorResponse('No id provided');
   }
