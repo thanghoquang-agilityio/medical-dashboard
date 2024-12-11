@@ -8,3 +8,4 @@ export * from './options';
 export * from './profile';
 export * from './table';
 export * from './user';
+export * from './wallet';

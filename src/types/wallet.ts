@@ -32,6 +32,7 @@ export type TransferResponse = {
     amount: number;
   }>;
   meta?: MetaResponse;
+  error: string | null;
 };
 
 export type Transfer = {

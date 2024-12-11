@@ -25,8 +25,13 @@ export async function POST(req: Request) {
     return createErrorResponse('No data provided');
   }
 
-  const { senderId, receiverId, durationTime, startTime, status } =
-    payload.data;
+  const {
+    senderId = '',
+    receiverId = '',
+    durationTime = '',
+    startTime = '',
+    status = '',
+  } = payload.data;
 
   const validations = [
     {

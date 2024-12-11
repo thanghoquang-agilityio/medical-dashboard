@@ -248,10 +248,7 @@ const SendMoneyForm = ({
               selectedKeys={[value]}
               options={userOptions}
               isInvalid={!!error?.message}
-              isDisabled={
-                //  isPending ||
-                !users.length
-              }
+              isDisabled={!users.length}
               errorMessage={error?.message}
               onChange={onChange}
               onClose={handleCloseSelect(name)}
